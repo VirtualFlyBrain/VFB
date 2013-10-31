@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	Beans only used in stand-alone Unit bean testing 
+		Useless, obsolete file only used for JUnit tests
+		No bean from this file used in actual application! 
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="db.xml"/> 
+
+	<bean id="queryDAO" class="uk.ac.ed.vfb.dao.db.GeneQueryDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Only for testing purposes: Manager for ontBean lists and single instances -->
+	<bean id="ontBeanManager" class="uk.ac.ed.vfb.service.OntBeanManager">
+		<property name="ontClient" ref="ontClient" />
+		<!-- property name="tpb" ref="thirdPartyBeanManager" /-->
+	</bean>
+
+	<!-- Manager for geneBean lists -->
+	<bean id="geneBeanManager" class="uk.ac.ed.vfb.service.GeneBeanManager">
+		<property name="queryDAO" ref="queryDAO" />
+	</bean>
+	
+	<bean id="stackManagerDAO" class="uk.ac.ed.vfb.annotation.dao.StackManagerDAO"
+		scope="singleton">
+		<property name="dataSource" ref="vfbDataSource" />
+	</bean>
+	
+	<!-- Bean for User Stack -->
+	<bean id="stackBeanManager" class="uk.ac.ed.vfb.annotation.service.StackBeanManager">
+		<property name="dao" ref="stackManagerDAO" />
+	</bean>
+	
+	<bean id="thirdPartyDAO" class="uk.ac.ed.vfb.dao.db.ThirdPartyDAO" scope="singleton">
+		<property name="dataSource" ref="vfbDataSource" />
+	</bean>
+
+	<!-- Manager for ThirdParty Beans >
+	<bean id="thirdPartyBeanManager" class="uk.ac.ed.vfb.service.ThirdPartyBeanManager" >
+		<property name="dao" ref="thirdPartyDAO" />
+	</bean -->	
+	
+	<!-- Only for testing purposes: Ontology Client -->
+	<bean id="ontClient" class="uk.ac.ed.vfb.dao.client_server.OWLClient" >
+	</bean>
+		
+</beans>

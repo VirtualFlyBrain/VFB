@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--	Beans only used in stand-alone Unit bean testing 
+		Useless, obsolete file only used for JUnit tests
+		No bean from this file used in actual application! 
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://blanik.inf.ed.ac.uk/flybase?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="flybase" />
+		<property name="password" value="virtualflybrain" />
+	</bean>
+
+	<bean id="vfbDataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://blanik.inf.ed.ac.uk/vfb?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="flybase" />
+		<property name="password" value="virtualflybrain" />
+	</bean>
+
+</beans>

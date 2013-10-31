@@ -1,0 +1,19 @@
+/******* Global ********/
+#wrapper {
+	width:1300px;
+	margin:2px auto;
+}
+
+#center_wide {
+	background:#FAFAFA;
+	border:1px solid gray;
+	padding:5px;
+}
+
+#contentwrapper {
+	width: 99%;
+	padding:5px
+}
+
+/******************** From the header.css *****************/
+

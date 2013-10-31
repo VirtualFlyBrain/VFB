@@ -1,0 +1,106 @@
+/******* Global ********/
+html, body {
+	height:100%; /* this is the key! */
+}
+
+body {
+    font-family: "Trebuchet MS", "Verdana", "Arial", sans-serif;
+    color: #666;
+}
+
+#contentwrapper {
+	float: left;
+	width: 100%;
+	margin-top: 2px;
+}
+
+#center_panel {
+	margin: 0 25% 0 198px;
+	/*Margins for content column. Should be "0 right-column-width 0 left-column-width*/
+	border: 1px solid gray;
+	height: 600px;
+}
+
+#left_panel {
+	float: left;
+	width: 194px; /*Width of left column in percentage*/
+	margin-left: -100%;
+	border: 1px solid gray;
+	margin-top: 2px;
+	height: 600px;
+}
+
+#right_panel {
+	float: right;
+	width: 24.8%; /*Width of right column in pixels*/
+	margin-left: -25.6%; /*Set margin to -(RightColumnWidth)*/
+	border: 1px solid gray;
+	margin-top: 2px;
+	height: 600px;
+}
+
+#footer {
+	clear: both;
+	width: 100%;
+	padding: 2px 0;
+	margin-top: 2px;
+}
+
+#annotation {
+	border: 1px solid gray;
+	min-height:30px;
+	padding:5px;
+	overflow: auto;
+}
+
+#toolContainerDiv {
+	 position: relative;
+	 width:100%; 
+	 height:100%; 
+}
+
+#annotation p {
+	margin:6px 0;
+}
+
+#search {
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	border-top:1px solid gray;
+	height:16%;
+}
+
+.panel_header{
+	font-size:1em;
+	margin:0 5px;
+}
+
+#body_wrapper {
+	position:relative;
+	margin-top:2px;
+}
+
+#query_result {
+	width:99.85%; 
+	height:300px; 
+	border:1px solid gray; 
+	margin:2px 0 0 0;
+	overflow: auto;
+	height:0px;
+}
+
+.hidden {
+	display:none;
+}
+
+.red {
+	color:red
+}
+
+.colour_pick {
+	width:13px;
+	font-size:5pt; 
+	vertical-align:middle;
+	margin: 0 5px;
+}
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" 
+"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>Utils for VFB project</shortname>
+	<info>String and other manipulation utils for VFB project</info>
+  <!--A Simple tag -->
+ <tag>
+    <name>trimToWhite</name>
+    <tagclass>uk.ac.ed.vfb.tags.TrimToWhiteSpace</tagclass>
+	<!-- Allow for a body to be included for this tag -->
+    <bodycontent>JSP</bodycontent>
+    <info>
+	Trims arbitrary text string to a white space with maximum size as specified by the "size" 
+    </info>
+    
+    <!-- Optional attributes  -->
+    <!-- input string -->
+    <attribute>
+      <name>string</name>
+      <required>false</required> 
+	   <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <!-- max output string length -->
+    <attribute>
+      <name>size</name>
+      <required>false</required> 
+	   <rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+</tag>
+</taglib>

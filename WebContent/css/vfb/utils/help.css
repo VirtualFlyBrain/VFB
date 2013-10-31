@@ -1,0 +1,91 @@
+body {
+	font-family: "Trebuchet MS", "Verdana", "Arial", sans-serif;
+	font-size: .96em;
+	color: #666
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: #002288;
+	font-size: 1em;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.warn {
+	color: red;
+}
+
+a.warn:hover {
+	text-decoration: underline;
+}
+
+
+#help_wrapper {
+	width: 100%;
+}
+
+#help_head_wrapper {
+	width: 101%;
+	background-image: url('/images/vfb/utils/grad_blu.gif');
+	margin: -16px 0 0 -7px;
+}
+
+#help_head_wrapper h1 {
+	padding: 0 10px;
+}
+
+#help_header {
+	color: white;
+	font-size: 1.6em;
+}
+
+#help_content {
+	margin-top: -16px;
+	overflow: auto;
+	width: 99%;
+	padding: 0 5px;
+}
+
+#help_content ul {
+	list-style: disc inside;
+}
+
+#help_content ol {
+	list-style: decimal inside;
+}
+
+#help_content li { /*	margin: 1px 0 5px -45px;
+	padding: 2px; */
+}
+
+#help_content table {
+	margin: 0 2px 1px -5px;
+	border-collapse: collapse;
+	empty-cells: show;
+	font-size: 1em;
+	padding: 1px 2px;
+	border: 1px solid gray;
+	width: 101%;
+}
+
+#help_content table thead tr {
+	font-weight: bold;
+	background-color: #009B9B;
+	color: white;
+	text-align: centre;
+	border: 1px solid gray;
+}
+
+#help_content table thead tr th {
+	border: 1px solid black;
+	padding: 3px 0;
+}
+
+#help_content table tbody tr td {
+	border: 1px solid gray;
+	padding:2px;
+}
