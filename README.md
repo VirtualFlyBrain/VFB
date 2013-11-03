@@ -23,7 +23,7 @@ Please note.  This is a work in progress. Most documentation currently lives in 
 
  * __Functional Description__
      * [User scenarios](user_scenarios)
-     * [Description and functions of pages](page_descriptions)
+     * [Description and functions of pages](page_descriptions.md)
  * __Technical Description__
      * [Static content](static_content)
      * [Dynamic content](dynamic_content)
