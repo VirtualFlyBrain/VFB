@@ -1,4 +1,4 @@
-<project name="EAtlasViewer" default="default" basedir=".">
+<project name="VFB" default="default" basedir=".">
     <description>
         simple example build file
     </description>
