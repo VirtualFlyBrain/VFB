@@ -1,0 +1,79 @@
+#!/usr/bin/env jython
+
+import sys
+
+from com.ziclix.python.sql import zxJDBC # DB connection
+from dict_cursor import dict_cursor  # Handy local module for turning JBDC cursor output into dicts
+from uk.ac.ebi.brain.error import BrainException
+from uk.ac.ebi.brain.core import Brain
+
+vfb_ind = Brain("http://www.virtualflybrain.org/owl/", "http://www.virtualflybrain.org/owl/vfb_ind.owl")
+obo = "http://purl.obolibrary.org/obo/"
+vfb = "http://www.virtualflybrain.org/owl/"
+
+
+
+# Get DB connection
+conn = zxJDBC.connect("jdbc:mysql://localhost/flycircuit", sys.argv[1], sys.argv[2], "org.gjt.mm.mysql.Driver")
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM BrainName_to_OWL")
+
+# for x in cursor.description:
+#     print x
+
+# while cursor.next():
+#    print cursor.fetchone()
+
+# First need to predclare all external OWL entites to be used (!). Perhaps add this to some DB table?!
+### Using BN domain overlap mappings as a test case.
+
+BN_dict = {}  # Guess there's no harm in this being global, but could limit scope
+dc = dict_cursor(cursor)
+
+vfb_ind.addObjectProperty(obo+"RO_0002131") # overlaps
+vfb_ind.addObjectProperty(obo+"RO_0002350") # member_of
+
+for d in dc:
+	BN = d["BrainName_abbv"]
+	owl_class = d["owl_class_id"]
+	BN_dict[BN] = owl_class
+	if not vfb_ind.knowsClass(owl_class):
+		vfb_ind.addClass(obo+owl_class)    
+    
+BN_abbv_list = BN_dict.keys()
+
+cursor.execute("SELECT vut.vfbid as vid, sj.* " \
+			   "FROM spatdist_jfrc sj " \
+			   "JOIN neuron n ON (sj.idid=n.idid) " \
+			   "JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)") # How to make these prettier!  need to be able to add newlines.  Presumbaly there's an escape character for this?
+
+dc = dict_cursor(cursor)
+for d in dc:
+    vfb_ind.addNamedIndividual(d["vid"])
+    for abbv in BN_abbv_list:
+        if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Greg.
+            typ = "RO_0002131 some " + BN_dict[abbv]
+            vfb_ind.type(typ,d["vid"])
+
+
+cursor.execute("SELECT DISTINCT vut.vfbid as cvid, c.cluster as cnum, evut.vfbid as evid, c.clusterv as cversion " \
+			   "FROM vfbid_uuid_type vut " \
+			   "JOIN cluster c ON (vut.uuid=c.uuid) " \
+			   "JOIN clustering cg ON (cg.cluster=c.cluster) " \
+			   "JOIN neuron n ON (cg.exemplar_idid=n.idid) " \
+			   "JOIN vfbid_uuid_type evut ON (n.uuid=evut.uuid) " \
+			   "WHERE cg.clusterv_id = c.clusterv " \
+			   "AND vut.type = 'cluster' " \
+			   "AND c.clusterv = '3'")
+
+dc = dict_cursor(cursor)
+for d in dc:
+	if not vfb_ind.knowsClass(d["cvid"]):
+		vfb_ind.addNamedIndividual(d["cvid"])
+	vfb_ind.objectPropertyAssertion(d["evid"], "RO_0002350", d["cvid"]) # Using member of for now - should be exemplar of.
+    
+cursor.close()
+conn.close()
+
+vfb_ind.save("vfb_ind.owl") 
+
