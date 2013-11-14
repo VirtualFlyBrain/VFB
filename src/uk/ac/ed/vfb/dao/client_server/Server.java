@@ -155,7 +155,9 @@ public class Server {
 				ex.printStackTrace();
 			} catch (ClassNotFoundException ex) {
 				ex.printStackTrace();
-			}
+			} catch (NullPointerException ex) {
+                ex.printStackTrace();
+            }
 		}
 	}
 
