@@ -1,7 +1,6 @@
 #!/usr/bin/env jython
 
 import sys
-
 from com.ziclix.python.sql import zxJDBC # DB connection
 from dict_cursor import dict_cursor  # Handy local module for turning JBDC cursor output into dicts
 from uk.ac.ebi.brain.error import BrainException
@@ -11,27 +10,33 @@ vfb_ind = Brain("http://www.virtualflybrain.org/owl/", "http://www.virtualflybra
 obo = "http://purl.obolibrary.org/obo/"
 vfb = "http://www.virtualflybrain.org/owl/"
 
-
-
 # Get DB connection
 conn = zxJDBC.connect("jdbc:mysql://localhost/flycircuit", sys.argv[1], sys.argv[2], "org.gjt.mm.mysql.Driver")
 cursor = conn.cursor()
+
+# Adding predeclared OWL entities
+
+cursor.execute("SELECT baseURI, shortFormID, owl_type FROM owl_entity")
+
+dc = dict_cursor(cursor)
+for d in dc:
+	if d['owl_type'] == "class":
+		vfb_ind.addClass(d['baseURI']+ d['shortFormID'])
+	if d['owl_type'] == "objectProperty":
+		vfb_ind.addObjectProperty(d['baseURI']+ d['shortFormID'])
+
+# more predeclared entities + a mapping to BrainName shorthand
+
 cursor.execute("SELECT * FROM BrainName_to_OWL")
 
-# for x in cursor.description:
-#     print x
-
-# while cursor.next():
-#    print cursor.fetchone()
-
-# First need to predclare all external OWL entites to be used (!). Perhaps add this to some DB table?!
-### Using BN domain overlap mappings as a test case.
 
 BN_dict = {}  # Guess there's no harm in this being global, but could limit scope
 dc = dict_cursor(cursor)
 
-vfb_ind.addObjectProperty(obo+"RO_0002131") # overlaps
-vfb_ind.addObjectProperty(obo+"RO_0002350") # member_of
+if not vfb_ind.knowsObjectProperty("RO_0002131"):
+	vfb_ind.addObjectProperty(obo+"RO_0002131") # overlaps
+if not vfb_ind.knowsObjectProperty("RO_0002350"):	
+	vfb_ind.addObjectProperty(obo+"RO_0002350") # member_of
 
 for d in dc:
 	BN = d["BrainName_abbv"]
@@ -42,6 +47,20 @@ for d in dc:
     
 BN_abbv_list = BN_dict.keys()
 
+# Adding individual flycircuit neurons and basic typing - default and from neuron table.
+
+cursor.execute("SELECT vut.vfbid as vid, n.name, n.Gender, n.gene_name FROM neuron n JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)")
+dc = dict_cursor(cursor)
+for d in dc:
+	vfb_ind.addNamedIndividual(d['vid'])
+	vfb_ind.label(d['vid'], d['name'])
+	#	vfb_ind.type(d['vid'])  Add default typing as neuron
+	#	vfb_ind.type(d['vid'])  Add default typing as part of brain ??
+	#  Add part of male/female depending on Gender entry
+	#  Add gene_name as synonym
+
+# Adding typing based on domain overlap
+
 cursor.execute("SELECT vut.vfbid as vid, sj.* " \
 			   "FROM spatdist_jfrc sj " \
 			   "JOIN neuron n ON (sj.idid=n.idid) " \
@@ -49,12 +68,28 @@ cursor.execute("SELECT vut.vfbid as vid, sj.* " \
 
 dc = dict_cursor(cursor)
 for d in dc:
-    vfb_ind.addNamedIndividual(d["vid"])
     for abbv in BN_abbv_list:
-        if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Greg.
+        if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Marta.
             typ = "RO_0002131 some " + BN_dict[abbv]
             vfb_ind.type(typ,d["vid"])
 
+            # Adding typing from annotations
+
+
+cursor.execute("SELECT vut.vfbid, akv.owl_mapping " \
+"FROM annotation a, neuron n, annotation_key_value akv, vfbid_uuid_type vut " \
+"WHERE n.idid=a.neuron_idid " \
+"AND n.uuid=vut.uuid " \
+"AND a.annotation_class=akv.annotation_class " \
+"AND a.text=akv.annotation_text " \
+"AND vut.type = 'neuron';")
+
+dc = dict_cursor(cursor)
+for d in dc:
+	if d['owl_mapping']:
+		vfb_ind.type(d['owl_mapping'], d['vfbid'])
+	
+# Adding clusters               
 
 cursor.execute("SELECT DISTINCT vut.vfbid as cvid, c.cluster as cnum, evut.vfbid as evid, c.clusterv as cversion " \
 			   "FROM vfbid_uuid_type vut " \
@@ -70,6 +105,7 @@ dc = dict_cursor(cursor)
 for d in dc:
 	if not vfb_ind.knowsClass(d["cvid"]):
 		vfb_ind.addNamedIndividual(d["cvid"])
+		vfb_ind.label(d["cvid"], "cluster " + str(d["cversion"]) + "." + str(d["cnum"])) # Note ints returned by query need tobe coerced into strings.
 	vfb_ind.objectPropertyAssertion(d["evid"], "RO_0002350", d["cvid"]) # Using member of for now - should be exemplar of.
     
 cursor.close()
