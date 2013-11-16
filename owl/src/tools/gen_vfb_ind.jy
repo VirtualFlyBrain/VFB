@@ -5,6 +5,7 @@ from com.ziclix.python.sql import zxJDBC # DB connection
 from dict_cursor import dict_cursor  # Handy local module for turning JBDC cursor output into dicts
 from uk.ac.ebi.brain.error import BrainException
 from uk.ac.ebi.brain.core import Brain
+import obo_tools
 
 vfb_ind = Brain("http://www.virtualflybrain.org/owl/", "http://www.virtualflybrain.org/owl/vfb_ind.owl")
 obo = "http://purl.obolibrary.org/obo/"
@@ -14,7 +15,13 @@ vfb = "http://www.virtualflybrain.org/owl/"
 conn = zxJDBC.connect("jdbc:mysql://localhost/flycircuit", sys.argv[1], sys.argv[2], "org.gjt.mm.mysql.Driver")
 cursor = conn.cursor()
 
-# Adding predeclared OWL entities
+# Add predeclared OWL entities
+
+
+### Get OBO annotation properties
+obo_tools.addOboAnnotationProperties(vfb_ind)
+
+### Predeclare OWL entities used in axioms
 
 cursor.execute("SELECT baseURI, shortFormID, owl_type FROM owl_entity")
 
@@ -25,39 +32,44 @@ for d in dc:
 	if d['owl_type'] == "objectProperty":
 		vfb_ind.addObjectProperty(d['baseURI']+ d['shortFormID'])
 
-# more predeclared entities + a mapping to BrainName shorthand
+# Adding individual flycircuit neurons and basic typing - default and from neuron table.
+
+cursor.execute("SELECT vut.vfbid as vid, n.name, n.Gender, n.gene_name, Driver FROM neuron n JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)")
+dc = dict_cursor(cursor)
+for d in dc:
+	vfb_ind.addNamedIndividual(d['vid'])
+	vfb_ind.label(d['vid'], d['name'])
+	vfb_ind.type('FBbt_00005106', d['vid'])  #  default typing as neuron
+	vfb_ind.type("BFO_0000050 some FBbt_00003624", d['vid'])  # default typing as part of some 'adult brain'
+	defn = "A neuron of an " # Begin rolling def.
+	if d['Gender'] == 'male':
+		vfb_ind.type("BFO_0000050 some FBbt_00007004", d['vid'])  # Part of some male organism
+		defn += "adult male brain "
+	if d['Gender'] == 'female':
+		vfb_ind.type("BFO_0000050 some FBbt_00007011", d['vid'])  # Part of some female organism
+		defn += "adult female brain "
+	vfb_ind.annotation(d['vid'], "hasExactSynonym", d['gene_name']) 	#  Add gene_name as exact synonym.  Note shortFormID on splits on '#'
+	defn += " expressing " + d['Driver'] + "." # Need a lookup for Driver name to FB.
+	vfb_ind.annotation(d['vid'], "IAO_0000115", defn) # Start rolling def 	
+	# Add expresssion assertion
+
+
+# Roll lookup for BrainName shorthand
 
 cursor.execute("SELECT * FROM BrainName_to_OWL")
 
-
 BN_dict = {}  # Guess there's no harm in this being global, but could limit scope
 dc = dict_cursor(cursor)
-
-if not vfb_ind.knowsObjectProperty("RO_0002131"):
-	vfb_ind.addObjectProperty(obo+"RO_0002131") # overlaps
-if not vfb_ind.knowsObjectProperty("RO_0002350"):	
-	vfb_ind.addObjectProperty(obo+"RO_0002350") # member_of
 
 for d in dc:
 	BN = d["BrainName_abbv"]
 	owl_class = d["owl_class_id"]
 	BN_dict[BN] = owl_class
-	if not vfb_ind.knowsClass(owl_class):
-		vfb_ind.addClass(obo+owl_class)    
+	#	if not vfb_ind.knowsClass(owl_class): 
+	#	vfb_ind.addClass(obo+owl_class)    
     
 BN_abbv_list = BN_dict.keys()
 
-# Adding individual flycircuit neurons and basic typing - default and from neuron table.
-
-cursor.execute("SELECT vut.vfbid as vid, n.name, n.Gender, n.gene_name FROM neuron n JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)")
-dc = dict_cursor(cursor)
-for d in dc:
-	vfb_ind.addNamedIndividual(d['vid'])
-	vfb_ind.label(d['vid'], d['name'])
-	#	vfb_ind.type(d['vid'])  Add default typing as neuron
-	#	vfb_ind.type(d['vid'])  Add default typing as part of brain ??
-	#  Add part of male/female depending on Gender entry
-	#  Add gene_name as synonym
 
 # Adding typing based on domain overlap
 
@@ -67,22 +79,26 @@ cursor.execute("SELECT vut.vfbid as vid, sj.* " \
 			   "JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)") # How to make these prettier!  need to be able to add newlines.  Presumbaly there's an escape character for this?
 
 dc = dict_cursor(cursor)
+count = 0;
 for d in dc:
-    for abbv in BN_abbv_list:
-        if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Marta.
-            typ = "RO_0002131 some " + BN_dict[abbv]
-            vfb_ind.type(typ,d["vid"])
-
-            # Adding typing from annotations
-
+	voxel_overlap_txt = " From analysis of a registered 3D image, this neuron is predicted to overlap the following neuropils: "
+	for abbv in BN_abbv_list:
+		if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Marta.
+			typ = "RO_0002131 some " + BN_dict[abbv]
+			vfb_ind.type(typ,d["vid"])
+			if count:
+				voxel_overlap_txt += ";"
+				voxel_overlap_txt += d[abbv] + "voxels overlap the " + vfb_ind.getLabel(BN_dict[abbv])
+				voxel_overlap_txt += "."
+				vfb_ind.annotation(d['vid'], "IAO_0000115", voxel_overlap_txt) 	#  This aint gonna work!  How do I append to the existing def, rather than add a new one!
 
 cursor.execute("SELECT vut.vfbid, akv.owl_mapping " \
-"FROM annotation a, neuron n, annotation_key_value akv, vfbid_uuid_type vut " \
-"WHERE n.idid=a.neuron_idid " \
-"AND n.uuid=vut.uuid " \
-"AND a.annotation_class=akv.annotation_class " \
-"AND a.text=akv.annotation_text " \
-"AND vut.type = 'neuron';")
+			   "FROM annotation a, neuron n, annotation_key_value akv, vfbid_uuid_type vut " \
+			   "WHERE n.idid=a.neuron_idid " \
+			   "AND n.uuid=vut.uuid " \
+			   "AND a.annotation_class=akv.annotation_class " \
+			   "AND a.text=akv.annotation_text " \
+			   "AND vut.type = 'neuron';")
 
 dc = dict_cursor(cursor)
 for d in dc:
@@ -101,12 +117,30 @@ cursor.execute("SELECT DISTINCT vut.vfbid as cvid, c.cluster as cnum, evut.vfbid
 			   "AND vut.type = 'cluster' " \
 			   "AND c.clusterv = '3'")
 
+# Note on IDs: At the time of writing this script, queries on individuals all work via OWLtools MS queries with labels. So, labels need to be stable for everything to keep working, but IDs do not.
+			   
 dc = dict_cursor(cursor)
 for d in dc:
 	if not vfb_ind.knowsClass(d["cvid"]):
 		vfb_ind.addNamedIndividual(d["cvid"])
 		vfb_ind.label(d["cvid"], "cluster " + str(d["cversion"]) + "." + str(d["cnum"])) # Note ints returned by query need tobe coerced into strings.
-	vfb_ind.objectPropertyAssertion(d["evid"], "RO_0002350", d["cvid"]) # Using member of for now - should be exemplar of.
+	vfb_ind.objectPropertyAssertion(d["evid"], "c099d9d6-4ef3-11e3-9da7-b1ad5291e0b0", d["cvid"]) # UUID for member_of as a placeholder - awaiting addition to RO
+
+# Add cluster membership
+
+cursor.execute("SELECT DISTINCT cvut.vfbid AS cvid, nvut.vfbid AS mvid " \
+			   "FROM clustering cg " \
+			   "JOIN neuron n ON (cg.idid=n.idid) " \
+			   "JOIN vfbid_uuid_type nvut ON (n.uuid=nvut.uuid) " \
+			   "JOIN cluster c ON (cg.cluster=c.cluster)" \
+			   "JOIN vfbid_uuid_type cvut ON (c.uuid=cvut.uuid)" \
+			   "WHERE c.clusterv = '3'")
+
+dc = dict_cursor(cursor)
+for d in dc:
+	vfb_ind.objectPropertyAssertion(d['cvid'], "RO_0002351" ,d['mvid']) #  has_member
+	vfb_ind.objectPropertyAssertion(d['mvid'], "RO_0002350", d['cvid']) #  member_of
+
     
 cursor.close()
 conn.close()
