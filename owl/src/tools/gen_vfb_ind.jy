@@ -8,25 +8,41 @@ from uk.ac.ebi.brain.core import Brain
 import obo_tools
 
 
+# Notes
+## This script is written in almost completely independent chunks. The few globar
+
+# Gobals - limited to brain objects, prefixes and DB handle(s)/cursors
+
+# Get DB connection & cursor: global
+conn = zxJDBC.connect("jdbc:mysql://localhost/flycircuit", sys.argv[1], sys.argv[2], "org.gjt.mm.mysql.Driver")
+cursor = conn.cursor()
+
+# Code to build a generic lookup for external objects.  Commenting for for offline testing as requires web access to pull ontologies for URIs
+#cursor.execute("SELECT DISTINCT ontology_URI from owl_entity")
+#dc = dict_cursor(cursor)
+
+#ext_ont = Brain()
+#for d in dc:
+#	ext_ont.learn(d)	# Can one Brain learn from multiple ontologies?
+
+# Brain objects - global
 fbbt = Brain()
 #fbbt.learn("http://purl.obolibrary.org/fbbt/fbbt-simple.owl")
 fbbt.learn("file:///repos/fbbtdv/fbbt/releases/fbbt-simple.owl") # local path for debugging.  Replace by URL above to make generic
 vfb_ind = Brain("http://www.virtualflybrain.org/owl/", "http://www.virtualflybrain.org/owl/vfb_ind.owl")
+
+# base URIs - global
 obo = "http://purl.obolibrary.org/obo/"
 vfb = "http://www.virtualflybrain.org/owl/"
 fb = "http://flybase.org/reports/"
 
-# Get DB connection
-conn = zxJDBC.connect("jdbc:mysql://localhost/flycircuit", sys.argv[1], sys.argv[2], "org.gjt.mm.mysql.Driver")
-cursor = conn.cursor()
 
 # Add predeclared OWL entities
-
 
 ### Get OBO annotation properties
 obo_tools.addOboAnnotationProperties(vfb_ind)
 
-### Predeclare OWL entities used in axioms
+### Predeclare foriegn OWL entities used in axioms (these live in the owl_entity table)
 
 cursor.execute("SELECT baseURI, shortFormID, owl_type FROM owl_entity")
 
@@ -41,7 +57,7 @@ for d in dc:
 	if d['owl_type'] == "objectProperty":
 		vfb_ind.addObjectProperty(d['baseURI']+ d['shortFormID'])
 
-# Adding individual flycircuit neurons and basic typing - default and from neuron table.
+# Add individual flycircuit neurons and basic typing - default and from neuron table.
 
 cursor.execute("SELECT vut.vfbid as vid, n.name, n.Gender, n.gene_name, Driver FROM neuron n JOIN vfbid_uuid_type vut ON (n.uuid=vut.uuid)")
 dc = dict_cursor(cursor)
@@ -96,14 +112,21 @@ cursor.execute("SELECT vut.vfbid as vid, sj.* " \
 
 dc = dict_cursor(cursor)
 for d in dc:
-	voxel_overlap_txt = " From analysis of a registered 3D image, this neuron is predicted to overlap the following neuropils: "
+	above_cutoff = {} # Dict containing all domains above cutoff as keys and the voxel overlap as value
+	voxel_overlap_txt = "From analysis of a registered 3D image, this neuron is predicted to overlap the following neuropils: "
 	for abbv in BN_abbv_list:
 		if d[abbv] > 1000:  # Using crude cutoff for now - but could make this ratio based instead, given data from Marta.
-			typ = "RO_0002131 some " + BN_dict[abbv]
-			vfb_ind.type(typ,d["vid"])
-			voxel_overlap_txt += str(d[abbv]) + " voxels overlap the " + fbbt.getLabel(BN_dict[abbv])  += "; "
-	voxel_overlap_txt += "."
-	vfb_ind.comment(d['vid'], voxel_overlap_txt) 	#  This aint gonna work!  How do I append to the existing def, rather than add a new one!
+			above_cutoff[BN_dict[abbv]] = (d[abbv])
+	while above_cutoff:
+		dom = above_cutoff.popitem()  # pop item from dict (dom now has a list of key, value
+		typ = "RO_0002131 some " + dom[0]
+		vfb_ind.type(typ,d["vid"])
+		voxel_overlap_txt += str(dom[1]) + " voxels overlap the " + fbbt.getLabel(dom[0])   
+		if len(above_cutoff) >= 1:  # Equivalent for keys with iterable?
+			voxel_overlap_txt +=  "; "
+		else:
+			 voxel_overlap_txt += "."
+	vfb_ind.comment(d['vid'], voxel_overlap_txt)
 	
 cursor.execute("SELECT vut.vfbid, akv.owl_mapping " \
 			   "FROM annotation a, neuron n, annotation_key_value akv, vfbid_uuid_type vut " \
@@ -159,4 +182,19 @@ cursor.close()
 conn.close()
 
 vfb_ind.save("vfb_ind.owl") 
+
+## Sketch of improved schema for underying DB
+
+# Generic stuff
+
+## Foreign terms:
+
+# Need to list 
+
+### Object properties
+### anatomical classes
+
+
+
+
 
