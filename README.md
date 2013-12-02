@@ -22,15 +22,15 @@ We maintain a page on [the Drosophila anatomy ontology wiki](https://sourceforge
 Please note.  This is a work in progress. Most documentation currently lives in a google doc. We are in the process of transferring it to this wiki.
 
  * __Functional Description__
-     * [User scenarios](wiki/user_scenarios)
-     * [Description and functions of pages](wiki/page_descriptions)
+     * [User scenarios](https://github.com/VirtualFlyBrain/VFB/wiki/user_scenarios)
+     * [Description and functions of pages](https://github.com/VirtualFlyBrain/VFB/wiki/page_descriptions)
  * __Technical Description__
-     * [Static content](wiki/static_content)
-     * [Dynamic content](wiki/dynamic_content)
-     * [Java](wiki/java)
+     * [Static content](https://github.com/VirtualFlyBrain/VFB/wiki/static_content)
+     * [Dynamic content](https://github.com/VirtualFlyBrain/VFB/wiki/dynamic_content)
+     * [Java](https://github.com/VirtualFlyBrain/VFB/wiki/java)
  * __Data structures__
-     * [FlyBase CHADO](wiki/FBChado)
-     * [VFB link path DB](wiki/VFB_DB)
-     * [Ontologies](wiki/ont)
-     * [OWL individuals](wiki/owl_ind)
- * [__Stack Browser__](wiki/stack_browser)
+     * [FlyBase CHADO](https://github.com/VirtualFlyBrain/VFB/wiki/FBChado)
+     * [VFB link path DB](https://github.com/VirtualFlyBrain/VFB/wiki/VFB_DB)
+     * [Ontologies](https://github.com/VirtualFlyBrain/VFB/wiki/ont)
+     * [OWL individuals](https://github.com/VirtualFlyBrain/VFB/wiki/owl_ind)
+ * [__Stack Browser__](https://github.com/VirtualFlyBrain/VFB/wiki/stack_browser)
