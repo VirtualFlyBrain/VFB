@@ -22,15 +22,15 @@ We maintain a page on [the Drosophila anatomy ontology wiki](https://sourceforge
 Please note.  This is a work in progress. Most documentation currently lives in a google doc. We are in the process of transferring it to this wiki.
 
  * __Functional Description__
-     * [User scenarios](user_scenarios)
-     * [Description and functions of pages](page_descriptions.md)
+     * [User scenarios](wiki/user_scenarios)
+     * [Description and functions of pages](wiki/page_descriptions)
  * __Technical Description__
-     * [Static content](static_content)
-     * [Dynamic content](dynamic_content)
-     * [Java](java)
+     * [Static content](wiki/static_content)
+     * [Dynamic content](wiki/dynamic_content)
+     * [Java](wiki/java)
  * __Data structures__
-     * [FlyBase CHADO](FBChado)
-     * [VFB link path DB](VFB_DB)
-     * [Ontologies](ont)
-     * [OWL individuals](owl_ind)
- * [__Stack Browser__](stack_browser)
+     * [FlyBase CHADO](wiki/FBChado)
+     * [VFB link path DB](wiki/VFB_DB)
+     * [Ontologies](wiki/ont)
+     * [OWL individuals](wiki/owl_ind)
+ * [__Stack Browser__](wiki/stack_browser)
