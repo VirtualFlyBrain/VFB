@@ -6,7 +6,7 @@ Our underlying datamodel uses an OWL ontology of Drosophila anatomy featuring ex
 
 VFB also features an image stack browser displaying images of the adult brain, with segmentation following the [BrainName standard](BrainName), and the abdominal thoracic ganglion (in prep).  Individual neuropil domains are painted and linked directly to terms in the anatomy ontology. Thousands of images registered to our standard stack are linked directly to our ontology and can be viewed directly in the stack browser.
 
-We also provide extra analysis of single neuron image data via clustering of morphologically similar neurons using neuron blast software developed by Greg Jefferis & colleagues (manuscript in prep).  Clustering finds many known classes as well as predicting new ones. Clusters can be viewed as rotatable 3D images. 
+We also provide extra analysis of single neuron image data via clustering of morphologically similar neurons using neuron blast software developed by Greg Jefferis & colleagues (manuscript in prep).  Clustering finds many known classes as well as predicting new ones. [Clusters can be viewed as rotatable 3D images](http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/Cha-F-300056/webgl.shtml). 
 
 ## Call for contributions
 
@@ -23,6 +23,13 @@ We welcome all offers of contribution -
 * Do you have an interest in semantics and experience with OWL?
 
 If you'd like to contribute us please email our google group at vfb_community {at} googlegroups.com.
+
+### Social media presence
+
+
+* We are [@virtualflybrain](https://twitter.com/virtualflybrain) on twitter.  Our feed features papers and news of general interest to the Fly Neuro community, as well as specific news about VFB.
+* Our blog lives [here](http://vfbblog.inf.ed.ac.uk/)
+* We also have a page on [FaceBook](https://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118)
 
 ### Publications
 
