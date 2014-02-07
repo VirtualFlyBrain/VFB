@@ -22,7 +22,7 @@ We welcome all offers of contribution -
 * Are you a coder with experience in javascript, python, java or JVM languages such as groovy or scala?
 * Do you have an interest in semantics and experience with OWL?
 
-If you'd like to contribute us please email to our google group at vfb_community {at} googlegroups.com.
+If you'd like to contribute us please email our google group at vfb_community {at} googlegroups.com.
 
 ### Publications
 
