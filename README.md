@@ -35,7 +35,7 @@ If you'd like to contribute us please email our google group at vfb_community {a
 
  1. _Osumi-Sutherland D., Reeve S., Mungall C., Ruttenberg A. Neuhaus F, Jefferis G.S.X.E, Armstrong J.D._ (2012) A strategy for building neuro-anatomy ontologies. [Bioinformatics __28__(9): 1262-1269.](http://bioinformatics.oxfordjournals.org/content/28/9/1262.full)
  1. _Milyaev N., Osumi-Sutherland D., Reeve S., Burton N., Baldock R.A., Armstrong J.D._ (2012) The Virtual Fly Brain Browser and Query Interface. [Bioinformatics __28__(3): 411-415](http://bioinformatics.oxfordjournals.org/content/28/3/411.full)
- 1. _Coasta M., Reeve S., Grumbling G., Osumi-Sutherland D.,_ (2013) The Drosophila anatomy ontology. [Journal of Biomedical Semantics __4__:32](http://www.jbiomedsem.com/content/4/1/32)
+ 1. _Costa M., Reeve S., Grumbling G., Osumi-Sutherland D.,_ (2013) The Drosophila anatomy ontology. [Journal of Biomedical Semantics __4__:32](http://www.jbiomedsem.com/content/4/1/32)
 
 ### Annotating your own data using our system
 
