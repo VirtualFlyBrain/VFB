@@ -44,19 +44,22 @@ We maintain a page on [the Drosophila anatomy ontology wiki](https://sourceforge
 
 #### Documentation
 Please note.  This is a work in progress. Most documentation currently lives in a google doc. We are in the process of transferring it to this wiki.
+
+ * __[A brief intro to OWL, tailored for VFB](https://github.com/VirtualFlyBrain/VFB/wiki/Ont)__
  
  * __[Overview of queries](https://github.com/VirtualFlyBrain/VFB/wiki/Overview-of-VFB-queries)__
 
  * __Functional Description__
      * [User scenarios](https://github.com/VirtualFlyBrain/VFB/wiki/user_scenarios)
      * [Description and functions of pages](https://github.com/VirtualFlyBrain/VFB/wiki/page_descriptions)
- * __Technical Description__
-     * [Static content](https://github.com/VirtualFlyBrain/VFB/wiki/static_content)
-     * [Dynamic content](https://github.com/VirtualFlyBrain/VFB/wiki/dynamic_content)
-     * [Java](https://github.com/VirtualFlyBrain/VFB/wiki/java)
  * __Data structures__
      * [FlyBase CHADO](https://github.com/VirtualFlyBrain/VFB/wiki/FBChado)
      * [VFB link path DB](https://github.com/VirtualFlyBrain/VFB/wiki/VFB_DB)
      * [Ontologies](https://github.com/VirtualFlyBrain/VFB/wiki/ont)
      * [OWL individuals](https://github.com/VirtualFlyBrain/VFB/wiki/owl_ind)
+ * __Technical Description__
+     * [Static content](https://github.com/VirtualFlyBrain/VFB/wiki/static_content)
+     * [Dynamic content](https://github.com/VirtualFlyBrain/VFB/wiki/dynamic_content)
+     * [Java](https://github.com/VirtualFlyBrain/VFB/wiki/java)
+ 
  * [__Stack Browser__](https://github.com/VirtualFlyBrain/VFB/wiki/stack_browser)
