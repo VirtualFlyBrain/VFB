@@ -56,7 +56,7 @@ Please note.  This is a work in progress. Most documentation currently lives in 
      * [FlyBase CHADO](https://github.com/VirtualFlyBrain/VFB/wiki/FBChado)
      * [VFB link path DB](https://github.com/VirtualFlyBrain/VFB/wiki/VFB_DB)
      * [Ontologies](https://github.com/VirtualFlyBrain/VFB/wiki/ont)
-     * [OWL individuals](https://github.com/VirtualFlyBrain/VFB/wiki/owl_ind)
+     * [OWL individuals](https://github.com/VirtualFlyBrain/VFB_owl)
  * __Technical Description__
      * [Static content](https://github.com/VirtualFlyBrain/VFB/wiki/static_content)
      * [Dynamic content](https://github.com/VirtualFlyBrain/VFB/wiki/dynamic_content)
