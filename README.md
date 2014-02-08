@@ -47,7 +47,7 @@ Please note.  This is a work in progress. Most documentation currently lives in 
 
  * __[A brief intro to OWL, tailored for VFB](https://github.com/VirtualFlyBrain/VFB/wiki/Ont)__
  
- * __[Overview of queries](https://github.com/VirtualFlyBrain/VFB/wiki/Overview-of-VFB-queries)__
+ * __[Overview of queries](https://github.com/VirtualFlyBrain/VFB/wiki/Queries)__
 
  * __Functional Description__
      * [User scenarios](https://github.com/VirtualFlyBrain/VFB/wiki/user_scenarios)
