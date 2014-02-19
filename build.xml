@@ -1,6 +1,6 @@
 <project name="EAtlasViewer" default="default" basedir=".">
     <description>
-        simple example build file
+        VFB build file
     </description>
   <!-- set global properties for this build -->
   <property name="src" location="src"/>
