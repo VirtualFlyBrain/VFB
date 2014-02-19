@@ -1,0 +1,78 @@
+/* 
+  ------------------------------------
+  PVII Menu CSS Express Drop-Down Menu
+  by Project Seven Development
+  www.projectseven.com
+  ------------------------------------
+*/
+#term_menu {
+	border-left: 1px solid gray;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color: white;
+	z-index: 100; 
+	height: 20px;
+	float:left;
+}
+#menubar, #menubar ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+/*	font-family: Arial, Helvetica, sans-serif;*/
+}
+#menubar a {
+	display: block;
+	text-decoration: none;
+	padding: 3px 10px 3px 10px;
+	border-right: 1px solid #777;
+	font-size: .85em;
+	color: #002288;
+	font-weight:bold;
+}
+#menubar li {
+	float: left;
+	width: 9em;
+}
+#menubar li {position: relative;}
+#menubar li.header {
+	padding: 1px 12px 0 16px;
+	border-right: 1px solid #777;
+	font-weight:bold;
+	background-color: #666;
+	color:#FFF;
+}
+/* hide from IE mac \*/
+#menubar li {position: static; width: auto;}
+/* end hiding from IE5 mac */
+
+#menubar li ul, #menubar ul li  {
+	width: 15em;
+}
+#menubar ul li a  {
+	color: #565656;
+	border-right: 0;
+	padding: 3px 12px 3px 16px;
+}
+#menubar li ul {
+	position: absolute;
+	display: none;
+	background-color: #909090;
+	border: 1px solid #333333;
+}
+#menubar li:hover a, #menubar a:focus,
+#menubar a:active {
+	color: #FFF;
+	background-color: #223355;
+}
+#menubar li:hover ul{
+	display: block;
+}
+#menubar li:hover ul a{
+	color: #FFF;
+	background-color: transparent;
+}
+#menubar ul a:hover {
+	background-color: #223355!important;
+	color: #FFFFFF !important;
+}
+

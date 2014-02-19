@@ -1,0 +1,21 @@
+{
+   "distance": {
+      "width":"175",
+      "height":"20",
+      "x":"1",
+      "y":"10",
+      "draggable":"false",
+      "isHorizontal":"true",
+      "thinTopEdge":"false",
+      "targetId":"emapIIPViewerDiv"
+   },
+   "tree": {
+      "draggable":"false",
+      "thinTopEdge":"true",
+      "borders":"false",
+      "embed":"true",
+      "height":"550px", 
+      "width":"300px",
+      "targetId":"right_panel"
+   }
+}

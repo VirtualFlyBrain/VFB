@@ -1,0 +1,40 @@
+a.help{
+	font-size:0.9em;
+	font-weight:bold;
+	background-image:url("/images/vfb/utils/help-26.png");
+	background-repeat: no-repeat;
+	float:right;
+	margin:5px;
+/*	top:20px; */
+	padding-left:15px;
+	color:gray;
+	text-decoration: none;
+	position: relative;
+}
+
+a.youtube{
+	background-image:url("/images/vfb/utils/youtube_logo.png");
+	padding-left:44px;
+	height: 20px;
+}
+
+a.help:hover{
+	text-decoration:underline;
+}
+
+a.triangle-down {
+	background-image:url("/images/vfb/utils/circledTrianglne.gif");
+}
+
+.user_notes{
+	height:100px;
+}
+
+.user_input{
+	width:300px;
+}
+
+#search_text {
+	border:1px solid gray;
+	width: 700px;
+}

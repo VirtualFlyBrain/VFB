@@ -1,0 +1,161 @@
+#tree_controls {
+    border-bottom:1px solid gray;
+    height: 110px;
+    width: 100%;	
+}
+
+#tree_container {
+	position:relative;
+	width:100%; 
+	height:100%;
+	/*padding:0 2px; */
+}
+
+/*@global*/
+.mif-tree-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 10px;
+	line-height: 10px; /******Tree node height******/
+	white-space: nowrap;
+	cursor: default;
+	margin: 3px 3px 0 0; 
+	overflow:auto;
+}
+
+.mif-tree-bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
+.mif-tree-bg-container {
+	width: 100%;
+	display: none;
+}
+
+.mif-tree-bg-node {
+	width: 100%;
+	height: 18px;
+}
+
+.mif-tree-bg-selected {
+	background-color: #dcd7ab;
+}
+
+.mif-tree-wrapper:focus {
+	outline: 0;
+}
+
+.mif-tree-wrapper span {
+	cursor: inherit;
+}
+
+.mif-tree-children {
+	padding-left: 18px;
+	width: 18px;
+}
+
+.mif-tree-node {
+	width: 18px;
+	background: url('') repeat-y 8px 0px;
+}
+
+.mif-tree-node-last {
+	background: url('') no-repeat 8px 0px;
+}
+
+.mif-tree-name {
+	cursor: default;
+	overflow: hidden;
+	margin-left: 4px;
+}
+
+/*.disabled {
+	color:#999;
+}*/
+
+.mif-tree-name a {
+	color: red;
+}
+
+.mif-tree-name a:hover {
+	color: blue;
+}
+
+/*@gadjets*/
+.mif-tree-gadjet {
+	background-image: url('../../images/tree/gadgets.gif');
+	padding-right: 16px;
+	z-index: 1;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	position: relative;
+	top: -1px;
+}
+
+.mif-tree-gadjet-none {
+	background: none;
+} 
+
+.mif-tree-gadjet-minus {
+	background-position: 2px 0px;
+}
+
+.mif-tree-gadjet-plus {
+	background-position: -19px 0px;
+}
+
+.mif-tree-gadjet-hover .mif-tree-gadjet-minus {
+	background-position: -54px 50%;
+}
+
+.mif-tree-gadjet-hover .mif-tree-gadjet-plus {
+	background-position: -72px 50%;
+}
+
+/*@selection*/
+.mif-tree-node-selected .mif-tree-name {
+	background-color: #010161;
+	color: #fff;
+	text-transform: italic;
+}
+
+.mif-tree-hover-node .mif-tree-name {
+	text-decoration: underline
+}
+
+.treeColourPick {
+   position:relative;
+   top:4px;
+   height:10px;
+   width:10px;
+   border:1px solid #999999;
+}
+
+#tree_container a{
+	font-size:8pt;
+}
+
+#toggle_domains {
+    border: 1px solid gray;
+    height: 20px;
+    padding: 0 2px;
+    text-align: center;
+    width: 140px;	
+    top: 84px;
+    position:absolute;
+    margin:0 4px;
+}
+
+#search_text {
+    position: absolute;
+    top: 52px;
+    width: 95%;
+    margin:0 4px;
+}

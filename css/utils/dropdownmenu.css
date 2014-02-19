@@ -1,0 +1,223 @@
+/* 
+    Document   : dropdowndisplay.css
+    Created on : 27-Nov-2008, 11:03:35
+    Author     : Maze Lam
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*XXXXXXXXXX Generic page styling rules XXXXXXXXXX*/
+
+.nav ul, .nav li { padding: 0; margin: 0; list-style: none;}
+
+
+/* Box model hack \*
+/* html #wrapper {
+  width: 762px;
+  w\idth: 760px;
+  }
+/* */
+
+/*XXXXXXXXXXXX Primary top nav rules XXXXXXXXXXX*/
+
+.nav {
+	/*background: #24A7C8;/*#def;*/
+	border-top: 1px solid #235;/*#FFFFFF;/* #888;*/ /* borders the top */
+	width: 100%;
+	background-color:gray;
+	top:64px; 
+	left:192px;
+	position:absolute;
+}
+
+.button {
+	width: 200px;
+	float: left;
+}
+
+.parent {
+	position: relative;
+	background-color:gray;
+}
+/* this parent div does not provide "sticky hovering", but instead fixes a
+strange bug in Op7. When an element serves as a hovered popup "parent" element,
+that element must not also be floated or all heck breaks loose in Opera 7.
+To prevent this, we have floated the top level list items, while nesting
+hoverable parent divs inside that are then hovered to generate the dropdowns.
+Thus the ugly (but interesting) Op7 bug is defeated. */
+
+.floatfix {margin-right: -3px;}
+/* this fixes the IE 3px bug that is common in this type of float arrangement */
+
+/*XXXXXXXXXXXX Primary dropdown/flyout rules XXXXXXXXXXX*/
+
+.dropdown { /* rules for dropdown div */
+	width: 200px;
+	position: absolute;
+	left: -3000px;
+	top: auto; /* puts dropdowns directly under top nav */
+	text-align: left; /* needed because IE misapplies text centering to boxes */
+	z-index:100;
+	}
+
+.dropdown div {
+	width: 200px;
+	position: absolute;
+	left: -3000px;
+	top: 0;
+	background: url(images/bgfix.gif); /*maze: what is this for!?!!!*/
+	text-align: left; /* needed because IE misapplies text centering to boxes */
+	}
+
+/* The margins on the UL's replace the div paddings to create "sticky hovering"
+zones,  and the margins should "fill" the divs, making the IE BG fix unnecessary.
+Unfortunately the BG fix is still needed, altho this method does eliminate
+possible box model problems */
+
+.dropdown ul {
+  width: 198px; /* tweaked so that dropdowns appear to "line up" with top links */
+  margin: 0 30px 30px 30px; /* creates "sticky hovering" zones for dropdowns */
+  border: 1px solid #235; /*#888;*/
+  border-width: 1px 1px 0;
+  } /* borders sides and top of the dropdowns and flyouts; links provide the bottom border */
+
+.dropdown div ul {margin: 30px 30px 30px 0;} /* creates "sticky hovering" zones for flyouts */
+
+.four .dropdown div ul {margin: 30px 0 30px 30px; position: relative;} /* rule reversal for "visible" right drop flyouts */
+
+.nav li {
+    /*padding: 0px 10px 0px;*/
+    text-align: left; /*maze: changes text in drop down lists from center to left */
+}
+
+.nav a {
+    display: block;
+    color: white;
+	font-size: 1em;
+	text-decoration: none;
+	padding: 8px 15px 7px; /*maze: center value pads left margin of lists */
+	/*border-right: 1px solid #888;  /* makes the dividers between the top nav links */
+	}      
+        
+.five a {border-right: 0;} /* kills right border on last top link */
+
+.nav ul ul a {
+  color: #fff;
+  border-right: 0; /* negates right border for dropdowns and flyouts */
+  /*border-bottom: 1px solid white; /*#888;  /* borders the bottoms of the dropdown and flyout links */
+  }
+
+.dropdown li {
+  position: relative;
+  /*vertical-align:baseline; /* IE7 bugfix: overwrite next attribute*/
+  vertical-align: bottom; /* IE5/win bugfix */
+  }
+
+.parent:hover {background-image: url(images/bgfix.gif);}
+/* this hover calls a transparent GIF only to defeat the IE failed hover bug. Any
+background change on hovering div.parent will make IE obey and display the dropdown.
+While the call itself will fix the bug, make sure you actually call a real image
+file so that your site error logs will not fill with failed image calls. */
+
+.parent:hover div.dropdown {left: -30px;} /* hover rule for dropdowns */
+/* extra pixel makes dropdowns "line up" with top links */
+
+.dropdown li:hover div { /* hover rule for flyouts */
+	left: 180px; /* this value controls the amount of flyout "overlap" */
+	top: -26px; /* this value controls the amount of flyout vertical offset */
+	}
+
+.four li:hover div { /* reversed flyout rules for rightmost drop flyouts */
+	left: -210px;
+	top: -26px;
+	}
+
+.nav div.mini-zone { /* special hover zone that covers the "danger corner" */
+  padding: 0;
+  width: 15px;
+	height: 15px;
+	font-size: 1px;
+	left: -3000px;
+	bottom: -15px;
+	top: auto;
+	background: url(images/bgfix.gif);
+	}
+
+.nav .dropdown li:hover div.mini-zone { /* hover rule for mini-zones */
+	left: auto;
+	right: 8px;
+	top: auto;
+	}
+
+.nav .four li:hover div.mini-zone { /* reversed hover rule for rightmost drop mini-zones */
+	left: 8px;
+	}
+
+.nav li:hover a.maintab, .nav .dropdown li:hover{
+    background:#235;
+}
+
+.dropdown div li:hover {background: #ff7;} /* hover color effect on flyout links */
+
+
+/*XXXXXXXXXXX Primary dropdown backgrounds XXXXXXXXXX*/
+
+.one ul {background: gray;}
+.two ul {background: #24A7C8;}
+.three ul {background: #24A7C8;}
+.four ul {background: #24A7C8;}
+.five ul {background: #24A7C8;}
+.dropdown div ul {background: #eda;} /* colors BG of flyouts */
+.dropdown div ul a {color: #400;} /* colors text of  flyouts */
+
+
+/*XXXXXXXXXX z-index rules for top nav XXXXXXXXXXX*/
+
+.one {z-index: 10;}
+.two {z-index: 20;}
+.three {z-index: 30;}
+.four {z-index: 40;}
+.four:hover {z-index: 20;}
+/* this last is a special trick that reverses the stacking order of the rightmost
+top link when it or its children are hovered. This, and the previous rules work
+together so that when a user is on the top link of any flyout, they can move
+vertically to the top link directly above and not have the sticky hoivering zone
+on the flyout get in the way of hovering that top link. */
+
+
+/*XXXXXXXXXXX Special fixes XXXXXXXXXXX*/
+
+/* This is to hide the following from IE/Mac. \*/
+* html .button .dropdown li {
+height: 1%;
+margin-left: -16px;
+mar\gin-left: 0;
+}
+/* */
+
+* html .nav a
+ {height: 1%;}
+
+/* The first 2 rules above fix "bullet region" problems in IE5.x/win,
+and the 2nd is to make all links fully clickable. */
+
+.brclear { /* Use a break with this class to clear float containers */
+clear:both;
+height:0;
+margin:0;
+font-size: 1px;
+line-height: 0;
+}
+
+/*\*/ /*/
+.nav .dropdown, .nav .dropdown div {width: 189px;}
+.nav .button .dropdown ul {margin: 0px;}
+.nav .dropdown, .nav .dropdown div {position: static;}
+.nav .dropdown ul {border: 0;}
+.mini-zone {display: none;}
+/* this rule block "dumbs down" the nav for IEmac */

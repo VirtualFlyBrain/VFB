@@ -1,0 +1,135 @@
+/* style for right click menu */
+
+.emapMenuContainer {
+   position: absolute;
+   margin: 0px;
+   padding: 0px;
+   visibility: hidden;
+   border: none;
+   z-index: 1000;
+   background: #fafafa;
+}
+.emapMenuContainer.rightClick {
+   top: 0px;
+   left: 0px;
+   background: #fafafa;
+}
+.emapMenuContainer.normal {
+   top: 22px;
+   left: 0px;
+   background: #fafafa;
+}
+
+.emapMenuList {
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   list-style-type: none;
+   margin: 0px;
+   padding: 0px;
+   border: solid 1px #aaa;
+}
+.emapMenuList.level1 {
+}
+.emapSubSubMenuList {
+   position: absolute;
+   list-style-type: none;
+   margin: 0px;
+   padding: 0px;
+   border: solid 1px #aaa;
+}
+
+.emapMenuItem {
+   width: 100px;
+   height: 20px;
+   padding: 0 0 0 5px;
+   margin: 0px;
+   background: #fafafa;
+   z-index: 100;
+   text-align: left;
+   color: #333;
+}
+.emapMenuItem.normal.mouseover {
+   background: #aaf;
+}
+.emapMenuItem.rightClick.mouseover {
+   background: #aaf;
+}
+.emapMenuItem.normal {
+}
+.emapMenuItem.rightClick {
+}
+.emapMenuItem.rightClick.disabled {
+   color: #999;
+}
+.emapMenuItem.rightClick.disabled.mouseover {
+   color: #999;
+}
+.emapMenuItem.normal.disabled {
+   color: #999;
+}
+.emapMenuItem.normal.disabled.mouseover {
+   color: #999;
+}
+.emapMenuItem.chkbx {
+   position: relative;
+   top: 3px;
+   float: right;
+   width: 10px;
+   height: 10px;
+   margin: 0 3px;
+   padding: 0px;
+   z-index: 200;
+}
+.emapMenuItem.radio {
+   position: relative;
+   top: 3px;
+   float: right;
+   width: 10px;
+   height: 10px;
+   margin: 0 3px;
+   padding: 0px;
+   z-index: 200;
+}
+
+hr.emapMenuSpacer{
+   height: 2px;
+   padding: 0px;
+   margin: 0px;
+}
+
+.emapMoreDiv {
+   position: relative;
+   top: 0px;
+   float: right;
+   width: 20px;
+   height: 20px;
+   margin: 0px;
+   padding: 0px;
+   border: dotted 1px #f0f;
+   border: none;
+   z-index: 200;
+}
+
+.emapMoreImg {
+   position: relative;
+   top: 3px;
+   float: right;
+   width: 10px;
+   height: 10px;
+   margin: 0px;
+   padding: 0px 4px;
+   z-index: 200;
+}
+
+.emapSubMenuItem {
+   width: 100px;
+   height: 20px;
+   padding: 0 0 0 5px;
+   margin: 0px;
+   background: #ffa;
+   text-align: left;
+}
+.emapSubMenuItem.mouseover {
+   background: #aaf;
+}

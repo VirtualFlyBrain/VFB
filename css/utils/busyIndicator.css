@@ -1,0 +1,28 @@
+div#busyIndicatorContainer {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	width: 160px;
+	height: 32px;
+	background: #eee;
+	border: solid 1px #999;
+	z-index: 1000;
+	visibility: hidden;
+}
+
+div#busyIndicatorImageDiv {
+    position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 32px;
+	height: 32px;
+	background-image:url('/images/tools/busyIndicator.gif');
+}
+
+div#busyIndicatorMessageDiv {
+    position: absolute;
+	top: 5px;
+	left: 40px;
+	font-size: 9pt;
+	color: #000;
+}
