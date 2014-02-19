@@ -9,7 +9,8 @@
   <property name="web_class_dir"  location="WEB-INF/classes"/>
   <property name="resources_dir"  location="resources"/>	
   <property name="web_resources_dir"  location="WEB-INF/resources"/>	
-  <property name="java.library.path" value="WEB-INF/lib"/>
+  <property name="web_lib_dir" value="WEB-INF/lib"/>
+  <property name="lib_dir" value="lib"/>
 
 
   <target name="init">
@@ -18,15 +19,25 @@
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
   </target>
+  
+  <path id="project.class.path">
+     <fileset dir="${lib_dir}">
+        <include name="**/*.jar" />
+     </fileset>
+     <fileset dir="${web_lib_dir}">
+        <include name="**/*.jar" />
+     </fileset>
+  </path>
+  
 
   <target name="compile" depends="init"
         description="compile the source " >
   	<echo>(Type 'ant -projecthelp' for more info)</echo>
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}" classpathref="project.class.path"/>
   </target>
 
-  <target name="copy" depends="init" >
+  <target name="copy" depends="init, compile" >
   	<copy todir="${web_class_dir}">
     	<fileset dir="${class_dir}"/>
   	</copy>
