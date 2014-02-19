@@ -44,7 +44,7 @@
     <javac srcdir="${src}" destdir="${build}" classpathref="project.class.path"/>
   </target>
 
-  <target name="copy" depends="init, compile" >
+  <target name="copy" depends="init" >
   	<copy todir="${web_class_dir}">
     	<fileset dir="${class_dir}"/>
   	</copy>
