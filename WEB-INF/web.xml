@@ -103,7 +103,7 @@
 
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>WEBAPP_NAME</param-value>
+		<param-value>vfb</param-value>
 	</context-param>
 
 	<!-- Define an error handler for 404 pages -->
