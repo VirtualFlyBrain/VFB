@@ -18,6 +18,7 @@
     <tstamp/>
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
+    <mkdir dir="${class_dir}"/>
   </target>
   
   <path id="project.class.path">
@@ -27,6 +28,12 @@
      <fileset dir="${web_lib_dir}">
         <include name="**/*.jar" />
      </fileset>
+     <fileset dir="${class_dir}">
+        <include name="**/*.jar" />
+     </fileset>
+     <fileset dir="${src}">
+        <include name="**/*.java" />
+     </fileset> 
   </path>
   
 
