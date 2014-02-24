@@ -15,7 +15,7 @@ import uk.ac.ed.vfb.web.WebQueryUtils;
  * NB: the way of creating annotation fields may be changed to anything as required, eg OWL API.
  * @author nmilyaev
  */ 
-
+@SuppressWarnings("unused")
 public class GeneBeanManager extends APageable{
 	/** Default DAO */
 	protected GeneQueryDAO queryDAO;
@@ -26,18 +26,23 @@ public class GeneBeanManager extends APageable{
 	private static final Log LOG = LogFactory.getLog(GeneBeanManager.class); 
 	
 	/** Sequentially queries chado DB to get the list of transgenes for each ontBean	 */
+	
+	
+	@SuppressWarnings("unchecked")
 	public void getTransgeneList(String action, String id) {
 		resultSet = new TreeSet<GeneQueryResult>();
 		resultSet.addAll(queryTransgeneTable(action, id));
 	}
 
 	/** Sequentially queries chado DB to get the list of transgenes for each ontBean	 */
+	@SuppressWarnings("unchecked")
 	public void getExpressionList(String action, String id) {
 		resultSet = new TreeSet<GeneQueryResult>();
 		resultSet.addAll(queryTransgeneTable(action, id));
 	}
 
 	/** Sequentially queries chado DB to get the list of transgenes for each ontBean	 */
+	@SuppressWarnings("unchecked")
 	public void getPhenotypeList(String action, String id) {
 		resultSet = new TreeSet<GeneQueryResult>();
 		resultSet.addAll(queryTransgeneTable(action, id));
@@ -133,5 +138,7 @@ public class GeneBeanManager extends APageable{
 	public void setTpbm(ThirdPartyBeanManager tpbm) {
 		this.tpbm = tpbm;
 	}
+
+	
 	
 }

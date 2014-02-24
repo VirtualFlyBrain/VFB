@@ -1,6 +1,7 @@
 package uk.ac.ed.vfb.web.csvviewer;
 
 import java.util.Iterator;
+
 import uk.ac.ed.vfb.model.OntBean;
 import uk.ac.ed.vfb.service.*;
 
@@ -20,6 +21,7 @@ public class CsvQueryView  extends CsvViewer {
 	protected void renderOutput(){
 		String line = "";  
 		LOG.debug("Mamager: " + manager);
+		@SuppressWarnings("unchecked")
 		Iterator<OntBean> it = manager.getResultSet().iterator();		
 		while (it.hasNext()) {
 			OntBean curr = it.next();

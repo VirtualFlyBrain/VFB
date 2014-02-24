@@ -1,6 +1,7 @@
 package uk.ac.ed.vfb.web.csvviewer;
 
 import java.util.*;
+
 import uk.ac.ed.vfb.dao.db.pojo.GeneQueryResult;
 import uk.ac.ed.vfb.service.*;
 
@@ -25,6 +26,7 @@ public class CsvGeneView  extends CsvViewer {
 			query = this.fileName.split("_")[0];
 			query = query.substring(0, query.length()-1);
 		}
+		@SuppressWarnings("unchecked")
 		Iterator<GeneQueryResult> it = manager.getResultSet().iterator();		
 		while (it.hasNext()) {
 			GeneQueryResult curr = it.next();
