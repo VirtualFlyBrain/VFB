@@ -1,63 +1,159 @@
-<project name="EAtlasViewer" default="default" basedir=".">
-    <description>
-        VFB build file
-    </description>
-  <!-- set global properties for this build -->
-  <property name="src" location="src"/>
-  <property name="build" location="build"/>
-  <property name="class_dir"  location="${build}/classes"/>
-  <property name="web_class_dir"  location="WEB-INF/classes"/>
-  <property name="resources_dir"  location="resources"/>	
-  <property name="web_resources_dir"  location="WEB-INF/resources"/>	
-  <property name="web_lib_dir" value="WEB-INF/lib"/>
-  <property name="lib_dir" value="lib"/>
-
-
-  <target name="init">
-    <!-- Create the time stamp -->
-    <tstamp/>
-    <!-- Create the build directory structure used by compile -->
-    <mkdir dir="${build}"/>
-    <mkdir dir="${class_dir}"/>
-  </target>
-  
-  <path id="project.class.path">
-     <fileset dir="${lib_dir}">
-        <include name="**/*.jar" />
-     </fileset>
-     <fileset dir="${web_lib_dir}">
-        <include name="**/*.jar" />
-     </fileset>
-     <fileset dir="${class_dir}">
-        <include name="**/*.jar" />
-     </fileset>
-     <fileset dir="${src}">
-        <include name="**/*.java" />
-     </fileset> 
-  </path>
-  
-
-  <target name="compile" depends="init"
-        description="compile the source " >
-  	<echo>(Type 'ant -projecthelp' for more info)</echo>
-    <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}" destdir="${build}" classpathref="project.class.path"/>
-  </target>
-
-  <target name="copy" depends="init" >
-  	<copy todir="${web_class_dir}">
-    	<fileset dir="${class_dir}"/>
-  	</copy>
-  	<copy todir="${web_resources_dir}">
-  		<fileset dir="${resources_dir}"/>
-  	</copy> 	
-  </target>
-
-  <target name="default" depends="init, copy" />	
-	
-  <target name="clean"
-        description="clean up" >
-    <delete dir="${build}"/>
-  </target>
-  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="EAtlasViewer">
+    <property environment="env"/>
+    <property name="src.link" value="./src"/>
+    <property name="JRE_LIB" value="./lib/classes.jar"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="EAtlasViewer.classpath">
+        <pathelement location="build"/>
+        <pathelement location="${JRE_LIB}"/>
+        <pathelement location="./lib/jsp-api.jar"/>
+        <pathelement location="./lib/servlet-api.jar"/>
+        <pathelement location="./WEB-INF/lib/aspectjrt-1.6.0.jar"/>
+        <pathelement location="./WEB-INF/lib/brain-1.4.1-2.jar"/>
+        <pathelement location="./WEB-INF/lib/commons-codec-1.6.jar"/>
+        <pathelement location="./WEB-INF/lib/commons-dbcp.jar"/>
+        <pathelement location="./WEB-INF/lib/commons-logging.jar"/>
+        <pathelement location="./WEB-INF/lib/commons-pool.jar"/>
+        <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
+        <pathelement location="./WEB-INF/lib/hamcrest-core-1.1.jar"/>
+        <pathelement location="./WEB-INF/lib/jfact.jar"/>
+        <pathelement location="./WEB-INF/lib/jsp-api.jar"/>
+        <pathelement location="./WEB-INF/lib/jstl.jar"/>
+        <pathelement location="./WEB-INF/lib/junit-4.6.jar"/>
+        <pathelement location="./WEB-INF/lib/log4j-1.2.15.jar"/>
+        <pathelement location="./WEB-INF/lib/mail.jar"/>
+        <pathelement location="./WEB-INF/lib/oboformat-all.jar"/>
+        <pathelement location="./WEB-INF/lib/owlapi-bin.jar"/>
+        <pathelement location="./WEB-INF/lib/owltools-oort-all.jar"/>
+        <pathelement location="./WEB-INF/lib/postgresql-9.0-801.jdbc3.jar"/>
+        <pathelement location="./WEB-INF/lib/servlet-api.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-jdbc.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-security-acl-2.0.7.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-security-core-2.0.7.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-security-core-tiger-2.0.7.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-security-taglibs-2.0.7.jar"/>
+        <pathelement location="./WEB-INF/lib/spring-webmvc.jar"/>
+        <pathelement location="./WEB-INF/lib/spring.jar"/>
+        <pathelement location="./WEB-INF/lib/standard.jar"/>
+        <pathelement location="./src/junit/uk/ac/ed/vfb/autocomplete/AutocompleteDAOTester.java"/>
+        <pathelement location="./src/junit/uk/ac/ed/vfb/dao/GeneQueryDaoTest.java"/>
+        <pathelement location="./src/junit/uk/ac/ed/vfb/dao/OWLClientTest.java"/>
+        <pathelement location="./src/junit/uk/ac/ed/vfb/db_optimiser/DatabaseConnectionTester.java"/>
+        <pathelement location="./src/junit/uk/ac/ed/vfb/ontology/OntBeanManagerTest.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/WoolzRegisterController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/dao/StackManagerDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/dao/pojo/StackBeanQueryResultSetExtractor.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/model/StackBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/model/StackRegistrationBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/service/StackBeanManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/ProcessRunner.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/SimpleMailSender.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/StackDeatailValidator.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/StackDeleteController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/StackDetailController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/StackDetailEditController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/StackListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/UploadStackController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/Utils.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/WoolzRegisterController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/composite/model/CompositeViewBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/composite/web/CompositeViewController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/OWLClient.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/Server.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/ADLQueryEngine.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/AOwlResultParser.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/DLQueryEngine.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/DLQueryEngineBrain.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/DLQueryEngineElk.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/DLQueryParser.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/DLQueryServer.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/OntQueryQueue.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/OwlResultParserClass.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/server_includes/OwlResultParserIndividual.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/AQueryDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/GeneQueryDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/PubDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/ThirdPartyDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/GeneQueryResult.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/GeneQueryResultSetExtractor.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/PubQueryResultSetExtractor.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/ThirdPartyQueryResultSetExtractor.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/UserBeanQueryResultSetExtractor.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/dao/security/UserManagerDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/OntBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/OntBeanIndividual.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/PubBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/ThirdPartyBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/security/UserBean.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/tree/OntNode.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/model/tree/OntTreeManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/ont_query/model/Argument.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/ont_query/model/OntQueryManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/ont_query/web/OntQueryController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/ont_query/web/OntQueryListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/ont_query/web/OntQueryListControllerMulti.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/APageable.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/DomainManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/GeneBeanManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/OntBeanManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/PubBeanManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/ThirdPartyBeanManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/service/UserManager.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/servlets/CharsetEncodingFilter.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/servlets/ServletUtil.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/tags/TrimToWhiteSpace.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/tools/autocomplete/AutocompleteDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/tools/fc_mapping/FCMappingDAO.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/AutocompleteController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/AutocompleteView.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/ClusterListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/CsvController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/DomainController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/GeneListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/IndividualFlmStripController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/IndividualListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/JsonController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/OntBeanController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/OntBeanListController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/UserController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/UserValidator.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/WebQueryUtils.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvGeneView.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvOntView.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvQueryView.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvViewer.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/exception/SessionExpiredException.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/exception/StackExistsException.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/web/exception/UserPermissionsException.java"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build"/>
+        <copy includeemptydirs="false" todir="build">
+            <fileset dir="${src.link}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build" includeantruntime="false" source="${source}" target="${target}">
+            <src path="${src.link}"/>
+            <classpath refid="EAtlasViewer.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
 </project>
