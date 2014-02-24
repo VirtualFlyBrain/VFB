@@ -25,7 +25,6 @@
         <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
         <pathelement location="./lib/hamcrest-core-1.3.jar"/>
         <pathelement location="./WEB-INF/lib/jfact.jar"/>
-        <pathelement location="./WEB-INF/lib/jsp-api.jar"/>
         <pathelement location="./WEB-INF/lib/jstl.jar"/>
         <pathelement location="./WEB-INF/lib/log4j-1.2.15.jar"/>
         <pathelement location="./WEB-INF/lib/mail.jar"/>
