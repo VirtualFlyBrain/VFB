@@ -60,7 +60,7 @@
 				<td><a href="${transgeneLinks[0]}${geneBean.reference}.html" >${geneBean.referenceRef}</a></td>
 				<td>
 				<c:set var="tpb" value="${geneBean.thirdPartyBean}" />
-				<c:if test="${!empty tpb && tpb.completeExpressionPattern}">
+				<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
 					<b>Source: </b><a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page">${tpb.sourceName} <br/>
 					<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
 						<img src="${geneBean.thirdPartyBean.thumbUrl}"height="50"/></a>
