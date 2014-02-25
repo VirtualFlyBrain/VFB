@@ -32,7 +32,14 @@ Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
 
 
 Added to .git/config:
-```
+```shell
+[filter "modify-url"]
+    smudge = sed 's/www.virtualflybrain.org/```_vfbdev.inf.ed.ac.uk_```/'
+    clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
+[filter "modify-app"]
+    smudge = sed 's/>vfb</>vfbdev</'
+    clean = sed 's/>vfbdev</>vfb</'
+
 [filter "modify-res-prop"]
     smudge = sed -f filters/FiltResPropSmudge.sed
     clean = sed -f filters/FiltResPropClean.sed
@@ -48,7 +55,7 @@ Added to .git/config:
     clean = gzip -9
 ```
 Added to .git/info/attributes:
-```
+```shell
 tiledImageModelData.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
