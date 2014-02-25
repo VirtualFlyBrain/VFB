@@ -35,7 +35,7 @@ Added to .git/config:
 ```
 [filter "modify-res-prop"]
     smudge = sed 's/server_name=VFB/server_name=www.virtualflybrain.org/'
-    clean = sed -i 's/server_name=vfbdev.inf.ed.ac.uk/server_name=VFB/g;s/server_name=sandbox.inf.ed.ac.uk/server_name=VFB/g;s/server_name=www.virtualflybrain.org/server_name=VFB/g;'
+    clean = sed 's/server_name=vfbdev.inf.ed.ac.uk/server_name=VFB/g;s/server_name=sandbox.inf.ed.ac.uk/server_name=VFB/g;s/server_name=www.virtualflybrain.org/server_name=VFB/g;'
 [filter "modify-web-xml"]
     smudge = sed 's/<param-value>WEBAPP_NAME<\/param-value>/<param-value>vfb<\/param-value>/'
     clean = sed 's/<param-value>vfbdev<\/param-value>/<param-value>WEBAPP_NAME<\/param-value>/g;s/<param-value>vfbsb<\/param-value>/<param-value>WEBAPP_NAME<\/param-value>/g;s/<param-value>vfb<\/param-value>/<param-value>WEBAPP_NAME<\/param-value>/g;'
