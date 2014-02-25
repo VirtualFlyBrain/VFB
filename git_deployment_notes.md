@@ -1,18 +1,21 @@
 #Notes on Git Deployment
-Some data is changed during upload and download and should be kept in mind when editing code ref webserver variables or dealing with wlz image files 
+Some data is changed during upload and download and should be kept in mind when editing code referencing webserver variables or dealing with wlz image files. 
 ##Recommended general filters
 Note: Only needed if you intend to modify or open wlz image files.
 De/Re-compresses wlz files as files tend to be over Github max file size limit
 
 Added to .git/config:
-
+```
 [filter "zip-wlz"]
     smudge = gzip -d
     clean = gzip -9
+```
 
 Added to .git/info/attributes:
+```
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
+```
 
 Note: smudged wlz files won't be appended with .gz this is just to cover all bases.
 
@@ -25,6 +28,7 @@ Dev-Server:	vfbdev.inf.ed.ac.uk	vfbdev
 Sandbox-Server:	vfbsandbox.inf.ed.ac.uk	vfbsb
 
 Added to .git/config:
+```
 [filter "modify-res-prop"]
     smudge = sed 's/server_name=vfb/server_name=www.virtualflybrain.org/'
     clean = sed 's/server_name=vfb-karenin.inf.ed.ac.uk/server_name=vfb/'
@@ -34,9 +38,11 @@ Added to .git/config:
 [filter "zip-wlz"]
     smudge = gzip -d
     clean = gzip -9
-
+```
 Added to .git/info/attributes:
+```
 web.xml filter=modify-web-xml
 *.jso filter=modify-res-prop
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
+```
