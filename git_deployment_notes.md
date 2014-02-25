@@ -35,10 +35,10 @@ Added to .git/config:
 ```
 [filter "modify-res-prop"]
     smudge = sed 's/server_name=vfb/server_name=www.virtualflybrain.org/'
-    clean = sed 's/server_name=vfb-karenin.inf.ed.ac.uk/server_name=vfb/'
+    clean = sed -i 's/server_name=vfbdev.inf.ed.ac.uk/server_name=vfb/g;s/server_name=sandbox.inf.ed.ac.uk/server_name=vfb/g;s/server_name=www.virtualflybrain.org/server_name=vfb/g;'
 [filter "modify-web-xml"]
-    smudge = sed 's/WEBAPP_NAME/vfb/'
-    clean = sed 's/vfb/WEBAPP_NAME/'
+    smudge = sed 's/<param-value>WEBAPP_NAME</param-value>/<param-value>vfb</param-value>/'
+    clean = sed -i 's/<param-value>vfbdev</param-value>/<param-value>WEBAPP_NAME</param-value>/g;s/<param-value>vfbsb</param-value>/<param-value>WEBAPP_NAME</param-value>/g;s/<param-value>vfb</param-value>/<param-value>WEBAPP_NAME</param-value>/g;'
 [filter "zip-wlz"]
     smudge = gzip -d
     clean = gzip -9
