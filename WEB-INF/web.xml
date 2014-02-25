@@ -101,11 +101,7 @@
 	</listener>
 	<!-- Logging configuration end -->
 
-<<<<<<< HEAD
-	<!-- Do not change WEBAPP_NAME this is changed by git smudge/clean filters see ./git_deployment_notes.md -->
-=======
         <!-- Do not change WEBAPP_NAME this is changed by git smudge/clean filters see git_deployment_notes.md -->
->>>>>>> master
 	<context-param>
 		<param-name>webAppRootKey</param-name>
 		<param-value>WEBAPP_NAME</param-value>
