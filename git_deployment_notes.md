@@ -45,8 +45,8 @@ Added to .git/config:
 ```
 Added to .git/info/attributes:
 ```
+resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
-*.jso filter=modify-res-prop
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
 ```
