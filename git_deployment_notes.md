@@ -22,9 +22,9 @@ Note: smudged wlz files won't be appended with .gz this is just to cover all bas
 
 ##Server required filters
 
-Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
+Amend vfbdev.inf.ed.ac.uk and vfbdev in the smudge of each filter respectively:
 
-|   Git Branch      |   url (modify-res-prop)       |   deployment (modify-web-xml)     |
+|   Git Branch      |   url (modify-url)       |   deployment (modify-app)     |
 |:---------:|:---------------------:|:----------------------------:|
 |   Main-Server     |	www.virtualflybrain.org     |	vfb                             |
 |   Dev-Server      |	[vfbdev.inf.ed.ac.uk](http://vfbdev.inf.ed.ac.uk) | vfbdev      |
@@ -34,7 +34,7 @@ Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
 Added to .git/config:
 ```shell
 [filter "modify-url"]
-    smudge = sed 's/www.virtualflybrain.org/```_vfbdev.inf.ed.ac.uk_```/'
+    smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
     clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
 [filter "modify-app"]
     smudge = sed 's/>vfb</>vfbdev</'
