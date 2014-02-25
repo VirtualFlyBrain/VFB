@@ -23,8 +23,8 @@ Note: smudged wlz files won't be appended with .gz this is just to cover all bas
 ##Server required filters
 
 Amend www.virtualflybrain.org and vfb in the smudge and clean of each filter respectively:
-|   Git Branch      |   url [modify-res-prop]       |   deployment [modify-web-xml]     |
-|   ----------      |   ---------------------       |   ----------------------------    |
+|   Git Branch      |   url (modify-res-prop)       |   deployment (modify-web-xml)     |
+|:---------:|:---------------------:|:----------------------------:|
 |   Main-Server     |	www.virtualflybrain.org     |	vfb                             |
 |   Dev-Server      |	vfbdev.inf.ed.ac.uk         |   vfbdev                          |
 |   Sandbox-Server  |	vfbsandbox.inf.ed.ac.uk	    |   vfbsb                           |
