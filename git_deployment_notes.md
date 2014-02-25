@@ -39,6 +39,9 @@ Added to .git/config:
 [filter "modify-web-xml"]
     smudge = sed -f filters/FiltWebXmlSmudge.sed
     clean = sed -f filters/FiltWebXmlClean.sed
+[filter "modify-tiled-image-data"]
+    smudge = sed -f filters/FiltTiledImageModelDataSmudge.sed
+    clean = sed -f filters/FiltTiledImageModelDataClean.sed
     
 [filter "zip-wlz"]
     smudge = gzip -d
@@ -46,6 +49,7 @@ Added to .git/config:
 ```
 Added to .git/info/attributes:
 ```
+tiledImageModelData.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
 *.wlz filter=zip-wlz
