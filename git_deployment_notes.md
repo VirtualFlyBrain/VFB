@@ -27,8 +27,8 @@ Amend www.virtualflybrain.org and vfb in the smudge and clean of each filter res
 |   Git Branch      |   url (modify-res-prop)       |   deployment (modify-web-xml)     |
 |:---------:|:---------------------:|:----------------------------:|
 |   Main-Server     |	www.virtualflybrain.org     |	vfb                             |
-|   Dev-Server      |	vfbdev.inf.ed.ac.uk         |   vfbdev                          |
-|   Sandbox-Server  |	vfbsandbox.inf.ed.ac.uk	    |   vfbsb                           |
+|   Dev-Server      |	[vfbdev.inf.ed.ac.uk](http://vfbdev.inf.ed.ac.uk) | vfbdev      |
+|   Sandbox-Server  |	[vfbsandbox.inf.ed.ac.uk](http://vfbsandbox.inf.ed.ac.uk) | vfbsb |
 
 
 Added to .git/config:
