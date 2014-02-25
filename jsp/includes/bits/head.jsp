@@ -75,7 +75,9 @@
 			</li>
 			<li><a class="trigger" href="#">Stacks</a>
 			<ul>
-				<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
+				<li><a href="/site/stacks/index.htm">Adult Brain</a></li>
+			</ul>
+			    <li><a href="/site/stacks/tg.htm">Adult Thoracico-abdominal Ganglion</a></li>
 			</ul>
 		</ul>
 		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
