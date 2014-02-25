@@ -1,0 +1,1237 @@
+[
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "thoracico-abdominal ganglion",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "23",
+            "domainColour": [
+                0,
+                0,
+                255,
+                255
+            ],
+            "domainCentre": [
+                258,
+                485,
+                110
+            ]
+        },
+        "nodeId": "0",
+        "extId": [
+            "FBbt:00004052"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "cervical connective",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "4",
+            "domainColour": [
+                229,
+                237,
+                185,
+                255
+            ],
+            "domainCentre": [
+                243,
+                73,
+                154
+            ]
+        },
+        "nodeId": "1",
+        "extId": [
+            "FBbt:00004019"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "cervical nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "255",
+            "domainColour": [
+                0,
+                255,
+                0,
+                255
+            ]
+        },
+        "nodeId": "2",
+        "extId": [
+            "FBbt:00004053"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "neuropile of the prothoracic neuromere",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "3",
+            "domainColour": [
+                255,
+                26,
+                185,
+                255
+            ],
+            "domainCentre": [
+                258,
+                176,
+                113
+            ]
+        },
+        "nodeId": "3",
+        "extId": [
+            "FBbt:00110174"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "prosternal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "254",
+            "domainColour": [
+                255,
+                211,
+                0,
+                255
+            ]
+        },
+        "nodeId": "4",
+        "extId": [
+            "FBbt:00005105"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "dorsal prothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "14",
+            "domainColour": [
+                0,
+                132,
+                246,
+                255
+            ]
+        },
+        "nodeId": "5",
+        "extId": [
+            "FBbt:00004055"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ventral prothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "29",
+            "domainColour": [
+                0,
+                141,
+                70,
+                255
+            ]
+        },
+        "nodeId": "6",
+        "extId": [
+            "FBbt:00004057"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "accessory prothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "15",
+            "domainColour": [
+                167,
+                97,
+                62,
+                255
+            ],
+            "domainCentre": [
+                344,
+                109,
+                79
+            ]
+        },
+        "nodeId": "7",
+        "extId": [
+            "FBbt:00004056"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "prothoracic leg nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "16",
+            "domainColour": [
+                79,
+                0,
+                106,
+                255
+            ],
+            "domainCentre": [
+                226,
+                138,
+                55
+            ]
+        },
+        "nodeId": "8",
+        "extId": [
+            "FBbt:00007657"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "prothoracic neuromere sensory neuropile",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "25",
+            "domainColour": [
+                0,
+                255,
+                246,
+                255
+            ],
+            "domainCentre": [
+                235,
+                166,
+                70
+            ]
+        },
+        "nodeId": "9",
+        "extId": [
+            "FBbt:00110174"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "neuropile of the accessory mesothoracic neuromere",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "20",
+            "domainColour": [
+                62,
+                123,
+                141,
+                255
+            ]
+        },
+        "nodeId": "10",
+        "extId": [
+            "FBbt:00110177"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "anterior dorsal mesothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "13",
+            "domainColour": [
+                237,
+                167,
+                255,
+                255
+            ],
+            "domainCentre": [
+                238,
+                310,
+                135
+            ]
+        },
+        "nodeId": "11",
+        "extId": [
+            "FBbt:00004060"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "accessory mesothoracic neuromere sensory neuropile",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "28",
+            "domainColour": [
+                211,
+                255,
+                149,
+                255
+            ]
+        },
+        "nodeId": "12",
+        "extId": [
+            "FBbt:00110177"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "neuropile of the mesothoracic neuromere",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "2",
+            "domainColour": [
+                185,
+                79,
+                255,
+                255
+            ],
+            "domainCentre": [
+                257,
+                429,
+                87
+            ]
+        },
+        "nodeId": "13",
+        "extId": [
+            "FBbt:00110175"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "posterior dorsal mesothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "17",
+            "domainColour": [
+                229,
+                26,
+                88,
+                255
+            ],
+            "domainCentre": [
+                356,
+                342,
+                165
+            ]
+        },
+        "nodeId": "14",
+        "extId": [
+            "FBbt:00004061"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "accessory mesothoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "18",
+            "domainColour": [
+                132,
+                132,
+                0,
+                255
+            ]
+        },
+        "nodeId": "15",
+        "extId": [
+            "FBbt:00004062"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "mesothoracic leg nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "12",
+            "domainColour": [
+                0,
+                255,
+                149,
+                255
+            ],
+            "domainCentre": [
+                266,
+                529,
+                40
+            ]
+        },
+        "nodeId": "16",
+        "extId": [
+            "FBbt:00004063"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "mesothoracic neuromere sensory neuropile",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "24",
+            "domainColour": [
+                97,
+                0,
+                44,
+                255
+            ]
+        },
+        "nodeId": "17",
+        "extId": [
+            "FBbt:00110175"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "neuropile of the metathoracic neuromere",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "1",
+            "domainColour": [
+                246,
+                132,
+                18,
+                255
+            ],
+            "domainCentre": [
+                257,
+                656,
+                109
+            ]
+        },
+        "nodeId": "18",
+        "extId": [
+            "FBbt:00110176"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "dorsal metathoracic nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "19",
+            "domainColour": [
+                202,
+                255,
+                0,
+                255
+            ],
+            "domainCentre": [
+                221,
+                576,
+                164
+            ]
+        },
+        "nodeId": "19",
+        "extId": [
+            "FBbt:00004094"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "first abdominal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "11",
+            "domainColour": [
+                44,
+                62,
+                0,
+                255
+            ]
+        },
+        "nodeId": "20",
+        "extId": [
+            "FBbt:00004095"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "metathoracic leg nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "10",
+            "domainColour": [
+                0,
+                53,
+                193,
+                255
+            ],
+            "domainCentre": [
+                279,
+                853,
+                52
+            ]
+        },
+        "nodeId": "21",
+        "extId": [
+            "FBbt:00004096"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "metathoracic neuromere sensory neuropile",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "26",
+            "domainColour": [
+                255,
+                202,
+                132,
+                255
+            ],
+            "domainCentre": [
+                274,
+                710,
+                71
+            ]
+        },
+        "nodeId": "22",
+        "extId": [
+            "FBbt:00110176"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "neuropile of the abdominal neuromere",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "5",
+            "domainColour": [
+                0,
+                44,
+                97,
+                255
+            ],
+            "domainCentre": [
+                253,
+                819,
+                121
+            ]
+        },
+        "nodeId": "23",
+        "extId": [
+            "FBbt:00110173"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "second abdominal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "9",
+            "domainColour": [
+                158,
+                114,
+                141,
+                255
+            ],
+            "domainCentre": [
+                223,
+                828,
+                162
+            ]
+        },
+        "nodeId": "24",
+        "extId": [
+            "FBbt:00005105"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "third abdominal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "8",
+            "domainColour": [
+                79,
+                185,
+                18,
+                255
+            ]
+        },
+        "nodeId": "25",
+        "extId": [
+            "FBbt:00005105"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "fourth abdominal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "7",
+            "domainColour": [
+                158,
+                193,
+                255,
+                255
+            ],
+            "domainCentre": [
+                225,
+                945,
+                117
+            ]
+        },
+        "nodeId": "26",
+        "extId": [
+            "FBbt:00005105"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "median abdominal nerve",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "6",
+            "domainColour": [
+                149,
+                158,
+                123,
+                255
+            ],
+            "domainCentre": [
+                221,
+                964,
+                103
+            ]
+        },
+        "nodeId": "27",
+        "extId": [
+            "FBbt:00002179"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "abdominal neuromere sensory neuropile",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "27",
+            "domainColour": [
+                255,
+                123,
+                176,
+                255
+            ]
+        },
+        "nodeId": "28",
+        "extId": [
+            "FBbt:00110173"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "mesothoracic tectulum",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "30",
+            "domainColour": [
+                158,
+                9,
+                0,
+                255
+            ]
+        },
+        "nodeId": "29",
+        "extId": [
+            "FBgn0004052"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "giant fiber",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "40",
+            "domainColour": [
+                255,
+                185,
+                185,
+                255
+            ],
+            "domainCentre": [
+                262,
+                259,
+                147
+            ]
+        },
+        "nodeId": "30",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "DLT",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "41",
+            "domainColour": [
+                132,
+                97,
+                202,
+                255
+            ],
+            "domainCentre": [
+                252,
+                343,
+                128
+            ]
+        },
+        "nodeId": "31",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ITD",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "42",
+            "domainColour": [
+                158,
+                0,
+                114,
+                255
+            ],
+            "domainCentre": [
+                276,
+                240,
+                155
+            ]
+        },
+        "nodeId": "32",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "CFF",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "43",
+            "domainColour": [
+                132,
+                220,
+                167,
+                255
+            ],
+            "domainCentre": [
+                260,
+                484,
+                140
+            ]
+        },
+        "nodeId": "33",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "HC",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "44",
+            "domainColour": [
+                255,
+                0,
+                246,
+                255
+            ],
+            "domainCentre": [
+                260,
+                342,
+                129
+            ]
+        },
+        "nodeId": "34",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "MTD",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "45",
+            "domainColour": [
+                0,
+                211,
+                255,
+                255
+            ],
+            "domainCentre": [
+                259,
+                343,
+                151
+            ]
+        },
+        "nodeId": "35",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ADM",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "46",
+            "domainColour": [
+                255,
+                114,
+                88,
+                255
+            ],
+            "domainCentre": [
+                267,
+                371,
+                162
+            ]
+        },
+        "nodeId": "36",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "PDD",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "47",
+            "domainColour": [
+                88,
+                62,
+                53,
+                255
+            ],
+            "domainCentre": [
+                257,
+                437,
+                145
+            ]
+        },
+        "nodeId": "37",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "DLV",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "48",
+            "domainColour": [
+                0,
+                62,
+                53,
+                255
+            ],
+            "domainCentre": [
+                257,
+                311,
+                112
+            ]
+        },
+        "nodeId": "38",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "VLT",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "49",
+            "domainColour": [
+                220,
+                97,
+                220,
+                255
+            ],
+            "domainCentre": [
+                258,
+                223,
+                134
+            ]
+        },
+        "nodeId": "39",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "VTV",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "50",
+            "domainColour": [
+                97,
+                114,
+                176,
+                255
+            ],
+            "domainCentre": [
+                257,
+                287,
+                87
+            ]
+        },
+        "nodeId": "40",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "CPN",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "51",
+            "domainColour": [
+                185,
+                202,
+                44,
+                255
+            ],
+            "domainCentre": [
+                250,
+                205,
+                113
+            ]
+        },
+        "nodeId": "41",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "CMN",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "53",
+            "domainColour": [
+                18,
+                176,
+                167,
+                255
+            ],
+            "domainCentre": [
+                253,
+                470,
+                100
+            ]
+        },
+        "nodeId": "42",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "VAC",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "54",
+            "domainColour": [
+                97,
+                18,
+                0,
+                255
+            ],
+            "domainCentre": [
+                265,
+                330,
+                58
+            ]
+        },
+        "nodeId": "43",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ACM",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "55",
+            "domainColour": [
+                44,
+                0,
+                44,
+                255
+            ]
+        },
+        "nodeId": "44",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "MDA",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "56",
+            "domainColour": [
+                88,
+                0,
+                202,
+                255
+            ],
+            "domainCentre": [
+                256,
+                496,
+                150
+            ]
+        },
+        "nodeId": "45",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ITD-HT",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "242",
+            "domainColour": [
+                149,
+                193,
+                202,
+                255
+            ],
+            "domainCentre": [
+                241,
+                459,
+                150
+            ]
+        },
+        "nodeId": "46",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ITD-CFF",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "243",
+            "domainColour": [
+                211,
+                158,
+                35,
+                255
+            ],
+            "domainCentre": [
+                247,
+                343,
+                148
+            ]
+        },
+        "nodeId": "47",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "ITD-HC",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "244",
+            "domainColour": [
+                132,
+                176,
+                88,
+                255
+            ],
+            "domainCentre": [
+                246,
+                371,
+                148
+            ]
+        },
+        "nodeId": "48",
+        "extId": [
+            "FBgn0004020"
+        ]
+    },
+    {
+        "nodeState": {
+            "selected": "false",
+            "open": "true"
+        },
+        "name": "Neuroglian",
+        "domainData": {
+            "domainSelected": "false",
+            "domainId": "100",
+            "domainColour": [
+                255,
+                0,
+                0,
+                255
+            ],
+            "domainCentre": [
+                249,
+                495,
+                96
+            ]
+        },
+        "nodeId": "49",
+        "extId": [
+            "FBgn0002968"
+        ]
+    }
+]
