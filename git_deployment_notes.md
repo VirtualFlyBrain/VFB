@@ -33,12 +33,12 @@ Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
 
 Added to .git/config:
 ```
-filter "modify-res-prop"]
-    smudge = sed 's/server_name=VFB/server_name=www.virtualflybrain.org/'
-    clean = sed 's/server_name=vfbdev.inf.ed.ac.uk/server_name=VFB/g;s/server_name=sandbox.inf.ed.ac.uk/server_name=VFB/g;s/server_name=www.virtualflybrain.org/server_name=VFB/g;'
+[filter "modify-res-prop"]
+    smudge = sed -f filters/FiltResPropSmudge.sed
+    clean = sed -f filters/FiltResPropClean.sed
 [filter "modify-web-xml"]
-    smudge = sed "s/"<param-value>WEBAPP_NAME</param-value>"/"<param-value>vfb</param-value>"/"
-    clean = sed "s/"<param-value>vfbdev</param-value>"/"<param-value>WEBAPP_NAME</param-value>"/g;s/"<param-value>vfbsb</param-value>"/"<param-value>WEBAPP_NAME</param-value>"/g;s/"<param-value>vfb</param-value>"/"<param-value>WEBAPP_NAME</param-value>"/g;"
+    smudge = sed -f filters/FiltWebXmlSmudge.sed
+    clean = sed -f filters/FiltWebXmlClean.sed
     
 [filter "zip-wlz"]
     smudge = gzip -d
