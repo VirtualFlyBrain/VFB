@@ -16,7 +16,7 @@
    "layerData": [
       {
          "imageDir”:”/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/main/woolz/",
-         "imageName":"flybrain.wlz",
+         "imageName":"flybrain.wlz", 
          "type":"greyLevel",
          "opacity":"1.0",
          "visible":"true"

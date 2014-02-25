@@ -15,14 +15,14 @@
    ],
    "layerData": [
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/vfbsb/data/flybrain/tg/woolz/",
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/tg/woolz/",
          "imageName":"taggrey.wlz",
          "type":"greyLevel",
          "opacity":"1.0",
          "visible":"true"
       },
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/vfbsb/data/flybrain/tg/woolz/",
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/tg/woolz/",
          "imageName":"taglabel.wlz",
          "type":"label",
          "opacity":"0.5",
