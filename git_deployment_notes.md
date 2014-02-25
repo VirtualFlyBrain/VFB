@@ -22,9 +22,9 @@ Note: smudged wlz files won't be appended with .gz this is just to cover all bas
 
 ##Server required filters
 
-Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
+Amend vfbdev.inf.ed.ac.uk and vfbdev in the smudge of each filter respectively:
 
-|   Git Branch      |   url (modify-res-prop)       |   deployment (modify-web-xml)     |
+|   Git Branch      |   url (modify-url)       |   deployment (modify-app)     |
 |:---------:|:---------------------:|:----------------------------:|
 |   Main-Server     |	www.virtualflybrain.org     |	vfb                             |
 |   Dev-Server      |	[vfbdev.inf.ed.ac.uk](http://vfbdev.inf.ed.ac.uk) | vfbdev      |
@@ -32,7 +32,14 @@ Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
 
 
 Added to .git/config:
-```
+```shell
+[filter "modify-url"]
+    smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
+    clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
+[filter "modify-app"]
+    smudge = sed 's/>vfb</>vfbdev</'
+    clean = sed 's/>vfbdev</>vfb</'
+
 [filter "modify-res-prop"]
     smudge = sed -f filters/FiltResPropSmudge.sed
     clean = sed -f filters/FiltResPropClean.sed
@@ -48,7 +55,9 @@ Added to .git/config:
     clean = gzip -9
 ```
 Added to .git/info/attributes:
-```
+```shell
+Filt[R,T]*Smudge.sed filter=modify-url
+FiltW*Smudge.sed filter=modify-app
 tiledImageModelData.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
