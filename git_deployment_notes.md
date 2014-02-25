@@ -56,6 +56,8 @@ Added to .git/config:
 ```
 Added to .git/info/attributes:
 ```shell
+Filt[R,T]*Smudge.sed filter=modify-url
+FiltW*Smudge.sed filter=modify-app
 tiledImageModelData.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
