@@ -22,7 +22,7 @@ Note: smudged wlz files won't be appended with .gz this is just to cover all bas
 
 ##Server required filters
 
-Amend www.virtualflybrain.org and vfb in the smudge and clean of each filter respectively:
+Amend www.virtualflybrain.org and vfb in the smudge of each filter respectively:
 
 |   Git Branch      |   url (modify-res-prop)       |   deployment (modify-web-xml)     |
 |:---------:|:---------------------:|:----------------------------:|
