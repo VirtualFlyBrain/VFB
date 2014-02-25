@@ -69,7 +69,7 @@
 
 	<filter>
 		<filter-name>charsetFilter</filter-name>
-		<filter-class>uk.ac.ed.vfb.servlets.CharsetEncodingFilter</filter-class>
+		<filter-class>uk.ac.ed.WEBAPP_NAME.servlets.CharsetEncodingFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
@@ -103,7 +103,7 @@
 
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>vfb</param-value>
+		<param-value>WEBAPP_NAME</param-value>
 	</context-param>
 
 	<!-- Define an error handler for 404 pages -->
