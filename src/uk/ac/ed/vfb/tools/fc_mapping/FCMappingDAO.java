@@ -25,12 +25,14 @@ import uk.ac.ed.vfb.service.OntBeanManager;
  */
 
 public class FCMappingDAO extends AQueryDAO {
+	@SuppressWarnings("unused")
 	private final String updateSQL = "update third_party_site_lookup set "; 
 	private static final Log LOG = LogFactory.getLog(FCMappingDAO.class); 
 
 	/**
 	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query 
 	 */
+	@SuppressWarnings({ "unchecked", "unused" })
 	public List<Record> getAll() {
 		String query = "select * from fc_mapping"; 			
 		LOG.debug("Query : " + query);
