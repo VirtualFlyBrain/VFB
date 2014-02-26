@@ -69,4 +69,10 @@ resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
+*.js filter=modify-ref-gen
+*.jso filter=modify-ref-gen
+*.htm filter=modify-ref-gen
+*.jsp filter=modify-ref-gen
+*.xml filter=modify-ref-gen
+*.owl filter=modify-ref-gen
 ```
