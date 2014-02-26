@@ -31,7 +31,7 @@ Amend vfbdev.inf.ed.ac.uk and vfbdev in the smudge of each filter respectively:
 |   Sandbox-Server  |	[vfbsandbox.inf.ed.ac.uk](http://vfbsandbox.inf.ed.ac.uk) | vfbsb |
 
 
-Added to .git/config:
+Added to .git/config: (edit first section to modify all filters)
 ```shell
 [filter "modify-url"]
     smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
@@ -39,6 +39,12 @@ Added to .git/config:
 [filter "modify-app"]
     smudge = sed 's/>vfb</>vfbdev</'
     clean = sed 's/>vfbdev</>vfb</'
+```
+
+```
+[filter "modify-ref-gen"]
+    smudge = sed -f filters/FiltGenSmudge.sed
+    clean = sed -f filters/FiltGenClean.sed
 
 [filter "modify-res-prop"]
     smudge = sed -f filters/FiltResPropSmudge.sed
@@ -63,4 +69,10 @@ resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
+*.js filter=modify-ref-gen
+*.jso filter=modify-ref-gen
+*.htm filter=modify-ref-gen
+*.jsp filter=modify-ref-gen
+*.xml filter=modify-ref-gen
+*.owl filter=modify-ref-gen
 ```

@@ -4,3 +4,7 @@
 /webServer/s/vfb-karenin.inf.ed.ac.uk/SERVER_NAME/
 /webServer/s/vfb-blanik.inf.ed.ac.uk/SERVER_NAME/
 /webServer/s/vfb-bocian.inf.ed.ac.uk/SERVER_NAME/
+/imageDir/s/vfbdev/WEBAPP_NAME/
+/imageDir/s/vfbsb/WEBAPP_NAME/
+/imageDir/s/vfb/WEBAPP_NAME/
+/imageDir/s/GITvfb/WEBAPP_NAME/
