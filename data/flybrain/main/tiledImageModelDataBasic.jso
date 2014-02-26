@@ -1,5 +1,5 @@
 {
-   "webServer": “SERVER_NAME”,
+   "webServer": “vfb-karenin.inf.ed.ac.uk”,
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
    "toolsMetadataFilename": "main/tiledImageToolParamsBasic.jso",
