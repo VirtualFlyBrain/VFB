@@ -42,12 +42,6 @@ Added to .git/config: (edit first section to modify all filters)
 ```
 
 ```
-[filter "modify-url"]
-    smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
-    clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
-[filter "modify-app"]
-    smudge = sed 's/>vfb</>vfbdev</'
-    clean = sed	's/>vfbdev</>vfb</'
 
 [filter "modify-ref-gen"]
     smudge = sed -f filters/FiltGenSmudge.sed
