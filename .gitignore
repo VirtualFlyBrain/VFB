@@ -1,4 +1,6 @@
 build/
+*.tar.gz
 
 
 
+data/flybrain/main/tiledImageModelData.jso
