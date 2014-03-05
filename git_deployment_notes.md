@@ -39,6 +39,9 @@ Added to .git/config: (edit first section to modify all filters)
 [filter "modify-app"]
     smudge = sed 's/>vfb</>vfbdev</'
     clean = sed 's/>vfbdev</>vfb</'
+[filter "modify-gen"]
+    smudge = sed '/webapps/s/vfb/vfbdev/'
+    clean = sed '/webapps/s/vfbdev/vfb/'
 ```
 
 ```
@@ -64,8 +67,9 @@ Added to .git/config: (edit first section to modify all filters)
 ```
 Added to .git/info/attributes:
 ```shell
-Filt[R,T,G]*Smudge.sed filter=modify-url
-Filt[W]*Smudge.sed filter=modify-app
+Filt*Smudge.sed filter=modify-url
+Filt*Smudge.sed filter=modify-app
+FiltGenSmudge.sed filter=modify-gen
 tiledImageModelData*jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 web.xml filter=modify-web-xml
