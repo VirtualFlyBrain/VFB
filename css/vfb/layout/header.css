@@ -52,3 +52,7 @@ a {
 a:hover{
 	text-decoration:underline;
 }
+
+img:-moz-loading {
+    visibility: hidden;
+}

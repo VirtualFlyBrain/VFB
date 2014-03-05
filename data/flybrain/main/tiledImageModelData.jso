@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
    "webServer": "vfbsandbox.inf.ed.ac.uk", 
+=======
+   "webServer": "vfbsandbox.inf.ed.ac.uk",
+>>>>>>> master
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
    "toolsMetadataFilename": "main/tiledImageToolParams.jso",
@@ -15,9 +19,9 @@
    ],
    "layerData": [
       {
-         "imageDir”:”/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/main/woolz/",
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/main/woolz/",
          "imageName":"flybrain.wlz",
-         "type":"greyLevel", 
+         "type":"greyLevel",
          "opacity":"1.0",
          "visible":"true"
       },
