@@ -1,5 +1,5 @@
 {
-   "webServer": "vfbsandbox.inf.ed.ac.uk",
+   "webServer": "www.virtualflybrain.org",
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
    "toolsMetadataFilename": "main/tiledImageToolParamsBasic.jso",
