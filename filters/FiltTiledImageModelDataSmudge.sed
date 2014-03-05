@@ -1,3 +1,3 @@
-/webServer/s/SERVER_NAME/www.virtualflybrain.org/
-/imageDir/s/WEBAPP_NAME/vfb/
+/webServer/s/SERVER_NAME/vfbsandbox.inf.ed.ac.uk/
+/imageDir/s/WEBAPP_NAME/vfbsb/
 
