@@ -5,7 +5,8 @@
 }
 
 #wrapper {
-	width:1264px;
+	width:1300px;
+	max-width:100%;
 }
 
 #center_wide {
