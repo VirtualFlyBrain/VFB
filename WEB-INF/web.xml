@@ -104,7 +104,7 @@
     <!-- Do not change WEBAPP_NAME this is changed by git smudge/clean filters see git_deployment_notes.md -->
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>vfbsb</param-value>
+		<param-value>WEBAPP_NAME</param-value>
 	</context-param>
 
 	<!-- Define an error handler for 404 pages -->
