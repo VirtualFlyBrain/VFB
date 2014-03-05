@@ -40,8 +40,8 @@ window.addEvent('domready', createAutocomplete);
 		<h2>Search for brain region or neuron</h2>
 		<label>Search in:</label> 
 		<select name="scope" id="scope" onchange="setScope()">
-		  	 <option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected="selected"</c:if>>Adult Brain</option>
-			 <option value="all" <c:if test="${sessionScope.scope=='all'}">selected="selected"</c:if>>All Neuroanatomy</option>
+		  	 <option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
+			 <option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
 		</select>
 		<a class="help " href="./home_query_howtos/scope.htm?height=600&width=800&TB_iframe=true" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
 		<br/><br/>
@@ -54,7 +54,7 @@ window.addEvent('domready', createAutocomplete);
 </div> <!-- icon_row -->
 
 <div class="icon_row">
-  <div class="icon" style="width:722px;height:280px; text-align:left; margin-top:-10px">
+  <div class="icon" style="width:722px;height:inherit; text-align:left; margin-top:-10px">
         <h2 style="text-align:center">What can VFB do for me? Example queries</h2>
 	<ul>
 	  <li><a href="/site/stacks/index.htm?add=FBbt:00045048">
