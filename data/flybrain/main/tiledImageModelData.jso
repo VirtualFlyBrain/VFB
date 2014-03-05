@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-   "webServer": "vfbsandbox.inf.ed.ac.uk", 
-=======
-   "webServer": "vfbsandbox.inf.ed.ac.uk",
->>>>>>> master
+   "webServer": "www.virtualflybrain.org",
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
    "toolsMetadataFilename": "main/tiledImageToolParams.jso",
