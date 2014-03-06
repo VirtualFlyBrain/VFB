@@ -17,13 +17,13 @@
 		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
 	}
 </script>
-</head>
+
 
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<body>
+
 	<div id="help_wrapper">
 		<div id="help_head_wrapper">
 			<h1 id="help_header">Query: ${query}</h1>
@@ -87,5 +87,5 @@
 		</div>
 	</div>
 	<!-- help_wrapper -->
-</body>
-</html>
+	
+<jsp:include page="/jsp/includes/homeFoot.jsp"/>
