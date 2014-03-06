@@ -68,17 +68,15 @@ Added to .git/config: (edit first section to modify all filters)
 Added to .git/info/attributes:
 ```shell
 Filt*Smudge.sed filter=modify-url
-Filt*Smudge.sed filter=modify-app
+FiltW*Smudge.sed filter=modify-app
 FiltGenSmudge.sed filter=modify-gen
-tiledImageModelData*jso filter=modify-tiled-image-data
+tiledImageModelD*.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
-web.xml filter=modify-web-xml
+*.xml filter=modify-web-xml
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
 *.js filter=modify-ref-gen
-*.jso filter=modify-ref-gen
 *.htm filter=modify-ref-gen
 *.jsp filter=modify-ref-gen
-*.xml filter=modify-ref-gen
 *.owl filter=modify-ref-gen
 ```
