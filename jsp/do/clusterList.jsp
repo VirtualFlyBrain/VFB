@@ -3,7 +3,7 @@
 <%@ taglib uri="/WEB-INF/classes/vfbUtils.tld" prefix="vfbUtil"%>
 
 <jsp:include page="/jsp/includes/1ColHead.jsp">
-	<jsp:param name="title" value="${query}" />
+	<jsp:param name="title" value="Query Results" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
 </jsp:include>
