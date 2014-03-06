@@ -1,5 +1,5 @@
 {
-   "webServer": "www.virtualflybrain.org",
+   "webServer": "SERVER_NAME",
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
    "toolsMetadataFilename": "main/tiledImageToolParams.jso",
