@@ -2,13 +2,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="/WEB-INF/classes/vfbUtils.tld" prefix="vfbUtil"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<jsp:include page="/jsp/includes/1ColHead.jsp">
+	<jsp:param name="title" value="${query}" />
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
+	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+</jsp:include>
 
-<head>
-<title>${query}</title>
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
 <jsp:include page="/jsp/includes/js/ga.jsp" />	
 
 <script type="text/javascript">
