@@ -27,7 +27,6 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 <link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />	
-<jsp:include page="/jsp/includes/js/ga.jsp" />
 
 <script type="text/javascript">
 	function formSubmit() {

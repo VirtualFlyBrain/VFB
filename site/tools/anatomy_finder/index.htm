@@ -20,10 +20,10 @@ window.addEvent('domready', createAutocomplete);
 	
 	<div id="search_panel" style="padding: 0 5px 5px 5px;">
 		<h2 id="header">Search for the anatomy term/neuron here</h2>
-		<label>Search in:</label> 
+		<label>Search in:</label>
 		<select name="scope" id="scope" onchange="setScope()">
-  			 <option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-  			 <option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
+			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
+			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
 		</select>
 		<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search"/>
 		<input id="scopeValue" type="hidden" />	

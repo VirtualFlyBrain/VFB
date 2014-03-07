@@ -80,7 +80,6 @@
 <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" />
-<jsp:include page="/jsp/includes/js/ga.jsp" />
 
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
@@ -110,7 +109,6 @@
 </head>
 <body>
 
-	<jsp:include page="/jsp/includes/bits/head.jsp" />
 
 	<div id="contentwrapper">
 		<div id="center_panel">

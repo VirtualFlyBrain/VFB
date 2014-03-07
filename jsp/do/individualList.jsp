@@ -2,22 +2,19 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="/WEB-INF/classes/vfbUtils.tld" prefix="vfbUtil"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<jsp:include page="/jsp/includes/1ColHead.jsp">
+	<jsp:param name="title" value="Query Results" />
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
+	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+</jsp:include>
 
-<head>
-<title>${query}</title>
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
-<jsp:include page="/jsp/includes/js/ga.jsp" />
 
-</head>
 
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<body>
+
 	<div id="help_wrapper">
 		<div id="help_head_wrapper">
 			<h1 id="help_header">Query: ${query}</h1>
@@ -89,5 +86,4 @@
 		</div>
 	</div>
 	<!-- help_wrapper -->
-</body>
-</html>
+<jsp:include page="/jsp/includes/homeFoot.jsp"/>
