@@ -33,19 +33,12 @@ Amend vfbdev.inf.ed.ac.uk and vfbdev in the smudge of each filter respectively:
 
 Added to .git/config: (edit first section to modify all filters)
 ```shell
-[filter "modify-url"]
-    smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
-    clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
-[filter "modify-app"]
-    smudge = sed 's/>vfb</>vfbdev</'
-    clean = sed 's/>vfbdev</>vfb</'
 [filter "modify-gen"]
-    smudge = sed '/webapps/s/vfb/vfbdev/'
-    clean = sed '/webapps/s/vfbdev/vfb/'
+    smudge = sed -f filters/Local-Dev-Server-Smudge.sed
+    clean = sed -f filters/Local-General-Clean.sed
 ```
 
 ```
-
 [filter "modify-ref-gen"]
     smudge = sed -f filters/FiltGenSmudge.sed
     clean = sed -f filters/FiltGenClean.sed
@@ -53,13 +46,14 @@ Added to .git/config: (edit first section to modify all filters)
 [filter "modify-res-prop"]
     smudge = sed -f filters/FiltResPropSmudge.sed
     clean = sed -f filters/FiltResPropClean.sed
+    
 [filter "modify-web-xml"]
     smudge = sed -f filters/FiltWebXmlSmudge.sed
     clean = sed -f filters/FiltWebXmlClean.sed
+    
 [filter "modify-tiled-image-data"]
     smudge = sed -f filters/FiltTiledImageModelDataSmudge.sed
     clean = sed -f filters/FiltTiledImageModelDataClean.sed
-
 
 [filter "zip-wlz"]
     smudge = gzip -d
@@ -67,9 +61,7 @@ Added to .git/config: (edit first section to modify all filters)
 ```
 Added to .git/info/attributes:
 ```shell
-Filt*Smudge.sed filter=modify-url
-FiltW*Smudge.sed filter=modify-app
-FiltGenSmudge.sed filter=modify-gen
+Filt*Smudge.sed filter=modify-gen
 tiledImageModelD*.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 *.xml filter=modify-web-xml
