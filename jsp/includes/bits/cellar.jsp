@@ -4,4 +4,5 @@
 	  <script>mail2("support","virtualflybrain",1,"","Contact us")</script> |
 	  <a href="/site/vfb_site/privacy_cookies.htm">Privacy and Cookies</a> |
 	  <a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_blank">Site Feedback</a> |
+	  <jsp:include page="/jsp/includes/js/ga.jsp" />
 	</div>

@@ -7,7 +7,6 @@
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
 </jsp:include>
 
-<jsp:include page="/jsp/includes/js/ga.jsp" />	
 
 
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>

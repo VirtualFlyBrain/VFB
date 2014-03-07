@@ -13,7 +13,6 @@
     <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
     <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
     <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
-   	<jsp:include page="/jsp/includes/js/ga.jsp" />
     
    <script type="text/javascript"> 
     window.addEvent('domready', function() {
