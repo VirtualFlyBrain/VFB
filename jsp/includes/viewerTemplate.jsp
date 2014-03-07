@@ -79,7 +79,7 @@
 <script type="text/javascript" src="/javascript/tree/contextMenuVFB.js"></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
-<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" />
+<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" /></script>
 
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
@@ -104,7 +104,7 @@
 	      emapModel.initialise(jso);
 		});
 	
-	</script>
+</script>
 
 </head>
 <body>
