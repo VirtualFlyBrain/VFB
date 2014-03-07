@@ -28,7 +28,6 @@
 	  <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
       <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
       <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
-	  <jsp:include page="/jsp/includes/js/ga.jsp" />
 </head>
 <body>
   	<div id="wrapper">

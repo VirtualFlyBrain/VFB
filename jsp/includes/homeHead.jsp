@@ -18,8 +18,7 @@
       <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>  
 	  <link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
 	  <script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
-	  <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
-	  <jsp:include page="/jsp/includes/js/ga.jsp" />	  
+	  <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>	  
 </head>
 <body>
   <div id="wrapper">
