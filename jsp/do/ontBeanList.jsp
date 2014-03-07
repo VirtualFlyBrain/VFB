@@ -7,7 +7,6 @@
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
 </jsp:include>
-<jsp:include page="/jsp/includes/js/ga.jsp" />
 
 <script type="text/javascript">
 	function formSubmit() {
