@@ -17,35 +17,20 @@ Added to .git/info/attributes:
 *.wlz.gz filter=zip-wlz
 ```
 
-Note: smudged wlz files won't be appended with .gz this is just to cover all bases.
-
+Note: smudged wlz files won't be appended with .gz; it's inclusion is just to cover all bases.
 
 ##Server required filters
 
-Amend vfbdev.inf.ed.ac.uk and vfbdev in the smudge of each filter respectively:
+The filters modify various markers and urls for the Main or with the Dev or Sandbox servers
 
-|   Git Branch      |   url (modify-url)       |   deployment (modify-app)     |
-|:---------:|:---------------------:|:----------------------------:|
-|   Main-Server     |	www.virtualflybrain.org     |	vfb                             |
-|   Dev-Server      |	[vfbdev.inf.ed.ac.uk](http://vfbdev.inf.ed.ac.uk) | vfbdev      |
-|   Sandbox-Server  |	[vfbsandbox.inf.ed.ac.uk](http://vfbsandbox.inf.ed.ac.uk) | vfbsb |
-
-
-Added to .git/config: (edit first section to modify all filters)
+Added to .git/config: (edit first section to modify all sub filters - not required for Main-Server)
 ```shell
-[filter "modify-url"]
-    smudge = sed 's/www.virtualflybrain.org/vfbdev.inf.ed.ac.uk/'
-    clean = sed 's/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/'
-[filter "modify-app"]
-    smudge = sed 's/>vfb</>vfbdev</'
-    clean = sed 's/>vfbdev</>vfb</'
 [filter "modify-gen"]
-    smudge = sed '/webapps/s/vfb/vfbdev/'
-    clean = sed '/webapps/s/vfbdev/vfb/'
+    smudge = sed -f filters/Local-Dev-Server-Smudge.sed
+    clean = sed -f filters/Local-General-Clean.sed
 ```
-
+Note: above only needed for Dev or Sandbox.
 ```
-
 [filter "modify-ref-gen"]
     smudge = sed -f filters/FiltGenSmudge.sed
     clean = sed -f filters/FiltGenClean.sed
@@ -53,13 +38,14 @@ Added to .git/config: (edit first section to modify all filters)
 [filter "modify-res-prop"]
     smudge = sed -f filters/FiltResPropSmudge.sed
     clean = sed -f filters/FiltResPropClean.sed
+    
 [filter "modify-web-xml"]
     smudge = sed -f filters/FiltWebXmlSmudge.sed
     clean = sed -f filters/FiltWebXmlClean.sed
+    
 [filter "modify-tiled-image-data"]
     smudge = sed -f filters/FiltTiledImageModelDataSmudge.sed
     clean = sed -f filters/FiltTiledImageModelDataClean.sed
-
 
 [filter "zip-wlz"]
     smudge = gzip -d
@@ -67,9 +53,10 @@ Added to .git/config: (edit first section to modify all filters)
 ```
 Added to .git/info/attributes:
 ```shell
-Filt*Smudge.sed filter=modify-url
-FiltW*Smudge.sed filter=modify-app
-FiltGenSmudge.sed filter=modify-gen
+Filt*Smudge.sed filter=modify-gen
+```
+Note: above only needed for Dev or Sandbox.
+```shell
 tiledImageModelD*.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 *.xml filter=modify-web-xml
