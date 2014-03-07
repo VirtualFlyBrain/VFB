@@ -109,6 +109,7 @@
 </head>
 <body>
 
+	<jsp:include page="/jsp/includes/bits/head.jsp" />
 
 	<div id="contentwrapper">
 		<div id="center_panel">
