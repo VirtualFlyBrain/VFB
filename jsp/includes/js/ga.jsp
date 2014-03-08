@@ -1,6 +1,7 @@
-<!--  Google Analytics include virtualflybrain.org... code: UA-18509775-2 -->
-<!--  Google Analytics include vfbdev.inf.ed.ac.uk ... code: UA-18509775-3 -->
-<!--  Google Analytics include vfbsandbox.inf.ed.ac.uk ... code: UA-18509775-1 -->
+<!--  Google Analytics include virtualflybrain.org ... code: 18509775-2 -->
+<!--  Google Analytics include vfbdev ... code: 18509775-3 -->
+<!--  Google Analytics include vfbsandbox ... code: 18509775-1 -->
+<!--  Note: Set during deployment leave at main site (-2) -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-18509775-2']);
