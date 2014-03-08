@@ -18,7 +18,11 @@ pageContext.setAttribute("neurons", acdaoNeurons.getSynSet());
 AutocompleteDAO acdaoTracts = (AutocompleteDAO)wac.getBean("autocompleteDAOTract"); 
 pageContext.setAttribute("tracts", acdaoTracts.getSynSet());  
 %>
-<c:set var="u1" value="<url>" /><c:set var="u2" value="</url>" /><c:set var="l1" value="<loc>" /><c:set var="l2" value="</loc>" /><c:set var="af" value="http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" /><c:set var="bsf" value="http://www.virtualflybrain.org/site/stacks/index.htm?add=" />
+<c:set var="u1" value="<url>" /><c:set var="u2" value="</url>" /><c:set var="l1" value="<loc>" /><c:set var="l2" value="</loc>" />
+<c:set var="af" value="http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" />
+<c:set var="bsf" value="http://www.virtualflybrain.org/site/stacks/index.htm?add=" />
+<c:set var="qob" value="http://www.virtualflybrain.org/do/ont_bean_list.html?action=found&id=" />
+<c:set var="qcl" value="http://www.virtualflybrain.org/do/cluster_list.html?action=cluster_found&id=" />
 <url>
   <loc>http://www.virtualflybrain.org/</loc>
 </url>
@@ -67,6 +71,16 @@ ${u2}
 <c:forEach items="${neuropils}" var="neuropil" varStatus="i">
 ${u1}
 ${l1}${bsf}${neuropil.fbbtId}${l2}
+${u2}
+</c:forEach>
+<c:forEach items="${neuropils}" var="neuropil" varStatus="i">
+${u1}
+${l1}${qob}${neuropil.fbbtId}${l2}
+${u2}
+</c:forEach>
+<c:forEach items="${neuropils}" var="neuropil" varStatus="i">
+${u1}
+${l1}${qcl}${neuropil.fbbtId}${l2}
 ${u2}
 </c:forEach>
 <c:forEach items="${tracts}" var="tract" varStatus="i">
