@@ -28,6 +28,9 @@ Added to .git/config: (edit first section to modify all sub filters - not requir
 [filter "modify-gen"]
     smudge = sed -f filters/Local-Dev-Server-Smudge.sed
     clean = sed -f filters/Local-General-Clean.sed
+[filter	"modify-GA"]
+    smudge = sed -f filters/FiltGoogleAnSmudge.sed
+    clean = sed -f filters/FiltGoogleAnClean.sed
 ```
 Note: above only needed for Dev or Sandbox.
 ```
@@ -54,16 +57,18 @@ Note: above only needed for Dev or Sandbox.
 Added to .git/info/attributes:
 ```shell
 Filt*Smudge.sed filter=modify-gen
+ga.jsp filter=modify-GA
 ```
 Note: above only needed for Dev or Sandbox.
 ```shell
 tiledImageModelD*.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
-*.xml filter=modify-web-xml
+w*.xml filter=modify-web-xml
+s*.xml filter=modify-ref-gen
 *.wlz filter=zip-wlz
 *.wlz.gz filter=zip-wlz
-*.js filter=modify-ref-gen
+???*.jsp filter=modify-ref-gen
 *.htm filter=modify-ref-gen
-*.jsp filter=modify-ref-gen
+*.js filter=modify-ref-gen
 *.owl filter=modify-ref-gen
 ```
