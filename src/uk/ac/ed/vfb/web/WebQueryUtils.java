@@ -75,16 +75,18 @@ public class WebQueryUtils {
 				new String[]{"multi-leg ", "Multi-leg query ", 
 				"we do not need expresssion here, refer to OntQuery class"
 		});
-		//Cluster of Individuals
-		ad.put("cluster_found", 
-				new String[]{"found in", "Neurons with some part in XXX, clustered by shape",
-				"individual&'exemplar_of' some ('cluster' that 'has_exemplar' some ('neuron' that 'overlaps' some XXX))"
-		});
-		//Individual neurons 
-		ad.put("neuron_found", 
-				new String[]{"found in", "Neurons with shape similar to XXX ",
-				"individual&'member_of' some ('has_exemplar' value XXX)"
-		});
+		//Cluster of Individuals that overlap some X, clustered by shape
+  		ad.put("cluster_found", 
+  				new String[]{"found in", "Neurons with some part in XXX, clustered by shape",
+  				"individual&'exemplar_of' some ('cluster' that 'has_exemplar' some ('neuron' that 'overlaps' some XXX))"
+  		});
+ 		//Individual neurons 
+ 		//Cluster of Individuals that overlap some X - unclustered
+ 		ad.put("ind_neuron_overlap", 
+ 				new String[]{"found in", "Images of neurons with some part in XXX",
+ 				"individual&'neuron' that 'overlaps' some XXX"
+ 		});
+ 		//Individual members of a cluster - queries by cluster exemplar name
 		ad.put("exemplar_neuron", 
 				new String[]{"exemplar neurons", "Examples of XXX",
 				"individual&XXX"
