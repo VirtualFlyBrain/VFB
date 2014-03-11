@@ -11,6 +11,7 @@ then
         partname=${filename}.gz.part-
         echo splitting ${mergedname} into 48mb pieces - ${partname}??  
         split -b 48m ${mergedname} ${partname}
+        rm ${mergedname}
         echo completed packaging ${filename} for push to GITHUB
     done
 else
