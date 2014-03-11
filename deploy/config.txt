@@ -1,0 +1,38 @@
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@github.com:VirtualFlyBrain/VFB.git
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+
+[filter "modify-gen"]
+    smudge = sed -f filters/Local-BRANCH_NAME-Smudge.sed
+    clean = sed -f filters/Local-General-Clean.sed
+
+[filter "modify-ref-gen"]
+    smudge = sed -f filters/FiltGenSmudge.sed
+    clean = sed -f filters/FiltGenClean.sed
+
+[filter "modify-GA"]
+    smudge = sed -f filters/FiltGoogleAnSmudge.sed
+    clean = sed -f filters/FiltGoogleAnClean.sed
+
+[filter "modify-res-prop"]
+    smudge = sed -f filters/FiltResPropSmudge.sed
+    clean = sed -f filters/FiltResPropClean.sed
+[filter "modify-web-xml"]
+    smudge = sed -f filters/FiltWebXmlSmudge.sed
+    clean = sed -f filters/FiltWebXmlClean.sed
+[filter "modify-tiled-image-data"]
+    smudge = sed -f filters/FiltTiledImageModelDataSmudge.sed
+    clean = sed -f filters/FiltTiledImageModelDataClean.sed
+
+
+[filter "zip-wlz"]
+    smudge = gzip -d
+    clean = gzip -9
