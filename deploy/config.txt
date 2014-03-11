@@ -33,6 +33,4 @@
     clean = sed -f filters/FiltTiledImageModelDataClean.sed
 
 
-[filter "zip-wlz"]
-    smudge = gzip -d
-    clean = gzip -9
+
