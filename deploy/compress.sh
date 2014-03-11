@@ -3,7 +3,7 @@
 if [ -d .git ]
 then    
     echo "Compressing any *.wlz data..."
-    for filename in find . -name '*.wlz'
+    for filename in `find . -name '*.wlz'`
     do
         mergedname=${filename}.gz
         echo compressing ${filename} keeping original file.

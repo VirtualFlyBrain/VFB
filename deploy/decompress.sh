@@ -3,7 +3,7 @@
 if [ -d .git ]
 then    
     echo "Decompressing any *.gz or *.gz.part-?? data..."
-    for filename in find . -name '*.gz.part-aa'
+    for filename in `find . -name '*.gz.part-aa'`
     do
         mergedname=${filename/gz.part-aa/gz}
         echo merging files to reconstruct ${mergedname}
@@ -12,7 +12,7 @@ then
         pigz -df ${mergedname}
         echo completed deploying ${mergedname/.qz/}
     done
-    for filename in find . -name '*.gz'
+    for filename in `find . -name '*.gz'`
     do
         decomname=${filename/.gz/}
         echo decompressing and keeping gzip copy of ${filename} 
