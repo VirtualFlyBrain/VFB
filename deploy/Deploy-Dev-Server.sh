@@ -16,7 +16,7 @@ then
             mkdir .git/info
         fi
         cp deploy/attributes .git/info/
-        sed -i 's/BRANCH_NAME/${branch}/g' .git/config
+        sed -i s/BRANCH_NAME/${branch}/g .git/config
     else
         echo 'Git Smudge/Clean filters already added.' 
         echo 'Note: to manually modify, use instructions in filters folder, only if a change is required'
