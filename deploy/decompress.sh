@@ -10,7 +10,7 @@ then
         cat ${filename/part-aa/part-??} > ${mergedname}
         echo decompressing and removing gzip copy of ${mergedname} 
         pigz -df ${mergedname}
-        echo completed deploying ${mergedname/.qz/}
+        echo completed deploying ${mergedname/.gz/}
     done
     for filename in `find . -name '*.gz'`
     do
