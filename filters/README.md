@@ -1,25 +1,17 @@
 #Notes on Git Deployment
 Some data is changed during upload and download and should be kept in mind when editing code referencing webserver variables or dealing with wlz image files. 
 ##Recommended general filters
-Note: Only needed if you intend to modify or open wlz image files.
-De/Re-compresses wlz files as files tend to be over Github max file size limit
 
-Added to .git/config:
-```
-[filter "zip-wlz"]
-    smudge = gzip -d
-    clean = gzip -9
-```
+For general editing of repository no filters should be required however to edit large files that have been compressed or split see deploy/README.md on how to edit. 
 
-Added to .git/info/attributes:
-```
-*.wlz filter=zip-wlz
-*.wlz.gz filter=zip-wlz
-```
+Do not just decompress manually!
 
-Note: smudged wlz files won't be appended with .gz; it's inclusion is just to cover all bases.
 
 ##Server required filters
+
+**These filters are now all deployed via script in deploy directory see deploy/README.md**
+
+**The following is now only for reference:**
 
 The filters modify various markers and urls for the Main or with the Dev or Sandbox servers
 
@@ -50,9 +42,6 @@ Note: above only needed for Dev or Sandbox.
     smudge = sed -f filters/FiltTiledImageModelDataSmudge.sed
     clean = sed -f filters/FiltTiledImageModelDataClean.sed
 
-[filter "zip-wlz"]
-    smudge = gzip -d
-    clean = gzip -9
 ```
 Added to .git/info/attributes:
 ```shell
@@ -65,8 +54,6 @@ tiledImageModelD*.jso filter=modify-tiled-image-data
 resources.properties filter=modify-res-prop
 w*.xml filter=modify-web-xml
 s*.xml filter=modify-ref-gen
-*.wlz filter=zip-wlz
-*.wlz.gz filter=zip-wlz
 ???*.jsp filter=modify-ref-gen
 *.htm filter=modify-ref-gen
 *.js filter=modify-ref-gen
