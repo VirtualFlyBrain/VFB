@@ -25,3 +25,6 @@ The local copies will be kept but git ignores them so they won't be pushed.
 These scripts add filters, decompress files, and force settings for that deployment before building.
 
 They are only for use on the relivant servers.
+
+#GitHub Repo Flow
+https://raw.github.com/VirtualFlyBrain/VFB/master/deploy/VFB%20GITHUB.png
