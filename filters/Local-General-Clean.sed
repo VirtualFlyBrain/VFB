@@ -10,6 +10,9 @@ s/>vfb2sb</>vfb</
 s/>vfb3sb</>vfb</
 s/vfbsandbox.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/
+s/vfb-karenin.inf.ed.ac.uk/www.virtualflybrain.org/
+s/vfb-blanik.inf.ed.ac.uk/www.virtualflybrain.org/
+s/vfb-bocian.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbsandbox1.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbsandbox2.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbsandbox3.inf.ed.ac.uk/www.virtualflybrain.org/
