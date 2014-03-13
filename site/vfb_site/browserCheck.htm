@@ -1,0 +1,44 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="/jsp/includes/1ColHead.jsp">
+	<jsp:param name="title" value="Welcome to the VFB" />
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Welcome@ " />
+</jsp:include>
+<!-- Pass the url parameter for redirect -->
+<c:set var="url">${param.url}</c:set>
+
+<script type="text/javascript">
+	window.addEvent('load', function() {
+		doOnLoad();
+	});
+
+	function doOnLoad() {
+		$("contentwrapper").setStyle('height', '100px');
+		$("contentwrapper").setStyle('padding,', '10px');
+		var teaser = '<img src="/thirdParty/smoothbox/loading.gif" style="height:50px; float:left; padding:5px"/> We are checking your browser compatibility and initialising your VFB session - it only takes a couple of seconds...<br/> Please stay on page and you will be automatically redirected to the homepage. <br/>If after a few seconds nothing happens try refreshing the page or choose a new destination page from the main menu above';
+		$("contentwrapper").set('html', teaser);		
+		var browser = Browser.name;
+		var version = Browser.version;
+		var intro = "Welcome to the Virtual Fly Brain website.<br/> We regret the browser you are using is not currently fully supported<br/><br/>";
+		var detected = "Browser version detected: ";
+		var warning = "<br/>Currently the site works best with Firefox v. 3-6, Chrome and Safari browsers.<br/>With other browser versions the interactive viewer may not work reliably or functionality may be limited.<br/><br/>";
+		var consult = "Please consult the <a href='/site/vfb_site/features.htm#browsers'>Supported Browsers</a> section of the site for the full list of compatible browsers.<br/><br/>I do understand the risks - <a href='/site/stacks/index.htm'>take me to the site</a><br/>";
+		var text = "";
+		//Comment this line out to get checking working
+		//text = intro + detected + browser + " v. " + version + "<br/>"+ warning;
+		// Check for the IE browser
+		//if(Browser.name == 'ie' && Browser.version !=7 ) {
+		if (browser == 'ie') {
+			browser = "Internet Explorer";
+			text = intro + detected + browser + " v. " + version + "<br/>"
+					+ warning + cousult;
+		}
+		if (text == "") {
+			(function(){window.location = '${url}';}).delay(1000);
+		}
+		else {
+			$("contentwrapper").set("html", text);
+		}
+	}
+</script>
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />

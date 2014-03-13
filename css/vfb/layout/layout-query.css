@@ -1,0 +1,14 @@
+/******* Global ********/
+#content {
+/*	  margin:0;
+	  width:100%; */
+}
+
+#wrapper {
+	width:1300px;
+	max-width:100%;
+}
+
+#center_wide {
+	min-height: 600px;
+}

@@ -25,7 +25,7 @@ public class OntBeanManagerTest extends TestCase {
 	}
 
 	public void testGetBeanForId(){
-		String id = "FBbt_00003924";
+		String id = "FBbt_00007401";
 		OntBean result = obm.getBeanForId(id);
 		System.out.println(result.getFbbtId()+ " : " + result.getId()); 
 		assertTrue(result!=null);
@@ -33,7 +33,7 @@ public class OntBeanManagerTest extends TestCase {
 
 	public void testGetBeanListForQuery(){
 		String query = "part_of some ";
-		Set<OntBean> results = obm.getBeanListForQuery("FBbt_00003624");
+		Set<OntBean> results = obm.getBeanListForQuery("FBbt_00007401");
 		System.out.println(results.size());
 		Iterator<OntBean> it = results.iterator();
 		while (it.hasNext()){

@@ -56,7 +56,7 @@ public class WoolzRegisterController implements Controller {
 				writeText = writeText+"center+"+center[0]+"+"+center[1]+"+"+center[2]+"-";
 				writeText = writeText+"}";
 				
-				String command = "/disk/data/tomcat/fly/webapps/vfbsb/scripts/writexform.sh "+writeText;
+				String command = "/disk/data/tomcat/fly/webapps/WEBAPP_NAME/scripts/writexform.sh "+writeText;
 	    		System.out.println("Command is "+command);
 	    		Process p001 = Runtime.getRuntime().exec(command);
 				

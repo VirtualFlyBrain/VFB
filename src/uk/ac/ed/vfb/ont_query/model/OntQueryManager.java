@@ -1,8 +1,10 @@
 package uk.ac.ed.vfb.ont_query.model;
 
 import java.util.*;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import uk.ac.ed.vfb.model.OntBean;
 import uk.ac.ed.vfb.service.APageable;
 import uk.ac.ed.vfb.service.OntBeanManager;
@@ -145,6 +147,7 @@ public class OntQueryManager extends APageable{
 	 * @param obm
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public SortedSet<OntBean> executeQuery(OntBeanManager obm){
 		resultSet = new TreeSet<OntBean>();
 		Iterator<Argument> it = this.arguments.iterator();

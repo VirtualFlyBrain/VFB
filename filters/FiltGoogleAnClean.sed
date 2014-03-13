@@ -1,0 +1,2 @@
+/setAccount/s/UA-18509775-1/UA-18509775-2/
+/setAccount/s/UA-18509775-3/UA-18509775-2/

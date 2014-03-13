@@ -1,8 +1,10 @@
 package uk.ac.ed.vfb.service;
 
 import java.util.*;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import uk.ac.ed.vfb.model.OntBean;
 
 /** Manages a llist of selected domains. Used by uk.ac.ed.vfb.web.DomainController 
@@ -15,6 +17,7 @@ public class DomainManager extends APageable{
 	/** Default OBM */
 	protected OntBeanManager obm;
 	/** Basic query to find all children prior to blasting the search on each of them */ 
+	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(DomainManager.class); 
 	
 	
@@ -27,6 +30,7 @@ public class DomainManager extends APageable{
 	 * Adds given bean to the resultSet, based on the FBbt id given 
 	 * @param id
 	 */
+	@SuppressWarnings("unchecked")
 	public void addBean(String id){
 		OntBean ontBean = obm.getBeanForId(id);
 		obm.resultSet.add(ontBean);
@@ -41,6 +45,7 @@ public class DomainManager extends APageable{
 		obm.resultSet.remove(ontBean);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public SortedSet<String> getDomainIdList(){
 		SortedSet<String> domainIdList = new TreeSet<String>();
 		Iterator<OntBean> it = obm.getResultSet().iterator(); 
