@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export branch=Dev-Server
+branch=Main-Server
 
 echo Deploying ${branch}...
 
