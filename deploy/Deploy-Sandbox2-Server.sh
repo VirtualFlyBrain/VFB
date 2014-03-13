@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch=Sandbox2-Server
+export branch=Sandbox2-Server
 
 echo Deploying ${branch}...
 
