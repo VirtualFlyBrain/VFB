@@ -8,6 +8,10 @@ VFB also features an image stack browser displaying images of the adult brain, w
 
 We also provide extra analysis of single neuron image data via clustering of morphologically similar neurons using neuron blast software developed by Greg Jefferis & colleagues (manuscript in prep).  Clustering finds many known classes as well as predicting new ones. [Clusters can be viewed as rotatable 3D images](http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/Cha-F-300056/webgl.shtml). 
 
+## Simple guide to editing this Repo
+
+See the [Code Editing Guide](https://github.com/VirtualFlyBrain/VFB/wiki/Code-Editing-Guide) wiki.
+
 ## Call for contributions
 
 VFB is an open source project, increasingly embedded in the community it serves.  We believe that VFB can only achieve its full potential - as a site integrated with and responsive to the community it serves - by tapping the expertise of its increasingly technically savvy user community.  
@@ -25,7 +29,6 @@ We welcome all offers of contribution -
 If you'd like to contribute please email our google group at vfb_community {at} googlegroups.com with details of your brackground and how you might be able to help out.
 
 ### Social media presence
-
 
 * We are [@virtualflybrain](https://twitter.com/virtualflybrain) on twitter.  Our feed features papers and news of general interest to the Fly Neuro community, as well as specific news about VFB.
 * Our blog lives [here](http://vfbblog.inf.ed.ac.uk/)
