@@ -1,3 +1,4 @@
+#!/bin/bash
 #Called from deployment scripts
 if [ -d .git ] && [ $branch ]
 then
