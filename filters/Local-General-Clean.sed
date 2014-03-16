@@ -18,3 +18,8 @@ s/vfbsandbox2.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbsandbox3.inf.ed.ac.uk/www.virtualflybrain.org/
 s/UA-18509775-3/UA-18509775-2/
 s/UA-18509775-1/UA-18509775-2/
+s/ont_port=5555\/ont_port=5554/ont_port=5555\/ont_port=5555/g
+s/ont_port=5555\/ont_port=5556/ont_port=5555\/ont_port=5555/g
+s/ont_port=5555\/ont_port=5557/ont_port=5555\/ont_port=5555/g
+s/ont_port=5555\/ont_port=5558/ont_port=5555\/ont_port=5555/g
+s/ont_port=5555\/ont_port=5559/ont_port=5555\/ont_port=5555/g
