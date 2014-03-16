@@ -7,3 +7,8 @@ s/server_name=www.virtualflybrain.org/server_name=VFB/g
 s/server_name=vfb-karenin.inf.ed.ac.uk/server_name=VFB/g  
 s/server_name=vfb-blanik.inf.ed.ac.uk/server_name=VFB/g
 s/server_name=vfb-bocian.inf.ed.ac.uk/server_name=VFB/g
+s/ont_port=5556/ont_port=5555/g
+s/ont_port=5557/ont_port=5555/g
+s/ont_port=5558/ont_port=5555/g
+s/ont_port=5559/ont_port=5555/g
+s/ont_port=5554/ont_port=5555/g
