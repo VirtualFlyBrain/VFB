@@ -25,3 +25,20 @@ The local copies will be kept but git ignores them so they won't be pushed.
 These scripts add filters, decompress files, and force settings for that deployment before building.
 
 They are only for use on the relivant servers.
+
+#GitHub Edit / Deployment Flow
+![Flowchart](https://raw.github.com/VirtualFlyBrain/VFB/master/deploy/VFB%20GITHUB.png)
+**Key:** 
+..*Yellow boxes are actions recomended to be carried out on the GitHub website rather than through git / local git SW.
+
+#Sandbox Server Allocations
+
+Current allocations:
+
+| Server | User | For | Notes |
+| ------ | ---- | --- | ----- |
+| Sandbox | Robbie1977 | Thoracico-abdominal Ganglion addition and testing | Being accessed by selcted outside users |
+| Sandbox1 | dosumis | General OWL/DB Query improvements | Server not yet deployed |
+| Sandbox2 | Free |  | Server not yet deployed |
+| Sandbox3 | Free |  | Server not yet deployed |
+
