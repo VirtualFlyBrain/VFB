@@ -46,6 +46,8 @@ then
     find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
     echo "Compiling the site..."
     ant
+    echo "Redeploying ontology server..."
+    deploy/start-${branch}-Ont-Server.sh
     echo "Done."
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
