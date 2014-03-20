@@ -37,7 +37,7 @@ Current allocations:
 
 | Server | User | For | Notes |
 | ------ | ---- | --- | ----- |
-| Sandbox | dosumis | General OWL/DB Query improvements | Server not yet deployed |
+| Sandbox | dosumis | General OWL/DB Query improvements |  |
 | Sandbox1 | Robbie1977 | Thoracico-abdominal Ganglion addition and testing | Being accessed by selcted outside users |
 | Sandbox2 | Free |  | Server not yet deployed |
 | Sandbox3 | Free |  | Server not yet deployed |
