@@ -48,12 +48,12 @@ then
     echo "checking any direct references to website url is set to the branch site"
     find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
     find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
-    if [ `find src/ -mmin -10` ]
+    if [ `find src/ -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Recompiling the site..."
         ant
     fi
-    if [ `find resources/*.owl -mmin -10` ]
+    if [ `find resources/*.owl -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Redeploying ontology server..."
         deploy/start-${branch}-Ont-Server.sh
