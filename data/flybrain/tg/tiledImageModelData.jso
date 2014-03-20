@@ -1,0 +1,51 @@
+{
+   "webServer": "SERVER_NAME",
+   "iipServerPath": "/fcgi/wlziipsrv.fcgi",
+   "metadataRoot": "/data/flybrain/",
+   "toolsMetadataFilename": "tg/tiledImageToolParams.jso",
+   "interfaceImageDir": "/images/",
+   "dataType": "wlz",
+   "transverseView": {"pitch": "90", "yaw": "90", "roll": "270"},
+   "sagittalView": {"pitch": "90", "yaw": "180", "roll": "270"},
+   "coronalView": {"pitch": "0", "yaw": "0", "roll": "90"},
+   "viewerTargetId": "emapIIPViewerDiv",
+   "layerNames": [
+      "grey",
+      "anatomy"
+   ],
+   "layerData": [
+      {
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/tg/woolz/",
+         "imageName":"taglabel.wlz",
+         "type":"greyLevel",
+         "opacity":"1.0",
+         "visible":"true"
+      },
+      {
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/tg/woolz/",
+         "imageName":"taglabel.wlz",
+         "type":"label",
+         "opacity":"0.5",
+         "current":"",
+         "visible":"true",
+         "treeStructureFile": "/data/flybrain/tg/tree/treeStructure.jso",
+         "treeDataFile": "/data/flybrain/tg/tree/treeContent.jso"   
+        }
+   ],
+   "initialState": {"scale":"0.4", "distance":"0", "pitch":"0", "yaw":"0", "roll":"90"},
+   "pixelResolution": {"x":"0.4612588", "y":"0.4612588", "z":"0.46", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
+   "menuStructureFile": "/data/flybrain/tg/menu/menuStructure.jso",
+   "menuContentFile": "/data/flybrain/tg/menu/menuContent.jso",
+   "wlzMode": "zeta",
+   "tools": [
+      "locator",
+      "distance",
+      "scale",
+      "rotation",
+      "refresh",
+      "measure", 
+      "fixedPoint", 
+      "tree"
+      ],
+   "tileframe": {"enabled": "true"}
+}
