@@ -8,6 +8,11 @@ s/>vfbdev</>vfb</
 s/>vfb1sb</>vfb</
 s/>vfb2sb</>vfb</
 s/>vfb3sb</>vfb</
+s/-vfbsb-/-vfb-/
+s/-vfbdev-/-vfb-/
+s/-vfb1sb-/-vfb-/
+s/-vfb2sb-/-vfb-/
+s/-vfb3sb-/-vfb-/
 s/vfbsandbox.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfb-karenin.inf.ed.ac.uk/www.virtualflybrain.org/
