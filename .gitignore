@@ -2,6 +2,7 @@ build/
 *.tar.gz
 revision
 branch
+flybase
 google*.html
 *.wlz
 

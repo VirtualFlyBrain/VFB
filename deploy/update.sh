@@ -23,9 +23,12 @@ then
     echo "recording git branch and version details"
     git describe --long > revision
     echo $branch > branch
+    cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
     echo "which are:"
     cat branch
     cat revision
+    echo "Flybase version:"
+    cat flybase
     echo "checking filters to use correct branch names"
     find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
     find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
