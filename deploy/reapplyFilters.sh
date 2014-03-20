@@ -11,5 +11,5 @@ then
   cp deploy/attributes .git/info/
   sed -i s/BRANCH_NAME/${branch}/g .git/config
 else
-  echo "To be run after deployment script only!'
+  echo "To be run after deployment script only!"
 fi
