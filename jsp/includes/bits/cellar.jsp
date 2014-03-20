@@ -5,6 +5,7 @@
         $.feedback({
             ajaxURL: 'http://www.virtualflybrain.org/feedback',
             html2canvasURL: '/jsp/feedback/html2canvas.js'
+            postBrowserInfo: true
         });
     </script>
 	<div id="cellar">
