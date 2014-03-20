@@ -6,7 +6,7 @@
 <head>
 	<title>Virtual Fly Brain: ${param.title}</title>
 	<meta name="keywords" content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
-	<script type="text/javascript" src="/jsp/includes/js/analytics.js" ></script>	
+	<script type="text/javascript" async src="/jsp/includes/js/analytics.js" ></script>	
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />              
       	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
       	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu.css" />
