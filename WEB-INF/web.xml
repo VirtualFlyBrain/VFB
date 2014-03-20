@@ -15,9 +15,9 @@
 	version="2.5">
 
 	<description>
-      VFB - Servlet and JSP Examples.
+      VirtualFlyBrain Server -WEBAPP_NAME-
     </description>
-	<display-name>VFB - Servlet and JSP Examples</display-name>
+	<display-name>VirtualFlyBrain Server -WEBAPP_NAME-</display-name>
 
 	<jsp-config>
 		<jsp-property-group>
