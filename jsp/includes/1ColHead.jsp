@@ -29,8 +29,6 @@
       	<script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
       	<script type="text/javascript" src="/javascript/vfb/utils.js"></script>
 
-	<script type="text/javascript" async src="/jsp/includes/js/analytics.js" ></script>	
-
 </head>
 <body>
   	<div id="wrapper">
