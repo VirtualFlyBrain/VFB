@@ -2,6 +2,7 @@
 #Called from deployment scripts
 if [ -d .git ] && [ $branch ]
 then
+    git pull origin $branch
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
@@ -47,10 +48,16 @@ then
     echo "checking any direct references to website url is set to the branch site"
     find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
     find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
-    echo "Compiling the site..."
-    ant
-    echo "Redeploying ontology server..."
-    deploy/start-${branch}-Ont-Server.sh
+    if [ `find src/ -mmin -10` ]
+    then
+        echo "Recompiling the site..."
+        ant
+    fi
+    if [ `find resources/*.owl -mmin -10` ]
+    then
+        echo "Redeploying ontology server..."
+        deploy/start-${branch}-Ont-Server.sh
+    fi
     echo "Done."
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
