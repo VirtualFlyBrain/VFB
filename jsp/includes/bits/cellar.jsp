@@ -1,3 +1,12 @@
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/jsp/feedback/feedback.js"></script>
+    <link rel="stylesheet" href="/jsp/feedback/feedback.min.css" />
+    <script type="text/javascript">
+        $.feedback({
+            ajaxURL: 'http://www.virtualflybrain.org/feedback',
+            html2canvasURL: '/jsp/feedback/html2canvas.js'
+        });
+    </script>
 	<div id="cellar">
 	  | <a href="/site/vfb_site/sitemap.htm">Sitemap</a> |
 	  <a href="/">Virtual Fly Brain</a> |
