@@ -8,6 +8,11 @@ s/>vfbdev</>vfb</
 s/>vfb1sb</>vfb</
 s/>vfb2sb</>vfb</
 s/>vfb3sb</>vfb</
+s/-vfbsb-/-vfb-/
+s/-vfbdev-/-vfb-/
+s/-vfb1sb-/-vfb-/
+s/-vfb2sb-/-vfb-/
+s/-vfb3sb-/-vfb-/
 s/vfbsandbox.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfbdev.inf.ed.ac.uk/www.virtualflybrain.org/
 s/vfb-karenin.inf.ed.ac.uk/www.virtualflybrain.org/
@@ -23,3 +28,11 @@ s/ont_port=5555\/ont_port=5556/ont_port=5555\/ont_port=5555/g
 s/ont_port=5555\/ont_port=5557/ont_port=5555\/ont_port=5555/g
 s/ont_port=5555\/ont_port=5558/ont_port=5555\/ont_port=5555/g
 s/ont_port=5555\/ont_port=5559/ont_port=5555\/ont_port=5555/g
+s/WEBAPP_NAME\/vfbdev\//WEBAPP_NAME\/vfb\//
+s/WEBAPP_NAME\/vfbsb\//WEBAPP_NAME\/vfb\//
+s/WEBAPP_NAME\/vfb1sb\//WEBAPP_NAME\/vfb\//
+s/WEBAPP_NAME\/vfb2sb\//WEBAPP_NAME\/vfb\//
+s/WEBAPP_NAME\/vfb3sb\//WEBAPP_NAME\/vfb\//
+
+
+
