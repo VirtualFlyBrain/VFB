@@ -45,8 +45,14 @@ If you'd like to contribute please email our google group at vfb_community {at} 
 We maintain a page on [the Drosophila anatomy ontology wiki](https://sourceforge.net/p/fbbtdv/wiki/Annotate_your_data/) outlining the advantages of annotating your own data using our system and providing links to resources for doing so.
 
 
-#### Documentation
+### Documentation
 Please note.  This is a work in progress. Most documentation currently lives in a google doc. We are in the process of transferring it to this wiki.
+
+#### Overall architecture of project
+
+Left panel shows the current architecture. Right panel shows planned development.
+
+![Architure](doc/images/VFB_arch.png)
 
  * __[A brief intro to OWL, tailored for VFB](https://github.com/VirtualFlyBrain/VFB/wiki/Ont)__
  
