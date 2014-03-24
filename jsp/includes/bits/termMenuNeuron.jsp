@@ -11,7 +11,9 @@ var currBeanId = "${param.fbbtId}";
 	<ul id="menubar">
 		<li class="header">Query for
 		<li><a href="/do/ont_bean_list.html?action=subclass&id=${param.fbbtId}" target="_top">
-		SubClasses of</a>
+		SubClasses</a>
+		<li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">
+		Parts</a>
 		</li>
 		<li><a href="#">Expression/Phenotypes found here:</a>
 		<ul>

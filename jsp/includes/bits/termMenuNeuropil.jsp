@@ -23,7 +23,7 @@ var currBeanId = "${param.fbbtId}";
 			. . . postsynaptic terminals here</a></li>
 		</ul>
 		</li>
-		<li><a href="#">Individual neurons with:</a>
+		<li><a href="#">Images of neurons with:</a>
 		<ul>
 			<li><a href="/do/cluster_list.html?action=cluster_found&id=${param.fbbtId}" target="_top">
 			. some part here (clustered by shape)</a></li>
