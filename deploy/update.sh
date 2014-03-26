@@ -19,7 +19,10 @@ then
         echo 'Note: to manually modify, use instructions in filters folder, only if a change is required'
     fi
 
-    deploy/decompress.sh
+    if [ `find data/ -name '*.gz' -mmin -10 | wc -l` -gt 0 ]
+    then
+        deploy/decompress.sh
+    fi
     
     echo "recording git branch and version details"
     git describe --long > revision
@@ -42,12 +45,18 @@ then
         find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed  
         find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed  
     fi
-    echo "checking web.xml"
-    find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
-    find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
-    echo "checking google analytics code"
-    find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
-    find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
+    if [ `find WEB-INF -name 'web.xml' -mmin -10 | wc -l` -gt 0 ]
+    then
+        echo "checking web.xml"
+        find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
+        find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
+    fi
+    if [ `find jsp/ -name 'ga.jsp' -mmin -10 | wc -l` -gt 0 ]
+    then
+        echo "checking google analytics code"
+        find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
+        find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
+    fi
     if [ `find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -mmin -10 | wc -l` -gt 0 ]
     then
         echo "checking any direct references to website url is set to the branch site"
