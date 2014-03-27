@@ -76,7 +76,7 @@
   				<option value="10" ${(perPage==10)?"selected":""} >10</option>
   				<option value="20" ${(perPage==20)?"selected":""} >20</option>
 				<option value="50" ${(perPage==50)?"selected":""} >50</option>
-				<option value="0" ${(perPage==0)?"selected":""} >All</option>
+				<option value="100" ${(perPage==100)?"selected":""} >100</option>
 			</select>
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
