@@ -19,7 +19,10 @@ then
         echo 'Note: to manually modify, use instructions in filters folder, only if a change is required'
     fi
 
-    deploy/decompress.sh
+    if [ `find data/ -type f -name '*.gz' -mmin -10 | wc -l` -gt 0 ]
+    then
+        deploy/decompress.sh
+    fi
     
     echo "recording git branch and version details"
     git describe --long > revision
@@ -33,33 +36,42 @@ then
     echo "checking filters to use correct branch names"
     find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
     find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
-    echo "checking image json files"
-    find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
-    find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
-    if [ `find src/ -name 'resources.properties' -mmin -10 | wc -l` -gt 0 ]
+    if [ `find src/ -type f -name 'tiledImageModelD*.jso' -mmin -10 | wc -l` -gt 0 ]
+    then
+        echo "checking image json files"
+        find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
+        find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
+    fi
+    if [ `find src/ -type f -name 'resources.properties' -mmin -10 | wc -l` -gt 0 ]
     then
         echo "checking resources.properties"
         find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed  
         find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed  
     fi
-    echo "checking web.xml"
-    find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
-    find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
-    echo "checking google analytics code"
-    find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
-    find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
-    if [ `find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -mmin -10 | wc -l` -gt 0 ]
+    if [ `find WEB-INF -type f -name 'web.xml' -mmin -10 | wc -l` -gt 0 ]
+    then
+        echo "checking web.xml"
+        find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
+        find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
+    fi
+    if [ `find jsp/ -name 'ga.jsp' -mmin -10 | wc -l` -gt 0 ]
+    then
+        echo "checking google analytics code"
+        find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
+        find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
+    fi
+    if [ `find ./ -type f -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -mmin -10 | wc -l` -gt 0 ]
     then
         echo "checking any direct references to website url is set to the branch site"
         find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
         find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
     fi
-    if [ `find src/ -mmin -10 | wc -l` -gt 0 ]
+    if [ `find src/ -type f -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Recompiling the site..."
         ant
     fi
-    if [ `find resources/*.owl -mmin -10 | wc -l` -gt 0 ]
+    if [ `find resources/*.owl -type f -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Redeploying ontology server..."
         deploy/start-${branch}-Ont-Server.sh
