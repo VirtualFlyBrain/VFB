@@ -2,7 +2,7 @@
 #Called from deployment scripts
 if [ -d .git ] && [ $branch ]
 then
-    nice git pull origin $branch
+    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git pull origin $branch'
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
