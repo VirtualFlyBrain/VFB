@@ -2,7 +2,7 @@
 #Called from deployment scripts
 if [ -d .git ] && [ $branch ]
 then
-    git pull origin $branch
+    nice git pull origin $branch
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
@@ -21,7 +21,7 @@ then
 
     if [ `find data/ -type f -name '*.gz' -mmin -10 | wc -l` -gt 0 ]
     then
-        deploy/decompress.sh
+        nice deploy/decompress.sh
     fi
     
     echo "recording git branch and version details"
@@ -69,12 +69,12 @@ then
     if [ `find src/ -type f -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Recompiling the site..."
-        ant
+        nice ant
     fi
     if [ `find resources/*.owl -type f -mmin -10 | wc -l` -gt 0 ]
     then
         echo "Redeploying ontology server..."
-        deploy/start-${branch}-Ont-Server.sh
+        nice deploy/start-${branch}-Ont-Server.sh
     fi
     echo "Done."
 else
