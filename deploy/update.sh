@@ -2,7 +2,7 @@
 #Called from deployment scripts
 if [ -d .git ] && [ $branch ]
 then
-    nice git pull origin $branch
+    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git pull origin $branch'
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
@@ -33,9 +33,12 @@ then
     cat revision
     echo "Flybase version:"
     cat flybase
-    echo "checking filters to use correct branch names"
-    find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
-    find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
+    if [ `git whatchanged --pretty="format:" --name-only --since="10 minutes ago" | grep "\.sed" | wc -l` -gt 0 ]
+    then
+        echo "checking filters to use correct branch names"
+        find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
+        find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
+    fi
     if [ `git whatchanged --pretty="format:" --name-only --since="10 minutes ago" | grep "tiledImageModelD" | wc -l` -gt 0 ]
     then
         echo "checking image json files"
