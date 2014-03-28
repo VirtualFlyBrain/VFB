@@ -9,9 +9,9 @@ var currBeanId = "${param.fbbtId}";
 <div id="term_menu"
 	style="">
 	<ul id="menubar">
-		<li class="header">Query for
-		</li>
-		<li><a href="#">Neuron classes with:</a>
+		<li class="header">Query for</li>
+		<li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}"  target="_top">Parts of: </a></li>
+		<li><a href="#">Neurons with:</a>
 		<ul>
 			<li><a href="/do/ont_bean_list.html?action=found&id=${param.fbbtId}"  target="_top">
 			. some part here</a></li>
@@ -23,10 +23,12 @@ var currBeanId = "${param.fbbtId}";
 			. . . postsynaptic terminals here</a></li>
 		</ul>
 		</li>
-		<li><a href="#">Individual neurons with:</a>
+		<li><a href="#">Images of neurons with:</a>
 		<ul>
 			<li><a href="/do/cluster_list.html?action=cluster_found&id=${param.fbbtId}" target="_top">
-			. some part here</a></li>
+			. some part here (clustered by shape)</a></li>
+			<li><a href="/do/individual_list.html?action=ind_neuron_overlap&id=${param.fbbtId}" target="_top">
+			. some part here (unclustered)</a></li>
 		</ul>
 		</li>
 		<li><a href="/do/ont_bean_list.html?action=tract&id=${param.fbbtId}" target="_top">

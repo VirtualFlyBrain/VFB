@@ -50,7 +50,6 @@ a:hover{
 }
 
 #annotation {
-	height:154px; 
 	width:806px;
 	border:1px solid gray;
 	overflow:auto;

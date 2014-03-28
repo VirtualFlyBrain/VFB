@@ -1,17 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
-<head>
-      <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/help.css" />
-</head>
-
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<jsp:include page="/jsp/includes/1ColHead.jsp">
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Help@/ "/>
+	<jsp:param name="title" value="${fn:replace(param.head,'Example: ','')}" />	
+	<jsp:param name="css" value="/css/vfb/utils/help.css;" />
+</jsp:include>
 
 <!-- THE TEMPLATE CONTENT BOX HEADER -->
 <div id="help_wrapper">
 <div id="help_head_wrapper">
-  <h1 id="help_header">${param.head}</h1>
+	<h1 id="help_header">${param.head}</h1>
    </div>
  </div>
   <div id="help_content">
@@ -19,7 +17,4 @@
   </div>
 </div>
   
-</body>
-
-</html>
-
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
