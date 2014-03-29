@@ -55,6 +55,7 @@
 	</script>
 </head>
 <body onLoad="doOnLoad();">
+    <jsp:include page="/jsp/includes/js/tag.jsp" />
 	<!--input type="text" name="search_text" id="search_text" select="if (event.keyCode == 13) alert($('search_text').value);"/> <br/-->
 	<input type="text" name="search_text" id="search_text" /> <br/>
 	<input type="text" name="value_field" id="value_field" /> <br/>

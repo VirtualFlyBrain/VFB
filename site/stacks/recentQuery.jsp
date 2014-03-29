@@ -17,5 +17,6 @@
 </script>
 </head>
 <body>
+<jsp:include page="/jsp/includes/js/tag.jsp" />
 </body>
 
