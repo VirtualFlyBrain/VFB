@@ -109,7 +109,7 @@
          $(function(){
              $('.slide-out-div').tabSlideOut({
                  tabHandle: '.handle',                              //class of the element that will be your tab
-                 pathToTabImage: 'images/feedback_tab.gif',          //path to the image for the tab (optionaly can be set using css)
+                 pathToTabImage: '/thirdParty/tabSlideOut/images/feedback_tab.gif',          //path to the image for the tab (optionaly can be set using css)
                  imageHeight: '167px',                               //height of tab image
                  imageWidth: '32px',                               //width of tab image    
                  tabLocation: 'left',                               //side of screen where tab lives, top, right, bottom, or left
@@ -129,7 +129,7 @@
         <h3>Feedback</h3>
         <br />
         <p>We really appreciate any feedback you could give us.</p>
-        <p>You can simply <b><script>mail2("support","virtualflybrain",1,"?subject=Feedback about VFB","email us")</script></b> with details.</p>
+        <p>You can simply <b><script>mail2("support","virtualflybrain",1,"?subject=Feedback about ${document.URL}","email us")</script></b> with details.</p>
         
         <p>Alternatively as VFB is an opensource project;   
         if you have a GitHub account you can talk directly with our developer community at 
