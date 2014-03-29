@@ -18,7 +18,7 @@
   		<td style="padding-left:2px;">
   			<c:set var="path"><%=request.getRequestURL()%></c:set>
   			<%--c:if test="${fncurrURL!='/' }" --%>
-  				<a class="help smoothbox" href="${helpURL}" style="float:none; margin-left:10px" title="Quick help" target="_blank">&nbsp;Help</a>
+  				<a class="help" href="${helpURL}" style="float:none; margin-left:10px" title="Quick help" target="_blank">&nbsp;Help</a>
   				<a class="help youtube" href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new" style="top:-10px" title="Watch VFB tutorial videos">Tutorial Videos</a>
 			<%--/c:if--%>
 			<c:set var="title" value="&nbsp;${param.title}" />   		
