@@ -66,6 +66,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <jsp:include page="/jsp/includes/bits/${termMenu}">
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
+
+<!-- Google Analytics -->
+<jsp:include page="/jsp/includes/js/ga.jsp">
+	<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
+</jsp:include>
+<!-- End Google Analytics -->
 		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
