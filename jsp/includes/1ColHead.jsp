@@ -31,6 +31,7 @@
 
 </head>
 <body>
+	<jsp:include page="/jsp/includes/js/tag.jsp" />
   	<div id="wrapper">
 	<jsp:include page="/jsp/includes/bits/head.jsp"/> 	 
 	

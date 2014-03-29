@@ -37,7 +37,8 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 </script>
 </head>
 
-<body>	
+<body>
+<jsp:include page="/jsp/includes/js/tag.jsp" />	
 	
 <h2 style="font-size: 1.3em; margin-top:-3px"><a href="#" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
