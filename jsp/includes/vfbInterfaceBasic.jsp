@@ -9,8 +9,8 @@
 <c:set var="currURL" scope="session">${param.currURL}</c:set>
    <head>
       <meta name="author" content="Ruven Pillay &lt;ruven@users.sourceforge.netm&gt;, Tom Perry &lt;T.Perry@hgu.mrc.ac.uk&gt; and others" />
-      <meta name="keywords" content="Internet Imaging Protocol IIP IIPImage" />
-      <meta name="description" content="High Resolution Remote Image Viewing" />
+      <meta name="keywords" content="drosophila brain, fly brain anatomy, drosophila brain anatomy, fly brain atlas, flybrain, ontology" />
+      <meta name="description" content="Interactive Drosophila Brain Atlas" />
       <meta name="copyright" content="&copy; 2003-2007 Ruven Pillay" />
  
       <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
@@ -72,6 +72,7 @@
    </head>
 
    <body onload="doOnload();">
+   	<jsp:include page="/jsp/includes/js/tag.jsp" />
 	<div id="wrapper_basic">
 	    <div id="center_panel">
 			<div id="emapIIPViewerDiv"></div>	 
