@@ -40,6 +40,7 @@
 </head>
 
 <body style="margin:2px">
+<jsp:include page="/jsp/includes/js/tag.jsp" />
 <div id="content">
 	<!--  class="help" href="#" onclick="parent.showPopup('/site/tools/query_builder/help.htm');">&nbsp;Help</a-->
 	<h2 id="header">Your query</h2>
