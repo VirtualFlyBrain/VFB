@@ -22,6 +22,7 @@
 	<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>	  
 </head>
 <body>
+  <jsp:include page="/jsp/includes/js/tag.jsp" />
   <div id="wrapper">
   	<c:if test="${empty param.nonav}">
 		<jsp:include page="/jsp/includes/bits/head.jsp"/>
