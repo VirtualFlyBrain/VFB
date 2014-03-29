@@ -68,7 +68,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </jsp:include>
 
 <!-- Google Analytics -->
-<jsp:include page="jsp/includes/js/ga.jsp">
+<jsp:include page="/jsp/includes/js/ga.jsp">
 	<jsp:param name="ORurl" value="do/ont_bean.html?${ontBean.fbbtId}" />
 </jsp:include>
 <!-- End Google Analytics -->
