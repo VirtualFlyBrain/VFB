@@ -67,6 +67,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
 		
+<jsp:include page="/jsp/includes/js/tag.jsp" />		
+		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
 	<b>Definition: </b>${ontBean.def}
