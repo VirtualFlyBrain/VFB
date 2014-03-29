@@ -1,7 +1,4 @@
-<!--  Google Analytics include virtualflybrain.org ... code: 18509775-2 -->
-<!--  Google Analytics include vfbdev ... code: 18509775-3 -->
-<!--  Google Analytics include vfbsandbox ... code: 18509775-1 -->
-<!--  Note: Set during deployment leave at main site (-2) -->
+<!--  Sending GA ${param.ORurl} -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
