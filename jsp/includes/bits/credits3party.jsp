@@ -36,6 +36,7 @@ window.addEvent('load', function() {
 </script>
 </head>
 <body>
+<jsp:include page="/jsp/includes/js/tag.jsp" />
 <div style="position:absolute; bottom: 10px; height:auto; width:96%; font-size:.9em; padding:0 4px;" >
 	<b>Stack actions:</b> <br/>
 	<!-- Displaying single stack -->
