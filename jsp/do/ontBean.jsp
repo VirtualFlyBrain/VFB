@@ -73,7 +73,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </jsp:include>
 <!-- End Google Analytics -->
 		
-<h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.fbbtId}: ${ontBean.name}</a></h2>
+<h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.fbbtId} - ${ontBean.name}</a></h2>
 <p>
 	<b>Definition: </b>${ontBean.def}
 </p>
