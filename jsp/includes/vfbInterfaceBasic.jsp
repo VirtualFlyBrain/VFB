@@ -72,6 +72,7 @@
    </head>
 
    <body onload="doOnload();">
+   	<jsp:include page="/jsp/includes/js/tag.jsp" />
 	<div id="wrapper_basic">
 	    <div id="center_panel">
 			<div id="emapIIPViewerDiv"></div>	 
