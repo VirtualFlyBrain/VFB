@@ -78,9 +78,8 @@
 				<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
 			</ul>
 			<li><script>
-			var theURL = window.location.pathname; var theURL = window.location.pathname;
-			var theDOM = window.location.protocol + "//" + window.location.host
-			</script><a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL+'&domain='+theDOM;return false;">Feedback</a></li>
+			var theURL = encodeURIComponent(window.location);
+			</script><a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a></li>
 		</ul>
 		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
 		<br class="clearit">
