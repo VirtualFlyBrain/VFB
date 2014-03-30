@@ -30,12 +30,7 @@
 
          </script>
 
-    <div style={
-    	padding: 20px;
-        width: 250px;
-        background: #f2f2f2;
-        border: #29216d 2px solid;
-    }>
+    <div style="{padding: 20px; width: 250px; background: #f2f2f2; border: #29216d 2px solid;}">
         <a class="handle" href="/site/vfb_site/about_us.htm">Content</a>
         <h3>Feedback</h3>
         <br />
