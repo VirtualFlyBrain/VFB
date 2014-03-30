@@ -22,7 +22,7 @@ acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
 pageContext.setAttribute("aclClone", acdao.getSynSet());	
 %>
 
-<c:set var="testURL" value='${requestScope["javax.servlet.forward.request_uri"]}' />
+<c:set var="testURL" value="test" />
 
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />		
@@ -86,7 +86,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </p>
 <c:if test="${!empty ontBean.comment}">
 	<p>
-		<b>Comment: </b>${ontBean.comment}
+		<b>Comment: ${requestScope["javax.servlet.forward.request_uri"]}</b>${ontBean.comment}
 	</p>
 </c:if>
 <p>
