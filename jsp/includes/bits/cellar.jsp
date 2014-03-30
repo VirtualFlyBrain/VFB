@@ -10,14 +10,14 @@
 	<br />
 	
 	<!-- BEGIN feedback tab code -->
-    <c:if test="${not pageContext.request.requestURI.contains('/index')}">
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript">jQuery.noConflict(true);</script>
-		<script src="/thirdParty/tabSlideOut/js/jquery.tabSlideOut.v1.3.js"></script>
+		<script src="/thirdParty/tabSlideOut/js/jquery.tabSlideOut.v1.3.js">jQuery.noConflict(true);</script>
 		 
 			 <script>
 			 $(function(){
 				 $('.slide-out-feedback-div').tabSlideOut({
-					 tabHandle: '.handle',                              //class of the element that will be your tab
+					 tabHandle: '.feedback-handle',                     //class of the element that will be your tab
 					 pathToTabImage: '/thirdParty/tabSlideOut/images/feedback_tab.gif',          //path to the image for the tab (optionaly can be set using css)
 					 imageHeight: '167px',                               //height of tab image
 					 imageWidth: '32px',                               //width of tab image    
@@ -71,5 +71,5 @@
 		<div id="VFBversion" style="position:relative; left: 0; bottom: 0; font-size: xx-small;">
 			<jsp:include page="/branch" />- <jsp:include page="/revision" /> [ <jsp:include page="/flybase" />]
 		</div>
-	</c:if>
+	
 	<!-- END version display -->
