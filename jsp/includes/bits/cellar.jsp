@@ -10,8 +10,7 @@
 	<br />
 	
 	<!-- BEGIN feedback tab code -->
-    <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    <c:if test="${not fn:endsWith(pageContext.request.requestURI, 'index.htm')}">
+    <c:if test="${not pageContext.request.requestURI.endsWith('/index.htm')}">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript">jQuery.noConflict(true);</script>
 		<script src="/thirdParty/tabSlideOut/js/jquery.tabSlideOut.v1.3.js"></script>
 		 
