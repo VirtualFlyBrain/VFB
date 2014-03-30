@@ -82,7 +82,7 @@
 			you can engage directly with our developer community on GitHub 
 			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
 			<p>You can easily raise a new issue by clicking   
-			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A${param.url}%0A" 
+			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A${param.domain}${param.url}%0A" 
 			onclick="location.href=this.href+SupDetail.sysDetailURL;return false;" target="_new" 
 			alt="Raise an issue on GitHub">
 			here</a>.
@@ -92,7 +92,7 @@
 			<br /><small>Note: Both the email and issue links above should do this automatically for you.</small></p>
 			
 			<div style="border: 1px solid green;">
-			<b>Referring page:</b> <small>${param.url}</small><br />
+			<b>Referring page:</b> <small>${param.domain}${param.url}</small><br />
 			<b>System details:</b> <small><script>document.write(SupDetail.sysDetail);</script></small>
 			</div>
 			<p>Thank you for your help.</p>
