@@ -29,8 +29,19 @@
          });
 
          </script>
+         
+         <style type="text/css" media="screen">
+    
+			.slide-out-div {
+			   padding: 20px;
+				width: 250px;
+				background: #f2f2f2;
+				border: #29216d 2px solid;
+			}
+	
+		</style>
 
-    <div style="{padding: 20px; width: 250px; background: #f2f2f2; border: #29216d 2px solid;}">
+    <div class="slide-out-div">
         <a class="handle" href="/site/vfb_site/about_us.htm">Content</a>
         <h3>Feedback</h3>
         <br />
