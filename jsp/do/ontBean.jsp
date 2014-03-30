@@ -22,8 +22,6 @@ acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
 pageContext.setAttribute("aclClone", acdao.getSynSet());	
 %>
 
-<c:set var="url" value="${requestScope['javax.servlet.forward.request_uri']}" />
-
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />		
 	
@@ -69,12 +67,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
 
-<c:if test="${not fn:contains(testURL, 'html')}"> 
-<!-- Google Analytics -->
-<jsp:include page="/jsp/includes/js/ga.jsp">
-	<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
-</jsp:include>
-<!-- End Google Analytics -->
+<c:if test="${headAtt eq true}"> 
+	<!-- Google Analytics -->
+		<jsp:include page="/jsp/includes/js/ga.jsp">
+			<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
+		</jsp:include>
+	<!-- End Google Analytics -->
 </c:if>
 		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
