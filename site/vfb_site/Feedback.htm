@@ -75,7 +75,7 @@
 			}
 			SupDetail.sysDetail = navigator.userAgent;
 			SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
-			SupDetail.cleanURL = encodeURIComponent(window.param.url)
+			SupDetail.cleanURL = encodeURIComponent(${param.url})
 			mail2("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + navigator.userAgent,"email us")
 			</script></b> with details.</p>
 		
