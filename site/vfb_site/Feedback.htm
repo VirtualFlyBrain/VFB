@@ -13,8 +13,13 @@
 			<p>You can simply <b>
 			
 			<script>
-			mail2("support","virtualflybrain",1,"?subject=Feedback about " + ${param.url},"email us")
-			</script></b> with details ${param.url}.</p>
+			var nVer = navigator.appVersion;
+			var nAgt = navigator.userAgent;
+			var browserName  = navigator.appName;
+			var fullVersion  = ''+parseFloat(navigator.appVersion); 
+			var majorVersion = parseInt(navigator.appVersion,10);
+			mail2("support","virtualflybrain",1,"?subject=Feedback about ${param.url} using " + browserName + " version " + fullVersion,"email us")
+			</script></b> with details.</p>
 		
 			<p>Alternatively, as VFB is an opensource project,   
 			you can engage directly with our developer community on GitHub 
@@ -24,7 +29,7 @@
 			alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>.
 			</p>
 			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please include 
-			the page address and your browsers details to help us resolve any issue as quickly as possible.</p>
+			the page address (${param.url}) and your browsers details (${browserName},${fullVersion}) to help us resolve any issue as quickly as possible.</p>
 			<br />
 			<p>Thank you for your involvement.</p>
 	</div> <!-- center_wide -->
