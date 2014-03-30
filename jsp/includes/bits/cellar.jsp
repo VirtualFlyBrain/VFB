@@ -9,8 +9,7 @@
 	
 	<br />
 	<!-- BEGIN feedback tab code -->
-
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript">jQuery.noConflict(true);</script>
     <script src="/thirdParty/tabSlideOut/js/jquery.tabSlideOut.v1.3.js"></script>
          
          <script>
