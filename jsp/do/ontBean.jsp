@@ -78,9 +78,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </c:if>
 		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
+<c:if test="${!empty ontBean.fbbtId}">
 <p>
-	<b>ID: </b>${ontBean.fbbtId}
+	<b>ID: </b>${ontBean.fbbtId} ${requestScope["javax.servlet.forward.request_uri"]}
 </p>
+</c:if>
 <p>
 	<b>Definition: </b>${ontBean.def}
 </p>
