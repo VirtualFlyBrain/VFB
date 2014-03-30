@@ -54,7 +54,7 @@
         </script></b> with details.</p>
         
         <p>Alternatively, as VFB is an opensource project,   
-        you can engage directly with our developer community at GitHub 
+        you can engage directly with our developer community on GitHub 
         [<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
         <p>You can easily raise a new issue by clicking   
         <a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_new" 
