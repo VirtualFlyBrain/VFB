@@ -1,0 +1,158 @@
+<jsp:include page="/jsp/includes/homeHead.jsp" >
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Feedback@ " />
+	<jsp:param name="title" value="Feedback" />	
+</jsp:include>
+
+
+
+	<div id="center_wide">
+  	<h2>Help us improve the site</h2>
+		
+			<script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
+			<p>We really appreciate any feedback you could give us.</p>
+			<p>You can simply <b>
+			
+			<script>
+			var nVer = navigator.appVersion;
+			var nAgt = navigator.userAgent;
+			var browserName  = navigator.appName;
+			var fullVersion  = ''+parseFloat(navigator.appVersion); 
+			var majorVersion = parseInt(navigator.appVersion,10);
+			var nameOffset,verOffset,ix;
+
+			// In Opera, the true version is after "Opera" or after "Version"
+			if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+			 browserName = "Opera";
+			 fullVersion = nAgt.substring(verOffset+6);
+			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+			   fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In MSIE, the true version is after "MSIE" in userAgent
+			else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+			 browserName = "Microsoft Internet Explorer";
+			 fullVersion = nAgt.substring(verOffset+5);
+			}
+			// In Chrome, the true version is after "Chrome" 
+			else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+			 browserName = "Chrome";
+			 fullVersion = nAgt.substring(verOffset+7);
+			}
+			// In Safari, the true version is after "Safari" or after "Version" 
+			else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+			 browserName = "Safari";
+			 fullVersion = nAgt.substring(verOffset+7);
+			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+			   fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In Firefox, the true version is after "Firefox" 
+			else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+			 browserName = "Firefox";
+			 fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In most other browsers, "name/version" is at the end of userAgent 
+			else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+					  (verOffset=nAgt.lastIndexOf('/')) ) 
+			{
+			 browserName = nAgt.substring(nameOffset,verOffset);
+			 fullVersion = nAgt.substring(verOffset+1);
+			 if (browserName.toLowerCase()==browserName.toUpperCase()) {
+			  browserName = navigator.appName;
+			 }
+			}
+			// trim the fullVersion string at semicolon/space if present
+			if ((ix=fullVersion.indexOf(";"))!=-1)
+			   fullVersion=fullVersion.substring(0,ix);
+			if ((ix=fullVersion.indexOf(" "))!=-1)
+			   fullVersion=fullVersion.substring(0,ix);
+
+			majorVersion = parseInt(''+fullVersion,10);
+			if (isNaN(majorVersion)) {
+			 fullVersion  = ''+parseFloat(navigator.appVersion); 
+			 majorVersion = parseInt(navigator.appVersion,10);
+			}
+			
+			mail2("support","virtualflybrain",1,"?subject=Feedback about ${param.url} on " + navigator.userAgent,"email us")
+			</script></b> with details.</p>
+		
+			<p>Alternatively, as VFB is an opensource project,   
+			you can engage directly with our developer community on GitHub 
+			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
+			<p>You can easily raise a new issue by clicking   
+			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_new" 
+			alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>.
+			</p>
+			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in 
+			the page address and system details listed below to help us resolve any issue as quickly as possible.</p>
+			
+			<div style="border: 1px solid green;">
+			<b>Referring page:</b> <small>${param.url}</small><br />
+			<b>System details:</b> <small><script>
+			
+			var nVer = navigator.appVersion;
+			var nAgt = navigator.userAgent;
+			var browserName  = navigator.appName;
+			var fullVersion  = ''+parseFloat(navigator.appVersion); 
+			var majorVersion = parseInt(navigator.appVersion,10);
+			var nameOffset,verOffset,ix;
+
+			// In Opera, the true version is after "Opera" or after "Version"
+			if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+			 browserName = "Opera";
+			 fullVersion = nAgt.substring(verOffset+6);
+			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+			   fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In MSIE, the true version is after "MSIE" in userAgent
+			else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+			 browserName = "Microsoft Internet Explorer";
+			 fullVersion = nAgt.substring(verOffset+5);
+			}
+			// In Chrome, the true version is after "Chrome" 
+			else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+			 browserName = "Chrome";
+			 fullVersion = nAgt.substring(verOffset+7);
+			}
+			// In Safari, the true version is after "Safari" or after "Version" 
+			else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+			 browserName = "Safari";
+			 fullVersion = nAgt.substring(verOffset+7);
+			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+			   fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In Firefox, the true version is after "Firefox" 
+			else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+			 browserName = "Firefox";
+			 fullVersion = nAgt.substring(verOffset+8);
+			}
+			// In most other browsers, "name/version" is at the end of userAgent 
+			else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+					  (verOffset=nAgt.lastIndexOf('/')) ) 
+			{
+			 browserName = nAgt.substring(nameOffset,verOffset);
+			 fullVersion = nAgt.substring(verOffset+1);
+			 if (browserName.toLowerCase()==browserName.toUpperCase()) {
+			  browserName = navigator.appName;
+			 }
+			}
+			// trim the fullVersion string at semicolon/space if present
+			if ((ix=fullVersion.indexOf(";"))!=-1)
+			   fullVersion=fullVersion.substring(0,ix);
+			if ((ix=fullVersion.indexOf(" "))!=-1)
+			   fullVersion=fullVersion.substring(0,ix);
+
+			majorVersion = parseInt(''+fullVersion,10);
+			if (isNaN(majorVersion)) {
+			 fullVersion  = ''+parseFloat(navigator.appVersion); 
+			 majorVersion = parseInt(navigator.appVersion,10);
+			}
+
+			document.write(navigator.userAgent)
+			</script></small>
+			</div>
+			<p>Thank you for your help.</p>
+	</div> <!-- center_wide -->
+	
+<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
