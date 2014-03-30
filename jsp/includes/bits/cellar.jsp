@@ -32,7 +32,7 @@
          
          <style type="text/css" media="screen">
     
-			.slide-out-div {
+			.slide-out-feedback-div {
 			   padding: 20px;
 				width: 250px;
 				background: #f2f2f2;
@@ -41,7 +41,7 @@
 	
 		</style>
 
-    <div class="slide-out-div">
+    <div class="slide-out-feedback-div">
         <a class="handle" href="/site/vfb_site/about_us.htm">Content</a>
         <h3>Feedback</h3>
         
