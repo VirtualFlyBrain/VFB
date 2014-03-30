@@ -69,7 +69,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
 
-<c:if test="${not fn:endsWith(pageContext.request.requestURI, 'ont_bean.html')}" >
+<c:if test="${not fn:endsWith(pageContext.request.requestURI, 'html')}" >
 <!-- Google Analytics -->
 <jsp:include page="/jsp/includes/js/ga.jsp">
 	<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
