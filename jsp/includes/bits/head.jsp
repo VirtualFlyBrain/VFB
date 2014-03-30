@@ -79,7 +79,7 @@
 			</ul>
 			<li><script>
 			var theURL = encodeURIComponent(window.location);
-			</script><a href="/site/vfb_site/Feedback.htm" target="_feedback" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a></li>
+			</script><a href="/site/vfb_site/Feedback.htm" target="_feedback" onclick="location.href=this.href+'?url='+theURL;return true;">Feedback</a></li>
 		</ul>
 		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
 		<br class="clearit">
