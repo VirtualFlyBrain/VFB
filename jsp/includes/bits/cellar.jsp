@@ -30,8 +30,13 @@
 
          </script>
 
-    <div class="slide-out-div">
-        <a class="handle" href="http://link-for-non-js-users">Content</a>
+    <div style={
+    	padding: 20px;
+        width: 250px;
+        background: #f2f2f2;
+        border: #29216d 2px solid;
+    }>
+        <a class="handle" href="/site/vfb_site/about_us.htm">Content</a>
         <h3>Feedback</h3>
         <br />
         <script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
