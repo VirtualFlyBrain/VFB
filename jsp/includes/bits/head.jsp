@@ -64,7 +64,7 @@
 			</li>
 			<li><a class="trigger" href="#">Tools</a>
 			<ul>
-				<li><a href="/site/vfb_site/browserCheck.htm?url=/site/tools/query_builder/">Query Builder</a></li>
+				<li><a href="/site/tools/query_builder/">Query Builder</a></li>
 				<!-- li><a href="/site/tools/neuron_finder/">Neuron Finder</a></li-->
 				<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron&nbsp;Finder</a></li>
 				<!-- li><a href="/site/vfb_site/inProgress.htm" onclick="alert('We are sorry. This feature development is in progress'); return false">Upload Your Stack</a></li>
