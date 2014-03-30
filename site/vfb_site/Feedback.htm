@@ -75,7 +75,8 @@
 			}
 			SupDetail.sysDetail = navigator.userAgent;
 			SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
-			mail2("support","virtualflybrain",1,"?subject=Feedback about ${param.url} on " + navigator.userAgent,"email us")
+			SupDetail.cleanURL = encodeURIComponent(this.param.url)
+			mail2("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + navigator.userAgent,"email us")
 			</script></b> with details.</p>
 		
 			<p>Alternatively, as VFB is an opensource project,   
@@ -83,7 +84,7 @@
 			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
 			<p>You can easily raise a new issue by clicking   
 			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A" 
-			onclick="location.href=this.href+encodeURIComponent(${param.url})+'%0A'+SupDetail.sysDetailURL;return false;">
+			onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
 			here</a>.
 			</p>
 			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in 
