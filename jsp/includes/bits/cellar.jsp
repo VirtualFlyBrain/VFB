@@ -22,7 +22,7 @@
                  tabLocation: 'left',                               //side of screen where tab lives, top, right, bottom, or left
                  speed: 300,                                        //speed of animation
                  action: 'click',                                   //options: 'click' or 'hover', action to trigger animation
-                 topPos: '200px',                                   //position from the top
+                 topPos: '400px',                                   //position from the top
                  fixedPosition: false                               //options: true makes it stick(fixed position) on scroll
              });
          });
