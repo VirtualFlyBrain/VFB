@@ -15,7 +15,7 @@
          
          <script>
          $(function(){
-             $('.slide-out-div').tabSlideOut({
+             $('.slide-out-feedback-div').tabSlideOut({
                  tabHandle: '.handle',                              //class of the element that will be your tab
                  pathToTabImage: '/thirdParty/tabSlideOut/images/feedback_tab.gif',          //path to the image for the tab (optionaly can be set using css)
                  imageHeight: '167px',                               //height of tab image
