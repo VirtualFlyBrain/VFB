@@ -70,7 +70,7 @@
 			 fullVersion  = ''+parseFloat(navigator.appVersion); 
 			 majorVersion = parseInt(navigator.appVersion,10);
 			}
-			
+			var sysDetail = navigator.userAgent;
 			mail2("support","virtualflybrain",1,"?subject=Feedback about ${param.url} on " + navigator.userAgent,"email us")
 			</script></b> with details.</p>
 		
@@ -79,7 +79,8 @@
 			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
 			<p>You can easily raise a new issue by clicking   
 			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_new" 
-			alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>.
+			alt="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A${param.url}%0A${sysDetail}">
+			here</a>.
 			</p>
 			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in 
 			the page address and system details listed below to help us resolve any issue as quickly as possible.</p>
