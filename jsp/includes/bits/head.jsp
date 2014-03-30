@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 
+<c:set var="headAtt" value="true" />
+
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
  	<div id="head_wrapper">
