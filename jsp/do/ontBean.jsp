@@ -22,7 +22,7 @@ acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
 pageContext.setAttribute("aclClone", acdao.getSynSet());	
 %>
 
-
+<c:set var="url" value="${pageContext.request.requestURL}" />
 
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />		
@@ -69,7 +69,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
 
-<c:if test="${not fn:contains(pageContext.request.requestURI, 'ont_bean')}" >
+<c:if test="${not fn:contains(url, 'ont_bean')}" >
 <!-- Google Analytics -->
 <jsp:include page="/jsp/includes/js/ga.jsp">
 	<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
