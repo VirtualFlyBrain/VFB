@@ -75,6 +75,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
+	<b>ID: </b>${ontBean.fbbtId}
+</p>
+<p>
 	<b>Definition: </b>${ontBean.def}
 </p>
 <c:if test="${!empty ontBean.comment}">
