@@ -86,7 +86,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </p>
 <c:if test="${!empty ontBean.comment}">
 	<p>
-		<b>Comment: ${requestScope["javax.servlet.forward.request_uri"]}</b>${ontBean.comment}
+		<b>Comment: </b>${ontBean.comment}
 	</p>
 </c:if>
 <p>
