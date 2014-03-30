@@ -3,15 +3,17 @@
 	<jsp:param name="title" value="Feedback" />	
 </jsp:include>
 
+
+
 	<div id="center_wide">
   	<h2>Help us improve the site</h2>
 		
 			<script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
 			<p>We really appreciate any feedback you could give us.</p>
 			<p>You can simply <b>
-			<jsp:param name="theURL" value="${param.url}" />
+			
 			<script>
-			mail2("support","virtualflybrain",1,"?subject=Feedback about " + theURL,"email us")
+			mail2("support","virtualflybrain",1,"?subject=Feedback about " + param.url,"email us")
 			</script></b> with details.</p>
 		
 			<p>Alternatively, as VFB is an opensource project,   
