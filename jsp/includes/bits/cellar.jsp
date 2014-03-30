@@ -10,7 +10,7 @@
 	<br />
 	
 	<!-- BEGIN feedback tab code -->
-    <c:if test="${not pageContext.request.requestURI.endsWith('/index.htm')}">
+    <c:if test="${not pageContext.request.requestURI.contains('/index')}">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript">jQuery.noConflict(true);</script>
 		<script src="/thirdParty/tabSlideOut/js/jquery.tabSlideOut.v1.3.js"></script>
 		 
