@@ -1,0 +1,32 @@
+<jsp:include page="/jsp/includes/homeHead.jsp" >
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Feedback@ " />
+	<jsp:param name="title" value="Feedback" />	
+</jsp:include>
+
+	<div id="center_wide">
+  	<h2>Help us improve the site</h2>
+		
+			<script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
+			<p>We really appreciate any feedback you could give us.</p>
+			<p>You can simply <b>
+			<script>
+			mail2("support","virtualflybrain",1,"?subject=Feedback about " + param.url,"email us")
+			</script></b> with details.</p>
+		
+			<p>Alternatively, as VFB is an opensource project,   
+			you can engage directly with our developer community on GitHub 
+			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
+			<p>You can easily raise a new issue by clicking   
+			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_new" 
+			alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>.
+			</p>
+			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please include 
+			the page address and your browsers details to help us resolve any issue as quickly as possible.</p>
+			<br />
+			<p>Thank you for your involvement.</p>
+	</div> <!-- center_wide -->
+	
+<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
