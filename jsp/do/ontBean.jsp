@@ -31,6 +31,13 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<!-- End Google Analytics -->
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />
+		<script>
+			function replace_text(text) {
+    			var heading = document.getElementById('page_header');
+    			var currText = heading.innerHTML
+    			heading.innerHTML = currText.replace("${ontBean.fbbtId}","${ontBean.name}");
+			}
+		</script>
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="/jsp/includes/1ColHead.jsp">
