@@ -15,7 +15,7 @@
 			
 			
 			<script>
-			var sysDetail;
+			var sysDetail, sysDetailURL;
 			var nVer = navigator.appVersion;
 			var nAgt = navigator.userAgent;
 			var browserName  = navigator.appName;
@@ -74,6 +74,7 @@
 			 majorVersion = parseInt(navigator.appVersion,10);
 			}
 			var sysDetail = navigator.userAgent;
+			var sysDetailURL = encodeURIComponent(navigator.userAgent);
 			mail2("support","virtualflybrain",1,"?subject=Feedback about ${param.url} on " + navigator.userAgent,"email us")
 			</script></b> with details.</p>
 		
@@ -81,7 +82,7 @@
 			you can engage directly with our developer community on GitHub 
 			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
 			<p>You can easily raise a new issue by clicking   
-			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A${param.url}%0A${window.sysDetail}" target="_new" 
+			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A${param.url}%0A${window.sysDetailURL}" target="_new" 
 			alt="Raise an issue on GitHub">
 			here</a>.
 			</p>
