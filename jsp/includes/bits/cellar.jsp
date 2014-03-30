@@ -53,14 +53,14 @@
         mail2("support","virtualflybrain",1,"?subject=Feedback about " + theURL,"email us")
         </script></b> with details.</p>
         
-        <p>Alternatively as VFB is an opensource project;   
-        if you have a GitHub account you can talk directly with our developer community at 
-        (<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>) by raising an issue  
+        <p>Alternatively, as VFB is an opensource project,   
+        you can talk directly with our developer community at GitHub 
+        [<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>] by raising a new issue  
         <a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_new" 
-        alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>
+        alt="https://github.com/VirtualFlyBrain/VFB/issues/new">here</a>.
         </p>
-        <p> if your submitting a bug report please include the page address and your browser details to 
-        help us resolve the issue as quickly as possible.</p>
+        <p> This could simply be a question or a new feature request, but if you have found a bug we missed please include 
+        the page address and your browsers details to help us resolve any issue as quickly as possible.</p>
         <br />
         <p>Thank you for your involvement.</p>
     </div>
