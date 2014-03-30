@@ -44,7 +44,7 @@
     <div class="slide-out-div">
         <a class="handle" href="/site/vfb_site/about_us.htm">Content</a>
         <h3>Feedback</h3>
-        <br />
+        
         <script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
         <p>We really appreciate any feedback you could give us.</p>
         <p>You can simply <b>
