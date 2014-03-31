@@ -31,7 +31,9 @@
   <jsp:include page="/jsp/includes/js/tag.jsp" />
   <div id="wrapper">
   	<c:if test="${empty param.nonav}">
-		<jsp:include page="/jsp/includes/bits/head.jsp"/>
+		<div id="header_fixed_width" style="width:1222px">  
+			<jsp:include page="/jsp/includes/bits/head.jsp"/>
+		</div>
 	</c:if> 	 
 	
 	<div id="contentwrapper">
