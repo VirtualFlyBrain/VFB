@@ -12,7 +12,8 @@ body {
 #wrapper {
 	  top: 1px;
 	  margin: auto;
-	  width:1222px;
+	  min-width:996px;
+	  width:1222;
 }
 
 #contentwrapper{
