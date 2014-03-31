@@ -39,7 +39,7 @@ function createAutocomplete() {
 			onSelect:function(elements, value){
 				var id_container = $("id_container"); 
 				id_container.set("value", value.id);
-				window.location = '/site/tools/anatomy_finder/index.htm?id=' + value.id + '&name='; //redirects
+				window.location = '/site/tools/anatomy_finder/index.htm?id=' + value.id + '&name='+ search_text; //redirects
 			},
 			filter: {
 				path: 'text', 
