@@ -56,7 +56,6 @@
 					<li><a href="/site/vfb_site/overview.htm">Overview</a></li>
 					<li><a href="/site/vfb_site/features.htm">Features</a></li>
 					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
-					<li><a href="/site/vfb_site/publications_downloads.htm">Publications & Downloads</a></li>
 					<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
 					<li><a href="/site/vfb_site/sitemap.htm">Sitemap</a></li>
 					<li><a href="/site/vfb_site/privacy_cookies.htm">Privacy and Cookies</a></li>
