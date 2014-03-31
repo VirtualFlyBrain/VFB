@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 
+<c:set var="headAtt" scope="session" value="true" />
+
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
  	<div id="head_wrapper">
@@ -64,7 +66,7 @@
 			</li>
 			<li><a class="trigger" href="#">Tools</a>
 			<ul>
-				<li><a href="/site/vfb_site/browserCheck.htm?url=/site/tools/query_builder/">Query Builder</a></li>
+				<li><a href="/site/tools/query_builder/">Query Builder</a></li>
 				<!-- li><a href="/site/tools/neuron_finder/">Neuron Finder</a></li-->
 				<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron&nbsp;Finder</a></li>
 				<!-- li><a href="/site/vfb_site/inProgress.htm" onclick="alert('We are sorry. This feature development is in progress'); return false">Upload Your Stack</a></li>
@@ -78,6 +80,9 @@
 				<li><a href="/site/stacks/index.htm">Adult Brain</a></li>
 				<li><a href="/site/stacks/tg.htm">Adult Thoracico-abdominal Ganglion</a></li>
 			</ul>
+			<li><script>
+			var theURL = encodeURIComponent(window.location);
+			</script><a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a></li>
 		</ul>
 		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
 		<br class="clearit">

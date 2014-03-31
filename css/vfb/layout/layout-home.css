@@ -12,7 +12,7 @@ body {
 #wrapper {
 	  top: 1px;
 	  margin: auto;
-	  width:996px;
+	  width:1222px;
 }
 
 #contentwrapper{
@@ -24,7 +24,7 @@ body {
 #center_wide {
 	background:#FAFAFA;
 	border:1px solid gray;
-	width:745px;
+	width:971px;
 	padding:5px;
 	/*min-height:1520px;*/
 	float:left;
