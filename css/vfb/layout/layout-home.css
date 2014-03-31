@@ -67,7 +67,7 @@ body {
 div.icon {
 	border:1px solid gray; 
 	height:180px; 
-	min-width:226px; 
+	width:226px; 
 	border-radius:10px; 
 	margin: 10px; 
 	text-align: center; 
