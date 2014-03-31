@@ -1,11 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemtype="http://schema.org/Organization" >
 
 <head>
 	<title>Virtual Fly Brain: ${param.title}</title>
 	<meta name="keywords" content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
+	
+		<!-- START Google Snippit code -->
+			<meta itemprop="name" content="Virtual Fly Brain">
+			<meta itemprop="description" content="Integrative queries of Drosophila neuroanatomical data.">
+			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
+		<!-- START Google Snippit code -->
 		
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />              
       	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
