@@ -83,8 +83,6 @@
 			<li><a class="trigger" href="#">Downloads</a>
 				<ul>
 					<li><a href="/site/vfb_site/publications_downloads.htm">Image data</a></li>
-				</ul>
-				<ul>
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 				</ul>
 			</li>
