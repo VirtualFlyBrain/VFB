@@ -2,8 +2,29 @@
 		
 		<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 		
+		<!-- START Twitter code -->
+			<div id="tw-root" style="margin-top:2px"></div>
+			<div class="t-page" data-width="237">
+				<a class="twitter-timeline" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656">
+					Tweets by @virtualflybrain
+				</a>
+				<script>
+					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+						if(!d.getElementById(id)){
+							js=d.createElement(s);
+							js.id=id;
+							js.src=p+"://platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js,fjs);
+						}
+					}(document,"script","twitter-wjs");
+				</script>
+			</div>
+		<!-- END twitter code -->
+
+		
 		<!-- START Google+ page badge -->
-			<div class="g-page" data-width="235" data-href="https://plus.google.com/108888705894004504786" data-rel="publisher"></div>
+			<div id="gp-root" style="margin-top:2px"></div>
+			<div class="g-page" data-width="237" data-href="https://plus.google.com/108888705894004504786" data-rel="publisher"></div>
 
 			<!-- Place this tag after the last widget tag. -->
 			<script type="text/javascript">
@@ -18,16 +39,19 @@
 		<!-- END Google+ page badge -->
 		
 		<!-- START facebook code -->
-		<div id="fb-root" style="margin-top:2px"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) {return;}
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		<div class="fb-like-box" style="height: 370px; width: 237px; overflow:hidden;" 
-		data-href="http://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118" data-height="370" data-width="237" data-show-faces="true" data-stream="false" data-header="false"></div>
+			<div id="fb-root" style="margin-top:2px"></div>
+			<script>
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) {return;}
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div class="fb-like-box" style="height: 370px; width: 237px; overflow:hidden;" 
+			data-href="http://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118" data-height="370" 
+			data-width="237" data-show-faces="true" data-stream="false" data-header="false"></div>
 		<!-- END facebook code -->
 		
 		
