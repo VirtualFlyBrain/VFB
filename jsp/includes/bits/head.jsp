@@ -7,7 +7,7 @@
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
  	<div id="head_wrapper">
  		
- 		<table style="max-width:100%">
+ 		<table style="width:100%">
  		<tr>
  		<td style="border-right:1px solid gray;width:178px">
  			<c:if test="${!empty param.res}">
