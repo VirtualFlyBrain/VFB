@@ -24,7 +24,7 @@
 		
 		<!-- START Google+ page badge -->
 			<div id="gp-root" style="margin-top:2px"></div>
-			<div class="g-page" data-width="237" data-href="https://plus.google.com/108888705894004504786" data-rel="publisher"></div>
+			<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
 
 			<!-- Place this tag after the last widget tag. -->
 			<script type="text/javascript">
