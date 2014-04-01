@@ -110,7 +110,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<p>
 			<b>References: </b><br />
 			<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_top">${curr.miniref}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
 				<br />
 			</c:forEach>
 		</p>
@@ -139,8 +139,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</p>
 </c:if>
 <p>
-	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_top">Check in FlyBase >> </a> &nbsp; &nbsp;
-	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_top">View/edit in NeuroLex Wiki >> </a>
+	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">Check in FlyBase >> </a> &nbsp; &nbsp;
+	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new">View/edit in NeuroLex Wiki >> </a>
 	<c:if test="${!isNeuron && !isClone}">
 		<c:set var="isNeuropil" value="true"/>
 		&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"

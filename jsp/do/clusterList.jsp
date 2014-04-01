@@ -57,7 +57,7 @@
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 					<tr>
 						<td style="padding: 2px 0; text-align: center;">
-							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster"> 
+							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_new"> 
 								<img height="100" src="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" />
 							</a>
 						</td>
@@ -66,11 +66,11 @@
 								string="${ontBean.def}" size="210" /> 
 							<c:set var="tpb" value="${ontBean.thirdPartyBean}" /><br /> 
 							<b>Source:</b>
-							<a href="${tpb.baseUrl}${tpb.remoteId}">${tpb.sourceName}</a>
+							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
 						</td>
 						<c:if test="${!empty tpb}">
 							<td style="padding: 2px 0; text-align: center;"><a href="${tpb.baseUrl}${tpb.remoteId}"
-								title="View ${tpb.sourceName} entry"><img class="thumb" src="${tpb.thumbUrl}" /></a> &nbsp;&nbsp; 
+								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" /></a> &nbsp;&nbsp; 
 							</td>
 							<td style="padding: 2px">
 								<c:if test="${empty param.popup}">							
