@@ -56,11 +56,10 @@
 					<li><a href="/site/vfb_site/overview.htm">Overview</a></li>
 					<li><a href="/site/vfb_site/features.htm">Features</a></li>
 					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
+					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
 					<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
 					<li><a href="/site/vfb_site/sitemap.htm">Sitemap</a></li>
 					<li><a href="/site/vfb_site/privacy_cookies.htm">Privacy and Cookies</a></li>
-					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
-					<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Tools</a>
@@ -83,6 +82,11 @@
 				<ul>
 					<li><a href="/site/vfb_site/image_data_downloads.htm">Image data</a></li>
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
+				</ul>
+			</li>
+			<li><a class="trigger" href="#">About Us</a>
+				<ul>
+					<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 				</ul>
 			</li>
 			<li>
