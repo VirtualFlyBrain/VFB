@@ -58,7 +58,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<p>
 			<b>References: </b><br />
 			<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_top">${curr.miniref}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
 				<br />
 			</c:forEach>
 		</p>

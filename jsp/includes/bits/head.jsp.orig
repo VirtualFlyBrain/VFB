@@ -74,10 +74,15 @@
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Stacks</a>
+<<<<<<< HEAD
 			<ul>
-				<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
+				<li><a href="/site/stacks/index.htm">Adult Brain</a></li>
 				<li><a href="/site/stacks/tg.htm">Adult Thoracico-abdominal Ganglion</a></li>
 			</ul>
+=======
+				<ul>
+					<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
+				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
 				<ul>
@@ -96,6 +101,7 @@
 				</script>
 				<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a>
 			</li>
+>>>>>>> master
 		</ul>
 		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
 		<br class="clearit">

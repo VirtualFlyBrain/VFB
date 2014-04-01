@@ -13,7 +13,7 @@ var currBeanId = "${param.fbbtId}";
 		<li><a href="/do/ont_bean_list.html?action=subclass&id=${param.fbbtId}" target="_top">
 		SubClasses</a>
 		<li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">
-		Parts</a>
+		Parts of</a>
 		</li>
 		<li><a href="#">Expression/Phenotypes found here:</a>
 		<ul>

@@ -59,7 +59,7 @@
 									title="See in viewer">See in viewer >></a> 
 								</c:if>
 								<br/>
-								<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry">${tpb.sourceName}</a>
+								<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new">${tpb.sourceName}</a>
 								<br/>
 						</td>
 						<c:if test="${!empty tpb}">
@@ -76,7 +76,7 @@
 							</td>
 							<td style="padding: 2px;">
 								<c:set var="driverDetails" value='${drivers[fn:replace(ontBean.fbbtId, ":", "_")]}'/>
-								<a href="http://flybase.org/reports/${driverDetails[0]}.html">${driverDetails[1]}</a>
+								<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new">${driverDetails[1]}</a>
 							</td>
 						</c:if>
 					</tr>

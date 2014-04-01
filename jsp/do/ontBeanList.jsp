@@ -52,7 +52,7 @@
 							string="${ontBean.def}" size="210" /><br /> 
 							<a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}">More info >> </a>
 							&nbsp; or &nbsp; 
-							<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">Check in FlyBase >> </a>
+							<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">Check in FlyBase >> </a>
 					</li>
 				</c:forEach>
 			</ul>
