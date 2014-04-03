@@ -49,17 +49,17 @@
 		<tbody>
 		<c:forEach items="${geneList}" var="geneBean" varStatus="status">		
 			<tr>
-				<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" >${geneBean.driver}</a></td>
+				<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" target="_new">${geneBean.driver}</a></td>
 				<td><a href="/site/tools/anatomy_finder/index.htm?id=FBbt:${geneBean.locationRef}&popup=true">${geneBean.location}</a>
 					<c:if test="${geneBean.flag}">
 						<a href="" class="warn" title="${queryDesc} expression in this cell may be localised to regions of the cell that do not overlap the queried structure">(*)</a>
 					</c:if>
 				</td>
-				<td><a href="${transgeneLinks[0]}${geneBean.reference}.html" >${geneBean.referenceRef}</a></td>
+				<td><a href="${transgeneLinks[0]}${geneBean.reference}.html" target="_new">${geneBean.referenceRef}</a></td>
 				<td>
 				<c:set var="tpb" value="${geneBean.thirdPartyBean}" />
 				<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
-					<b>Source: </b><a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page">${tpb.sourceName} <br/>
+					<b>Source: </b><a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName} <br/>
 					<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
 						<img src="${geneBean.thirdPartyBean.thumbUrl}"height="50"/></a>
 						<br clear="all"/>					</c:if>

@@ -22,8 +22,26 @@ acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
 pageContext.setAttribute("aclClone", acdao.getSynSet());	
 %>
 
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />		
+<c:choose>
+	<c:when test="${headAtt == true}"> 
+		<!-- Google Analytics -->
+			<jsp:include page="/jsp/includes/js/ga.jsp">
+				<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
+			</jsp:include>
+		<!-- End Google Analytics -->
+		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />
+	</c:when>
+	<c:otherwise>
+		<jsp:include page="/jsp/includes/1ColHead.jsp">
+			<jsp:param name="title" value="${ontBean.name}" />
+			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|${ontBean.fbbtId}@ " />
+			<jsp:param name="css" value="/css/vfb/utils/p7menu_secondary.css;/css/vfb/utils/resultList.css;" />
+		</jsp:include>
+		<c:set var="needFoot" value="true" />
+	</c:otherwise>
+</c:choose>
+		
 	
 <c:forEach items="${aclNeuron}" var="neuron" varStatus="i">
 	<c:if test="${ontBean.fbbtId == neuron.fbbtId}">
@@ -67,13 +85,14 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
 </jsp:include>
 
-<!-- Google Analytics -->
-<jsp:include page="/jsp/includes/js/ga.jsp">
-	<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
-</jsp:include>
-<!-- End Google Analytics -->
+
 		
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
+<c:if test="${!empty ontBean.fbbtId}">
+<p>
+	<b>ID: </b>${ontBean.fbbtId}
+</p>
+</c:if>
 <p>
 	<b>Definition: </b>${ontBean.def}
 </p>
@@ -91,7 +110,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<p>
 			<b>References: </b><br />
 			<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_top">${curr.miniref}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
 				<br />
 			</c:forEach>
 		</p>
@@ -120,8 +139,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</p>
 </c:if>
 <p>
-	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_top">Check in FlyBase >> </a> &nbsp; &nbsp;
-	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_top">View/edit in NeuroLex Wiki >> </a>
+	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">Check in FlyBase >> </a> &nbsp; &nbsp;
+	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new">View/edit in NeuroLex Wiki >> </a>
 	<c:if test="${!isNeuron && !isClone}">
 		<c:set var="isNeuropil" value="true"/>
 		&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
@@ -138,3 +157,6 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	
 </p>
 
+<c:if test="${needFoot == true}">
+	<jsp:include page="/jsp/includes/homeFoot.jsp"/>
+</c:if>
