@@ -85,8 +85,9 @@
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 				</ul>
 			</li>
-			<li><a class="trigger" href="#">About Us</a>
+			<li><a class="trigger" href="/site/vfb_site/about_us.htm">About Us</a>
 				<ul>
+					<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
 					<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 				</ul>
 			</li>
