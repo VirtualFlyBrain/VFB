@@ -21,6 +21,7 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
         echo "which are:"
         cat branch
         cat revision
