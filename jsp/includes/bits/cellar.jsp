@@ -8,6 +8,11 @@
 
 	
 	<br />
-	<div id="VFBversion" style="position:relative; left: 0; bottom: 0; font-size: xx-small;">
-		<jsp:include page="/branch" />- <jsp:include page="/revision" /> [ <jsp:include page="/flybase" />]
-	</div>
+	
+
+		<!-- BEGIN version display -->
+		<div id="VFBversion" style="position:relative; left: 0; bottom: 0; font-size: xx-small;">
+			<jsp:include page="/branch" />- <jsp:include page="/revision" /> [ <jsp:include page="/flybase" />] [ OWL:<jsp:include page="/owldate" />]
+		</div>
+	
+		<!-- END version display -->
