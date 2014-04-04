@@ -9,7 +9,7 @@
 	<meta name="keywords" content="virtual fly brain atlas, interactive fly brain, Drosophila, fruitfly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
 
 		<!-- START Google Snippit code -->
-			<meta itemprop="name" content="Virtual Fly Brain">
+			<meta itemprop="name" content="Virtual Fly Brain: ${param.title}">
 			<meta itemprop="description" content="Integrative queries of Drosophila neuroanatomical data.">
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
 		<!-- START Google Snippit code -->
