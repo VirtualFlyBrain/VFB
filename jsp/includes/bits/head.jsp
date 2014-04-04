@@ -26,7 +26,7 @@
 			<c:set var="title" value="&nbsp;${param.title}" />   		
   			<h1 id="page_header">
   				<c:choose>
-  					<c:when test="${fn:length(optionsVar)>35}">
+  					<c:when test="${fn:length("${param.title}")>35}">
   						<a href="/site/vfb_site/overview.htm">VFB:</a>${(empty param.title)?"":title}
   					</c:when>
   					<c:otherwise>
