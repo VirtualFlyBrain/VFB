@@ -1,18 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
+<c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
+<c:set var="cleanTitle">${fileName}</c:set>
+<c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
+
 <jsp:include page="/jsp/includes/1ColHead.jsp">
-	<jsp:param name="title" value="Query Results" />
+	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
 </jsp:include>
-
-
-
-<c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
-<c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
-<c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
-
 
 
 <div id="help_wrapper">
@@ -34,6 +32,7 @@
 				<option value="50" ${(perPage==50)?"selected":""} >50</option>
 				<option value="100" ${(perPage==100)?"selected":""} >100</option>
 			</select>
+			
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
 	</span>
