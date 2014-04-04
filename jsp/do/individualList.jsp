@@ -2,17 +2,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="/WEB-INF/classes/vfbUtils.tld" prefix="vfbUtil"%>
 
+<c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
+<c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
+<c:set var="cleanTitle">${fileName}</c:set>
+<c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
+
 <jsp:include page="/jsp/includes/1ColHead.jsp">
-	<jsp:param name="title" value="Query Results" />
+	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
 </jsp:include>
-
-
-
-<c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
-<c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
-<c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
 
 	<div id="help_wrapper">
