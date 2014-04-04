@@ -78,12 +78,12 @@ public class CompositeViewController extends MultiActionController{
 			cvb = cvb.startNewComposite();
 			//modelAndView.addObject("render", true);
 		}
-
 		else if (action != null & action.equals("load")){
 			String uuid = req.getParameter("uuid");
 			// Read from file and create new CVB.
 			try{
-				cvb = CompositeViewBean.deserialize(uuid);	
+				cvb = CompositeViewBean.deserialize(uuid);
+				cvb.setUuid(uuid);
 			}
 			catch (Exception e) {
 				// Unable to load composite - scavenge the error message and pass it on to the page
