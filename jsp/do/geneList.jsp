@@ -13,15 +13,6 @@
 </jsp:include>
 
 
-
-<c:if test="${param.perPage==0}">
-	<c:set var="paramString">${paramString}&perPage=100</c:set>
-</c:if>
-
-<c:if test="${param.perPage != null}">
-	<c:set var="paramString">${paramString}&perPage=100</c:set>
-</c:if>
-
 <div id="help_wrapper">
 <div id="help_head_wrapper">
 <h1 id="help_header">Query: ${query}</h1>
