@@ -24,7 +24,16 @@
   				<a class="help youtube" href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new" style="top:-10px" title="Watch VFB tutorial videos">Tutorial Videos</a>
 			<%--/c:if--%>
 			<c:set var="title" value="&nbsp;${param.title}" />   		
-  			<h1 id="page_header"><a href="/site/vfb_site/overview.htm">Virtual Fly Brain:</a>${(empty param.title)?"":title}</h1>  			
+  			<h1 id="page_header">
+  				<c:choose>
+  					<c:when test="${fn:length(optionsVar)>35}">
+  						<a href="/site/vfb_site/overview.htm">VFB:</a>${(empty param.title)?"":title}
+  					</c:when>
+  					<c:otherwise>
+  						<a href="/site/vfb_site/overview.htm">Virtual Fly Brain:</a>${(empty param.title)?"":title}
+  					</c:otherwise>
+  				</choose>
+  			</h1>  			
   			<div id="breadcrumb" >
 			<c:if test="${!empty param.navpath}">
 				<c:forEach items="${fn:split(param.navpath, '|')}" var="curr" varStatus="status">
