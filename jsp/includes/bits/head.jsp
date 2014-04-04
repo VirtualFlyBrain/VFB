@@ -32,7 +32,7 @@
   					<c:otherwise>
   						<a href="/site/vfb_site/overview.htm">Virtual Fly Brain:</a>${(empty param.title)?"":title}
   					</c:otherwise>
-  				</choose>
+  				</c:choose>
   			</h1>  			
   			<div id="breadcrumb" >
 			<c:if test="${!empty param.navpath}">
