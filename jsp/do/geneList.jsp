@@ -16,10 +16,12 @@
 
 <c:if test="${perPage==0}">
 	<c:set var="perPage">100</c:set>
+	test1
 </c:if>
 
 <c:if test="${empty perPage}">
 	<c:set var="perPage">100</c:set>
+	test2
 </c:if>
 
 <div id="help_wrapper">
