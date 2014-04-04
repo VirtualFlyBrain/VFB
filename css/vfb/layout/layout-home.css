@@ -74,7 +74,7 @@ div.icon {
 	float: left;
 }
 div.icon ul li{ 
-	margin:0 20px 20px 0; 
+	margin:20px 20px 20px 0; 
 	vertical-align:top
 }
 div.icon:hover{
