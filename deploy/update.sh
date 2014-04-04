@@ -27,6 +27,8 @@ then
         cat revision
         echo "Flybase version:"
         cat flybase
+        echo "OWL date:"
+        cat owldate
         
         echo "checking filters to use correct branch names"
         find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
@@ -70,11 +72,14 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
         echo "which are:"
         cat branch
         cat revision
         echo "Flybase version:"
         cat flybase
+        echo "OWL date:"
+        cat owldate
         if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "\.sed" | wc -l` -gt 0 ]
         then
             echo "checking filters to use correct branch names"
