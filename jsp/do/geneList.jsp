@@ -14,12 +14,12 @@
 
 
 
-<c:if test="${perPage==0}">
-	<c:set var="perPage">100</c:set>
+<c:if test="${param.perPage==0}">
+	<c:set var="paramString">${paramString}&perPage=100</c:set>
 </c:if>
 
-<c:if test="${perPage != null}">
-	<c:set var="perPage">100</c:set>
+<c:if test="${param.perPage != null}">
+	<c:set var="paramString">${paramString}&perPage=100</c:set>
 </c:if>
 
 <div id="help_wrapper">
