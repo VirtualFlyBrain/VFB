@@ -14,7 +14,13 @@
 
 
 
+<c:if test="${perPage==0}">
+	<c:set var="perPage">100</c:set>
+</c:if>
 
+<c:if test="${empty perPage}">
+	<c:set var="perPage">100</c:set>
+</c:if>
 
 <div id="help_wrapper">
 <div id="help_head_wrapper">
@@ -35,6 +41,7 @@
 				<option value="50" ${(perPage==50)?"selected":""} >50</option>
 				<option value="100" ${(perPage==100)?"selected":""} >100</option>
 			</select>
+			
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
 	</span>
