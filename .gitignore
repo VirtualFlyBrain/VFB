@@ -3,6 +3,7 @@ build/
 revision
 branch
 flybase
+owldate
 google*.html
 *.wlz
 
