@@ -39,7 +39,7 @@
   						<option value="20" >20</option>
 						<option value="50" >50</option>
 						<option value="100" selected>100</option>
-						<script> this.form.submit(); </script>
+						<script> document.getElementById('perPage').onchange(); </script>
 					</c:otherwise>
 				</c:option>
 			</select>
