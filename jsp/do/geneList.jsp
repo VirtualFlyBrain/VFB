@@ -27,10 +27,21 @@
 				<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}"/> 
 			</c:forEach>
 			<select id="perPage" name="perPage" onchange='this.form.submit()'>
-  				<option value="10" ${(perPage==10)?"selected":""} >10</option>
-  				<option value="20" ${(perPage==20)?"selected":""} >20</option>
-				<option value="50" ${(perPage==50)?"selected":""} >50</option>
-				<option value="100" ${(perPage==100)?"selected":""} >100</option>
+				<c:option>
+					<c:when test="${perPage eq 10 || perPage eq 20 || perPage eq 50 || perPage eq 100}">
+						<option value="10" ${(perPage==10)?"selected":""} >10</option>
+  						<option value="20" ${(perPage==20)?"selected":""} >20</option>
+						<option value="50" ${(perPage==50)?"selected":""} >50</option>
+						<option value="100" ${(perPage==100)?"selected":""} >100</option>
+					</c:when>
+					<c:otherwise>
+						<option value="10" >10</option>
+  						<option value="20" >20</option>
+						<option value="50" >50</option>
+						<option value="100" selected>100</option>
+						<script> this.form.submit(); </script>
+					</c:otherwise>
+				</c:option>
 			</select>
 			
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
