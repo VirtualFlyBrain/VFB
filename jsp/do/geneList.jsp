@@ -39,13 +39,15 @@
   						<option value="20" >20</option>
 						<option value="50" >50</option>
 						<option value="100" selected>100</option>
-						<script> document.getElementById('perPage').onchange(); </script>
 					</c:otherwise>
 				</c:option>
 			</select>
 			
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
+		<c:if test="${perPage eq 10 || perPage eq 20 || perPage eq 50 || perPage eq 100}">
+			<script> document.getElementById('perPage').onchange(); </script>
+		</c:if>
 	</span>
 
 		<table>
