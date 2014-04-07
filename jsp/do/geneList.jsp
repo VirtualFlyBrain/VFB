@@ -35,6 +35,11 @@
 			
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
+		
+		<c:if test="${perPage lt 10 || perPage gt 100}">
+			<script> document.getElementById('perPage').onchange(); </script>
+		</c:if>
+		
 	</span>
 
 		<table>
