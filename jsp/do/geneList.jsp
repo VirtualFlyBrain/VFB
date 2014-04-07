@@ -6,6 +6,10 @@
 <c:set var="cleanTitle">${fileName}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
+<c:if test="${empty perPage}">
+	<c:set var="paramString">${paramString}&perPage=100</c:set>
+</c:if>
+
 <jsp:include page="/jsp/includes/1ColHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
