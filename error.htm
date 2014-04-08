@@ -14,17 +14,14 @@
 		</ul>
 		Please check that the URL for your request is correct and try again.<br/>
 		If it is our fault,  we will check it and put right soon<br/>
-		You can report the problem to us using <a href="mailto:support @ virtualflybrain.org">support@virtualflybrain.org</a>
+		<script>
+			var theURL = encodeURIComponent(window.location);
+			ga('send', 'event', 'error', theURL);
+		</script>
+		You can report the problem to us using <a href="mailto:support @ virtualflybrain.org?subject="+theURL >support@virtualflybrain.org</a>
 	</span>
-	
-	<h2>What is Virtual Fly Brain?</h2>
-	
-	<p>
-		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy, gene expression, 
-		and associated phenotypes of the adult <i>Drosophila melanogaster</i> brain
-	</p>
 
-<h2>What is Virtual Fly Brain?</h2>
+	<h2>What is Virtual Fly Brain?</h2>
 
 	<p>
 		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy,
@@ -61,39 +58,12 @@
 	<p>The interactive <a href="site/tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
 		multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality of these connections. </p>
 
-	<h2>Supported Browsers</h2>
-	<p>
-		We are working hard to ensure that the viewer works well in all major browsers and operating systems. Your experience will be best when using well 
-		tested browser/OS, so please refer to the table below to find out the level of browser/OS compatibility we currently offer:  
-	</p>
-	<p style="text-align:center;">	
-		<table class="basic">
-		<tr>
-			<th>Browser/OS</th><th>&nbsp;Windows&nbsp;</th><th>&nbsp;Mac OS&nbsp;</th><th>&nbsp;Linux&nbsp;</th>
-			<th style="border:0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th style="border:0">Legend</th>
-		</tr>
-		<tr>
-			<td><b>Firefox 3.x</b></td><td><img src="/images/vfb/utils/check.png"/></td><td><img src="/images/vfb/utils/check.png"/></td><td><img src="/images/vfb/utils/check.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/check.png"/> - All features work, <img src="/images/vfb/utils/check_remark.png"/> - with some problems</td>
-		</tr>
-		<tr>
-			<td><b>Safari</b></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/check_remark.png"/></td><td><img src="/images/vfb/utils/query.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/warning.png"/> - Viewer loads, but with limited functionality</td>
-		</tr>
-		<tr>
-			<td><b>IE</b></td><td><img src="/images/vfb/utils/dont.png"/></td><td><img src="/images/vfb/utils/dont.png"/></td><td><img src="/images/vfb/utils/dont.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/dont.png"/> - Sorry, try other browser</td>
-		</tr>
-		<tr>
-			<td><b>Konqueror</b></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/warning.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/query.png"/> - Not tested - try it at your own risk</td>
-		</tr>
-		</table>
-		
-	</p>
+	
 	</div> <!-- center_wide -->
 	
 	<%--jsp:include page="/jsp/includes/bits/homeRight.jsp" /--%>
+	
+	
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
