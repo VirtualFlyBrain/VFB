@@ -15,7 +15,7 @@
 		Please check that the URL for your request is correct and try again.<br/>
 		If it is our fault,  we will check it and put right soon<br/>
 
-		You can report the problem to us using <script>
+		You can report the problem either by <script>
 			window.SupDetail = {};
 			var nVer = navigator.appVersion;
 			var nAgt = navigator.userAgent;
@@ -77,7 +77,7 @@
 			SupDetail.sysDetail = navigator.userAgent;
 			SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
 			SupDetail.cleanURL = encodeURIComponent(window.location)
-			mail2("support","virtualflybrain",1,"?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent,"email us")
+			mail2("support","virtualflybrain",1,"?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent,"emailing us")
 			dataLayer.push({'event':'error', 'eventLabel':SupDetail.cleanURL});
 			dataLayer.push({'event':'error', 'eventLabel':navigator.userAgent});
 			</script>
