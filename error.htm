@@ -16,7 +16,7 @@
 		If it is our fault,  we will check it and put right soon<br/>
 		<script>
 			var theURL = encodeURIComponent(window.location);
-			ga('send', 'event', 'error', theURL);
+			dataLayer.push({'event':'error','eventLabel':this.src});
 		</script>
 		You can report the problem to us using <a href="mailto:support @ virtualflybrain.org?subject="+theURL >support@virtualflybrain.org</a>
 	</span>
