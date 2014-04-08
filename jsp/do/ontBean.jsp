@@ -24,10 +24,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 <c:choose>
 	<c:when test="${headAtt == true}"> 
+		<jsp:include page="/jsp/includes/js/tag.jsp" />
 		<!-- Google Analytics -->
-			<jsp:include page="/jsp/includes/js/ga.jsp">
-				<jsp:param name="ORurl" value="do/ont_bean.html?fbId=${ontBean.fbbtId}" />
-			</jsp:include>
+			<script>
+				dataLayer.push({'event':'ontBean', 'eventLabel':'${ontBean.fbbtId}'});
+			</script>
 		<!-- End Google Analytics -->
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />
