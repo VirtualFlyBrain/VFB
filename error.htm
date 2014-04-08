@@ -1,7 +1,7 @@
 <jsp:include page="/jsp/includes/homeHead.jsp" >
 	<jsp:param name="navpath" value="Home@/ " />
 	<jsp:param name="nonav" value="true" />
-	<jsp:param name="css" value="/css/vfb/table.css" />
+	<jsp:param name="css" value="/css/vfb/utils/table.css" />
 </jsp:include>
 
 	<div id="center_wide">
@@ -13,18 +13,90 @@
 		<li>the Virtual Fly Brain site is currently experiencing technical problems. </li>
 		</ul>
 		Please check that the URL for your request is correct and try again.<br/>
-		If it is our fault,  we will check it and put right soon<br/>
-		You can report the problem to us using <a href="mailto:support @ virtualflybrain.org">support@virtualflybrain.org</a>
+		<p>
+			If it is our fault, we will check it and put right ASAP, 
+			you can report the problem by 
+			<script>
+				window.SupDetail = {};
+				var nVer = navigator.appVersion;
+				var nAgt = navigator.userAgent;
+				var browserName  = navigator.appName;
+				var fullVersion  = ''+parseFloat(navigator.appVersion); 
+				var majorVersion = parseInt(navigator.appVersion,10);
+				var nameOffset,verOffset,ix;
+	
+				// In Opera, the true version is after "Opera" or after "Version"
+				if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+				 browserName = "Opera";
+				 fullVersion = nAgt.substring(verOffset+6);
+				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+				   fullVersion = nAgt.substring(verOffset+8);
+				}
+				// In MSIE, the true version is after "MSIE" in userAgent
+				else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+				 browserName = "Microsoft Internet Explorer";
+				 fullVersion = nAgt.substring(verOffset+5);
+				}
+				// In Chrome, the true version is after "Chrome" 
+				else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+				 browserName = "Chrome";
+				 fullVersion = nAgt.substring(verOffset+7);
+				}
+				// In Safari, the true version is after "Safari" or after "Version" 
+				else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+				 browserName = "Safari";
+				 fullVersion = nAgt.substring(verOffset+7);
+				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+				   fullVersion = nAgt.substring(verOffset+8);
+				}
+				// In Firefox, the true version is after "Firefox" 
+				else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+				 browserName = "Firefox";
+				 fullVersion = nAgt.substring(verOffset+8);
+				}
+				// In most other browsers, "name/version" is at the end of userAgent 
+				else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+						  (verOffset=nAgt.lastIndexOf('/')) ) 
+				{
+				 browserName = nAgt.substring(nameOffset,verOffset);
+				 fullVersion = nAgt.substring(verOffset+1);
+				 if (browserName.toLowerCase()==browserName.toUpperCase()) {
+				  browserName = navigator.appName;
+				 }
+				}
+				// trim the fullVersion string at semicolon/space if present
+				if ((ix=fullVersion.indexOf(";"))!=-1)
+				   fullVersion=fullVersion.substring(0,ix);
+				if ((ix=fullVersion.indexOf(" "))!=-1)
+				   fullVersion=fullVersion.substring(0,ix);
+	
+				majorVersion = parseInt(''+fullVersion,10);
+				if (isNaN(majorVersion)) {
+				 fullVersion  = ''+parseFloat(navigator.appVersion); 
+				 majorVersion = parseInt(navigator.appVersion,10);
+				}
+				SupDetail.sysDetail = navigator.userAgent;
+				SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
+				SupDetail.cleanURL = encodeURIComponent(window.location)
+				mail2("support","virtualflybrain",1,"?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent,"emailing us")
+				dataLayer.push({'event':'error', 'eventLabel':SupDetail.cleanURL});
+				dataLayer.push({'event':'error', 'eventLabel':navigator.userAgent});
+			</script>.
+			</p>
+			<p>
+				Alternatively, as VFB is an opensource project,   
+				you can engage directly with our developer community on GitHub 
+				[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].
+			</p> 
+			<p>
+				If you have a GitHub account can easily raise a new issue by clicking   
+				<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0AError%20info%3A%0A" 
+				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
+				here</a>.
+			</p>
 	</span>
-	
-	<h2>What is Virtual Fly Brain?</h2>
-	
-	<p>
-		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy, gene expression, 
-		and associated phenotypes of the adult <i>Drosophila melanogaster</i> brain
-	</p>
 
-<h2>What is Virtual Fly Brain?</h2>
+	<h2>What is Virtual Fly Brain?</h2>
 
 	<p>
 		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy,
@@ -61,39 +133,12 @@
 	<p>The interactive <a href="site/tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
 		multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality of these connections. </p>
 
-	<h2>Supported Browsers</h2>
-	<p>
-		We are working hard to ensure that the viewer works well in all major browsers and operating systems. Your experience will be best when using well 
-		tested browser/OS, so please refer to the table below to find out the level of browser/OS compatibility we currently offer:  
-	</p>
-	<p style="text-align:center;">	
-		<table class="basic">
-		<tr>
-			<th>Browser/OS</th><th>&nbsp;Windows&nbsp;</th><th>&nbsp;Mac OS&nbsp;</th><th>&nbsp;Linux&nbsp;</th>
-			<th style="border:0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th style="border:0">Legend</th>
-		</tr>
-		<tr>
-			<td><b>Firefox 3.x</b></td><td><img src="/images/vfb/utils/check.png"/></td><td><img src="/images/vfb/utils/check.png"/></td><td><img src="/images/vfb/utils/check.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/check.png"/> - All features work, <img src="/images/vfb/utils/check_remark.png"/> - with some problems</td>
-		</tr>
-		<tr>
-			<td><b>Safari</b></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/check_remark.png"/></td><td><img src="/images/vfb/utils/query.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/warning.png"/> - Viewer loads, but with limited functionality</td>
-		</tr>
-		<tr>
-			<td><b>IE</b></td><td><img src="/images/vfb/utils/dont.png"/></td><td><img src="/images/vfb/utils/dont.png"/></td><td><img src="/images/vfb/utils/dont.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/dont.png"/> - Sorry, try other browser</td>
-		</tr>
-		<tr>
-			<td><b>Konqueror</b></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/query.png"/></td><td><img src="/images/vfb/utils/warning.png"/></td>
-			<td style="border:0"></td><td  style="border:0"><img src="/images/vfb/utils/query.png"/> - Not tested - try it at your own risk</td>
-		</tr>
-		</table>
-		
-	</p>
+	
 	</div> <!-- center_wide -->
 	
 	<%--jsp:include page="/jsp/includes/bits/homeRight.jsp" /--%>
+	
+	
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
