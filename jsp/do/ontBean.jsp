@@ -24,6 +24,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 <c:choose>
 	<c:when test="${headAtt == true}"> 
+		<jsp:include page="/jsp/includes/js/tag.jsp" />
 		<!-- Google Analytics -->
 			<script>
 				dataLayer.push({'event':'ontBean', 'eventLabel':'${ontBean.fbbtId}'});
