@@ -26,7 +26,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<c:when test="${headAtt == true}"> 
 		<!-- Google Analytics -->
 			<script>
-				dataLayer.push({'event':'ontBean', 'eventLabel':ontBean.fbbtId});
+				dataLayer.push({'event':'ontBean', 'eventLabel':'${ontBean.fbbtId}'});
 			</script>
 		<!-- End Google Analytics -->
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
