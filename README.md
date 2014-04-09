@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 # About Virtual Fly Brain
 
 Virtual Fly Brain (VFB) is the only resource that integrates knowledge and images from across the field of _Drosophila_ neurobiology. Our content is curated from the literature and from multiple bulk datasets:  we have anatomical content from 100s of papers and expression & phenotype content from 1000s of papers; bulk image and expression data sets include data from flycircuit, Janelia Farm, Braintrap and the Labs of Kei Ito & Tzumin Lee.  We believe it is essential for users to be able to trace assertions and data on our site back to thier origins in the literature and bulk data sets, and so are fanatical about retaining and displaying provenance for all our content.
