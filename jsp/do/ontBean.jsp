@@ -27,7 +27,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<jsp:include page="/jsp/includes/js/tag.jsp" />
 		<!-- Google Analytics -->
 			<script>
-				dataLayer.push({'event':'ontBean', 'eventLabel':'${ontBean.fbbtId}'});
+				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=${ontBean.fbbtId}'});
 			</script>
 		<!-- End Google Analytics -->
 		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
