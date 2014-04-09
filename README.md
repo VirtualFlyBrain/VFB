@@ -1,3 +1,5 @@
+Current Issues that need work:
+[![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 
 # About Virtual Fly Brain
 
@@ -12,9 +14,6 @@ We also provide extra analysis of single neuron image data via clustering of mor
 ## Simple guide to editing this Repo
 
 See the [Code Editing Guide](https://github.com/VirtualFlyBrain/VFB/wiki/Code-Editing-Guide) wiki.
-
-Current Issues that need work:
-[![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 
 ## Call for contributions
 
