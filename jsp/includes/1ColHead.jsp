@@ -36,7 +36,7 @@
       	<script type="text/javascript" src="/javascript/vfb/utils.js"></script>
 
 </head>
-<body style="min-width:1222px;">
+<body>
 	<jsp:include page="/jsp/includes/js/tag.jsp" />
   	<div id="wrapper">
 	<jsp:include page="/jsp/includes/bits/head.jsp"/> 	 
