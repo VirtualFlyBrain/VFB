@@ -107,7 +107,7 @@
 </script>
 
 </head>
-<body style="min-width:1222px;">
+<body>
 	<jsp:include page="/jsp/includes/js/tag.jsp" />
 
 	<jsp:include page="/jsp/includes/bits/head.jsp" />
