@@ -74,7 +74,7 @@
 						<c:if test="${!empty types}">
 							<td style="padding: 2px;">
 								<c:forEach items="${types}" var="item" varStatus="stat">
-									<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry">${item.value}</a><c:if test="${!stat.last}">,</c:if>
+									<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}&name=${item.value}" title="View ${item.value} entry">${item.value}</a><c:if test="${!stat.last}">,</c:if>
 									<br/>
 								</c:forEach>
 							</td>
