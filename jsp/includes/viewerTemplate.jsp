@@ -144,7 +144,7 @@
 				tree on the right to select a domain.<br/><br/>
 				<b>Did you know?</b> You can run simple queries on a chosen term from the current panel. <br/> 
 				Simply choose one of the query options to the right of 'Query for', on the term-specific menu bar that will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
-				<b>Tip</b>To keep your current domain/tree selection open links in a new tab. Right/control click the link and select "Open link in new tab".  
+				<b>Tip: </b> To keep your current domain/tree selection open links in a new tab. Right/control click the link and select "Open link in new tab".  
 			</div>
 		</div>
 		<jsp:include page="/jsp/includes/bits/cellar.jsp" />

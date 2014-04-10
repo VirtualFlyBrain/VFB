@@ -6,6 +6,7 @@ html, body {
 body {
     font-family: "Trebuchet MS", "Verdana", "Arial", sans-serif;
     color: #666;
+    min-width:1222px;
 }
 
 #contentwrapper {

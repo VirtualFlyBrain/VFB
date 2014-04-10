@@ -10,7 +10,7 @@ var currBeanId = "${param.fbbtId}";
 	style="">
 	<ul id="menubar">
 		<li class="header">Query for</li>
-		<li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}"  target="_top">Parts of: </a></li>
+		<li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}"  target="_top">Parts of</a></li>
 		<li><a href="#">Neurons with:</a>
 		<ul>
 			<li><a href="/do/ont_bean_list.html?action=found&id=${param.fbbtId}"  target="_top">
