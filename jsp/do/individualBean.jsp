@@ -70,7 +70,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<c:set var="currParts" value="${fn:split(curr, '=')}" />
 		<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
 		&nbsp;&nbsp;&nbsp; * 
-		<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}" title="Look up" target="_top">${currParts[1]}</a>
+		<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
 	</c:forEach>
 </p>
 <c:if test="${fn:length(ontBean.relationships)>0}">
@@ -78,7 +78,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<b>Relationships: </b><br />
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
-			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}" title="Look up" target="_top">${curr.value[1]}</a>
+			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
 				<c:if test="${curr.key == neuropil.fbbtId}">
 					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.key} " target="_top"
