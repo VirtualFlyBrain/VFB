@@ -1,9 +1,11 @@
-To create a new main page simply create a new file in this folder and add the following template code:
+##Adding a new page
 
-'''
+To create a new main site page simply create a new file in this folder and add the following template code:
+
+```html
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|My Page@" />
-	<jsp:param name="css" value="/css/vfb/utils/table.css" />
+	<jsp:param name="css" value="/css/vfb/utils/table.css" /> <!-- include all required css files -->
 	<jsp:param name="title" value="My Page" />
 </jsp:include>
 
@@ -31,18 +33,18 @@ To create a new main page simply create a new file in this folder and add the fo
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
-'''
+```
 
 As well as adding your content between the editable content markers remember to add your pages name in the navpath for the header:
 
 e.g. 'My Page' as in previous example:
-'''
+```html
 <jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|My Page@" />
-'''
+```
 and the page title set here:
-'''
+```html
 <jsp:param name="title" value="My Page" />
-'''
+```
 
 Once your happy with your page you can either ask someone to add it to the menu structure or if your confident enough to do so you can add it yourself.
 
@@ -52,7 +54,7 @@ Note: This contains the header menu for all pages so be considerate.
 
 
 The menus is this bit:
-'''
+```html
 <ul id="p7menubar">
 
 			<li><a class="trigger" href="/site/vfb_site/home.htm">The VFB Site</a>
@@ -103,26 +105,26 @@ The menus is this bit:
 				<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a>
 			</li>
 </ul>
-'''
+```
 
 The tabs should help you tie up the opening and closing tags. Spend time studying the menu stucture against what appears on the site and it should make sense.
 
-**examples
+###examples:
 
-To add 'My Page' under the 'Stacks' menu header simply add '''<li><a href="/site/vfb_site/my_page.htm">My Page</a></li>''' here:
-'''
+To add 'My Page' under the 'Stacks' menu header simply add `<li><a href="/site/vfb_site/my_page.htm">My Page</a></li>` here:
+```html
 			<li><a class="trigger" href="#">Stacks</a>
 				<ul>
-				  --------- HERE ---------
+				  	--------- HERE ---------
 					<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
-          --------- OR HERE ---------
+					--------- OR HERE ---------
 				</ul>
 			</li>
-'''
+```
 
 If you want to add it as a new menu item on it's own then you can simple add the same code for example here:
-'''
-      <li><a class="trigger" href="#">Stacks</a>
+```html
+      			<li><a class="trigger" href="#">Stacks</a>
 				<ul>
 					<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
 				</ul>
@@ -135,7 +137,7 @@ If you want to add it as a new menu item on it's own then you can simple add the
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 				</ul>
 			</li>
-'''
+```
 
 Any problems feel free to raise an <a href="https://github.com/VirtualFlyBrain/VFB/issues" target="_new">issue</a> with a question.
 
