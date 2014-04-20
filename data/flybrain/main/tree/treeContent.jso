@@ -78,9 +78,9 @@
 },
 {
   "nodeId":"11",
-  "name":"supraesophageal ganglion",
+  "name":"adult cerebral ganglion",
   "nodeState":{"open":"true", "selected":"false"},
-  "extId":["FBbt:00003626"],
+  "extId":["FBbt:00110636"],
   "domainData":{"domainId":"", "domainSelected":"false", "domainColour":[204,39,166,127], "domainCentre":[512, 385, 110]}
 },
 {
