@@ -12,7 +12,6 @@
                 128,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -38,13 +37,13 @@
                 40,
                 127
             ],
-            "domainId": "5",
+            "domainId": "49",
             "domainSelected": "false"
         },
         "extId": [
             "FBbt:00014013"
         ],
-        "name": "adult subesophageal ganglion",
+        "name": "adult gnathal ganglion",
         "nodeId": "1",
         "nodeState": {
             "open": "false",
@@ -190,7 +189,6 @@
                 166,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -216,7 +214,7 @@
                 32,
                 127
             ],
-            "domainId": "13",
+            "domainId": "70",
             "domainSelected": "false"
         },
         "extId": [
@@ -334,7 +332,7 @@
         "extId": [
             "FBbt:00007360"
         ],
-        "name": "antennal lobe glomerulus DA4 lateral compartment",
+        "name": "antennal lobe glomerulus DA4l",
         "nodeId": "20",
         "nodeState": {
             "open": "false",
@@ -348,7 +346,7 @@
         "extId": [
             "FBbt:00007361"
         ],
-        "name": "antennal lobe glomerulus DA4 medial compartment",
+        "name": "antennal lobe glomerulus DA4m",
         "nodeId": "21",
         "nodeState": {
             "open": "false",
@@ -432,7 +430,7 @@
         "extId": [
             "FBbt:00100375"
         ],
-        "name": "antennal lobe glomerulus DL1 lateral compartment",
+        "name": "antennal lobe glomerulus DL1l",
         "nodeId": "27",
         "nodeState": {
             "open": "false",
@@ -460,7 +458,7 @@
         "extId": [
             "FBbt:00100377"
         ],
-        "name": "antennal lobe glomerulus DL2 dorsal compartment",
+        "name": "antennal lobe glomerulus DL2d",
         "nodeId": "29",
         "nodeState": {
             "open": "false",
@@ -474,7 +472,7 @@
         "extId": [
             "FBbt:00100376"
         ],
-        "name": "antennal lobe glomerulus DL2 ventral compartment",
+        "name": "antennal lobe glomerulus DL2v",
         "nodeId": "30",
         "nodeState": {
             "open": "false",
@@ -642,7 +640,7 @@
         "extId": [
             "FBbt:00007098"
         ],
-        "name": "antennal lobe glomerulus DP1 lateral compartment",
+        "name": "antennal lobe glomerulus DP1l",
         "nodeId": "42",
         "nodeState": {
             "open": "false",
@@ -656,7 +654,7 @@
         "extId": [
             "FBbt:00007097"
         ],
-        "name": "antennal lobe glomerulus DP1 medial compartment",
+        "name": "antennal lobe glomerulus DP1m",
         "nodeId": "43",
         "nodeState": {
             "open": "false",
@@ -698,36 +696,8 @@
         "extId": [
             "FBbt:00007101"
         ],
-        "name": "antennal lobe glomerulus VA1 dorsal compartment",
+        "name": "antennal lobe glomerulus VA1d",
         "nodeId": "46",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00007099"
-        ],
-        "name": "antennal lobe glomerulus VA1 lateral compartment",
-        "nodeId": "47",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00007100"
-        ],
-        "name": "antennal lobe glomerulus VA1 medial compartment",
-        "nodeId": "48",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -740,7 +710,7 @@
         "extId": [
             "FBbt:00007363"
         ],
-        "name": "antennal lobe glomerulus VA1 ventral compartment",
+        "name": "antennal lobe glomerulus VA1v",
         "nodeId": "49",
         "nodeState": {
             "open": "false",
@@ -838,7 +808,7 @@
         "extId": [
             "FBbt:00007103"
         ],
-        "name": "antennal lobe glomerulus VA7 lateral compartment",
+        "name": "antennal lobe glomerulus VA7l",
         "nodeId": "56",
         "nodeState": {
             "open": "false",
@@ -852,7 +822,7 @@
         "extId": [
             "FBbt:00007102"
         ],
-        "name": "antennal lobe glomerulus VA7 medial compartment",
+        "name": "antennal lobe glomerulus VA7m",
         "nodeId": "57",
         "nodeState": {
             "open": "false",
@@ -908,7 +878,7 @@
         "extId": [
             "FBbt:00007105"
         ],
-        "name": "antennal lobe glomerulus VC3 lateral compartment",
+        "name": "antennal lobe glomerulus VC3l",
         "nodeId": "61",
         "nodeState": {
             "open": "false",
@@ -922,7 +892,7 @@
         "extId": [
             "FBbt:00007104"
         ],
-        "name": "antennal lobe glomerulus VC3 medial compartment",
+        "name": "antennal lobe glomerulus VC3m",
         "nodeId": "62",
         "nodeState": {
             "open": "false",
@@ -978,7 +948,7 @@
         "extId": [
             "FBbt:00007106"
         ],
-        "name": "antennal lobe glomerulus VL2 anterior compartment",
+        "name": "antennal lobe glomerulus VL2a",
         "nodeId": "66",
         "nodeState": {
             "open": "false",
@@ -992,7 +962,7 @@
         "extId": [
             "FBbt:00007107"
         ],
-        "name": "antennal lobe glomerulus VL2 posterior compartment",
+        "name": "antennal lobe glomerulus VL2p",
         "nodeId": "67",
         "nodeState": {
             "open": "false",
@@ -1076,7 +1046,7 @@
         "extId": [
             "FBbt:00007391"
         ],
-        "name": "antennal lobe glomerulus VM5 dorsal compartment",
+        "name": "antennal lobe glomerulus VM5d",
         "nodeId": "73",
         "nodeState": {
             "open": "false",
@@ -1090,7 +1060,7 @@
         "extId": [
             "FBbt:00007365"
         ],
-        "name": "antennal lobe glomerulus VM5 ventral compartment",
+        "name": "antennal lobe glomerulus VM5v",
         "nodeId": "74",
         "nodeState": {
             "open": "false",
@@ -1188,7 +1158,7 @@
         "extId": [
             "FBbt:00007092"
         ],
-        "name": "antennal lobe glomerulus VM7 ventral compartment",
+        "name": "antennal lobe glomerulus VM7v",
         "nodeId": "81",
         "nodeState": {
             "open": "false",
@@ -1222,7 +1192,6 @@
                 255,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -1248,7 +1217,6 @@
                 55,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -1274,7 +1242,7 @@
                 0,
                 127
             ],
-            "domainId": "2",
+            "domainId": "23",
             "domainSelected": "false"
         },
         "extId": [
@@ -1336,7 +1304,7 @@
         "extId": [
             "FBbt:00040070"
         ],
-        "name": "ellipsoid body segment",
+        "name": "ellipsoid body slice",
         "nodeId": "89",
         "nodeState": {
             "open": "false",
@@ -1350,7 +1318,7 @@
         "extId": [
             "FBbt:00007584"
         ],
-        "name": "ellipsoid body segment 1",
+        "name": "ellipsoid body slice 1",
         "nodeId": "90",
         "nodeState": {
             "open": "false",
@@ -1364,7 +1332,7 @@
         "extId": [
             "FBbt:00007546"
         ],
-        "name": "ellipsoid body segment 2",
+        "name": "ellipsoid body slice 2",
         "nodeId": "91",
         "nodeState": {
             "open": "false",
@@ -1378,7 +1346,7 @@
         "extId": [
             "FBbt:00007547"
         ],
-        "name": "ellipsoid body segment 3",
+        "name": "ellipsoid body slice 3",
         "nodeId": "92",
         "nodeState": {
             "open": "false",
@@ -1392,7 +1360,7 @@
         "extId": [
             "FBbt:00007548"
         ],
-        "name": "ellipsoid body segment 4",
+        "name": "ellipsoid body slice 4",
         "nodeId": "93",
         "nodeState": {
             "open": "false",
@@ -1406,7 +1374,7 @@
         "extId": [
             "FBbt:00007549"
         ],
-        "name": "ellipsoid body segment 5",
+        "name": "ellipsoid body slice 5",
         "nodeId": "94",
         "nodeState": {
             "open": "false",
@@ -1420,7 +1388,7 @@
         "extId": [
             "FBbt:00007550"
         ],
-        "name": "ellipsoid body segment 6",
+        "name": "ellipsoid body slice 6",
         "nodeId": "95",
         "nodeState": {
             "open": "false",
@@ -1434,7 +1402,7 @@
         "extId": [
             "FBbt:00007551"
         ],
-        "name": "ellipsoid body segment 7",
+        "name": "ellipsoid body slice 7",
         "nodeId": "96",
         "nodeState": {
             "open": "false",
@@ -1448,7 +1416,7 @@
         "extId": [
             "FBbt:00007552"
         ],
-        "name": "ellipsoid body segment 8",
+        "name": "ellipsoid body slice 8",
         "nodeId": "97",
         "nodeState": {
             "open": "false",
@@ -1468,7 +1436,7 @@
                 10,
                 127
             ],
-            "domainId": "1",
+            "domainId": "26",
             "domainSelected": "false"
         },
         "extId": [
@@ -1682,7 +1650,7 @@
         "extId": [
             "FBbt:00040033"
         ],
-        "name": "nodule",
+        "name": "nodulus subunit",
         "nodeId": "112",
         "nodeState": {
             "open": "false",
@@ -1722,7 +1690,7 @@
         "extId": [
             "FBbt:00003669"
         ],
-        "name": "protocerebral bridge glomerulus",
+        "name": "protocerebral bridge slice",
         "nodeId": "114",
         "nodeState": {
             "open": "false",
@@ -1736,7 +1704,7 @@
         "extId": [
             "FBbt:00003670"
         ],
-        "name": "protocerebral bridge glomerulus 1",
+        "name": "protocerebral bridge slice 1",
         "nodeId": "115",
         "nodeState": {
             "open": "false",
@@ -1750,7 +1718,7 @@
         "extId": [
             "FBbt:00003671"
         ],
-        "name": "protocerebral bridge glomerulus 2",
+        "name": "protocerebral bridge slice 2",
         "nodeId": "116",
         "nodeState": {
             "open": "false",
@@ -1764,7 +1732,7 @@
         "extId": [
             "FBbt:00003672"
         ],
-        "name": "protocerebral bridge glomerulus 3",
+        "name": "protocerebral bridge slice 3",
         "nodeId": "117",
         "nodeState": {
             "open": "false",
@@ -1778,7 +1746,7 @@
         "extId": [
             "FBbt:00003673"
         ],
-        "name": "protocerebral bridge glomerulus 4",
+        "name": "protocerebral bridge slice 4",
         "nodeId": "118",
         "nodeState": {
             "open": "false",
@@ -1792,7 +1760,7 @@
         "extId": [
             "FBbt:00003674"
         ],
-        "name": "protocerebral bridge glomerulus 5",
+        "name": "protocerebral bridge slice 5",
         "nodeId": "119",
         "nodeState": {
             "open": "false",
@@ -1806,7 +1774,7 @@
         "extId": [
             "FBbt:00003675"
         ],
-        "name": "protocerebral bridge glomerulus 6",
+        "name": "protocerebral bridge slice 6",
         "nodeId": "120",
         "nodeState": {
             "open": "false",
@@ -1820,7 +1788,7 @@
         "extId": [
             "FBbt:00003676"
         ],
-        "name": "protocerebral bridge glomerulus 7",
+        "name": "protocerebral bridge slice 7",
         "nodeId": "121",
         "nodeState": {
             "open": "false",
@@ -1834,7 +1802,7 @@
         "extId": [
             "FBbt:00003677"
         ],
-        "name": "protocerebral bridge glomerulus 8",
+        "name": "protocerebral bridge slice 8",
         "nodeId": "122",
         "nodeState": {
             "open": "false",
@@ -1854,7 +1822,6 @@
                 0,
                 127
             ],
-            "domainId": "21",
             "domainSelected": "false"
         },
         "extId": [
@@ -1869,12 +1836,19 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
+            "domainId": "64",
             "domainSelected": "false"
         },
         "extId": [
             "FBbt:00007453"
         ],
-        "name": "adult pedunculus",
+        "name": "pedunculus of adult mushroom body",
         "nodeId": "124",
         "nodeState": {
             "open": "false",
@@ -1888,7 +1862,7 @@
         "extId": [
             "FBbt:00045009"
         ],
-        "name": "pedunculus divide",
+        "name": "pedunculus divide of adult mushroom body",
         "nodeId": "125",
         "nodeState": {
             "open": "false",
@@ -1902,7 +1876,7 @@
         "extId": [
             "FBbt:00045008"
         ],
-        "name": "pedunculus neck",
+        "name": "pedunculus neck of adult mushroom body",
         "nodeId": "126",
         "nodeState": {
             "open": "false",
@@ -1911,6 +1885,13 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
+            "domainId": "81",
             "domainSelected": "false"
         },
         "extId": [
@@ -1939,6 +1920,13 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
+            "domainId": "66",
             "domainSelected": "false"
         },
         "extId": [
@@ -2014,7 +2002,7 @@
         "extId": [
             "FBbt:00100278"
         ],
-        "name": "mushroom body beta' lobe segment 1",
+        "name": "mushroom body beta' lobe slice 1",
         "nodeId": "134",
         "nodeState": {
             "open": "false",
@@ -2028,7 +2016,7 @@
         "extId": [
             "FBbt:00100279"
         ],
-        "name": "mushroom body beta' lobe segment 2",
+        "name": "mushroom body beta' lobe slice 2",
         "nodeId": "135",
         "nodeState": {
             "open": "false",
@@ -2056,7 +2044,7 @@
         "extId": [
             "FBbt:00100269"
         ],
-        "name": "mushroom body beta' anterior stratum",
+        "name": "mushroom body beta' anterior layer",
         "nodeId": "137",
         "nodeState": {
             "open": "false",
@@ -2070,7 +2058,7 @@
         "extId": [
             "FBbt:00100270"
         ],
-        "name": "mushroom body beta' middle stratum",
+        "name": "mushroom body beta' middle layer",
         "nodeId": "138",
         "nodeState": {
             "open": "false",
@@ -2084,7 +2072,7 @@
         "extId": [
             "FBbt:00100271"
         ],
-        "name": "mushroom body beta' posterior stratum",
+        "name": "mushroom body beta' posterior layer",
         "nodeId": "139",
         "nodeState": {
             "open": "false",
@@ -2126,7 +2114,7 @@
         "extId": [
             "FBbt:00100280"
         ],
-        "name": "mushroom body beta lobe segment 1",
+        "name": "mushroom body beta lobe slice 1",
         "nodeId": "142",
         "nodeState": {
             "open": "false",
@@ -2140,7 +2128,7 @@
         "extId": [
             "FBbt:00100281"
         ],
-        "name": "mushroom body beta lobe segment 2",
+        "name": "mushroom body beta lobe slice 2",
         "nodeId": "143",
         "nodeState": {
             "open": "false",
@@ -2168,7 +2156,7 @@
         "extId": [
             "FBbt:00100263"
         ],
-        "name": "mushroom body beta lobe core stratum",
+        "name": "mushroom body beta lobe core layer",
         "nodeId": "145",
         "nodeState": {
             "open": "false",
@@ -2182,7 +2170,7 @@
         "extId": [
             "FBbt:00100264"
         ],
-        "name": "mushroom body beta lobe inner core stratum",
+        "name": "mushroom body beta lobe inner core layer",
         "nodeId": "146",
         "nodeState": {
             "open": "false",
@@ -2196,7 +2184,7 @@
         "extId": [
             "FBbt:00100265"
         ],
-        "name": "mushroom body beta lobe outer core stratum",
+        "name": "mushroom body beta lobe outer core layer",
         "nodeId": "147",
         "nodeState": {
             "open": "false",
@@ -2210,7 +2198,7 @@
         "extId": [
             "FBbt:00100261"
         ],
-        "name": "mushroom body beta lobe posterior stratum",
+        "name": "mushroom body beta lobe posterior layer",
         "nodeId": "148",
         "nodeState": {
             "open": "false",
@@ -2224,7 +2212,7 @@
         "extId": [
             "FBbt:00100262"
         ],
-        "name": "mushroom body beta lobe surface stratum",
+        "name": "mushroom body beta lobe surface layer",
         "nodeId": "149",
         "nodeState": {
             "open": "false",
@@ -2266,7 +2254,7 @@
         "extId": [
             "FBbt:00100273"
         ],
-        "name": "mushroom body gamma lobe segment 1",
+        "name": "mushroom body gamma lobe slice 1",
         "nodeId": "152",
         "nodeState": {
             "open": "false",
@@ -2280,7 +2268,7 @@
         "extId": [
             "FBbt:00100274"
         ],
-        "name": "mushroom body gamma lobe segment 2",
+        "name": "mushroom body gamma lobe slice 2",
         "nodeId": "153",
         "nodeState": {
             "open": "false",
@@ -2294,7 +2282,7 @@
         "extId": [
             "FBbt:00100275"
         ],
-        "name": "mushroom body gamma lobe segment 3",
+        "name": "mushroom body gamma lobe slice 3",
         "nodeId": "154",
         "nodeState": {
             "open": "false",
@@ -2308,7 +2296,7 @@
         "extId": [
             "FBbt:00100276"
         ],
-        "name": "mushroom body gamma lobe segment 4",
+        "name": "mushroom body gamma lobe slice 4",
         "nodeId": "155",
         "nodeState": {
             "open": "false",
@@ -2322,7 +2310,7 @@
         "extId": [
             "FBbt:00100277"
         ],
-        "name": "mushroom body gamma lobe segment 5",
+        "name": "mushroom body gamma lobe slice 5",
         "nodeId": "156",
         "nodeState": {
             "open": "false",
@@ -2345,6 +2333,13 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
+            "domainId": "65",
             "domainSelected": "false"
         },
         "extId": [
@@ -2420,7 +2415,7 @@
         "extId": [
             "FBbt:00100282"
         ],
-        "name": "mushroom body alpha' lobe segment 1",
+        "name": "mushroom body alpha' lobe slice 1",
         "nodeId": "163",
         "nodeState": {
             "open": "false",
@@ -2434,7 +2429,7 @@
         "extId": [
             "FBbt:00100283"
         ],
-        "name": "mushroom body alpha' lobe segment 2",
+        "name": "mushroom body alpha' lobe slice 2",
         "nodeId": "164",
         "nodeState": {
             "open": "false",
@@ -2448,7 +2443,7 @@
         "extId": [
             "FBbt:00100284"
         ],
-        "name": "mushroom body alpha' lobe segment 3",
+        "name": "mushroom body alpha' lobe slice 3",
         "nodeId": "165",
         "nodeState": {
             "open": "false",
@@ -2476,7 +2471,7 @@
         "extId": [
             "FBbt:00100266"
         ],
-        "name": "mushroom body alpha' anterior stratum",
+        "name": "mushroom body alpha' anterior layer",
         "nodeId": "167",
         "nodeState": {
             "open": "false",
@@ -2490,7 +2485,7 @@
         "extId": [
             "FBbt:00100267"
         ],
-        "name": "mushroom body alpha' middle stratum",
+        "name": "mushroom body alpha' middle layer",
         "nodeId": "168",
         "nodeState": {
             "open": "false",
@@ -2504,7 +2499,7 @@
         "extId": [
             "FBbt:00100268"
         ],
-        "name": "mushroom body alpha' posterior stratum",
+        "name": "mushroom body alpha' posterior layer",
         "nodeId": "169",
         "nodeState": {
             "open": "false",
@@ -2546,7 +2541,7 @@
         "extId": [
             "FBbt:00100285"
         ],
-        "name": "mushroom body alpha lobe segment 1",
+        "name": "mushroom body alpha lobe slice 1",
         "nodeId": "172",
         "nodeState": {
             "open": "false",
@@ -2560,7 +2555,7 @@
         "extId": [
             "FBbt:00100286"
         ],
-        "name": "mushroom body alpha lobe segment 2",
+        "name": "mushroom body alpha lobe slice 2",
         "nodeId": "173",
         "nodeState": {
             "open": "false",
@@ -2574,7 +2569,7 @@
         "extId": [
             "FBbt:00100287"
         ],
-        "name": "mushroom body alpha lobe segment 3",
+        "name": "mushroom body alpha lobe slice 3",
         "nodeId": "174",
         "nodeState": {
             "open": "false",
@@ -2602,7 +2597,7 @@
         "extId": [
             "FBbt:00100258"
         ],
-        "name": "mushroom body alpha lobe core stratum",
+        "name": "mushroom body alpha lobe core layer",
         "nodeId": "176",
         "nodeState": {
             "open": "false",
@@ -2616,7 +2611,7 @@
         "extId": [
             "FBbt:00100259"
         ],
-        "name": "mushroom body alpha lobe inner core stratum",
+        "name": "mushroom body alpha lobe inner core layer",
         "nodeId": "177",
         "nodeState": {
             "open": "false",
@@ -2630,7 +2625,7 @@
         "extId": [
             "FBbt:00100260"
         ],
-        "name": "mushroom body alpha lobe outer core stratum",
+        "name": "mushroom body alpha lobe outer core layer",
         "nodeId": "178",
         "nodeState": {
             "open": "false",
@@ -2644,7 +2639,7 @@
         "extId": [
             "FBbt:00100256"
         ],
-        "name": "mushroom body alpha lobe posterior stratum",
+        "name": "mushroom body alpha lobe posterior layer",
         "nodeId": "179",
         "nodeState": {
             "open": "false",
@@ -2658,7 +2653,7 @@
         "extId": [
             "FBbt:00100257"
         ],
-        "name": "mushroom body alpha lobe surface stratum",
+        "name": "mushroom body alpha lobe surface layer",
         "nodeId": "180",
         "nodeState": {
             "open": "false",
@@ -2678,7 +2673,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -2704,7 +2698,7 @@
                 0,
                 127
             ],
-            "domainId": "10",
+            "domainId": "62",
             "domainSelected": "false"
         },
         "extId": [
@@ -2730,7 +2724,6 @@
                 40,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -2756,7 +2749,7 @@
                 40,
                 127
             ],
-            "domainId": "17",
+            "domainId": "59",
             "domainSelected": "false"
         },
         "extId": [
@@ -2782,7 +2775,7 @@
                 40,
                 127
             ],
-            "domainId": "15",
+            "domainId": "84",
             "domainSelected": "false"
         },
         "extId": [
@@ -2808,7 +2801,7 @@
                 2,
                 127
             ],
-            "domainId": "7",
+            "domainId": "63",
             "domainSelected": "false"
         },
         "extId": [
@@ -2848,7 +2841,7 @@
                 26,
                 127
             ],
-            "domainId": "30",
+            "domainId": "61",
             "domainSelected": "false"
         },
         "extId": [
@@ -2874,7 +2867,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -2900,7 +2892,7 @@
                 255,
                 127
             ],
-            "domainId": "28",
+            "domainId": "54",
             "domainSelected": "false"
         },
         "extId": [
@@ -2968,7 +2960,7 @@
                 204,
                 127
             ],
-            "domainId": "34",
+            "domainId": "56",
             "domainSelected": "false"
         },
         "extId": [
@@ -2994,7 +2986,7 @@
                 99,
                 127
             ],
-            "domainId": "37",
+            "domainId": "86",
             "domainSelected": "false"
         },
         "extId": [
@@ -3048,7 +3040,7 @@
                 177,
                 127
             ],
-            "domainId": "26",
+            "domainId": "55",
             "domainSelected": "false"
         },
         "extId": [
@@ -3074,7 +3066,6 @@
                 255,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -3170,7 +3161,6 @@
                 153,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -3196,7 +3186,7 @@
                 0,
                 127
             ],
-            "domainId": "20",
+            "domainId": "53",
             "domainSelected": "false"
         },
         "extId": [
@@ -3306,7 +3296,7 @@
                 0,
                 127
             ],
-            "domainId": "19",
+            "domainId": "69",
             "domainSelected": "false"
         },
         "extId": [
@@ -3388,7 +3378,7 @@
                 0,
                 127
             ],
-            "domainId": "18",
+            "domainId": "71",
             "domainSelected": "false"
         },
         "extId": [
@@ -3414,7 +3404,7 @@
                 204,
                 127
             ],
-            "domainId": "36",
+            "domainId": "52",
             "domainSelected": "false"
         },
         "extId": [
@@ -3504,7 +3494,7 @@
         "extId": [
             "FBbt:00045002"
         ],
-        "name": "dorsal rim area of medulla",
+        "name": "medulla dorsal rim area",
         "nodeId": "225",
         "nodeState": {
             "open": "false",
@@ -3636,7 +3626,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -3662,7 +3651,7 @@
                 106,
                 127
             ],
-            "domainId": "24",
+            "domainId": "57",
             "domainSelected": "false"
         },
         "extId": [
@@ -3688,7 +3677,7 @@
                 204,
                 127
             ],
-            "domainId": "16",
+            "domainId": "67",
             "domainSelected": "false"
         },
         "extId": [
@@ -3714,7 +3703,7 @@
                 132,
                 127
             ],
-            "domainId": "35",
+            "domainId": "50",
             "domainSelected": "false"
         },
         "extId": [
@@ -3754,7 +3743,7 @@
                 204,
                 127
             ],
-            "domainId": "3",
+            "domainId": "9",
             "domainSelected": "false"
         },
         "extId": [
@@ -3780,7 +3769,7 @@
                 40,
                 127
             ],
-            "domainId": "38",
+            "domainId": "58",
             "domainSelected": "false"
         },
         "extId": [
@@ -3876,7 +3865,6 @@
                 255,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -3902,7 +3890,7 @@
                 148,
                 127
             ],
-            "domainId": "29",
+            "domainId": "73",
             "domainSelected": "false"
         },
         "extId": [
@@ -3928,7 +3916,7 @@
                 120,
                 127
             ],
-            "domainId": "27",
+            "domainId": "72",
             "domainSelected": "false"
         },
         "extId": [
@@ -3982,7 +3970,7 @@
                 47,
                 127
             ],
-            "domainId": "25",
+            "domainId": "74",
             "domainSelected": "false"
         },
         "extId": [
@@ -4036,7 +4024,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -4090,13 +4077,13 @@
                 204,
                 127
             ],
-            "domainId": "23",
+            "domainId": "79",
             "domainSelected": "false"
         },
         "extId": [
             "FBbt:00007059"
         ],
-        "name": "optic tubercle",
+        "name": "anterior optic tubercle",
         "nodeId": "257",
         "nodeState": {
             "open": "true",
@@ -4116,7 +4103,7 @@
                 39,
                 127
             ],
-            "domainId": "11",
+            "domainId": "78",
             "domainSelected": "false"
         },
         "extId": [
@@ -4142,7 +4129,6 @@
                 204,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -4168,7 +4154,7 @@
                 176,
                 127
             ],
-            "domainId": "12",
+            "domainId": "75",
             "domainSelected": "false"
         },
         "extId": [
@@ -4194,7 +4180,7 @@
                 195,
                 127
             ],
-            "domainId": "31",
+            "domainId": "77",
             "domainSelected": "false"
         },
         "extId": [
@@ -4220,7 +4206,7 @@
                 19,
                 127
             ],
-            "domainId": "22",
+            "domainId": "76",
             "domainSelected": "false"
         },
         "extId": [
@@ -4260,7 +4246,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -4286,7 +4271,6 @@
                 215,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -4312,7 +4296,7 @@
                 22,
                 127
             ],
-            "domainId": "32",
+            "domainId": "83",
             "domainSelected": "false"
         },
         "extId": [
@@ -4352,7 +4336,7 @@
                 2,
                 127
             ],
-            "domainId": "33",
+            "domainId": "82",
             "domainSelected": "false"
         },
         "extId": [
@@ -4378,7 +4362,6 @@
                 0,
                 127
             ],
-            "domainId": "",
             "domainSelected": "false"
         },
         "extId": [
@@ -4404,7 +4387,7 @@
                 255,
                 127
             ],
-            "domainId": "8",
+            "domainId": "85",
             "domainSelected": "false"
         },
         "extId": [
@@ -4430,7 +4413,7 @@
                 102,
                 127
             ],
-            "domainId": "14",
+            "domainId": "80",
             "domainSelected": "false"
         },
         "extId": [
@@ -4456,7 +4439,7 @@
                 0,
                 127
             ],
-            "domainId": "9",
+            "domainId": "60",
             "domainSelected": "false"
         },
         "extId": [
@@ -4464,6 +4447,41 @@
         ],
         "name": "vest",
         "nodeId": "272",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110028"
+        ],
+        "name": "antennal lobe glomerulus VM7d",
+        "nodeId": "273",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [],
+            "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110639"
+        ],
+        "name": "adult subesophageal zone",
+        "nodeId": "274",
         "nodeState": {
             "open": "true",
             "selected": "false"
