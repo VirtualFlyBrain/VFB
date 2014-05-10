@@ -1,17 +1,17 @@
 [
 {
-  "nodeId":"0",
-  "name":"adult brain",
-  "nodeState":{"open":"true", "selected":"false"},
-  "extId":["FBbt:00003624"],
-  "domainData":{"domainId":"", "domainSelected":"false", "domainColour":[0,128,128,127], "domainCentre":[512, 385, 110]}
-},
-{
   "nodeId":"1",
   "name":"adult subesophageal ganglion",
   "nodeState":{"open":"false", "selected":"false"},
   "extId":["FBbt:00014013"],
   "domainData":{"domainId":"5", "domainSelected":"false", "domainColour":[135, 204, 40, 127], "domainCentre":[512, 385, 110]}
+},
+{
+  "nodeId":"0",
+  "name":"adult brain",
+  "nodeState":{"open":"true", "selected":"false"},
+  "extId":["FBbt:00003624"],
+  "domainData":{"domainId":"", "domainSelected":"false", "domainColour":[0,128,128,127], "domainCentre":[512, 385, 110]}
 },
 {
   "nodeId":"2",
