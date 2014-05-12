@@ -710,6 +710,34 @@
             "domainSelected": "false"
         },
         "extId": [
+            "FBbt:00007094"
+        ],
+        "name": "antennal lobe glomerulus compartment",
+        "nodeId": "47",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003925"
+        ],
+        "name": "antennal lobe glomerulus",
+        "nodeId": "48",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
             "FBbt:00007363"
         ],
         "name": "antennal lobe glomerulus VA1v",
