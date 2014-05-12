@@ -33,6 +33,158 @@
                 110
             ],
             "domainColour": [
+                135,
+                204,
+                40,
+                127
+            ],
+            "domainId": "49",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00014013"
+        ],
+        "name": "adult gnathal ganglion",
+        "nodeId": "1",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040057"
+        ],
+        "name": "anterior maxillary sensory center",
+        "nodeId": "2",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040054"
+        ],
+        "name": "inferior pharyngeal sensory center",
+        "nodeId": "3",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040055"
+        ],
+        "name": "labial sensory center",
+        "nodeId": "4",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040056"
+        ],
+        "name": "posterior maxillary sensory center",
+        "nodeId": "5",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004014"
+        ],
+        "name": "taste-sensory region glomerulus",
+        "nodeId": "6",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004015"
+        ],
+        "name": "taste-sensory glomerulus DA",
+        "nodeId": "7",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004016"
+        ],
+        "name": "taste-sensory glomerulus M",
+        "nodeId": "8",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004017"
+        ],
+        "name": "taste-sensory glomerulus VL",
+        "nodeId": "9",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004018"
+        ],
+        "name": "taste-sensory glomerulus VM",
+        "nodeId": "10",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                512,
+                385,
+                110
+            ],
+            "domainColour": [
                 204,
                 39,
                 166,
@@ -950,34 +1102,6 @@
             "domainSelected": "false"
         },
         "extId": [
-            "FBbt:00110028"
-        ],
-        "name": "antennal lobe glomerulus VM7d",
-        "nodeId": "273",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00007092"
-        ],
-        "name": "antennal lobe glomerulus VM7v",
-        "nodeId": "81",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
             "FBbt:00003926"
         ],
         "name": "antennal lobe glomerulus VP",
@@ -1024,6 +1148,20 @@
         ],
         "name": "antennal lobe glomerulus VP3",
         "nodeId": "80",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007092"
+        ],
+        "name": "antennal lobe glomerulus VM7v",
+        "nodeId": "81",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3566,6 +3704,168 @@
     {
         "domainData": {
             "domainCentre": [
+                509,
+                334,
+                54
+            ],
+            "domainColour": [
+                39,
+                204,
+                132,
+                127
+            ],
+            "domainId": "50",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040051"
+        ],
+        "name": "prow",
+        "nodeId": "237",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040052"
+        ],
+        "name": "superior pharyngeal sensory center",
+        "nodeId": "238",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                516,
+                335,
+                102
+            ],
+            "domainColour": [
+                40,
+                41,
+                204,
+                127
+            ],
+            "domainId": "9",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045048"
+        ],
+        "name": "saddle",
+        "nodeId": "239",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                754,
+                676,
+                56
+            ],
+            "domainColour": [
+                70,
+                204,
+                40,
+                127
+            ],
+            "domainId": "11",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003982"
+        ],
+        "name": "antennal mechanosensory and motor center",
+        "nodeId": "240",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100015"
+        ],
+        "name": "antennal mechanosensory and motor center zone A",
+        "nodeId": "241",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100016"
+        ],
+        "name": "antennal mechanosensory and motor center zone B",
+        "nodeId": "242",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100017"
+        ],
+        "name": "antennal mechanosensory and motor center zone C",
+        "nodeId": "243",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100018"
+        ],
+        "name": "antennal mechanosensory and motor center zone D",
+        "nodeId": "244",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100019"
+        ],
+        "name": "antennal mechanosensory and motor center zone E",
+        "nodeId": "245",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
                 670,
                 128,
                 75
@@ -4166,342 +4466,6 @@
         "nodeId": "272",
         "nodeState": {
             "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [],
-            "domainColour": [
-                0,
-                255,
-                255,
-                127
-            ],
-            "domainId": "",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00110639"
-        ],
-        "name": "adult subesophageal zone",
-        "nodeId": "274",
-        "nodeState": {
-            "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                516,
-                335,
-                102
-            ],
-            "domainColour": [
-                40,
-                41,
-                204,
-                127
-            ],
-            "domainId": "9",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00045048"
-        ],
-        "name": "saddle",
-        "nodeId": "239",
-        "nodeState": {
-            "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                754,
-                676,
-                56
-            ],
-            "domainColour": [
-                70,
-                204,
-                40,
-                127
-            ],
-            "domainId": "11",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00003982"
-        ],
-        "name": "antennal mechanosensory and motor center",
-        "nodeId": "240",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00100015"
-        ],
-        "name": "antennal mechanosensory and motor center zone A",
-        "nodeId": "241",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00100016"
-        ],
-        "name": "antennal mechanosensory and motor center zone B",
-        "nodeId": "242",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00100017"
-        ],
-        "name": "antennal mechanosensory and motor center zone C",
-        "nodeId": "243",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00100018"
-        ],
-        "name": "antennal mechanosensory and motor center zone D",
-        "nodeId": "244",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00100019"
-        ],
-        "name": "antennal mechanosensory and motor center zone E",
-        "nodeId": "245",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                512,
-                385,
-                110
-            ],
-            "domainColour": [
-                135,
-                204,
-                40,
-                127
-            ],
-            "domainId": "49",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00014013"
-        ],
-        "name": "adult gnathal ganglion",
-        "nodeId": "1",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040057"
-        ],
-        "name": "anterior maxillary sensory center",
-        "nodeId": "2",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040054"
-        ],
-        "name": "inferior pharyngeal sensory center",
-        "nodeId": "3",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040055"
-        ],
-        "name": "labial sensory center",
-        "nodeId": "4",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040056"
-        ],
-        "name": "posterior maxillary sensory center",
-        "nodeId": "5",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00004014"
-        ],
-        "name": "taste-sensory region glomerulus",
-        "nodeId": "6",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00004015"
-        ],
-        "name": "taste-sensory glomerulus DA",
-        "nodeId": "7",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00004016"
-        ],
-        "name": "taste-sensory glomerulus M",
-        "nodeId": "8",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00004017"
-        ],
-        "name": "taste-sensory glomerulus VL",
-        "nodeId": "9",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00004018"
-        ],
-        "name": "taste-sensory glomerulus VM",
-        "nodeId": "10",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                509,
-                334,
-                54
-            ],
-            "domainColour": [
-                39,
-                204,
-                132,
-                127
-            ],
-            "domainId": "50",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040051"
-        ],
-        "name": "prow",
-        "nodeId": "237",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00040052"
-        ],
-        "name": "superior pharyngeal sensory center",
-        "nodeId": "238",
-        "nodeState": {
-            "open": "false",
             "selected": "false"
         }
     }
