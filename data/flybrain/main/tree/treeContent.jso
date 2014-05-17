@@ -4492,5 +4492,20 @@
             "open": "false",
             "selected": "false"
         }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040052"
+        ],
+        "name": "superior pharyngeal sensory center",
+        "nodeId": "273",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
     }
+
 ]
