@@ -1704,10 +1704,7 @@
     {
         "domainData": {
             "domainColour": [
-                0,
-                128,
-                128,
-                127
+	    0,141,220,255
             ],
             "domainId": "17",
             "domainSelected": "false"
@@ -1753,10 +1750,7 @@
     {
         "domainData": {
             "domainColour": [
-                0,
-                128,
-                128,
-                127
+                0,0,106,158
             ],
             "domainId": "36",
             "domainSelected": "false"
@@ -1788,10 +1782,7 @@
     {
         "domainData": {
             "domainColour": [
-                0,
-                128,
-                128,
-                127
+                0,246,88,132
             ],
             "domainId": "19",
             "domainSelected": "false"
@@ -2201,10 +2192,7 @@
     {
         "domainData": {
             "domainColour": [
-                0,
-                128,
-                128,
-                127
+                0,193,255,185
             ],
             "domainId": "18",
             "domainSelected": "false"
