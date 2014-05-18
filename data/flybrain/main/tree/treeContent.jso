@@ -1704,7 +1704,10 @@
     {
         "domainData": {
             "domainColour": [
-	    0,141,220,255
+                0,
+                141,
+                220,
+                255
             ],
             "domainId": "17",
             "domainSelected": "false"
@@ -1750,7 +1753,10 @@
     {
         "domainData": {
             "domainColour": [
-                0,0,106,158
+                0,
+                0,
+                106,
+                158
             ],
             "domainId": "36",
             "domainSelected": "false"
@@ -1782,7 +1788,10 @@
     {
         "domainData": {
             "domainColour": [
-                0,246,88,132
+                0,
+                246,
+                88,
+                132
             ],
             "domainId": "19",
             "domainSelected": "false"
@@ -2192,7 +2201,10 @@
     {
         "domainData": {
             "domainColour": [
-                0,193,255,185
+                0,
+                193,
+                255,
+                185
             ],
             "domainId": "18",
             "domainSelected": "false"
@@ -3476,84 +3488,6 @@
     {
         "domainData": {
             "domainCentre": [
-                706,
-                646,
-                39
-            ],
-            "domainColour": [
-                0,
-                128,
-                0,
-                127
-            ],
-            "domainId": "",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00045047"
-        ],
-        "name": "periesophageal neuropils",
-        "nodeId": "223",
-        "nodeState": {
-            "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                540,
-                295,
-                116
-            ],
-            "domainColour": [
-                204,
-                37,
-                106,
-                127
-            ],
-            "domainId": "10",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00045051"
-        ],
-        "name": "cantle",
-        "nodeId": "224",
-        "nodeState": {
-            "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
-                510,
-                298,
-                76
-            ],
-            "domainColour": [
-                40,
-                115,
-                204,
-                127
-            ],
-            "domainId": "20",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00045050"
-        ],
-        "name": "flange",
-        "nodeId": "225",
-        "nodeState": {
-            "open": "true",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
                 670,
                 128,
                 75
@@ -3571,7 +3505,7 @@
             "FBbt:00045030"
         ],
         "name": "superior neuropils",
-        "nodeId": "226",
+        "nodeId": "223",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3597,7 +3531,7 @@
             "FBbt:00045032"
         ],
         "name": "superior intermediate protocerebrum",
-        "nodeId": "227",
+        "nodeId": "224",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3623,7 +3557,7 @@
             "FBbt:00007054"
         ],
         "name": "superior lateral protocerebrum",
-        "nodeId": "228",
+        "nodeId": "225",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3637,7 +3571,7 @@
             "FBbt:00040045"
         ],
         "name": "anterior superior lateral protocerebrum",
-        "nodeId": "229",
+        "nodeId": "226",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3651,7 +3585,7 @@
             "FBbt:00040046"
         ],
         "name": "posterior superior lateral protocerebrum",
-        "nodeId": "230",
+        "nodeId": "227",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3677,7 +3611,7 @@
             "FBbt:00007055"
         ],
         "name": "superior medial protocerebrum",
-        "nodeId": "231",
+        "nodeId": "228",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3691,7 +3625,7 @@
             "FBbt:00040062"
         ],
         "name": "anterior superior medial protocerebrum",
-        "nodeId": "232",
+        "nodeId": "229",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3705,7 +3639,7 @@
             "FBbt:00040063"
         ],
         "name": "posterior superior medial protocerebrum",
-        "nodeId": "233",
+        "nodeId": "230",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3731,7 +3665,7 @@
             "FBbt:00045021"
         ],
         "name": "ventrolateral neuropils",
-        "nodeId": "234",
+        "nodeId": "231",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3745,7 +3679,7 @@
             "FBbt:00003698"
         ],
         "name": "optic glomerulus",
-        "nodeId": "235",
+        "nodeId": "232",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3759,7 +3693,7 @@
             "FBbt:00007581"
         ],
         "name": "optic glomerulus of the PLP",
-        "nodeId": "236",
+        "nodeId": "233",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3785,7 +3719,7 @@
             "FBbt:00007059"
         ],
         "name": "anterior optic tubercle",
-        "nodeId": "237",
+        "nodeId": "234",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3811,7 +3745,7 @@
             "FBbt:00040044"
         ],
         "name": "posterior lateral protocerebrum",
-        "nodeId": "238",
+        "nodeId": "235",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3837,7 +3771,7 @@
             "FBbt:00007058"
         ],
         "name": "ventrolateral protocerebrum",
-        "nodeId": "239",
+        "nodeId": "236",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3863,7 +3797,7 @@
             "FBbt:00040043"
         ],
         "name": "anterior ventrolateral protocerebrum",
-        "nodeId": "240",
+        "nodeId": "237",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3889,7 +3823,7 @@
             "FBbt:00045027"
         ],
         "name": "wedge",
-        "nodeId": "241",
+        "nodeId": "238",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3915,7 +3849,7 @@
             "FBbt:00040042"
         ],
         "name": "posterior ventrolateral protocerebrum",
-        "nodeId": "242",
+        "nodeId": "239",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3929,7 +3863,7 @@
             "FBbt:00007582"
         ],
         "name": "optic glomerulus of the PVLP",
-        "nodeId": "243",
+        "nodeId": "240",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -3955,7 +3889,7 @@
             "FBbt:00040002"
         ],
         "name": "ventromedial neuropils",
-        "nodeId": "244",
+        "nodeId": "241",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -3981,7 +3915,7 @@
             "FBbt:00040072"
         ],
         "name": "posterior slope",
-        "nodeId": "245",
+        "nodeId": "242",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4007,7 +3941,7 @@
             "FBbt:00045046"
         ],
         "name": "inferior posterior slope",
-        "nodeId": "246",
+        "nodeId": "243",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4021,7 +3955,7 @@
             "FBbt:00045042"
         ],
         "name": "delta",
-        "nodeId": "247",
+        "nodeId": "244",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4047,7 +3981,7 @@
             "FBbt:00045040"
         ],
         "name": "superior posterior slope",
-        "nodeId": "248",
+        "nodeId": "245",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4073,7 +4007,7 @@
             "FBbt:00040071"
         ],
         "name": "ventral complex",
-        "nodeId": "249",
+        "nodeId": "246",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4099,7 +4033,7 @@
             "FBbt:00040040"
         ],
         "name": "epaulette",
-        "nodeId": "250",
+        "nodeId": "247",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4125,7 +4059,7 @@
             "FBbt:00040039"
         ],
         "name": "gorget",
-        "nodeId": "251",
+        "nodeId": "248",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4151,7 +4085,59 @@
             "FBbt:00040041"
         ],
         "name": "vest",
-        "nodeId": "252",
+        "nodeId": "249",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                540,
+                295,
+                116
+            ],
+            "domainColour": [
+                204,
+                37,
+                106,
+                127
+            ],
+            "domainId": "10",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045051"
+        ],
+        "name": "cantle",
+        "nodeId": "250",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                510,
+                298,
+                76
+            ],
+            "domainColour": [
+                40,
+                115,
+                204,
+                127
+            ],
+            "domainId": "20",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045050"
+        ],
+        "name": "flange",
+        "nodeId": "251",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4173,7 +4159,7 @@
             "FBbt:00110639"
         ],
         "name": "adult subesophageal zone",
-        "nodeId": "253",
+        "nodeId": "252",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4199,7 +4185,7 @@
             "FBbt:00045048"
         ],
         "name": "saddle",
-        "nodeId": "254",
+        "nodeId": "253",
         "nodeState": {
             "open": "true",
             "selected": "false"
@@ -4225,7 +4211,7 @@
             "FBbt:00003982"
         ],
         "name": "antennal mechanosensory and motor center",
-        "nodeId": "255",
+        "nodeId": "254",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4239,7 +4225,7 @@
             "FBbt:00100015"
         ],
         "name": "antennal mechanosensory and motor center zone A",
-        "nodeId": "256",
+        "nodeId": "255",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4253,7 +4239,7 @@
             "FBbt:00100016"
         ],
         "name": "antennal mechanosensory and motor center zone B",
-        "nodeId": "257",
+        "nodeId": "256",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4267,7 +4253,7 @@
             "FBbt:00100017"
         ],
         "name": "antennal mechanosensory and motor center zone C",
-        "nodeId": "258",
+        "nodeId": "257",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4281,7 +4267,7 @@
             "FBbt:00100018"
         ],
         "name": "antennal mechanosensory and motor center zone D",
-        "nodeId": "259",
+        "nodeId": "258",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4295,7 +4281,7 @@
             "FBbt:00100019"
         ],
         "name": "antennal mechanosensory and motor center zone E",
-        "nodeId": "260",
+        "nodeId": "259",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4321,7 +4307,7 @@
             "FBbt:00014013"
         ],
         "name": "adult gnathal ganglion",
-        "nodeId": "261",
+        "nodeId": "260",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4335,7 +4321,7 @@
             "FBbt:00040057"
         ],
         "name": "anterior maxillary sensory center",
-        "nodeId": "262",
+        "nodeId": "261",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4349,7 +4335,7 @@
             "FBbt:00040054"
         ],
         "name": "inferior pharyngeal sensory center",
-        "nodeId": "263",
+        "nodeId": "262",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4363,7 +4349,7 @@
             "FBbt:00040055"
         ],
         "name": "labial sensory center",
-        "nodeId": "264",
+        "nodeId": "263",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4377,7 +4363,7 @@
             "FBbt:00040056"
         ],
         "name": "posterior maxillary sensory center",
-        "nodeId": "265",
+        "nodeId": "264",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4391,7 +4377,7 @@
             "FBbt:00004014"
         ],
         "name": "taste-sensory region glomerulus",
-        "nodeId": "266",
+        "nodeId": "265",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4405,7 +4391,7 @@
             "FBbt:00004015"
         ],
         "name": "taste-sensory glomerulus DA",
-        "nodeId": "267",
+        "nodeId": "266",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4419,7 +4405,7 @@
             "FBbt:00004016"
         ],
         "name": "taste-sensory glomerulus M",
-        "nodeId": "268",
+        "nodeId": "267",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4433,7 +4419,7 @@
             "FBbt:00004017"
         ],
         "name": "taste-sensory glomerulus VL",
-        "nodeId": "269",
+        "nodeId": "268",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4447,7 +4433,7 @@
             "FBbt:00004018"
         ],
         "name": "taste-sensory glomerulus VM",
-        "nodeId": "270",
+        "nodeId": "269",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4473,7 +4459,7 @@
             "FBbt:00040051"
         ],
         "name": "prow",
-        "nodeId": "271",
+        "nodeId": "270",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4487,7 +4473,7 @@
             "FBbt:00040052"
         ],
         "name": "superior pharyngeal sensory center",
-        "nodeId": "272",
+        "nodeId": "271",
         "nodeState": {
             "open": "false",
             "selected": "false"
