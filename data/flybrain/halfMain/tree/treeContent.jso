@@ -1,12 +1,6 @@
 [
     {
         "domainData": {
-            "domainColour": [
-                0,
-                128,
-                128,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -21,12 +15,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                204,
-                39,
-                166,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -42,9 +30,10 @@
     {
         "domainData": {
             "domainColour": [
-                "1",
-                "0.138462",
-                "0.854201"
+                0.0,
+                1.0,
+                0.138462,
+                0.854201
             ],
             "domainId": "23",
             "domainSelected": "false"
@@ -1027,12 +1016,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0,
-                255,
-                255,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1047,12 +1030,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                128,
-                55,
-                55,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1068,9 +1045,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.8",
-                "0.423681"
+                0.0,
+                0.16,
+                0.8,
+                0.423681
             ],
             "domainId": "22",
             "domainSelected": "false"
@@ -1256,9 +1234,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.641282",
-                "0.16",
-                "0.8"
+                0.0,
+                0.641282,
+                0.16,
+                0.8
             ],
             "domainId": "25",
             "domainSelected": "false"
@@ -1444,9 +1423,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.276479",
-                "0.8",
-                "0.16"
+                0.0,
+                0.276479,
+                0.8,
+                0.16
             ],
             "domainId": "3",
             "domainSelected": "false"
@@ -1478,9 +1458,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.509442",
-                "0.16"
+                0.0,
+                0.8,
+                0.509442,
+                0.16
             ],
             "domainId": "5",
             "domainSelected": "false"
@@ -1623,12 +1604,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                102,
-                25,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1644,9 +1619,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.412308",
-                "0.752284"
+                0.0,
+                0.8,
+                0.412308,
+                0.752284
             ],
             "domainId": "16",
             "domainSelected": "false"
@@ -1692,9 +1668,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.368627",
-                "0.370353",
-                "0.8"
+                0.0,
+                0.368627,
+                0.370353,
+                0.8
             ],
             "domainId": "35",
             "domainSelected": "false"
@@ -1726,9 +1703,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.648961",
-                "0.16",
-                "0.8"
+                0.0,
+                0.648961,
+                0.16,
+                0.8
             ],
             "domainId": "18",
             "domainSelected": "false"
@@ -2138,9 +2116,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.8",
-                "0.707841"
+                0.0,
+                0.16,
+                0.8,
+                0.707841
             ],
             "domainId": "17",
             "domainSelected": "false"
@@ -2466,9 +2445,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.285249",
-                "0.466667",
-                "0.0862745"
+                0.0,
+                0.285249,
+                0.466667,
+                0.0862745
             ],
             "domainId": "20",
             "domainSelected": "false"
@@ -2485,12 +2465,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                255,
-                0,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2506,9 +2480,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.494118",
-                "0.494118",
-                "1"
+                0.0,
+                0.494118,
+                0.494118,
+                1.0
             ],
             "domainId": "14",
             "domainSelected": "false"
@@ -2525,12 +2500,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                235,
-                204,
-                40,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2546,9 +2515,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.63616",
-                "0.16"
+                0.0,
+                0.8,
+                0.63616,
+                0.16
             ],
             "domainId": "11",
             "domainSelected": "false"
@@ -2566,9 +2536,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.790045",
-                "0.152941",
-                "0.8"
+                0.0,
+                0.790045,
+                0.152941,
+                0.8
             ],
             "domainId": "38",
             "domainSelected": "false"
@@ -2586,9 +2557,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.47451",
-                "0.921569",
-                "0.576471"
+                0.0,
+                0.47451,
+                0.921569,
+                0.576471
             ],
             "domainId": "15",
             "domainSelected": "false"
@@ -2620,9 +2592,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.7104",
-                "0.16",
-                "0.8"
+                0.0,
+                0.7104,
+                0.16,
+                0.8
             ],
             "domainId": "13",
             "domainSelected": "false"
@@ -2639,12 +2612,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                128,
-                0,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2660,9 +2627,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.377599",
-                "0.8"
+                0.0,
+                0.16,
+                0.377599,
+                0.8
             ],
             "domainId": "4",
             "domainSelected": "false"
@@ -2722,9 +2690,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.424012",
-                "0.156863"
+                0.0,
+                0.8,
+                0.424012,
+                0.156863
             ],
             "domainId": "7",
             "domainSelected": "false"
@@ -2741,13 +2710,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                203,
-                18,
-                99,
-                127
-            ],
-            "domainId": "51",
             "domainSelected": "false"
         },
         "extId": [
@@ -2791,9 +2753,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.156863",
-                "0.334962"
+                0.0,
+                0.8,
+                0.156863,
+                0.334962
             ],
             "domainId": "6",
             "domainSelected": "false"
@@ -2810,12 +2773,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                255,
-                0,
-                255,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2900,12 +2857,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                40,
-                204,
-                153,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2921,9 +2872,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.8",
-                "0.60032"
+                0.0,
+                0.16,
+                0.8,
+                0.60032
             ],
             "domainId": "2",
             "domainSelected": "false"
@@ -3025,9 +2977,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.494118",
-                "0.494118",
-                "1"
+                0.0,
+                0.494118,
+                0.494118,
+                1.0
             ],
             "domainId": "21",
             "domainSelected": "false"
@@ -3101,9 +3054,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.862745",
-                "0.0901961",
-                "0.0901961"
+                0.0,
+                0.862745,
+                0.0901961,
+                0.0901961
             ],
             "domainId": "24",
             "domainSelected": "false"
@@ -3121,9 +3075,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.23424",
-                "0.16",
-                "0.8"
+                0.0,
+                0.23424,
+                0.16,
+                0.8
             ],
             "domainId": "1",
             "domainSelected": "false"
@@ -3336,12 +3291,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0,
-                0,
-                255,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3357,9 +3306,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.156863",
-                "0.156863"
+                0.0,
+                0.8,
+                0.156863,
+                0.156863
             ],
             "domainId": "27",
             "domainSelected": "false"
@@ -3377,9 +3327,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.54528",
-                "0.8",
-                "0.16"
+                0.0,
+                0.54528,
+                0.8,
+                0.16
             ],
             "domainId": "26",
             "domainSelected": "false"
@@ -3425,9 +3376,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.531199",
-                "0.8"
+                0.0,
+                0.16,
+                0.531199,
+                0.8
             ],
             "domainId": "28",
             "domainSelected": "false"
@@ -3472,12 +3424,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0,
-                255,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3521,9 +3467,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.156863",
-                "0.8",
-                "0.375529"
+                0.0,
+                0.156863,
+                0.8,
+                0.375529
             ],
             "domainId": "33",
             "domainSelected": "false"
@@ -3541,9 +3488,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0",
-                "0.643137",
-                "0.554087"
+                0.0,
+                0.0,
+                0.643137,
+                0.554087
             ],
             "domainId": "32",
             "domainSelected": "false"
@@ -3560,12 +3508,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                38,
-                204,
-                204,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3581,9 +3523,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.152941",
-                "0.8",
-                "0.8"
+                0.0,
+                0.152941,
+                0.8,
+                0.8
             ],
             "domainId": "29",
             "domainSelected": "false"
@@ -3601,9 +3544,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.152941",
-                "0.389765"
+                0.0,
+                0.8,
+                0.152941,
+                0.389765
             ],
             "domainId": "31",
             "domainSelected": "false"
@@ -3621,9 +3565,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.405114",
-                "0.156863",
-                "0.8"
+                0.0,
+                0.405114,
+                0.156863,
+                0.8
             ],
             "domainId": "30",
             "domainSelected": "false"
@@ -3654,12 +3599,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                255,
-                255,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3674,12 +3613,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                235,
-                158,
-                215,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3695,9 +3628,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.394902",
-                "0.394902",
-                "0.968628"
+                0.0,
+                0.394902,
+                0.394902,
+                0.968628
             ],
             "domainId": "37",
             "domainSelected": "false"
@@ -3729,9 +3663,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.921569",
-                "0.623529",
-                "0.84362"
+                0.0,
+                0.921569,
+                0.623529,
+                0.84362
             ],
             "domainId": "36",
             "domainSelected": "false"
@@ -3748,12 +3683,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                255,
-                20,
-                0,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3769,9 +3698,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.8",
-                "0.24536"
+                0.0,
+                0.16,
+                0.8,
+                0.24536
             ],
             "domainId": "39",
             "domainSelected": "false"
@@ -3789,9 +3719,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.156863",
-                "0.349804"
+                0.0,
+                0.8,
+                0.156863,
+                0.349804
             ],
             "domainId": "34",
             "domainSelected": "false"
@@ -3809,9 +3740,10 @@
     {
         "domainData": {
             "domainColour": [
-                "1",
-                "0.494118",
-                "0.494118"
+                0.0,
+                1.0,
+                0.494118,
+                0.494118
             ],
             "domainId": "12",
             "domainSelected": "false"
@@ -3829,9 +3761,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.921569",
-                "0.742745",
-                "0.47451"
+                0.0,
+                0.921569,
+                0.742745,
+                0.47451
             ],
             "domainId": "9",
             "domainSelected": "false"
@@ -3849,9 +3782,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.156863",
-                "0.176651",
-                "0.8"
+                0.0,
+                0.156863,
+                0.176651,
+                0.8
             ],
             "domainId": "19",
             "domainSelected": "false"
@@ -3868,12 +3802,6 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0,
-                255,
-                255,
-                127
-            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3889,9 +3817,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.61086",
-                "0.8",
-                "0.152941"
+                0.0,
+                0.61086,
+                0.8,
+                0.152941
             ],
             "domainId": "8",
             "domainSelected": "false"
@@ -3909,9 +3838,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.276479",
-                "0.8",
-                "0.16"
+                0.0,
+                0.276479,
+                0.8,
+                0.16
             ],
             "domainId": "10",
             "domainSelected": "false"
@@ -3999,9 +3929,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.8",
-                "0.1568",
-                "0.654637"
+                0.0,
+                0.8,
+                0.1568,
+                0.654637
             ],
             "domainId": "48",
             "domainSelected": "false"
@@ -4145,9 +4076,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.16",
-                "0.8",
-                "0.519681"
+                0.0,
+                0.16,
+                0.8,
+                0.519681
             ],
             "domainId": "49",
             "domainSelected": "false"
@@ -4179,9 +4111,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "43",
             "domainSelected": "false"
@@ -4199,9 +4132,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "40",
             "domainSelected": "false"
@@ -4219,9 +4153,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "46",
             "domainSelected": "false"
@@ -4239,9 +4174,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847059",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847059,
+                0.0901961
             ],
             "domainId": "42",
             "domainSelected": "false"
@@ -4259,9 +4195,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "41",
             "domainSelected": "false"
@@ -4279,9 +4216,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "44",
             "domainSelected": "false"
@@ -4299,9 +4237,10 @@
     {
         "domainData": {
             "domainColour": [
-                "0.94902",
-                "0.847678",
-                "0.0901961"
+                0.0,
+                0.94902,
+                0.847678,
+                0.0901961
             ],
             "domainId": "47",
             "domainSelected": "false"
