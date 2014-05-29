@@ -25,7 +25,7 @@
          "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/halfMain/woolz/",
          "imageName":"InsectBrainNomenclature_neuropil.wlz",
          "type":"label",
-         "opacity":"0.9",
+         "opacity":"1.0",
          "current":"",
          "visible":"true",
          "treeStructureFile": "/data/flybrain/halfMain/tree/treeStructure.jso",
