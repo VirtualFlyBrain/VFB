@@ -1,6 +1,12 @@
 [
     {
         "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -15,6 +21,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                204,
+                39,
+                166,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -30,10 +42,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                1.0,
-                0.138462,
-                0.854201
+                24,
+                125,
+                32,
+                127
             ],
             "domainId": "23",
             "domainSelected": "false"
@@ -1016,6 +1028,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1030,6 +1048,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                128,
+                55,
+                55,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1045,10 +1069,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.8,
-                0.423681
+                225,
+                0,
+                0,
+                127
             ],
             "domainId": "22",
             "domainSelected": "false"
@@ -1234,10 +1258,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.641282,
-                0.16,
-                0.8
+                28,
+                255,
+                10,
+                127
             ],
             "domainId": "25",
             "domainSelected": "false"
@@ -1423,10 +1447,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.276479,
-                0.8,
-                0.16
+                19,
+                168,
+                190,
+                127
             ],
             "domainId": "3",
             "domainSelected": "false"
@@ -1458,10 +1482,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.509442,
-                0.16
+                0,
+                95,
+                0,
+                127
             ],
             "domainId": "5",
             "domainSelected": "false"
@@ -1604,6 +1628,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                102,
+                25,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -1619,10 +1649,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.412308,
-                0.752284
+                0,
+                141,
+                220,
+                255
             ],
             "domainId": "16",
             "domainSelected": "false"
@@ -1668,10 +1698,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.368627,
-                0.370353,
-                0.8
+                0,
+                0,
+                106,
+                158
             ],
             "domainId": "35",
             "domainSelected": "false"
@@ -1703,10 +1733,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.648961,
-                0.16,
-                0.8
+                0,
+                246,
+                88,
+                132
             ],
             "domainId": "18",
             "domainSelected": "false"
@@ -2116,10 +2146,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.8,
-                0.707841
+                0,
+                193,
+                255,
+                185
             ],
             "domainId": "17",
             "domainSelected": "false"
@@ -2444,20 +2474,12 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.285249,
-                0.466667,
-                0.0862745
-            ],
             "domainId": "20",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt_00045007"
-        ],
+        "extId": [],
         "name": "mushroom body accessory calyx",
-        "nodeId": "170",
+        "nodeId": "276",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -2465,6 +2487,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                255,
+                0,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2480,10 +2508,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.494118,
-                0.494118,
-                1.0
+                163,
+                100,
+                0,
+                127
             ],
             "domainId": "14",
             "domainSelected": "false"
@@ -2500,6 +2528,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                235,
+                204,
+                40,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2515,10 +2549,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.63616,
-                0.16
+                204,
+                76,
+                40,
+                127
             ],
             "domainId": "11",
             "domainSelected": "false"
@@ -2536,10 +2570,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.790045,
-                0.152941,
-                0.8
+                135,
+                204,
+                40,
+                127
             ],
             "domainId": "38",
             "domainSelected": "false"
@@ -2557,10 +2591,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.47451,
-                0.921569,
-                0.576471
+                73,
+                195,
+                2,
+                127
             ],
             "domainId": "15",
             "domainSelected": "false"
@@ -2592,10 +2626,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.7104,
-                0.16,
-                0.8
+                228,
+                123,
+                26,
+                127
             ],
             "domainId": "13",
             "domainSelected": "false"
@@ -2612,6 +2646,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                128,
+                0,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2627,10 +2667,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.377599,
-                0.8
+                0,
+                102,
+                255,
+                127
             ],
             "domainId": "4",
             "domainSelected": "false"
@@ -2690,10 +2730,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.424012,
-                0.156863
+                94,
+                39,
+                204,
+                127
             ],
             "domainId": "7",
             "domainSelected": "false"
@@ -2710,6 +2750,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                203,
+                18,
+                99,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2753,10 +2799,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.156863,
-                0.334962
+                66,
+                0,
+                177,
+                127
             ],
             "domainId": "6",
             "domainSelected": "false"
@@ -2773,6 +2819,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                255,
+                0,
+                255,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2857,6 +2909,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                40,
+                204,
+                153,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -2872,10 +2930,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.8,
-                0.60032
+                255,
+                140,
+                0,
+                127
             ],
             "domainId": "2",
             "domainSelected": "false"
@@ -2977,10 +3035,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.494118,
-                0.494118,
-                1.0
+                255,
+                203,
+                0,
+                127
             ],
             "domainId": "21",
             "domainSelected": "false"
@@ -3054,10 +3112,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.862745,
-                0.0901961,
-                0.0901961
+                255,
+                0,
+                0,
+                127
             ],
             "domainId": "24",
             "domainSelected": "false"
@@ -3075,10 +3133,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.23424,
-                0.16,
-                0.8
+                59,
+                39,
+                204,
+                127
             ],
             "domainId": "1",
             "domainSelected": "false"
@@ -3291,6 +3349,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                0,
+                255,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3306,10 +3370,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.156863,
-                0.156863
+                205,
+                40,
+                148,
+                127
             ],
             "domainId": "27",
             "domainSelected": "false"
@@ -3327,10 +3391,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.54528,
-                0.8,
-                0.16
+                71,
+                177,
+                120,
+                127
             ],
             "domainId": "26",
             "domainSelected": "false"
@@ -3376,10 +3440,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.531199,
-                0.8
+                255,
+                203,
+                47,
+                127
             ],
             "domainId": "28",
             "domainSelected": "false"
@@ -3424,6 +3488,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                255,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3467,10 +3537,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.156863,
-                0.8,
-                0.375529
+                50,
+                38,
+                204,
+                127
             ],
             "domainId": "33",
             "domainSelected": "false"
@@ -3488,10 +3558,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.0,
-                0.643137,
-                0.554087
+                71,
+                204,
+                39,
+                127
             ],
             "domainId": "32",
             "domainSelected": "false"
@@ -3508,6 +3578,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                38,
+                204,
+                204,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3523,10 +3599,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.152941,
-                0.8,
-                0.8
+                42,
+                123,
+                176,
+                127
             ],
             "domainId": "29",
             "domainSelected": "false"
@@ -3544,10 +3620,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.152941,
-                0.389765
+                164,
+                37,
+                195,
+                127
             ],
             "domainId": "31",
             "domainSelected": "false"
@@ -3565,10 +3641,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.405114,
-                0.156863,
-                0.8
+                35,
+                102,
+                19,
+                127
             ],
             "domainId": "30",
             "domainSelected": "false"
@@ -3599,6 +3675,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                255,
+                255,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3613,6 +3695,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                235,
+                158,
+                215,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3628,10 +3716,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.394902,
-                0.394902,
-                0.968628
+                204,
+                134,
+                22,
+                127
             ],
             "domainId": "37",
             "domainSelected": "false"
@@ -3663,10 +3751,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.921569,
-                0.623529,
-                0.84362
+                255,
+                225,
+                2,
+                127
             ],
             "domainId": "36",
             "domainSelected": "false"
@@ -3683,6 +3771,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                255,
+                20,
+                0,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3698,10 +3792,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.8,
-                0.24536
+                49,
+                236,
+                255,
+                127
             ],
             "domainId": "39",
             "domainSelected": "false"
@@ -3719,10 +3813,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.156863,
-                0.349804
+                40,
+                204,
+                102,
+                127
             ],
             "domainId": "34",
             "domainSelected": "false"
@@ -3740,10 +3834,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                1.0,
-                0.494118,
-                0.494118
+                189,
+                0,
+                0,
+                127
             ],
             "domainId": "12",
             "domainSelected": "false"
@@ -3761,10 +3855,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.921569,
-                0.742745,
-                0.47451
+                204,
+                37,
+                106,
+                127
             ],
             "domainId": "9",
             "domainSelected": "false"
@@ -3782,10 +3876,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.156863,
-                0.176651,
-                0.8
+                40,
+                115,
+                204,
+                127
             ],
             "domainId": "19",
             "domainSelected": "false"
@@ -3802,6 +3896,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
             "domainSelected": "false"
         },
         "extId": [
@@ -3817,10 +3917,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.61086,
-                0.8,
-                0.152941
+                40,
+                41,
+                204,
+                127
             ],
             "domainId": "8",
             "domainSelected": "false"
@@ -3838,10 +3938,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.276479,
-                0.8,
-                0.16
+                70,
+                204,
+                40,
+                127
             ],
             "domainId": "10",
             "domainSelected": "false"
@@ -3929,10 +4029,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.8,
-                0.1568,
-                0.654637
+                135,
+                204,
+                40,
+                127
             ],
             "domainId": "48",
             "domainSelected": "false"
@@ -4076,10 +4176,10 @@
     {
         "domainData": {
             "domainColour": [
-                0.0,
-                0.16,
-                0.8,
-                0.519681
+                39,
+                204,
+                132,
+                127
             ],
             "domainId": "49",
             "domainSelected": "false"
@@ -4110,18 +4210,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "43",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00007080"
-        ],
+        "extId": [],
         "name": "great commissure",
         "nodeId": "273",
         "nodeState": {
@@ -4131,18 +4223,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "40",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00003985"
-        ],
+        "extId": [],
         "name": "medial antennal lobe tract",
         "nodeId": "274",
         "nodeState": {
@@ -4152,18 +4236,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "46",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00004043"
-        ],
+        "extId": [],
         "name": "adult maxillary nerve",
         "nodeId": "275",
         "nodeState": {
@@ -4173,19 +4249,11 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847059,
-                0.0901961
-            ],
-            "domainId": "42",
+            "domainId": "20",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00007427"
-        ],
-        "name": "posterior optic commissure",
+        "extId": [],
+        "name": "mushroom body accessory calyx",
         "nodeId": "276",
         "nodeState": {
             "open": "false",
@@ -4194,18 +4262,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "41",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00100337"
-        ],
+        "extId": [],
         "name": "optic anterior tract",
         "nodeId": "277",
         "nodeState": {
@@ -4215,18 +4275,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "44",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00110653"
-        ],
+        "extId": [],
         "name": "labro frontal nerve",
         "nodeId": "278",
         "nodeState": {
@@ -4236,18 +4288,10 @@
     },
     {
         "domainData": {
-            "domainColour": [
-                0.0,
-                0.94902,
-                0.847678,
-                0.0901961
-            ],
             "domainId": "47",
             "domainSelected": "false"
         },
-        "extId": [
-            "FBbt:00004020"
-        ],
+        "extId": [],
         "name": "giant fiber neuron",
         "nodeId": "279",
         "nodeState": {
