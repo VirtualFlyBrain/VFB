@@ -41,6 +41,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                430.088,
+                220.338,
+                22.1163
+            ],
             "domainColour": [
                 24,
                 125,
@@ -1068,6 +1073,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                450.731,
+                155.093,
+                54.2191
+            ],
             "domainColour": [
                 225,
                 0,
@@ -1257,6 +1267,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                444.393,
+                153.23,
+                71.5638
+            ],
             "domainColour": [
                 28,
                 255,
@@ -1446,6 +1461,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                450.263,
+                212.817,
+                60.6433
+            ],
             "domainColour": [
                 19,
                 168,
@@ -1481,6 +1501,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                420.529,
+                153.152,
+                102.884
+            ],
             "domainColour": [
                 0,
                 95,
@@ -1648,6 +1673,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                318.493,
+                149.782,
+                64.1247
+            ],
             "domainColour": [
                 0,
                 141,
@@ -1697,6 +1727,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                315.471,
+                128.974,
+                107.743
+            ],
             "domainColour": [
                 0,
                 0,
@@ -1732,6 +1767,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                431.51,
+                127.656,
+                36.9095
+            ],
             "domainColour": [
                 0,
                 246,
@@ -2145,6 +2185,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                346.111,
+                71.338,
+                50.1206
+            ],
             "domainColour": [
                 0,
                 193,
@@ -2474,10 +2519,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                305.177,
+                95.9576,
+                96.5922
+            ],
             "domainId": "20",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00045007"
+        ],
         "name": "mushroom body accessory calyx",
         "nodeId": "276",
         "nodeState": {
@@ -2507,6 +2559,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                433.569,
+                136.392,
+                93.6217
+            ],
             "domainColour": [
                 163,
                 100,
@@ -2548,6 +2605,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                347.88,
+                171.705,
+                77.7845
+            ],
             "domainColour": [
                 204,
                 76,
@@ -2569,6 +2631,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                317.965,
+                124.805,
+                74.9608
+            ],
             "domainColour": [
                 135,
                 204,
@@ -2590,6 +2657,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                418.181,
+                130.054,
+                36.6796
+            ],
             "domainColour": [
                 73,
                 195,
@@ -2625,6 +2697,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                442.024,
+                202.791,
+                92.218
+            ],
             "domainColour": [
                 228,
                 123,
@@ -2666,6 +2743,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                366.67,
+                145.819,
+                54.723
+            ],
             "domainColour": [
                 0,
                 102,
@@ -2729,6 +2811,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                388.469,
+                205.731,
+                43.8005
+            ],
             "domainColour": [
                 94,
                 39,
@@ -2798,6 +2885,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                223.779,
+                126.652,
+                80.5163
+            ],
             "domainColour": [
                 66,
                 0,
@@ -2929,6 +3021,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                190.372,
+                294.943,
+                79.0382
+            ],
             "domainColour": [
                 255,
                 140,
@@ -3034,6 +3131,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                146.017,
+                333.548,
+                92.2636
+            ],
             "domainColour": [
                 255,
                 203,
@@ -3111,6 +3213,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                88.8417,
+                315.321,
+                65.0381
+            ],
             "domainColour": [
                 255,
                 0,
@@ -3132,6 +3239,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                184.85,
+                284.092,
+                46.1711
+            ],
             "domainColour": [
                 59,
                 39,
@@ -3369,6 +3481,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                339.275,
+                78.5317,
+                58.7331
+            ],
             "domainColour": [
                 205,
                 40,
@@ -3390,6 +3507,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                282.261,
+                74.0494,
+                74.0789
+            ],
             "domainColour": [
                 71,
                 177,
@@ -3439,6 +3561,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                433.288,
+                76.8524,
+                65.6932
+            ],
             "domainColour": [
                 255,
                 203,
@@ -3536,6 +3663,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                286.999,
+                107.381,
+                41.6159
+            ],
             "domainColour": [
                 50,
                 38,
@@ -3557,6 +3689,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                281.379,
+                208.112,
+                85.5676
+            ],
             "domainColour": [
                 71,
                 204,
@@ -3598,6 +3735,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                276.19,
+                222.943,
+                40.3819
+            ],
             "domainColour": [
                 42,
                 123,
@@ -3619,6 +3761,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                325.226,
+                303.644,
+                62.3676
+            ],
             "domainColour": [
                 164,
                 37,
@@ -3640,6 +3787,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                266.753,
+                217.957,
+                62.6127
+            ],
             "domainColour": [
                 35,
                 102,
@@ -3715,6 +3867,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                406.488,
+                316.676,
+                88.6236
+            ],
             "domainColour": [
                 204,
                 134,
@@ -3750,6 +3907,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                407.149,
+                254.582,
+                87.0251
+            ],
             "domainColour": [
                 255,
                 225,
@@ -3791,6 +3953,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                357.957,
+                224.399,
+                60.0999
+            ],
             "domainColour": [
                 49,
                 236,
@@ -3812,6 +3979,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                386.176,
+                209.564,
+                70.2635
+            ],
             "domainColour": [
                 40,
                 204,
@@ -3833,6 +4005,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                443.385,
+                273.023,
+                56.1706
+            ],
             "domainColour": [
                 189,
                 0,
@@ -3854,6 +4031,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                444.987,
+                311.928,
+                69.2182
+            ],
             "domainColour": [
                 204,
                 37,
@@ -3875,6 +4057,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                450.134,
+                314.737,
+                43.5371
+            ],
             "domainColour": [
                 40,
                 115,
@@ -3916,6 +4103,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                406.405,
+                345.947,
+                52.2054
+            ],
             "domainColour": [
                 40,
                 41,
@@ -3937,6 +4129,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                361.701,
+                314.027,
+                39.9043
+            ],
             "domainColour": [
                 70,
                 204,
@@ -4028,6 +4225,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                427.228,
+                389.455,
+                57.3077
+            ],
             "domainColour": [
                 135,
                 204,
@@ -4175,6 +4377,11 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                454.792,
+                323.348,
+                23.4184
+            ],
             "domainColour": [
                 39,
                 204,
@@ -4210,10 +4417,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                403.787,
+                233.636,
+                72.8754
+            ],
             "domainId": "43",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00007080"
+        ],
         "name": "great commissure",
         "nodeId": "273",
         "nodeState": {
@@ -4223,10 +4437,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                440.169,
+                180.541,
+                72.6541
+            ],
             "domainId": "40",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00003985"
+        ],
         "name": "medial antennal lobe tract",
         "nodeId": "274",
         "nodeState": {
@@ -4236,10 +4457,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                371.999,
+                362.557,
+                6.58298
+            ],
             "domainId": "46",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00004043"
+        ],
         "name": "adult maxillary nerve",
         "nodeId": "275",
         "nodeState": {
@@ -4249,10 +4477,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                305.177,
+                95.9576,
+                96.5922
+            ],
             "domainId": "20",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00045007"
+        ],
         "name": "mushroom body accessory calyx",
         "nodeId": "276",
         "nodeState": {
@@ -4262,10 +4497,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                226.17,
+                175.082,
+                62.8267
+            ],
             "domainId": "41",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00100337"
+        ],
         "name": "optic anterior tract",
         "nodeId": "277",
         "nodeState": {
@@ -4275,10 +4517,17 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                423.362,
+                475.029,
+                107.587
+            ],
             "domainId": "44",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00110653"
+        ],
         "name": "labro frontal nerve",
         "nodeId": "278",
         "nodeState": {
@@ -4288,12 +4537,38 @@
     },
     {
         "domainData": {
+            "domainCentre": [
+                398.168,
+                464.405,
+                34.2172
+            ],
             "domainId": "47",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": [
+            "FBbt:00004020"
+        ],
         "name": "giant fiber neuron",
         "nodeId": "279",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                312.778,
+                283.092,
+                84.0615
+            ],
+            "domainColour": [],
+            "domainId": "42",
+            "domainSelected": "false"
+        },
+        "extId": [],
+        "name": "posterior optic commissure",
+        "nodeId": "280",
         "nodeState": {
             "open": "false",
             "selected": "false"
