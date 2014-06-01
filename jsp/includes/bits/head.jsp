@@ -82,14 +82,10 @@
 					<li><a href="/site/tools/protected/index.htm">Protected Area</a></li>
 				</ul>
 			</li>
-			<li><a class="trigger" href="#">Stacks</a>
+			<li><a class="trigger" href="#">Adult Brain</a>
 				<ul>
-					<li><a href="/site/stacks/index.htm">Adult Brain</a>
-						<ul>
-							<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
-							<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
-						</ul>
-					</li>
+					<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
+					<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
