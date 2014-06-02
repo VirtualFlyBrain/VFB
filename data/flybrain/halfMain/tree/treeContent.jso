@@ -4424,6 +4424,7 @@
             ],
             "domainId": "43",
             "domainSelected": "false"
+            "domainColour": [0,202,220,106],
         },
         "extId": [
             "FBbt:00007080"
@@ -4442,6 +4443,7 @@
                 180.541,
                 72.6541
             ],
+            "domainColour": [0,176,79,220],
             "domainId": "40",
             "domainSelected": "false"
         },
@@ -4462,6 +4464,7 @@
                 362.557,
                 6.58298
             ],
+            "domainColour": [0,79,9,18],
             "domainId": "46",
             "domainSelected": "false"
         },
@@ -4482,6 +4485,7 @@
                 95.9576,
                 96.5922
             ],
+            "domainColour": [0, 255,26,123],
             "domainId": "20",
             "domainSelected": "false"
         },
@@ -4502,6 +4506,7 @@
                 175.082,
                 62.8267
             ],
+            "domainColour": [0, 123,176,211],
             "domainId": "41",
             "domainSelected": "false"
         },
@@ -4522,6 +4527,7 @@
                 475.029,
                 107.587
             ],
+            "domainColour": [0, 141,53,246],
             "domainId": "44",
             "domainSelected": "false"
         },
@@ -4542,6 +4548,7 @@
                 464.405,
                 34.2172
             ],
+            "domainColour": [0, 88,0,167],
             "domainId": "47",
             "domainSelected": "false"
         },
@@ -4562,11 +4569,11 @@
                 283.092,
                 84.0615
             ],
-            "domainColour": [],
+            "domainColour": [0, 237,141,255],
             "domainId": "42",
             "domainSelected": "false"
         },
-        "extId": [],
+        "extId": ["FBbt:00007427"],
         "name": "posterior optic commissure",
         "nodeId": "280",
         "nodeState": {
