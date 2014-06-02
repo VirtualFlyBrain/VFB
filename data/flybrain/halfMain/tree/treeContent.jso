@@ -2524,6 +2524,12 @@
                 95.9576,
                 96.5922
             ],
+            "domainColour": [
+                0,
+                255,
+                26,
+                123
+            ],
             "domainId": "20",
             "domainSelected": "false"
         },
@@ -2531,7 +2537,7 @@
             "FBbt:00045007"
         ],
         "name": "mushroom body accessory calyx",
-        "nodeId": "276",
+        "nodeId": "170",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4422,9 +4428,14 @@
                 233.636,
                 72.8754
             ],
+            "domainColour": [
+                0,
+                202,
+                220,
+                106
+            ],
             "domainId": "43",
             "domainSelected": "false"
-            "domainColour": [0,202,220,106],
         },
         "extId": [
             "FBbt:00007080"
@@ -4443,7 +4454,12 @@
                 180.541,
                 72.6541
             ],
-            "domainColour": [0,176,79,220],
+            "domainColour": [
+                0,
+                176,
+                79,
+                220
+            ],
             "domainId": "40",
             "domainSelected": "false"
         },
@@ -4464,7 +4480,12 @@
                 362.557,
                 6.58298
             ],
-            "domainColour": [0,79,9,18],
+            "domainColour": [
+                0,
+                79,
+                9,
+                18
+            ],
             "domainId": "46",
             "domainSelected": "false"
         },
@@ -4481,32 +4502,16 @@
     {
         "domainData": {
             "domainCentre": [
-                305.177,
-                95.9576,
-                96.5922
-            ],
-            "domainColour": [0, 255,26,123],
-            "domainId": "20",
-            "domainSelected": "false"
-        },
-        "extId": [
-            "FBbt:00045007"
-        ],
-        "name": "mushroom body accessory calyx",
-        "nodeId": "276",
-        "nodeState": {
-            "open": "false",
-            "selected": "false"
-        }
-    },
-    {
-        "domainData": {
-            "domainCentre": [
                 226.17,
                 175.082,
                 62.8267
             ],
-            "domainColour": [0, 123,176,211],
+            "domainColour": [
+                0,
+                123,
+                176,
+                211
+            ],
             "domainId": "41",
             "domainSelected": "false"
         },
@@ -4514,7 +4519,7 @@
             "FBbt:00100337"
         ],
         "name": "optic anterior tract",
-        "nodeId": "277",
+        "nodeId": "276",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4527,7 +4532,12 @@
                 475.029,
                 107.587
             ],
-            "domainColour": [0, 141,53,246],
+            "domainColour": [
+                0,
+                141,
+                53,
+                246
+            ],
             "domainId": "44",
             "domainSelected": "false"
         },
@@ -4535,7 +4545,7 @@
             "FBbt:00110653"
         ],
         "name": "labro frontal nerve",
-        "nodeId": "278",
+        "nodeId": "277",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4548,7 +4558,12 @@
                 464.405,
                 34.2172
             ],
-            "domainColour": [0, 88,0,167],
+            "domainColour": [
+                0,
+                88,
+                0,
+                167
+            ],
             "domainId": "47",
             "domainSelected": "false"
         },
@@ -4556,7 +4571,7 @@
             "FBbt:00004020"
         ],
         "name": "giant fiber neuron",
-        "nodeId": "279",
+        "nodeId": "278",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4569,13 +4584,20 @@
                 283.092,
                 84.0615
             ],
-            "domainColour": [0, 237,141,255],
+            "domainColour": [
+                0,
+                237,
+                141,
+                255
+            ],
             "domainId": "42",
             "domainSelected": "false"
         },
-        "extId": ["FBbt:00007427"],
+        "extId": [
+            "FBbt:00007427"
+        ],
         "name": "posterior optic commissure",
-        "nodeId": "280",
+        "nodeId": "279",
         "nodeState": {
             "open": "false",
             "selected": "false"
