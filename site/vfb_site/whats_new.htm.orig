@@ -1,0 +1,18 @@
+<div id="whats_new">
+<a href="/site/vfb_site/features.htm"><h3>Newly Added Features</h3></a>
+<p>
+<<<<<<< HEAD
+Download of registered images for lineage clones and Janelia FlyLight lines</br>
+New query for unclustered individual neurons that overlap a specific neuropil</br>
+Easily browse the subregions of a neuropil with the new query: 'Parts of:'
+=======
+<b><a href="/site/vfb_site/image_data_downloads.htm">Download</a> of registered images</b> for lineage clones and Janelia FlyLight lines
+>>>>>>> master
+</p>
+<p>
+New query for unclustered <b></b>individual neurons that overlap a specific neuropil</b>
+</p>
+<p>
+Easily <b>browse the subregions of a neuropil</b> with the new query: <b>'Parts of'</b>
+</p>
+</div>
