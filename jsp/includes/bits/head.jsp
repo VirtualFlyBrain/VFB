@@ -84,7 +84,8 @@
 			</li>
 			<li><a class="trigger" href="#">Stacks</a>
 				<ul>
-					<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
+					<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
+					<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
