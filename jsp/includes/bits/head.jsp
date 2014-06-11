@@ -84,11 +84,13 @@
 			</li>
 			<li><a class="trigger" href="#">Stacks</a>
 				<ul>
-					<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
+					<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
+					<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
 				<ul>
+					<li><a href="/site/vfb_site/template_files_downloads.htm">Template data</a></li>
 					<li><a href="/site/vfb_site/image_data_downloads.htm">Image data</a></li>
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 				</ul>
