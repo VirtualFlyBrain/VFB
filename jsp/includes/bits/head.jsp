@@ -1,12 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="headAtt" scope="session" value="true" />
 
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
  	<div id="head_wrapper">
- 		
+
  		<table style="width:100%">
  		<tr>
  		<td style="border-right:1px solid gray;width:178px">
@@ -23,7 +23,7 @@
   				<a class="help" href="${helpURL}" style="top:-10px" title="Quick help" target="_blank">&nbsp;Help</a>
   				<a class="help youtube" href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new" style="top:-10px" title="Watch VFB tutorial videos">Tutorial Videos</a>
 			<%--/c:if--%>
-			<c:set var="title" value="&nbsp;${param.title}" />   		
+			<c:set var="title" value="&nbsp;${param.title}" />
   			<h1 id="page_header">
   				<c:choose>
   					<c:when test="${fn:length(param.title)>35}">
@@ -33,7 +33,7 @@
   						<a href="/site/vfb_site/overview.htm">Virtual Fly Brain:</a>${(empty param.title)?"":title}
   					</c:otherwise>
   				</c:choose>
-  			</h1>  			
+  			</h1>
   			<div id="breadcrumb" >
 			<c:if test="${!empty param.navpath}">
 				<c:forEach items="${fn:split(param.navpath, '|')}" var="curr" varStatus="status">
@@ -49,7 +49,7 @@
 					</c:if>
 					<c:if test="${status.last}">
 						<b>${currLinks[0]}</b>
-					</c:if>						
+					</c:if>
 				</c:forEach>
 			</c:if>
   			</div>
@@ -83,13 +83,15 @@
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Stacks</a>
-			<ul>
-				<li><a href="/site/stacks/index.htm">Adult Brain Stack</a></li>
-				<li><a href="/site/stacks/tg.htm">Adult Thoracico-abdominal Ganglion</a></li>
-			</ul>
+				<ul>
+					<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
+					<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
+          <li><a href="/site/stacks/tg.htm">Adult Thoracico-abdominal Ganglion</a></li>
+				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
 				<ul>
+					<li><a href="/site/vfb_site/template_files_downloads.htm">Template data</a></li>
 					<li><a href="/site/vfb_site/image_data_downloads.htm">Image data</a></li>
 					<li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 				</ul>
@@ -107,14 +109,14 @@
 				<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Feedback</a>
 			</li>
 		</ul>
-		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a> 
+		<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a>
 		<br class="clearit">
 		</div>
-		</td>  			
-			</div><!-- header -->
-			
 		</td>
-		</tr>				
-		</table>				  			
-	  	</div> <!-- head_wrapper -->  	
-    <div style="clear:both;"></div>	  	
+			</div><!-- header -->
+
+		</td>
+		</tr>
+		</table>
+	  	</div> <!-- head_wrapper -->
+    <div style="clear:both;"></div>

@@ -1,0 +1,13 @@
+[
+   {
+      "target": "emapIIPViewerDiv",
+      "content": [
+         {
+            "id":"0",
+            "name":["reload image"],
+            "action":"emouseatlas.emap.tiledImageView.refreshImage()",
+            "enabled":"true"
+         }
+      ]
+   }
+]
