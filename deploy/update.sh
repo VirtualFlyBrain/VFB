@@ -63,7 +63,7 @@ then
         echo "Done."
     
     else
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "\.gz" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "\.gz" | wc -l` -gt 0 ]
         then
             nice deploy/decompress.sh
         fi
@@ -80,48 +80,48 @@ then
         cat flybase
         echo "OWL date:"
         cat owldate
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "\.sed" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "\.sed" | wc -l` -gt 0 ]
         then
             echo "checking filters to use correct branch names"
             find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
             find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "tiledImageModelD" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "tiledImageModelD" | wc -l` -gt 0 ]
         then
             echo "checking image json files"
             find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
             find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "resources.properties" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "resources.properties" | wc -l` -gt 0 ]
         then
             echo "checking resources.properties"
             find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed  
             find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed  
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "web.xml" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "web.xml" | wc -l` -gt 0 ]
         then
             echo "checking web.xml"
             find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
             find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "ga.jsp" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "ga.jsp" | wc -l` -gt 0 ]
         then
             echo "checking google analytics code"
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl" | wc -l` -gt 0 ]
         then
             echo "checking any direct references to website url is set to the branch site"
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "src/" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "src/" | wc -l` -gt 0 ]
         then
             echo "Recompiling the site..."
             nice ant
         fi
-        if [ `git whatchanged --pretty="format:" --name-only --since="1 minutes ago" | grep "\.owl" | wc -l` -gt 0 ]
+        if [ `git whatchanged --pretty="format:" --name-only --since="16 minutes ago" | grep "\.owl" | wc -l` -gt 0 ]
         then
             echo "Redeploying ontology server..."
             nice deploy/start-${branch}-Ont-Server.sh
