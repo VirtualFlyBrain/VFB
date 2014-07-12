@@ -126,5 +126,13 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<br/>			
 
 </c:if>
-</body>
-</html>
+<c:choose>
+	<c:when test="${needFoot == true}">
+		<jsp:include page="/jsp/includes/homeFoot.jsp"/>
+	</c:when>
+	<c:otherwise>	
+		</body>
+		</html>
+	
+	</c:otherwise>
+</c:choose>
