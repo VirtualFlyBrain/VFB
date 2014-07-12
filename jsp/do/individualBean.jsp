@@ -18,15 +18,38 @@ AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
 pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-<head>
-<title>${query}</title>
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/layout/layout.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />	
+
+<c:choose>
+	<c:when test="${headAtt == true}"> 
+	
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+		
+		<head>
+		<title>${query}</title>
+
+		
+		
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/layout/layout.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
+		</head>
+
+		<body>
+	</c:when>
+	<c:otherwise>
+		<jsp:include page="/jsp/includes/1ColHead.jsp">
+			<jsp:param name="title" value="${ontBean.name}" />
+			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|${ontBean.fbbtId}@ " />
+			<jsp:param name="css" value="/css/vfb/utils/p7menu_secondary.css;/css/vfb/utils/resultList.css;/css/vfb/utils/help.css;/css/vfb/layout/layout.css;" />
+		</jsp:include>
+		<c:set var="needFoot" value="true" />
+	</c:otherwise>
+</c:choose>
+
+
 
 <script type="text/javascript">
 	function formSubmit() {
@@ -35,10 +58,13 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
 	}
 </script>
-</head>
 
-<body>
-<jsp:include page="/jsp/includes/js/tag.jsp" />	
+<jsp:include page="/jsp/includes/js/tag.jsp" />
+		<!-- Google Analytics -->
+			<script>
+				dataLayer.push({'event':'sendVirtualPageview','vpv':'/jsp/do/individualBean.jsp?id=${ontBean.fbbtId}'});
+			</script>
+		<!-- End Google Analytics -->	
 	
 <h2 style="font-size: 1.3em; margin-top:-3px"><a href="#" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
@@ -69,16 +95,33 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<c:forEach items="${types}" var="curr" varStatus="status">
 		<c:set var="currParts" value="${fn:split(curr, '=')}" />
 		<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
-		&nbsp;&nbsp;&nbsp; * 
-		<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
+		<c:choose>
+			<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
+				&nbsp;&nbsp;&nbsp; * 
+				<a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a>
+			</c:when>
+			<c:otherwise>	
+				&nbsp;&nbsp;&nbsp; * 
+				<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
+			</c:otherwise>
+		</c:choose>
 	</c:forEach>
 </p>
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
-			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+			<c:choose>
+				<c:when test="${fn:containsIgnoreCase(curr.key, 'http')}">
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+					<a href="${curr.key}" title="External look up" target="_new">${curr.value[1]}</a>
+				</c:when>
+				<c:otherwise>	
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+			
+				</c:otherwise>
+			</c:choose>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
 				<c:if test="${curr.key == neuropil.fbbtId}">
 					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.key} " target="_top"
@@ -100,5 +143,13 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<br/>			
 
 </c:if>
-</body>
-</html>
+<c:choose>
+	<c:when test="${needFoot == true}">
+		<jsp:include page="/jsp/includes/homeFoot.jsp"/>
+	</c:when>
+	<c:otherwise>	
+		</body>
+		</html>
+	
+	</c:otherwise>
+</c:choose>
