@@ -18,15 +18,38 @@ AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
 pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-<head>
-<title>${query}</title>
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/layout/layout.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />	
+
+<c:choose>
+	<c:when test="${headAtt == true}"> 
+	
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+		
+		<head>
+		<title>${query}</title>
+
+		
+		
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/layout/layout.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
+		</head>
+
+		<body>
+	</c:when>
+	<c:otherwise>
+		<jsp:include page="/jsp/includes/1ColHead.jsp">
+			<jsp:param name="title" value="${ontBean.name}" />
+			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|${ontBean.fbbtId}@ " />
+			<jsp:param name="css" value="/css/vfb/utils/p7menu_secondary.css;/css/vfb/utils/resultList.css;/css/vfb/utils/help.css;/css/vfb/layout/layout.css;" />
+		</jsp:include>
+		<c:set var="needFoot" value="true" />
+	</c:otherwise>
+</c:choose>
+
+
 
 <script type="text/javascript">
 	function formSubmit() {
@@ -35,10 +58,13 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
 	}
 </script>
-</head>
 
-<body>
-<jsp:include page="/jsp/includes/js/tag.jsp" />	
+<jsp:include page="/jsp/includes/js/tag.jsp" />
+		<!-- Google Analytics -->
+			<script>
+				dataLayer.push({'event':'sendVirtualPageview','vpv':'/jsp/do/individualBean.jsp?id=${ontBean.fbbtId}'});
+			</script>
+		<!-- End Google Analytics -->	
 	
 <h2 style="font-size: 1.3em; margin-top:-3px"><a href="#" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
