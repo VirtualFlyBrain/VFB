@@ -95,16 +95,33 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<c:forEach items="${types}" var="curr" varStatus="status">
 		<c:set var="currParts" value="${fn:split(curr, '=')}" />
 		<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
-		&nbsp;&nbsp;&nbsp; * 
-		<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
+		<c:choose>
+			<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
+				&nbsp;&nbsp;&nbsp; * 
+				<a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a>
+			</c:when>
+			<c:otherwise>	
+				&nbsp;&nbsp;&nbsp; * 
+				<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
+			</c:otherwise>
+		</c:choose>
 	</c:forEach>
 </p>
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
-			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+			<c:choose>
+				<c:when test="${fn:containsIgnoreCase(curr.key, 'http')}">
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+					<a href="${curr.key}" title="External look up" target="_new">${curr.value[1]}</a>
+				</c:when>
+				<c:otherwise>	
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+			
+				</c:otherwise>
+			</c:choose>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
 				<c:if test="${curr.key == neuropil.fbbtId}">
 					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.key} " target="_top"
