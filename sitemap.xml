@@ -95,7 +95,7 @@ ${u2}
 </c:forEach>
 <c:forEach begin="0" end="23726" var="val">
 ${u1}
-${l1}http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<c:choose><c:when test="${val < 10}"></c:when>0000000<c:when test="${val < 100}">000000</c:when><c:when test="${val < 1000}">00000</c:when><c:when test="${val < 10000}">0000</c:when><c:when test="${val < 100000}">000</c:when><c:when test="${val < 1000000}">00</c:when><c:when test="${val < 10000000}">0</c:when><c:otherwise></c:otherwise></c:choose><c:out value="${val}" />${l2}
+${l1}http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<c:choose><c:when test="${val < 10}"></c:when>0000000<c:when test="${val < 100}">000000</c:when><c:when test="${val < 1000}">00000</c:when><c:when test="${val < 10000}">0000</c:when><c:when test="${val < 100000}">000</c:when><c:when test="${val < 1000000}">00</c:when><c:when test="${val < 10000000}">0</c:when></c:choose><c:out value="${val}" />${l2}
 ${u2}
 </c:forEach>
 </urlset>
