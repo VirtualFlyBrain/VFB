@@ -93,10 +93,10 @@ ${u1}
 ${l1}${af}${neuron.fbbtId}${l2}
 ${u2}
 </c:forEach>
-<%
-    for ( int i = 0; i < 23726; i++ ) {
-        %>http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<fmt:formatNumber minIntegerDigits="2" value="<%= i+1 %>" /><% 
-        } 
-%>
+<c:forEach begin="0" end="23726" var="val">
+${u1}
+${l1}http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<c:out fmt:formatNumber minIntegerDigits="8" value="${val}"/>${l2}
+${u2}
+</c:forEach>
 </urlset>
 
