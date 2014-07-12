@@ -95,7 +95,7 @@ ${u2}
 </c:forEach>
 <c:forEach begin="0" end="23726" var="val">
 ${u1}
-${l1}http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<c:out fmt:formatNumber minIntegerDigits="8" value="${val}"/>${l2}
+${l1}http://www.virtualflybrain.org/jsp/do/individualBean.jsp?id=VFB_<fmt:formatNumber minIntegerDigits="8" value="${val}"/>${l2}
 ${u2}
 </c:forEach>
 </urlset>
