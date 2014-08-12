@@ -86,6 +86,7 @@
 				<ul>
 					<li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
 					<li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
+					<li><a href="/site/stacks/larval.htm">larval brain - Janelia</a></li>
 				</ul>
 			</li>
 			<li><a class="trigger" href="#">Downloads</a>
