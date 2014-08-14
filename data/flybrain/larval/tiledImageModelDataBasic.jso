@@ -2,7 +2,7 @@
    "webServer": "SERVER_NAME",
    "iipServerPath": "/fcgi/wlziipsrv.fcgi",
    "metadataRoot": "/data/flybrain/",
-   "toolsMetadataFilename": "main/tiledImageToolParamsBasic.jso",
+   "toolsMetadataFilename": "larval/tiledImageToolParamsBasic.jso",
    "interfaceImageDir": "/images/",
    "dataType": "wlz",
    "transverseView": {"pitch": "0", "yaw": "0", "roll": "0"},
