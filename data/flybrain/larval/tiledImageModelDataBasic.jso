@@ -16,14 +16,14 @@
    "layerData": [
       {
          "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/larval/woolz/",
-         "imageName":"flybrain.wlz",
+         "imageName":"larvalbrain.wlz",
          "type":"greyLevel",
          "opacity":"1.0",
          "visible":"true"
       },
       {
          "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/larval/woolz/",
-         "imageName":"flybrain.wlz",
+         "imageName":"larvalbrain.wlz",
          "type":"label",
          "opacity":"0.5",
          "current":"",
