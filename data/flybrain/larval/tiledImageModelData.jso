@@ -15,7 +15,7 @@
    ],
    "layerData": [
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/data/flybrain/larval/woolz/",
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/larval/woolz/",
          "imageName":"larvalbrain.wlz",
          "type":"greyLevel",
          "opacity":"1.0",
