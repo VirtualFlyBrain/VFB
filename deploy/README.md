@@ -39,6 +39,6 @@ Current allocations:
 | ------ | ---- | --- | ----- |
 | Sandbox | dosumis | General OWL/DB Query improvements |  |
 | Sandbox1 | Robbie1977 | Thoracico-abdominal Ganglion addition and testing | Being accessed by selcted outside users |
-| Sandbox2 | Free |  | Server not yet deployed |
-| Sandbox3 | Free |  | Server not yet deployed |
+| Sandbox2 | David Wood | Laval brain addition and testing |  |
+| Sandbox3 | Free |  | for general use |
 
