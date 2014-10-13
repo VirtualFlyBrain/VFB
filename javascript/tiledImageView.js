@@ -56,7 +56,7 @@ emouseatlas.emap.tiledImageView = function() {
 
 	var that = this;
 	var registry = []; // allows the view to notify observers of changes to layer, viewport size etc.
-	var viewChanges = {
+	var viewChanges = { 
 			initial: false,
 			viewport: false,
 			maximise: false,
@@ -661,7 +661,7 @@ emouseatlas.emap.tiledImageView = function() {
 			filter = "&sel=0," + lfilter.filter.red + "," + lfilter.filter.green + "," + lfilter.filter.blue +",255";
 		} else if(layer.type === 'compound') {
 			var indexData = model.getIndexData(layerName);
-			var col;
+			var col; 
 			var i;
 			for(i=0; i<numLayers; i++) {
 				if(layerName === indexData[i].name) {
@@ -670,7 +670,7 @@ emouseatlas.emap.tiledImageView = function() {
 					break;
 				}
 			}
-		}
+		} 
 		else   // try expression layer
 			if(layer.type === 'expression') {
 				sel = "&sel=1,255,0,0,255";
@@ -681,7 +681,7 @@ emouseatlas.emap.tiledImageView = function() {
 		}
 		else   // try expression layer
 			if(layer.type === 'expression_layer') {
-				// SEL=0&MAP=LINEAR,0,255,0,0,LINEAR,0,255,0,255,LINEAR,0,255,0,255&QLT=50&CVT=jpeg
+				// SEL=0&MAP=LINEAR,0,255,0,0,LINEAR,0,255,0,255,LINEAR,0,255,0,255&QLT=50&CVT=jpeg 
 				var lfilter = layerFilter[layerName];
 				sel = "&sel=0";
 				sel = sel+"&map=LINEAR,0,255,0,"+lfilter.filter.red+",LINEAR,0,255,0,"+lfilter.filter.green+",LINEAR,0,255,0,"+lfilter.filter.blue+",LINEAR,0,255,0,255";
@@ -711,6 +711,7 @@ emouseatlas.emap.tiledImageView = function() {
 			+ "&yaw=" + threeDInfo.yaw.cur
 			+ "&rol=" + threeDInfo.roll.cur
 			+ "&qlt=" + qlt
+			+ imgType
 			+ k;
 		} else {
 			var imgType = (layer.type === 'greyLevel') ? "&jtl=" : "&ptl=";
@@ -718,7 +719,7 @@ emouseatlas.emap.tiledImageView = function() {
 			if(fullname === undefined) {
 				src = undefined;
 			} else {
-				src = model.getIIPServer() + "?fif=" + model.getFullImgFilename(layerName) + "&qlt=" + qlt + resolution + "," + k;
+				src = model.getIIPServer() + "?fif=" + model.getFullImgFilename(layerName) + "&qlt=" + qlt + imgType + resolution + "," + k;
 			}
 		}
 
@@ -807,8 +808,8 @@ emouseatlas.emap.tiledImageView = function() {
 					console.log("getTiles: counter = %d",counter);
 				}
 				counter = 0;
-			}
-		} // for
+			} 
+		} // for 
 
 		//util.printNodes(targetContainer, 1, "   ", skip);
 
@@ -878,8 +879,8 @@ emouseatlas.emap.tiledImageView = function() {
 				tileFrame = tileFrameContainer.firstChild;
 				//console.log("cursor ",cursor);
 				tileFrame.style.cursor = cursor;
-			}
-		} // for
+			} 
+		} // for 
 
 	}; // setImageCursor
 
@@ -913,7 +914,7 @@ emouseatlas.emap.tiledImageView = function() {
 	};
 
 	//---------------------------------------------------------
-	/*
+	/* 
 	 * Refresh function to avoid the problem of tiles not loading
 	 * properly in Firefox/Mozilla
 	 *
@@ -926,7 +927,7 @@ emouseatlas.emap.tiledImageView = function() {
 		if(document.getElementById("tileframe")) {
 			var children = document.getElementById("tileframe").getChildren();
 			for(var i in children) {
-				// If our tile has not yet been loaded, give it a prod
+				// If our tile has not yet been loaded, give it a prod 
 				if(i.width === 0 || i.height === 0 ){
 					i.src = i.src;
 					unloaded = 1;
@@ -1789,7 +1790,7 @@ emouseatlas.emap.tiledImageView = function() {
 
 		/* !!!!! at the moment, due to the compliexity/deficiency of MVC model
 	  or a bug in the code, one user action may cause the same
-	  image to be loaded 1+ times by calling
+	  image to be loaded 1+ times by calling 
 	  handleScaleChange, updateDst, and updateWlzRotation.
 	  Due to time pressure, it is difficult to guarantee not
 	  to call these functions unnecessary. Thus the following code
@@ -2112,7 +2113,7 @@ emouseatlas.emap.tiledImageView = function() {
 		var icmParams = model.getMenuData();
 		var imagePath = model.getInterfaceImageDir();
 		var params = {
-				view: emouseatlas.emap.tiledImageView,
+				view: emouseatlas.emap.tiledImageView, 
 				structureUrl: icmParams.structureUrl,
 				contentUrl: icmParams.contentUrl,
 				imagePath: imagePath
@@ -2292,7 +2293,7 @@ emouseatlas.emap.tiledImageView = function() {
 //			maxYaw:toolData.pitchYaw.maxYaw,
 //			gap:toolData.pitchYaw.gap,
 //			navImage:toolData.pitchYaw.navImage,
-//			thinTopEdge:toolData.pitchYaw.thinTopEdge
+//			thinTopEdge:toolData.pitchYaw.thinTopEdge			
 		}
 
 		if(typeof(tools.rotation) !== 'undefined') {
@@ -2420,8 +2421,8 @@ emouseatlas.emap.tiledImageView = function() {
 	};
 
 	//---------------------------------------------------------
-	// these need to be separate cases; not if ... else
-	// Changing rotation or distance sliders
+	// these need to be separate cases; not if ... else 
+	// Changing rotation or distance sliders 
 	// should not update the main image until a 'mouse up' event occurs.
 	// Only the locator image should change before that.
 	//---------------------------------------------------------
@@ -2448,7 +2449,7 @@ emouseatlas.emap.tiledImageView = function() {
 			updateWlzLocator();
 		}
 		if(modelChanges.fxp === true) {
-			if (model.isWlzData()) {
+			if (model.isWlzData()) { 
 				if (initialised && !isSameImagePosition()) {
 					setTimeout("emouseatlas.emap.tiledImageView.requestImages('modelUpdate fxp')", 10);
 				}
@@ -2563,7 +2564,7 @@ emouseatlas.emap.tiledImageView = function() {
 		handleImageSizeChange('updateWlzRotation');
 		/* !!!!! at the moment, due to the compliexity/deficiency of MVC model
 	  or a bug in the code, one user action may cause the same
-	  image to be loaded 1+ times by calling
+	  image to be loaded 1+ times by calling 
 	  handleScaleChange, updateDst, and updateWlzRotation.
 	  Due to time pressure, it is difficult to guarantee not
 	  to call these functions unnecessary. Thus the following code
@@ -2596,7 +2597,7 @@ emouseatlas.emap.tiledImageView = function() {
 		handleImageSizeChange('updateDst');
 		/* !!!!! at the moment, due to the compliexity/deficiency of MVC model
 	  or a bug in the code, one user action may cause the same
-	  image to be loaded 1+ times by calling
+	  image to be loaded 1+ times by calling 
 	  handleScaleChange, updateDst, and updateWlzRotation.
 	  Due to time pressure, it is difficult to guarantee not
 	  to call these functions unnecessary. Thus the following code
@@ -2640,7 +2641,7 @@ emouseatlas.emap.tiledImageView = function() {
 		if (isWlz) {
 			/* !!!!! at the moment, the initialization cycle calls
 	  handleScaleChange, updateDst, updateWlzRotation.
-	  All of them will load the image when the image is only needed
+	  All of them will load the image when the image is only needed 
 	  to be loaded once.  initialised in introduced to
 	  improve performance by loading image only once
 			 */
