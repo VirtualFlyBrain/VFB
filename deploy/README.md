@@ -28,8 +28,11 @@ They are only for use on the relivant servers.
 
 #GitHub Edit / Deployment Flow
 ![Flowchart](https://raw.github.com/VirtualFlyBrain/VFB/master/deploy/VFB%20GITHUB.png)
-**Key:** 
-..*Yellow boxes are actions recomended to be carried out on the GitHub website rather than through git / local git SW.
+**Notes:** 
+
+*Yellow boxes are actions recomended to be carried out on the GitHub website rather than through git / local git SW.
+
+*Main Server Backup now has own branch 'Bocian-Backup' - this should be kept in step with Main-Server.
 
 #Sandbox Server Allocations
 
@@ -40,5 +43,5 @@ Current allocations:
 | Sandbox | dosumis | General OWL/DB Query improvements |  |
 | Sandbox1 | Robbie1977 | Thoracico-abdominal Ganglion addition and testing | Being accessed by selcted outside users |
 | Sandbox2 | David Wood | Laval brain addition and testing |  |
-| Sandbox3 | Free |  | for general use |
+| Sandbox3 | Robbie1977 | Developing next gen image viewer | not to be merged back |
 
