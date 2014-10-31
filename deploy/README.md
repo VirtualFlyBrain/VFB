@@ -30,6 +30,7 @@ They are only for use on the relivant servers.
 ![Flowchart](https://raw.github.com/VirtualFlyBrain/VFB/master/deploy/VFB%20GITHUB.png)
 **Key:** 
 ..*Yellow boxes are actions recomended to be carried out on the GitHub website rather than through git / local git SW.
+..*Main Server Backup now has own branch 'Bocian-Backup' - this should be kept in step with Main-Server.
 
 #Sandbox Server Allocations
 
