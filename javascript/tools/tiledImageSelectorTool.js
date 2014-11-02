@@ -37,12 +37,12 @@
 //---------------------------------------------------------
 //emouseatlas.emap.tiledImageSelectorTool = new Class ({
 var tiledImageSelectorTool = new Class ({
-	Extends: tiledImageTool,	
+	Extends: tiledImageTool,
 
 	initialize: function(params) {
 
 		this.name = "Selector";
-		
+
 		this.parent(params);
 
 		this.maxDim = params.toolParams.maxdim;
@@ -225,7 +225,7 @@ var tiledImageSelectorTool = new Class ({
 		+ zsel.width
 		+ '&qlt='
 		+ quality.cur
-		+ '&cvt=jpeg';
+		+ '&cvt=png';
 
 		//console.log("exit selector.getSelectorSrc:",selectorSrc);
 		return selectorSrc;
@@ -311,7 +311,7 @@ var tiledImageSelectorTool = new Class ({
 			// make sure the zsel image fits the max dimension specified
 			var scaleFactor = (zsel.width > zsel.height) ? this.maxDim / zsel.width : this.maxDim / zsel.height;
 			if (scaleFactor > 1) {
-				scaleFactor = 1; 
+				scaleFactor = 1;
 			}
 
 			this.scaledSelectorWidth = (scaleFactor * zsel.width);
