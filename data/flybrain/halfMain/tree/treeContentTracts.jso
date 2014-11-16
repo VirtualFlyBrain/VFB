@@ -1,0 +1,4606 @@
+[
+    {
+        "domainData": {
+            "domainColour": [
+                0,
+                128,
+                128,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003624"
+        ],
+        "name": "adult brain",
+        "nodeId": "0",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                204,
+                39,
+                166,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110636"
+        ],
+        "name": "adult cerebral ganglion",
+        "nodeId": "1",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                430.088,
+                220.338,
+                22.1163
+            ],
+            "domainColour": [
+                24,
+                125,
+                32,
+                127
+            ],
+            "domainId": "23",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007401"
+        ],
+        "name": "adult antennal lobe",
+        "nodeId": "2",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00067500"
+        ],
+        "name": "adult antennal lobe glomerulus",
+        "nodeId": "3",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007093"
+        ],
+        "name": "antennal lobe glomerulus 2",
+        "nodeId": "4",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003960"
+        ],
+        "name": "antennal lobe glomerulus D",
+        "nodeId": "5",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003932"
+        ],
+        "name": "antennal lobe glomerulus DA1",
+        "nodeId": "6",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003933"
+        ],
+        "name": "antennal lobe glomerulus DA2",
+        "nodeId": "7",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003934"
+        ],
+        "name": "antennal lobe glomerulus DA3",
+        "nodeId": "8",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003935"
+        ],
+        "name": "antennal lobe glomerulus DA4",
+        "nodeId": "9",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007360"
+        ],
+        "name": "antennal lobe glomerulus DA4l",
+        "nodeId": "10",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007361"
+        ],
+        "name": "antennal lobe glomerulus DA4m",
+        "nodeId": "11",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003961"
+        ],
+        "name": "antennal lobe glomerulus DC1",
+        "nodeId": "12",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003962"
+        ],
+        "name": "antennal lobe glomerulus DC2",
+        "nodeId": "13",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003963"
+        ],
+        "name": "antennal lobe glomerulus DC3",
+        "nodeId": "14",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100531"
+        ],
+        "name": "antennal lobe glomerulus DC4",
+        "nodeId": "15",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003968"
+        ],
+        "name": "antennal lobe glomerulus DL1",
+        "nodeId": "16",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100375"
+        ],
+        "name": "antennal lobe glomerulus DL1l",
+        "nodeId": "17",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003969"
+        ],
+        "name": "antennal lobe glomerulus DL2",
+        "nodeId": "18",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100377"
+        ],
+        "name": "antennal lobe glomerulus DL2d",
+        "nodeId": "19",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100376"
+        ],
+        "name": "antennal lobe glomerulus DL2v",
+        "nodeId": "20",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003964"
+        ],
+        "name": "antennal lobe glomerulus DL3",
+        "nodeId": "21",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003965"
+        ],
+        "name": "antennal lobe glomerulus DL4",
+        "nodeId": "22",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003970"
+        ],
+        "name": "antennal lobe glomerulus DL5",
+        "nodeId": "23",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007442"
+        ],
+        "name": "antennal lobe glomerulus DL6",
+        "nodeId": "24",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003975"
+        ],
+        "name": "antennal lobe glomerulus DM1",
+        "nodeId": "25",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003971"
+        ],
+        "name": "antennal lobe glomerulus DM2",
+        "nodeId": "26",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003972"
+        ],
+        "name": "antennal lobe glomerulus DM3",
+        "nodeId": "27",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003976"
+        ],
+        "name": "antennal lobe glomerulus DM4",
+        "nodeId": "28",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003940"
+        ],
+        "name": "antennal lobe glomerulus DM5",
+        "nodeId": "29",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003941"
+        ],
+        "name": "antennal lobe glomerulus DM6",
+        "nodeId": "30",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003977"
+        ],
+        "name": "antennal lobe glomerulus DP1",
+        "nodeId": "31",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007098"
+        ],
+        "name": "antennal lobe glomerulus DP1l",
+        "nodeId": "32",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007097"
+        ],
+        "name": "antennal lobe glomerulus DP1m",
+        "nodeId": "33",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003951"
+        ],
+        "name": "antennal lobe glomerulus V",
+        "nodeId": "34",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003936"
+        ],
+        "name": "antennal lobe glomerulus VA1",
+        "nodeId": "35",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007101"
+        ],
+        "name": "antennal lobe glomerulus VA1d",
+        "nodeId": "36",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007363"
+        ],
+        "name": "antennal lobe glomerulus VA1v",
+        "nodeId": "37",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003942"
+        ],
+        "name": "antennal lobe glomerulus VA2",
+        "nodeId": "38",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003943"
+        ],
+        "name": "antennal lobe glomerulus VA3",
+        "nodeId": "39",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003944"
+        ],
+        "name": "antennal lobe glomerulus VA4",
+        "nodeId": "40",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003937"
+        ],
+        "name": "antennal lobe glomerulus VA5",
+        "nodeId": "41",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003938"
+        ],
+        "name": "antennal lobe glomerulus VA6",
+        "nodeId": "42",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003945"
+        ],
+        "name": "antennal lobe glomerulus VA7",
+        "nodeId": "43",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007103"
+        ],
+        "name": "antennal lobe glomerulus VA7l",
+        "nodeId": "44",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007102"
+        ],
+        "name": "antennal lobe glomerulus VA7m",
+        "nodeId": "45",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003952"
+        ],
+        "name": "antennal lobe glomerulus VC1",
+        "nodeId": "46",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003946"
+        ],
+        "name": "antennal lobe glomerulus VC2",
+        "nodeId": "47",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003953"
+        ],
+        "name": "antennal lobe glomerulus VC3",
+        "nodeId": "48",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007105"
+        ],
+        "name": "antennal lobe glomerulus VC3l",
+        "nodeId": "49",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007104"
+        ],
+        "name": "antennal lobe glomerulus VC3m",
+        "nodeId": "50",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007366"
+        ],
+        "name": "antennal lobe glomerulus VC4",
+        "nodeId": "51",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003954"
+        ],
+        "name": "antennal lobe glomerulus VL1",
+        "nodeId": "52",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003955"
+        ],
+        "name": "antennal lobe glomerulus VL2",
+        "nodeId": "53",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007106"
+        ],
+        "name": "antennal lobe glomerulus VL2a",
+        "nodeId": "54",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007107"
+        ],
+        "name": "antennal lobe glomerulus VL2p",
+        "nodeId": "55",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003956"
+        ],
+        "name": "antennal lobe glomerulus VM1",
+        "nodeId": "56",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003947"
+        ],
+        "name": "antennal lobe glomerulus VM2",
+        "nodeId": "57",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003948"
+        ],
+        "name": "antennal lobe glomerulus VM3",
+        "nodeId": "58",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003957"
+        ],
+        "name": "antennal lobe glomerulus VM4",
+        "nodeId": "59",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003949"
+        ],
+        "name": "antennal lobe glomerulus VM5",
+        "nodeId": "60",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007391"
+        ],
+        "name": "antennal lobe glomerulus VM5d",
+        "nodeId": "61",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007365"
+        ],
+        "name": "antennal lobe glomerulus VM5v",
+        "nodeId": "62",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003958"
+        ],
+        "name": "antennal lobe glomerulus VM6",
+        "nodeId": "63",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003973"
+        ],
+        "name": "antennal lobe glomerulus VM7",
+        "nodeId": "64",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110028"
+        ],
+        "name": "antennal lobe glomerulus VM7d",
+        "nodeId": "65",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007092"
+        ],
+        "name": "antennal lobe glomerulus VM7v",
+        "nodeId": "66",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003926"
+        ],
+        "name": "antennal lobe glomerulus VP",
+        "nodeId": "67",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003927"
+        ],
+        "name": "antennal lobe glomerulus VP1",
+        "nodeId": "68",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003928"
+        ],
+        "name": "antennal lobe glomerulus VP2",
+        "nodeId": "69",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003929"
+        ],
+        "name": "antennal lobe glomerulus VP3",
+        "nodeId": "70",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100362"
+        ],
+        "name": "antennal lobe hub",
+        "nodeId": "71",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003632"
+        ],
+        "name": "adult central complex",
+        "nodeId": "72",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                128,
+                55,
+                55,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045020"
+        ],
+        "name": "central body",
+        "nodeId": "73",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                450.731,
+                155.093,
+                54.2191
+            ],
+            "domainColour": [
+                225,
+                0,
+                0,
+                127
+            ],
+            "domainId": "22",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003678"
+        ],
+        "name": "ellipsoid body",
+        "nodeId": "74",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040034"
+        ],
+        "name": "ellipsoid body layer",
+        "nodeId": "75",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007555"
+        ],
+        "name": "ellipsoid body inner ring",
+        "nodeId": "76",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007556"
+        ],
+        "name": "ellipsoid body outer ring",
+        "nodeId": "77",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040070"
+        ],
+        "name": "ellipsoid body slice",
+        "nodeId": "78",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007584"
+        ],
+        "name": "ellipsoid body slice 1",
+        "nodeId": "79",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007546"
+        ],
+        "name": "ellipsoid body slice 2",
+        "nodeId": "80",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007547"
+        ],
+        "name": "ellipsoid body slice 3",
+        "nodeId": "81",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007548"
+        ],
+        "name": "ellipsoid body slice 4",
+        "nodeId": "82",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007549"
+        ],
+        "name": "ellipsoid body slice 5",
+        "nodeId": "83",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007550"
+        ],
+        "name": "ellipsoid body slice 6",
+        "nodeId": "84",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007551"
+        ],
+        "name": "ellipsoid body slice 7",
+        "nodeId": "85",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007552"
+        ],
+        "name": "ellipsoid body slice 8",
+        "nodeId": "86",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                444.393,
+                153.23,
+                71.5638
+            ],
+            "domainColour": [
+                28,
+                255,
+                10,
+                127
+            ],
+            "domainId": "25",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003679"
+        ],
+        "name": "fan-shaped body",
+        "nodeId": "87",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040035"
+        ],
+        "name": "fan-shaped body layer",
+        "nodeId": "88",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007487"
+        ],
+        "name": "fan-shaped body layer 1",
+        "nodeId": "89",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007488"
+        ],
+        "name": "fan-shaped body layer 2",
+        "nodeId": "90",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007490"
+        ],
+        "name": "fan-shaped body layer 3",
+        "nodeId": "91",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007491"
+        ],
+        "name": "fan-shaped body layer 4",
+        "nodeId": "92",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007492"
+        ],
+        "name": "fan-shaped body layer 5",
+        "nodeId": "93",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007493"
+        ],
+        "name": "fan-shaped body layer 6",
+        "nodeId": "94",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007494"
+        ],
+        "name": "fan-shaped body segment pair W",
+        "nodeId": "95",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007495"
+        ],
+        "name": "fan-shaped body segment pair X",
+        "nodeId": "96",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007496"
+        ],
+        "name": "fan-shaped body segment pair Y",
+        "nodeId": "97",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007497"
+        ],
+        "name": "fan-shaped body segment pair Z",
+        "nodeId": "98",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040036"
+        ],
+        "name": "segment of fan-shaped body",
+        "nodeId": "99",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                450.263,
+                212.817,
+                60.6433
+            ],
+            "domainColour": [
+                19,
+                168,
+                190,
+                127
+            ],
+            "domainId": "3",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003680"
+        ],
+        "name": "nodulus",
+        "nodeId": "100",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040033"
+        ],
+        "name": "nodulus subunit",
+        "nodeId": "101",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                420.529,
+                153.152,
+                102.884
+            ],
+            "domainColour": [
+                0,
+                95,
+                0,
+                127
+            ],
+            "domainId": "5",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003668"
+        ],
+        "name": "protocerebral bridge",
+        "nodeId": "102",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003669"
+        ],
+        "name": "protocerebral bridge slice",
+        "nodeId": "103",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003670"
+        ],
+        "name": "protocerebral bridge slice 1",
+        "nodeId": "104",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003671"
+        ],
+        "name": "protocerebral bridge slice 2",
+        "nodeId": "105",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003672"
+        ],
+        "name": "protocerebral bridge slice 3",
+        "nodeId": "106",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003673"
+        ],
+        "name": "protocerebral bridge slice 4",
+        "nodeId": "107",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003674"
+        ],
+        "name": "protocerebral bridge slice 5",
+        "nodeId": "108",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003675"
+        ],
+        "name": "protocerebral bridge slice 6",
+        "nodeId": "109",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003676"
+        ],
+        "name": "protocerebral bridge slice 7",
+        "nodeId": "110",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003677"
+        ],
+        "name": "protocerebral bridge slice 8",
+        "nodeId": "111",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                102,
+                25,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003684"
+        ],
+        "name": "adult mushroom body",
+        "nodeId": "112",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                318.493,
+                149.782,
+                64.1247
+            ],
+            "domainColour": [
+                0,
+                141,
+                220,
+                255
+            ],
+            "domainId": "16",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007453"
+        ],
+        "name": "pedunculus of adult mushroom body",
+        "nodeId": "113",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045009"
+        ],
+        "name": "pedunculus divide of adult mushroom body",
+        "nodeId": "114",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045008"
+        ],
+        "name": "pedunculus neck of adult mushroom body",
+        "nodeId": "115",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                315.471,
+                128.974,
+                107.743
+            ],
+            "domainColour": [
+                0,
+                0,
+                106,
+                158
+            ],
+            "domainId": "35",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007385"
+        ],
+        "name": "calyx of adult mushroom body",
+        "nodeId": "116",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00013688"
+        ],
+        "name": "lobe system of adult mushroom body",
+        "nodeId": "117",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                431.51,
+                127.656,
+                36.9095
+            ],
+            "domainColour": [
+                0,
+                246,
+                88,
+                132
+            ],
+            "domainId": "18",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007677"
+        ],
+        "name": "medial lobe of adult mushroom body",
+        "nodeId": "118",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045018"
+        ],
+        "name": "mushroom body beta accessory calyx fibers",
+        "nodeId": "119",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100251"
+        ],
+        "name": "mushroom body beta'' lobe",
+        "nodeId": "120",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00013694"
+        ],
+        "name": "adult mushroom body beta'-lobe",
+        "nodeId": "121",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110009"
+        ],
+        "name": "mushroom body beta' lobe segment",
+        "nodeId": "122",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100278"
+        ],
+        "name": "mushroom body beta' lobe slice 1",
+        "nodeId": "123",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100279"
+        ],
+        "name": "mushroom body beta' lobe slice 2",
+        "nodeId": "124",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110008"
+        ],
+        "name": "mushroom body beta' lobe stratum",
+        "nodeId": "125",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100269"
+        ],
+        "name": "mushroom body beta' anterior layer",
+        "nodeId": "126",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100270"
+        ],
+        "name": "mushroom body beta' middle layer",
+        "nodeId": "127",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100271"
+        ],
+        "name": "mushroom body beta' posterior layer",
+        "nodeId": "128",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003693"
+        ],
+        "name": "mushroom body beta-lobe",
+        "nodeId": "129",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110003"
+        ],
+        "name": "mushroom body beta lobe segment",
+        "nodeId": "130",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100280"
+        ],
+        "name": "mushroom body beta lobe slice 1",
+        "nodeId": "131",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100281"
+        ],
+        "name": "mushroom body beta lobe slice 2",
+        "nodeId": "132",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110005"
+        ],
+        "name": "mushroom body beta lobe stratum",
+        "nodeId": "133",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100263"
+        ],
+        "name": "mushroom body beta lobe core layer",
+        "nodeId": "134",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100264"
+        ],
+        "name": "mushroom body beta lobe inner core layer",
+        "nodeId": "135",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100265"
+        ],
+        "name": "mushroom body beta lobe outer core layer",
+        "nodeId": "136",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100261"
+        ],
+        "name": "mushroom body beta lobe posterior layer",
+        "nodeId": "137",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100262"
+        ],
+        "name": "mushroom body beta lobe surface layer",
+        "nodeId": "138",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003695"
+        ],
+        "name": "mushroom body gamma-lobe",
+        "nodeId": "139",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110002"
+        ],
+        "name": "mushroom body gamma lobe segment",
+        "nodeId": "140",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100273"
+        ],
+        "name": "mushroom body gamma lobe slice 1",
+        "nodeId": "141",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100274"
+        ],
+        "name": "mushroom body gamma lobe slice 2",
+        "nodeId": "142",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100275"
+        ],
+        "name": "mushroom body gamma lobe slice 3",
+        "nodeId": "143",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100276"
+        ],
+        "name": "mushroom body gamma lobe slice 4",
+        "nodeId": "144",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100277"
+        ],
+        "name": "mushroom body gamma lobe slice 5",
+        "nodeId": "145",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045010"
+        ],
+        "name": "mushroom body spur",
+        "nodeId": "146",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                346.111,
+                71.338,
+                50.1206
+            ],
+            "domainColour": [
+                0,
+                193,
+                255,
+                185
+            ],
+            "domainId": "17",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00015407"
+        ],
+        "name": "vertical lobe of adult mushroom body",
+        "nodeId": "147",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045014"
+        ],
+        "name": "mushroom body alpha accessory calyx fibers",
+        "nodeId": "148",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100252"
+        ],
+        "name": "mushroom body alpha'' lobe",
+        "nodeId": "149",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00013691"
+        ],
+        "name": "adult mushroom body alpha'-lobe",
+        "nodeId": "150",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110001"
+        ],
+        "name": "mushroom body alpha' lobe segment",
+        "nodeId": "151",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100282"
+        ],
+        "name": "mushroom body alpha' lobe slice 1",
+        "nodeId": "152",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100283"
+        ],
+        "name": "mushroom body alpha' lobe slice 2",
+        "nodeId": "153",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100284"
+        ],
+        "name": "mushroom body alpha' lobe slice 3",
+        "nodeId": "154",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110006"
+        ],
+        "name": "mushroom body alpha' lobe stratum",
+        "nodeId": "155",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100266"
+        ],
+        "name": "mushroom body alpha' anterior layer",
+        "nodeId": "156",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100267"
+        ],
+        "name": "mushroom body alpha' middle layer",
+        "nodeId": "157",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100268"
+        ],
+        "name": "mushroom body alpha' posterior layer",
+        "nodeId": "158",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003690"
+        ],
+        "name": "mushroom body alpha-lobe",
+        "nodeId": "159",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110000"
+        ],
+        "name": "mushroom body alpha lobe segment",
+        "nodeId": "160",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100285"
+        ],
+        "name": "mushroom body alpha lobe slice 1",
+        "nodeId": "161",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100286"
+        ],
+        "name": "mushroom body alpha lobe slice 2",
+        "nodeId": "162",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100287"
+        ],
+        "name": "mushroom body alpha lobe slice 3",
+        "nodeId": "163",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110004"
+        ],
+        "name": "mushroom body alpha lobe stratum",
+        "nodeId": "164",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100258"
+        ],
+        "name": "mushroom body alpha lobe core layer",
+        "nodeId": "165",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100259"
+        ],
+        "name": "mushroom body alpha lobe inner core layer",
+        "nodeId": "166",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100260"
+        ],
+        "name": "mushroom body alpha lobe outer core layer",
+        "nodeId": "167",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100256"
+        ],
+        "name": "mushroom body alpha lobe posterior layer",
+        "nodeId": "168",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100257"
+        ],
+        "name": "mushroom body alpha lobe surface layer",
+        "nodeId": "169",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                305.177,
+                95.9576,
+                96.5922
+            ],
+            "domainColour": [
+                0,
+                255,
+                26,
+                123
+            ],
+            "domainId": "20",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045007"
+        ],
+        "name": "mushroom body accessory calyx",
+        "nodeId": "170",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                255,
+                0,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040037"
+        ],
+        "name": "inferior neuropils",
+        "nodeId": "171",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                433.569,
+                136.392,
+                93.6217
+            ],
+            "domainColour": [
+                163,
+                100,
+                0,
+                127
+            ],
+            "domainId": "14",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045039"
+        ],
+        "name": "antler",
+        "nodeId": "172",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                235,
+                204,
+                40,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040047"
+        ],
+        "name": "clamp",
+        "nodeId": "173",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                347.88,
+                171.705,
+                77.7845
+            ],
+            "domainColour": [
+                204,
+                76,
+                40,
+                127
+            ],
+            "domainId": "11",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040049"
+        ],
+        "name": "inferior clamp",
+        "nodeId": "174",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                317.965,
+                124.805,
+                74.9608
+            ],
+            "domainColour": [
+                135,
+                204,
+                40,
+                127
+            ],
+            "domainId": "38",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040048"
+        ],
+        "name": "superior clamp",
+        "nodeId": "175",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                418.181,
+                130.054,
+                36.6796
+            ],
+            "domainColour": [
+                73,
+                195,
+                2,
+                127
+            ],
+            "domainId": "15",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045037"
+        ],
+        "name": "crepine",
+        "nodeId": "176",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040038"
+        ],
+        "name": "rubus",
+        "nodeId": "177",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                442.024,
+                202.791,
+                92.218
+            ],
+            "domainColour": [
+                228,
+                123,
+                26,
+                127
+            ],
+            "domainId": "13",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040050"
+        ],
+        "name": "inferior bridge",
+        "nodeId": "178",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                128,
+                0,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040001"
+        ],
+        "name": "lateral complex",
+        "nodeId": "179",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                366.67,
+                145.819,
+                54.723
+            ],
+            "domainColour": [
+                0,
+                102,
+                255,
+                127
+            ],
+            "domainId": "4",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003682"
+        ],
+        "name": "bulb",
+        "nodeId": "180",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100365"
+        ],
+        "name": "anterior bulb",
+        "nodeId": "181",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100364"
+        ],
+        "name": "inferior bulb",
+        "nodeId": "182",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100363"
+        ],
+        "name": "superior bulb",
+        "nodeId": "183",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                388.469,
+                205.731,
+                43.8005
+            ],
+            "domainColour": [
+                94,
+                39,
+                204,
+                127
+            ],
+            "domainId": "7",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003681"
+        ],
+        "name": "lateral accessory lobe",
+        "nodeId": "184",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                203,
+                18,
+                99,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040060"
+        ],
+        "name": "gall",
+        "nodeId": "185",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040061"
+        ],
+        "name": "lower lateral accessory lobe",
+        "nodeId": "186",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040059"
+        ],
+        "name": "upper lateral accessory lobe",
+        "nodeId": "187",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                223.779,
+                126.652,
+                80.5163
+            ],
+            "domainColour": [
+                66,
+                0,
+                177,
+                127
+            ],
+            "domainId": "6",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007053"
+        ],
+        "name": "lateral horn",
+        "nodeId": "188",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                255,
+                0,
+                255,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003701"
+        ],
+        "name": "optic lobe",
+        "nodeId": "189",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003708"
+        ],
+        "name": "lamina",
+        "nodeId": "190",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045000"
+        ],
+        "name": "lamina dorsal rim area",
+        "nodeId": "191",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00001943"
+        ],
+        "name": "lamina plexus",
+        "nodeId": "192",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003747"
+        ],
+        "name": "optic cartridge",
+        "nodeId": "193",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100366"
+        ],
+        "name": "plexiform lamina",
+        "nodeId": "194",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                40,
+                204,
+                153,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045004"
+        ],
+        "name": "lobula complex",
+        "nodeId": "195",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                190.372,
+                294.943,
+                79.0382
+            ],
+            "domainColour": [
+                255,
+                140,
+                0,
+                127
+            ],
+            "domainId": "2",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003852"
+        ],
+        "name": "lobula",
+        "nodeId": "196",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003853"
+        ],
+        "name": "lobula layer 1",
+        "nodeId": "197",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003854"
+        ],
+        "name": "lobula layer 2",
+        "nodeId": "198",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003855"
+        ],
+        "name": "lobula layer 3",
+        "nodeId": "199",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003856"
+        ],
+        "name": "lobula layer 4",
+        "nodeId": "200",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040016"
+        ],
+        "name": "lobula layer 5",
+        "nodeId": "201",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040017"
+        ],
+        "name": "lobula layer 6",
+        "nodeId": "202",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                146.017,
+                333.548,
+                92.2636
+            ],
+            "domainColour": [
+                255,
+                203,
+                0,
+                127
+            ],
+            "domainId": "21",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003885"
+        ],
+        "name": "lobula plate",
+        "nodeId": "203",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003886"
+        ],
+        "name": "lobula plate layer 1",
+        "nodeId": "204",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003887"
+        ],
+        "name": "lobula plate layer 2",
+        "nodeId": "205",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003888"
+        ],
+        "name": "lobula plate layer 3",
+        "nodeId": "206",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003889"
+        ],
+        "name": "lobula plate layer 4",
+        "nodeId": "207",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                88.8417,
+                315.321,
+                65.0381
+            ],
+            "domainColour": [
+                255,
+                0,
+                0,
+                127
+            ],
+            "domainId": "24",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003748"
+        ],
+        "name": "medulla",
+        "nodeId": "208",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                184.85,
+                284.092,
+                46.1711
+            ],
+            "domainColour": [
+                59,
+                39,
+                204,
+                127
+            ],
+            "domainId": "1",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045003"
+        ],
+        "name": "accessory medulla",
+        "nodeId": "209",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003757"
+        ],
+        "name": "inner medulla",
+        "nodeId": "210",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003760"
+        ],
+        "name": "medulla layer M10",
+        "nodeId": "211",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003758"
+        ],
+        "name": "medulla layer M8",
+        "nodeId": "212",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003759"
+        ],
+        "name": "medulla layer M9",
+        "nodeId": "213",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045001"
+        ],
+        "name": "plexiform medulla",
+        "nodeId": "214",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045002"
+        ],
+        "name": "medulla dorsal rim area",
+        "nodeId": "215",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003749"
+        ],
+        "name": "outer medulla",
+        "nodeId": "216",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003750"
+        ],
+        "name": "medulla layer M1",
+        "nodeId": "217",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003751"
+        ],
+        "name": "medulla layer M2",
+        "nodeId": "218",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003752"
+        ],
+        "name": "medulla layer M3",
+        "nodeId": "219",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003753"
+        ],
+        "name": "medulla layer M4",
+        "nodeId": "220",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003754"
+        ],
+        "name": "medulla layer M5",
+        "nodeId": "221",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003755"
+        ],
+        "name": "medulla layer M6",
+        "nodeId": "222",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003756"
+        ],
+        "name": "serpentine layer",
+        "nodeId": "223",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                0,
+                0,
+                255,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045030"
+        ],
+        "name": "superior neuropils",
+        "nodeId": "224",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                339.275,
+                78.5317,
+                58.7331
+            ],
+            "domainColour": [
+                205,
+                40,
+                148,
+                127
+            ],
+            "domainId": "27",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045032"
+        ],
+        "name": "superior intermediate protocerebrum",
+        "nodeId": "225",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                282.261,
+                74.0494,
+                74.0789
+            ],
+            "domainColour": [
+                71,
+                177,
+                120,
+                127
+            ],
+            "domainId": "26",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007054"
+        ],
+        "name": "superior lateral protocerebrum",
+        "nodeId": "226",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040045"
+        ],
+        "name": "anterior superior lateral protocerebrum",
+        "nodeId": "227",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040046"
+        ],
+        "name": "posterior superior lateral protocerebrum",
+        "nodeId": "228",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                433.288,
+                76.8524,
+                65.6932
+            ],
+            "domainColour": [
+                255,
+                203,
+                47,
+                127
+            ],
+            "domainId": "28",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007055"
+        ],
+        "name": "superior medial protocerebrum",
+        "nodeId": "229",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040062"
+        ],
+        "name": "anterior superior medial protocerebrum",
+        "nodeId": "230",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040063"
+        ],
+        "name": "posterior superior medial protocerebrum",
+        "nodeId": "231",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                0,
+                255,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045021"
+        ],
+        "name": "ventrolateral neuropils",
+        "nodeId": "232",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003698"
+        ],
+        "name": "optic glomerulus",
+        "nodeId": "233",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007581"
+        ],
+        "name": "optic glomerulus of the PLP",
+        "nodeId": "234",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                286.999,
+                107.381,
+                41.6159
+            ],
+            "domainColour": [
+                50,
+                38,
+                204,
+                127
+            ],
+            "domainId": "33",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007059"
+        ],
+        "name": "anterior optic tubercle",
+        "nodeId": "235",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                281.379,
+                208.112,
+                85.5676
+            ],
+            "domainColour": [
+                71,
+                204,
+                39,
+                127
+            ],
+            "domainId": "32",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040044"
+        ],
+        "name": "posterior lateral protocerebrum",
+        "nodeId": "236",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                38,
+                204,
+                204,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007058"
+        ],
+        "name": "ventrolateral protocerebrum",
+        "nodeId": "237",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                276.19,
+                222.943,
+                40.3819
+            ],
+            "domainColour": [
+                42,
+                123,
+                176,
+                127
+            ],
+            "domainId": "29",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040043"
+        ],
+        "name": "anterior ventrolateral protocerebrum",
+        "nodeId": "238",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                325.226,
+                303.644,
+                62.3676
+            ],
+            "domainColour": [
+                164,
+                37,
+                195,
+                127
+            ],
+            "domainId": "31",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045027"
+        ],
+        "name": "wedge",
+        "nodeId": "239",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                266.753,
+                217.957,
+                62.6127
+            ],
+            "domainColour": [
+                35,
+                102,
+                19,
+                127
+            ],
+            "domainId": "30",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040042"
+        ],
+        "name": "posterior ventrolateral protocerebrum",
+        "nodeId": "240",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007582"
+        ],
+        "name": "optic glomerulus of the PVLP",
+        "nodeId": "241",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                255,
+                255,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040002"
+        ],
+        "name": "ventromedial neuropils",
+        "nodeId": "242",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                235,
+                158,
+                215,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040072"
+        ],
+        "name": "posterior slope",
+        "nodeId": "243",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                406.488,
+                316.676,
+                88.6236
+            ],
+            "domainColour": [
+                204,
+                134,
+                22,
+                127
+            ],
+            "domainId": "37",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045046"
+        ],
+        "name": "inferior posterior slope",
+        "nodeId": "244",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045042"
+        ],
+        "name": "delta",
+        "nodeId": "245",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                407.149,
+                254.582,
+                87.0251
+            ],
+            "domainColour": [
+                255,
+                225,
+                2,
+                127
+            ],
+            "domainId": "36",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045040"
+        ],
+        "name": "superior posterior slope",
+        "nodeId": "246",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                255,
+                20,
+                0,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040071"
+        ],
+        "name": "ventral complex",
+        "nodeId": "247",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                357.957,
+                224.399,
+                60.0999
+            ],
+            "domainColour": [
+                49,
+                236,
+                255,
+                127
+            ],
+            "domainId": "39",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040040"
+        ],
+        "name": "epaulette",
+        "nodeId": "248",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                386.176,
+                209.564,
+                70.2635
+            ],
+            "domainColour": [
+                40,
+                204,
+                102,
+                127
+            ],
+            "domainId": "34",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040039"
+        ],
+        "name": "gorget",
+        "nodeId": "249",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                443.385,
+                273.023,
+                56.1706
+            ],
+            "domainColour": [
+                189,
+                0,
+                0,
+                127
+            ],
+            "domainId": "12",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040041"
+        ],
+        "name": "vest",
+        "nodeId": "250",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                444.987,
+                311.928,
+                69.2182
+            ],
+            "domainColour": [
+                204,
+                37,
+                106,
+                127
+            ],
+            "domainId": "9",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045051"
+        ],
+        "name": "cantle",
+        "nodeId": "251",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                450.134,
+                314.737,
+                43.5371
+            ],
+            "domainColour": [
+                40,
+                115,
+                204,
+                127
+            ],
+            "domainId": "19",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045050"
+        ],
+        "name": "flange",
+        "nodeId": "252",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110639"
+        ],
+        "name": "adult subesophageal zone",
+        "nodeId": "253",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                406.405,
+                345.947,
+                52.2054
+            ],
+            "domainColour": [
+                40,
+                41,
+                204,
+                127
+            ],
+            "domainId": "8",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045048"
+        ],
+        "name": "saddle",
+        "nodeId": "254",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                361.701,
+                314.027,
+                39.9043
+            ],
+            "domainColour": [
+                70,
+                204,
+                40,
+                127
+            ],
+            "domainId": "10",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003982"
+        ],
+        "name": "antennal mechanosensory and motor center",
+        "nodeId": "255",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100015"
+        ],
+        "name": "antennal mechanosensory and motor center zone A",
+        "nodeId": "256",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100016"
+        ],
+        "name": "antennal mechanosensory and motor center zone B",
+        "nodeId": "257",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100017"
+        ],
+        "name": "antennal mechanosensory and motor center zone C",
+        "nodeId": "258",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100018"
+        ],
+        "name": "antennal mechanosensory and motor center zone D",
+        "nodeId": "259",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100019"
+        ],
+        "name": "antennal mechanosensory and motor center zone E",
+        "nodeId": "260",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                427.228,
+                389.455,
+                57.3077
+            ],
+            "domainColour": [
+                135,
+                204,
+                40,
+                127
+            ],
+            "domainId": "48",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00014013"
+        ],
+        "name": "adult gnathal ganglion",
+        "nodeId": "261",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040057"
+        ],
+        "name": "anterior maxillary sensory center",
+        "nodeId": "262",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040054"
+        ],
+        "name": "inferior pharyngeal sensory center",
+        "nodeId": "263",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040055"
+        ],
+        "name": "labial sensory center",
+        "nodeId": "264",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040056"
+        ],
+        "name": "posterior maxillary sensory center",
+        "nodeId": "265",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004014"
+        ],
+        "name": "taste-sensory region glomerulus",
+        "nodeId": "266",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004015"
+        ],
+        "name": "taste-sensory glomerulus DA",
+        "nodeId": "267",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004016"
+        ],
+        "name": "taste-sensory glomerulus M",
+        "nodeId": "268",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004017"
+        ],
+        "name": "taste-sensory glomerulus VL",
+        "nodeId": "269",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004018"
+        ],
+        "name": "taste-sensory glomerulus VM",
+        "nodeId": "270",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                454.792,
+                323.348,
+                23.4184
+            ],
+            "domainColour": [
+                39,
+                204,
+                132,
+                127
+            ],
+            "domainId": "49",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040051"
+        ],
+        "name": "prow",
+        "nodeId": "271",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00040052"
+        ],
+        "name": "superior pharyngeal sensory center",
+        "nodeId": "272",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                403.787,
+                233.636,
+                72.8754
+            ],
+            "domainColour": [
+                0,
+                202,
+                220,
+                106
+            ],
+            "domainId": "43",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007080"
+        ],
+        "name": "great commissure",
+        "nodeId": "273",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                440.169,
+                180.541,
+                72.6541
+            ],
+            "domainColour": [
+                0,
+                176,
+                79,
+                220
+            ],
+            "domainId": "40",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003985"
+        ],
+        "name": "medial antennal lobe tract",
+        "nodeId": "274",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                371.999,
+                362.557,
+                6.58298
+            ],
+            "domainColour": [
+                0,
+                79,
+                9,
+                18
+            ],
+            "domainId": "46",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004043"
+        ],
+        "name": "adult maxillary nerve",
+        "nodeId": "275",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                226.17,
+                175.082,
+                62.8267
+            ],
+            "domainColour": [
+                0,
+                123,
+                176,
+                211
+            ],
+            "domainId": "41",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100337"
+        ],
+        "name": "optic anterior tract",
+        "nodeId": "276",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                423.362,
+                475.029,
+                107.587
+            ],
+            "domainColour": [
+                0,
+                141,
+                53,
+                246
+            ],
+            "domainId": "44",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00110653"
+        ],
+        "name": "labro frontal nerve",
+        "nodeId": "277",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                398.168,
+                464.405,
+                34.2172
+            ],
+            "domainColour": [
+                0,
+                88,
+                0,
+                167
+            ],
+            "domainId": "47",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00004020"
+        ],
+        "name": "giant fiber neuron",
+        "nodeId": "278",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                312.778,
+                283.092,
+                84.0615
+            ],
+            "domainColour": [
+                0,
+                237,
+                141,
+                255
+            ],
+            "domainId": "42",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007427"
+        ],
+        "name": "posterior optic commissure",
+        "nodeId": "279",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    }
+]
