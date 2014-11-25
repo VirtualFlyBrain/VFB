@@ -14,7 +14,6 @@ _AIM:_ a series of headings outlining aims, with only brief descriptive text.  E
  * image schema extension and queries
  * expression pattern schema in OWL & queries from genes/transgenes
 * New web front end
-    Limiting factor: Hiring
  *  Experimental period to decide framework
  *  Design drafting
  *  First draft release
