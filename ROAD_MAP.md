@@ -1,7 +1,8 @@
 # Road map for VFB dev
 
-STATUS: DRAFT.
-AIM: a series of headings outlining aims, with only brief descriptive text.  Each sub head should link to a Milestone on the issue tracker. Each major heading should correspond to an issue tag (label).
+_STATUS:_ DRAFT
+
+_AIM:_ a series of headings outlining aims, with only brief descriptive text.  Each sub head should link to a [Milestone](https://github.com/VirtualFlyBrain/VFB/milestones) on the issue tracker. Each major heading should correspond to an [issue tag (label)](https://github.com/VirtualFlyBrain/VFB/labels).
 
 * 3D browser dev
  * Experimentation period
