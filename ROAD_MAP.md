@@ -1,6 +1,7 @@
 # Road map for VFB dev
 
-STATUS: DRAFT
+STATUS: DRAFT.
+AIM: a series of headings outlining aims, with only brief descriptive text.  Each sub head should link to a Milestone on the issue tracker. Each major heading should correspond to an issue tag (label).
 
 ## 3D browser dev
 ...
@@ -17,15 +18,20 @@ STATUS: DRAFT
 ## Extending image schema
 ...
 ## New web front end
-...
+
+Limiting factor: Hiring
+
 ### Experimental period to decide framework
 ...
 
 ### Design drafting
+...
 ### First draft release
+...
 ### User testing
+...
 ### Comment system
-
+...
 
 ## Improving and extending annotation of registered images
 ...
