@@ -5,7 +5,8 @@ _STATUS:_ DRAFT
 _AIM:_ a series of headings outlining aims, with only brief descriptive text.  Each sub head should link to a [Milestone](https://github.com/VirtualFlyBrain/VFB/milestones) on the issue tracker. Each major heading should correspond to an [issue tag (label)](https://github.com/VirtualFlyBrain/VFB/labels).
 
 * 3D browser dev
- * Experimentation period
+ * Experimentation period to decide framework
+ * First release
 * Move to SOLR back-end
  * autocomplete
  * move from beans to indexed SOLR docs
