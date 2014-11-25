@@ -1,10 +1,33 @@
-3D browser dev:  Decide on trial period.  Which frameworks should we test?  Who do we need to contact to collaborate with?
-Move to SOLR back-end
-autocomplete
-move from beans to indexed SOLR docs
-Schema dev + new query functionality
-Extending image schema
-New web front end
-Improving and extending annotation of registered images
-Curation
+# Road map for VFB dev
 
+STATUS: DRAFT
+
+## 3D browser dev
+...
+### Experimentation period
+...
+## Move to SOLR back-end
+...
+### autocomplete
+...
+### move from beans to indexed SOLR docs
+...
+## schema dev + new query functionality
+...
+## Extending image schema
+...
+## New web front end
+...
+### Experimental period to decide framework
+...
+
+### Design drafting
+### First draft release
+### User testing
+### Comment system
+
+
+## Improving and extending annotation of registered images
+...
+## Curation
+...
