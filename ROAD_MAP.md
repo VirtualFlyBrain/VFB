@@ -7,6 +7,7 @@ _AIM:_ a series of headings outlining aims, with only brief descriptive text.  E
 * 3D browser dev
  * [Draft spec](doc/3D_browser_spec.md)
  * Experimentation period to decide framework
+  * Options: CATMAID (three.js); OSB browser (three.js); Collab with Baldock/Hill (GTK); Roll own?
  * First release
 * Move to SOLR back-end
  * autocomplete
