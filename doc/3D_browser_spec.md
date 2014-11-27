@@ -12,7 +12,7 @@ WebGL technology can display rich 3D content e.g. neuron clusters (Fig. 1C) with
 
 ## Outline:
 
-* combine image data from multiple surces
+* combine image data from multiple sources
 * surface rendering
 * volume rendering
 * Dual 2D and 3D browsing - with clear indication of slice position
