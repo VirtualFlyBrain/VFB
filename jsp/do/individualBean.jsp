@@ -141,7 +141,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<img class="thumb"src="${tpb.thumbUrl}" />
 	</a>
 	<br/>
-	<a href="/owl/${request.getParameter('id')}">See in the viewer >> </a>
+	<a href="/owl/<%=request.getParameter('id')%>">See in the viewer >> </a>
 	<br/>
 
 </c:if>
