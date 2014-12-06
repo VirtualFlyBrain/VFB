@@ -141,12 +141,12 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<img class="thumb"src="${tpb.thumbUrl}" />
 	</a>
 	<br/>
+	<a href="/owl/${request.getParameter('id')}">See in the viewer >> </a>
+	<br/>
 
 </c:if>
 <c:choose>
 	<c:when test="${needFoot == true}">
-		<a href="/owl/${request.getParameter('id')}">See in the viewer >> </a>
-		<br/>
 		<jsp:include page="/jsp/includes/homeFoot.jsp"/>
 	</c:when>
 	<c:otherwise>
