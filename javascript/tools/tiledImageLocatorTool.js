@@ -41,9 +41,9 @@ var tiledImageLocatorTool = new Class ({
 
 	initialize: function(params) {
 		this.name = "Locator";
-		
+
 		this.parent(params);
-		
+
 		this.zoneBorder = 1;
 
 		//this.window.win.style.position = 'absolute';
@@ -214,7 +214,7 @@ var tiledImageLocatorTool = new Class ({
 			+ "&yaw=" + threeDInfo.yaw.cur
 			+ "&rol=" + threeDInfo.roll.cur
 			+ "&qlt=" + quality.cur
-			+ '&cvt=jpeg';
+			+ '&cvt=png';
 			//console.log("navsrc %s",navsrc);
 		} else {
 			//console.log("not wlz:");
@@ -222,7 +222,7 @@ var tiledImageLocatorTool = new Class ({
 			//var navsrc = server + '?fif=' + imgName
 			+ '&wid=' + this.navwidth * 2
 			+ '&qlt=' + quality.cur
-			+ '&cvt=jpeg';
+			+ '&cvt=png';
 			//console.log("navsrc %s",navsrc);
 		}
 
