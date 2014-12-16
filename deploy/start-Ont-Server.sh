@@ -3,7 +3,7 @@ if [ $branch ] && [ $VFBclasses ]
 then
   path=${VFBclasses}
   #checking if server is already running
-  psCmd=`ps ax |grep 'client_server.Server'  | grep '${path}/../lib/servlet' | awk '{print $1}'`
+  psCmd=`ps ax |grep 'client_server.Server'  | grep ${path} | awk '{print $1}'`
   if [ $psCmd ]
   then
     echo "Ontology server is already running"
