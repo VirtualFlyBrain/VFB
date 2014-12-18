@@ -82,7 +82,7 @@ public class WebQueryUtils {
 		//Cluster of Individuals that overlap some X, clustered by shape
 		ad.put("cluster_found",
 				new String[]{"found in", "Neurons with some part in XXX, clustered by shape",
-				"individual&'exemplar_of' some ('cluster' that 'has_exemplar' some ('neuron' that 'overlaps' some XXX))"
+				"individual&'neuron' that 'overlaps' some XXX"
 		});
 		//Cluster of Individuals that overlap some X - unclustered
 		ad.put("ind_neuron_overlap",
