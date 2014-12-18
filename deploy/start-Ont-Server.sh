@@ -17,7 +17,7 @@ then
   echo codebase: $path
   cd $path
   #Note: path variable usage is so the run can be distinguised for forced shutdown.
-  nohup nice /etc/alternatives/java_sdk_1.7.0/bin/java -classpath ../lib/postgresql-9.0-801.jdbc3.jar:../lib/commons-pool.jar:../lib/commons-dbcp.jar:${path}/../lib/servlet-api.jar:../lib/spring.jar:../lib/jfact.jar:../lib/commons-logging.jar:../lib/log4j-1.2.15.jar:../lib/Brain-1.5.1-jar-with-dependencies.jar:../lib/owltools-oort-all.jar:. -Djava.rmi.server.codebase=file:$path -Dlog4j.configuration=./log4j.properties uk.ac.ed.vfb.dao.client_server.Server > /tmp/Ont-${branch}.log 2>&1 &
+  nohup nice java -classpath ../lib/postgresql-9.0-801.jdbc3.jar:../lib/commons-pool.jar:../lib/commons-dbcp.jar:${path}/../lib/servlet-api.jar:../lib/spring.jar:../lib/jfact.jar:../lib/commons-logging.jar:../lib/log4j-1.2.15.jar:../lib/brain-1.4.1-2.jar:../lib/owltools-oort-all.jar:../lib/:. -Djava.rmi.server.codebase=file:$path -Dlog4j.configuration=./log4j.properties uk.ac.ed.vfb.dao.client_server.Server > /tmp/Ont-${branch}.log 2>&1 &
 else
   echo "Must be run from specific server script"
 fi
