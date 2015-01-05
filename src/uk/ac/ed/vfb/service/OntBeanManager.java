@@ -21,7 +21,7 @@ import uk.ac.ed.vfb.web.exception.SessionExpiredException;
 
 public class OntBeanManager extends APageable {
 	/** Content of the ontology file */
-	private static final String GET_ALL_INDIVIDUALS = "individual&FBbt_10000000";
+	private static final String GET_ALL_INDIVIDUALS = "individual&FBbt:10000000";
 	public static HashMap<String, OntBean> ontBeans = new HashMap<String, OntBean>();
 	/* How many individual beans there are in the ontology.
 	 * We first guess there should be at least 1000 and then put proper number in the  getIndividuals() method  */
