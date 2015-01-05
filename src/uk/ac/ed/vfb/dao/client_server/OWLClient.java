@@ -67,6 +67,7 @@ public class OWLClient {
 	public Set<OntBean> askQuery(String query){
 		LOG.debug("Asking query: " + query);
 		Set<OntBean> results = this.askServer(query);
+        LOG.debug("Query results: " + results);
 		return results;
 	}
 
