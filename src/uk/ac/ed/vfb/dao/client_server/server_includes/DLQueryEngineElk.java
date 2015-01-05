@@ -64,9 +64,8 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			Set<OWLNamedIndividual> individuals = null;
 			try {
 				classExpression = getOWLClassExpression(currExpr.trim());
-			} catch (ParserException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (Exception e) {
+				LOG.debug("DLQueryEngineElk Exception: " + e.toString() + "\n");
 			}
 			// NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, true);
 			OWLDataFactory dataFactory = this.man.getOWLDataFactory();
