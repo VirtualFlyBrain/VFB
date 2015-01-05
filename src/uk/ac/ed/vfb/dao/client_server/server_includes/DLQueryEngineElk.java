@@ -56,7 +56,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 		List<String> queries = oqq.getQueries();
 		//individuals
 		for (String currExpr: queries){
-			//			LOG.debug("currExpr: " + currExpr);
+			LOG.debug("currExpr: " + currExpr);
 			OWLReasoner reasoner = null;
 			reasoner = createReasoner();
 			OWLClassExpression classExpression = null;
@@ -81,7 +81,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			//addIds(individuals.getFlattened(), results);
 			if (!individuals.isEmpty()) {
 				for(OWLEntity entity : individuals) {
-					//LOG.debug("Entity : " + entity + "\n");
+					LOG.debug("Entity : " + entity + "\n");
 					results.add(this.orp.getOntBeanForEntity(entity));
 				}
 			}			
@@ -100,8 +100,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 		// Create an ELK reasoner configuration
 		final ElkReasonerConfiguration elkConfig = new ElkReasonerConfiguration();
 		// Set the number of workers to 8 or any other number
-		elkConfig.getElkConfiguration().setParameter(ReasonerConfiguration.NUM_OF_WORKING_THREADS,
-				"8");
+		elkConfig.getElkConfiguration().setParameter(ReasonerConfiguration.NUM_OF_WORKING_THREADS, "8");
 		// Create an ELK reasoner using the configuration
 		OWLReasonerFactory reasonerFactory = new ElkReasonerFactory();
 		OWLReasoner reasoner = reasonerFactory.createReasoner(ontology, elkConfig); 		
