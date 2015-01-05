@@ -21,7 +21,7 @@ import uk.ac.ed.vfb.web.exception.SessionExpiredException;
 
 public class OntBeanManager extends APageable {
 	/** Content of the ontology file */
-	private static final String GET_ALL_INDIVIDUALS = "individual&FBbt:10000000";
+	private static final String GET_ALL_INDIVIDUALS = "individual&FBbt_10000000";
 	public static HashMap<String, OntBean> ontBeans = new HashMap<String, OntBean>();
 	/* How many individual beans there are in the ontology.
 	 * We first guess there should be at least 1000 and then put proper number in the  getIndividuals() method  */
@@ -61,7 +61,7 @@ public class OntBeanManager extends APageable {
 		}
 		addBeansToHash(this.resultSet);
 		long endTime = System.currentTimeMillis();
-		LOG.debug("Total time creating all the beans is: "+ (endTime-startTime) + " Bean count: " + resultSet.size());
+		LOG.debug("Total time creating all the beans is : "+ (endTime-startTime) + " Bean count: " + resultSet.size());
 		return resultSet;
 	}
 
@@ -74,17 +74,17 @@ public class OntBeanManager extends APageable {
 	}
 
 	public OntBean getBeanForId(String fbbtId){
-		LOG.debug("getBeanForId: " + OntBean.idAsOBO(fbbtId) + " as OWL: " + OntBean.idAsOWL(fbbtId));
+		LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
 		LOG.debug("bean = " + result);
 		if (result == null) {
 			LOG.debug("Creating new bean");
-			result = ontClient.getBeanForId(OntBean.idAsOBO(fbbtId));
-			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOBO(result.getFbbtId()));
-            if ( tpb!=null){
+			result = ontClient.getBeanForId(fbbtId);
+			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
+			if ( tpb!=null){
 				tpb.setName(result.getName());
-            }
-            result.setThirdPartyBean(tpb);
+			}
+			result.setThirdPartyBean(tpb);
 			LOG.debug("OBM result: " + result);
 			this.ontBeans.put(result.getFbbtId(), result);
 			LOG.debug("new bean:  " + result);
