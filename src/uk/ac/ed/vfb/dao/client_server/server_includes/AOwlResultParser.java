@@ -4,7 +4,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLException;
 
 import owltools.graph.OWLGraphWrapper;
 import uk.ac.ed.vfb.model.OntBean;
@@ -26,7 +25,7 @@ public abstract class AOwlResultParser {
 			this.ontology = ontology;
 			this.ogw = new OWLGraphWrapper(ontology);
 		}
-		catch (OWLException ex) {
+		catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
