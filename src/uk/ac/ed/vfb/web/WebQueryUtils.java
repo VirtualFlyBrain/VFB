@@ -121,7 +121,7 @@ public class WebQueryUtils {
 	public static String getDefString(String action, String fbbtId, int index){
 		int startIndex = 2;
 		String result = actionDefs.get(action)[startIndex + index];
-		return result.replaceAll("XXX", OntBean.idAsOBO(fbbtId));
+		return result.replaceAll("XXX", OntBean.idAsOWL(fbbtId));
 	}
 
 	/**
