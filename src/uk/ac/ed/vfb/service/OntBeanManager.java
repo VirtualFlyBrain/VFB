@@ -51,7 +51,7 @@ public class OntBeanManager extends APageable {
 	public Set<OntBean> getBeanListForQuery(String query){
 		LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
-		//LOG.debug("REsultSEt: " + this.resultSet);
+		LOG.debug("REsultSEt: " + this.resultSet);
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
 		//Only use setThirdPartyBeans if tpbm is not null.
