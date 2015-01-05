@@ -76,7 +76,7 @@ public class OntBeanManager extends APageable {
 	public OntBean getBeanForId(String fbbtId){
 		LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
-		//LOG.debug("bean = " + result);
+		LOG.debug("bean = " + result);
 		if (result == null) {
 			LOG.debug("Creating new bean");
 			result = ontClient.getBeanForId(fbbtId);
@@ -87,7 +87,7 @@ public class OntBeanManager extends APageable {
 			result.setThirdPartyBean(tpb);
 			LOG.debug("OBM result: " + result);
 			this.ontBeans.put(result.getFbbtId(), result);
-			//LOG.debug("new bean:  " + result);
+			LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
