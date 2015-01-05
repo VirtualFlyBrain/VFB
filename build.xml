@@ -26,10 +26,10 @@
         <pathelement location="./lib/hamcrest-core-1.3.jar"/>
         <pathelement location="./WEB-INF/lib/jfact.jar"/>
         <pathelement location="./WEB-INF/lib/jstl.jar"/>
-        <pathelement location="./WEB-INF/lib/log4j-1.2.15.jar"/>
+        <pathelement location="./WEB-INF/lib/log4j.jar"/>
         <pathelement location="./WEB-INF/lib/mail.jar"/>
         <pathelement location="./WEB-INF/lib/oboformat-all.jar"/>
-        <pathelement location="./WEB-INF/lib/owltools-oort-all.jar"/>
+        <pathelement location="./WEB-INF/lib/owlapi-osgidistribution-4.0.1.jar"/>
         <pathelement location="./WEB-INF/lib/postgresql-9.0-801.jdbc3.jar"/>
         <pathelement location="./WEB-INF/lib/servlet-api.jar"/>
         <pathelement location="./WEB-INF/lib/spring-jdbc.jar"/>
