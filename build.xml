@@ -151,6 +151,7 @@
         <javac debug="true" debuglevel="${debuglevel}" destdir="build" includeantruntime="false" source="${source}" target="${target}">
             <src path="${src.link}"/>
             <classpath refid="EAtlasViewer.classpath"/>
+            <compilerarg value="-Xlint:deprecation"/>
         </javac>
     </target>
     <target name="copy" depends="init" >
