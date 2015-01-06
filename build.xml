@@ -14,6 +14,7 @@
     <path id="EAtlasViewer.classpath">
         <pathelement location="build"/>
         <pathelement location="${JRE_LIB}"/>
+        <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
         <pathelement location="./lib/jsp-api.jar"/>
         <pathelement location="./lib/servlet-api.jar"/>
         <pathelement location="./WEB-INF/lib/aspectjrt-1.6.0.jar"/>
@@ -22,7 +23,6 @@
         <pathelement location="./WEB-INF/lib/commons-dbcp.jar"/>
         <pathelement location="./WEB-INF/lib/commons-logging.jar"/>
         <pathelement location="./WEB-INF/lib/commons-pool.jar"/>
-        <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
         <pathelement location="./lib/hamcrest-core-1.3.jar"/>
         <pathelement location="./WEB-INF/lib/jfact.jar"/>
         <pathelement location="./WEB-INF/lib/jstl.jar"/>
