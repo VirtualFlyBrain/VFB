@@ -18,7 +18,6 @@
         <pathelement location="./lib/jsp-api.jar"/>
         <pathelement location="./lib/servlet-api.jar"/>
         <pathelement location="./WEB-INF/lib/aspectjrt-1.6.0.jar"/>
-        <pathelement location="./WEB-INF/lib/brain-1.4.1-2.jar"/>
         <pathelement location="./WEB-INF/lib/commons-codec-1.6.jar"/>
         <pathelement location="./WEB-INF/lib/commons-dbcp.jar"/>
         <pathelement location="./WEB-INF/lib/commons-logging.jar"/>
@@ -130,6 +129,29 @@
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/SessionExpiredException.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/StackExistsException.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/UserPermissionsException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/core/Brain.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BadNameException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BadPrefixException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BrainException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ClassExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/DataPropertyExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/DataRangeException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingAnnotationPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingClassException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingDataPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingEntityException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingNamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingObjectPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NewOntologyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingAnnotationPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingClassException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingDataPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingEntityException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingNamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingObjectPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ObjectPropertyExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/StorageException.java"/>
     </path>
     <target name="init">
         <mkdir dir="build"/>
