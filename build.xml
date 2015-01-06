@@ -17,7 +17,7 @@
         <pathelement location="./lib/jsp-api.jar"/>
         <pathelement location="./lib/servlet-api.jar"/>
         <pathelement location="./WEB-INF/lib/aspectjrt-1.6.0.jar"/>
-        <pathelement location="./WEB-INF/lib/brain-1.4.1-2.jar"/>
+        <pathelement location="./WEB-INF/lib/Brain-1.5.1-jar-with-dependencies.jar"/>
         <pathelement location="./WEB-INF/lib/commons-codec-1.6.jar"/>
         <pathelement location="./WEB-INF/lib/commons-dbcp.jar"/>
         <pathelement location="./WEB-INF/lib/commons-logging.jar"/>
