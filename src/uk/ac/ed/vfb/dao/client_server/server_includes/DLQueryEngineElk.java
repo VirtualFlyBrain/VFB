@@ -71,7 +71,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			// NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, true);
 			OWLDataFactory dataFactory = this.man.getOWLDataFactory();
 			// Create a fresh name for the query.
-			String id = "http://www.virtualflybrain.org/scratch/" + UUID.randomUUID().toString();
+			String id = UUID.randomUUID().toString();
 			query = dataFactory.getOWLClass(IRI.create(id));
 			// Make the query equivalent to the fresh class
 			OWLAxiom definition = dataFactory.getOWLEquivalentClassesAxiom(query, classExpression);
