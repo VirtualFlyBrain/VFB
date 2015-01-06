@@ -64,6 +64,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			Set<OWLNamedIndividual> individuals = null;
 			try {
 				classExpression = getOWLClassExpression(currExpr.trim());
+                LOG.debug("OWL Class Exp: " + classExpression.toString() + "\n");
 			} catch (Exception e) {
 				LOG.debug("DLQueryEngineElk Exception: " + e.toString() + "\n");
 			}
@@ -74,10 +75,11 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			query = dataFactory.getOWLClass(IRI.create(id));
 			// Make the query equivalent to the fresh class
 			OWLAxiom definition = dataFactory.getOWLEquivalentClassesAxiom(query, classExpression);
+            LOG.debug("OWL Axiom Def: " + definition.toString() + "\n");
 			man.addAxiom(reasoner.getRootOntology(), definition);
 			// the query class by using its new name instead.
 			individuals = reasoner.getInstances(query, false).getFlattened();
-			LOG.debug("Found: " + individuals.size());
+			LOG.debug("Query: " + query.toString() + " Found: " + individuals.size());
 			//addIds(individuals.getFlattened(), results);
 			if (!individuals.isEmpty()) {
 				for(OWLEntity entity : individuals) {
