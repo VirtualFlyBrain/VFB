@@ -68,17 +68,19 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, true);
-			OWLDataFactory dataFactory = this.man.getOWLDataFactory();
+			// The following commented code runs an ELK query via a 
+			// query class, rather than directly using a class expression
+			// This should be unecessary with the version of ELK currently used.
+			
+			//OWLDataFactory dataFactory = this.man.getOWLDataFactory();
 			// Create a fresh name for the query.
-			String id = UUID.randomUUID().toString();
-			query = dataFactory.getOWLClass(IRI.create(id));
+			//String id = UUID.randomUUID().toString();
+			//query = dataFactory.getOWLClass(IRI.create(id));
 			// Make the query equivalent to the fresh class
-			OWLAxiom definition = dataFactory.getOWLEquivalentClassesAxiom(query, classExpression);
-			man.addAxiom(reasoner.getRootOntology(), definition);
-			// the query class by using its new name instead.
-			individuals = reasoner.getInstances(query, false).getFlattened();
-			LOG.debug("Found: " + individuals.size());
+			//OWLAxiom definition = dataFactory.getOWLEquivalentClassesAxiom(query, classExpression);
+			//man.addAxiom(reasoner.getRootOntology(), definition);
+			individuals = reasoner.getInstances(classExpression, false).getFlattened();
+			LOG.debug("Found: " + individuals.size()); //
 			//addIds(individuals.getFlattened(), results);
 			if (!individuals.isEmpty()) {
 				for(OWLEntity entity : individuals) {
