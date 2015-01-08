@@ -145,7 +145,7 @@
         <delete dir="build"/>
     </target>
     
-    <target depends="doc, compile, copy, clean" name="build"/>
+    <target depends="doc-clean, init, compile, copy, doc, clean" name="build"/>
  
     <target depends="init" name="compile">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -166,8 +166,8 @@
         <delete dir="doc"/>
         <mkdir dir="doc"/>
     </target>
-  	<target name="doc" depends="doc-clean, init" description="generate documentation">
-    	<javadoc sourcepath="build" destdir="doc"/>
+  	<target name="doc" depends="doc-clean" description="generate documentation">
+    	<javadoc destdir="./doc" sourcepath="./src/" additionalparam="-subpackages java -exclude java.net:java.lang" />
   	</target>
 
 </project>
