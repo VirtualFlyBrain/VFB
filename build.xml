@@ -145,7 +145,7 @@
         <delete dir="build"/>
     </target>
     
-    <target depends="doc, compile, copy, clean" name="build"/>
+    <target depends="jdoc-clean, init, compile, copy, jdoc, clean" name="build"/>
  
     <target depends="init" name="compile">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -162,12 +162,12 @@
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
 	
 	<!-- Generate javadocs for current project into doc -->
-	<target name="doc-clean">
-        <delete dir="doc"/>
-        <mkdir dir="doc"/>
+	<target name="jdoc-clean">
+        <delete dir="jdoc"/>
+        <mkdir dir="jdoc"/>
     </target>
-  	<target name="doc" depends="doc-clean, init" description="generate documentation">
-    	<javadoc sourcepath="build" destdir="doc"/>
+  	<target name="jdoc" depends="jdoc-clean, init" description="generate documentation">
+    	<javadoc sourcepath="build" destdir="jdoc"/>
   	</target>
 
 </project>
