@@ -6,6 +6,6 @@ flybase
 owldate
 google*.html
 *.wlz
-
+doc/
 
 resources/catalog-v001.xml

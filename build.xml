@@ -160,4 +160,15 @@
         </copy>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+	
+	<!-- Generate javadocs for current project into doc -->
+	<target name="doc-clean">
+        <delete dir="doc"/>
+        <mkdir dir="doc"/>
+    </target>
+  	<target name="doc" depends="doc-clean, build" description="generate documentation">
+    	<javadoc sourcepath="${source}" destdir="doc"/>
+  	</target>
+
 </project>
+
