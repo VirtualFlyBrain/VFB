@@ -166,9 +166,10 @@
         <delete dir="jdoc"/>
         <mkdir dir="jdoc"/>
     </target>
-  	<target name="jdoc" depends="jdoc-clean, init" description="generate documentation">
-    	<javadoc sourcepath="build" destdir="jdoc"/>
-  	</target>
+
+    <target name="jdoc" depends="jdoc-clean" description="generate documentation">
+    	<javadoc destdir="./jdoc" sourcepath="./src/" additionalparam="-subpackages java -exclude java.net:java.lang" />
+    </target>
 
 </project>
 
