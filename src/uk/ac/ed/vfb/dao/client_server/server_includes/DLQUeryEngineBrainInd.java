@@ -36,9 +36,9 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 		List<String> queries = oqq.getQueries();
 		for (String currExpr: queries){
 			//LOG.debug("currExpr: " + currExpr);		
-			List<String> subClasses = null;
+			List<String> Instances = null;
 			try {
-				subClasses = this.brain.getInstances(currExpr, false);
+				Instances = this.brain.getInstances(currExpr, false);
 			} catch (ClassExpressionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
