@@ -82,20 +82,23 @@ public class WebQueryUtils {
 		//Cluster of Individuals that overlap some X, clustered by shape
 		ad.put("cluster_found",
 				new String[]{"found in", "Neurons with some part in XXX, clustered by shape",
-				"individual&'exemplar_of' some ('cluster' that 'has_exemplar' some ('neuron' that 'overlaps' some XXX))"
+		//		"individual&'exemplar_of' some ('cluster' that 'has_exemplar' some ('neuron' that 'overlaps' some X))"
+				"individual&c099d9d6-4ef3-11e3-9da7-b1ad5291e0b0 some (VFB_10000005 that C888C3DB-AEFA-447F-BD4C-858DFE33DBE7 some (FBbt_00005106 that RO_0002131 some XXX))"
 		});
 		//Cluster of Individuals that overlap some X - unclustered
 		ad.put("ind_neuron_overlap",
 				new String[]{"found in", "Images of neurons with some part in XXX",
-				"individual&'neuron' that 'overlaps' some XXX"
+		//		"individual&'neuron' that 'overlaps' some X"
+				"individual&FBbt_00005106 that RO_0002131 some XXX"
 		});
 		//Individual members of a cluster - queries by cluster exemplar name
 		ad.put("neuron_found",
 				new String[]{"found in", "Neurons with shape similar to XXX ",
-				"individual&'member_of' some ('has_exemplar' value XXX)"
+		//		"individual&'member_of' some ('has_exemplar' value X)"
+				"individual&RO_0002350 some (C888C3DB-AEFA-447F-BD4C-858DFE33DBE7 value XXX"
 		});
 		ad.put("exemplar_neuron",
-				new String[]{"exemplar neurons", "Examples of XXX",
+				new String[]{"exemplar neurons", "Examples of XXX",  // Misuse of term exemplar...
 				"individual&XXX"
 		});
 		//Lineage clones
