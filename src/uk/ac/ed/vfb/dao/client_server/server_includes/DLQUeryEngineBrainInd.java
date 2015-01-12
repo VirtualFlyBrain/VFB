@@ -6,27 +6,23 @@ import java.util.TreeSet;
 
 import uk.ac.ebi.brain.core.Brain;
 import uk.ac.ebi.brain.error.ClassExpressionException;
+import uk.ac.ed.vfb.dao.client_server.server_includes.ADLQueryEngine;
 import uk.ac.ed.vfb.model.OntBean;
-//import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
 
-/**
- * Author: Nestor Milyaev<br>
- * The University of Edinburgh<br>
- * Date: 13-Dec-2012
- */
 
-public class DLQueryEngineBrain extends ADLQueryEngine{
+public class DLQUeryEngineBrainInd extends ADLQueryEngine {
+	
 	protected static int numThreads = 0;
-	protected static Brain brain;  // DOS: Why is this static!  Surely we don't want the brain instance bound to the class?
+	protected Brain brain;  // Changed this from static - makes no sense for this to be bound to class!
 	protected static boolean isFree = true;
 	//private QueryThread queryThread;
 
-	public DLQueryEngineBrain(String ontologyURL) {
+	public DLQUeryEngineBrainInd(String ontologyURL) {
 		super(ontologyURL);
 		try {
-			DLQueryEngineBrain.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
+			this.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
 			LOG.debug("BRAIN': " + brain + " this " + this);
-			brain.learn(ontologyURL);
+			this.brain.learn(ontologyURL);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
@@ -42,15 +38,15 @@ public class DLQueryEngineBrain extends ADLQueryEngine{
 			//LOG.debug("currExpr: " + currExpr);		
 			List<String> subClasses = null;
 			try {
-				subClasses = DLQueryEngineBrain.brain.getSubClasses(currExpr, false);
+				subClasses = this.brain.getInstances(currExpr, false);
 			} catch (ClassExpressionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			//Iterates over the list and print the result.
-			for (String subClass : subClasses) {
+			for (String Instance : Instances) {
 				//LOG.debug("subclas: " + subClass + " results : " + results.size() + " orp : " + orp);
-				results.add(orp.getOntBeanForId(subClass));
+				results.add(orp.getOntBeanForId(Instance));
 			}
 		}
 		//setThirdPartyBeans(results);
