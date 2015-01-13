@@ -40,7 +40,7 @@ public abstract class AOwlResultParser {
 	public OntBean getOntBeanForId(String id) {
 		try {
 			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
-			String iri = "http://vfbsandbox.inf.ed.ac.uk/owl/" + OntBean.idAsOWL(id);
+			String iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
 			LOG.debug("IRI: " + iri );
 			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
 			LOG.debug("OO: " + oo);
