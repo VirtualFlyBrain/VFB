@@ -3,6 +3,7 @@ package uk.ac.ed.vfb.dao.client_server.server_includes;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import owltools.graph.OWLGraphWrapper;
