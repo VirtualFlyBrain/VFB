@@ -48,7 +48,7 @@ public abstract class AOwlResultParser {
 			OWLEntity oe = (OWLEntity)oo;
 			if (oe == null){
 				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
-				LOG.debug("IRI: " + iri );
+				//LOG.debug("IRI: " + iri );
 				LOG.debug("OO: " + oo);
 				LOG.debug("OE: " + oe);
 				LOG.debug("from ontology: " + this.ontology.toString());
