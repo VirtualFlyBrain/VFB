@@ -19,7 +19,6 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 
 	public DLQUeryEngineBrainInd(String ontologyURL) {
 		super(ontologyURL); // What does this to?
-		this.orp = new OwlResultParserIndividual(this.ontology); // over-ride parent
 		try {
 			this.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
 			LOG.debug("BRAIN': " + brain + " this " + this);
@@ -29,7 +28,7 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 			e.printStackTrace();
 		}
 		LOG.debug("Ontology: " + this.ontology);
-		this.orp = new OwlResultParserClass(this.ontology);
+		this.orp = new OwlResultParserIndividual(this.ontology); // over-ride parent
 	}
 	
 	public synchronized Set<OntBean> askQuery(OntQueryQueue oqq) {
