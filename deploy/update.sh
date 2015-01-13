@@ -85,6 +85,7 @@ then
             echo "updating git filters"
             cp deploy/attributes .git/info/
             cp deploy/config .git/
+        fi
         if [ `git diff --name-only HEAD~1 | grep "\.sed" | wc -l` -gt 0 ]
         then
             echo "checking filters to use correct branch names"
