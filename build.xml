@@ -6,8 +6,8 @@
     <property name="src.link" value="./src"/>
     <property name="JRE_LIB" value="./lib/classes.jar"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
     <path id="EAtlasViewer.classpath">
         <pathelement location="build"/>
         <pathelement location="${JRE_LIB}"/>
