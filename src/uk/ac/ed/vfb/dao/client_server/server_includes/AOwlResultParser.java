@@ -41,7 +41,7 @@ public abstract class AOwlResultParser {
 		try {
 			String iri = OntBean.idAsOWL(id);
 			if (id.toLowerCase().contains("vfb")){
-				String iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
+				iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
 			}	
 			OWLObject oo = this.ogw.getOWLObject(iri);
 			OWLEntity oe = (OWLEntity)oo;
