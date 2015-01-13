@@ -125,7 +125,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	 */
 	public OntBean getOntBeanForId(String id) {
 		LOG.debug("OwlResultParserIndividual OGW: " + this.ogw + " ID: " + id);
-		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
+		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOWL(id));
 		LOG.debug("OWLEntity: " + oo);
 		return this.getOntBeanForEntity(oo);
 	}
