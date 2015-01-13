@@ -150,7 +150,9 @@
         <pathelement location="./src/uk/ac/ebi/brain/error/StorageException.java"/>
     </path>
     <target name="init">
+        <delete dir="WEB-INF/classes"/>
         <mkdir dir="build"/>
+        <mkdir dir="WEB-INF/classes"/>
         <copy includeemptydirs="false" todir="build">
             <fileset dir="${src.link}">
                 <exclude name="**/*.java"/>
