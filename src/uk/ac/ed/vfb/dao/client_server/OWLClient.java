@@ -72,8 +72,9 @@ public class OWLClient {
 			return results;
 		}catch (Exception e){
 			LOG.error("Ask ontology server exception: " + e.getMessage());
+			Set<OntBean> results = "";
+			return results;
 		}
-		
 	}
 
 	/**
