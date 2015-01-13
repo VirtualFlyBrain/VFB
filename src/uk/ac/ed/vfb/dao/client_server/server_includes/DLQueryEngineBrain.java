@@ -17,14 +17,13 @@ import uk.ac.ed.vfb.model.OntBean;
 
 public class DLQueryEngineBrain extends ADLQueryEngine{
 	protected static int numThreads = 0;
-	protected static Brain brain;  // DOS: Why is this static!  Surely we don't want the brain instance bound to the class?
-	protected static boolean isFree = true;
+	protected Brain brain;  // Changed from static.  Don't want this bound to class.
 	//private QueryThread queryThread;
 
 	public DLQueryEngineBrain(String ontologyURL) {
 		super(ontologyURL);
 		try {
-			DLQueryEngineBrain.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
+			this.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
 			LOG.debug("BRAIN': " + brain + " this " + this);
 			brain.learn(ontologyURL);
 		} 
@@ -42,7 +41,7 @@ public class DLQueryEngineBrain extends ADLQueryEngine{
 			//LOG.debug("currExpr: " + currExpr);		
 			List<String> subClasses = null;
 			try {
-				subClasses = DLQueryEngineBrain.brain.getSubClasses(currExpr, false);
+				subClasses = this.brain.getSubClasses(currExpr, false);
 			} catch (ClassExpressionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -50,7 +49,7 @@ public class DLQueryEngineBrain extends ADLQueryEngine{
 			//Iterates over the list and print the result.
 			for (String subClass : subClasses) {
 				//LOG.debug("subclas: " + subClass + " results : " + results.size() + " orp : " + orp);
-				results.add(orp.getOntBeanForId(subClass));
+				results.add(this.orp.getOntBeanForId(subClass));
 			}
 		}
 		//setThirdPartyBeans(results);
