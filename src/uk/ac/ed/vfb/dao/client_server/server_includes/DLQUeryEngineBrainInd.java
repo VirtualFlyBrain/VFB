@@ -18,7 +18,8 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 	//private QueryThread queryThread;
 
 	public DLQUeryEngineBrainInd(String ontologyURL) {
-		super(ontologyURL);
+		super(ontologyURL); // What does this to?
+		this.orp = new OwlResultParserIndividual(this.ontology); // over-ride parent
 		try {
 			this.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
 			LOG.debug("BRAIN': " + brain + " this " + this);
