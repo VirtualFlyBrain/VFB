@@ -38,6 +38,7 @@ public abstract class AOwlResultParser {
 	public OntBean getOntBeanForId(String id) {
 		LOG.debug("OGW: " + this.ogw + " ID: " + id);
 		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
+		LOG.debug("OO: " + oo);
 		return this.getOntBeanForEntity(oo);
 	}
 	
