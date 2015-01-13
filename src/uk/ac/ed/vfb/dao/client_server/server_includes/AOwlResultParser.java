@@ -36,11 +36,18 @@ public abstract class AOwlResultParser {
 	 * @return
 	 */
 	public OntBean getOntBeanForId(String id) {
-		LOG.debug("OGW: " + this.ogw + " ID: " + id);
-		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
-		LOG.debug("OO: " + oo);
-		return this.getOntBeanForEntity(oo);
-	}
+		try {
+			LOG.debug("OGW: " + this.ogw + " ID: " + id);
+			OWLEntity oo = (OWLEntity) this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
+			LOG.debug("OO: " + oo);
+			return this.getOntBeanForEntity(oo);
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+			LOG.debug("Failed to get entity for" + id + "from ontology" + this.ontology.toString());
+			return null;
+		}
+ 	}
 	
 	public abstract OntBean getOntBeanForEntity(OWLEntity entity);
 
