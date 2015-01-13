@@ -21,16 +21,16 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 
 
 <c:choose>
-	<c:when test="${headAtt == true}"> 
-	
+	<c:when test="${headAtt == true}">
+
 			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-		
+
 		<head>
 		<title>${query}</title>
 
-		
-		
+
+
 		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/layout/layout.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/help.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="/css/vfb/utils/resultList.css" />
@@ -64,8 +64,8 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 			<script>
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/jsp/do/individualBean.jsp?id=${ontBean.fbbtId}'});
 			</script>
-		<!-- End Google Analytics -->	
-	
+		<!-- End Google Analytics -->
+
 <h2 style="font-size: 1.3em; margin-top:-3px"><a href="#" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <p>
 	<b>Definition: </b>${ontBean.def}
@@ -97,11 +97,11 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
 		<c:choose>
 			<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
-				&nbsp;&nbsp;&nbsp; * 
+				&nbsp;&nbsp;&nbsp; *
 				<a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a>
 			</c:when>
-			<c:otherwise>	
-				&nbsp;&nbsp;&nbsp; * 
+			<c:otherwise>
+				&nbsp;&nbsp;&nbsp; *
 				<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
 			</c:otherwise>
 		</c:choose>
@@ -113,13 +113,13 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			<c:choose>
 				<c:when test="${fn:containsIgnoreCase(curr.key, 'http')}">
-					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
 					<a href="${curr.key}" title="External look up" target="_new">${curr.value[1]}</a>
 				</c:when>
-				<c:otherwise>	
-					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+				<c:otherwise>
+					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
 					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
-			
+
 				</c:otherwise>
 			</c:choose>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
@@ -140,16 +140,18 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<a href="${tpb.baseUrl}${tpb.remoteId}">
 		<img class="thumb"src="${tpb.thumbUrl}" />
 	</a>
-	<br/>			
+	<br/>
+	<a href="/owl/${tpb.vfbId}">See in the viewer >> </a>
+	<br/>
 
 </c:if>
 <c:choose>
 	<c:when test="${needFoot == true}">
 		<jsp:include page="/jsp/includes/homeFoot.jsp"/>
 	</c:when>
-	<c:otherwise>	
+	<c:otherwise>
 		</body>
 		</html>
-	
+
 	</c:otherwise>
 </c:choose>

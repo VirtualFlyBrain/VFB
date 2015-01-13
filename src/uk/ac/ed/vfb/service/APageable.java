@@ -49,7 +49,7 @@ public class APageable {
 
 	public void setPerPage(int perPage) {
 		// Cheap trick to assign 0 to Integer.MAX_VALUE, because 0 is a parameter ;-[ ]
-		perPage = (perPage==100)?Integer.MAX_VALUE:perPage;
+		perPage = (perPage==0)?Integer.MAX_VALUE:perPage;
 		this.perPage = perPage;
 		this.currPage = 1;
 	}
