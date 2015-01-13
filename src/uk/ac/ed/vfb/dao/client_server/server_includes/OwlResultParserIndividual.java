@@ -123,11 +123,11 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	 * @param id
 	 * @return
 	 */
-	public OntBean getOntBeanForId(String id) {
-		LOG.debug("OwlResultParserIndividual OGW: " + this.ogw + " ID: " + OntBean.idAsOBO(id));
-		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
-		LOG.debug("OWLEntity: " + oo);
-		return this.getOntBeanForEntity(oo);
-	}
+	// public OntBean getOntBeanForId(String id) {
+	// 	LOG.debug("OwlResultParserIndividual OGW: " + this.ogw + " ID: " + OntBean.idAsOBO(id));
+	// 	OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
+	// 	LOG.debug("OWLEntity: " + oo);
+	// 	return this.getOntBeanForEntity(oo);
+	// }
 	
 }
