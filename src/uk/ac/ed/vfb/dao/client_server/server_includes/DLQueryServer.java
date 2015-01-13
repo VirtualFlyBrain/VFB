@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +15,10 @@ import java.util.TreeSet;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.semanticweb.owlapi.model.OWLEntity;
+//import org.semanticweb.owlapi.model.OWLEntity;
 
 import uk.ac.ed.vfb.model.OntBean;
-import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
+//import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
 
 /**
  * @author nmilyaev
@@ -34,9 +34,9 @@ public class DLQueryServer {
 	final String lang = System.getProperty("user.language");
 	//final String locale = System.getProperty("user.language")+"-"+System.getProperty("user.region");
 	//Engine for Elk reasoner
-	private ADLQueryEngine engineIndividual;
+	private ADLQueryEngine engineIndividual;  // Can keep typing as superclass
 	//Engine for JFAct reasoner
-	private ADLQueryEngine engineClass;
+//	private ADLQueryEngine engineClass;
 	//Engine for Brain reasoner
 	private ADLQueryEngine engineBrain;
 	private static final Log LOG = LogFactory.getLog(DLQueryServer.class); 
