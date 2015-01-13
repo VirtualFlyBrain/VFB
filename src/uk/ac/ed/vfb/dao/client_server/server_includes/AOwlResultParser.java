@@ -42,7 +42,7 @@ public abstract class AOwlResultParser {
 			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOBO(id));
 			IRI iri = this.ogw.getIRIByIdentifier(id);
 			LOG.debug("IRI: " + iri );
-			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
+			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(this.ogw.getIdentifier(iri));
 			LOG.debug("OO: " + oo);
 			OWLEntity oe = (OWLEntity)oo;
 			LOG.debug("OE: " + oe);
