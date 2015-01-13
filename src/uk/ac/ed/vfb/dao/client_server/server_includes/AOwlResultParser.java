@@ -39,10 +39,10 @@ public abstract class AOwlResultParser {
 	 */
 	public OntBean getOntBeanForId(String id) {
 		try {
-			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOBO(id));
-			IRI iri = this.ogw.getIRIByIdentifier(id);
-			LOG.debug("IRI: " + this.ogw.getIdentifier(iri) );
-			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(this.ogw.getIdentifier(iri));
+			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
+			string iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
+			LOG.debug("IRI: " + iri );
+			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
 			LOG.debug("OO: " + oo);
 			OWLEntity oe = (OWLEntity)oo;
 			LOG.debug("OE: " + oe);
