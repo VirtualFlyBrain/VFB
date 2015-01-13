@@ -116,7 +116,7 @@ then
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed 
         fi
-        if [ `git diff --name-only HEAD~1 | grep "src/|build\.xml" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "src/\|build\.xml" | wc -l` -gt 0 ]
         then
             echo "Recompiling the site..."
             nice ant
