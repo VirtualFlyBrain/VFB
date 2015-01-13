@@ -39,12 +39,13 @@ public abstract class AOwlResultParser {
 	 */
 	public OntBean getOntBeanForId(String id) {
 		try {
-			//if (id.toLowerCase().contains("vfb")){
-			//	String iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
-			//	OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
-			//}else{
-			OWLObject oo = this.ogw.getOWLObject(OntBean.idAsOWL(id));
-			//}	
+			if (id.toLowerCase().contains("vfb")){
+				String iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
+				OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
+			}else{
+				String iri = OntBean.idAsOWL(id);
+			}	
+			OWLObject oo = this.ogw.getOWLObject(iri);
 			OWLEntity oe = (OWLEntity)oo;
 			if (oe == null){
 				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
