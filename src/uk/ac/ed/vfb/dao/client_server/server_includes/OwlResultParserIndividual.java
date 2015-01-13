@@ -36,7 +36,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	public OntBean getOntBeanForEntity(OWLEntity entity){
 		OWLObject oo = (OWLObject)entity; //ogw.getOWLIndividualByIdentifier(id);
 		OntBean result = getOntBeanForClass(oo);
-		//LOG.debug("ID: " + result.getId() + " OO " + oo);
+		LOG.debug("ID: " + result.getId() + " OO " + oo);
 		return result;
 	}
 
@@ -124,9 +124,9 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	 * @return
 	 */
 	public OntBean getOntBeanForId(String id) {
-		//LOG.debug("OwlResultParserIndividual OGW: " + this.ogw + " ID: " + id);
+		LOG.debug("OwlResultParserIndividual OGW: " + this.ogw + " ID: " + id);
 		OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
-		//LOG.debug("OWLEntity: " + oo);
+		LOG.debug("OWLEntity: " + oo);
 		return this.getOntBeanForEntity(oo);
 	}
 	

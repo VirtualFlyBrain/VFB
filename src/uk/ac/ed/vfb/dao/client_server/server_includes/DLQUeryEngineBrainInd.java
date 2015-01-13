@@ -35,7 +35,7 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 		Set<OntBean> results = new TreeSet<OntBean>();
 		List<String> queries = oqq.getQueries();
 		for (String currExpr: queries){
-			//LOG.debug("currExpr: " + currExpr);		
+			LOG.debug("currExpr: " + currExpr);		
 			List<String> Instances = null;
 			try {
 				Instances = this.brain.getInstances(currExpr, false);
@@ -45,8 +45,12 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 			}
 			//Iterates over the list and print the result.
 			for (String Instance : Instances) {
-				//LOG.debug("subclas: " + subClass + " results : " + results.size() + " orp : " + orp);
-				results.add(orp.getOntBeanForId(Instance));
+				LOG.debug("Instance: " + Instance + " results : " + results.size());
+				try{
+					results.add(this.orp.getOntBeanForId(Instance));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
 			}
 		}
 		//setThirdPartyBeans(results);
