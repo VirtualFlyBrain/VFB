@@ -66,7 +66,11 @@ public class OWLClient {
 	 */
 	public Set<OntBean> askQuery(String query){
 		LOG.debug("Asking query: " + query);
-		Set<OntBean> results = this.askServer(query);
+		try {
+			Set<OntBean> results = this.askServer(query);
+		}catch (Exception e){
+			LOG.error("Ask ontology server exception: " + e.getMessage());
+		}
 		return results;
 	}
 
