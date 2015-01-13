@@ -51,7 +51,7 @@ public class OntBeanManager extends APageable {
 	public Set<OntBean> getBeanListForQuery(String query){
 		LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
-		//LOG.debug("REsultSEt: " + this.resultSet);
+		LOG.debug("REsultSEt: " + this.resultSet);
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
 		//Only use setThirdPartyBeans if tpbm is not null.
@@ -76,7 +76,7 @@ public class OntBeanManager extends APageable {
 	public OntBean getBeanForId(String fbbtId){
 		LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
-		//LOG.debug("bean = " + result);
+		LOG.debug("bean = " + result);
 		if (result == null) {
 			LOG.debug("Creating new bean");
 			result = ontClient.getBeanForId(fbbtId);
@@ -87,7 +87,7 @@ public class OntBeanManager extends APageable {
 			result.setThirdPartyBean(tpb);
 			LOG.debug("OBM result: " + result);
 			this.ontBeans.put(result.getFbbtId(), result);
-			//LOG.debug("new bean:  " + result);
+			LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
