@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.IRI;
 
 import owltools.graph.OWLGraphWrapper;
 import uk.ac.ed.vfb.model.OntBean;
@@ -39,7 +40,9 @@ public abstract class AOwlResultParser {
 	public OntBean getOntBeanForId(String id) {
 		try {
 			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOBO(id));
-			OWLObject oo = this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
+			IRI iri = this.ogw.getIRIByIdentifier(id);
+			LOG.debug("IRI: " + iri );
+			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
 			LOG.debug("OO: " + oo);
 			OWLEntity oe = (OWLEntity)oo;
 			LOG.debug("OE: " + oe);
