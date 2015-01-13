@@ -37,9 +37,9 @@ public class AutocompleteDAO extends AQueryDAO {
 	 */
 	static Map<String,String> createMap() {
 		Map<String, String> map = new HashMap<String, String>();
-		/** Neuropil: adult brain’ or ((‘ganglion’ or ‘synaptic neuropil block’ or ‘synaptic neuropil domain’ or ‘synaptic neuropil subdomain’) and part_of some ‘adult brain’) */
+		/** Neuropil: 'adult brain' or (('ganglion' or 'synaptic neuropil block' or 'synaptic neuropil domain' or 'synaptic neuropil subdomain') and part_of some 'adult brain') */
 		map.put("neuropilAB", "subclass&FBbt_00005095 that BFO_0000050 some  FBbt_00003624, FBbt_00005137 that BFO_0000050 some  FBbt_00003624, FBbt_00041000 that BFO_0000050 some FBbt_00003624, FBbt_00040007 that BFO_0000050 some  FBbt_00003624, FBbt_00040006 that BFO_0000050 some  FBbt_00003624, FBbt_00005095 that BFO_0000050 some FBbt_00003004");
-		/** Neuron: neuron that overlaps some (‘adult brain’ or part_of some ‘adult brain’) */
+		/** Neuron: neuron that overlaps some ('adult brain' or part_of some 'adult brain') */
 		map.put("neuronAB", "subclass&FBbt_00005106 that RO_0002131 some FBbt_00003624");
 		/** Tract: 'neuron projection bundle' that 'innervates' some 'adult brain' */
 		map.put("tract", "subclass&FBbt_00005099 that RO_0002134 some FBbt_00003624");

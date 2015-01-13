@@ -9,3 +9,4 @@ analytics.js filter=modity-GA
 *.htm filter=modify-ref-gen
 *.js filter=modify-ref-gen
 *.owl filter=modify-ref-gen
+*.java filter=modify-ref-gen
