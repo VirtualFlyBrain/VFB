@@ -127,7 +127,7 @@ then
             echo "Recompiling the site..."
             nice ant
         fi
-        if [ `git diff --name-only HEAD~1 | grep "\.owl" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "\.owl\|deploy/start" | wc -l` -gt 0 ]
         then
             echo "Redeploying ontology server..."
             nice deploy/start-${branch}-Ont-Server.sh
