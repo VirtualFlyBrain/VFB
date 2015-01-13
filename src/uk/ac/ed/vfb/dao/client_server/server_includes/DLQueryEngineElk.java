@@ -56,7 +56,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 		List<String> queries = oqq.getQueries();
 		//individuals
 		for (String currExpr: queries){
-			//			LOG.debug("currExpr: " + currExpr);
+			LOG.debug("currExpr: " + currExpr);
 			OWLReasoner reasoner = null;
 			reasoner = createReasoner();
 			OWLClassExpression classExpression = null;
@@ -64,25 +64,26 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 			Set<OWLNamedIndividual> individuals = null;
 			try {
 				classExpression = getOWLClassExpression(currExpr.trim());
-			} catch (ParserException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+                LOG.debug("OWL Class Exp: " + classExpression.toString() + "\n");
+			} catch (Exception e) {
+				LOG.debug("DLQueryEngineElk Exception: " + e.toString() + "\n");
 			}
 			// NodeSet<OWLClass> subClasses = reasoner.getSubClasses(classExpression, true);
 			OWLDataFactory dataFactory = this.man.getOWLDataFactory();
 			// Create a fresh name for the query.
-			String id = UUID.randomUUID().toString();
+			String id = "http://www.virtualflybrain.org/scratch/" + UUID.randomUUID().toString();
 			query = dataFactory.getOWLClass(IRI.create(id));
 			// Make the query equivalent to the fresh class
 			OWLAxiom definition = dataFactory.getOWLEquivalentClassesAxiom(query, classExpression);
+            LOG.debug("OWL Axiom Def: " + definition.toString() + "\n");
 			man.addAxiom(reasoner.getRootOntology(), definition);
 			// the query class by using its new name instead.
 			individuals = reasoner.getInstances(query, false).getFlattened();
-			LOG.debug("Found: " + individuals.size());
+			LOG.debug("Query: " + query.toString() + " Found: " + individuals.size());
 			//addIds(individuals.getFlattened(), results);
 			if (!individuals.isEmpty()) {
 				for(OWLEntity entity : individuals) {
-					//LOG.debug("Entity : " + entity + "\n");
+					LOG.debug("Entity : " + entity + "\n");
 					results.add(this.orp.getOntBeanForEntity(entity));
 				}
 			}			
@@ -101,8 +102,7 @@ public class DLQueryEngineElk extends ADLQueryEngine {
 		// Create an ELK reasoner configuration
 		final ElkReasonerConfiguration elkConfig = new ElkReasonerConfiguration();
 		// Set the number of workers to 8 or any other number
-		elkConfig.getElkConfiguration().setParameter(ReasonerConfiguration.NUM_OF_WORKING_THREADS,
-				"8");
+		elkConfig.getElkConfiguration().setParameter(ReasonerConfiguration.NUM_OF_WORKING_THREADS, "8");
 		// Create an ELK reasoner using the configuration
 		OWLReasonerFactory reasonerFactory = new ElkReasonerFactory();
 		OWLReasoner reasoner = reasonerFactory.createReasoner(ontology, elkConfig); 		
