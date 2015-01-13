@@ -39,14 +39,14 @@ public abstract class AOwlResultParser {
 	 */
 	public OntBean getOntBeanForId(String id) {
 		try {
-			LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
+			//LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
 			String iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
-			LOG.debug("IRI: " + iri );
+			//LOG.debug("IRI: " + iri );
 			OWLObject oo = this.ogw.getOWLIndividualByIdentifier(iri);
-			LOG.debug("OO: " + oo);
+			//LOG.debug("OO: " + oo);
 			OWLEntity oe = (OWLEntity)oo;
-			LOG.debug("OE: " + oe);
-			LOG.debug("from ontology: " + this.ontology.toString());
+			//LOG.debug("OE: " + oe);
+			//LOG.debug("from ontology: " + this.ontology.toString());
 			return this.getOntBeanForEntity(oe);
 		}
 		catch (Exception ex) {
