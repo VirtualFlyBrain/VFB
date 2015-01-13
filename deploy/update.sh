@@ -110,13 +110,13 @@ then
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
         fi
-        if [ `git diff --name-only HEAD~1 | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl|\.java" | wc -l` -gt 0 ]
         then
             echo "checking any direct references to website url is set to the branch site"
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
+            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
+            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed 
         fi
-        if [ `git diff --name-only HEAD~1 | grep "src/" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "src/|build\.xml" | wc -l` -gt 0 ]
         then
             echo "Recompiling the site..."
             nice ant
