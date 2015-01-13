@@ -45,11 +45,11 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 			}
 			//Iterates over the list and print the result.
 			for (String Instance : Instances) {
-				LOG.debug("Instance: " + Instance + " results : " + results.size());
 				try{
 					results.add(this.orp.getOntBeanForId(Instance));
 				} catch (Exception e) {
 					e.printStackTrace();
+					LOG.debug("Instance: " + Instance + " results : " + results.size());
 				}	
 			}
 		}
