@@ -39,7 +39,7 @@ public abstract class AOwlResultParser {
 	 */
 	public OntBean getOntBeanForId(String id) {
 		try {
-			String iri = OntBean.idAsOWL(id);
+			String iri = this.ogw.getIRIByIdentifier(OntBean.idAsOBO(id)).toString();
 			if (id.toLowerCase().contains("vfb")){
 				iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
 			}	
@@ -47,7 +47,7 @@ public abstract class AOwlResultParser {
 			OWLEntity oe = (OWLEntity)oo;
 			if (oe == null){
 				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
-				//LOG.debug("IRI: " + iri );
+				LOG.debug("IRI: " + iri);
 				LOG.debug("OO: " + oo);
 				LOG.debug("OE: " + oe);
 				LOG.debug("from ontology: " + this.ontology.toString());
