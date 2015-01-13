@@ -135,7 +135,7 @@ public class Server {
 				in = new ObjectInputStream(clientSocket.getInputStream());
 				out = new ObjectOutputStream(clientSocket.getOutputStream());
 				this.query = (String) in.readObject();
-				//LOG.debug("Query: " + query);
+				LOG.debug("Query: " + query);
 				//We assume that query should either start with one of OntQueryQueue.QUERY_TYPES or
 				// the query type will be missing - for the getBeanForId(id) queries
 				OntQueryQueue oqq = new OntQueryQueue(query);
