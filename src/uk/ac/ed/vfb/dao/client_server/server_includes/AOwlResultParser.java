@@ -3,9 +3,15 @@ package uk.ac.ed.vfb.dao.client_server.server_includes;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLObject;
+// import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.IRI;
+// import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.util.BidirectionalShortFormProvider;
+import org.semanticweb.owlapi.util.BidirectionalShortFormProviderAdapter;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
+
+import java.util.Set;
+import java.util.TreeSet;
 
 import owltools.graph.OWLGraphWrapper;
 import uk.ac.ed.vfb.model.OntBean;
@@ -20,12 +26,17 @@ public abstract class AOwlResultParser {
 
 	protected OWLGraphWrapper ogw;
 	protected OWLOntology ontology;
+	protected BidirectionalShortFormProvider bsfp;
 	protected static final Log LOG = LogFactory.getLog(AOwlResultParser.class); 
 
 	public AOwlResultParser(OWLOntology ontology) {
 		try {
 			this.ontology = ontology;
 			this.ogw = new OWLGraphWrapper(ontology);
+			Set<OWLOntology> ontset = new TreeSet<OWLOntology>();
+	        ontset.add(this.ontology);
+	        SimpleShortFormProvider ssfp = new SimpleShortFormProvider();
+	        this.bsfp = new BidirectionalShortFormProviderAdapter(ontset, ssfp);	
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -37,20 +48,35 @@ public abstract class AOwlResultParser {
 	 * @param id
 	 * @return
 	 */
+//	public OntBean getOntBeanForId(String id) {
+//		try {
+//			String iri = OntBean.idAsOWL(id);
+//			if (id.toLowerCase().contains("vfb")){
+//				iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
+//			}	
+//			OWLObject oo = this.ogw.getOWLObject(iri);
+//			OWLEntity oe = (OWLEntity)oo;
+//			if (oe == null){
+//				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
+//				//LOG.debug("IRI: " + iri );
+//				LOG.debug("OO: " + oo);
+//				LOG.debug("OE: " + oe);
+//				LOG.debug("from ontology: " + this.ontology.toString());
+//			}
+//			return this.getOntBeanForEntity(oe);
+//		}
+//		catch (Exception ex) {
+//			ex.printStackTrace();
+//			LOG.debug("Failed to get entity for" + id + "from ontology" + this.ontology.toString());
+//			return null;
+//		}
+// 	}
+	
 	public OntBean getOntBeanForId(String id) {
 		try {
-			String iri = this.ogw.getIRIByIdentifier(OntBean.idAsOBO(id)).toString();
-			if (id.toLowerCase().contains("vfb")){
-				iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
-			}	
-			OWLObject oo = this.ogw.getOWLObject(iri);
-			OWLEntity oe = (OWLEntity)oo;
-			if (oe == null){
-				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
-				LOG.debug("IRI: " + iri);
-				LOG.debug("OO: " + oo);
-				LOG.debug("OE: " + oe);
-				LOG.debug("from ontology: " + this.ontology.toString());
+			OWLEntity oe =  this.bsfp.getEntity(id);
+			if (oe == null) {
+				LOG.debug("Failed to get entity for " + id + " from ontology " + this.ontology.toString());
 			}
 			return this.getOntBeanForEntity(oe);
 		}
