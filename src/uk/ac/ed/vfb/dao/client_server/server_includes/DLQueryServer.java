@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +15,10 @@ import java.util.TreeSet;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.semanticweb.owlapi.model.OWLEntity;
+//import org.semanticweb.owlapi.model.OWLEntity;
 
 import uk.ac.ed.vfb.model.OntBean;
-import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
+//import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
 
 /**
  * @author nmilyaev
@@ -27,15 +27,16 @@ import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
  * Upon receiving a quiery request forks the query to a desired engine depending on the 
  * query type (class or individual)
  */
+
 public class DLQueryServer {
 
 //    private static final IRI ONTOLOGY_IRI = IRI.create("http://obo.cvs.sourceforge.net/viewvc/obo/obo/ontology/anatomy/gross_anatomy/animal_gross_anatomy/fly/fly_anatomy_XP.obo");
 	final String lang = System.getProperty("user.language");
 	//final String locale = System.getProperty("user.language")+"-"+System.getProperty("user.region");
 	//Engine for Elk reasoner
-	private ADLQueryEngine engineIndividual;
+	private ADLQueryEngine engineIndividual;  // Can keep typing as superclass
 	//Engine for JFAct reasoner
-	private ADLQueryEngine engineClass;
+//	private ADLQueryEngine engineClass;
 	//Engine for Brain reasoner
 	private ADLQueryEngine engineBrain;
 	private static final Log LOG = LogFactory.getLog(DLQueryServer.class); 
@@ -47,10 +48,10 @@ public class DLQueryServer {
         	bundle.getString("resource_path") + bundle.getString("ont_file_owl");
 		String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + 
 	        	bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");//ont_file_owl");
-		LOG.debug("Creating Brain reasoner....");
+		LOG.debug("Creating Brain Class reasoner....");
 		engineBrain = new DLQueryEngineBrain(url1);
-		LOG.debug("Creating ELK reasoner....");
-        engineIndividual = new DLQueryEngineElk(url2);
+		LOG.debug("Creating Brain Ind reasoner....");
+        engineIndividual = new DLQUeryEngineBrainInd(url2);
 //		LOG.debug("Creating JF reasoner....");
 //        engineClass = null; //new DLQueryEngineJF(url1, tpbm);
     } 

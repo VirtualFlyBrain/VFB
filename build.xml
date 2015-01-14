@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
-              To include a user specific buildfile here, simply create one in the same
-              directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. -->
+<?eclipse.ant.import?>
+
 <project basedir="." default="build" name="EAtlasViewer">
     <property environment="env"/>
     <property name="src.link" value="./src"/>
     <property name="JRE_LIB" value="./lib/classes.jar"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
     <path id="EAtlasViewer.classpath">
         <pathelement location="build"/>
         <pathelement location="${JRE_LIB}"/>
         <pathelement location="./lib/jsp-api.jar"/>
         <pathelement location="./lib/servlet-api.jar"/>
         <pathelement location="./WEB-INF/lib/aspectjrt-1.6.0.jar"/>
-        <pathelement location="./WEB-INF/lib/brain-1.4.1-2.jar"/>
+        <pathelement location="./WEB-INF/lib/Brain-1.5.1-jar-with-dependencies.jar"/>
+        <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
         <pathelement location="./WEB-INF/lib/commons-codec-1.6.jar"/>
         <pathelement location="./WEB-INF/lib/commons-dbcp.jar"/>
         <pathelement location="./WEB-INF/lib/commons-logging.jar"/>
         <pathelement location="./WEB-INF/lib/commons-pool.jar"/>
-        <pathelement location="./WEB-INF/lib/elk-owlapi.jar"/>
         <pathelement location="./lib/hamcrest-core-1.3.jar"/>
-        <pathelement location="./WEB-INF/lib/jfact.jar"/>
         <pathelement location="./WEB-INF/lib/jstl.jar"/>
-        <pathelement location="./WEB-INF/lib/log4j-1.2.15.jar"/>
+        <pathelement location="./WEB-INF/lib/log4j.jar"/>
         <pathelement location="./WEB-INF/lib/mail.jar"/>
-        <pathelement location="./WEB-INF/lib/oboformat-all.jar"/>
-        <pathelement location="./WEB-INF/lib/owlapi-bin.jar"/>
         <pathelement location="./WEB-INF/lib/owltools-oort-all.jar"/>
         <pathelement location="./WEB-INF/lib/postgresql-9.0-801.jdbc3.jar"/>
         <pathelement location="./WEB-INF/lib/servlet-api.jar"/>
@@ -131,9 +125,34 @@
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/SessionExpiredException.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/StackExistsException.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/UserPermissionsException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/core/Brain.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BadNameException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BadPrefixException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/BrainException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ClassExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/DataPropertyExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/DataRangeException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingAnnotationPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingClassException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingDataPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingEntityException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingNamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ExistingObjectPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NewOntologyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingAnnotationPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingClassException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingDataPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingEntityException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingNamedIndividualException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/NonExistingObjectPropertyException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/ObjectPropertyExpressionException.java"/>
+        <pathelement location="./src/uk/ac/ebi/brain/error/StorageException.java"/>
     </path>
     <target name="init">
+        <delete dir="WEB-INF/classes"/>
         <mkdir dir="build"/>
+        <mkdir dir="WEB-INF/classes"/>
         <copy includeemptydirs="false" todir="build">
             <fileset dir="${src.link}">
                 <exclude name="**/*.java"/>
@@ -145,7 +164,7 @@
         <delete dir="build"/>
     </target>
     
-    <target depends="init, compile, copy, clean" name="build"/>
+    <target depends="jdoc-clean, init, compile, copy, jdoc, clean" name="build"/>
  
     <target depends="init" name="compile">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -160,4 +179,16 @@
         </copy>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+	
+	<!-- Generate javadocs for current project into doc -->
+	<target name="jdoc-clean">
+        <delete dir="jdoc"/>
+        <mkdir dir="jdoc"/>
+    </target>
+
+    <target name="jdoc" depends="jdoc-clean" description="generate documentation">
+    	<javadoc destdir="./jdoc" sourcepath="./src/" additionalparam="-subpackages java -exclude java.net:java.lang" />
+    </target>
+
 </project>
+

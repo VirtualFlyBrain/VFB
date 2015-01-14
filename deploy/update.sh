@@ -51,8 +51,8 @@ then
         find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
     
         echo "checking any direct references to website url is set to the branch site"
-        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
-        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
+        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
+        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed 
     
         echo "Recompiling the site..."
         nice ant
@@ -80,6 +80,12 @@ then
         cat flybase
         echo "OWL date:"
         cat owldate
+        if [ `git diff --name-only HEAD~1 | grep "deploy/attributes\|deploy/config" | wc -l` -gt 0 ]
+        then
+            echo "updating git filters"
+            cp deploy/attributes .git/info/
+            cp deploy/config .git/
+        fi
         if [ `git diff --name-only HEAD~1 | grep "\.sed" | wc -l` -gt 0 ]
         then
             echo "checking filters to use correct branch names"
@@ -110,18 +116,18 @@ then
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
         fi
-        if [ `git diff --name-only HEAD~1 | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl|\.java" | wc -l` -gt 0 ]
         then
             echo "checking any direct references to website url is set to the branch site"
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenClean.sed
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' | xargs sed -i -f filters/FiltGenSmudge.sed 
+            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
+            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed 
         fi
-        if [ `git diff --name-only HEAD~1 | grep "src/" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "src/\|build\.xml" | wc -l` -gt 0 ]
         then
             echo "Recompiling the site..."
             nice ant
         fi
-        if [ `git diff --name-only HEAD~1 | grep "\.owl" | wc -l` -gt 0 ]
+        if [ `git diff --name-only HEAD~1 | grep "\.owl\|deploy/start" | wc -l` -gt 0 ]
         then
             echo "Redeploying ontology server..."
             nice deploy/start-${branch}-Ont-Server.sh
