@@ -48,29 +48,6 @@ public abstract class AOwlResultParser {
 	 * @param id
 	 * @return
 	 */
-//	public OntBean getOntBeanForId(String id) {
-//		try {
-//			String iri = OntBean.idAsOWL(id);
-//			if (id.toLowerCase().contains("vfb")){
-//				iri = "http://www.virtualflybrain.org/owl/" + OntBean.idAsOWL(id);
-//			}	
-//			OWLObject oo = this.ogw.getOWLObject(iri);
-//			OWLEntity oe = (OWLEntity)oo;
-//			if (oe == null){
-//				LOG.debug("OGW: " + this.ogw + " ID: " + OntBean.idAsOWL(id));
-//				//LOG.debug("IRI: " + iri );
-//				LOG.debug("OO: " + oo);
-//				LOG.debug("OE: " + oe);
-//				LOG.debug("from ontology: " + this.ontology.toString());
-//			}
-//			return this.getOntBeanForEntity(oe);
-//		}
-//		catch (Exception ex) {
-//			ex.printStackTrace();
-//			LOG.debug("Failed to get entity for" + id + "from ontology" + this.ontology.toString());
-//			return null;
-//		}
-// 	}
 	
 	public OntBean getOntBeanForId(String id) {
 		try {
