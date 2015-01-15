@@ -69,6 +69,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
 			LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
+			List<String> synXrefs = new ArrayList<String>();
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
