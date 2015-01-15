@@ -11,12 +11,14 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubBeanManager {
 	PubDAO dao;
+	protected static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
 	public void setDao(PubDAO dao) {
 		this.dao = dao;
 	}
 	
 	public List<PubBean> getBeanListById(String id){
+		LOG.debug("getBeanListById: " + id);
 		List<PubBean> beanList = dao.getById(id);
 		return beanList;
 	}
