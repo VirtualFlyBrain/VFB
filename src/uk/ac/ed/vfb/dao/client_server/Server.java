@@ -43,7 +43,7 @@ public class Server {
 	 * Default constructor
 	 */
 	public Server() {
-		LOG.debug("Creating a server: " + this);
+		//LOG.debug("Creating a server: " + this);
 		this.init();
 	}
 
@@ -51,10 +51,10 @@ public class Server {
 	 * In this method we try to serve connections from client
 	 */
 	public void serveClients(){
-		LOG.debug("ServeClients: " + this);
+		//LOG.debug("ServeClients: " + this);
 		try {
 			serverSocket = new ServerSocket(Server.port, 0, InetAddress.getByName(Server.host));
-			LOG.debug("Wainting for a connection on : " + serverSocket.getLocalSocketAddress());
+			//LOG.debug("Wainting for a connection on : " + serverSocket.getLocalSocketAddress());
 			while(true){
 				ClientHandler thread = new ClientHandler(serverSocket);
 				thread.start();
@@ -135,7 +135,7 @@ public class Server {
 				in = new ObjectInputStream(clientSocket.getInputStream());
 				out = new ObjectOutputStream(clientSocket.getOutputStream());
 				this.query = (String) in.readObject();
-				LOG.debug("Query: " + query);
+				//LOG.debug("Query: " + query);
 				//We assume that query should either start with one of OntQueryQueue.QUERY_TYPES or
 				// the query type will be missing - for the getBeanForId(id) queries
 				OntQueryQueue oqq = new OntQueryQueue(query);
