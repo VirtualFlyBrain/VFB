@@ -4,6 +4,7 @@ if [ -d .git ] && [ $branch ]
 then
     current=`git rev-parse HEAD`
     nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git pull origin $branch' 2>&1
+    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git fetch --tags' 2>&1
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
