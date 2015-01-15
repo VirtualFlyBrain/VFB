@@ -75,8 +75,8 @@ public class OwlResultParserClass extends AOwlResultParser {
 					LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					syns.add(syn.getLabel());
 					// adding synonyn xrefs to references list
-					synXrefs = syn.getXrefs();
-					if (synXrefs!=null) {
+					if (syn.getXrefs()!=null) {
+						synXrefs = Arrays.toString(syn.getXrefs().toArray());
 						for (String synXref:synXrefs){
 							axioms.add(synXref);
 						}
