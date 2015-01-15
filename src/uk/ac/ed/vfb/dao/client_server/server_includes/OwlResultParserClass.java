@@ -63,7 +63,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
 			}
-			ob.setRefs(axioms);
+			
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
@@ -72,10 +72,20 @@ public class OwlResultParserClass extends AOwlResultParser {
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
-					syns.add(syn.getLabel());   
+					syns.add(syn.getLabel());
+					// adding synonyn xrefs to references list
+					synXrefs = syn.getXrefs();
+					if (synXrefs!=null) {
+						for (String synXref:synXrefs){
+							axioms.add(synXref);
+						}
+					}
 				}
 				ob.setSynonyms(syns);
 			}
+			// removing duplicates and adding full ref list
+			axioms = new ArrayList<String>(new HashSet<String>(axioms));
+			ob.setRefs(axioms);
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
 			LOG.debug("=========== rels ==============" + rels.size());
