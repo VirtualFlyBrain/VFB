@@ -30,8 +30,9 @@ public class OntBeanController implements Controller {
 		String id = req.getParameter("fbId");
 		OntBean ob = this.obm.getBeanForId(id);		
 		modelAndView.addObject("ontBean", ob);
+		LOG.debug("For Id: "+ getId().toString());
 		List<PubBean> pbList = pbm.getBeanListById(ob.getId());
-//		LOG.debug("Found publications:"+ pbList.size());
+		LOG.debug("Found publications:"+ pbList.size());
 		modelAndView.addObject("refs", pbList);		
 		return modelAndView;
 	}
