@@ -29,6 +29,9 @@ public class PubDAO extends AQueryDAO {
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
 		}
+		if (results == null){
+			LOG.error("Error resolving ref: " + id);
+		}
 		return results;
 	}
 
