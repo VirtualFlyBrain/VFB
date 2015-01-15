@@ -137,7 +137,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 		catch (Exception e) {
 			// TODO: handle exception
 			//Return whatever OntBean is created so far
-			LOG.debug("NAME: " + ogw.getLabelOrDisplayId(result) + " ; " + ogw.getAnnotationValue(result, defPropery) + " :  "  + ogw.getAnnotationValue(result, commentPropery));
+			LOG.debug("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
 			LOG.error(e.getMessage());
 			e.printStackTrace();
 		}
