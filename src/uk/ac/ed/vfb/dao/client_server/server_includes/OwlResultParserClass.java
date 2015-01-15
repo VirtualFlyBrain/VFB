@@ -86,6 +86,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
+			LOG.debug("Extended Refs: /n");
+			for (String axiom:axioms){
+				LOG.debug(axiom.toString() + "\n");
+			}
 			ob.setRefs(axioms);
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
