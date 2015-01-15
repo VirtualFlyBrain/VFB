@@ -86,7 +86,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
-			LOG.debug("Extended Refs: /n");
+			LOG.debug("Extended Refs: \n");
 			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
 			}
