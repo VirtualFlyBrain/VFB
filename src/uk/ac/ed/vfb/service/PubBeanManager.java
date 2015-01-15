@@ -1,6 +1,8 @@
 package uk.ac.ed.vfb.service;
 
 import java.util.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import uk.ac.ed.vfb.dao.db.PubDAO;
 import uk.ac.ed.vfb.model.PubBean;
 
