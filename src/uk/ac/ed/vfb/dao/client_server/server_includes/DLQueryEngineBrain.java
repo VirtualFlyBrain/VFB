@@ -24,13 +24,13 @@ public class DLQueryEngineBrain extends ADLQueryEngine{
 		super(ontologyURL);
 		try {
 			this.brain = new Brain("http://purl.obolibrary.org/obo/", "http://purl.obolibrary.org/obo/fbbt.owl", 32);
-			LOG.debug("BRAIN': " + brain + " this " + this);
+			//LOG.debug("BRAIN': " + brain + " this " + this);
 			brain.learn(ontologyURL);
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		LOG.debug("Ontology: " + this.ontology);
+		//LOG.debug("Ontology: " + this.ontology);
 		this.orp = new OwlResultParserClass(this.ontology);
 	}
 	
