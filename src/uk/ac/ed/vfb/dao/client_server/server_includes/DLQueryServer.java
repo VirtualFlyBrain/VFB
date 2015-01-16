@@ -52,7 +52,7 @@ public class DLQueryServer {
 		engineBrain = new DLQueryEngineBrain(url1);
 		//LOG.debug("Creating Brain Ind reasoner....");
         engineIndividual = new DLQUeryEngineBrainInd(url2);
-//		LOG.debug("Creating JF reasoner....");
+//		//LOG.debug("Creating JF reasoner....");
 //        engineClass = null; //new DLQueryEngineJF(url1, tpbm);
     } 
   
@@ -126,7 +126,7 @@ public class DLQueryServer {
 			//LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
-			//LOG.error(npx.getMessage());
+			LOG.error(npx.getMessage());
 			//LOG.debug("Trying to retrieve individual for id: " + fbbtId);
 			result = engineIndividual.getOntBeanForId(fbbtId);
 			//LOG.debug("Found?: " + result);

@@ -25,7 +25,7 @@ public class StackListController implements Controller{
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String params = req.getQueryString();
-		LOG.info(">>> Manager: " + sbm + " > " + params);
+		//LOG.info(">>> Manager: " + sbm + " > " + params);
 		
 		ModelAndView modelAndView = new ModelAndView("do/annotation/stackList");
 		String id = req.getParameter("id");

@@ -15,10 +15,10 @@ import uk.ac.ed.vfb.model.OntBean;
 
 /**
  * Author: NM
- * For the anatomy file in memory, and given a term id it parses the term info to extract core properties 
+ * For the anatomy file in memory, and given a term id it parses the term info to extract core properties
  * Works for classes
- * such as name, synonyms, etc. 
- * Uses OWLTools  
+ * such as name, synonyms, etc.
+ * Uses OWLTools
  */
 public class OwlResultParserClass extends AOwlResultParser {
 
@@ -27,7 +27,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 	}
 
 	/**
-	 * Convenience wrapper method to retrieve OntBean by OWLEntity 
+	 * Convenience wrapper method to retrieve OntBean by OWLEntity
 	 * @param id
 	 * @return
 	 */
@@ -40,7 +40,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 	}
 
 	/**
-	 * The main parsing method. 
+	 * The main parsing method.
 	 * Invoke:   OntBean ontBean = getOntBeanForClass(result);
 	 * @param result
 	 * @return
@@ -63,7 +63,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//for (String axiom:axioms){
 				//LOG.debug(axiom.toString() + "\n");
 			//}
-			
+
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
@@ -88,7 +88,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
 			//LOG.debug("======== extended xrefs =========" + axioms.size());
 			//for (String axiom:axioms){
-			//	LOG.debug(axiom.toString() + "\n");
+			//	//LOG.debug(axiom.toString() + "\n");
 			//}
 			ob.setRefs(axioms);
 			//relationships
@@ -111,7 +111,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 				}
 				Set<OWLClass> clas = rel.getClassesInSignature();
 				//LOG.debug("=========== rel classes ==============" + clas.size());
-				// We assume the class that is not equal to result(current OWL object) is the relation's target class 
+				// We assume the class that is not equal to result(current OWL object) is the relation's target class
 				OWLClass targetClass= null;
 				for (OWLClass currClass:clas){
 					if (!currClass.getIRI().equals(result.getIRI())) {
@@ -138,17 +138,17 @@ public class OwlResultParserClass extends AOwlResultParser {
 		catch (Exception e) {
 			// TODO: handle exception
 			//Return whatever OntBean is created so far
-			LOG.debug("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
+			//LOG.debug("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
 			LOG.error(e.getMessage());
 			e.printStackTrace();
 		}
 		//Set<OWLSubClassOfAxiom> axioms1 = this.ontology.getSubClassAxiomsForSuperClass((OWLClass)result);
-		////LOG.debug(axioms);
+		//LOG.debug(axioms);
 		return ob;
 	}
-	
+
 	/**
-	 * Convenience wrapper method to retrieve OntBean by id 
+	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
 	 * @return
 	 */
