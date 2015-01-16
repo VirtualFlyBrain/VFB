@@ -39,7 +39,7 @@ public class ThirdPartyBeanManager {
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 		}
-		LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
+		//LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
 	}
 	
 	/**

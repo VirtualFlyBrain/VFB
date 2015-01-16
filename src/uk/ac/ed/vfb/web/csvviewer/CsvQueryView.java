@@ -20,7 +20,7 @@ public class CsvQueryView  extends CsvViewer {
 
 	protected void renderOutput(){
 		String line = "";  
-		LOG.debug("Mamager: " + manager);
+		//LOG.debug("Mamager: " + manager);
 		@SuppressWarnings("unchecked")
 		Iterator<OntBean> it = manager.getResultSet().iterator();		
 		while (it.hasNext()) {
