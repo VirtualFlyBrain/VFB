@@ -26,49 +26,49 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 
 public class FCMappingDAO extends AQueryDAO {
 	@SuppressWarnings("unused")
-	private final String updateSQL = "update third_party_site_lookup set "; 
-	private static final Log LOG = LogFactory.getLog(FCMappingDAO.class); 
+	private final String updateSQL = "update third_party_site_lookup set ";
+	private static final Log LOG = LogFactory.getLog(FCMappingDAO.class);
 
 	/**
-	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query 
+	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query
 	 */
 	@SuppressWarnings({ "unchecked", "unused" })
 	public List<Record> getAll() {
-		String query = "select * from fc_mapping"; 			
-		LOG.debug("Query : " + query);
+		String query = "select * from fc_mapping";
+		//LOG.debug("Query : " + query);
 		long startTime = System.currentTimeMillis();
 		List<Record> results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new FCMappingResultSetExtractor());
 		return results;
 	}
-	
+
 	protected void setUp() {
 		Resource res = new FileSystemResource("build/classes/beans.xml");
 	    XmlBeanFactory factory = new XmlBeanFactory(res);
 	    DataSource vfbDS = (DataSource)factory.getBean("vfbDataSource");
 	    this.setDataSource(vfbDS);
-	    LOG.debug("data source : " + vfbDS);
+	    //LOG.debug("data source : " + vfbDS);
 	}
-	
+
 	private void process(){
 		List<Record> list = this.getAll();
 		for (Record curr: list){
-			LOG.debug("curr:" + curr);
+			//LOG.debug("curr:" + curr);
 		}
-		
+
 	}
-	
+
 	public static void main(String[] args){
 		FCMappingDAO dao = new FCMappingDAO();
 		dao.setUp();
 		dao.process();
 	}
-	
+
 	private class Record {
 		private String vfbid;
 		private String id;
 		private String longName;
 		private String shortName;
-		
+
 		public Record(String vfbid, String id, String longName, String shortName) {
 			super();
 			this.vfbid = vfbid;
@@ -76,20 +76,20 @@ public class FCMappingDAO extends AQueryDAO {
 			this.longName = longName;
 			this.shortName = shortName;
 		}
-		
+
 		public String toString(){
-			return this.vfbid + " : " + this.longName + " > " + this.shortName; 
+			return this.vfbid + " : " + this.longName + " > " + this.shortName;
 		}
-		
+
 	}
-	
+
 	private class FCMappingResultSetExtractor implements ResultSetExtractor, RowMapper {
 
 		public Object extractData(ResultSet rs) throws SQLException {
-			Record res = new Record(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));				
+			Record res = new Record(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 			return res;
 		}
-		
+
 		public Object mapRow(ResultSet rs, int line) {
 			try{
 				return extractData(rs);
@@ -100,5 +100,5 @@ public class FCMappingDAO extends AQueryDAO {
 			}
 		}
 	}
-	
+
 }

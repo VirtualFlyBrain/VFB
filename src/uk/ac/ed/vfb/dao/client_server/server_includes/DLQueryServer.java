@@ -48,11 +48,11 @@ public class DLQueryServer {
         	bundle.getString("resource_path") + bundle.getString("ont_file_owl");
 		String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + 
 	        	bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");//ont_file_owl");
-		LOG.debug("Creating Brain Class reasoner....");
+		//LOG.debug("Creating Brain Class reasoner....");
 		engineBrain = new DLQueryEngineBrain(url1);
-		LOG.debug("Creating Brain Ind reasoner....");
+		//LOG.debug("Creating Brain Ind reasoner....");
         engineIndividual = new DLQUeryEngineBrainInd(url2);
-//		LOG.debug("Creating JF reasoner....");
+//		//LOG.debug("Creating JF reasoner....");
 //        engineClass = null; //new DLQueryEngineJF(url1, tpbm);
     } 
   
@@ -90,12 +90,12 @@ public class DLQueryServer {
 			//Brain
 			queryEngine = engineBrain;
 		}
-		LOG.debug("running: " + queryEngine);
+		//LOG.debug("running: " + queryEngine);
 		Set<OntBean> entities = queryEngine.askQuery(oqq);
 		if (entities != null && !resultStr.isEmpty()){
 			result =  entities;
 		}
-		LOG.debug("Results: " + result.size());
+		//LOG.debug("Results: " + result.size());
 		return result;
 	}
 
@@ -121,15 +121,15 @@ public class DLQueryServer {
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
 		try {
-			LOG.debug("Trying to retrrieve class for id: " + fbbtId);
+			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
-			LOG.debug("Found?: " + result);
+			//LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
-			LOG.debug("Trying to retrrieve individual for id: " + fbbtId);
+			//LOG.debug("Trying to retrieve individual for id: " + fbbtId);
 			result = engineIndividual.getOntBeanForId(fbbtId);
-			LOG.debug("Found?: " + result);
+			//LOG.debug("Found?: " + result);
 		}
 		return result;
 	}

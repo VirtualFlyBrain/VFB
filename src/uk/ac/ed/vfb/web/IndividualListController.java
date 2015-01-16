@@ -31,7 +31,7 @@ public class IndividualListController extends AbstractController{
 	public synchronized ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/individualList");
 		String params = req.getQueryString();
-		LOG.debug(">>> Manager: " + obm + " > " + params);
+		//LOG.debug(">>> Manager: " + obm + " > " + params);
 		String id = req.getParameter("id");
 		// Since the second query is fired off with a neuron id, we need to capture the id of 
 		// the original region (clicked neuropil)
@@ -90,7 +90,7 @@ public class IndividualListController extends AbstractController{
 			conVFB.setAutoCommit(true);
 			PreparedStatement pstmtVFB = 
 					conVFB.prepareStatement("SELECT vfbid, fbid, driver_name FROM third_party_flybase_lookup order by (vfbid)");
-			LOG.debug("conVFB " + conVFB);
+			//LOG.debug("conVFB " + conVFB);
 			ResultSet rs1 = pstmtVFB.executeQuery();			
 			IndividualListController.drivers = new HashMap<String, String[]>();
 			String nueronId, fbId, driver;

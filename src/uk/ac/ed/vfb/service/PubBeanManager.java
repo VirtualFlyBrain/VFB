@@ -1,6 +1,8 @@
 package uk.ac.ed.vfb.service;
 
 import java.util.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import uk.ac.ed.vfb.dao.db.PubDAO;
 import uk.ac.ed.vfb.model.PubBean;
 
@@ -11,13 +13,16 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubBeanManager {
 	PubDAO dao;
+	protected static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
 	public void setDao(PubDAO dao) {
 		this.dao = dao;
 	}
 	
 	public List<PubBean> getBeanListById(String id){
+		//LOG.debug("getBeanListById: " + id);
 		List<PubBean> beanList = dao.getById(id);
+		//LOG.debug("Returned beanlist: " + beanList.toString());
 		return beanList;
 	}
 

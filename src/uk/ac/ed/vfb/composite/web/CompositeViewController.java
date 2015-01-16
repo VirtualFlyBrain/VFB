@@ -43,9 +43,9 @@ public class CompositeViewController extends MultiActionController{
 				//Only allow up to 3 stacks in the composite
 				if (cvb.getStackCont()<3){
 					String id = ids[0];
-					LOG.debug("ID: " + id);
+					//LOG.debug("ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					LOG.debug("TPB: " + tpb);
+					//LOG.debug("TPB: " + tpb);
 					errorMsg = cvb.addStack(tpb);
 				}
 				else{
@@ -91,7 +91,7 @@ public class CompositeViewController extends MultiActionController{
 			}
 		}
 		modelAndView.addObject("composite", cvb);
-		LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Composite.stacks : " + cvb.getStacks().size());
+		//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Composite.stacks : " + cvb.getStacks().size());
 		if (modelAndView.getModelMap().get("colours") == null) {
 			modelAndView.addObject("colours", CompositeViewBean.COLOUR_NAMES);
 		}
