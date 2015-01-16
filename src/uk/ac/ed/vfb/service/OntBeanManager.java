@@ -34,12 +34,12 @@ public class OntBeanManager extends APageable {
 	/** Individuals for id can not be found in run-time, so we need to 
 		 pre-create all the individual beans first*/
 	private void getIndividuals() {
-		LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Trying to create individuals, found beans: " +  " > " + ontBeans.size()) ;
+		//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Trying to create individuals, found beans: " +  " > " + ontBeans.size()) ;
 		if (ontBeans.size() < individualBeanCount) {
 			Set<OntBean> individuals = getBeanListForQuery(GET_ALL_INDIVIDUALS);
 			addBeansToHash(individuals);
 			individualBeanCount = ontBeans.size();
-			LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Individuals created" + ontBeans.size() + "> " + individuals.size());
+			//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Individuals created" + ontBeans.size() + "> " + individuals.size());
 		}
 	}
 	
@@ -49,9 +49,9 @@ public class OntBeanManager extends APageable {
 	 * @return
 	 */
 	public Set<OntBean> getBeanListForQuery(String query){
-		LOG.debug("OWL Query: " + query);
+		//LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
-		LOG.debug("REsultSEt: " + this.resultSet);
+		//LOG.debug("REsultSEt: " + this.resultSet);
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
 		//Only use setThirdPartyBeans if tpbm is not null.
@@ -61,7 +61,7 @@ public class OntBeanManager extends APageable {
 		}
 		addBeansToHash(this.resultSet);
 		long endTime = System.currentTimeMillis();
-		LOG.debug("Total time creating all the beans is : "+ (endTime-startTime) + " Bean count: " + resultSet.size());
+		//LOG.debug("Total time creating all the beans is : "+ (endTime-startTime) + " Bean count: " + resultSet.size());
 		return resultSet;
 	}
 
@@ -74,20 +74,20 @@ public class OntBeanManager extends APageable {
 	}
 
 	public OntBean getBeanForId(String fbbtId){
-		LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
+		//LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
-		LOG.debug("bean = " + result);
+		//LOG.debug("bean = " + result);
 		if (result == null) {
-			LOG.debug("Creating new bean");
+			//LOG.debug("Creating new bean");
 			result = ontClient.getBeanForId(fbbtId);
 			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
 			if ( tpb!=null){
 				tpb.setName(result.getName());
 			}
 			result.setThirdPartyBean(tpb);
-			LOG.debug("OBM result: " + result);
+			//LOG.debug("OBM result: " + result);
 			this.ontBeans.put(result.getFbbtId(), result);
-			LOG.debug("new bean:  " + result);
+			//LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
@@ -100,7 +100,7 @@ public class OntBeanManager extends APageable {
 				tpb.setName(ob.getName());
 			}
 			ob.setThirdPartyBean(tpb);
-//			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean() + " parent: " + tpb.getParentFBbt());
+//			//LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean() + " parent: " + tpb.getParentFBbt());
 		}
 	}
 	

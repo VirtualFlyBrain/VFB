@@ -27,7 +27,7 @@ public class GeneListController implements Controller{
 	@SuppressWarnings("unchecked")
 	public synchronized ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String params = req.getQueryString();
-		LOG.info(">>> Manager: " + gbm + " > " + params);
+		//LOG.info(">>> Manager: " + gbm + " > " + params);
 		ModelAndView modelAndView = new ModelAndView("do/geneList");
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");

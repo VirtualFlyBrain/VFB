@@ -110,7 +110,7 @@ public class AutocompleteDAO extends AQueryDAO {
 		if (this.synSet != null && this.synSet.size() >0 ) return;
 		// Generate list of all known OntBeans for the OWL_QUERY				
 		String query = TYPES.get(this.type);
-//		LOG.debug("Type: "+ this.type + " Query: " + query);
+//		//LOG.debug("Type: "+ this.type + " Query: " + query);
 		Set<OntBean> results = obm.getBeanListForQuery(query);
 		// Feed a list of ids to the SQL runner and obtain a list of records 
 		List records = this.getByList(results);
@@ -140,7 +140,7 @@ public class AutocompleteDAO extends AQueryDAO {
 				ob.getSynonyms().add(curr.get("synname").toString());
 			}
 		}
-		LOG.debug("createSynSet: " + synSet.size());
+		//LOG.debug("createSynSet: " + synSet.size());
 		// Obtain a list of synonyms if needed (just an example here)
 		//		getSynList(synSet);
 	}

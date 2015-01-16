@@ -124,7 +124,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * @return
 	 */
 	public String getFbbtIdAsOWL() {
-		return fbbtId.replace(":", "_");
+		return fbbtId.replace(":", "_").replace("fbbt","FBbt");
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * @return
 	 */
 	public String getFbbtIdAsOBO() {
-		return fbbtId.replace("_", ":");
+		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * @return
 	 */
 	public static String idAsOWL(String fbbtId) {
-		return fbbtId.replace(":", "_");
+		return fbbtId.replace(":", "_").replace("fbbt","FBbt");
 	}
 	
 	/**
@@ -152,7 +152,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * @return
 	 */
 	public static String idAsOBO(String fbbtId) {
-		return fbbtId.replace("_", ":");
+		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
 
 	/**
