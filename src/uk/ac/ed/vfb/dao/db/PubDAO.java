@@ -22,12 +22,17 @@ public class PubDAO extends AQueryDAO {
 	 */
 	public List<PubBean> getById(String id) {
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
+		//LOG.debug("MiniRef query: " + query);
 		List<PubBean> results = null;
 		try {
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
+		}
+		//LOG.debug("MiniRef query results: " + results);
+		if (results == null){
+			LOG.error("Error resolving ref: " + id);
 		}
 		return results;
 	}

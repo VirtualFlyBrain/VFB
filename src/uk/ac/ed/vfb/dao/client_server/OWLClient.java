@@ -30,7 +30,7 @@ public class OWLClient {
 
 	public OWLClient() {
 		super();
-		LOG.debug("Creating a client: " + this);	
+		//LOG.debug("Creating a client: " + this);	
 	}
 
 
@@ -39,10 +39,10 @@ public class OWLClient {
 		if (argv != null && argv.length > 0) {
 			try {				
 				Set<OntBean> results = client.askQuery(argv[0]);
-				LOG.info("Asking query: " + argv[0] + " \nResults found: " + results.size());
+				//LOG.info("Asking query: " + argv[0] + " \nResults found: " + results.size());
 			} catch (Exception e) {
 				e.printStackTrace();
-				//LOG.error("HelloClient exception: " + e.getMessage());
+				LOG.error("HelloClient exception: " + e.getMessage());
 			}
 		}
 		else{
@@ -65,10 +65,10 @@ public class OWLClient {
 	 * @return Set<OntBean>
 	 */
 	public Set<OntBean> askQuery(String query){
-		LOG.debug("Asking query: " + query);
+		//LOG.debug("Asking query: " + query);
 		try {
 			Set<OntBean> results = this.askServer(query);
-			LOG.debug("Query results: " + results);
+			//LOG.debug("Query results: " + results);
 			return results;
 		}catch (Exception e){
 			LOG.error("Ask ontology server exception: " + e.getMessage());

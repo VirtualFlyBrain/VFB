@@ -45,11 +45,11 @@ public abstract class ADLQueryEngine {
 	}
 
 	public ADLQueryEngine(String ontologyURL) {
-		LOG.debug("Loading ontology for: " + this.getClass() + "...");
+		//LOG.debug("Loading ontology for: " + this.getClass() + "...");
 		try {
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
-			LOG.debug("Ontology: " + ontologyURL);
+			//LOG.debug("Ontology: " + ontologyURL);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -93,7 +93,7 @@ public abstract class ADLQueryEngine {
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
 		//LOG.debug("bean = " + result);
 		if (result == null) {
-			LOG.debug("Creating new bean");
+			//LOG.debug("Creating new bean");
 			result = orp.getOntBeanForId(entityid);
 			this.ontBeans.put(result.getFbbtId(), result);
 			//LOG.debug("new bean:  " + result);
