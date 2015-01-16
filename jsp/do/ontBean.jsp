@@ -114,6 +114,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
 				<br />
 			</c:forEach>
+			<c:forEach items="${ontBeans.refs}" var="curr" varStatus="status">
+			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+			&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(curr, 'FlyBrain_NDB:', '')}&-find=-find" target="_new">${fn:replace(curr, 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
+				<br />
+			</c:forEach>
 		</p>
 	</c:if>
 <p>
