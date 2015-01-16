@@ -9,7 +9,7 @@ import uk.ac.ed.vfb.web.exception.SessionExpiredException;
 
 /**
  * A parent class for all query result sets that are outputted to the user.
- * Provides pagination and navigation between pages; allows to set page size 
+ * Provides pagination and navigation between pages; allows to set page size
  * @author nmilyaev
  */
 
@@ -17,15 +17,15 @@ public class APageable {
 	/** The bean set to work with */
 	protected SortedSet resultSet;
 	/** How many entries per page - default value */
-	private int perPage = 100; 
+	private int perPage = 100;
 	/** number of current page */
 	private int currPage; 	// Min = 1
 	/** Records displayed on the current page */
 	private SortedSet pageRecords;
-	private static final Log LOG = LogFactory.getLog(APageable.class); 
-	
+	private static final Log LOG = LogFactory.getLog(APageable.class);
+
 	public APageable() {
-		resultSet = new TreeSet();	
+		resultSet = new TreeSet();
 	}
 
 	public void setPerPage(HttpServletRequest req) {
@@ -37,13 +37,13 @@ public class APageable {
 		catch (NumberFormatException ex){
 			// No or invalid Per "page" request parameter; try session, if failed set to 0
 			try{
-				perPageI = (Integer)req.getSession().getAttribute("perPage");			
+				perPageI = (Integer)req.getSession().getAttribute("perPage");
 			}
 			catch (Exception nex){
 				perPageI=100;
 			}
 		}
-		this.setPerPage(perPageI);		
+		this.setPerPage(perPageI);
 		req.getSession().setAttribute("perPage", perPageI);
 	}
 
@@ -77,8 +77,8 @@ public class APageable {
 	 * @return
 	 */
 	public Set getPageRecords(){
-		LOG.info("CurrPage: " + currPage + " Per page: " + this.perPage + " Pages: " + getMaxPage() + " Records: " + resultSet.size());
-		int start = (currPage-1) * perPage; 
+		//LOG.info("CurrPage: " + currPage + " Per page: " + this.perPage + " Pages: " + getMaxPage() + " Records: " + resultSet.size());
+		int start = (currPage-1) * perPage;
 		int end = (currPage * perPage) - 1;
 		return getSubSet(start, end);
 	}
@@ -104,7 +104,7 @@ public class APageable {
 		return getPageRecords();
 	}
 
-	/** 
+	/**
 	 * Max(last) page number
 	 * @return
 	 */
@@ -114,7 +114,7 @@ public class APageable {
 		}
 		catch(NullPointerException ex){
 			throw new SessionExpiredException("");
-		}			
+		}
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class APageable {
 	 */
 	public Set getPreviousPage(){
 		currPage = (currPage<=1)?1:currPage - 1;
-		return getPageRecords();	
+		return getPageRecords();
 	}
 
 	/**
@@ -142,18 +142,18 @@ public class APageable {
 		if (currPage > maxPage - 3){
 			startInd = maxPage - 4;
 		}
-		int navSize = 5; 
+		int navSize = 5;
 		if (maxPage < 5){
 			navSize = maxPage;
-			startInd = 1; 
+			startInd = 1;
 		}
-		StringBuffer pageLinks = new StringBuffer(); 
+		StringBuffer pageLinks = new StringBuffer();
 		for (int i = 0; i<navSize; i++){
 			pageLinks.append( (currPage==startInd+i)?(startInd+i) + "&nbsp;":getLink(startInd+i, params)  );
 		}
-		result = "Records found: " + resultSet.size() + " Page "+ currPage + " of " + maxPage + 
+		result = "Records found: " + resultSet.size() + " Page "+ currPage + " of " + maxPage +
 		((maxPage > 1)?" <a href=\"?" + params + "&page=prev\">Previous</a>&nbsp;":"") +
-		((maxPage > 1)?pageLinks.toString():"") + 
+		((maxPage > 1)?pageLinks.toString():"") +
 		((maxPage > 1)?"<a href=\"?" + params + "&page=next\">Next</a>":"");
 		return result;
 	}
@@ -167,12 +167,12 @@ public class APageable {
 			params = "";
 		params = URLDecoder.decode(params, "UTF-8");
 		int paramInd = params.indexOf("&perPage");
-		if (paramInd >= 1){ 
-			params = params.substring(0, paramInd);	
+		if (paramInd >= 1){
+			params = params.substring(0, paramInd);
 		}
 		paramInd = params.indexOf("&page");
-		if (paramInd >= 1){ 
-			params = params.substring(0, paramInd);	
+		if (paramInd >= 1){
+			params = params.substring(0, paramInd);
 		}
 		return params;
 	}
@@ -185,10 +185,10 @@ public class APageable {
 	 * Used to produce a per-page result sets
 	 */
 	private Set getSubSet(int start, int end) {
-		Set result = new TreeSet(); 
+		Set result = new TreeSet();
 		Iterator it = resultSet.iterator();
 		int i = 0;
-		while (it.hasNext()) { 
+		while (it.hasNext()) {
 			Object curr = it.next();
 			if (i >= start && i <= end) {
 				result.add(curr);
@@ -196,6 +196,6 @@ public class APageable {
 			i++;
 		}
 		return result;
-	}  
+	}
 
 }
