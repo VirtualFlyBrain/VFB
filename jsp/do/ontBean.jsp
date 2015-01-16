@@ -118,6 +118,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
 			&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(curr, 'FlyBrain_NDB:', '')}&-find=-find" target="_new">${fn:replace(curr, 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
 				<br />
+			</c:if>
 			</c:forEach>
 		</p>
 	</c:if>
