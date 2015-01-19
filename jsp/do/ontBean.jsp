@@ -105,8 +105,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	<b>Synonyms: </b><br />
 	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-		<c:set var="temp" value="${fn:replace(curr, '(', '<sub>(')}" />
-		&nbsp;&nbsp;&nbsp; * ${fn:replace(temp, ')', ')</sub>')}<br />
+		<c:set var="temp" value="${fn:replace(curr, '(', '<sup>(')}" />
+		&nbsp;&nbsp;&nbsp; * ${fn:replace(temp, ')', ')</sup>')}<br />
 	</c:forEach>
 	<c:if test="${fn:length(refs)>0}">
 		<p>
@@ -118,7 +118,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
 			<c:set var="currParts" value="${fn:split(curr, ',')}" />
 			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sub>${currParts[0]}</sub> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
 				<br />
 			</c:if>
 			</c:forEach>
