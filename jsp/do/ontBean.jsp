@@ -105,7 +105,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	<b>Synonyms: </b><br />
 	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-		&nbsp;&nbsp;&nbsp; * ${fn:replace(fn:replace(curr, '(', '<sub>('), ')', ')</sub>'}<br />
+		<c:set var="temp" value="${fn:replace(curr, '(', '<sub>(')}" />
+		&nbsp;&nbsp;&nbsp; * ${fn:replace(temp, ')', ')</sub>'}<br />
 	</c:forEach>
 	<c:if test="${fn:length(refs)>0}">
 		<p>
