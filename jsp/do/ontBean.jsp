@@ -141,6 +141,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />
+		<br />
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
 			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
