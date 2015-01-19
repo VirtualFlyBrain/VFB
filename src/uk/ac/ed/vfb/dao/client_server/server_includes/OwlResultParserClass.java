@@ -70,7 +70,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
-			Int refI = 1;
+			int refI = 1;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
