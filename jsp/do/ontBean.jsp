@@ -123,11 +123,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<br />
 			</c:forEach>
 			<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
-			<c:set var="currParts" value="${fn:split(curr, ',')}" />
-			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
-				<br />
-			</c:if>
+				<c:set var="currParts" value="${fn:split(curr, ',')}" />
+				<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+					&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
+					<br />
+				</c:if>
 			</c:forEach>
 		</p>
 	</c:if>
@@ -157,8 +157,14 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	
 	
-	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new"><img alt="Check in FlyBase" src="http://flybase.org/static_pages/images/global/fly_logo.png" height="50px"/></a> &nbsp; &nbsp;
-	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new"><img alt="View/edit in NeuroLex Wiki" src="http://neurolex.org/w/skins/ontoskin3/img/xneurolex_logo.png.pagespeed.ic.ZH6KcPN6xV.png" height="50px" /></a>
+	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="Check in FlyBase" ><img alt="Check in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
+	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
+	<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
+				<c:set var="currParts" value="${fn:split(curr, ',')}" />
+				<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+					<a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new" title="${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}" ><img alt="${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
+				</c:if>
+			</c:forEach>
 	<c:if test="${!isNeuron && !isClone}">
 		<c:set var="isNeuropil" value="true"/>
 		&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
