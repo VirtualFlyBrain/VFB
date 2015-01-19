@@ -155,8 +155,10 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</p>
 </c:if>
 <p>
-	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">Check in FlyBase >> </a> &nbsp; &nbsp;
-	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new">View/edit in NeuroLex Wiki >> </a>
+	
+	
+	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new"><img alt="Check in FlyBase" src="http://flybase.org/static_pages/images/global/fly_logo.png" height="50px"/></a> &nbsp; &nbsp;
+	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new"><img alt="View/edit in NeuroLex Wiki" src="http://neurolex.org/w/skins/ontoskin3/img/xneurolex_logo.png.pagespeed.ic.ZH6KcPN6xV.png" height="50px" /></a>
 	<c:if test="${!isNeuron && !isClone}">
 		<c:set var="isNeuropil" value="true"/>
 		&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
