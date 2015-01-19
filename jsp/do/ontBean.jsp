@@ -116,7 +116,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<c:forEach items="${ontBean.refs}" var="currRef" varStatus="status">
 					<c:set var="currParts" value="${fn:split(currRef, ',')}" />
 					<c:if test="${fn:contains(currParts[1], curr.id)}">
-						<c:set var="temp" value="${temp}${currParts[1]}" />
+						<c:set var="temp" value="${temp}${currParts[0]}" />
 					</c:if>
 				</c:forEach>
 				&nbsp;&nbsp;&nbsp; * <sup>${temp}</sup><a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
