@@ -141,7 +141,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />
-		<br />
+		
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
 			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
@@ -157,7 +157,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </c:if>
 <p>
 	<b>External Links: </b><br />
-	
+	<br />
 	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="Check in FlyBase" ><img alt="Check in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
 	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
 	<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
