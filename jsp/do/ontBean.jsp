@@ -113,7 +113,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<c:forEach items="${ontBean.refs}" var="currSubRef" varStatus="status">
 					<c:set var="currSubParts" value="${fn:split(currSubRef, ',')}" />
 					<c:if test="${fn:contains(currSubParts[1], currRef.id)}">
-						<c:if test="${fn:contains(curr, currSubParts[0]}">
+						<c:if test="${fn:contains(curr, currSubParts[0])}">
 							<c:set var="temp" value="${temp}${miniRefParts[0]}, ${miniRefParts[1]} " />
 						</c:if>
 					</c:if>
