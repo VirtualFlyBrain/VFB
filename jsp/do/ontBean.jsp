@@ -108,29 +108,31 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:set var="temp" value="${fn:replace(curr, '(', '<sup>(')}" />
 		&nbsp;&nbsp;&nbsp; * ${fn:replace(temp, ')', ')</sup>')}<br />
 	</c:forEach>
-	<c:if test="${fn:length(refs)>0}">
-		<p>
-			<b>References: </b><br />
-			<c:forEach items="${refs}" var="curr" varStatus="status">
-				<c:set var="temp" value="" />
-				<c:forEach items="${ontBean.refs}" var="currRef" varStatus="status">
-					<c:set var="currParts" value="${fn:split(currRef, ',')}" />
-					<c:if test="${fn:contains(currParts[1], curr.id)}">
-						<c:set var="temp" value="${temp}${currParts[0]} " />
-					</c:if>
-				</c:forEach>
-				&nbsp;&nbsp;&nbsp; * <sup>${temp}</sup><a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
-				<br />
-			</c:forEach>
-			<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
-				<c:set var="currParts" value="${fn:split(curr, ',')}" />
-				<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-					&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
-					<br />
+</p>
+<c:if test="${fn:length(refs)>0}">
+	<p>
+		<b>References: </b><br />
+		<c:forEach items="${refs}" var="curr" varStatus="status">
+			<c:set var="temp" value="" />
+			<c:set var="miniRefParts" value="${fn:split(curr.miniref, ',')}" />
+			<c:forEach items="${ontBean.refs}" var="currRef" varStatus="status">
+				<c:set var="currParts" value="${fn:split(currRef, ',')}" />
+				<c:if test="${fn:contains(currParts[1], curr.id)}">
+					<c:set var="temp" value="${temp}${miniRefParts[0]}, ${miniRefParts[1]} " />
 				</c:if>
 			</c:forEach>
-		</p>
-	</c:if>
+			&nbsp;&nbsp;&nbsp; * <sup>${temp}</sup><a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
+			<br />
+		</c:forEach>
+		<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
+			<c:set var="currParts" value="${fn:split(curr, ',')}" />
+			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+				&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
+				<br />
+			</c:if>
+		</c:forEach>
+	</p>
+</c:if>
 <p>
 	<b>Parent classes: </b><br />
 	<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
