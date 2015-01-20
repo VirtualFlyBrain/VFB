@@ -139,7 +139,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
 			<c:set var="currParts" value="${fn:split(curr, ',')}" />
 			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-				&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new"><sup>${currParts[0]}</sup> ${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
+				&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new">${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
 				<br />
 			</c:if>
 		</c:forEach>
