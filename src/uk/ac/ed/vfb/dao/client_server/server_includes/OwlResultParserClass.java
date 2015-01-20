@@ -76,11 +76,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
-					
+					refIs = "";
+					refExists = false;
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
-						refIs = "";
-						refExists = false;
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
 							refExists = true;
