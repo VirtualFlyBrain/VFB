@@ -119,8 +119,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					</c:if>
 				</c:forEach>
 			</c:forEach>
-			<c:set var="currParts" value="${fn:split(curr, ')')}" />
-			<c:set var="finalRef" value="${currParts[1]} (${temp})" />
+			<c:set var="currParts" value="${fn:split(finalRef, ' ')}" />
+			<c:set var="finalRef" value="${currParts[0]} (${fn:trim(temp)})" />
 		</c:if>	
 		
 		&nbsp;&nbsp;&nbsp; * ${finalRef}<br />
