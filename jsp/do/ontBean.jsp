@@ -156,6 +156,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</p>
 </c:if>
 <p>
+	<br />
 	<b>External Links: </b><br />
 	<br />
 	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="Check in FlyBase" ><img alt="Check in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
