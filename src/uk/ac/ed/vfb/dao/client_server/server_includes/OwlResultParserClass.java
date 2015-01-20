@@ -71,6 +71,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
 			Integer refI = 1;
+			Boolean refExists = false;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
@@ -79,8 +80,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						refIs = "";
+						refExists = false;
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
+							refExists = true;
 							if (refIs != ""){
 								refIs = refIs + "," + refI.toString();
 							}else{
@@ -90,7 +93,12 @@ public class OwlResultParserClass extends AOwlResultParser {
 							refI = refI + 1;
 						}
 					}
-					syns.add(syn.getLabel() + " (" + refIs + ")");
+					if (refExists){
+						syns.add(syn.getLabel() + " (" + refIs + ")");	
+					}else{
+						syns.add(syn.getLabel();
+					}
+					
 				}
 				ob.setSynonyms(syns);
 			}
