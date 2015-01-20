@@ -85,9 +85,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 							refExists = true;
 							if (synXref != ""){
 								if (refIs != ""){
-									refIs = refIs + "," + refI.toString();
+									refIs = refIs + "," + refI.toString() + "-" + synXref;
 								}else{
-									refIs = refI.toString();
+									refIs = refI.toString() + "-" + synXref;
 								}
 								axioms.add("(" + refI.toString() + ")," + synXref);
 								refI = refI + 1;
