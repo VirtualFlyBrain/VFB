@@ -83,13 +83,15 @@ public class OwlResultParserClass extends AOwlResultParser {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
 							refExists = true;
-							if (refIs != ""){
-								refIs = refIs + "," + refI.toString();
-							}else{
-								refIs = refI.toString();
+							if (synXref != ""){
+								if (refIs != ""){
+									refIs = refIs + "," + refI.toString();
+								}else{
+									refIs = refI.toString();
+								}
+								axioms.add("(" + refI.toString() + ")," + synXref);
+								refI = refI + 1;
 							}
-							axioms.add("(" + refI.toString() + ")," + synXref);
-							refI = refI + 1;
 						}
 					}
 					if (refExists){
