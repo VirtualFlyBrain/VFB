@@ -126,7 +126,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:set var="finalRef" value="${currParts[0]} (${fn:trim(temp)})" />
 		</c:if>	
 		
-		&nbsp;&nbsp;&nbsp; * ${finalRef}<br />
+		&nbsp;&nbsp;&nbsp; * ${fn:replace(finalRef, '()', '')}<br />
 	</c:forEach>
 </p>
 <c:if test="${fn:length(refs)>0}">
