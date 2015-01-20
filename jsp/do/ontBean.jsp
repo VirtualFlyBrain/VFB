@@ -105,7 +105,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	<b>Synonyms: </b><br />
 	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
+		<c:set var="finalRef" value="${curr}" />
 		<c:if test="${fn:contains(curr, '(')}">
+				
 			<c:forEach items="${refs}" var="currRef" varStatus="status">
 				<c:set var="temp" value="" />
 				<c:set var="miniRefParts" value="${fn:split(currRef.miniref, ',')}" />
@@ -118,9 +120,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					</c:if>
 				</c:forEach>
 			</c:forEach>
+			<c:set var="currParts" value="${fn:split(curr, ')')}" />
+			<c:set var="finalRef" value="${currParts[1]} (${temp})" />
 		</c:if>	
-		<c:set var="currParts" value="${fn:split(curr, ')')}" />
-		&nbsp;&nbsp;&nbsp; * ${currParts[1]} (${temp})<br />
+		
+		&nbsp;&nbsp;&nbsp; * ${finalRef}<br />
 	</c:forEach>
 </p>
 <c:if test="${fn:length(refs)>0}">
