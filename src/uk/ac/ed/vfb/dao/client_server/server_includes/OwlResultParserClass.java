@@ -96,7 +96,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 					if (refExists){
 						syns.add(syn.getLabel() + " (" + refIs + ")");	
 					}else{
-						syns.add(syn.getLabel();
+						syns.add(syn.getLabel());
 					}
 					
 				}
