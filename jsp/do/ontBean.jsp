@@ -105,43 +105,15 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	<b>Synonyms: </b><br />
 	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-		<c:set var="finalRef" value="${curr}" />
-		<c:if test="${fn:contains(curr, '(')}">
-			<c:set var="temp" value="" />
-			<c:forEach items="${refs}" var="currRef" varStatus="status">
-				<c:set var="miniRefParts" value="${fn:split(currRef.miniref, ',')}" />
-				<c:forEach items="${ontBean.refs}" var="currSubRef" varStatus="status">
-					<c:set var="currSubParts" value="${fn:split(currSubRef, ',')}" />
-					<c:if test="${fn:contains(curr, currSubParts[0])}">
-						<c:if test="${fn:contains(currSubParts[1], currRef.id)}">
-							<c:set var="temp" value="${temp}${miniRefParts[0]}, ${miniRefParts[1]} " />
-						</c:if>
-						<c:if test="${fn:contains(currSubParts[1], 'FlyBrain_NDB')}">
-							<c:set var="temp" value="FlyBrain Neuron DB" />
-						</c:if>
-					</c:if>
-				</c:forEach>
-			</c:forEach>
-			<c:set var="currParts" value="${fn:split(finalRef, ' ')}" />
-			<c:set var="finalRef" value="${currParts[0]} (${fn:trim(temp)})" />
-		</c:if>	
-		
-		&nbsp;&nbsp;&nbsp; * ${fn:replace(finalRef, '()', '')}<br />
+		&nbsp;&nbsp;&nbsp; * ${curr}<br />
 	</c:forEach>
 </p>
 <c:if test="${fn:length(refs)>0}">
 	<p>
 		<b>References: </b><br />
-		<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
-			<br />
-		</c:forEach>
 		<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
-			<c:set var="currParts" value="${fn:split(curr, ',')}" />
-			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-				&nbsp;&nbsp;&nbsp; * <a href="http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=${fn:replace(currParts[1], 'FlyBrain_NDB:', '')}&-find=-find" target="_new">${fn:replace(currParts[1], 'FlyBrain_NDB:', 'FlyBrain Neuron DB Accession number: ')}</a>
-				<br />
-			</c:if>
+			&nbsp;&nbsp;&nbsp; * <a href="${curr.getWebLink()}" target="_new">${curr.miniref}</a>
+			<br />
 		</c:forEach>
 	</p>
 </c:if>
