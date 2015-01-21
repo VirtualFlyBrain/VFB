@@ -6,6 +6,9 @@ import java.util.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import uk.ac.ed.vfb.model.PubBean;
+import uk.ac.ed.vfb.service.PubBeanManager;
+
 /**
  * POJO class for anatomy term. The most important POJO class
  */
@@ -16,7 +19,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String def;
 	protected String comment;	
 	protected List<String> synonyms;
-	protected List<String> refs;
+	protected List<PubBean> refs;
 	/** List of key:value[] pairs describing relationships, eg "FBbt:00000020 :[part_of, abdomen]" */
 	protected Hashtable<String, String[]> relationships;
 	/** Map of key:value pairs, eg., "FBbt:00000006 : head segment" */
@@ -24,6 +27,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String id; //Pure numerical id, without "FBbt:"
 	protected ThirdPartyBean thirdPartyBean; // used for integration with third party sources - use driverRef for linking.
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
+	private PubBeanManager pbm;
 
 	/**
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
@@ -78,12 +82,22 @@ public class OntBean implements Comparable<Object>, Serializable{
 		this.synonyms = synonyms;
 	}
 
-	public List<String> getRefs() {
+	public List<PubBean> getRefs() {
 		return refs;
 	}
 
 	public void setRefs(List<String> refs) {
-		this.refs = refs;
+		List<PubBean> results = null;
+		for (String ref:refs) {
+			try {
+				results.add(ref, pbm.getBeanByRef(ref)); 
+			}
+			catch (Exception ex) {
+				LOG.error("Error setting ref: " + ref );
+				LOG.error("Error: " + ex.getLocalizedMessage());
+			}
+		}
+		this.refs = results;
 	}
 
 	public String getComment() {
