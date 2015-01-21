@@ -13,6 +13,7 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import owltools.graph.OWLGraphWrapper.ISynonym;
 import uk.ac.ed.vfb.model.OntBean;
 
+import uk.ac.ed.vfb.model.PubBean;
 import uk.ac.ed.vfb.service.PubBeanManager;
 
 /**
