@@ -41,7 +41,7 @@ public class PubBeanManager {
 			return bean;
 		}
 		if (ref.contains("FBC")){
-			bean = new PubBean(ref, ref.replace("FBC:", "FlyBase Curator: " );
+			bean = new PubBean(ref, ref.replace("FBC:", "FlyBase Curator: " ));
 			LOG.debug("Returned FBC bean: " + bean.toString());
 			return bean;
 		}
