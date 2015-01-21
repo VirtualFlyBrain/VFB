@@ -6,7 +6,6 @@ import java.util.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.apache.commons.lang.StringUtils;
 
 import uk.ac.ed.vfb.model.PubBean;
 import uk.ac.ed.vfb.service.PubBeanManager;
@@ -30,7 +29,6 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected ThirdPartyBean thirdPartyBean; // used for integration with third party sources - use driverRef for linking.
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
 	private PubBeanManager pbm;
-	private StringUtils StrUtil;
 
 	/**
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
@@ -91,7 +89,12 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public void setRefs(List<String> refs) {
 		List<PubBean> results = null;
-		LOG.debug("Adding refs: " + StrUtil.join(refs, ","));
+		String listString = "";
+		for (String s : refs)
+		{
+		    listString += s + "\t";
+		}
+		LOG.debug("Adding refs: " + listString);
 		for (String ref:refs) {
 			if (ref != null && !ref.isEmpty()){
 				try {
