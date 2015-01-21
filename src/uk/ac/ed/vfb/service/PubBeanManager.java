@@ -27,10 +27,11 @@ public class PubBeanManager {
 	}
 	
 	public PubBean getBeanByRef(String ref){
-		//LOG.debug("getBeanByRef: " + ref);
+		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
-		if (ref.contains("FBrf")){
-			bean = dao.getByRef(ref);
+		if (ref.contains("FlyBase")){
+			String[] parts = ref.split(":");
+			bean = dao.getByRef(split[1]);
 		}else{
 			if (ref.contains("FlyBrain_NDB")){
 				bean = new PubBean(ref, "FlyBrain Neuron DB");
@@ -38,7 +39,7 @@ public class PubBeanManager {
 				LOG.error("Unknown ref: " + ref);
 			}
 		}
-		//LOG.debug("Returned bean: " + bean.toString());
+		LOG.debug("Returned bean: " + bean.toString());
 		return bean;
 	}
 
