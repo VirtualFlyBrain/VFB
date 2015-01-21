@@ -95,6 +95,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 			catch (Exception ex) {
 				LOG.error("Error setting ref: " + ref );
 				LOG.error("Error: " + ex.toString());
+				results.add(new PubBean(ref,ref));
 			}
 		}
 		this.refs = results;
