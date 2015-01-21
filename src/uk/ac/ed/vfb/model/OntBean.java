@@ -90,12 +90,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public void setRefs(List<String> refs) {
 		if (refs != null){	
 			List<PubBean> results = null;
-			String listString = "";
-			for (String s : refs)
-			{
-			    listString += s + "\t";
-			}
-			LOG.debug("Adding refs: " + listString);
+			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
 			for (String ref:refs) {
 				if (ref != null && !ref.isEmpty()){
 					try {
