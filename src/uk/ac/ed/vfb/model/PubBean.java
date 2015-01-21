@@ -1,5 +1,8 @@
 package uk.ac.ed.vfb.model;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description 
  */
@@ -7,6 +10,7 @@ package uk.ac.ed.vfb.model;
 public class PubBean {
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
+	private static final Log LOG = LogFactory.getLog(OntBean.class);
 	
 	public PubBean(String id, String miniref) {
 		super();
@@ -24,11 +28,14 @@ public class PubBean {
 		return miniref;
 	}
 	public String getShortref() {
-		if (miniref.contains(",")){
-			String[] parts = miniref.split(",");
-			return (parts[0] + "," + parts[1]);
+		if (miniref!=null){
+			if (miniref.contains(",")){
+				String[] parts = miniref.split(",");
+				return (parts[0] + "," + parts[1]);
+			}
+			return miniref;
 		}
-		return miniref;
+		return "";
 	}
 	public void setMiniref(String miniref) {
 		this.miniref = miniref;
