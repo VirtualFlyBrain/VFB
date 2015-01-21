@@ -92,7 +92,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 								}else{
 									refIs = pbm.getBeanByRef(synXref).getShortref();
 								}
-								LOG.debug("Returned ref: " + relIs);
+								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
 							}
 						}
