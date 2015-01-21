@@ -24,7 +24,7 @@ public class PubBean {
 		return miniref;
 	}
 	public String getShortref() {
-		if (minref.contains(',')){
+		if (minref.contains(",")){
 			String[] parts = miniref.split(",");
 			return (parts[0] + "," + parts[1]);
 		}
@@ -34,12 +34,12 @@ public class PubBean {
 		this.miniref = miniref;
 	}
 	public String getWebLink() {
-		if (id.contains('FBrf')){
+		if (id.contains("FBrf")){
 			return ("http://flybase.org/reports/" + id +  ".html");
 		}else{
-			if (id.contains('FlyBrain_NDB')){
+			if (id.contains("FlyBrain_NDB")){
 				String[] parts = id.split(":");
-				return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find")
+				return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find");
 		}
 		return ("https://www.google.com/search?q=" + id);
 	}
