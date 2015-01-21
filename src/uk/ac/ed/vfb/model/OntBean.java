@@ -30,6 +30,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected ThirdPartyBean thirdPartyBean; // used for integration with third party sources - use driverRef for linking.
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
 	private PubBeanManager pbm;
+	private StringUtils StrUtil;
 
 	/**
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
@@ -90,7 +91,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public void setRefs(List<String> refs) {
 		List<PubBean> results = null;
-		LOG.debug("Adding refs: " + StringUtils.join(refs, ","));
+		LOG.debug("Adding refs: " + StrUtil.join(refs, ","));
 		for (String ref:refs) {
 			if (ref != null && !ref.isEmpty()){
 				try {
