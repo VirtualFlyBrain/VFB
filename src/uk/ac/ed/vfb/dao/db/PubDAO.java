@@ -36,5 +36,21 @@ public class PubDAO extends AQueryDAO {
 		}
 		return results;
 	}
-
+	
+	public PubBean getByRef(String ref) {
+		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
+		//LOG.debug("MiniRef by ref query: " + query);
+		PubBean results = null;
+		try {
+			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
+		}
+		catch (Exception ex) {
+			LOG.error("Error!!!!" + ex.getLocalizedMessage());
+		}
+		//LOG.debug("MiniRef query results: " + results);
+		if (results == null){
+			LOG.error("Error resolving ref: " + ref);
+		}
+		return results;
+	}
 }
