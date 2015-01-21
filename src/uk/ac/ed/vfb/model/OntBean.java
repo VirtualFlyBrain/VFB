@@ -111,7 +111,9 @@ public class OntBean implements Comparable<Object>, Serializable{
 					}
 				}	
 			}
-			this.refs = results;
+			if (results != null) {
+				this.refs = results;
+			}
 		}
 	}
 
