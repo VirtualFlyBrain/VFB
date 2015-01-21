@@ -24,11 +24,11 @@ public class PubBean {
 		return miniref;
 	}
 	public String getShortref() {
-		if (minref.contains(",")){
+		if (this.minref.contains(",")){
 			String[] parts = miniref.split(",");
 			return (parts[0] + "," + parts[1]);
 		}
-		return miniref;
+		return this.miniref;
 	}
 	public void setMiniref(String miniref) {
 		this.miniref = miniref;
