@@ -42,7 +42,7 @@ public class PubDAO extends AQueryDAO {
 		//LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
 		try {
-			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()).get(0); 
+			results = this.jdbcTemplate.query(query, new PubBean { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
