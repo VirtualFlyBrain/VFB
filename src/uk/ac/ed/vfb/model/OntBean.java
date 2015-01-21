@@ -90,12 +90,17 @@ public class OntBean implements Comparable<Object>, Serializable{
 		List<PubBean> results = null;
 		for (String ref:refs) {
 			try {
-				results.add(pbm.getBeanByRef(ref)); 
+				if (ref.contains(":")){
+					String[] parts = ref.split(":");
+					results.add(pbm.getBeanByRef(parts[1]));	
+				}else
+					results.add(pbm.getBeanByRef(ref));
 			}
 			catch (Exception ex) {
 				LOG.error("Error setting ref: " + ref );
 				LOG.error("Error: " + ex.toString());
 				results.add(new PubBean(ref,ref));
+				LOG.error("Results: " + results.count());
 			}
 		}
 		this.refs = results;
