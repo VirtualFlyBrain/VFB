@@ -34,14 +34,14 @@ public class PubBean {
 		this.miniref = miniref;
 	}
 	public String getWebLink() {
-		if (this.id.contains('FBrf')){
-			return ("http://flybase.org/reports/" + this.id +  ".html");
+		if (id.contains('FBrf')){
+			return ("http://flybase.org/reports/" + id +  ".html");
 		}else{
-			if (this.id.contains('FlyBrain_NDB')){
-				String[] parts = miniref.split(":");
+			if (id.contains('FlyBrain_NDB')){
+				String[] parts = id.split(":");
 				return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find")
 		}
-		return ("https://www.google.com/search?q=" + this.id);
+		return ("https://www.google.com/search?q=" + id);
 	}
 	public String toString(){
 		return this.id + " : " + this.miniref;
