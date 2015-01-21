@@ -98,8 +98,11 @@ public class OntBean implements Comparable<Object>, Serializable{
 						results.add(pbm.getBeanByRef(ref));
 					}catch (Exception ex) {
 						LOG.error("Cant find ref: " + ex.toString());
-						results.add(new PubBean(ref,ref));
-						LOG.error("Defaulting on ref: " + ref );
+						if (ref!=null){
+							LOG.error("Defaulting on ref: " + ref );
+							results.add(new PubBean(ref,ref));
+						}
+						
 					}
 				}	
 			}
