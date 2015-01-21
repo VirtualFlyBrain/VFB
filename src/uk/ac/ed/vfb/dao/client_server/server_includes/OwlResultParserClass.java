@@ -90,7 +90,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 								if (refIs != ""){
 									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
 								}else{
-									refIs = pbm.getBeanByRef(synXref).getShortref();
+									PubBean temp = pbm.getBeanByRef(synXref);
+									LOG.debug("Returned PubBean: " + temp);
+									refIs = temp.getShortref();
+									
 								}
 								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
