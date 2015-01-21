@@ -13,6 +13,8 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import owltools.graph.OWLGraphWrapper.ISynonym;
 import uk.ac.ed.vfb.model.OntBean;
 
+import uk.ac.ed.vfb.service.PubBeanManager;
+
 /**
  * Author: NM
  * For the anatomy file in memory, and given a term id it parses the term info to extract core properties
@@ -21,6 +23,7 @@ import uk.ac.ed.vfb.model.OntBean;
  * Uses OWLTools
  */
 public class OwlResultParserClass extends AOwlResultParser {
+	private PubBeanManager pbm;
 
 	public OwlResultParserClass(OWLOntology ontology) {
 		super(ontology);
@@ -70,7 +73,6 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
-			Integer refI = 1;
 			Boolean refExists = false;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
@@ -82,15 +84,14 @@ public class OwlResultParserClass extends AOwlResultParser {
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
-							refExists = true;
 							if (synXref != ""){
+								refExists = true;
 								if (refIs != ""){
-									refIs = refIs + "," + refI.toString();
+									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
 								}else{
-									refIs = refI.toString();
+									refIs = pbm.getBeanByRef(synXref).getShortref();
 								}
-								axioms.add("(" + refI.toString() + ")," + synXref);
-								refI = refI + 1;
+								axioms.add(synXref);
 							}
 						}
 					}
