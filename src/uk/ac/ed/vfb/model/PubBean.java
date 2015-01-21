@@ -36,11 +36,13 @@ public class PubBean {
 	public String getWebLink() {
 		if (id.contains("FBrf")){
 			return ("http://flybase.org/reports/" + id +  ".html");
-		}else{
-			if (id.contains("FlyBrain_NDB")){
-				String[] parts = id.split(":");
-				return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find");
-			}
+		}
+		if (id.contains("FlyBrain_NDB")){
+			String[] parts = id.split(":");
+			return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find");
+		}
+		if (id.contains("http")){
+			return (id);
 		}
 		return ("https://www.google.com/search?q=" + id);
 	}
