@@ -84,13 +84,15 @@ public class OwlResultParserClass extends AOwlResultParser {
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
-							if (synXref != ""){
+							if (synXref!=null && !synXref.isEmpty()){
 								refExists = true;
+								LOG.debug("Getting short form ref for: " + synXref);
 								if (refIs != ""){
 									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
-								}else{
+								}else
 									refIs = pbm.getBeanByRef(synXref).getShortref();
 								}
+								LOG.debug("Returned ref: " + relIs);
 								axioms.add(synXref);
 							}
 						}
