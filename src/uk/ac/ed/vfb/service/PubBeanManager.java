@@ -25,5 +25,12 @@ public class PubBeanManager {
 		//LOG.debug("Returned beanlist: " + beanList.toString());
 		return beanList;
 	}
+	
+	public PubBean getBeanByRef(String ref){
+		//LOG.debug("getBeanByRef: " + ref);
+		PubBean bean = dao.getByRef(ref);
+		//LOG.debug("Returned bean: " + bean.toString());
+		return bean;
+	}
 
 }
