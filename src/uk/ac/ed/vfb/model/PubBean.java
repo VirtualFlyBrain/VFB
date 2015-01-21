@@ -23,6 +23,13 @@ public class PubBean {
 	public String getMiniref() {
 		return miniref;
 	}
+	public String getShortref() {
+		if (minref.contains(',')){
+			String[] parts = miniref.split(",");
+			return (parts[0] + "," + parts[1]);
+		}
+		return miniref;
+	}
 	public void setMiniref(String miniref) {
 		this.miniref = miniref;
 	}
