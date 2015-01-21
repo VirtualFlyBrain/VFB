@@ -28,13 +28,17 @@ public class PubBean {
 		return miniref;
 	}
 	public String getShortref() {
+		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
 			if (miniref.contains(",")){
 				String[] parts = miniref.split(",");
+				LOG.debug("Returning: " + parts[0] + "," + parts[1]);
 				return (parts[0] + "," + parts[1]);
 			}
+			LOG.debug("Returning: " + miniref);
 			return miniref;
 		}
+		LOG.debug("Returning nothing");
 		return "";
 	}
 	public void setMiniref(String miniref) {
