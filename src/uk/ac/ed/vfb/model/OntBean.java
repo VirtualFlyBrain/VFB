@@ -91,13 +91,16 @@ public class OntBean implements Comparable<Object>, Serializable{
 		if (refs != null && refs.size()>0){	
 			List<PubBean> results = null;
 			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
-			for (String ref:refs) {
+			for (String ref:refs){
 				if (ref != null && !ref.isEmpty()){
+					LOG.debug("Adding ref: " + ref);
 					try {
 						if (ref.contains(":")){
 							String[] parts = ref.split(":");
+							LOG.debug("Split to unique ref: " + parts[1]);
 							results.add(pbm.getBeanByRef(parts[1]));	
 						}else
+							LOG.debug("Unable to split: " + ref);
 							results.add(pbm.getBeanByRef(ref));
 					}
 					catch (Exception ex) {
