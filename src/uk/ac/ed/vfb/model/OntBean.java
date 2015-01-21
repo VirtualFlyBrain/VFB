@@ -89,19 +89,21 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public void setRefs(List<String> refs) {
 		List<PubBean> results = null;
 		for (String ref:refs) {
-			try {
-				if (ref.contains(":")){
-					String[] parts = ref.split(":");
-					results.add(pbm.getBeanByRef(parts[1]));	
-				}else
-					results.add(pbm.getBeanByRef(ref));
-			}
-			catch (Exception ex) {
-				
-				LOG.error("Cant find ref: " + ex.toString());
-				results.add(new PubBean(ref,ref));
-				LOG.error("Defaulting on ref: " + ref );
-			}
+			if (ref != null && !ref.isEmpty()){
+				try {
+					if (ref.contains(":")){
+						String[] parts = ref.split(":");
+						results.add(pbm.getBeanByRef(parts[1]));	
+					}else
+						results.add(pbm.getBeanByRef(ref));
+				}
+				catch (Exception ex) {
+					
+					LOG.error("Cant find ref: " + ex.toString());
+					results.add(new PubBean(ref,ref));
+					LOG.error("Defaulting on ref: " + ref );
+				}
+			}	
 		}
 		this.refs = results;
 	}
