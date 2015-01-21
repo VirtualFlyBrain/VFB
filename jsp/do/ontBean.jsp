@@ -112,7 +112,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<p>
 		<b>References: </b><br />
 		<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="${curr.getWebLink()}" target="_new">${curr.miniref}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="${curr.getWebLink}" target="_new">${curr.miniref}</a>
 			<br />
 		</c:forEach>
 	</p>
