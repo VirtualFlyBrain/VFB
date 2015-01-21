@@ -40,9 +40,11 @@ public class PubBean {
 			if (id.contains("FlyBrain_NDB")){
 				String[] parts = id.split(":");
 				return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find");
+			}
 		}
 		return ("https://www.google.com/search?q=" + id);
 	}
+	
 	public String toString(){
 		return this.id + " : " + this.miniref;
 	}
