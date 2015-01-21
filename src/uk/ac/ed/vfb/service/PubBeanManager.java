@@ -28,17 +28,16 @@ public class PubBeanManager {
 	
 	public PubBean getBeanByRef(String ref){
 		//LOG.debug("getBeanByRef: " + ref);
+		PubBean bean = new PubBean(ref, ref);
 		if (ref.contains("FBrf")){
-			PubBean bean = dao.getByRef(ref);
+			bean = dao.getByRef(ref);
 		}else{
 			if (ref.contains("FlyBrain_NDB")){
-				PubBean bean = new PubBean(ref, "FlyBrain Neuron DB");
+				bean = new PubBean(ref, "FlyBrain Neuron DB");
 			}else{
-				PubBean bean = new PubBean(ref, ref);
 				LOG.error("Unknown ref: " + ref);
 			}
 		}
-		
 		//LOG.debug("Returned bean: " + bean.toString());
 		return bean;
 	}
