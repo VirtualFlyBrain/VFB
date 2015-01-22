@@ -52,7 +52,11 @@ public class PubBeanManager {
 		}catch (Exception ex){
 			LOG.error("getBeanByRef for: " + ref);
 			ex.printStackTrace();
-			return null;
+			if (bean!=null){
+				return bean;
+			}else{
+				return null;
+			}
 		}
 	}
 
