@@ -91,7 +91,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 								if (refIs != ""){
 									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
 								}else{
-									PubBean temp = new PubBean(PubBeanManager.getBeanByRef(synXref));
+									PubBean temp = pbm.getBeanByRef(synXref);
 									LOG.debug("Returned PubBean: " + temp);
 									refIs = temp.getShortref();
 									
@@ -173,6 +173,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 		return ob;
 	}
 
+	public void setPbm(PubBeanManager pbm) {
+		this.pbm = pbm;
+	}
 	/**
 	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
