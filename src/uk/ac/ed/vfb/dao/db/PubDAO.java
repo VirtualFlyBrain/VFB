@@ -2,11 +2,14 @@ package uk.ac.ed.vfb.dao.db;
 
 import java.util.*;
 
-import org.apache.commons.logging.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.RowMapper;
 
 import uk.ac.ed.vfb.dao.db.pojo.*;
 import uk.ac.ed.vfb.model.PubBean;
+
+
 
 /**
  * Implements query handling for the 3 publication queries
@@ -22,7 +25,7 @@ public class PubDAO extends AQueryDAO {
 	 */
 	public List<PubBean> getById(String id) {
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
-		//LOG.debug("MiniRef query: " + query);
+		LOG.debug("MiniRef query: " + query);
 		List<PubBean> results = null;
 		try {
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
@@ -30,7 +33,7 @@ public class PubDAO extends AQueryDAO {
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
 		}
-		//LOG.debug("MiniRef query results: " + results);
+		LOG.debug("MiniRef query results: " + results);
 		if (results == null){
 			LOG.error("Error resolving ref: " + id);
 		}
@@ -38,6 +41,7 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
+		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
