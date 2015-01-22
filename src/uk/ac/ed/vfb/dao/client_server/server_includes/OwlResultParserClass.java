@@ -83,6 +83,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 					refExists = false;
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
+						PubBean temp = new PubBean();
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
 							if (synXref!=null && !synXref.isEmpty()){
@@ -91,7 +92,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 								if (refIs != ""){
 									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
 								}else{
-									PubBean temp = PubBeanManager.getBeanByRef(synXref);
+									temp = PubBeanManager.getBeanByRef(synXref);
 									LOG.debug("Returned PubBean: " + temp);
 									refIs = temp.getShortref();
 									
