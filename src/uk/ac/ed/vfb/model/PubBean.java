@@ -10,7 +10,7 @@ import org.apache.commons.logging.LogFactory;
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description 
  */
 
-public class PubBean implements Comparable<Object>, Serializable{
+public class PubBean implements Comparable<PubBean>, Serializable{
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
