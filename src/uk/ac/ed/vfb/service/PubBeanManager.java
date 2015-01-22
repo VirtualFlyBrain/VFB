@@ -28,26 +28,32 @@ public class PubBeanManager {
 	
 	public PubBean getBeanByRef(String ref){
 		LOG.debug("getBeanByRef: " + ref);
-		PubBean bean = new PubBean(ref, ref);
-		if (ref.contains("FlyBase")){
-			String[] parts = ref.split(":");
-			bean = dao.getByRef(parts[1]);
-			LOG.debug("Returned FlyBase bean: " + bean.toString());
+		try{
+			PubBean bean = new PubBean(ref, ref);
+			if (ref.contains("FlyBase")){
+				String[] parts = ref.split(":");
+				bean = dao.getByRef(parts[1]);
+				LOG.debug("Returned FlyBase bean: " + bean.toString());
+				return bean;
+			}
+			if (ref.contains("FlyBrain_NDB")){
+				bean = new PubBean(ref, "FlyBrain Neuron DB");
+				LOG.debug("Returned FlyBrain NDB bean: " + bean.toString());
+				return bean;
+			}
+			if (ref.contains("FBC")){
+				bean = new PubBean(ref, ref.replace("FBC:", "FlyBase Curator: " ));
+				LOG.debug("Returned FBC bean: " + bean.toString());
+				return bean;
+			}
+			LOG.error("Unknown ref: " + ref);
+			LOG.debug("Returned bean: " + bean.toString());
 			return bean;
+		}catch (Exception ex){
+			LOG.error("getBeanByRef for: " + ref);
+			ex.printStackTrace();
+			return null;
 		}
-		if (ref.contains("FlyBrain_NDB")){
-			bean = new PubBean(ref, "FlyBrain Neuron DB");
-			LOG.debug("Returned FlyBrain NDB bean: " + bean.toString());
-			return bean;
-		}
-		if (ref.contains("FBC")){
-			bean = new PubBean(ref, ref.replace("FBC:", "FlyBase Curator: " ));
-			LOG.debug("Returned FBC bean: " + bean.toString());
-			return bean;
-		}
-		LOG.error("Unknown ref: " + ref);
-		LOG.debug("Returned bean: " + bean.toString());
-		return bean;
 	}
 
 }
