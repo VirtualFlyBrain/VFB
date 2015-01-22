@@ -86,15 +86,20 @@ public class OwlResultParserClass extends AOwlResultParser {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
 							if (synXref!=null && !synXref.isEmpty()){
-								refExists = true;
-								LOG.debug("Getting short form ref for: " + synXref);
-								if (refIs != ""){
-									refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
-								}else{
-									PubBean temp = pbm.getBeanByRef(synXref);
-									LOG.debug("Returned PubBean: " + temp);
-									refIs = temp.getShortref();
-									
+								try{
+									refExists = true;
+									LOG.debug("Getting short form ref for: " + synXref);
+									if (refIs != ""){
+										refIs = refIs + "," + pbm.getBeanByRef(synXref).getShortref();
+									}else{
+										PubBean temp = pbm.getBeanByRef(synXref);
+										LOG.debug("Returned PubBean: " + temp);
+										refIs = temp.getShortref();
+										
+									}
+								}catch (Exception ex){
+									LOG.error("Error resloving short ref for: " + synXref);
+									ex.printStackTrace();
 								}
 								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
