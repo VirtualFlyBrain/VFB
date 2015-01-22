@@ -81,7 +81,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
 					refExists = false;
-					PubBean temp = new PubBean();
+					PubBean temp = null;
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
