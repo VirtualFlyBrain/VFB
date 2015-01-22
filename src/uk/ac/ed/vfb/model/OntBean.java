@@ -90,7 +90,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public void setRefs(List<String> refs) {
 		if (refs != null && refs.size()>0){
 			PubBeanManager pbm = new PubBeanManager();
-			List<PubBean> results = null;
+			List<PubBean> results = new ArrayList<PubBean>();
 			PubBean temp = null;
 			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
 			for (String ref:refs){
@@ -99,7 +99,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 					try {
 						temp = pbm.getBeanByRef(ref);
 						LOG.debug("adding: " + temp.toString());
-						results.add(temp);
+							results.add(temp);
 					}catch (Exception ex) {
 						LOG.error("Cant find ref: " + ref + " with error: " + ex.toString());
 						ex.printStackTrace();
