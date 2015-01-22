@@ -28,8 +28,8 @@ public class PubBeanManager {
 	
 	public PubBean getBeanByRef(String ref){
 		LOG.debug("getBeanByRef: " + ref);
+		PubBean bean = new PubBean(ref, ref);
 		try{
-			PubBean bean = new PubBean(ref, ref);
 			if (ref.contains("FlyBase")){
 				String[] parts = ref.split(":");
 				bean = dao.getByRef(parts[1]);
