@@ -39,7 +39,7 @@ public class PubDAO extends AQueryDAO {
 	
 	public PubBean getByRef(String ref) {
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
-		//LOG.debug("MiniRef by ref query: " + query);
+		LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
 		try {
 			results = (PubBean)this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()).get(0); 
@@ -47,7 +47,7 @@ public class PubDAO extends AQueryDAO {
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
 		}
-		//LOG.debug("MiniRef query results: " + results);
+		LOG.debug("MiniRef query results: " + results);
 		if (results == null){
 			LOG.error("Error resolving ref: " + ref);
 		}
