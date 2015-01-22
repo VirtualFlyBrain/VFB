@@ -1,5 +1,8 @@
 package uk.ac.ed.vfb.model;
 
+import java.io.Serializable;
+import java.util.*;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -7,7 +10,7 @@ import org.apache.commons.logging.LogFactory;
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description 
  */
 
-public class PubBean {
+public class PubBean implements Comparable<Object>, Serializable{
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
