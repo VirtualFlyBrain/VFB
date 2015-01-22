@@ -28,7 +28,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String id; //Pure numerical id, without "FBbt:"
 	protected ThirdPartyBean thirdPartyBean; // used for integration with third party sources - use driverRef for linking.
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
-	private PubBeanManager pbm;
+	
 
 	/**
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
@@ -88,7 +88,8 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public void setRefs(List<String> refs) {
-		if (refs != null && refs.size()>0){	
+		if (refs != null && refs.size()>0){
+			PubBeanManager pbm = new PubBeanManager();
 			List<PubBean> results = null;
 			PubBean temp = null;
 			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
@@ -192,9 +193,6 @@ public class OntBean implements Comparable<Object>, Serializable{
 		return fbbtId.substring(5);
 	}
 
-	public void setPbm(PubBeanManager pbm) {
-		this.pbm = pbm;
-	}
 
 	@Override
 	public int compareTo(Object o) {
