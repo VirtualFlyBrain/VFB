@@ -188,6 +188,10 @@ public class OntBean implements Comparable<Object>, Serializable{
 		return fbbtId.substring(5);
 	}
 
+	public void setPbm(PubBeanManager pbm) {
+		this.pbm = pbm;
+	}
+
 	@Override
 	public int compareTo(Object o) {
 		OntBean typeO = (OntBean)o; 
