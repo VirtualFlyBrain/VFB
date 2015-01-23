@@ -22,7 +22,9 @@
 		scope="session">
 		<property name="obm" ref="ontBeanManager" />
 		<property name="pbm" ref="pubBeanManager" />
-        	<property name="dao" ref="PubDAO" />
+		<bean class="uk.ac.ed.vfb.service.PubBeanManager">
+        		<property name="dao" ref="PubDAO" />
+        	</bean>
 	</bean>
 
 	<!-- List of beans as result of an OWL query -->
