@@ -55,8 +55,10 @@ public class PubBeanManager {
 			LOG.error("getBeanByRef for: " + ref);
 			ex.printStackTrace();
 			if (bean!=null){
+				LOG.error("returning: " + bean);
 				return bean;
 			}else{
+				LOG.error("returning: null");
 				return null;
 			}
 		}
