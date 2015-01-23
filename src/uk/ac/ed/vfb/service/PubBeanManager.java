@@ -33,7 +33,8 @@ public class PubBeanManager {
 			if (ref.contains("FlyBase")){
 				String[] parts = ref.split(":");
 				LOG.debug("FlyBase ref: " + parts[1]);
-				bean = new dao.getByRef(parts[1]);
+				PubBean temp = dao.getByRef(parts[1]);
+				bean = temp;
 				LOG.debug("Returned FlyBase bean: " + bean.toString());
 				return bean;
 			}
