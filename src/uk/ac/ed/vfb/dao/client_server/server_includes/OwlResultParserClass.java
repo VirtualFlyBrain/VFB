@@ -107,6 +107,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 										refIs = refIs + "," + synXref;
 									}else{
 										refIs = synXref;
+									}
 								}
 								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
