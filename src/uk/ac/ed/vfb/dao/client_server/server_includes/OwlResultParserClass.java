@@ -103,6 +103,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 								}catch (Exception ex){
 									LOG.error("Error resloving short ref for: " + synXref);
 									ex.printStackTrace();
+									if (refIs != ""){
+										refIs = refIs + "," + synXref;
+									}else{
+										refIs = synXref;
 								}
 								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
