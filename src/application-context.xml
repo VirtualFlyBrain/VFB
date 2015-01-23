@@ -3,13 +3,9 @@
 		Add all new beans here!!!
 		But only data beans, all pointers/servlet config goes to springmvc-servlet.xml
  -->
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="localeResolver"
-    	class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
     	<property name="defaultLocale" value="en_GB"/>
 	</bean>
 	
@@ -32,8 +28,7 @@
 		<property name="dataSource" ref="vfbDataSource" />
 	</bean>
 	
-	<bean id="stackManagerDAO" class="uk.ac.ed.vfb.annotation.dao.StackManagerDAO"
-		scope="singleton">
+	<bean id="stackManagerDAO" class="uk.ac.ed.vfb.annotation.dao.StackManagerDAO" scope="singleton">
 		<property name="dataSource" ref="vfbDataSource" />
 	</bean>
 	
@@ -55,8 +50,7 @@
 	</bean>
 	
 	<!-- Manager for pubBean lists -->
-	<bean id="pubBeanManager" class="uk.ac.ed.vfb.service.PubBeanManager"
-		scope="session">
+	<bean id="pubBeanManager" class="uk.ac.ed.vfb.service.PubBeanManager" scope="session">
 		<property name="dao" ref="pubQueryDAO" />
 	</bean>	
 	
@@ -67,50 +61,43 @@
 		<property name="tpbm" ref="thirdPartyBeanManager" />
 	</bean>
 	
-	<bean id="autocompleteDAONeuropil" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAONeuropil" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="neuropil" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
 
-	<bean id="autocompleteDAONeuron" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAONeuron" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="neuron" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
 
-	<bean id="autocompleteDAOTract" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAOTract" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="tract" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
 	
-	<bean id="autocompleteDAOClone" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAOClone" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="lineage_clone" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
 	
-	<bean id="autocompleteDAOAll" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAOAll" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="all" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>	
 	
-	<bean id="autocompleteDAONeuropilAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAONeuropilAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="neuropilAB" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
 
-	<bean id="autocompleteDAOAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
-		scope="singleton">
+	<bean id="autocompleteDAOAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="allAB" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
