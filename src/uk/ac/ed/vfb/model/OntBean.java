@@ -91,7 +91,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		if (refs != null && refs.size()>0){
 			PubBeanManager pbm = new PubBeanManager();
 			List<PubBean> results = new ArrayList<PubBean>();
-			PubBean temp = null;
+			List<PubBean> temp = null;
 			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
 			for (String ref:refs){
 				if (ref != null && !ref.isEmpty()){
