@@ -28,12 +28,13 @@ public class OntBeanController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
 		String id = req.getParameter("fbId");
-		OntBean ob = this.obm.getBeanForId(id);		
+		OntBean ob = this.obm.getBeanForId(id);
+		LOG.debug("get bean for id: " + ob.toString());
 		modelAndView.addObject("ontBean", ob);
 		//LOG.debug("For Id: " + ob.getId().toString());
-		List<PubBean> pbList = pbm.getBeanListById(ob.getId());
+		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
 		//LOG.debug("Found publications:" + pbList.size());
-		modelAndView.addObject("refs", pbList);		
+		//modelAndView.addObject("refs", pbList);		
 		return modelAndView;
 	}
 
