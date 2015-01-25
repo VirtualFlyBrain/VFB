@@ -108,7 +108,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		&nbsp;&nbsp;&nbsp; * ${curr}<br />
 	</c:forEach>
 </p>
-<c:if test="${fn:length(refs)>0}">
+<c:if test="${fn:length(ontBean.refs)>0}">
 	<p>
 		<b>References: </b><br />
 		<c:forEach items="${ontBean.refs}" var="curr" varStatus="status">
