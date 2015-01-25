@@ -40,13 +40,13 @@ public class PubDAO extends AQueryDAO {
 		return results;
 	}
 	
-	public PubBean getByRef(String ref) {
+	public List<PubBean> getByRef(String ref) {
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
-		PubBean results = null;
+		List<PubBean> results = null;
 		try {
-			results = (PubBean)this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()).get(0); 
+			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
