@@ -18,6 +18,7 @@ public class PubQueryResultSetExtractor implements ResultSetExtractor, RowMapper
 	private static final Log LOG = LogFactory.getLog(PubQueryResultSetExtractor.class);
 
 	public Object extractData(ResultSet rs) throws SQLException {
+		LOG.debug("Extracting data from retult: " + rs);
 		PubBean res = new PubBean(rs.getString(1), rs.getString(2));				
 		return res;
 	}
