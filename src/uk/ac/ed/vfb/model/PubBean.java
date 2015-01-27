@@ -13,6 +13,7 @@ import org.apache.commons.logging.LogFactory;
 public class PubBean implements Serializable{
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
+	private String weblink;
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
 	
 	public PubBean(String id, String miniref) {
@@ -49,16 +50,20 @@ public class PubBean implements Serializable{
 	}
 	public String getWebLink() {
 		if (id.contains("FBrf")){
-			return ("http://flybase.org/reports/" + id +  ".html");
+			this.weblink = "http://flybase.org/reports/" + id +  ".html"
+			return weblink;
 		}
 		if (id.contains("FlyBrain_NDB")){
 			String[] parts = id.split(":");
-			return ("http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find");
+			this.weblink = "http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find";
+			return weblink;
 		}
 		if (id.contains("http")){
-			return (id);
+			this.weblink = id;
+			return weblink;
 		}
-		return ("https://www.google.com/search?q=" + id);
+		this.weblink = "https://www.google.com/search?q=" + id;
+		return weblink;
 	}
 	
 	public String toString(){
