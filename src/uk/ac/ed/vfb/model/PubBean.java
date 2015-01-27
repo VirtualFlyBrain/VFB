@@ -50,7 +50,7 @@ public class PubBean implements Serializable{
 	}
 	public String getWebLink() {
 		if (id.contains("FBrf")){
-			this.weblink = "http://flybase.org/reports/" + id +  ".html";
+			this.weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "") +  ".html";
 			return weblink;
 		}
 		if (id.contains("FlyBrain_NDB")){
