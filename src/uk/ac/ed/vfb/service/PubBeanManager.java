@@ -65,6 +65,12 @@ public class PubBeanManager {
 				return null;
 			}
 		}
+		
 	}
+	
+	public String toString(){
+		return "PubBeanManager";
+	}
+}
 
 }
