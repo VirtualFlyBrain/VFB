@@ -60,8 +60,8 @@ public class PubBean implements Serializable{
 			return weblink;
 		}
 		if (id.contains("http")){
-			this.weblink = id;
-			return URLDecoder.decode(weblink, "UTF-8");
+			this.weblink = URLDecoder.decode(id, "UTF-8");
+			return weblink;
 		}
 		this.weblink = "https://www.google.com/search?q=" + id;
 		return weblink;
