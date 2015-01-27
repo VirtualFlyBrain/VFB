@@ -2,6 +2,7 @@ package uk.ac.ed.vfb.model;
 
 import java.io.Serializable;
 import java.util.*;
+import java.net.URLDecoder;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -60,7 +61,7 @@ public class PubBean implements Serializable{
 		}
 		if (id.contains("http")){
 			this.weblink = id;
-			return weblink;
+			return URLDecoder.decode(weblink, "UTF-8");
 		}
 		this.weblink = "https://www.google.com/search?q=" + id;
 		return weblink;
