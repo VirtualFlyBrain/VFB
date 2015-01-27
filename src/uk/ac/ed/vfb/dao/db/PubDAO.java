@@ -47,6 +47,7 @@ public class PubDAO extends AQueryDAO {
 		PubBean results = null;
 		try {
 			Object entry = this.jdbcTemplate.queryForObject(query, String.class); 
+			LOG.debug("DB returned: " + entry);
 			results = new PubBean(ref, (String)entry);
 		}
 		catch (Exception ex) {
