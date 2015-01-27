@@ -17,6 +17,7 @@ public class PubBeanManager {
 	
 	public void setDao(PubDAO dao) {
 		this.dao = dao;
+		LOG.debug("PubBeanManager created dao: " + dao);
 	}
 	
 	public List<PubBean> getBeanListById(String id){
