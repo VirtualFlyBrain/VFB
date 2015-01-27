@@ -60,7 +60,13 @@ public class PubBean implements Serializable{
 			return weblink;
 		}
 		if (id.contains("http")){
-			this.weblink = URLDecoder.decode(id, "UTF-8");
+			try{
+				this.weblink = URLDecoder.decode(id, "UTF-8");
+			}catch(Exception ex){
+				LOG.error("getWebLink decoding url: " id)
+				ex.printStackTrace();
+				this.weblink = id;
+			}
 			return weblink;
 		}
 		this.weblink = "https://www.google.com/search?q=" + id;
