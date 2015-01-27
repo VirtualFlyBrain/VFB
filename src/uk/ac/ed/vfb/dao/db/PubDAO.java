@@ -49,7 +49,8 @@ public class PubDAO extends AQueryDAO {
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
-			LOG.error("Error!!!!" + ex.getLocalizedMessage());
+			LOG.error("Error resolving: " + query);
+			ex.printStackTrace();
 		}
 		LOG.debug("MiniRef query results: " + results);
 		if (results == null){
