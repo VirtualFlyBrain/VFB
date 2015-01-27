@@ -28,6 +28,7 @@ public class PubBeanManager {
 	}
 	
 	public PubBean getBeanByRef(String ref){
+		PubDAO dao = new PubDAO();
 		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
 		try{
