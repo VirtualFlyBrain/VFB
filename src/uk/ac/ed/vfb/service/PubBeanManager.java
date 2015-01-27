@@ -71,6 +71,5 @@ public class PubBeanManager {
 	public String toString(){
 		return "PubBeanManager";
 	}
-}
-
+	
 }
