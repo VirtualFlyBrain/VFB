@@ -46,7 +46,10 @@ public class PubDAO extends AQueryDAO {
 		LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
 		try {
-			results = this.jdbcTemplate.query(query, PubBean.class); 
+			String entry = this.jdbcTemplate.query(query, String.class); 
+			LOG.debug("Returned record: " + entry);
+			String[] parts = miniref.split(",");
+			results = new PubBean(parts[0], parts[1]);
 		}
 		catch (Exception ex) {
 			LOG.error("Error resolving: " + query);
