@@ -63,7 +63,7 @@ public class PubBean implements Serializable{
 			try{
 				this.weblink = URLDecoder.decode(id, "UTF-8");
 			}catch(Exception ex){
-				LOG.error("getWebLink decoding url: " id)
+				LOG.error("getWebLink decoding url: " id);
 				ex.printStackTrace();
 				this.weblink = id;
 			}
