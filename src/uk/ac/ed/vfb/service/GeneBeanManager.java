@@ -102,10 +102,11 @@ public class GeneBeanManager extends APageable{
 		sqlList.add("'" + new OntBean(id).getId() + "'");
 		String args = Arrays.toString(sqlList.toArray()).replace("[", "").replace("]", "");
 		// Run SQL query
+		LOG.debug("queryDAO: " + queryDAO);
 		resultList = queryDAO.getListForAction(action, args);
 		// Whoever comes after me, I AM SORRY!
 		// This is not my shit, but this piece of spaghetti is needed to provide correct ID mapping for expression queries.
-		//LOG.debug("Results:" + resultList.size() + " : " + Arrays.toString(resultList.toArray()));
+		LOG.debug("Results:" + resultList.size() + " : " + Arrays.toString(resultList.toArray()));
 		// Hits including terms on list 3 get a warning flag
 		int flagged = 0;
 		for (GeneQueryResult gr: resultList) {
@@ -127,7 +128,7 @@ public class GeneBeanManager extends APageable{
 	}
 
 	public void setQueryDAO(GeneQueryDAO queryDAO) {
-		//LOG.info("Query Dao :" +  queryDAO);
+		LOG.info("Query Dao :" +  queryDAO);
 		this.queryDAO = queryDAO;
 	}
 
