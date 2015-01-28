@@ -21,7 +21,7 @@ public abstract class AQueryDAO {
 	 */
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
-		LOG.debug("Data source set");
+		LOG.debug("Data source set: " + dataSource);
 	}
 	
 	/**
