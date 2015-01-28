@@ -28,7 +28,7 @@ public class PubBeanManager {
 	}
 	
 	public PubBean getBeanByRef(String ref){
-		//PubDAO dao = new PubDAO();
+		PubDAO dao = new PubDAO();
 		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
 		try{
@@ -36,7 +36,7 @@ public class PubBeanManager {
 				String[] parts = ref.split(":");
 				LOG.debug("FlyBase ref: " + parts[1]);
 				LOG.debug("dao: " + dao);
-				bean = this.dao.getByRef(parts[1]);
+				bean = dao.getByRef(parts[1]);
 				LOG.debug("Returned FlyBase bean: " + bean.toString());
 				return bean;
 			}
