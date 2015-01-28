@@ -191,9 +191,6 @@ public class OwlResultParserClass extends AOwlResultParser {
 		return ob;
 	}
 
-	public void setPbm(PubBeanManager pbm) {
-		this.pbm = pbm;
-	}
 	/**
 	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
