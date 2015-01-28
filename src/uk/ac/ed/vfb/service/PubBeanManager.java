@@ -23,14 +23,15 @@ public class PubBeanManager {
 	}
 	
 	public PubBean getBeanByRef(String ref){
+		LOG.debug("dao: " + dao);
 		PubDAO dao = new PubDAO();
+		LOG.debug("dao: " + dao);
 		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
 		try{
 			if (ref.contains("FlyBase")){
 				String[] parts = ref.split(":");
 				LOG.debug("FlyBase ref: " + parts[1]);
-				LOG.debug("dao: " + dao);
 				bean = dao.getByRef(parts[1]);
 				LOG.debug("Returned FlyBase bean: " + bean.toString());
 				return bean;
