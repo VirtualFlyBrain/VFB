@@ -24,10 +24,12 @@ public class PubDAO extends AQueryDAO {
 	 * @param id - FBbt id of the term
 	 */
 	public List<PubBean> getById(String id) {
+		jdbcTemplate jdbc = new jdbcTemplate();
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
 		LOG.debug("MiniRef query: " + query);
 		List<PubBean> results = null;
 		try {
+			LOG.debug("jdbcTemplate: " + jdbc);
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
