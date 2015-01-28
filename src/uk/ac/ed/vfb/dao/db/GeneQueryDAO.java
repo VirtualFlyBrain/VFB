@@ -21,7 +21,7 @@ public class GeneQueryDAO extends AQueryDAO {
 		String query = this.getQueryForName(action).replace("XXX", ids); 			
 		LOG.debug("Transgene query : " + query);
 		long startTime = System.currentTimeMillis();
-		Log.debug("jdbcTemplate: " + this.jdbcTemplate);
+		LOG.debug("jdbcTemplate: " + this.jdbcTemplate);
 		List<GeneQueryResult> results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new GeneQueryResultSetExtractor());
 		long endTime = System.currentTimeMillis();
 		LOG.debug("Total elapsed time in querying the DB for expression list is : "+ (endTime-startTime));
