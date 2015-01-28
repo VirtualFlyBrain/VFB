@@ -21,6 +21,7 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubDAO extends AQueryDAO {
 	private static final Log LOG = LogFactory.getLog(PubDAO.class); 
+	private ResourceBundle connec = ResourceBundle.getBundle("db");
 	
 	/**
 	 * Queries the tables to extract publication data for specified term id
@@ -44,7 +45,8 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
-		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+		DataSource ds = (DataSource)connec.getString("dataSource");
+		JdbcTemplate jdbc = new JdbcTemplate(ds);
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
