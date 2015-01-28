@@ -21,7 +21,7 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubDAO extends AQueryDAO {
 	private static final Log LOG = LogFactory.getLog(PubDAO.class); 
-	private ResourceBundle connec = ResourceBundle.getBundle("db");
+	private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/WEB-INF/classes/db.xml");
 	
 	/**
 	 * Queries the tables to extract publication data for specified term id
