@@ -3,6 +3,7 @@ package uk.ac.ed.vfb.dao.db;
 import java.util.ResourceBundle;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.apache.commons.logging.*;
 
 /**
  * An abstract class- parent of all the QueryDAO classes
@@ -12,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public abstract class AQueryDAO {
 	protected JdbcTemplate jdbcTemplate;
 	private ResourceBundle bundle = ResourceBundle.getBundle("queries");
+	private static final Log LOG = LogFactory.getLog(AQueryDAO.class); 
 
 	/**
 	 * Setting data source 
@@ -19,6 +21,7 @@ public abstract class AQueryDAO {
 	 */
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		LOG.debug("Data source set");
 	}
 	
 	/**
