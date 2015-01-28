@@ -12,7 +12,7 @@ import uk.ac.ed.vfb.model.PubBean;
  */ 
 
 public class PubBeanManager {
-	PubDAO dao;
+	//PubDAO dao;
 	private static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
 	public void setDao(PubDAO dao) {
