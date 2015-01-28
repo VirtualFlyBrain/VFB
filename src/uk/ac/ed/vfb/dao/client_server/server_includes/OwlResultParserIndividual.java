@@ -68,7 +68,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			for (String axiom:axioms){
 				//LOG.debug(axiom.toString() + "\n");
 			}
-			ob.setRefs(axioms);
+			//ob.setRefs(axioms);
 			//synonyms
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
 			List<String> syns = new ArrayList<String>();
