@@ -47,7 +47,6 @@
 	<bean id="ontBeanManager" class="uk.ac.ed.vfb.service.OntBeanManager" scope="session">
 		<property name="ontClient" ref="ontClient" />
 		<property name="tpbm" ref="thirdPartyBeanManager" />
-		<property name="dao" ref="pubQueryDAO" />
 		<property name="pbm" ref="pubBeanManager" />
 	</bean>
 	
