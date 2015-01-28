@@ -61,7 +61,5 @@ public class PubDAO extends AQueryDAO {
 		}
 		return results;
 	}
-	public String toString(){
-		return "PubDAO";
-	}
+	
 }
