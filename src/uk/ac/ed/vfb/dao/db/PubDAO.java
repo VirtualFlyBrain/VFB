@@ -6,6 +6,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.RowMapper;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import uk.ac.ed.vfb.dao.db.pojo.*;
 import uk.ac.ed.vfb.model.PubBean;
 
@@ -41,7 +43,7 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
-		jdbcTemplate jdbc = new this.jdbcTemplate();
+		jdbcTemplate jdbc = this.jdbcTemplate();
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
