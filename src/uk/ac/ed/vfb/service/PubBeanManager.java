@@ -12,27 +12,25 @@ import uk.ac.ed.vfb.model.PubBean;
  */ 
 
 public class PubBeanManager {
-	protected PubDAO dao;
+	protected PubDAO queryDAO;
 	private static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
 	public List<PubBean> getBeanListById(String id){
 		LOG.debug("getBeanListById: " + id);
-		List<PubBean> beanList = dao.getById(id);
+		List<PubBean> beanList = queryDAO.getById(id);
 		LOG.debug("Returned beanlist: " + beanList.toString());
 		return beanList;
 	}
 	
 	public PubBean getBeanByRef(String ref){
-		LOG.debug("dao: " + dao);
-		PubDAO dao = new PubDAO();
-		LOG.debug("dao: " + dao);
+		LOG.debug("QueryDao: " + queryDAO);
 		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
 		try{
 			if (ref.contains("FlyBase")){
 				String[] parts = ref.split(":");
 				LOG.debug("FlyBase ref: " + parts[1]);
-				bean = dao.getByRef(parts[1]);
+				bean = queryDAO.getByRef(parts[1]);
 				LOG.debug("Returned FlyBase bean: " + bean.toString());
 				return bean;
 			}
@@ -63,13 +61,9 @@ public class PubBeanManager {
 		
 	}
 	
-	public String toString(){
-		return "PubBeanManager";
-	}
-	
-	public void setDao(PubDAO dao) {
-		this.dao = dao;
-		LOG.debug("PubBeanManager created dao: " + dao);
+	public void setQueryDAO(PubDAO queryDAO) {
+		LOG.debug("PubBeanManager created queryDAO: " + queryDAO);
+		this.queryDAO = queryDAO;
 	}
 	
 }
