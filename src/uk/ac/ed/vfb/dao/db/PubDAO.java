@@ -43,7 +43,7 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
-		JdbcTemplate jdbc = this.jdbcTemplate();
+		JdbcTemplate jdbc = JdbcTemplate();
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
