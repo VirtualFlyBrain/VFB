@@ -15,8 +15,7 @@
 	
 	<import resource="db.xml"/> 
 
-	<bean id="geneQueryDAO" class="uk.ac.ed.vfb.dao.db.GeneQueryDAO"
-		scope="singleton">
+	<bean id="geneQueryDAO" class="uk.ac.ed.vfb.dao.db.GeneQueryDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
