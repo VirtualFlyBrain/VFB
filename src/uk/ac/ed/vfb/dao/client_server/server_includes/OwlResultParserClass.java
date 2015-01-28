@@ -110,7 +110,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
 			LOG.debug("======== extended xrefs =========" + axioms.size());
 			PubBean temp = null;
-			List<PubBean> publs = new List<PubBean>;
+			List<PubBean> publs = null;
 			PubBeanManager pbm = new PubBeanManager();
 			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
