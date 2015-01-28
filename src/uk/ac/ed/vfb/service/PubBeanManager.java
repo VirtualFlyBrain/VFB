@@ -15,11 +15,6 @@ public class PubBeanManager {
 	protected PubDAO dao;
 	private static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
-	public void setDao(PubDAO dao) {
-		this.dao = dao;
-		LOG.debug("PubBeanManager created dao: " + dao);
-	}
-	
 	public List<PubBean> getBeanListById(String id){
 		LOG.debug("getBeanListById: " + id);
 		List<PubBean> beanList = dao.getById(id);
@@ -69,6 +64,11 @@ public class PubBeanManager {
 	
 	public String toString(){
 		return "PubBeanManager";
+	}
+	
+	public void setDAO(PubDAO dao) {
+		this.dao = dao;
+		LOG.debug("PubBeanManager created dao: " + dao);
 	}
 	
 }
