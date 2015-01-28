@@ -12,7 +12,7 @@ import uk.ac.ed.vfb.model.PubBean;
  */ 
 
 public class PubBeanManager {
-	//PubDAO dao;
+	protected PubDAO dao;
 	private static final Log LOG = LogFactory.getLog(PubBeanManager.class);
 	
 	public void setDao(PubDAO dao) {
@@ -28,7 +28,7 @@ public class PubBeanManager {
 	}
 	
 	public PubBean getBeanByRef(String ref){
-		PubDAO dao = new PubDAO();
+		//PubDAO dao = new PubDAO();
 		LOG.debug("getBeanByRef: " + ref);
 		PubBean bean = new PubBean(ref, ref);
 		try{
