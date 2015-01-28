@@ -6,9 +6,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.RowMapper;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import javax.sql.DataSource;
-
 import uk.ac.ed.vfb.dao.db.pojo.*;
 import uk.ac.ed.vfb.model.PubBean;
 
@@ -21,7 +18,6 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubDAO extends AQueryDAO {
 	private static final Log LOG = LogFactory.getLog(PubDAO.class); 
-	private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/WEB-INF/classes/db.xml");
 	
 	/**
 	 * Queries the tables to extract publication data for specified term id
@@ -45,15 +41,13 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
-		DataSource ds = (DataSource)connec.getBean("dataSource");
-		JdbcTemplate jdbc = new JdbcTemplate(ds);
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
 		try {
 			LOG.debug("jdbcTemplate: " + jdbc);
-			List<String> entry = jdbc.queryForList(query, String.class);
+			List<String> entry = this.jdbcTemplate.queryForList(query, String.class);
 			LOG.debug("DB returned: " + entry);
 			results = new PubBean(ref, entry.get(0));
 		}
