@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.RowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import javax.sql.DataSource;
 
 import uk.ac.ed.vfb.dao.db.pojo.*;
 import uk.ac.ed.vfb.model.PubBean;
@@ -20,7 +21,8 @@ import uk.ac.ed.vfb.model.PubBean;
 
 public class PubDAO extends AQueryDAO {
 	private static final Log LOG = LogFactory.getLog(PubDAO.class); 
-
+	private ResourceBundle connec = ResourceBundle.getBundle("db");
+	
 	/**
 	 * Queries the tables to extract publication data for specified term id
 	 * @param id - FBbt id of the term
@@ -43,7 +45,8 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
-		JdbcTemplate jdbc = new JdbcTemplate();
+		DataSource ds = (DataSource)connec.getString('dataSource');
+		JdbcTemplate jdbc = new JdbcTemplate(ds);
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
