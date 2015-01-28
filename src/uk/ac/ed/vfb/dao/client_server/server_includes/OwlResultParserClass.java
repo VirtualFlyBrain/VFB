@@ -81,34 +81,16 @@ public class OwlResultParserClass extends AOwlResultParser {
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
 					refExists = false;
-					PubBean temp = null;
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
 							if (synXref!=null && !synXref.isEmpty()){
-								try{
-									refExists = true;
-									LOG.debug("Getting short form ref for: " + synXref);
-									if (refIs != ""){
-										LOG.debug("PubBeanManager: " + pbm);
-										temp = pbm.getBeanByRef(synXref);
-										LOG.debug("Returned PubBean: " + temp);
-										refIs = refIs + "," + temp.getShortref();
-									}else{
-										temp = pbm.getBeanByRef(synXref);
-										LOG.debug("Returned PubBean: " + temp);
-										refIs = temp.getShortref();
-										
-									}
-								}catch (Exception ex){
-									LOG.error("Error resloving short ref for: " + synXref);
-									ex.printStackTrace();
-									if (refIs != ""){
-										refIs = refIs + "," + synXref;
-									}else{
-										refIs = synXref;
-									}
+								refExists = true;
+								if (refIs != ""){
+									refIs = refIs + "," + synXref;
+								}else{
+									refIs = synXref;
 								}
 								LOG.debug("Returned ref: " + refIs);
 								axioms.add(synXref);
@@ -122,15 +104,36 @@ public class OwlResultParserClass extends AOwlResultParser {
 					}
 					
 				}
-				ob.setSynonyms(syns);
+				// moved till after minirefs are resolved.
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
 			LOG.debug("======== extended xrefs =========" + axioms.size());
+			PubBean temp = null;
+			List<PubBean> publs = new List<PubBean>;
 			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
+				try{
+					LOG.debug("Resolving ref: " + axiom);
+					LOG.debug("PubBeanManager: " + pbm);
+					temp = pbm.getBeanByRef(axiom);
+					LOG.debug("Returned PubBean: " + temp);
+					publs.add(temp);
+					for (String syn:syns){
+						if (syn.contains("(")){
+							syn = syn.replace(axiom, temp.getShortref());
+						}	
+					}	
+				}catch (Exception ex){
+					LOG.error("Error resloving short ref for: " + axiom);
+					ex.printStackTrace();
+				}
 			}
-			ob.setRefs(axioms);
+			if (syns.size() > 0){
+				ob.setSynonyms(syns);
+			}
+			ob.setRefs(publs);
+			
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
 			//LOG.debug("=========== rels ==============" + rels.size());
