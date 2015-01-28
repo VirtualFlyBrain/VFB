@@ -21,7 +21,7 @@ public class PubDAO extends AQueryDAO {
 
 	/**
 	 * Queries the tables to extract publication data for specified term id
-	 * @param id - FBbt id of the term
+	 * param id - FBbt id of the term
 	 */
 	public List<PubBean> getById(String id) {
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
