@@ -20,7 +20,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="pubQueryDAO" class="uk.ac.ed.vfb.dao.db.PubDAO" scope="singleton">
+	<bean id="pubDAO" class="uk.ac.ed.vfb.dao.db.PubDAO" scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -51,7 +51,7 @@
 	
 	<!-- Manager for pubBean lists -->
 	<bean id="pubBeanManager" class="uk.ac.ed.vfb.service.PubBeanManager" scope="session">
-		<property name="dao" ref="pubQueryDAO" />
+		<property name="dao" ref="pubDAO" />
 	</bean>	
 	
 	<!-- Manager for geneBean lists -->
