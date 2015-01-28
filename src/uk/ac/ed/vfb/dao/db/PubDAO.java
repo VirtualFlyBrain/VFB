@@ -24,12 +24,10 @@ public class PubDAO extends AQueryDAO {
 	 * @param id - FBbt id of the term
 	 */
 	public List<PubBean> getById(String id) {
-		jdbcTemplate jdbc = new jdbcTemplate();
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
 		LOG.debug("MiniRef query: " + query);
 		List<PubBean> results = null;
 		try {
-			LOG.debug("jdbcTemplate: " + jdbc);
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
@@ -43,12 +41,14 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public PubBean getByRef(String ref) {
+		jdbcTemplate jdbc = new jdbcTemplate();
 		LOG.debug("MiniRef for ref: " + ref);
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", ref);
 		LOG.debug("MiniRef by ref query: " + query);
 		PubBean results = null;
 		try {
-			List<String> entry = this.jdbcTemplate.queryForList(query, String.class);
+			LOG.debug("jdbcTemplate: " + jdbc);
+			List<String> entry = jdbc.queryForList(query, String.class);
 			LOG.debug("DB returned: " + entry);
 			results = new PubBean(ref, entry.get(0));
 		}
