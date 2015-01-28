@@ -66,7 +66,7 @@ public class PubBeanManager {
 		return "PubBeanManager";
 	}
 	
-	public void setDAO(PubDAO dao) {
+	public void setDao(PubDAO dao) {
 		this.dao = dao;
 		LOG.debug("PubBeanManager created dao: " + dao);
 	}
