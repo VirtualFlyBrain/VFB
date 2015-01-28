@@ -8,7 +8,6 @@ import org.apache.commons.logging.LogFactory;
 
 
 import uk.ac.ed.vfb.model.PubBean;
-import uk.ac.ed.vfb.service.PubBeanManager;
 
 /**
  * POJO class for anatomy term. The most important POJO class
@@ -87,34 +86,8 @@ public class OntBean implements Comparable<Object>, Serializable{
 		return refs;
 	}
 
-	public void setRefs(List<String> refs) {
-		if (refs != null && refs.size()>0){
-			PubBeanManager pbm = new PubBeanManager();
-			List<PubBean> results = new ArrayList<PubBean>();
-			PubBean temp = null;
-			LOG.debug("Adding refs: " + refs + " (" + refs.size() + ")" );
-			for (String ref:refs){
-				if (ref != null && !ref.isEmpty()){
-					LOG.debug("Adding ref: " + ref);
-					try {
-						temp = pbm.getBeanByRef(ref);
-						LOG.debug("adding: " + temp.toString());
-						results.add(temp);
-					}catch (Exception ex) {
-						LOG.error("Cant find ref: " + ref + " with error: " + ex.toString());
-						ex.printStackTrace();
-						if (ref!=null){
-							LOG.error("Defaulting on ref: " + ref );
-							results.add(new PubBean(ref,ref));
-						}
-						
-					}
-				}	
-			}
-			if (results != null) {
-				this.refs = results;
-			}
-		}
+	public void setRefs(List<PubBean> beans) {
+		this.refs = beans;
 	}
 
 	public String getComment() {
