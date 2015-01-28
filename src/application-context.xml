@@ -50,7 +50,7 @@
 	
 	<!-- Manager for pubBean lists -->
 	<bean id="pubBeanManager" class="uk.ac.ed.vfb.service.PubBeanManager" scope="session">
-		<property name="dao" ref="pubDAO" />
+		<property name="queryDAO" ref="pubDAO" />
 	</bean>	
 	
 	<!-- Manager for geneBean lists -->
