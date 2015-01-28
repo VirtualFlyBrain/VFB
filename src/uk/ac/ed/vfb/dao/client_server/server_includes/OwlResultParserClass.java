@@ -24,7 +24,7 @@ import uk.ac.ed.vfb.service.PubBeanManager;
  * Uses OWLTools
  */
 public class OwlResultParserClass extends AOwlResultParser {
-	private PubBeanManager pbm;
+	
 
 	public OwlResultParserClass(OWLOntology ontology) {
 		super(ontology);
@@ -111,6 +111,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			LOG.debug("======== extended xrefs =========" + axioms.size());
 			PubBean temp = null;
 			List<PubBean> publs = new List<PubBean>;
+			PubBeanManager pbm = new PubBeanManager();
 			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
 				try{
