@@ -40,11 +40,12 @@ public class PubDAO extends AQueryDAO {
 	public List<PubBean> getByRefIds(List<String> ids) {
 		String combId = "";
 		for (String id:ids){
-			if (id != ""){
+			if (id.contains("FlyBase:FBrf")){
+				List<String> part = Arrays.asList(id.split(":"));
 				if (combId == ""){
-					combId = "'" + id + "'";
+					combId = "'" + part[1] + "'";
 				}else{
-					combId = combId + " or uniquename like '" + id + "'";
+					combId = combId + " or uniquename like '" + part[1] + "'";
 				}
 			}
 		}
