@@ -38,12 +38,14 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public List<PubBean> getByRefIds(List<String> ids) {
-		String combId = "(";
+		String combId = "";
 		for (String id:ids){
-			combId = combId + "'" + id + "',";
+			if (combId == ""){
+				combId = "'" + id + "'";
+			}else{
+				combId = " or uniquename like '" + id + "'";
+			}
 		}
-		combId = combId + ")";
-		combId = combId.replace(",)",")");
 		String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
 		LOG.debug("MiniRef by FB ref query: " + query);
 		List<PubBean> results = null;
