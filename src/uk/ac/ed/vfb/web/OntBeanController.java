@@ -29,11 +29,12 @@ public class OntBeanController implements Controller {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
 		String id = req.getParameter("fbId");
 		OntBean ob = this.obm.getBeanForId(id);		
-		modelAndView.addObject("ontBean", ob);
 		//LOG.debug("For Id: " + ob.getId().toString());
-		List<PubBean> pbList = pbm.getBeanListById(ob.getId());
-		//LOG.debug("Found publications:" + pbList.size());
-		modelAndView.addObject("refs", pbList);		
+		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
+		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
+		LOG.debug("Found publications:" + pbList.size());
+		modelAndView.addObject("ontBean", ob);
+		modelAndView.addObject("refs", pbList);
 		return modelAndView;
 	}
 
