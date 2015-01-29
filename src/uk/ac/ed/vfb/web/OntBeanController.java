@@ -38,7 +38,7 @@ public class OntBeanController implements Controller {
 		for (String syn:synonyms){
 			if (syn.contains("FlyBase:FBrf")){
 				for (PubBean bean:pbList){
-					syn = syn.replace("FlyBase:"+ bean.getId(), bean.getMiniref());
+					syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
 				}
 			}
 			//if (syn.contains(":FBrf")){
