@@ -41,9 +41,12 @@ public class OntBeanController implements Controller {
 					syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
 				}
 			}
-			//if (syn.contains(":FBrf")){
-			// ADD OTHER REFS	
-			//}
+			if (syn.contains("FBC:")){
+				syn = syn.replace("FBC:","FlyBase Curator: ");	
+			}
+			if (syn.contains("FlyBrain_NDB:")){
+				syn = syn.replace("FlyBrain_NDB:","FlyBrain Neuron DB: ");	
+			}
 			cleanedSyn.add(syn);
 		}
 		ob.setSynonyms(cleanedSyn);
