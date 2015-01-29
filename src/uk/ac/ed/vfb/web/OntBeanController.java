@@ -33,6 +33,18 @@ public class OntBeanController implements Controller {
 		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
 		LOG.debug("Found publications:" + pbList.size());
+		List<String> synonyms = ob.getSynonyms();
+		for (String syn:synonyms){
+			if (syn.contains("FlyBase:FBrf")){
+				for (PubBean bean:pblist){
+					syn = syn.replace("FlyBase:"+ bean.getId(), bean.getMiniref());
+				}
+			}
+			//if (syn.contains(":FBrf")){
+			// ADD OTHER REFS	
+			//}
+		}
+		ob.setSynonyms(synonyms);
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
