@@ -91,7 +91,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <c:if test="${!empty ontBean.fbbtId}">
 <p>
-	<b>ID: </b>${ontBean.fbbtId}
+	<b>ID: </b><a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="See in FlyBase" >${ontBean.fbbtId}</a>
 </p>
 </c:if>
 <p>
