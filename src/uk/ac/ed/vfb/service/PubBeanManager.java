@@ -12,58 +12,18 @@ import uk.ac.ed.vfb.model.PubBean;
  */ 
 
 public class PubBeanManager {
-	protected PubDAO queryDAO;
-	private static final Log LOG = LogFactory.getLog(PubBeanManager.class);
+	PubDAO dao;
+	protected static final Log LOG = LogFactory.getLog(PubBeanManager.class);
+	
+	public void setDao(PubDAO dao) {
+		this.dao = dao;
+	}
 	
 	public List<PubBean> getBeanListById(String id){
-		LOG.debug("getBeanListById: " + id);
-		List<PubBean> beanList = queryDAO.getById(id);
-		LOG.debug("Returned beanlist: " + beanList.toString());
+		//LOG.debug("getBeanListById: " + id);
+		List<PubBean> beanList = dao.getById(id);
+		//LOG.debug("Returned beanlist: " + beanList.toString());
 		return beanList;
 	}
-	
-	public PubBean getBeanByRef(String ref){
-		LOG.debug("QueryDao: " + queryDAO);
-		LOG.debug("getBeanByRef: " + ref);
-		PubBean bean = new PubBean(ref, ref);
-		try{
-			if (ref.contains("FlyBase")){
-				String[] parts = ref.split(":");
-				LOG.debug("FlyBase ref: " + parts[1]);
-				bean = queryDAO.getByRef(parts[1]);
-				LOG.debug("Returned FlyBase bean: " + bean.toString());
-				return bean;
-			}
-			if (ref.contains("FlyBrain_NDB")){
-				bean = new PubBean(ref, "FlyBrain Neuron DB");
-				LOG.debug("Returned FlyBrain NDB bean: " + bean.toString());
-				return bean;
-			}
-			if (ref.contains("FBC")){
-				bean = new PubBean(ref, ref.replace("FBC:", "FlyBase Curator: " ));
-				LOG.debug("Returned FBC bean: " + bean.toString());
-				return bean;
-			}
-			LOG.error("Unknown ref: " + ref);
-			LOG.debug("Returned bean: " + bean.toString());
-			return bean;
-		}catch (Exception ex){
-			LOG.error("getBeanByRef for: " + ref);
-			ex.printStackTrace();
-			if (bean!=null){
-				LOG.error("returning: " + bean);
-				return bean;
-			}else{
-				LOG.error("returning: null");
-				return null;
-			}
-		}
-		
-	}
-	
-	public void setQueryDAO(PubDAO queryDAO) {
-		LOG.debug("PubBeanManager created queryDAO: " + queryDAO);
-		this.queryDAO = queryDAO;
-	}
-	
+
 }

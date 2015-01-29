@@ -46,7 +46,7 @@ public class FCMappingDAO extends AQueryDAO {
 	    XmlBeanFactory factory = new XmlBeanFactory(res);
 	    DataSource vfbDS = (DataSource)factory.getBean("vfbDataSource");
 	    this.setDataSource(vfbDS);
-	    LOG.debug("data source : " + vfbDS);
+	    //LOG.debug("data source : " + vfbDS);
 	}
 
 	private void process(){

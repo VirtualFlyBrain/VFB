@@ -6,9 +6,6 @@ import java.util.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-import uk.ac.ed.vfb.model.PubBean;
-
 /**
  * POJO class for anatomy term. The most important POJO class
  */
@@ -19,7 +16,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String def;
 	protected String comment;	
 	protected List<String> synonyms;
-	protected List<PubBean> refs;
+	protected List<String> refs;
 	/** List of key:value[] pairs describing relationships, eg "FBbt:00000020 :[part_of, abdomen]" */
 	protected Hashtable<String, String[]> relationships;
 	/** Map of key:value pairs, eg., "FBbt:00000006 : head segment" */
@@ -27,7 +24,6 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String id; //Pure numerical id, without "FBbt:"
 	protected ThirdPartyBean thirdPartyBean; // used for integration with third party sources - use driverRef for linking.
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
-	
 
 	/**
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
@@ -82,12 +78,12 @@ public class OntBean implements Comparable<Object>, Serializable{
 		this.synonyms = synonyms;
 	}
 
-	public List<PubBean> getRefs() {
+	public List<String> getRefs() {
 		return refs;
 	}
 
-	public void setRefs(List<PubBean> beans) {
-		this.refs = beans;
+	public void setRefs(List<String> refs) {
+		this.refs = refs;
 	}
 
 	public String getComment() {
@@ -165,7 +161,6 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public String getId() {
 		return fbbtId.substring(5);
 	}
-
 
 	@Override
 	public int compareTo(Object o) {

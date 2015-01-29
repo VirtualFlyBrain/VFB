@@ -13,9 +13,6 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import owltools.graph.OWLGraphWrapper.ISynonym;
 import uk.ac.ed.vfb.model.OntBean;
 
-import uk.ac.ed.vfb.model.PubBean;
-import uk.ac.ed.vfb.service.PubBeanManager;
-
 /**
  * Author: NM
  * For the anatomy file in memory, and given a term id it parses the term info to extract core properties
@@ -24,7 +21,6 @@ import uk.ac.ed.vfb.service.PubBeanManager;
  * Uses OWLTools
  */
 public class OwlResultParserClass extends AOwlResultParser {
-	
 
 	public OwlResultParserClass(OWLOntology ontology) {
 		super(ontology);
@@ -74,6 +70,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
+			Integer refI = 1;
 			Boolean refExists = false;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
@@ -85,15 +82,15 @@ public class OwlResultParserClass extends AOwlResultParser {
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
-							if (synXref!=null && !synXref.isEmpty()){
-								refExists = true;
+							refExists = true;
+							if (synXref != ""){
 								if (refIs != ""){
-									refIs = refIs + "," + synXref;
+									refIs = refIs + "," + refI.toString();
 								}else{
-									refIs = synXref;
+									refIs = refI.toString();
 								}
-								LOG.debug("Returned ref: " + refIs);
-								axioms.add(synXref);
+								axioms.add("(" + refI.toString() + ")," + synXref);
+								refI = refI + 1;
 							}
 						}
 					}
@@ -104,37 +101,15 @@ public class OwlResultParserClass extends AOwlResultParser {
 					}
 					
 				}
-				// moved till after minirefs are resolved.
+				ob.setSynonyms(syns);
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
-			LOG.debug("======== extended xrefs =========" + axioms.size());
-			PubBean temp = null;
-			List<PubBean> publs = null;
-			PubBeanManager pbm = new PubBeanManager();
-			for (String axiom:axioms){
-				LOG.debug(axiom.toString() + "\n");
-				try{
-					LOG.debug("Resolving ref: " + axiom);
-					LOG.debug("PubBeanManager: " + pbm);
-					temp = pbm.getBeanByRef(axiom);
-					LOG.debug("Returned PubBean: " + temp);
-					publs.add(temp);
-					for (String syn:syns){
-						if (syn.contains("(")){
-							syn = syn.replace(axiom, temp.getShortref());
-						}	
-					}	
-				}catch (Exception ex){
-					LOG.error("Error resloving short ref for: " + axiom);
-					ex.printStackTrace();
-				}
-			}
-			if (syns.size() > 0){
-				ob.setSynonyms(syns);
-			}
-			ob.setRefs(publs);
-			
+			//LOG.debug("======== extended xrefs =========" + axioms.size());
+			//for (String axiom:axioms){
+			//	//LOG.debug(axiom.toString() + "\n");
+			//}
+			ob.setRefs(axioms);
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
 			//LOG.debug("=========== rels ==============" + rels.size());
@@ -182,7 +157,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 		catch (Exception e) {
 			// TODO: handle exception
 			//Return whatever OntBean is created so far
-			LOG.error("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
+			//LOG.debug("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
 			LOG.error(e.getMessage());
 			e.printStackTrace();
 		}
