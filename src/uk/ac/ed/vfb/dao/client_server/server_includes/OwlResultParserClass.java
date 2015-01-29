@@ -71,7 +71,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
 			Boolean refExists = false;
-			int refI = 1;
+			Integer refI = 1;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
