@@ -119,6 +119,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						<c:if test="${fn:contains(currSubParts[1], 'FlyBrain_NDB')}">
 							<c:set var="temp" value="FlyBrain Neuron DB" />
 						</c:if>
+						<c:if test="${fn:contains(currSubParts[1], 'FBC')}">
+							<c:set var="temp" value="FlyBase Curator" />
+						</c:if>
+						<c:if test="${empty temp}" >
+							<c:set var="temp" value="${currSubParts[1]}" />
+						</c:if>
 					</c:if>
 				</c:forEach>
 			</c:forEach>
