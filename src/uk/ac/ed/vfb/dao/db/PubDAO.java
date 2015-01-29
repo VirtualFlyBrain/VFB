@@ -43,9 +43,9 @@ public class PubDAO extends AQueryDAO {
 			if (id.contains("FlyBase:FBrf")){
 				List<String> part = Arrays.asList(id.split(":"));
 				if (combId == ""){
-					combId = "'" + part[1] + "'";
+					combId = "'" + part.get(1) + "'";
 				}else{
-					combId = combId + " or uniquename like '" + part[1] + "'";
+					combId = combId + " or uniquename like '" + part.get(1) + "'";
 				}
 			}
 		}
