@@ -70,7 +70,6 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
-			Integer refI = 1;
 			Boolean refExists = false;
 			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
@@ -89,8 +88,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 								}else{
 									refIs = refI.toString();
 								}
-								axioms.add("(" + refI.toString() + ")," + synXref);
-								refI = refI + 1;
+								axioms.add(synXref);
 							}
 						}
 					}
