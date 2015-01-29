@@ -20,9 +20,16 @@ public class PubBeanManager {
 	}
 	
 	public List<PubBean> getBeanListById(String id){
-		//LOG.debug("getBeanListById: " + id);
+		LOG.debug("getBeanListById: " + id);
 		List<PubBean> beanList = dao.getById(id);
-		//LOG.debug("Returned beanlist: " + beanList.toString());
+		LOG.debug("Returned beanlist: " + beanList.toString());
+		return beanList;
+	}
+	
+	public List<PubBean> getBeanListByRefId(List<String> ids){
+		LOG.debug("getBeanListByRefId: " + ids);
+		List<PubBean> beanList = dao.getByRefIds(ids);
+		LOG.debug("Returned beanlist: " + beanList.toString());
 		return beanList;
 	}
 
