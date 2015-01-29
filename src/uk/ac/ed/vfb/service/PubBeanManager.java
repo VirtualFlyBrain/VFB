@@ -26,7 +26,7 @@ public class PubBeanManager {
 		return beanList;
 	}
 	
-	public List<PubBean> getBeanListByRefId(List<String> ids){
+	public List<PubBean> getBeanListByRefIds(List<String> ids){
 		LOG.debug("getBeanListByRefId: " + ids);
 		List<PubBean> beanList = dao.getByRefIds(ids);
 		LOG.debug("Returned beanlist: " + beanList.toString());
