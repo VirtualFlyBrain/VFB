@@ -78,7 +78,7 @@ public class PubBean {
 		}
 		if (id.contains("FBC:")){
 			if (id.contains("DOS")){
-				return "http://orcid.org/0000-0002-7073-9172"
+				return "http://orcid.org/0000-0002-7073-9172";
 		}
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
