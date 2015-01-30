@@ -42,7 +42,7 @@ public class PubBean {
 				return (parts[0] + "," + parts[1]);
 			}
 			if (miniref.contains("http")){
-				String[] parts = miniref.split(",");
+				String[] parts = miniref.split("/");
 				return (parts[0].replace(":","") + " link: " + parts[2].replace("www.",""));
 			}
 					
