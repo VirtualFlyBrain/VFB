@@ -80,6 +80,9 @@ public class PubBean {
 			if (id.contains("DOS")){
 				return "http://orcid.org/0000-0002-7073-9172";
 			}
+			if (id.contains("MMC")){
+				return "http://orcid.org/0000-0001-5948-3092";
+			}
 		}
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
