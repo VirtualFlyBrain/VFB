@@ -57,7 +57,7 @@ public class PubDAO extends AQueryDAO {
 				}
 				if (id.contains("http")){
 					List<String> urlparts = Arrays.asList(id.split("/"));
-					otherRefs.add(new PubBean(id, urlparts[0] + " link: " + urlparts[2]));
+					otherRefs.add(new PubBean(id, urlparts.get(0) + " link: " + urlparts.get(2)));
 				}
 			}
 		}
