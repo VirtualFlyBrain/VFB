@@ -39,6 +39,7 @@ public class PubDAO extends AQueryDAO {
 	
 	public List<PubBean> getByRefIds(List<String> ids) {
 		String combId = "";
+		List<PubBean> results = new ArrayList<PubBean>();
 		List<PubBean> otherRefs = new ArrayList<PubBean>();
 		for (String id:ids){
 			if (id.contains("FlyBase:FBrf")){
@@ -60,15 +61,16 @@ public class PubDAO extends AQueryDAO {
 				}
 			}
 		}
-		String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
-		LOG.debug("MiniRef by FB ref query: " + query);
-		List<PubBean> results = null;
-		try {
-			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
-		}
-		catch (Exception ex) {
-			LOG.error("MiniRef by FB ref query: " + query);
-			LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+		if (combId != ""){
+			String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
+			LOG.debug("MiniRef by FB ref query: " + query);
+			try {
+				results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
+			}
+			catch (Exception ex) {
+				LOG.error("MiniRef by FB ref query: " + query);
+				LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+			}
 		}
 		try {
 			if (otherRefs.size() > 0){
