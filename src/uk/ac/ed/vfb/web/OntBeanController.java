@@ -35,7 +35,7 @@ public class OntBeanController implements Controller {
 		LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
-		if (synonyms.size() > 0){
+		if (synonyms != null && synonyms.size() > 0){
 			for (String syn:synonyms){
 				if (syn.contains("FlyBase:FBrf")){
 					for (PubBean bean:pbList){
