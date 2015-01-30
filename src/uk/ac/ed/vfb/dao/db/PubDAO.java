@@ -51,7 +51,7 @@ public class PubDAO extends AQueryDAO {
 				}
 			}else{
 				if (id.contains("FBC:")){
-					otherRefs.add(new PubBean(id, id.replace("FBC:", "FlyBase Curator [").replace("DOS","David Osumi-Sutherland").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein") + "]"));
+					otherRefs.add(new PubBean(id, id.replace("FBC:", "FlyBase Curator [").replace("DOS","David Osumi-Sutherland").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein").replace("MMC","Marta Mesquita da Costa") + "]"));
 				}
 				if (id.contains("FlyBrain_NDB:")){
 					otherRefs.add(new PubBean(id, id.replace("FlyBrain_NDB:", "FlyBrain Neuron DataBase [") + "]"));
