@@ -78,7 +78,7 @@ public class PubDAO extends AQueryDAO {
 			}
 		}
 		catch (Exception ex) {
-			LOG.error("MiniRef by FB ref query: " + query);
+			LOG.error("MiniRef by refs: " + ids);
 			LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
 		}
 		LOG.debug("MiniRef query results: " + results);
