@@ -46,6 +46,31 @@ public class PubBean {
 		return "";
 	}
 	
+	public String getWebLink() {
+		String weblink = "#";
+		if (id.contains("FBrf")){
+			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "") +  ".html";
+			return weblink;
+		}
+		if (id.contains("FlyBrain_NDB")){
+			String[] parts = id.split(":");
+			weblink = "http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find";
+			return weblink;
+		}
+		if (id.contains("http")){
+			try{
+				weblink = URLDecoder.decode(id, "UTF-8");
+			}catch(Exception ex){
+				LOG.error("getWebLink decoding url: " + id);
+				ex.printStackTrace();
+				weblink = id;
+			}
+			return weblink;
+		}
+		weblink = "https://www.google.com/search?q=" + id;
+		return weblink;
+	}
+	
 	public String toString(){
 		return this.id + " : " + this.miniref;
 	}
