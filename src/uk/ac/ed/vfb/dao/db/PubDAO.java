@@ -39,6 +39,7 @@ public class PubDAO extends AQueryDAO {
 	
 	public List<PubBean> getByRefIds(List<String> ids) {
 		String combId = "";
+		List<PubBean> otherRefs = new ArrayList<PubBean>();
 		for (String id:ids){
 			if (id.contains("FlyBase:FBrf")){
 				List<String> part = Arrays.asList(id.split(":"));
@@ -46,6 +47,17 @@ public class PubDAO extends AQueryDAO {
 					combId = "'" + part.get(1) + "'";
 				}else{
 					combId = combId + " or uniquename like '" + part.get(1) + "'";
+				}
+			}else{
+				if (id.contains("FBC:")){
+					otherRefs.add(new PubBean(id, id.replace("FBC:", "FlyBase Curator [") + "]"));
+				}
+				if (id.contains("FlyBrain_NDB:")){
+					otherRefs.add(new PubBean(id, id.replace("FlyBrain_NDB:", "FlyBrain Neuron DataBase [") + "]"));
+				}
+				if (id.contains("http")){
+					List<String> urlparts = Arrays.asList(id.split("/"));
+					otherRefs.add(new PubBean(id, urlparts[0] + " link: " + urlparts[2]));
 				}
 			}
 		}
@@ -56,9 +68,19 @@ public class PubDAO extends AQueryDAO {
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 		}
 		catch (Exception ex) {
-			LOG.error("Error!!!!" + ex.getLocalizedMessage());
+			LOG.error("MiniRef by FB ref query: " + query);
+			LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
 		}
-		//LOG.debug("MiniRef query results: " + results);
+		try {
+			if (otherRefs.size() > 0){
+				results.addAll(otherRefs); 
+			}
+		}
+		catch (Exception ex) {
+			LOG.error("MiniRef by FB ref query: " + query);
+			LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
+		}
+		LOG.debug("MiniRef query results: " + results);
 		if (results == null){
 			LOG.error("Error resolving ref: " + ids);
 		}
