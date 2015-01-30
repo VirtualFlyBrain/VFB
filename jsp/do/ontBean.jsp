@@ -117,7 +117,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					</c:if>
 				</c:forEach>
 			</c:if>
-			<c:if test="${fn:contains(hasLink, 'false'}">
+			<c:if test="${fn:contains(hasLink, 'false')}">
 				&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
 			</c:if>
 		</c:forEach>
