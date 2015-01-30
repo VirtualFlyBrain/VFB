@@ -127,7 +127,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<p>
 		<b>References: </b><br />
 		<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new">${curr.miniref}</a>
+			&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new"><script>document.write(decodeURIComponent('${curr.miniref}'));</script></a>
 			<br />
 		</c:forEach>
 	</p>
