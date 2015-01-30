@@ -35,21 +35,23 @@ public class OntBeanController implements Controller {
 		LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
-		for (String syn:synonyms){
-			if (syn.contains("FlyBase:FBrf")){
-				for (PubBean bean:pbList){
-					syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+		if (synonyms.size() > 0){
+			for (String syn:synonyms){
+				if (syn.contains("FlyBase:FBrf")){
+					for (PubBean bean:pbList){
+						syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+					}
 				}
+				if (syn.contains("FBC:")){
+					syn = syn.replace("FBC:","FlyBase Curator: ");	
+				}
+				if (syn.contains("FlyBrain_NDB:")){
+					syn = syn.replace("FlyBrain_NDB:","FlyBrain Neuron DB: ");	
+				}
+				cleanedSyn.add(syn);
 			}
-			if (syn.contains("FBC:")){
-				syn = syn.replace("FBC:","FlyBase Curator: ");	
-			}
-			if (syn.contains("FlyBrain_NDB:")){
-				syn = syn.replace("FlyBrain_NDB:","FlyBrain Neuron DB: ");	
-			}
-			cleanedSyn.add(syn);
+			ob.setSynonyms(cleanedSyn);
 		}
-		ob.setSynonyms(cleanedSyn);
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
