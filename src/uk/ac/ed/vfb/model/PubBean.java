@@ -45,7 +45,9 @@ public class PubBean {
 				String[] parts = miniref.split("/");
 				return (parts[0].replace(":","") + " link: " + parts[2].replace("www.",""));
 			}
-					
+			if (miniref.contains("FlyBrain Neuron DataBase")){
+				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
+			}
 			LOG.debug("Returning: " + miniref);
 			return miniref;
 		}
