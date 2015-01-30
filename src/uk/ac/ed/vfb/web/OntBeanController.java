@@ -27,7 +27,7 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
-		String id = req.getParameter("fbId");
+		String id = OntBean.idAsOBO(req.getParameter("fbId"));
 		OntBean ob = this.obm.getBeanForId(id);		
 		//LOG.debug("For Id: " + ob.getId().toString());
 		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
