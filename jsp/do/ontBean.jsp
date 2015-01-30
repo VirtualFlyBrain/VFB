@@ -105,15 +105,20 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <p>
 	<b>Synonyms: </b><br />
 	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-		<c:set var="temp" value="${curr}" />
+		<c:set var="hasLink" value="false" />
 		<c:if test="${fn:contains(curr, '(')}">
 			<c:forEach items="${refs}" var="currRef" varStatus="status">
 				<c:if test="${fn:contains(curr, currRef.shortref)}">
-					<c:set var="temp" value="${fn:replace(curr, currRef.shortref, '\<a href=\"${curr.webLink}\" title=\"${curr.miniref}\" target=\"_new\"\>' + currRef.shortref + '\</a\>')}" />
+					<c:set var="hasLink" value="true" />
+					<c:set var="parts" value="${fn:split(curr, '(')}" />
+					&nbsp;&nbsp;&nbsp; * ${parts[0]}<a href="${currRef.webLink}" title="${currRef.miniref}" target="_new">(${parts[1]}</a>
+					<br />
 				</c:if>
 			</c:forEach>
 		</c:if>
-		&nbsp;&nbsp;&nbsp; * ${fn:replace(temp, '()', '')}<br />
+		<c:if test="${fn:contains(hasLink, 'false'}">
+			&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
+		</c:if>
 	</c:forEach>
 </p>
 <c:if test="${fn:length(refs)>0}">
