@@ -56,9 +56,7 @@ public class PubDAO extends AQueryDAO {
 					otherRefs.add(new PubBean(id, id.replace("FlyBrain_NDB:", "FlyBrain Neuron DataBase [") + "]"));
 				}
 				if (id.contains("http")){
-					//List<String> urlparts = Arrays.asList(id.split("/"));
-					//otherRefs.add(new PubBean(id, urlparts.get(0).replace(":","") + " link: " + urlparts.get(2)));
-					otherRefs.add(new PubBean(id,id);
+					otherRefs.add(new PubBean(id,id));
 				}
 			}
 		}
