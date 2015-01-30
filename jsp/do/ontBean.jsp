@@ -108,7 +108,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:if test="${fn:contains(curr, '(')}">
 			<c:forEach items="${refs}" var="currRef" varStatus="status">
 				<c:if test="${fn:contains(curr, currRef.shortref}">
-					<c:set var="curr" value="${fn:replace(curr, currRef.shortref, '<a href="${curr.webLink}" title="${curr.miniref}" target="_new">' + currRef.shortref + '</a>')}" />
+					<c:set var="curr" value="${fn:replace(curr, currRef.shortref, '<a href=\"${curr.webLink}\" title=\"${curr.miniref}\" target=\"_new\">' + currRef.shortref + '</a>')}" />
 				</c:if>
 			</c:forEach>
 		</c:if>
