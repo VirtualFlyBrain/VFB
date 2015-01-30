@@ -3,6 +3,8 @@ package uk.ac.ed.vfb.model;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.net.URLDecoder;
+
 /**
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description 
  */
