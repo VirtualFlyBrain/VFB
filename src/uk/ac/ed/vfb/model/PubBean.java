@@ -41,6 +41,11 @@ public class PubBean {
 				LOG.debug("Returning: " + parts[0] + "," + parts[1]);
 				return (parts[0] + "," + parts[1]);
 			}
+			if (miniref.contains(",")){
+				List<String> urlparts = Arrays.asList(id.split("/"));
+				return (urlparts.get(0).replace(":","") + " link: " + urlparts.get(2));
+			}
+					
 			LOG.debug("Returning: " + miniref);
 			return miniref;
 		}
