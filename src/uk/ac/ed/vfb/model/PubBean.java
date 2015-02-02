@@ -80,6 +80,9 @@ public class PubBean {
 		if (id.contains("PMID:")){
 			return "http://www.ncbi.nlm.nih.gov/pubmed/" + id.replace("PMID:","");
 		}
+		if (id.contains("VFB_vol:")){
+			return "/site/stacks/index.htm?add=FBbt:" + id.replace("VFB_vol:","");
+		}
 		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
@@ -105,6 +108,10 @@ public class PubBean {
 		}
 		if (id.contains("PMID:")){
 			result = id.replace("PMID:","PubMed ref PMID:");
+			return result;
+		}
+		if (id.contains("VFB_vol:")){
+			result = "Virtual Fly Brain painted volume [FBbt:" + id.replace("VFB_vol:","") + "]";
 			return result;
 		}
 		LOG.error("Unresolved miniref for: " + id);
@@ -134,6 +141,9 @@ public class PubBean {
 			}
 			if (id.contains("PMID:")){
 				return id;	
+			}
+			if (id.contains("VFB_vol:")){
+				return "VFB volume [FBbt:" + id.replace("VFB_vol:","") + "]";	
 			}
 			LOG.error("Just returning miniref: " + miniref);
 			return miniref;
