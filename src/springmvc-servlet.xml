@@ -186,7 +186,7 @@
 		<property name="autocompleteDAO" ref="autocompleteDAONeuropil" />
 	</bean>
 	
-	<!-- Autocomplete servlet for neuropils -->
+	<!-- Autocomplete servlet for adult brain anatomy -->
 	<bean name="/do/autocomplete_list_adultbrain.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
 		<property name="autocompleteDAO" ref="autocompleteDAOAB" />
 	</bean>
