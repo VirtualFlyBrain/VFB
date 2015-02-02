@@ -19,6 +19,12 @@ public class PubBean {
 		this.id = id;
 		this.miniref = miniref;
 	}
+	
+	public PubBean(String id) {
+		super();
+		this.id = id;
+		this.miniref = decodeId2miniref(id);
+	}
 
 	public String getId() {
 		return id;
