@@ -70,17 +70,36 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
+			Boolean refExists = false;
+			Integer refI = 1;
+			String refIs = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
-					syns.add(syn.getLabel());
+					refIs = "";
+					refExists = false;
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
-							axioms.add(synXref);
+							refExists = true;
+							if (synXref != ""){
+								if (refIs != ""){
+									refIs = refIs + "," + synXref;
+								}else{
+									refIs = synXref;
+								}
+								axioms.add(synXref);
+								refI = refI +1;
+							}
 						}
 					}
+					if (refExists){
+						syns.add(syn.getLabel() + " (" + refIs + ")");	
+					}else{
+						syns.add(syn.getLabel());
+					}
+					
 				}
 				ob.setSynonyms(syns);
 			}

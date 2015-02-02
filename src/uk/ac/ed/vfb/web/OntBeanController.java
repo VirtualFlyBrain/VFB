@@ -27,13 +27,33 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
-		String id = req.getParameter("fbId");
+		String id = OntBean.idAsOBO(req.getParameter("fbId"));
 		OntBean ob = this.obm.getBeanForId(id);		
-		modelAndView.addObject("ontBean", ob);
 		//LOG.debug("For Id: " + ob.getId().toString());
-		List<PubBean> pbList = pbm.getBeanListById(ob.getId());
-		//LOG.debug("Found publications:" + pbList.size());
-		modelAndView.addObject("refs", pbList);		
+		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
+		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
+		LOG.debug("Found publications:" + pbList.size());
+		List<String> synonyms = ob.getSynonyms();
+		List<String> cleanedSyn = new ArrayList<String>();
+		if (synonyms != null && synonyms.size() > 0){
+			for (String syn:synonyms){
+				if (syn.contains("FlyBase:FBrf")){
+					for (PubBean bean:pbList){
+						syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+					}
+				}
+				if (syn.contains("FBC:")){
+					syn = syn.replace("FBC:","FlyBase Curator: ");	
+				}
+				if (syn.contains("FlyBrain_NDB:")){
+					syn = syn.replace("FlyBrain_NDB:","FlyBrain Neuron DB: ");	
+				}
+				cleanedSyn.add(syn);
+			}
+			ob.setSynonyms(cleanedSyn);
+		}
+		modelAndView.addObject("ontBean", ob);
+		modelAndView.addObject("refs", pbList);
 		return modelAndView;
 	}
 
