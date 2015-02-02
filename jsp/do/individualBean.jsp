@@ -69,7 +69,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="#" target="_top" title="View details">${ontBean.name}</a></h2>
 <c:if test="${!empty ontBean.fbbtId}">
 <p>
-	<b>ID: </b><a href="http://www.virtualflybrain.org/owl/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="Indiviual web link" >${fn:replace(ontBean.fbbtId, ':', '_')}</a>
+	<b>ID: </b><a href="http://www.virtualflybrain.org/owl/${ontBean.fbbtId}" target="_new" title="Indiviual web link" >${ontBean.fbbtId}</a>
 </p>
 </c:if>
 <p>
