@@ -67,6 +67,9 @@ public class PubBean {
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
 		}
+		if (id.contains("ISBN:")){
+			return "https://www.google.com/search?q=" + id.replace("-","");
+		}
 		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
