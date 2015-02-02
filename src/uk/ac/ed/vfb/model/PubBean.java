@@ -106,9 +106,9 @@ public class PubBean {
 	public String produceShortref(String id, String miniref) {
 		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
-			if (miniref.contains(",")){
+			if (miniref.contains(",") && id.contains("FBrf")){
 				String[] parts = miniref.split(",");
-				LOG.debug("Returning: " + parts[0] + "," + parts[1]);
+				//LOG.debug("Returning: " + parts[0] + "," + parts[1]);
 				return (parts[0] + "," + parts[1]);
 			}
 			if (miniref.contains("http")){
@@ -119,6 +119,9 @@ public class PubBean {
 				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
 			}
 			if (id.contains("FBC:")){
+				return id;	
+			}
+			if (id.contains("ISBN:")){
 				return id;	
 			}
 			LOG.error("Just returning miniref: " + miniref);
