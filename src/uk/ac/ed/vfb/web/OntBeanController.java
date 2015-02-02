@@ -37,16 +37,14 @@ public class OntBeanController implements Controller {
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
 			for (String syn:synonyms){
-				if (syn.contains("FlyBase:FBrf")){
+				if (syn.contains("(")){
 					for (PubBean bean:pbList){
-						syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+						if (syn.contains("FlyBase:FBrf")){
+							syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+						}else{
+							syn = syn.replace(bean.getId(), bean.getShortref());	
+						}
 					}
-				}
-				if (syn.contains("FBC:")){
-					syn = syn.replace("FBC:","FlyBase Curator: ");	
-				}
-				if (syn.contains("FlyBrain_NDB:")){
-					syn = syn.replace("FlyBrain_NDB:","FlyBrain Neuron DB: ");	
 				}
 				cleanedSyn.add(syn);
 			}
