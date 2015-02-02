@@ -76,6 +76,9 @@ public class PubBean {
 		if (id.contains("ISBN:")){
 			return "https://www.google.com/search?q=" + id.replace("-","");
 		}
+		if (id.contains("PMID:")){
+			return "http://www.ncbi.nlm.nih.gov/pubmed/" + id.replace("PMID:","");
+		}
 		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
@@ -97,6 +100,10 @@ public class PubBean {
 		}
 		if (id.contains("ISBN:")){
 			result = id.replace("ISBN:","Publication ref ISBN:");
+			return result;
+		}
+		if (id.contains("PMID:")){
+			result = id.replace("PMID:","PubMed ref PMID:");
 			return result;
 		}
 		LOG.error("Unresolved miniref for: " + id);
@@ -122,6 +129,9 @@ public class PubBean {
 				return id;	
 			}
 			if (id.contains("ISBN:")){
+				return id;	
+			}
+			if (id.contains("PMID:")){
 				return id;	
 			}
 			LOG.error("Just returning miniref: " + miniref);
