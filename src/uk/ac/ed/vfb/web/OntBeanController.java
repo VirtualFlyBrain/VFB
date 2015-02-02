@@ -52,6 +52,7 @@ public class OntBeanController implements Controller {
 			}
 			ob.setSynonyms(cleanedSyn);
 		}
+		// resolve any refs in definition text
 		String def = ob.getDef();
 		if (def.contains("(")){
 			for (PubBean bean:pbList){
@@ -59,8 +60,18 @@ public class OntBeanController implements Controller {
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
+			ob.setDef(def);
 		}
-		ob.setDef(def);
+		// resolve any refs in comment text
+		String com = ob.getComment();
+		if (com.contains("(")){
+			for (PubBean bean:pbList){
+				if (com.contains(bean.getShortref())){
+					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+				}
+			}
+			ob.setComment(com);
+		}
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
