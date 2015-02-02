@@ -50,7 +50,7 @@ public class PubDAO extends AQueryDAO {
 					combId = combId + " or uniquename like '" + part.get(1) + "'";
 				}
 			}else{
-				otherRefs.add(new PubBean(id, PubBean.decodeId2miniref(id)));
+				otherRefs.add(new PubBean(id));
 			}
 		}
 		if (combId != ""){
