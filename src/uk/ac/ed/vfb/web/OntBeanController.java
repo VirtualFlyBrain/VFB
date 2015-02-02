@@ -39,10 +39,12 @@ public class OntBeanController implements Controller {
 			for (String syn:synonyms){
 				if (syn.contains("(")){
 					for (PubBean bean:pbList){
-						if (syn.contains("FlyBase:FBrf")){
-							syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
-						}else{
-							syn = syn.replace(bean.getId(), bean.getShortref());	
+						if (syn.contains(bean.getId())){
+							if (syn.contains("FlyBase:FBrf")){
+								syn = syn.replace("FlyBase:"+ bean.getId(), bean.getShortref());
+							}else{
+								syn = syn.replace(bean.getId(), bean.getShortref());	
+							}
 						}
 					}
 				}
@@ -50,6 +52,15 @@ public class OntBeanController implements Controller {
 			}
 			ob.setSynonyms(cleanedSyn);
 		}
+		String def = ob.getDef();
+		if (def.contains("(")){
+			for (PubBean bean:pbList){
+				if (def.contains(bean.getShortref())){
+					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + ""\" title=\"" + getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+				}
+			}
+		}
+		ob.setDef(def);
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
