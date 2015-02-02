@@ -56,7 +56,7 @@ public class OntBeanController implements Controller {
 		if (def.contains("(")){
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
-					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + ""\" title=\"" + getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
 		}
