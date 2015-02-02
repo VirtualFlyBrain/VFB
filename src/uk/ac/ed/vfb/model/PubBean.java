@@ -35,27 +35,7 @@ public class PubBean {
 	
 	public String getShortref() {
 		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
-		if (miniref!=null){
-			if (miniref.contains(",")){
-				String[] parts = miniref.split(",");
-				LOG.debug("Returning: " + parts[0] + "," + parts[1]);
-				return (parts[0] + "," + parts[1]);
-			}
-			if (miniref.contains("http")){
-				String[] parts = miniref.split("/");
-				return (parts[0].replace(":","") + " link: " + parts[2].replace("www.",""));
-			}
-			if (miniref.contains("FlyBrain Neuron DataBase")){
-				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
-			}
-			if (id.contains("FBC:")){
-				return id;	
-			}
-			LOG.debug("Returning: " + miniref);
-			return miniref;
-		}
-		LOG.debug("Returning nothing");
-		return "";
+		return produceShortref(id, miniref);
 	}
 	
 	public String getWebLink() {
@@ -87,11 +67,55 @@ public class PubBean {
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
 		}
+		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
 	}
 	
-	public String id2MiniRef(String id){
+	public String decodeId2miniref(String id){
+		String result = id;
+		if (id.contains("FBC:")){
+			result = id.replace("FBC:", "FlyBase Curator [").replace("-", " and ").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein").replace("MMC","Marta Mesquita da Costa").replace("AJ","Arnim Jenett").replace("ds555","David Osumi-Sutherland").replace("DS","David Osumi-Sutherland").replace("MA","Michael Ashburner").replace("SR","Simon Reeve").replace("SPR","Simon Reeve").replace("DOS","David Osumi-Sutherland") + "]";
+			return result;
+		}
+		if (id.contains("FlyBrain_NDB:")){
+			result = id.replace("FlyBrain_NDB:", "FlyBrain Neuron DataBase [") + "]";
+			return result;
+		}
+		if (id.contains("http")){
+			result = id;
+			return result;
+		}
+		if (id.contains("ISBN:")){
+			result = id.replace("ISBN:","Publication ref ISBN:");
+			return result;
+		}
+		LOG.error("Unresolved miniref for: " + id);
+		return result;
+	}
+	
+	public String produceShortref(String id, String miniref) {
+		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
+		if (miniref!=null){
+			if (miniref.contains(",")){
+				String[] parts = miniref.split(",");
+				LOG.debug("Returning: " + parts[0] + "," + parts[1]);
+				return (parts[0] + "," + parts[1]);
+			}
+			if (miniref.contains("http")){
+				String[] parts = miniref.split("/");
+				return (parts[0].replace(":","") + " link: " + parts[2].replace("www.",""));
+			}
+			if (miniref.contains("FlyBrain Neuron DataBase")){
+				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
+			}
+			if (id.contains("FBC:")){
+				return id;	
+			}
+			LOG.error("Just returning miniref: " + miniref);
+			return miniref;
+		}
+		LOG.error("Returning id: " + id);
 		return id;
 	}
 	
