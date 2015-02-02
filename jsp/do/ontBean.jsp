@@ -8,7 +8,7 @@ ServletContext servletContext = this.getServletContext();
 
 WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
 
-AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
+AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOAB");
 pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 
 
