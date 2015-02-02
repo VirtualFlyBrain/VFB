@@ -39,4 +39,14 @@ public class OntBeanIndividual extends OntBean implements Serializable{
 		this.types = types;
 	}
 	
+	@Override
+	public String getFbbtId() {
+		return OntBean.idAsOWL(fbbtId);
+	}
+
+	@Override
+	public void setFbbtId(String fbbtId) {
+		this.fbbtId = OntBean.idAsOWL(fbbtId);
+	}
+	
 }
