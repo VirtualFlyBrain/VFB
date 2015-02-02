@@ -32,7 +32,7 @@ public class OntBeanController implements Controller {
 		//LOG.debug("For Id: " + ob.getId().toString());
 		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		LOG.debug("Found publications:" + pbList.size());
+		//LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){

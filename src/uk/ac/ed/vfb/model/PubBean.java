@@ -6,20 +6,20 @@ import org.apache.commons.logging.LogFactory;
 import java.net.URLDecoder;
 
 /**
- * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description 
+ * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description
  */
 
 public class PubBean {
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
-	
+
 	public PubBean(String id, String miniref) {
 		super();
 		this.id = id;
 		this.miniref = miniref;
 	}
-	
+
 	public PubBean(String id) {
 		super();
 		this.id = id;
@@ -38,12 +38,12 @@ public class PubBean {
 	public void setMiniref(String miniref) {
 		this.miniref = miniref;
 	}
-	
+
 	public String getShortref() {
 		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		return produceShortref(id, miniref);
 	}
-	
+
 	public String getWebLink() {
 		String weblink = "#";
 		if (id.contains("FBrf")){
@@ -87,7 +87,7 @@ public class PubBean {
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
 	}
-	
+
 	public String decodeId2miniref(String id){
 		String result = id;
 		if (id.contains("FBC:")){
@@ -117,9 +117,9 @@ public class PubBean {
 		LOG.error("Unresolved miniref for: " + id);
 		return result;
 	}
-	
+
 	public String produceShortref(String id, String miniref) {
-		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
+		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
 			if (miniref.contains(",") && id.contains("FBrf")){
 				String[] parts = miniref.split(",");
@@ -134,16 +134,16 @@ public class PubBean {
 				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
 			}
 			if (id.contains("FBC:")){
-				return id;	
+				return id;
 			}
 			if (id.contains("ISBN:")){
-				return id;	
+				return id;
 			}
 			if (id.contains("PMID:")){
-				return id;	
+				return id;
 			}
 			if (id.contains("VFB_vol:")){
-				return "VFB volume [FBbt:" + id.replace("VFB_vol:","") + "]";	
+				return "VFB volume [FBbt:" + id.replace("VFB_vol:","") + "]";
 			}
 			LOG.error("Just returning miniref: " + miniref);
 			return miniref;
@@ -151,7 +151,7 @@ public class PubBean {
 		LOG.error("Returning id: " + id);
 		return id;
 	}
-	
+
 	public String toString(){
 		return this.id + " : " + this.miniref;
 	}
