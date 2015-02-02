@@ -72,9 +72,7 @@ public class PubBean {
 			if (id.contains("MMC")){
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
-			if (id.contains("VH")){
-				return "https://www.mcdb.ucla.edu/Research/Hartenstein/";
-			}
+			return "https://www.google.com/search?q=" miniref.replace("FlyBase Curator [","").replace("]","");
 		}
 		if (id.contains("ISBN:")){
 			return "https://www.google.com/search?q=" + id.replace("-","");
