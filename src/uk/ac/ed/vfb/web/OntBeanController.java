@@ -54,7 +54,7 @@ public class OntBeanController implements Controller {
 		}
 		// resolve any refs in definition text
 		String def = ob.getDef();
-		if (def.contains("(")){
+		if (def != null && def.contains("(")){
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
@@ -64,7 +64,7 @@ public class OntBeanController implements Controller {
 		}
 		// resolve any refs in comment text
 		String com = ob.getComment();
-		if (com.contains("(")){
+		if (com != null && com.contains("(")){
 			for (PubBean bean:pbList){
 				if (com.contains(bean.getShortref())){
 					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
