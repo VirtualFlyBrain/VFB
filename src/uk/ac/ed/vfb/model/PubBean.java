@@ -48,6 +48,9 @@ public class PubBean {
 			if (miniref.contains("FlyBrain Neuron DataBase")){
 				return (id.replace("FlyBrain_NDB:","FlyBrain Neuron DB: "));
 			}
+			if (id.contains("FBC:")){
+				return id;	
+			}
 			LOG.debug("Returning: " + miniref);
 			return miniref;
 		}
@@ -86,6 +89,10 @@ public class PubBean {
 		}
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
+	}
+	
+	public String id2MiniRef(String id){
+		return id;
 	}
 	
 	public String toString(){
