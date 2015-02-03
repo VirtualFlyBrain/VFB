@@ -261,11 +261,11 @@ public class CompositeViewBean implements Serializable {
 	}
 	
 	public String toString(){
-		String result = ""
+		String result = "";
 		for (ThirdPartyBean stack:stacks){
 			result = result + stack + ";";
 		}
-		return result
+		return result;
 	}
 	
 }
