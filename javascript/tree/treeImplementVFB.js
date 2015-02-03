@@ -253,7 +253,9 @@ Mif.Tree.implement({
 						if (node.fbId == domainList.getLast()){
 							tree.select(node);
 							tree.scrollTo(node);
-							node.centre();
+							if (window.location.contains("add")){
+								node.centre();
+							}
 						}
 					});		
 				})
