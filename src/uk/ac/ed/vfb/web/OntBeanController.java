@@ -59,6 +59,10 @@ public class OntBeanController implements Controller {
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
+				if (def.contains("FlyBase:" + bean.getId())){
+					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + on.getId());
+					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+				}
 			}
 			ob.setDef(def);
 		}
@@ -68,6 +72,10 @@ public class OntBeanController implements Controller {
 			for (PubBean bean:pbList){
 				if (com.contains(bean.getShortref())){
 					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+				}
+				if (com.contains("FlyBase:" + bean.getId())){
+					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + on.getId());
+					com = com.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
 			ob.setComment(com);
