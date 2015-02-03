@@ -125,9 +125,9 @@ public class OntBeanController implements Controller {
 					String goRef = com.substring(com.indexOf("(GO:"), com.indexOf(")", com.indexOf("(GO:"))).replace("(","").replace(")","");
 					com = com.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
 				}
-				if (com.contains("FlyBase:" + bean.getId())){
+				if (com.contains(bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + ob.getId());
-					com = com.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					com = com.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
 			ob.setComment(com);
