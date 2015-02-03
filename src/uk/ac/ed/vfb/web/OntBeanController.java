@@ -120,9 +120,9 @@ public class OntBeanController implements Controller {
 					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
 					LOG.debug("Resolving (short ref: " + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + " ) definition: " + def);
 				}
-				if (def.contains(bean.getId())){
+				if (def.contains("FlyBase:" + bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
-					def = def.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 					LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
 				}
 			}
