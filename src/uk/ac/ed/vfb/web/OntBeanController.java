@@ -59,8 +59,11 @@ public class OntBeanController implements Controller {
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
+				if (def.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
+					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
+				}
 				if (def.contains("FlyBase:" + bean.getId())){
-					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + on.getId());
+					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
 					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
@@ -73,8 +76,11 @@ public class OntBeanController implements Controller {
 				if (com.contains(bean.getShortref())){
 					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
+				if (com.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
+					com = com.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
+				}
 				if (com.contains("FlyBase:" + bean.getId())){
-					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + on.getId());
+					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + ob.getId());
 					com = com.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
