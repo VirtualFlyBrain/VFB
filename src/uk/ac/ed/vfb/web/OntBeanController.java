@@ -53,9 +53,9 @@ public class OntBeanController implements Controller {
 			ob.setSynonyms(cleanedSyn);
 		}
 		// resolve any refs in definition text
-		ob.setDef(resolveRefs(ob.getDef()));
+		ob.setDef(resolveRefs(ob.getDef(), ob, pblist));
 		// resolve any refs in comment text
-		ob.setComment(resolveRefs(ob.getComment()));
+		ob.setComment(resolveRefs(ob.getComment(), ob, pblist));
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
@@ -69,7 +69,7 @@ public class OntBeanController implements Controller {
 		this.pbm = pbm;
 	}
 	
-	public String resolveRefs(String def){
+	public String resolveRefs(String def, OntBean ob, List<PubBean> pbList){
 		if (def != null && def.contains("(") && !def.contains("<")){
 			LOG.debug("Starting with definition: " + def);
 			while (def.contains("at al.")){
