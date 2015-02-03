@@ -253,10 +253,10 @@ Mif.Tree.implement({
 						if (node.fbId == domainList.getLast()){
 							tree.select(node);
 							tree.scrollTo(node);
-							console.log("Adding " + node.fbId + " called with " + window.location);
-							if (window.location.contains("add")){
+							//console.log("Adding " + node.fbId + " called with " + window.location);
+							if (window.location.href.indexOf("add") > -1){
 								node.centre();
-								console.log("Centre " + node.fbId);
+								//console.log("Centre " + node.fbId);
 							}
 						}
 					});		
