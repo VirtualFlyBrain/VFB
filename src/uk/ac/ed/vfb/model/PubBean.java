@@ -72,7 +72,7 @@ public class PubBean {
 			if (id.contains("MMC")){
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
-			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace(" ","+");
+			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
 		}
 		if (id.contains("ISBN:")){
 			return "https://www.google.com/search?q=" + id.replace("-","");
