@@ -53,7 +53,23 @@ public class OntBeanController implements Controller {
 			ob.setSynonyms(cleanedSyn);
 		}
 		// resolve any refs in definition text
-		String def = ob.getDef();
+		ob.setDef(resolveRefs(ob.getDef()));
+		// resolve any refs in comment text
+		ob.setComment(resolveRefs(ob.getComment()));
+		modelAndView.addObject("ontBean", ob);
+		modelAndView.addObject("refs", pbList);
+		return modelAndView;
+	}
+
+	public void setObm(OntBeanManager manager) {
+		this.obm = manager;
+	}
+
+	public void setPbm(PubBeanManager pbm) {
+		this.pbm = pbm;
+	}
+	
+	public String resolveRefs(String def){
 		if (def != null && def.contains("(") && !def.contains("<")){
 			LOG.debug("Starting with definition: " + def);
 			while (def.contains("at al.")){
@@ -76,9 +92,17 @@ public class OntBeanController implements Controller {
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
 				LOG.debug("Resolving (year spacing 19xx) definition: " + def);
 			}
-			while (def.contains("FlyBase:FBrf")){
-				def = def.replace("FlyBase:FBrf","FBrf");
-				LOG.debug("Resolving (FlyBase) definition: " + def);
+			while (def.contains("(FBrf")){
+				def = def.replace("(FBrf","(FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
+				LOG.debug("Resolving (FlyBase:FBrf with bracket) definition: " + def);
+			}
+			while (def.contains(" FBrf")){
+				def = def.replace(" FBrf"," FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
+				LOG.debug("Resolving (FlyBase:FBrf with space) definition: " + def);
+			}
+			while (def.contains("(FBrf")){
+				def = def.replace("(FBrf","(FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
+				LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 			}
 			while (def.contains("(GO:")){
 				String goRef = def.substring(def.indexOf("(GO:"), def.indexOf(")", def.indexOf("(GO:"))).replace("(","").replace(")","");
@@ -103,59 +127,9 @@ public class OntBeanController implements Controller {
 				}
 			}
 			LOG.debug("Final definition: " + def);
-			ob.setDef(def);
+			
 		}
-		// resolve any refs in comment text
-		String com = ob.getComment();
-		if (com != null && com.contains("(") && !com.contains("<")){
-			if (com.contains("at al.")){
-				com = com.replace("at al.","et al.");
-				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text comment");
-			}
-			if (com.contains("et al,")){
-				com = com.replace("et al,","et al.,");
-				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text comment");
-			}
-			if (com.contains(",20")){
-				com = com.replace(",20",", 20");
-				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text comment");
-			}
-			if (com.contains(",19")){
-				com = com.replace(",19",", 19");
-				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text comment");
-			}
-			if (com.contains("FlyBase:FBrf")){
-				com = com.replace("FlyBase:FBrf","FBrf");
-			}
-			for (PubBean bean:pbList){
-				if (com.contains(bean.getShortref())){
-					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
-				}
-				if (com.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
-					com = com.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
-				}
-				if (com.contains("(GO:")){
-					String goRef = com.substring(com.indexOf("(GO:"), com.indexOf(")", com.indexOf("(GO:"))).replace("(","").replace(")","");
-					com = com.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
-				}
-				if (com.contains(bean.getId())){
-					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + ob.getId());
-					com = com.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
-				}
-			}
-			ob.setComment(com);
-		}
-		modelAndView.addObject("ontBean", ob);
-		modelAndView.addObject("refs", pbList);
-		return modelAndView;
-	}
-
-	public void setObm(OntBeanManager manager) {
-		this.obm = manager;
-	}
-
-	public void setPbm(PubBeanManager pbm) {
-		this.pbm = pbm;
+		return def;
 	}
 	
 }
