@@ -71,7 +71,6 @@ public class OntBeanController implements Controller {
 				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition");
 				LOG.debug("Resolving (year spacing 20xx) definition: " + def);
 			}
-			LOG.debug("Resolving definition: " + def);
 			while (def.contains(",19")){
 				def = def.replace(",19",", 19");
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
