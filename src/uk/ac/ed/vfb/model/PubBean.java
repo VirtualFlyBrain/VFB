@@ -18,14 +18,14 @@ public class PubBean {
 		super();
 		this.id = id;
 		this.miniref = miniref;
-		Log.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
+		LOG.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
 	}
 
 	public PubBean(String id) {
 		super();
 		this.id = id;
 		this.miniref = decodeId2miniref(id);
-		Log.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
+		LOG.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
 	}
 
 	public String getId() {
