@@ -84,20 +84,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<p>
 		<b>Synonyms: </b><br />
 		<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-			<c:set var="hasLink" value="false" />
-			<c:if test="${fn:contains(curr, '(')}">
-				<c:forEach items="${refs}" var="currRef" varStatus="status">
-					<c:if test="${fn:contains(curr, currRef.shortref)}">
-						<c:set var="hasLink" value="true" />
-						<c:set var="parts" value="${fn:split(curr, '(')}" />
-						&nbsp;&nbsp;&nbsp; * ${parts[0]}<a href="${currRef.webLink}" title="${currRef.miniref}" target="_new">(${parts[1]}</a>
-						<br />
-					</c:if>
-				</c:forEach>
-			</c:if>
-			<c:if test="${fn:contains(hasLink, 'false')}">
-				&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
-			</c:if>
+			&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
 		</c:forEach>
 	</p>
 </c:if>
