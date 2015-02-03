@@ -186,6 +186,11 @@
 		<property name="autocompleteDAO" ref="autocompleteDAONeuropil" />
 	</bean>
 	
+	<!-- Autocomplete servlet for adult brain anatomy -->
+	<bean name="/do/autocomplete_list_adultbrain.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
+		<property name="autocompleteDAO" ref="autocompleteDAOAB" />
+	</bean>
+	
 	<!-- Controller for Json files (IIP3D metadata) -->
 	<bean name="/do/get_json.html" class="uk.ac.ed.vfb.web.JsonController" scope="session">
 	</bean>
