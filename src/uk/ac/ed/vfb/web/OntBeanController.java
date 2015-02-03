@@ -53,9 +53,9 @@ public class OntBeanController implements Controller {
 			ob.setSynonyms(cleanedSyn);
 		}
 		// resolve any refs in definition text
-		ob.setDef(resolveRefs(ob.getDef(), ob, pblist));
+		ob.setDef(resolveRefs(ob.getDef(), ob, pbList));
 		// resolve any refs in comment text
-		ob.setComment(resolveRefs(ob.getComment(), ob, pblist));
+		ob.setComment(resolveRefs(ob.getComment(), ob, pbList));
 		modelAndView.addObject("ontBean", ob);
 		modelAndView.addObject("refs", pbList);
 		return modelAndView;
