@@ -55,8 +55,12 @@ public class OntBeanController implements Controller {
 		// resolve any refs in definition text
 		String def = ob.getDef();
 		if (def != null && def.contains("(") && !def.contains("<")){
+			if (def.contains("at al.")){
+				def = def.replace("at al.","et al.");
+				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
+			}
 			if (def.contains("et al,")){
-				def = def.replace("et al,","at al.,");
+				def = def.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition");
 			}
 			if (def.contains(",20")){
@@ -91,8 +95,12 @@ public class OntBeanController implements Controller {
 		// resolve any refs in comment text
 		String com = ob.getComment();
 		if (com != null && com.contains("(") && !com.contains("<")){
+			if (com.contains("at al.")){
+				com = com.replace("at al.","et al.");
+				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text comment");
+			}
 			if (com.contains("et al,")){
-				com = com.replace("et al,","at al.,");
+				com = com.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text comment");
 			}
 			if (com.contains(",20")){
