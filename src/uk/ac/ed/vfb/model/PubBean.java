@@ -43,6 +43,31 @@ public class PubBean {
 		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		return produceShortref(id, miniref);
 	}
+	
+	public String getYear() {
+		//LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
+		if (miniref!=null){
+			if (miniref.contains(",") && id.contains("FBrf")){
+				String[] parts = miniref.split(",");
+				//LOG.debug("Returning: "+ parts[1]);
+				return parts[1];
+			}
+		}
+		return "";
+	}
+	
+	public String getAuthors() {
+		//LOG.debug("Author(s) requested for: " + id + " with a current miniref of " + miniref);
+		if (miniref!=null){
+			if (miniref.contains(",") && id.contains("FBrf")){
+				String[] parts = miniref.split(",");
+				//LOG.debug("Returning: "+ parts[0]);
+				return parts[0];
+			}
+		}
+		return "";
+	}
+	
 
 	public String getWebLink() {
 		String weblink = "#";
