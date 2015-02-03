@@ -43,7 +43,7 @@ public class OntBeanController implements Controller {
 							if (syn.contains("FlyBase:FBrf")){
 								syn = syn.replace("FlyBase:"+ bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");
 							}else{
-								syn = syn.replace(bean.getId(), bean.getShortref());	
+								syn = syn.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 							}
 						}
 					}
