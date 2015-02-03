@@ -55,41 +55,52 @@ public class OntBeanController implements Controller {
 		// resolve any refs in definition text
 		String def = ob.getDef();
 		if (def != null && def.contains("(") && !def.contains("<")){
+			LOG.debug("Resolving definition: " + def);
 			if (def.contains("at al.")){
 				def = def.replace("at al.","et al.");
 				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
 			}
+			LOG.debug("Resolving definition: " + def);
 			if (def.contains("et al,")){
 				def = def.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition");
 			}
+			LOG.debug("Resolving definition: " + def);
 			if (def.contains(",20")){
 				def = def.replace(",20",", 20");
 				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition");
 			}
+			LOG.debug("Resolving definition: " + def);
 			if (def.contains(",19")){
 				def = def.replace(",19",", 19");
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
 			}
+			LOG.debug("Resolving definition: " + def);
 			if (def.contains("FlyBase:FBrf")){
 				def = def.replace("FlyBase:FBrf","FBrf");
 			}
+			LOG.debug("Resolving definition: " + def);
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
+				LOG.debug("Resolving definition: " + def);
 				if (def.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
 					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
 				}
+				LOG.debug("Resolving definition: " + def);
 				if (def.contains("(GO:")){
 					String goRef = def.substring(def.indexOf("(GO:"), def.indexOf(")", def.indexOf("(GO:"))).replace("(","").replace(")","");
 					def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
 				}
+				LOG.debug("Resolving definition: " + def);
 				if (def.contains(bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
 					def = def.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
+				LOG.debug("Resolving definition: " + def);
 			}
+			LOG.debug("Final definition: " + def);
 			ob.setDef(def);
 		}
 		// resolve any refs in comment text
