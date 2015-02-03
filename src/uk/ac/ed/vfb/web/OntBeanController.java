@@ -55,6 +55,12 @@ public class OntBeanController implements Controller {
 		// resolve any refs in definition text
 		String def = ob.getDef();
 		if (def != null && def.contains("(") && !def.contains("<")){
+			if (def.contains("et al,")){
+				def = def.replace("et al,","at al.,");
+			}
+			if (def.contains("FlyBase:FBrf")){
+				def = def.replace("FlyBase:FBrf","FBrf");
+			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
@@ -66,10 +72,9 @@ public class OntBeanController implements Controller {
 					String goRef = def.substring(def.indexOf("(GO:"), def.indexOf(")", def.indexOf("(GO:"))).replace("(","").replace(")","");
 					def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
 				}
-				http://gowiki.tamu.edu/wiki/index.php/Category:
-				if (def.contains("FlyBase:" + bean.getId())){
+				if (def.contains(bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
-					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					def = def.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
 				}
 			}
 			ob.setDef(def);
@@ -77,6 +82,12 @@ public class OntBeanController implements Controller {
 		// resolve any refs in comment text
 		String com = ob.getComment();
 		if (com != null && com.contains("(") && !com.contains("<")){
+			if (com.contains("et al,")){
+				com = com.replace("et al,","at al.,");
+			}
+			if (com.contains("FlyBase:FBrf")){
+				com = com.replace("FlyBase:FBrf","FBrf");
+			}
 			for (PubBean bean:pbList){
 				if (com.contains(bean.getShortref())){
 					com = com.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
