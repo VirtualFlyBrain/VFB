@@ -66,7 +66,12 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 			</script>
 		<!-- End Google Analytics -->
 
-<h2 style="font-size: 1.3em; margin-top:-3px"><a href="#" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
+<h2 style="font-size: 1.5em; margin-top:-3px"><a href="#" target="_top" title="View details">${ontBean.name}</a></h2>
+<c:if test="${!empty ontBean.fbbtId}">
+<p>
+	<b>ID: </b><a href="http://www.virtualflybrain.org/owl/${ontBean.fbbtId}" target="_new" title="Indiviual web link" >${ontBean.fbbtId}</a>
+</p>
+</c:if>
 <p>
 	<b>Definition: </b>${ontBean.def}
 </p>
@@ -75,20 +80,23 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<b>Comment: </b>${ontBean.comment}
 	</p>
 </c:if>
-<p>
-	<b>Synonyms: </b><br />
-	<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-		&nbsp;&nbsp;&nbsp; * ${curr}<br />
-	</c:forEach>
-	<c:if test="${fn:length(refs)>0}">
-		<p>
-			<b>References: </b><br />
-			<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="http://flybase.org/reports/${curr.id}.html" target="_new">${curr.miniref}</a>
-				<br />
-			</c:forEach>
-		</p>
-	</c:if>
+<c:if test="${fn:length(ontBean.synonyms)>0}">
+	<p>
+		<b>Synonyms: </b><br />
+		<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
+			&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
+		</c:forEach>
+	</p>
+</c:if>
+<c:if test="${fn:length(refs)>0}">
+	<p>
+		<b>References: </b><br />
+		<c:forEach items="${refs}" var="curr" varStatus="status">
+			&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new"><script>document.write(decodeURIComponent('${curr.miniref}'));</script></a>
+			<br />
+		</c:forEach>
+	</p>
+</c:if>
 <p>
 	<b>Parent classes: </b><br />
 	<c:set var="types" value="${ontBean.types}" />
