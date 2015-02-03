@@ -50,7 +50,7 @@ public class CompositeViewController extends MultiActionController{
 				}
 				else{
 					// throw exception to let the user know it's only up to 3 stacks.
-					LOG.error("Over 3 stacks added to composite view exisitng: " + cvb.asString() + " trying to add: " + ids);
+					LOG.error("Over 3 stacks added to composite view exisitng: " + cvb.toString() + " trying to add: " + ids);
 					errorMsg = "The composite view is limited to a maximum of 3 stacks, \\n you cannot add any more \\n" +
 								"You can try removing any current stacks and try again.";
 				}
