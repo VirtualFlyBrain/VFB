@@ -24,7 +24,6 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 <c:choose>
 	<c:when test="${headAtt == true}"> 
-		<jsp:include page="/jsp/includes/js/tag.jsp" />
 		<!-- Google Analytics -->
 			<script>
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=${ontBean.fbbtId}'});
@@ -114,7 +113,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<p>
 		<b>References: </b><br />
 		<c:forEach items="${refs}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new"><script>document.write(decodeURIComponent('${curr.miniref}'));</script></a>
+			&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new">${curr.miniref}</script></a>
 			<br />
 		</c:forEach>
 	</p>
