@@ -57,6 +57,15 @@ public class OntBeanController implements Controller {
 		if (def != null && def.contains("(") && !def.contains("<")){
 			if (def.contains("et al,")){
 				def = def.replace("et al,","at al.,");
+				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition")
+			}
+			if (def.contains(",20")){
+				def = def.replace(",20",", 20");
+				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition")
+			}
+			if (def.contains(",19")){
+				def = def.replace(",19",", 19");
+				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition")
 			}
 			if (def.contains("FlyBase:FBrf")){
 				def = def.replace("FlyBase:FBrf","FBrf");
@@ -84,6 +93,15 @@ public class OntBeanController implements Controller {
 		if (com != null && com.contains("(") && !com.contains("<")){
 			if (com.contains("et al,")){
 				com = com.replace("et al,","at al.,");
+				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text comment")
+			}
+			if (com.contains(",20")){
+				com = com.replace(",20",", 20");
+				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text comment")
+			}
+			if (com.contains(",19")){
+				com = com.replace(",19",", 19");
+				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text comment")
 			}
 			if (com.contains("FlyBase:FBrf")){
 				com = com.replace("FlyBase:FBrf","FBrf");
