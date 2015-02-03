@@ -62,6 +62,11 @@ public class OntBeanController implements Controller {
 				if (def.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
 					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
 				}
+				if (def.contains("(GO:")){
+					goRef = def.substring(def.indexOf("(GO:"), def.indexOf(")", def.indexOf("(GO:"))).replace("(","").replace(")","");
+					def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
+				}
+				http://gowiki.tamu.edu/wiki/index.php/Category:
 				if (def.contains("FlyBase:" + bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
 					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
@@ -78,6 +83,10 @@ public class OntBeanController implements Controller {
 				}
 				if (com.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
 					com = com.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
+				}
+				if (com.contains("(GO:")){
+					goRef = com.substring(com.indexOf("(GO:"), com.indexOf(")", com.indexOf("(GO:"))).replace("(","").replace(")","");
+					com = com.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
 				}
 				if (com.contains("FlyBase:" + bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in comments for: " + ob.getId());
