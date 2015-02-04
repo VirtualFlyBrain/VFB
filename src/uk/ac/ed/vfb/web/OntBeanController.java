@@ -74,27 +74,27 @@ public class OntBeanController implements Controller {
 			LOG.debug("Starting with definition: " + def);
 			while (def.contains("[FLP]")){
 				def = def.replace("[FLP]","<sup>FLP</sup>");
-				//LOG.debug("Resolving [FLP] definition: " + def);
+				LOG.debug("Resolving [FLP] definition: " + def);
 			}
 			while (def.contains("at al.")){
 				def = def.replace("at al.","et al.");
 				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
-				//LOG.debug("Resolving (at al) definition: " + def);
+				LOG.debug("Resolving (at al) definition: " + def);
 			}
 			while (def.contains("et al,")){
 				def = def.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition");
-				//LOG.debug("Resolving (et al[.]) definition: " + def);
+				LOG.debug("Resolving (et al[.]) definition: " + def);
 			}
 			while (def.contains(",20")){
 				def = def.replace(",20",", 20");
 				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition");
-				//LOG.debug("Resolving (year spacing 20xx) definition: " + def);
+				LOG.debug("Resolving (year spacing 20xx) definition: " + def);
 			}
 			while (def.contains(",19")){
 				def = def.replace(",19",", 19");
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
-				//LOG.debug("Resolving (year spacing 19xx) definition: " + def);
+				LOG.debug("Resolving (year spacing 19xx) definition: " + def);
 			}
 			
 			if (def.contains("FB") || def.contains("GO:")){
@@ -103,36 +103,36 @@ public class OntBeanController implements Controller {
 					while (def.contains(del+"GO:")){
 						String goRef = def.substring(def.indexOf(del+"GO:"), 11).replace(del,"");
 						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
-						//LOG.debug("Resolving GO in definition: " + def);
+						LOG.debug("Resolving GO in definition: " + def);
 					}
 					while (def.contains(del+"FBrf")){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
-						//LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 					}
 					while (def.contains(del+"FBbt:")){
-						String fbRef =  def.substring(def.indexOf(del+"FBbt:"), 14).replace(del,"");
+						String fbRef = def.substring(def.indexOf(del+"FBbt:"), 14).replace(del,"");
 						def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_new\" >" + fbRef + "</a>");
-						//LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
 					}
 					while (def.contains(del+"FBal")){
-						String fbRef =  def.substring(def.indexOf(del+"FBal"), 12).replace(del,"");
+						String fbRef = def.substring(def.indexOf(del+"FBal"), 12).replace(del,"");
 						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						//LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
 					}
 					while (def.contains(del+"FBti")){
-						String fbRef =  def.substring(def.indexOf(del+"FBti"), 12).replace(del,"");
+						String fbRef = def.substring(def.indexOf(del+"FBti"), 12).replace(del,"");
 						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						//LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
 					}
 					while (def.contains(del+"FBtp")){
-						String fbRef =  def.substring(def.indexOf(del+"FBtp"), 12).replace(del,"");
+						String fbRef = def.substring(def.indexOf(del+"FBtp"), 12).replace(del,"");
 						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Recombinant construct details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						//LOG.debug("Resolving (FlyBase:FBtp) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBtp) definition: " + def);
 					}
 					while (def.contains(del+"FBgn")){
-						String fbRef =  def.substring(def.indexOf(del+"FBgn"), 12).replace(del,"");
+						String fbRef = def.substring(def.indexOf(del+"FBgn"), 12).replace(del,"");
 						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Gene details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						//LOG.debug("Resolving (FlyBase:FBgn) definition: " + def);
+						LOG.debug("Resolving (FlyBase:FBgn) definition: " + def);
 					}
 				}
 			}
