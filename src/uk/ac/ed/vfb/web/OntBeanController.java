@@ -120,13 +120,18 @@ public class OntBeanController implements Controller {
 			}
 			while (def.contains("(FBal")){
 				String fbRef =  def.substring(def.indexOf("(FBal"), def.indexOf(")", def.indexOf("(FBal"))).replace("(","").replace(")","");
-				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"See Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
 				LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
 			}
 			while (def.contains("[FBti")){
 				String fbRef =  def.substring(def.indexOf("[FBti"), def.indexOf("]", def.indexOf("[FBti"))).replace("]","").replace("]","");
-				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"See Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
 				LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
+			}
+			while (def.contains("[FBtp")){
+				String fbRef =  def.substring(def.indexOf("[FBtp"), def.indexOf("]", def.indexOf("[FBtp"))).replace("]","").replace("]","");
+				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Recombinant construct details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+				LOG.debug("Resolving (FlyBase:FBtp) definition: " + def);
 			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
