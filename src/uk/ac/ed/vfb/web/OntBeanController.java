@@ -111,7 +111,7 @@ public class OntBeanController implements Controller {
 					}
 					while (def.contains(del+"FBbt:")){
 						String fbRef = def.substring(def.indexOf(del+"FBbt:"), def.indexOf(del+"FBbt:")+14).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" >" + fbRef + "</a>");
+						def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_top\" >" + fbRef + "</a>");
 						LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
 					}
 					while (def.contains(del+"FBal")){
