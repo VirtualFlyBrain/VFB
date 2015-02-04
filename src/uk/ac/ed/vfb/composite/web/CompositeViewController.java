@@ -43,13 +43,14 @@ public class CompositeViewController extends MultiActionController{
 				//Only allow up to 3 stacks in the composite
 				if (cvb.getStackCont()<3){
 					String id = ids[0];
-					//LOG.debug("ID: " + id);
+					LOG.debug("Composite View adding - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					//LOG.debug("TPB: " + tpb);
+					LOG.debug("Composite View adding - TPB: " + tpb);
 					errorMsg = cvb.addStack(tpb);
 				}
 				else{
-					//TODO - throw exception or whatever to let the user know it's only up to 3 stacks Does not work?
+					// throw exception to let the user know it's only up to 3 stacks.
+					LOG.error("Over 3 stacks added to composite view exisitng: " + cvb.toString() + " trying to add: " + ids);
 					errorMsg = "The composite view is limited to a maximum of 3 stacks, \\n you cannot add any more \\n" +
 								"You can try removing any current stacks and try again.";
 				}
@@ -57,7 +58,9 @@ public class CompositeViewController extends MultiActionController{
 			else if (action != null & action.equals("Delete selected")){
 				//removing stacks from the view
 				for (String id : ids){
+					LOG.debug("Composite View removing - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
+					LOG.debug("Composite View removing - TPB: " + tpb);
 					errorMsg = cvb.removeStack(tpb);
 				}
 			}		
