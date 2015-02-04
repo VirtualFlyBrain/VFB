@@ -260,4 +260,12 @@ public class CompositeViewBean implements Serializable {
 		return new CompositeViewBean();		
 	}
 	
+	public String toString(){
+		String result = "";
+		for (ThirdPartyBean stack:stacks){
+			result = result + stack + ";";
+		}
+		return result;
+	}
+	
 }
