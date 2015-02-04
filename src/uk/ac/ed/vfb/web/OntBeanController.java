@@ -72,6 +72,10 @@ public class OntBeanController implements Controller {
 	public String resolveRefs(String def, OntBean ob, List<PubBean> pbList){
 		if (def != null && def.contains("(") && !def.contains("<")){
 			LOG.debug("Starting with definition: " + def);
+			while (def.contains("[FLP]")){
+				def = def.replace("[FLP]","<sup>FLP</sup>");
+				LOG.debug("Resolving [FLP] definition: " + def);
+			}
 			while (def.contains("at al.")){
 				def = def.replace("at al.","et al.");
 				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
