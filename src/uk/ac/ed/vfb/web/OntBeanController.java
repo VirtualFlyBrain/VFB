@@ -109,7 +109,11 @@ public class OntBeanController implements Controller {
 				def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
 				LOG.debug("Resolving GO in definition: " + def);
 			}
-			
+			while (def.contains("(FBbt:")){
+				String fbRef =  def.substring(def.indexOf("(FBbt:"), def.indexOf(")", def.indexOf("(FBbt:"))).replace("(","").replace(")","");
+				def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_new\" >" + fbRef + "</a>");
+				LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
+			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
