@@ -73,11 +73,17 @@ public class OwlResultParserClass extends AOwlResultParser {
 			Boolean refExists = false;
 			Integer refI = 1;
 			String refIs = "";
+			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
+					type = "";
 					refExists = false;
+					// adding synonyn type
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+					}
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
@@ -95,9 +101,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 						}
 					}
 					if (refExists){
-						syns.add(syn.getLabel() + " (" + refIs + ")");	
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");	
 					}else{
-						syns.add(syn.getLabel());
+						syns.add(syn.getLabel() + type);
 					}
 					
 				}
