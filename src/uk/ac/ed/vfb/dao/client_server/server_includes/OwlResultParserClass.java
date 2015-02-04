@@ -84,6 +84,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 					if (syn.getCategory()!=null) {
 						type = " [" + syn.getCategory() +"]";
 					}
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+					}
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
