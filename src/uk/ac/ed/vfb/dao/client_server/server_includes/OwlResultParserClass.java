@@ -73,6 +73,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			Boolean refExists = false;
 			Integer refI = 1;
 			String refIs = "";
+			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
