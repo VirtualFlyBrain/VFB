@@ -53,7 +53,8 @@
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 					<tr>
 						<td>
-							<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>${ontBean.name}</h3> <vfbUtil:trimToWhite
+							<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'><a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
+									title="See in viewer">${ontBean.name}</a></h3> <vfbUtil:trimToWhite
 								string="${ontBean.def}" size="400" /> 
 								<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 								<c:set var="types" value="${ontBean.types}" />
