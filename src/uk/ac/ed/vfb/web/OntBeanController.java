@@ -37,7 +37,7 @@ public class OntBeanController implements Controller {
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
 			for (String syn:synonyms){
-				if (syn.contains("(") && !syn.contains("<")){
+				if (syn.contains("(") && !syn.contains("(<")){
 					for (PubBean bean:pbList){
 						if (syn.contains(bean.getId())){
 							if (syn.contains("FlyBase:FBrf")){
