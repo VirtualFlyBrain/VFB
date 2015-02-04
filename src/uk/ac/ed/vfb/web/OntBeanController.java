@@ -96,37 +96,45 @@ public class OntBeanController implements Controller {
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
 				LOG.debug("Resolving (year spacing 19xx) definition: " + def);
 			}
-			while (def.contains("(FBrf")){
-				def = def.replace("(FBrf","(FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
-				LOG.debug("Resolving (FlyBase:FBrf with bracket) definition: " + def);
-			}
-			while (def.contains(" FBrf")){
-				def = def.replace(" FBrf"," FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
-				LOG.debug("Resolving (FlyBase:FBrf with space) definition: " + def);
-			}
-			while (def.contains("(FBrf")){
-				def = def.replace("(FBrf","(FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
-				LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
-			}
-			while (def.contains("(GO:")){
-				String goRef = def.substring(def.indexOf("(GO:"), def.indexOf(")", def.indexOf("(GO:"))).replace("(","").replace(")","");
-				def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
-				LOG.debug("Resolving GO in definition: " + def);
-			}
-			while (def.contains("(FBbt:")){
-				String fbRef =  def.substring(def.indexOf("(FBbt:"), def.indexOf(")", def.indexOf("(FBbt:"))).replace("(","").replace(")","");
-				def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_new\" >" + fbRef + "</a>");
-				LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
-			}
-			while (def.contains("(FBal")){
-				String fbRef =  def.substring(def.indexOf("(FBal"), def.indexOf(")", def.indexOf("(FBal"))).replace("(","").replace(")","");
-				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"See Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-				LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
-			}
-			while (def.contains("[FBti")){
-				String fbRef =  def.substring(def.indexOf("[FBti"), def.indexOf("]", def.indexOf("[FBti"))).replace("]","").replace("]","");
-				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"See Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-				LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
+			
+			if (def.contains("FB") || def.contains("GO:")){
+				List<String> dels = Arrays.asList("(", "[", " ");
+				for (String del:dels){
+					while (def.contains(del+"GO:")){
+						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
+						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
+						LOG.debug("Resolving GO in definition: " + def);
+					}
+					while (def.contains(del+"FBrf")){
+						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
+						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
+					}
+					while (def.contains(del+"FBbt:")){
+						String fbRef = def.substring(def.indexOf(del+"FBbt:"), def.indexOf(del+"FBbt:")+14).replace(del,"");
+						def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_top\" >" + fbRef + "</a>");
+						LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
+					}
+					while (def.contains(del+"FBal")){
+						String fbRef = def.substring(def.indexOf(del+"FBal"), def.indexOf(del+"FBal")+12).replace(del,"");
+						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+						LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
+					}
+					while (def.contains(del+"FBti")){
+						String fbRef = def.substring(def.indexOf(del+"FBti"), def.indexOf(del+"FBti")+12).replace(del,"");
+						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+						LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
+					}
+					while (def.contains(del+"FBtp")){
+						String fbRef = def.substring(def.indexOf(del+"FBtp"), def.indexOf(del+"FBtp")+12).replace(del,"");
+						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Recombinant construct details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+						LOG.debug("Resolving (FlyBase:FBtp) definition: " + def);
+					}
+					while (def.contains(del+"FBgn")){
+						String fbRef = def.substring(def.indexOf(del+"FBgn"), def.indexOf(del+"FBgn")+12).replace(del,"");
+						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Gene details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+						LOG.debug("Resolving (FlyBase:FBgn) definition: " + def);
+					}
+				}
 			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
