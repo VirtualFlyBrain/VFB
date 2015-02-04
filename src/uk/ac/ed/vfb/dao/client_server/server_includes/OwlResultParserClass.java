@@ -83,10 +83,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 					// adding synonyn type
 					if (syn.getScope()!=null) {
 						type = " [" + syn.getScope() +"]";
-						type = type.replace("EXACT", "<span title=\"an exact equivalent; interchangeable with the term name\">EXACT</span>");
-						type = type.replace("NARROW", "<span title=\"the synonym is narrower or more precise than the term name\">NARROW</span>");
-						type = type.replace("RELATED", "<span title=\"the terms are related in some way\">RELATED</span>");
-						type = type.replace("BROAD", "<span title=\"the synonym is broader than the term name\">BROAD</span>");
+						type = type.replace("EXACT", "<a href=\"#\" title=\"an exact equivalent; interchangeable with the term name\">EXACT</a>");
+						type = type.replace("NARROW", "<a href=\"#\" title=\"the synonym is narrower or more precise than the term name\">NARROW</a>");
+						type = type.replace("RELATED", "<a href=\"#\" title=\"the terms are related in some way\">RELATED</a>");
+						type = type.replace("BROAD", "<a href=\"#\" title=\"the synonym is broader than the term name\">BROAD</a>");
 					}
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
