@@ -80,13 +80,11 @@ public class OwlResultParserClass extends AOwlResultParser {
 					refIs = "";
 					type = "";
 					refExists = false;
-					// adding synonyn xrefs to references list
-					if (syn.getCategory()!=null) {
-						type = " [" + syn.getCategory() +"]";
-					}
+					// adding synonyn type
 					if (syn.getScope()!=null) {
 						type = " [" + syn.getScope() +"]";
 					}
+					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
