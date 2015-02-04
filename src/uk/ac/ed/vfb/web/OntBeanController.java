@@ -114,6 +114,11 @@ public class OntBeanController implements Controller {
 				def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_new\" >" + fbRef + "</a>");
 				LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
 			}
+			while (def.contains("(FBal")){
+				String fbRef =  def.substring(def.indexOf("(FBal"), def.indexOf(")", def.indexOf("(FBal"))).replace("(","").replace(")","");
+				def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"See Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
+				LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
+			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
