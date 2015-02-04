@@ -77,8 +77,12 @@ public class OwlResultParserClass extends AOwlResultParser {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
+					type = "";
 					refExists = false;
 					// adding synonyn xrefs to references list
+					if (syn.getCategory()!=null) {
+						type = " [" + syn.getCategory() +"]";
+					}
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
@@ -95,9 +99,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 						}
 					}
 					if (refExists){
-						syns.add(syn.getLabel() + " (" + refIs + ")");	
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");	
 					}else{
-						syns.add(syn.getLabel());
+						syns.add(syn.getLabel() + type);
 					}
 					
 				}
