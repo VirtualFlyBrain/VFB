@@ -10,11 +10,16 @@
 </div>
 
 	<p style="text-align: left;">
-	
-	The Virtual Fly Brain service is an opensource project.<br />     
-	<b>Current version: <jsp:include page="/revision" /></b><br />
-	Visit our <a href="https://github.com/VirtualFlyBrain/VFB">GitHub repository</a> for details, raise any issues or how to get involved.<br /><br />
-	We are currently running the <b><jsp:include page="/flybase" /></b>version of the Flybase chado database and the Drosophila anatomy ontology from the <b><jsp:include page="/owldate" /></b>. 
+
+	The Virtual Fly Brain service is an opensource project.<br /><br />
+	This site is running version <b><jsp:include page="/revision" /></b> from the <a href="https://github.com/VirtualFlyBrain/VFB/tree/<jsp:include page="/branch" />" target="_new" title="Current GitHub code repository branch and revision" >
+		<jsp:include page="/branch" /></a> branch. <br />
+	Visit our <a href="https://github.com/VirtualFlyBrain/VFB">GitHub repository</a> for details, raise any issues or to find out how to get involved.<br /><br />
+	The site is currently using version
+	<a href="ftp://ftp.flybase.net/releases/<jsp:include page="/flybase" />" target="_new" title="Current FlyBase DataBase in use" >
+	<jsp:include page="/flybase" /></a> of the Flybase chado database.<br /><br />
+	We also create and utilse an OWL anatomy ontology which is available here <a href="<jsp:include page="/owldate" />" target="_new" title="Current VFB OWL ontology in use" >
+	<jsp:include page="/owldate" /></a>.
 	</p>
 </div><!-- center_wide -->
 <!-- /div><!-- FF fix - layout breaks otherwise -->
