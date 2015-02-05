@@ -5,6 +5,8 @@ import org.apache.commons.logging.LogFactory;
 
 import java.net.URLDecoder;
 
+import java.util.*;
+
 /**
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description
  */

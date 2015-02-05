@@ -108,8 +108,8 @@ public class OntBeanController implements Controller {
 				}
 			}
 			if (def.contains("FB")){
-				Interger f = 0;
-				Interger l = 11;
+				Integer f = 0;
+				Integer l = 11;
 				for (String del:dels){
 					while (def.contains(del+"FBrf")){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
