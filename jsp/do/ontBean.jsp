@@ -118,13 +118,15 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</c:forEach>
 	</p>
 </c:if>
-<p>
-	<b>Parent classes: </b><br />
-	<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
-		&nbsp;&nbsp;&nbsp; * 
-		<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
-	</c:forEach>
-</p>
+<c:if test="${fn:length(ontBean.isa)>0}">
+	<p>
+		<b>Parent classes: </b><br />
+		<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
+			&nbsp;&nbsp;&nbsp; * 
+			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
+		</c:forEach>
+	</p>
+</c:if>
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />

@@ -118,7 +118,7 @@ then
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
         fi
-        if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl|\.java" | wc -l` -gt 0 ]
+        if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl\|\.java" | wc -l` -gt 0 ]
         then
             echo "checking any direct references to website url is set to the branch site"
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
