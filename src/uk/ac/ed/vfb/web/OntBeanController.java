@@ -24,11 +24,12 @@ public class OntBeanController implements Controller {
 	private OntBeanManager obm;
 	private PubBeanManager pbm;
 	private static final Log LOG = LogFactory.getLog(OntBeanController.class);
+	List<String> dels = Arrays.asList("(", "[", " ");
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
 		String id = OntBean.idAsOBO(req.getParameter("fbId"));
-		OntBean ob = this.obm.getBeanForId(id);		
+		OntBean ob = this.obm.getBeanForId(id);
 		//LOG.debug("For Id: " + ob.getId().toString());
 		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
@@ -41,9 +42,9 @@ public class OntBeanController implements Controller {
 					for (PubBean bean:pbList){
 						if (syn.contains(bean.getId())){
 							if (syn.contains("FlyBase:FBrf")){
-								syn = syn.replace("FlyBase:"+ bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");
+								syn = syn.replace("FlyBase:"+ bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
 							}else{
-								syn = syn.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+								syn = syn.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
 							}
 						}
 					}
@@ -68,7 +69,7 @@ public class OntBeanController implements Controller {
 	public void setPbm(PubBeanManager pbm) {
 		this.pbm = pbm;
 	}
-	
+
 	public String resolveRefs(String def, OntBean ob, List<PubBean> pbList){
 		if (def != null && def.contains("(") && !def.contains("<")){
 			LOG.debug("Starting with definition: " + def);
@@ -96,66 +97,66 @@ public class OntBeanController implements Controller {
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
 				LOG.debug("Resolving (year spacing 19xx) definition: " + def);
 			}
-			
-			if (def.contains("FB") || def.contains("GO:")){
-				List<String> dels = Arrays.asList("(", "[", " ");
+			if (def.contains("GO:")){
 				for (String del:dels){
+					//Could always resolve via PubBean
 					while (def.contains(del+"GO:")){
 						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
-						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term\" target=\"_new\" >" + goRef + "</a>");
+						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term [" + goRef + "]\" target=\"_new\" >" + goRef + "</a>");
 						LOG.debug("Resolving GO in definition: " + def);
 					}
+				}
+			}
+			if (def.contains("FB")){
+				Integer f = 0;
+				Integer l = 11;
+				for (String del:dels){
+					//flybase reference links handled differently to others.
 					while (def.contains(del+"FBrf")){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
 						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 					}
-					while (def.contains(del+"FBbt:")){
-						String fbRef = def.substring(def.indexOf(del+"FBbt:"), def.indexOf(del+"FBbt:")+14).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"/site/tools/anatomy_finder/index.htm?id=" + fbRef + "\" title=\"View details and run queries in anatomy finder\" target=\"_top\" >" + fbRef + "</a>");
-						LOG.debug("Resolving (FlyBase:FBbt) definition: " + def);
-					}
-					while (def.contains(del+"FBal")){
-						String fbRef = def.substring(def.indexOf(del+"FBal"), def.indexOf(del+"FBal")+12).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Allele details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						LOG.debug("Resolving (FlyBase:FBal) definition: " + def);
-					}
-					while (def.contains(del+"FBti")){
-						String fbRef = def.substring(def.indexOf(del+"FBti"), def.indexOf(del+"FBti")+12).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Insertion details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						LOG.debug("Resolving (FlyBase:FBti) definition: " + def);
-					}
-					while (def.contains(del+"FBtp")){
-						String fbRef = def.substring(def.indexOf(del+"FBtp"), def.indexOf(del+"FBtp")+12).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Recombinant construct details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						LOG.debug("Resolving (FlyBase:FBtp) definition: " + def);
-					}
-					while (def.contains(del+"FBgn")){
-						String fbRef = def.substring(def.indexOf(del+"FBgn"), def.indexOf(del+"FBgn")+12).replace(del,"");
-						def = def.replace(fbRef, "<a href=\"http://flybase.org/reports/" + fbRef + ".html\" title=\"Gene details in FlyBase\" target=\"_new\" >" + fbRef + "</a>");
-						LOG.debug("Resolving (FlyBase:FBgn) definition: " + def);
+					while (def.contains(del+"FB") && (f < def.length())){
+						f = def.indexOf(del+"FB", f);
+						if (f == -1){
+							f = def.length();
+						}else{
+							l = 11;
+							while (def.substring(f+8,f+l+1).matches("[0-9]+")){
+								l = l + 1;
+								LOG.debug("Length of ref resolved to: " + l.toString());
+							}
+							String fbRef = def.substring(f, f+l).replace(del,"");
+							LOG.debug("Found ref: " + fbRef);
+							PubBean bean = new PubBean(fbRef);
+							String linkedRef = "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>";
+							def = def.replace(fbRef, linkedRef);
+							LOG.debug("Resolving (" + fbRef + ") definition: " + def);
+							f = f + linkedRef.length();
+						}
 					}
 				}
 			}
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
-					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
 					LOG.debug("Resolving (short ref: " + bean.getShortref() + " ) definition: " + def);
 				}
-				
+
 				if (def.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
-					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");	
+					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");
 					LOG.debug("Resolving (short ref: " + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + " ) definition: " + def);
 				}
 				if (def.contains("FlyBase:" + bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
-					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"_new\" >" + bean.getShortref() + "</a>");	
+					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
 					LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
 				}
 			}
 			LOG.debug("Final definition: " + def);
-			
+
 		}
 		return def;
 	}
-	
+
 }
