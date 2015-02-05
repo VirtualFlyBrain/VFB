@@ -116,13 +116,13 @@ public class OntBeanController implements Controller {
 						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 					}
 					while (def.contains(del+"FB")){
-						i = def.indexOf(del+"FB");
+						f = def.indexOf(del+"FB");
 						l = 11;
-						while (def.substring(i+8,i+l+1).matches("[0-9]+")){
+						while (def.substring(f+8,f+l+1).matches("[0-9]+")){
 							l = l + 1;
 							LOG.debug("Length of ref resolved to: " + l.toString());
 						}
-						String fbRef = def.substring(i, i+l).replace(del,"");
+						String fbRef = def.substring(f, f+l).replace(del,"");
 						LOG.debug("Found ref: " + fbRef);
 						PubBean bean = new PubBean(fbRef);
 						def = def.replace(fbRef, "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>");
