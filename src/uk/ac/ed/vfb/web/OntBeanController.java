@@ -115,20 +115,24 @@ public class OntBeanController implements Controller {
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
 						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 					}
-					while (def.contains(del+"FB")){
+					while (def.contains(del+"FB") && (f < def.length())){
 						f = def.indexOf(del+"FB", f);
-						l = 11;
-						while (def.substring(f+8,f+l+1).matches("[0-9]+")){
-							l = l + 1;
-							LOG.debug("Length of ref resolved to: " + l.toString());
+						if (f == -1){
+							f = def.length();
+						}else{
+							l = 11;
+							while (def.substring(f+8,f+l+1).matches("[0-9]+")){
+								l = l + 1;
+								LOG.debug("Length of ref resolved to: " + l.toString());
+							}
+							String fbRef = def.substring(f, f+l).replace(del,"");
+							LOG.debug("Found ref: " + fbRef);
+							PubBean bean = new PubBean(fbRef);
+							String linkedRef = "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>";
+							def = def.replace(fbRef, linkedRef);
+							LOG.debug("Resolving (" + fbRef + ") definition: " + def);
+							f = f + linkedRef.length();
 						}
-						String fbRef = def.substring(f, f+l).replace(del,"");
-						LOG.debug("Found ref: " + fbRef);
-						PubBean bean = new PubBean(fbRef);
-						String linkedRef = "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>";
-						def = def.replace(fbRef, linkedRef);
-						LOG.debug("Resolving (" + fbRef + ") definition: " + def);
-						f = f + linkedRef.length();
 					}
 				}
 			}
