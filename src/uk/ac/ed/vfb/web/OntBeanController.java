@@ -153,8 +153,16 @@ public class OntBeanController implements Controller {
 					LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
 				}
 			}
+			if (def.contains("PMID:")){
+				String del = "(";
+				//Catches if PubMed ID is in description but not references
+				while (def.contains(del+"PMID:")){
+					String pmRef = def.substring(def.indexOf(del+"PMID:"), def.indexOf(del+"PMID:")+14).replace(del,"");
+					LOG.error("Resolving PMID in definition but not in refernces: " + ob.getId() + "-" + pmRef + " in text: "def);
+					def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + pmRef + "\" title=\"PubMed reference [" + pmRef + "]\" target=\"_new\" >" + pmRef + "</a>");
+				}
+			}
 			LOG.debug("Final definition: " + def);
-
 		}
 		return def;
 	}
