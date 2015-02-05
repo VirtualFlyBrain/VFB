@@ -118,14 +118,37 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</c:forEach>
 	</p>
 </c:if>
-<c:if test="${fn:length(ontBean.isa)>0}">
-	<p>
-		<b>Parent classes: </b><br />
-		<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; *
-			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
-		</c:forEach>
-	</p>
+<c:if test="${beanType='ont'}">
+	<c:if test="${fn:length(ontBean.isa)>0}">
+		<p>
+			<b>Parent classes: </b><br />
+			<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
+				&nbsp;&nbsp;&nbsp; *
+				<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
+			</c:forEach>
+		</p>
+	</c:if>
+</c:if>
+<c:if test="${beanType='ind'}">
+	<c:if test="${fn:length(ontBean.types)>0}">
+		<p>
+			<b>Parent classes: </b><br />
+			<c:forEach items="${ontBean.types}" var="curr" varStatus="status">
+				<c:set var="currParts" value="${fn:split(curr, '=')}" />
+				<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
+				<c:choose>
+					<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
+						&nbsp;&nbsp;&nbsp; *
+						<a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a>
+					</c:when>
+					<c:otherwise>
+						&nbsp;&nbsp;&nbsp; *
+						<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</p>
+	</c:if>
 </c:if>
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
