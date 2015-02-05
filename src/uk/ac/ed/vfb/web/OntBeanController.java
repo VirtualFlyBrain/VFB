@@ -29,18 +29,20 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
+		OntBean ob = null;
+		String id = "";
 		if (req.getParameter("fbId") == null) {
 			if (req.getParameter("id") == null) {
 				LOG.error("No id of any type given!");
 				return null;
 			}else{
-				String id = OntBean.idAsOWL(req.getParameter("id"));
-				OntBean ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+				id = OntBean.idAsOWL(req.getParameter("id"));
+				ob = (OntBeanIndividual)this.obm.getBeanForId(id);
 				modelAndView.addObject("beanType", "ind");
 			}
 		}else{
-			String id = OntBean.idAsOBO(req.getParameter("fbId"));
-			OntBean ob = this.obm.getBeanForId(id);
+			id = OntBean.idAsOBO(req.getParameter("fbId"));
+			ob = this.obm.getBeanForId(id);
 			modelAndView.addObject("beanType", "ont");
 		}
 		LOG.debug("For Id: " + ob.getId());
