@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import uk.ac.ed.vfb.model.OntBean;
 import uk.ac.ed.vfb.model.PubBean;
+import uk.ac.ed.vfb.model.OntBeanIndividual;
 import uk.ac.ed.vfb.service.OntBeanManager;
 import uk.ac.ed.vfb.service.PubBeanManager;
 
