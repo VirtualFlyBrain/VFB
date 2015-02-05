@@ -23,7 +23,7 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
-        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
+        head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         echo "which are:"
         cat branch
         cat revision
@@ -74,7 +74,7 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
-        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
+        head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         echo "which are:"
         cat branch
         cat revision
