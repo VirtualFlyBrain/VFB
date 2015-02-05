@@ -13,26 +13,31 @@ public class PubBean {
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
-	Map<String, String> rep = new HashMap<String, String>();
-	rep.put("FBab", "aberration");
-	rep.put("FBal", "allele");
-	rep.put("FBba", "balancer/genotype variant");
-	rep.put("FBcl", "clone");
-	rep.put("FBgn", "gene");
-	rep.put("FBim", "image");
-	rep.put("FBig", "interaction");
-	rep.put("FBlc", "large dataset metadata");
-	rep.put("FBmc", "molecular construct");
-	rep.put("FBms", "molecular segment");
-	rep.put("FBpp", "polypeptide");
-	rep.put("FBrf", "reference");
-	rep.put("FBsf", "sequence feature");
-	rep.put("FBst", "stock");
-	rep.put("FBtc", "cell line");
-	rep.put("FBti", "transposable element insertion");
-	rep.put("FBtp", "transgenic construct or natural transposon");
-	rep.put("FBtr", "transcript");
+	Map<String, String> rep = fbXx();
 
+
+	private static Map<String, String> fbXx () {
+		Map<String, String> rep = new HashMap<String, String>();
+		rep.put("FBab", "aberration");
+		rep.put("FBal", "allele");
+		rep.put("FBba", "balancer/genotype variant");
+		rep.put("FBcl", "clone");
+		rep.put("FBgn", "gene");
+		rep.put("FBim", "image");
+		rep.put("FBig", "interaction");
+		rep.put("FBlc", "large dataset metadata");
+		rep.put("FBmc", "molecular construct");
+		rep.put("FBms", "molecular segment");
+		rep.put("FBpp", "polypeptide");
+		rep.put("FBrf", "reference");
+		rep.put("FBsf", "sequence feature");
+		rep.put("FBst", "stock");
+		rep.put("FBtc", "cell line");
+		rep.put("FBti", "transposable element insertion");
+		rep.put("FBtp", "transgenic construct or natural transposon");
+		rep.put("FBtr", "transcript");
+		return rep;
+	}
 
 	public PubBean(String id, String miniref) {
 		super();
@@ -92,9 +97,9 @@ public class PubBean {
 
 	public String getTarget() {
 		if (getWebLink().contains("http")){
-			return "_new"
+			return "_new";
 		}
-		return "_top"
+		return "_top";
 	}
 
 	public String getWebLink() {
