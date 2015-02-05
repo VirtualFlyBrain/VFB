@@ -29,8 +29,8 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
-		if (request.getParameter("fbId") == null) {
-			if (request.getParameter("id") == null) {
+		if (req.getParameter("fbId") == null) {
+			if (req.getParameter("id") == null) {
 				LOG.error("No id of any type given!");
 				return null;
 			}else{
