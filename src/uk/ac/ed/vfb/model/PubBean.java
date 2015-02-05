@@ -135,7 +135,7 @@ public class PubBean {
 			if (id.contains("MMC")){
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
-			if (id.contains("FlyBase")){
+			if (id.contains("FlyBase") || id.contains("auto_generated_definition")){
 				return "http://flybase.org";
 			}
 			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
