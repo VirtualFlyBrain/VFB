@@ -6,13 +6,17 @@
 	  <!--<a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_blank">Site Feedback</a> |-->
 	</div>
 
-	
+
 	<br />
-	
+
 
 		<!-- BEGIN version display -->
 		<div id="VFBversion" style="position:relative; left: 0; bottom: 0; font-size: xx-small;">
-			<jsp:include page="/branch" />- <jsp:include page="/revision" /> [ <jsp:include page="/flybase" />] [ fbbt-simple:<jsp:include page="/owldate" />]
+			<a href="https://github.com/VirtualFlyBrain/VFB/tree/<jsp:include page="/branch" />" target="_new" title="Current GitHub code repository branch and revision" >
+				<jsp:include page="/branch" />- <jsp:include page="/revision" />
+			</a>
+			[<a href="ftp://ftp.flybase.net/releases/<jsp:include page="/flybase" />" target="_new" title="Current FlyBase DataBase in use" ><jsp:include page="/flybase" /></a>]
+			[<a href="<jsp:include page="/owldate" />" target="_new" title="Current VFB OWL ontology in use" ><jsp:include page="/owldate" /></a>]
 		</div>
-	
+
 		<!-- END version display -->
