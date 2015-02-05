@@ -28,12 +28,23 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
-		String id = OntBean.idAsOBO(req.getParameter("fbId"));
-		OntBean ob = this.obm.getBeanForId(id);
-		//LOG.debug("For Id: " + ob.getId().toString());
-		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
+		if (request.getParameter("fbId") == null) {
+			if (request.getParameter("id") == null) {
+				LOG.error("No id of any type given!");
+				return null;
+			}else{
+				String id = OntBean.idAsOWL(req.getParameter("id"));
+				OntBean ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+				modelAndView.addObject("beanType", "ind");
+			}
+		}else{
+			String id = OntBean.idAsOBO(req.getParameter("fbId"));
+			OntBean ob = this.obm.getBeanForId(id);
+			modelAndView.addObject("beanType", "ont");
+		}
+		LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		//LOG.debug("Found publications:" + pbList.size());
+		LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
