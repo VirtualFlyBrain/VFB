@@ -13,17 +13,17 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 
 
 acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuron");
-pageContext.setAttribute("aclNeuron", acdao.getSynSet());	
+pageContext.setAttribute("aclNeuron", acdao.getSynSet());
 
 acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOTract");
-pageContext.setAttribute("aclTract", acdao.getSynSet());	
+pageContext.setAttribute("aclTract", acdao.getSynSet());
 
 acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
-pageContext.setAttribute("aclClone", acdao.getSynSet());	
+pageContext.setAttribute("aclClone", acdao.getSynSet());
 %>
 
 <c:choose>
-	<c:when test="${headAtt == true}"> 
+	<c:when test="${headAtt == true}">
 		<!-- Google Analytics -->
 			<script>
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=${ontBean.fbbtId}'});
@@ -41,8 +41,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:set var="needFoot" value="true" />
 	</c:otherwise>
 </c:choose>
-		
-	
+
+
 <c:forEach items="${aclNeuron}" var="neuron" varStatus="i">
 	<c:if test="${ontBean.fbbtId == neuron.fbbtId}">
 		<c:set var="isNeuron" value="true" scope="request"/>
@@ -64,7 +64,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</c:if>
 </c:forEach>
 
-	
+
 <c:if test="${sessionScope.currURL!='/site/tools/query_builder/'}">
 	<c:set var="termMenu" value="termMenuNeuron.jsp"/>
 </c:if>
@@ -86,7 +86,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </jsp:include>
 
 
-		
+
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 <c:if test="${!empty ontBean.fbbtId}">
 <p>
@@ -122,7 +122,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<p>
 		<b>Parent classes: </b><br />
 		<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * 
+			&nbsp;&nbsp;&nbsp; *
 			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
 		</c:forEach>
 	</p>
@@ -130,9 +130,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <c:if test="${fn:length(ontBean.relationships)>0}">
 	<p>
 		<b>Relationships: </b><br />
-		
+
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}	
+			&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
 			<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
 				<c:if test="${curr.key == neuropil.fbbtId}">
@@ -167,9 +167,23 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<jsp:param name="id" value="${ontBean.fbbtId}" />
 		</jsp:include>
 	</c:if>
-	
-	
+
+
 </p>
+
+<c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
+<c:if test="${!empty tpb}">
+	<b>Source:</b>
+	<a href="${tpb.baseUrl}${tpb.remoteId}">${tpb.sourceName}</a>
+	<br clear="all"/>
+	<a href="${tpb.baseUrl}${tpb.remoteId}">
+		<img class="thumb"src="${tpb.thumbUrl}" />
+	</a>
+	<br/>
+	<a href="/owl/${tpb.vfbId}">See in the viewer >> </a>
+	<br/>
+
+</c:if>
 
 <c:if test="${needFoot == true}">
 	<jsp:include page="/jsp/includes/homeFoot.jsp"/>
