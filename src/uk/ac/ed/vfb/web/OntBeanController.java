@@ -111,6 +111,7 @@ public class OntBeanController implements Controller {
 				Integer f = 0;
 				Integer l = 11;
 				for (String del:dels){
+					//flybase reference links handled differently to others.
 					while (def.contains(del+"FBrf")){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
 						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);

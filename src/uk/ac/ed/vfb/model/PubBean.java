@@ -31,7 +31,7 @@ public class PubBean {
 		rep.put("FBmc", "molecular construct");
 		rep.put("FBms", "molecular segment");
 		rep.put("FBpp", "polypeptide");
-		rep.put("FBrf", "reference");
+		//rep.put("FBrf", "reference"); // handled seperatly
 		rep.put("FBsf", "sequence feature");
 		rep.put("FBst", "stock");
 		rep.put("FBtc", "cell line");
@@ -107,7 +107,7 @@ public class PubBean {
 	public String getWebLink() {
 		String weblink = "#";
 		if (id.contains("FBrf")){
-			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "") +  ".html";
+			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "");
 			return weblink;
 		}
 		if (id.contains("FlyBrain_NDB")){
@@ -158,7 +158,7 @@ public class PubBean {
 		//handling FBxx other types
 		for (String key:rep.keySet()){
 			if (id.contains(key)){
-				return "http://flybase.org/reports/" + id + ".html";
+				return "http://flybase.org/reports/" + id;
 			}
 		}
 		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
