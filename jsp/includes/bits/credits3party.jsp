@@ -22,7 +22,7 @@ var id = "${tpb.vfbId}";
 function getMeta(id) {
 	if ($('annotation_content')!=null){
 		console.log("loading bean");
-		$('annotation_content').load('do/ont_bean.html?id='+ id);
+		$('annotation_content').load('/do/ont_bean.html?id='+ id);
 	}
 }
 
