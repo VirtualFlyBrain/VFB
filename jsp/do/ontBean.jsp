@@ -177,32 +177,6 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</c:forEach>
 	</p>
 </c:if>
-<p>
-	<br />
-	<b>External Links: </b><br />
-	<br />
-	<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
-	<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
-	<c:forEach items="${refs}" var="curr" varStatus="status">
-		<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-			<a href="${curr.webLink}" target="_new" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
-		</c:if>
-	</c:forEach>
-	<c:if test="${!isNeuron && !isClone}">
-		<c:set var="isNeuropil" value="true"/>
-		&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
-		title="Add to the selected domains in the viewer">See in the viewer >> </a>
-	</c:if>
-	<c:if test="${isNeuron || isClone}">
-		<br/>
-		<jsp:include page="/do/individual_film_strip.html">
-			<jsp:param name="action" value="exemplar_neuron" />
-			<jsp:param name="id" value="${ontBean.fbbtId}" />
-		</jsp:include>
-	</c:if>
-
-
-</p>
 
 <c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
 <c:if test="${!empty tpb}">
@@ -216,6 +190,33 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<a href="/owl/${tpb.vfbId}" target="_top" >See in the viewer >> </a>
 	<br/>
 
+</c:if>
+
+<c:if test="${beanType=='ont'}">
+	<p>
+		<br />
+		<b>External Links: </b><br />
+		<br />
+		<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
+		<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
+		<c:forEach items="${refs}" var="curr" varStatus="status">
+			<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+				<a href="${curr.webLink}" target="_new" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
+			</c:if>
+		</c:forEach>
+		<c:if test="${!isNeuron && !isClone}">
+			<c:set var="isNeuropil" value="true"/>
+			&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
+			title="Add to the selected domains in the viewer">See in the viewer >> </a>
+		</c:if>
+		<c:if test="${isNeuron || isClone}">
+			<br/>
+			<jsp:include page="/do/individual_film_strip.html">
+				<jsp:param name="action" value="exemplar_neuron" />
+				<jsp:param name="id" value="${ontBean.fbbtId}" />
+			</jsp:include>
+		</c:if>
+	</p>
 </c:if>
 
 <c:if test="${needFoot == true}">
