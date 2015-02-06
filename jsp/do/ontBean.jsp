@@ -81,10 +81,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<c:set var="termMenu" value="termMenuQB.jsp"/>
 </c:if>
 
-<jsp:include page="/jsp/includes/bits/${termMenu}">
-	<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
-</jsp:include>
-
+<c:if test="${beanType=='ont'}">
+	<jsp:include page="/jsp/includes/bits/${termMenu}">
+		<jsp:param name="fbbtId" value="${ontBean.fbbtId}" />
+	</jsp:include>
+</c:if>
 
 
 <h2 style="font-size: 1.5em; margin-top:-3px"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
