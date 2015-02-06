@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <%@page import="org.springframework.web.context.*,org.springframework.web.context.support.*,uk.ac.ed.vfb.service.*, uk.ac.ed.vfb.model.*"%>
 <%
-//fOR SINGLE STACKS -FINDSTACK BY ID AND ADD TO THE VIEW 
+//fOR SINGLE STACKS -FINDSTACK BY ID AND ADD TO THE VIEW
 ServletContext servletContext = this.getServletContext();
 WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
 ThirdPartyBeanManager tpbm = (ThirdPartyBeanManager)wac.getBean("thirdPartyBeanManager");
@@ -22,7 +22,7 @@ var id = "${tpb.vfbId}";
 function getMeta(id) {
 	if ($('annotation_content')!=null){
 		console.log("loading bean");
-		$('annotation_content').load('/jsp/do/individualBean.jsp?id='+ id);
+		$('annotation_content').load('do/ont_bean.html?id='+ id);
 	}
 }
 
