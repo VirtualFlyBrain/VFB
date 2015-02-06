@@ -118,7 +118,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</c:forEach>
 	</p>
 </c:if>
-<c:if test="${beanType='ont'}">
+<c:if test="${beanType=='ont'}">
 	<c:if test="${fn:length(ontBean.isa)>0}">
 		<p>
 			<b>Parent classes: </b><br />
@@ -129,7 +129,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</p>
 	</c:if>
 </c:if>
-<c:if test="${beanType='ind'}">
+<c:if test="${beanType=='ind'}">
 	<c:if test="${fn:length(ontBean.types)>0}">
 		<p>
 			<b>Parent classes: </b><br />
