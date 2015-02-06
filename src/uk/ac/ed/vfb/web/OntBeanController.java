@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import uk.ac.ed.vfb.model.OntBean;
 import uk.ac.ed.vfb.model.PubBean;
+import uk.ac.ed.vfb.model.OntBeanIndividual;
 import uk.ac.ed.vfb.service.OntBeanManager;
 import uk.ac.ed.vfb.service.PubBeanManager;
 
@@ -28,12 +29,25 @@ public class OntBeanController implements Controller {
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
-		String id = OntBean.idAsOBO(req.getParameter("fbId"));
-		OntBean ob = this.obm.getBeanForId(id);
-		//LOG.debug("For Id: " + ob.getId().toString());
-		//List<PubBean> pbList = pbm.getBeanListById(ob.getId());
+		OntBean ob = null;
+		String id = "";
+		if (req.getParameter("fbId") == null) {
+			if (req.getParameter("id") == null) {
+				LOG.error("No id of any type given!");
+				return null;
+			}else{
+				id = OntBean.idAsOWL(req.getParameter("id"));
+				ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+				modelAndView.addObject("beanType", "ind");
+			}
+		}else{
+			id = OntBean.idAsOBO(req.getParameter("fbId"));
+			ob = this.obm.getBeanForId(id);
+			modelAndView.addObject("beanType", "ont");
+		}
+		LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		//LOG.debug("Found publications:" + pbList.size());
+		LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
@@ -153,8 +167,16 @@ public class OntBeanController implements Controller {
 					LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
 				}
 			}
+			if (def.contains("PMID:")){
+				String del = "(";
+				//Catches if PubMed ID is in description but not references
+				while (def.contains(del+"PMID:")){
+					String pmRef = def.substring(def.indexOf(del+"PMID:"), def.indexOf(del+"PMID:")+14).replace(del,"");
+					LOG.error("Resolving PMID in definition but not in refernces: " + ob.getId() + "-" + pmRef + " in text: " + def);
+					def = def.replace(pmRef, "<a href=\"http://www.ncbi.nlm.nih.gov/pubmed/" + pmRef + "\" title=\"PubMed reference [" + pmRef + "]\" target=\"_new\" >" + pmRef + "</a>");
+				}
+			}
 			LOG.debug("Final definition: " + def);
-
 		}
 		return def;
 	}
