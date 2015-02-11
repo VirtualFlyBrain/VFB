@@ -73,11 +73,21 @@ public class OwlResultParserClass extends AOwlResultParser {
 			Boolean refExists = false;
 			Integer refI = 1;
 			String refIs = "";
+			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
+					type = "";
 					refExists = false;
+					// adding synonyn type
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+						type = type.replace("EXACT", "<a href=\"#\" title=\"an exact equivalent; interchangeable with the term name\">EXACT</a>");
+						type = type.replace("NARROW", "<a href=\"#\" title=\"the synonym is narrower or more precise than the term name\">NARROW</a>");
+						type = type.replace("RELATED", "<a href=\"#\" title=\"the terms are related in some way\">RELATED</a>");
+						type = type.replace("BROAD", "<a href=\"#\" title=\"the synonym is broader than the term name\">BROAD</a>");
+					}
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
@@ -95,9 +105,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 						}
 					}
 					if (refExists){
-						syns.add(syn.getLabel() + " (" + refIs + ")");	
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");	
 					}else{
-						syns.add(syn.getLabel());
+						syns.add(syn.getLabel() + type);
 					}
 					
 				}

@@ -5,6 +5,8 @@ import org.apache.commons.logging.LogFactory;
 
 import java.net.URLDecoder;
 
+import java.util.*;
+
 /**
  * POJO class for a publication entry. Used as addition to OntBean to pull human-readable description
  */
@@ -13,6 +15,31 @@ public class PubBean {
 	private String id; //miniref id, eg FBrf0047289
 	private String miniref;// eg Bodmer and Jan, 1987, Roux Arch. dev. Biol. 196(2): 69--77
 	private static final Log LOG = LogFactory.getLog(OntBean.class);
+	Map<String, String> rep = fbXx();
+
+
+	private static Map<String, String> fbXx () {
+		Map<String, String> rep = new HashMap<String, String>();
+		rep.put("FBab", "aberration");
+		rep.put("FBal", "allele");
+		rep.put("FBba", "balancer/genotype variant");
+		rep.put("FBcl", "clone");
+		rep.put("FBgn", "gene");
+		rep.put("FBim", "image");
+		rep.put("FBig", "interaction");
+		rep.put("FBlc", "large dataset metadata");
+		rep.put("FBmc", "molecular construct");
+		rep.put("FBms", "molecular segment");
+		rep.put("FBpp", "polypeptide");
+		//rep.put("FBrf", "reference"); // handled seperatly
+		rep.put("FBsf", "sequence feature");
+		rep.put("FBst", "stock");
+		rep.put("FBtc", "cell line");
+		rep.put("FBti", "transposable element insertion");
+		rep.put("FBtp", "transgenic construct or natural transposon");
+		rep.put("FBtr", "transcript");
+		return rep;
+	}
 
 	public PubBean(String id, String miniref) {
 		super();
@@ -45,7 +72,7 @@ public class PubBean {
 		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		return produceShortref(id, miniref);
 	}
-	
+
 	public String getYear() {
 		LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
@@ -57,7 +84,7 @@ public class PubBean {
 		}
 		return "";
 	}
-	
+
 	public String getAuthors() {
 		//LOG.debug("Author(s) requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
@@ -69,12 +96,18 @@ public class PubBean {
 		}
 		return "";
 	}
-	
+
+	public String getTarget() {
+		if (getWebLink().contains("http")){
+			return "_new";
+		}
+		return "_top";
+	}
 
 	public String getWebLink() {
 		String weblink = "#";
 		if (id.contains("FBrf")){
-			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "") +  ".html";
+			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "");
 			return weblink;
 		}
 		if (id.contains("FlyBrain_NDB")){
@@ -93,14 +126,17 @@ public class PubBean {
 			return weblink;
 		}
 		if (id.contains("FBC:")){
+			if (miniref.contains(" and ")){
+				return "https://www.google.com/search?q=" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" and "," ");
+			}
 			if (id.contains("DOS")){
 				return "http://orcid.org/0000-0002-7073-9172";
 			}
 			if (id.contains("MMC")){
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
-			if (miniref.contains(" and ")){
-				return "https://www.google.com/search?q=" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" and "," ");
+			if (id.contains("FlyBase") || id.contains("auto_generated_definition")){
+				return "http://flybase.org";
 			}
 			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
 		}
@@ -113,6 +149,18 @@ public class PubBean {
 		if (id.contains("VFB_vol:")){
 			return "/site/stacks/index.htm?add=FBbt:" + id.replace("VFB_vol:","");
 		}
+		if (id.contains("GO:")){
+			return "http://gowiki.tamu.edu/wiki/index.php/Category:" + id;
+		}
+		if (id.contains("FBbt:")){
+			return "/site/tools/anatomy_finder/index.htm?id=" + id;
+		}
+		//handling FBxx other types
+		for (String key:rep.keySet()){
+			if (id.contains(key)){
+				return "http://flybase.org/reports/" + id;
+			}
+		}
 		LOG.error("Unresolved weblink for id: " + id + " with miniref: " + miniref);
 		weblink = "https://www.google.com/search?q=" + miniref;
 		return weblink;
@@ -121,8 +169,8 @@ public class PubBean {
 	public String decodeId2miniref(String id){
 		String result = id;
 		if (id.contains("FBC:")){
-			result = id.replace("FBC:", "FlyBase Curator [").replace("-", " and ").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein").replace("MMC","Marta Mesquita da Costa").replace("AJ","Arnim Jenett").replace("ds555","David Osumi-Sutherland").replace("DS","David Osumi-Sutherland").replace("MA","Michael Ashburner").replace("SR","Simon Reeve").replace("SPR","Simon Reeve").replace("DOS","David Osumi-Sutherland") + "]";
-			if (id.contains("VH") || id.contains("AJ") || id.contains("GJ")){
+			result = id.replace("FBC:", "FlyBase Curator [").replace("-", " and ").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein").replace("MMC","Marta Mesquita da Costa").replace("AJ","Arnim Jenett").replace("ds555","David Osumi-Sutherland").replace("DS","David Osumi-Sutherland").replace("MA","Michael Ashburner").replace("SR","Simon Reeve").replace("SPR","Simon Reeve").replace("DOS","David Osumi-Sutherland").replace("KI","Kei Ito") + "]";
+			if (id.contains("VH") || id.contains("AJ") || id.contains("GJ") || id.contains("KI")){
 				result = result.replace("Curator","Consultant");
 			}
 			return result;
@@ -146,6 +194,21 @@ public class PubBean {
 		if (id.contains("VFB_vol:")){
 			result = "Virtual Fly Brain painted volume [FBbt:" + id.replace("VFB_vol:","") + "]";
 			return result;
+		}
+		if (id.contains("GO:")){
+			result = id.replace("GO:","Gene Ontology Term [GO:") + "]";
+			return result;
+		}
+		if (id.contains("FBbt:")){
+			result = id.replace("FBbt:","Anatomy Term [FBbt:") + "]";
+			return result;
+		}
+		//handling FBxx other types
+		for (String key:rep.keySet()){
+			if (id.contains(key)){
+				result = "FlyBase " + rep.get(key) + " report [" + id + "]";
+				return result;
+			}
 		}
 		LOG.error("Unresolved miniref for: " + id);
 		return result;
@@ -175,8 +238,20 @@ public class PubBean {
 			if (id.contains("PMID:")){
 				return id;
 			}
+			if (id.contains("GO:")){
+				return id;
+			}
+			if (id.contains("FBbt:")){
+				return id;
+			}
 			if (id.contains("VFB_vol:")){
 				return "VFB volume [FBbt:" + id.replace("VFB_vol:","") + "]";
+			}
+			//handling FBxx other types
+			for (String key:rep.keySet()){
+				if (id.contains(key)){
+					return id;
+				}
 			}
 			LOG.error("Just returning miniref: " + miniref);
 			return miniref;
