@@ -23,7 +23,7 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
-        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
+        head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         echo "which are:"
         cat branch
         cat revision
@@ -74,7 +74,7 @@ then
         git describe --long > revision
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
-        head -n 100 resources/fbbt-simple.owl | grep oboInOwl:date | sed 's|<[^>]*>||g' | sed -e 's/^ *//' -e 's/ *$//' | cut -c -10 > owldate
+        head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         echo "which are:"
         cat branch
         cat revision
@@ -118,7 +118,7 @@ then
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
             find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
         fi
-        if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl|\.java" | wc -l` -gt 0 ]
+        if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl\|\.java" | wc -l` -gt 0 ]
         then
             echo "checking any direct references to website url is set to the branch site"
             find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
