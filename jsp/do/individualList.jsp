@@ -76,7 +76,7 @@
 						</td>
 						<c:if test="${!empty tpb}">
 							<td style="padding: 2px 0; text-align: center;"><a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
-								title="See in viewer"><img class="thumb" src="${tpb.thumbUrl}"/></a>
+								title="See in viewer"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a>
 							</td>
 						</c:if>
 						<c:if test="${!empty types}">
