@@ -22,9 +22,9 @@
 
 	<span style="width:100%; ">
 		<form name="perPage" action="?${paramString}">
-			${nav} &nbsp; Records per page: 
+			${nav} &nbsp; Records per page:
 			<c:forEach items="${paramItems}" var="curr">
-				<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}"/> 
+				<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}"/>
 			</c:forEach>
 			<select id="perPage" name="perPage" onchange='this.form.submit()'>
   				<option value="10" ${(perPage==10)?"selected":""} >10</option>
@@ -32,18 +32,18 @@
 				<option value="50" ${(perPage==50)?"selected":""} >50</option>
 				<option value="100" ${(perPage ge 100 || perPage lt 10)?"selected":""} >100</option>
 			</select>
-			
+
 			<a id="csv" style="float:right; margin-right:10px" href="/do/csv_report.html?type=gbm&filename=${fileName}">Save as CSV</a>
 		</form>
-		
+
 		<c:if test="${perPage lt 10 || perPage gt 100}">
 			<script> document.getElementById('perPage').onchange(); </script>
 		</c:if>
-		
+
 	</span>
 
 		<table>
-		<thead> 
+		<thead>
 		<tr>
 		<c:forEach items="${transgeneColumns}" var="curr">
 			<th>${curr}</th>
@@ -51,7 +51,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${geneList}" var="geneBean" varStatus="status">		
+		<c:forEach items="${geneList}" var="geneBean" varStatus="status">
 			<tr>
 				<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" target="_new">${geneBean.driver}</a></td>
 				<td><a href="/site/tools/anatomy_finder/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
@@ -65,7 +65,7 @@
 				<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
 					<b>Source: </b><a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName} <br/>
 					<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
-						<img src="${geneBean.thirdPartyBean.thumbUrl}"height="50"/></a>
+						<img src="${geneBean.thirdPartyBean.thumbUrl}" height="50" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
 						<br clear="all"/>					</c:if>
 					<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
 						<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
@@ -75,7 +75,7 @@
 				</c:if>
 				</td>
 			</tr>
-		</c:forEach>	 
+		</c:forEach>
 	</tbody>
 	</table>
 

@@ -22,9 +22,9 @@
 					</a>
 					<br clear="all"/>
 					<a href="${tpb.baseUrl}${tpb.remoteId}">
-						<img class="thumb" src="${tpb.thumbUrl}" />
+						<img class="thumb" src="${tpb.thumbUrl}" alt="${tpb.sourceName} (${tpb.remoteId})" />
 					</a>
-					<br/>			
+					<br/>
 				</c:if>
 			</div>
 		</c:if>
