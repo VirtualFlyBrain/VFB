@@ -68,7 +68,7 @@
 								<br/>
 								<c:if test="${!empty tpb}">
 									<a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
-									title="See in viewer">See in viewer >></a>
+									title="See in viewer" target="_top">See in viewer >></a>
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add"
 									title="Add to composite view">Add to composite view >></a>
@@ -85,7 +85,7 @@
 						<c:if test="${!empty types}">
 							<td style="padding: 2px;">
 								<c:forEach items="${types}" var="item" varStatus="stat">
-									<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}&name=${item.value}" title="View ${item.value} entry">${item.value}</a><c:if test="${!stat.last}">,</c:if>
+									<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}&name=${item.value}" title="View ${item.value} entry" target="_top">${item.value}</a><c:if test="${!stat.last}">,</c:if>
 									<br/>
 								</c:forEach>
 							</td>
