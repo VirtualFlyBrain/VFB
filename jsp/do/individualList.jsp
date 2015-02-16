@@ -67,8 +67,11 @@
 								<vfbUtil:trimToWhite string="${ontBean.def}" size="400" />
 								<br/>
 								<c:if test="${!empty tpb}">
-								<a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
+									<a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
 									title="See in viewer">See in viewer >></a>
+									<br />
+									<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add"
+									title="Add to composite view">Add to composite view >></a>
 								</c:if>
 								<br/>
 								<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new">${tpb.sourceName}</a>
