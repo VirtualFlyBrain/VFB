@@ -69,7 +69,7 @@
 								<c:if test="${!empty tpb}">
 									<a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
 									title="See in viewer">See in viewer >></a>
-									<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;
 									<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add"
 									title="Add to composite view">Add to composite view >></a>
 								</c:if>
