@@ -82,11 +82,6 @@
     </servlet-mapping>
         
     <servlet-mapping>
-		<servlet-name>directData</servlet-name>    
-        <url-pattern>*.htm</url-pattern>
-    </servlet-mapping>
-        
-    <servlet-mapping>
 		<servlet-name>directData</servlet-name>
         <url-pattern>*.log</url-pattern>
     </servlet-mapping>    
