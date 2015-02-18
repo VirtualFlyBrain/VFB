@@ -28,7 +28,7 @@
 		</c:choose>
 	</c:when>
 	<c:otherwise>
-		<c:set var="idPassed" value="${param.tbpid}" scope="request" />
+		<c:set var="idPassed" value="${param['tbpid']}" scope="request" />
 		<c:set var="idNumeric" value="${fn:split(idPassed, '_')[1]}" scope="request" />
 		<c:set var="idFirst" value="${fn:substring(idNumeric, 0, 4)}" scope="request" />
 		<c:set var="idLast" value="${fn:substring(idNumeric, 4, 8)}" scope="request" />
