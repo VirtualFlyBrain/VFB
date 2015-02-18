@@ -26,7 +26,7 @@
 		</c:choose>
 	</c:when>
 	<c:otherwise>
-		<c:set var="idNumeric" value="${fn:split(param.tpbid, '_')[1]}" scope="request" />
+		<c:set var="idNumeric" value="${fn:split(param['tbpid'], '_')[1]}" scope="request" />
 		<c:set var="idFirst" value="${fn:substring(idNumeric, 0, 4)}" scope="request" />
 		<c:set var="idLast" value="${fn:substring(idNumeric, 4, 8)}" scope="request" />
 		<c:choose>
@@ -42,7 +42,7 @@
 			</c:when>
 			<c:otherwise>
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
-					<jsp:param name="title" value="${param.tpbid}" />
+					<jsp:param name="title" value="${idNumeric}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
 					<jsp:param name="json" value="VFB/i/${idFirst}/${idLast}/data.jso" />
 					<jsp:param name="type" value="THIRD_PARTY_STACK" />
