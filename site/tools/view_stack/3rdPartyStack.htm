@@ -1,25 +1,53 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<jsp:include page="/jsp/includes/viewerTemplate.jsp">
-	<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
-	<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
-	<c:choose>
-		<c:when test="${not empty param.json}" >
-			<jsp:param name="json" value="${param.json}" />
-		</c:when>
-		<c:otherwise>
-			<jsp:param name="json" value="VFB/i/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 0, 4)}/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 4, 8)}/data.jso" />
-		</c:otherwise>
-	</c:choose>
-	<c:choose>
-		<c:when test="${not empty param.json}" >
-			<jsp:param name="type" value="${param.type}" />
-		</c:when>
-		<c:otherwise>
-			<jsp:param name="type" value="THIRD_PARTY_STACK" />
-		</c:otherwise>
-	</c:choose>
-	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
-	<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
-</jsp:include>
-
+<c:choose>
+	<c:when test="${not empty param.json}" >
+		<c:choose>
+			<c:when test="${not empty param.json}" >
+				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
+					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
+					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
+					<jsp:param name="json" value="${param.json}" />
+					<jsp:param name="type" value="${param.type}" />
+					<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
+					<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
+				</jsp:include>
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
+					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
+					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
+					<jsp:param name="json" value="${param.json}" />
+					<jsp:param name="type" value="THIRD_PARTY_STACK" />
+					<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
+					<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
+				</jsp:include>
+			</c:otherwise>
+		</c:choose>
+	</c:when>
+	<c:otherwise>
+		<c:choose>
+			<c:when test="${not empty param.json}" >
+				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
+					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
+					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
+					<jsp:param name="json" value="VFB/i/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 0, 4)}/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 4, 8)}/data.jso" />
+					<jsp:param name="type" value="${param.type}" />
+					<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
+					<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
+				</jsp:include>
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
+					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
+					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
+					<jsp:param name="json" value="VFB/i/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 0, 4)}/${fn:substring(fn:replace(fn:replace(param.tpbid, 'VFB_', ''), 'VFBi_', ''), 4, 8)}/data.jso" />
+					<jsp:param name="type" value="THIRD_PARTY_STACK" />
+					<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
+					<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
+				</jsp:include>
+			</c:otherwise>
+		</c:choose>	
+	</c:otherwise>
+</c:choose>
+	
