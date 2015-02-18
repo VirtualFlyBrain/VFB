@@ -20,8 +20,9 @@
 	<display-name>VirtualFlyBrain Server -WEBAPP_NAME-</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>index</welcome-file>
+		<welcome-file></welcome-file>
     	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.htm</welcome-file>
     	<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
@@ -82,7 +83,7 @@
         
     <servlet-mapping>
 		<servlet-name>directData</servlet-name>    
-        <url-pattern>/owl/VFBi_000000001/*</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
         
     <servlet-mapping>
