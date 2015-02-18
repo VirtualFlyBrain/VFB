@@ -60,7 +60,7 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		String first = vfbId.replace('VFB_','').replace('VFBi_','');
 		String last = first.substring(4);
 		first = first.substring(0, 4);
-		this.thumbUrl = Utils.getProp("IMAGE_BASE_DIR") + first + '/' + last;
+		this.thumbUrl = Utils.getProp("IMAGE_BASE_DIR") + first + '/' + last + '/thumbnail.png';
 		this.stackUrl = stacksBaseUrl + "/" + stackName + Utils.getProp("STACK_META_URL");
 		this.stackName = stackName;
 		this.descr = descr;
