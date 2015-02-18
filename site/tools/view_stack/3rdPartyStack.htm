@@ -3,7 +3,7 @@
 <c:choose>
 	<c:when test="${not empty param.json}" >
 		<c:choose>
-			<c:when test="${not empty param.json}" >
+			<c:when test="${not empty param.type}" >
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
 					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
@@ -30,7 +30,7 @@
 		<c:set var="idFirst" value="${fn:substring(idNumeric, 0, 4)}" scope="request" />
 		<c:set var="idLast" value="${fn:substring(idNumeric, 4, 8)}" scope="request" />
 		<c:choose>
-			<c:when test="${not empty param.json}" >
+			<c:when test="${not empty param.type}" >
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
 					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
