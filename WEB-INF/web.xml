@@ -20,6 +20,7 @@
 	<display-name>VirtualFlyBrain Server -WEBAPP_NAME-</display-name>
 	
 	<welcome-file-list>
+		<welcome-file>index</welcome-file>
     	<welcome-file>index.html</welcome-file>
     	<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
@@ -68,7 +69,7 @@
 		<servlet-name>directData</servlet-name>
 		<url-pattern>/jdoc/*</url-pattern>
 		<url-pattern>/logs/*</url-pattern>
-        <url-pattern>/owl/*</url-pattern>
+        <url-pattern>/owl/</url-pattern>
         <url-pattern>*.log</url-pattern>
         <url-pattern>*.png</url-pattern>
         <url-pattern>*.wlz</url-pattern>
