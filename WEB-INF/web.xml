@@ -18,6 +18,11 @@
       VirtualFlyBrain Server -WEBAPP_NAME-
     </description>
 	<display-name>VirtualFlyBrain Server -WEBAPP_NAME-</display-name>
+	
+	<welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 	<jsp-config>
 		<jsp-property-group>
@@ -34,10 +39,8 @@
 	</jsp-config>
 	
 	<servlet>
-    	<servlet-name>default</servlet-name>
-    	<servlet-class>
-    	  org.apache.catalina.servlets.DefaultServlet
-    	</servlet-class>
+    	<servlet-name>directData</servlet-name>
+    	<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
     	<init-param>
     	    <param-name>debug</param-name>
     	    <param-value>0</param-value>
@@ -49,13 +52,8 @@
     	<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<welcome-file-list>
-    	<welcome-file>index.html</welcome-file>
-    	<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-
 	<servlet-mapping>
-		<servlet-name>default</servlet-name>
+		<servlet-name>directData</servlet-name>
 		<url-pattern>/jdoc/*</url-pattern>
 		<url-pattern>/logs/*</url-pattern>
         <url-pattern>/owl/*</url-pattern>
