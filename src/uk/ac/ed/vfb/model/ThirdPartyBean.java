@@ -189,8 +189,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 	public void setCompleteExpressionPattern(boolean completeExpressionPattern) {
 		this.completeExpressionPattern = completeExpressionPattern;
 	}
-	public String getVFBidAsImageRef() {
-		return fbbtId.toLowerCase().replace(":", "_").replace("vfb_","VFBi_");
+	public String getVFBidAsImageRef(String vfbId) {
+		return vfbId.toLowerCase().replace(":", "_").replace("vfb_","VFBi_");
 	}
 
 	@Override
