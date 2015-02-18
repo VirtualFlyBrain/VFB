@@ -16,7 +16,7 @@
 			</c:when>
 			<c:otherwise>
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
-					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
+					<jsp:param name="title" value="${param.tpbid}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
 					<jsp:param name="json" value="${param.json}" />
 					<jsp:param name="tpbid" value="${param.tpbid}" />
