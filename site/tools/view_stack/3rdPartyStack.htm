@@ -42,7 +42,7 @@
 			</c:when>
 			<c:otherwise>
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
-					<jsp:param name="title" value="${idNumeric}" />
+					<jsp:param name="title" value="${param.tpbid}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
 					<jsp:param name="json" value="VFB/i/${idFirst}/${idLast}/data.jso" />
 					<jsp:param name="type" value="THIRD_PARTY_STACK" />
