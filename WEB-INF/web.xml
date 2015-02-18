@@ -42,7 +42,8 @@
                 <servlet-name>default</servlet-name>
                 <url-pattern>/logs/*</url-pattern>
                 <url-pattern>/owl/*</url-pattern>
-        </servlet-mapping>
+                <url-pattern>/owl/*/*</url-pattern>
+    </servlet-mapping>
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
