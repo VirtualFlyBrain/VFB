@@ -82,7 +82,7 @@
         
     <servlet-mapping>
 		<servlet-name>directData</servlet-name>    
-        <url-pattern>/owl/VFBi_*</url-pattern>
+        <url-pattern>/owl/VFBi_000000001/*</url-pattern>
     </servlet-mapping>
         
     <servlet-mapping>
