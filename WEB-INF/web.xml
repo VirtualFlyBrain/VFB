@@ -36,18 +36,14 @@
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/jdoc/*</url-pattern>
+		<url-pattern>/logs/*</url-pattern>
+        <url-pattern>/owl/*</url-pattern>
+        <url-pattern>/owl/*/*.htm</url-pattern>
+        <url-pattern>/owl/*/*.png</url-pattern>
+        <url-pattern>/owl/*/*.jso</url-pattern>
+        <url-pattern>/owl/*/*.wlz</url-pattern>
+        <url-pattern>/owl/*/*.gz</url-pattern>
 	</servlet-mapping>
-
-	<servlet-mapping>
-                <servlet-name>default</servlet-name>
-                <url-pattern>/logs/*</url-pattern>
-                <url-pattern>/owl/*</url-pattern>
-                <url-pattern>/owl/*/*.htm</url-pattern>
-                <url-pattern>/owl/*/*.png</url-pattern>
-                <url-pattern>/owl/*/*.jso</url-pattern>
-                <url-pattern>/owl/*/*.wlz</url-pattern>
-                <url-pattern>/owl/*/*.gz</url-pattern>
-    </servlet-mapping>
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
