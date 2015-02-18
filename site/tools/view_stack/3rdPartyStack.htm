@@ -44,9 +44,9 @@
 				<jsp:include page="/jsp/includes/viewerTemplate.jsp">
 					<jsp:param name="title" value="${(param.type=='COMPOSITE')?'Your Composite View':'Registered Third Party Stack'}" />
 					<jsp:param name="meta_root" value="/data/thirdparty/STACKS/3RDPARTY/" />
+					<jsp:param name="tpbid" value="${param.tpbid}" />
 					<jsp:param name="json" value="VFB/i/${fn:substring(fn:split(tbpid, '_')[1], 0, 4)}/${fn:substring(fn:split(param.tbpid, '_')[1], 4, 8)}/data.jso" />
 					<jsp:param name="type" value="THIRD_PARTY_STACK" />
-					<jsp:param name="tpbid" value="${param.tpbid}" />
 					<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Stacks@#|Adult Brain Stack@/ " />	
 					<jsp:param name="css" value="/css/tools/layer.css; /css/tools/layerProperties.css; /css/vfb/utils/resultList.css;" />	
 				</jsp:include>
