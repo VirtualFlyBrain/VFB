@@ -33,16 +33,17 @@
 		</jsp-property-group>
 	</jsp-config>
 
+	<welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.htm</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/jdoc/*</url-pattern>
 		<url-pattern>/logs/*</url-pattern>
         <url-pattern>/owl/*</url-pattern>
-        <url-pattern>/owl/*/*.htm</url-pattern>
-        <url-pattern>/owl/*/*.png</url-pattern>
-        <url-pattern>/owl/*/*.jso</url-pattern>
-        <url-pattern>/owl/*/*.wlz</url-pattern>
-        <url-pattern>/owl/*/*.gz</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
