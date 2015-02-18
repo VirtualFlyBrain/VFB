@@ -70,6 +70,7 @@
 		<url-pattern>/jdoc/*</url-pattern>
 		<url-pattern>/logs/*</url-pattern>
         <url-pattern>/owl/</url-pattern>
+        <url-pattern>/owl/VFBi_*</url-pattern>
         <url-pattern>*.log</url-pattern>
         <url-pattern>*.png</url-pattern>
         <url-pattern>*.wlz</url-pattern>
