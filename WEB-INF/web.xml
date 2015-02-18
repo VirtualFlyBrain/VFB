@@ -68,12 +68,40 @@
 	<servlet-mapping>
 		<servlet-name>directData</servlet-name>
 		<url-pattern>/jdoc/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>directData</servlet-name>
 		<url-pattern>/logs/*</url-pattern>
-        <url-pattern>/owl/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>/owl/*</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>    
         <url-pattern>/owl/VFBi_*</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
         <url-pattern>*.log</url-pattern>
+    </servlet-mapping>    
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
         <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
         <url-pattern>*.wlz</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
         <url-pattern>*.gz</url-pattern>
 	</servlet-mapping>
 
