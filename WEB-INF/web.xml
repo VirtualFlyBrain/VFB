@@ -32,10 +32,25 @@
 			<url-pattern>/sitemap.xml</url-pattern>
 		</jsp-property-group>
 	</jsp-config>
+	
+	<servlet>
+    	<servlet-name>default</servlet-name>
+    	<servlet-class>
+    	  org.apache.catalina.servlets.DefaultServlet
+    	</servlet-class>
+    	<init-param>
+    	    <param-name>debug</param-name>
+    	    <param-value>0</param-value>
+    	</init-param>
+    	<init-param>
+        	<param-name>listings</param-name>
+        	<param-value>true</param-value>    <!-- This setting enables/disables directory listings -->
+    	</init-param>
+    	<load-on-startup>1</load-on-startup>
+	</servlet>
 
 	<welcome-file-list>
     	<welcome-file>index.html</welcome-file>
-    	<welcome-file>index.htm</welcome-file>
     	<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
@@ -44,6 +59,9 @@
 		<url-pattern>/jdoc/*</url-pattern>
 		<url-pattern>/logs/*</url-pattern>
         <url-pattern>/owl/*</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.wlz</url-pattern>
+        <url-pattern>*.</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
