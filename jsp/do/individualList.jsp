@@ -57,7 +57,7 @@
 								<c:set var="types" value="${ontBean.types}" />
 								<c:choose>
 									<c:when test="${!empty tpb}">
-										<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'><a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
+										<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'><a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}"
 											title="See in viewer">${ontBean.name}</a></h3>
 									</c:when>
 									<c:otherwise>
@@ -67,7 +67,7 @@
 								<vfbUtil:trimToWhite string="${ontBean.def}" size="400" />
 								<br/>
 								<c:if test="${!empty tpb}">
-									<a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
+									<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}"
 									title="See in viewer" target="_top">See in viewer >></a>
 									&nbsp;&nbsp;&nbsp;&nbsp;
 									<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add"
@@ -78,7 +78,7 @@
 								<br/>
 						</td>
 						<c:if test="${!empty tpb}">
-							<td style="padding: 2px 0; text-align: center;"><a href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}"
+							<td style="padding: 2px 0; text-align: center;"><a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}"
 								title="See in viewer"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a>
 							</td>
 						</c:if>
