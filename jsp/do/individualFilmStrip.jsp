@@ -17,7 +17,7 @@
 					<b>Source:</b>
 					<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
 					<br/>
-					<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}" target="_top">
+					<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" target="_top">
 						See in viewer >>
 					</a>
 					<br clear="all"/>
