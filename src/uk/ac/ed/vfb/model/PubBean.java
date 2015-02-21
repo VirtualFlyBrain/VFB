@@ -176,7 +176,7 @@ public class PubBean {
 			result = id.replace("FBC:", "FlyBase Curator [").replace("-", " and ").replace("gg","Gary Grumbling").replace("VH","Volker Hartenstein").replace("MMC","Marta Mesquita da Costa").replace("AJ","Arnim Jenett").replace("ds555","David Osumi-Sutherland").replace("DS","David Osumi-Sutherland").replace("MA","Michael Ashburner").replace("SR","Simon Reeve").replace("SPR","Simon Reeve").replace("DOS","David Osumi-Sutherland").replace("KI","Kei Ito") + "]";
 			if (id.contains("VH") || id.contains("AJ") || id.contains("GJ") || id.contains("KI")){
 				result = result.replace("Curator","Consultant");
-				result = "FlyBase" // TBR: once the Consultants are approved.
+				result = "FlyBase"; // TBR: once the Consultants are approved.
 			}
 			return result;
 		}
