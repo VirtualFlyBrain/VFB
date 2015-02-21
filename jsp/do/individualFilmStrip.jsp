@@ -21,7 +21,7 @@
 						See in viewer >>
 					</a>
 					<br clear="all"/>
-					<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">
+					<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" target="_top">
 						<img class="thumb" src="${tpb.thumbUrl}" alt="${tpb.sourceName} (${tpb.remoteId})" />
 					</a>
 					<br/>
