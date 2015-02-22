@@ -69,7 +69,11 @@ public class OntBeanManager extends APageable {
 	private void addBeansToHash(Set<OntBean> beans){
 		if (beans == null || beans.size() < 1)return;
 		for (OntBean bean:beans){
-			ontBeans.put(bean.getFbbtId(), bean);
+			if (bean.getFbbtId().contains("VFB")){
+				ontBeans.put(bean.getFbbtIdAsOWL(), bean);
+			}else{
+				ontBeans.put(bean.getFbbtId(), bean);
+			}
 		}
 	}
 
