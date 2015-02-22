@@ -104,7 +104,7 @@ public class OntBeanManager extends APageable {
 				tpb.setName(ob.getName());
 			}
 			ob.setThirdPartyBean(tpb);
-			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean() + " parent: " + tpb.getParentFBbt());
+			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
 		}
 	}
 	
