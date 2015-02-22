@@ -34,12 +34,12 @@ public class OntBeanManager extends APageable {
 	/** Individuals for id can not be found in run-time, so we need to 
 		 pre-create all the individual beans first*/
 	private void getIndividuals() {
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Trying to create individuals, found beans: " +  " > " + ontBeans.size()) ;
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Trying to create individuals, found beans: " +  " > " + ontBeans.size()) ;
 		if (ontBeans.size() < individualBeanCount) {
 			Set<OntBean> individuals = getBeanListForQuery(GET_ALL_INDIVIDUALS);
 			addBeansToHash(individuals);
 			individualBeanCount = ontBeans.size();
-			//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Individuals created" + ontBeans.size() + "> " + individuals.size());
+			LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Individuals created" + ontBeans.size() + "> " + individuals.size());
 		}
 	}
 	
@@ -93,14 +93,14 @@ public class OntBeanManager extends APageable {
 	}
 
 	protected void setThirdPartyBeans(Set<OntBean> ontBeans){
-		//LOG.debug("ThirdPartyBeans : "+ tpbm);
+		LOG.debug("ThirdPartyBeans : "+ tpbm);
 		for (OntBean ob: ontBeans) {
 			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
 			if ( tpb!=null){
 				tpb.setName(ob.getName());
 			}
 			ob.setThirdPartyBean(tpb);
-//			//LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean() + " parent: " + tpb.getParentFBbt());
+			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean() + " parent: " + tpb.getParentFBbt());
 		}
 	}
 	
