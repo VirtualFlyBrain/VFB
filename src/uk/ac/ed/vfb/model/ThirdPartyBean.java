@@ -14,6 +14,8 @@ import org.apache.commons.logging.LogFactory;
 public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable {
 	/** VFB inernal id for individuals */
 	private String vfbId;
+	/** VFB inernal id for image */
+	private String vfbIm;
 	/** Fbid used by flybase */
 	private String fbId;
 	/** Name - as given in the parent individual or ontBean  - currently not used*/
@@ -57,8 +59,9 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.sourceName = resourceName;
 		this.baseUrl = baseUrl;
 		this.thumbName = thumbName;
-		this.thumbUrl = Utils.getProp("THIRD_PARTY_INTEGRATION_DIR") + thumbUrl + thumbName;
-		this.stackUrl = stacksBaseUrl + "/" + stackName + Utils.getProp("STACK_META_URL");
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/thumbnail.png";
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
 		this.stackName = stackName;
 		this.descr = descr;
 		this.displayName = displayName;
@@ -72,6 +75,14 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 
 	public void setVfbId(String vfbId) {
 		this.vfbId = vfbId;
+	}
+	
+	public String getVfbIm() {
+		return vfbIm;
+	}
+
+	public void setVfbIm(String vfbIm) {
+		this.vfbIm = vfbIm;
 	}
 
 	public String getFbId() {
@@ -178,7 +189,9 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 	public void setCompleteExpressionPattern(boolean completeExpressionPattern) {
 		this.completeExpressionPattern = completeExpressionPattern;
 	}
-
+	public String getVFBidAsImageRef(String vfbId) {
+		return vfbId.toLowerCase().replace(":", "_").replace("vfb_","VFBi_");
+	}
 
 	@Override
 	public String toString() {

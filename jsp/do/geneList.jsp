@@ -68,7 +68,7 @@
 						<img src="${geneBean.thirdPartyBean.thumbUrl}" height="50" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
 						<br clear="all"/>					</c:if>
 					<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
-						<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
+						<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
 							See in viewer >>
 						</a><br/>
 					</c:if>
