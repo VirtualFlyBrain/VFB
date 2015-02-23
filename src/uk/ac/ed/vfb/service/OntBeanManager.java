@@ -81,8 +81,10 @@ public class OntBeanManager extends APageable {
 			LOG.debug("Creating new bean");
 			result = ontClient.getBeanForId(fbbtId);
 			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
+			LOG.debug("TPB result: " + tpb);
 			if ( tpb!=null){
 				tpb.setName(result.getName());
+				LOG.debug("Setting name: " + result.getName());
 			}
 			result.setThirdPartyBean(tpb);
 			LOG.debug("OBM result: " + result);
@@ -98,6 +100,7 @@ public class OntBeanManager extends APageable {
 			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
 			if ( tpb!=null){
 				tpb.setName(ob.getName());
+				LOG.debug("Setting name: " + ob.getName());
 			}
 			ob.setThirdPartyBean(tpb);
 			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
