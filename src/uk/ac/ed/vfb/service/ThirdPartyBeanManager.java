@@ -42,7 +42,7 @@ public class ThirdPartyBeanManager {
 		//LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
 	}
 	
-	private ThirdPartyBean createThirdPartyBean(String vfbId, String displayName, String resourceName){
+	public ThirdPartyBean createThirdPartyBean(String vfbId, String displayName, String resourceName){
 		ThirdPartyBean bean = new ThirdPartyBean(vfbId, displayName, resourceName);
 		thirdPartyBeansFbId.put(bean.getFbId(), bean);
 		thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
