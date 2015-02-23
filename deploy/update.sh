@@ -137,6 +137,7 @@ then
             sleep 1m
             echo "Rebooting tomcat"
             om tomcat restart
+            sleep 5m
         fi
         echo "Done."
     fi
