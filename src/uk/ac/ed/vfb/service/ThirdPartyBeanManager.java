@@ -39,13 +39,15 @@ public class ThirdPartyBeanManager {
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 		}
-		//LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
+		LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
 	}
 	
 	public ThirdPartyBean createThirdPartyBean(String vfbId, String displayName, String resourceName){
+		LOG.debug("Creating Third Party Bean: " + vfbId);
 		ThirdPartyBean bean = new ThirdPartyBean(vfbId, displayName, resourceName);
 		thirdPartyBeansFbId.put(bean.getFbId(), bean);
 		thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
+		LOG.debug("Returning: " + bean);
 		return bean;
 	}
 	/**
