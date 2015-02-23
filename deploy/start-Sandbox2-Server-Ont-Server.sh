@@ -5,4 +5,3 @@ export branch=Sandbox2-Server
 
 #start / force restart of ontology server
 deploy/start-Ont-Server.sh
-service apache2 restart
