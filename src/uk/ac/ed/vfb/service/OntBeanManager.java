@@ -88,7 +88,8 @@ public class OntBeanManager extends APageable {
 					tpb.setName(result.getName());
 					LOG.debug("Setting name: " + result.getName());
 				}else{
-					LOG.debug("TPB is null");
+					LOG.debug("TPB is null, Creating one:");
+					ThirdPartyBean tpb = tpbm.createThirdPartyBean(OntBean.idAsOWL(result.getFbbtId()), result.getName(), "MadeUpOne2015");
 				}
 				result.setThirdPartyBean(tpb);
 				LOG.debug("OBM result: " + result);
