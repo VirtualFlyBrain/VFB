@@ -74,21 +74,37 @@ public class OntBeanManager extends APageable {
 	}
 
 	public OntBean getBeanForId(String fbbtId){
-		LOG.debug("getBeanForId: " + fbbtId + " as OWL: " + OntBean.idAsOBO(fbbtId));
+		LOG.debug("getBeanForId: " + fbbtId + " as OBO: " + OntBean.idAsOBO(fbbtId));
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
 		LOG.debug("bean = " + result);
 		if (result == null) {
 			LOG.debug("Creating new bean");
-			result = ontClient.getBeanForId(fbbtId);
-			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
-			LOG.debug("TPB result: " + tpb);
-			if ( tpb!=null){
-				tpb.setName(result.getName());
-				LOG.debug("Setting name: " + result.getName());
+			if (fbbtId.contains("VFB")) {
+				LOG.debug("Detected as individual");
+				result = ontClient.getBeanForId(fbbtId);
+				ThirdPartyBean tpb = tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
+				LOG.debug("TPB result: " + tpb);
+				if ( tpb!=null){
+					tpb.setName(result.getName());
+					LOG.debug("Setting name: " + result.getName());
+				}else{
+					LOG.debug("TPB is null");
+				}
+				result.setThirdPartyBean(tpb);
+				LOG.debug("OBM result: " + result);
+				this.ontBeans.put(result.getFbbtId(), result);
+			}else{
+				result = ontClient.getBeanForId(fbbtId);
+				ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
+				LOG.debug("TPB result: " + tpb);
+				if ( tpb!=null){
+					tpb.setName(result.getName());
+					LOG.debug("Setting name: " + result.getName());
+				}
+				result.setThirdPartyBean(tpb);
+				LOG.debug("OBM result: " + result);
+				this.ontBeans.put(result.getFbbtId(), result);
 			}
-			result.setThirdPartyBean(tpb);
-			LOG.debug("OBM result: " + result);
-			this.ontBeans.put(result.getFbbtId(), result);
 			LOG.debug("new bean:  " + result);
 		}
 		return result;
