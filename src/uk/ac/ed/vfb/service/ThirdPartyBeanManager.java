@@ -43,9 +43,9 @@ public class ThirdPartyBeanManager {
 		LOG.debug("Third Party BEAN LIST GENERATED: " + beans.size());
 	}
 	
-	public ThirdPartyBean createThirdPartyBean(String vfbId, String displayName, String resourceName){
+	public ThirdPartyBean createThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName){
 		LOG.debug("Creating Third Party Bean: " + vfbId);
-		ThirdPartyBean bean = new ThirdPartyBean(vfbId, displayName, resourceName);
+		ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbId, displayName, resourceName);
 		thirdPartyBeansFbId.put(bean.getFbId(), bean);
 		thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 		LOG.debug("Returning: " + bean);
@@ -55,13 +55,14 @@ public class ThirdPartyBeanManager {
 		LOG.debug("Creating Third Party Bean form ID: " + vfbId);
 		OntBean subBean = OntBean.getOntBean(vfbId);
 		if (subBean!=null){
-			ThirdPartyBean bean = new ThirdPartyBean(vfbId, subBean.getName(), "See Ref");
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, subBean.getFbbtId(), subBean.getName(), "See Ref");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 			LOG.debug("Returning: " + bean);
 			return bean;
 		}else{
-			ThirdPartyBean bean = new ThirdPartyBean(vfbId, "See Details", "See Reference");
+			LOG.error("Creating blank tpb")
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, null, "See Details", "See Reference");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 			LOG.debug("Returning: " + bean);
