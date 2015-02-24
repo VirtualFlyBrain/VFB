@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 
 import uk.ac.ed.vfb.dao.db.ThirdPartyDAO;
 import uk.ac.ed.vfb.model.ThirdPartyBean;
+import uk.ac.ed.vfb.model.OntBean;
 
 /** Retrieves, creates and manages a ThirdPartyean entity - either single one or a list 
  * The entity is created and its fields are populated based SQL querying 
@@ -49,6 +50,23 @@ public class ThirdPartyBeanManager {
 		thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 		LOG.debug("Returning: " + bean);
 		return bean;
+	}
+	public ThirdPartyBean createThirdPartyBean(String vfbId){
+		LOG.debug("Creating Third Party Bean form ID: " + vfbId);
+		OntBean subBean = OntBean.getOntBean(vfbId);
+		if (subBean!=null){
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, subBean.getName(), "See Ref");
+			thirdPartyBeansFbId.put(bean.getFbId(), bean);
+			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
+			LOG.debug("Returning: " + bean);
+			return bean;
+		}else{
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, "See Details", "See Reference");
+			thirdPartyBeansFbId.put(bean.getFbId(), bean);
+			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
+			LOG.debug("Returning: " + bean);
+			return bean;		
+		}
 	}
 	/**
 	 * Retrieves a thirdPartyBean instance based on FBid 
