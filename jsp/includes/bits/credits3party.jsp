@@ -44,14 +44,14 @@ window.addEvent('load', function() {
 	<b>Stack actions:</b> <br/>
 	<!-- Displaying single stack -->
 	<c:if test="${!empty tpb || param.type!='COMPOSITE'}">
-		<a href="#" onclick="getMeta('${tpb.vfbId}');return false;">About <b>${tpb.stackName}</b></a><br/>
+		<a href="#" onclick="getMeta('${tpb.vfbId}');return false;">About <b>${tpb.name}</b></a><br/>
 		<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add" ><b>Add to composite view</b></a>
 	</c:if>
 	<!-- Displaying composite -->
 	<c:if test="${param.type=='COMPOSITE'}">
 	<c:forEach items="${composite.stacks}" var="curr" varStatus="status">
 		<input type="text" style="background-color:${colours[status.index]}" class="colour_pick" name="colours" id="colour${status.index}"></input>
-		<a href="#" onclick="getMeta('${curr.vfbId}');return false;">About <b>${curr.stackName}</b></a><br/>
+		<a href="#" onclick="getMeta('${curr.vfbId}');return false;">About <b>${curr.name}</b></a><br/>
 	</c:forEach>
 	</c:if>
 </div>
