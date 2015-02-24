@@ -112,15 +112,20 @@ public class OntBeanManager extends APageable {
 	}
 
 	protected void setThirdPartyBeans(Set<OntBean> ontBeans){
-		LOG.debug("ThirdPartyBeans : "+ tpbm);
+		//LOG.debug("ThirdPartyBeans : "+ tpbm);
 		for (OntBean ob: ontBeans) {
-			ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
-			if ( tpb!=null){
-				tpb.setName(ob.getName());
-				LOG.debug("Setting name: " + ob.getName());
+			try{
+				ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
+				if ( tpb!=null){
+					tpb.setName(ob.getName());
+					LOG.debug("Setting name: " + ob.getName());
+				}
+				ob.setThirdPartyBean(tpb);
+				LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
+			} catch (Exception e) {
+				LOG.Error("Exception setting third party bean: " + ob.getName());
+				ex.printStackTrace();
 			}
-			ob.setThirdPartyBean(tpb);
-			LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
 		}
 	}
 	
@@ -129,9 +134,12 @@ public class OntBeanManager extends APageable {
 	}
 
 	public void setTpbm(ThirdPartyBeanManager tpbm) {
+		LOG.debug("Creating tpbm...");
 		this.tpbm = tpbm;
 		// That should be inside the setOntClient, but since the TPBM is assigned to an obm instance second, do it here
+		LOG.debug("Loading VFB DB individuals...");
 		this.getIndividuals();
+		LOG.debug("Done creating tpbm");
 	}	
 	
 }
