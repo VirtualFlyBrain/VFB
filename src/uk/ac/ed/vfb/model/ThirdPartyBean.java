@@ -88,10 +88,10 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.completeExpressionPattern = true;
 	}
 	
-	public ThirdPartyBean(String vfbId, String displayName, String resourceName) {
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName) {
 		super();
 		this.vfbId = vfbId;
-		this.fbId = null;
+		this.fbId = fbId;
 		this.remoteId = "";
 		this.sourceName = resourceName;
 		this.baseUrl = "";
