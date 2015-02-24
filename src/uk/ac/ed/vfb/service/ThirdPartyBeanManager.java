@@ -61,7 +61,7 @@ public class ThirdPartyBeanManager {
 			LOG.debug("Returning: " + bean);
 			return bean;
 		}else{
-			LOG.error("Creating blank tpb")
+			LOG.error("Creating blank tpb");
 			ThirdPartyBean bean = new ThirdPartyBean(vfbId, null, "See Details", "See Reference");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
