@@ -97,7 +97,7 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.baseUrl = "";
 		this.thumbName = "thumbnail.png";
 		this.vfbIm = getVFBidAsImageRef(vfbId);
-		this.thumbUrl = "/owl/" + vfbIm + thumbName;
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
 		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
 		this.stackName = displayName;
 		this.descr = "";
