@@ -11,6 +11,9 @@ WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplication
 ThirdPartyBeanManager tpbm = (ThirdPartyBeanManager)wac.getBean("thirdPartyBeanManager");
 try {
 	ThirdPartyBean tpb = tpbm.getBeanForVfbId(request.getParameter("tpbid"));
+	if (tpb==null) {
+		ThirdPartyBean tpb = tpbm.createThirdPartyBean(request.getParameter("tpbid"));
+	}
 	pageContext.setAttribute("tpb", tpb );
 }
 catch(Exception ex){/*tpb not found :-( */  }
