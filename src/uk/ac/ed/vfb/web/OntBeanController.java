@@ -45,9 +45,9 @@ public class OntBeanController implements Controller {
 			ob = this.obm.getBeanForId(id);
 			modelAndView.addObject("beanType", "ont");
 		}
-		LOG.debug("For Id: " + ob.getId());
+		//LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		LOG.debug("Found publications:" + pbList.size());
+		//LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
@@ -86,30 +86,30 @@ public class OntBeanController implements Controller {
 
 	public String resolveRefs(String def, OntBean ob, List<PubBean> pbList){
 		if (def != null && def.contains("(") && !def.contains("<")){
-			LOG.debug("Starting with definition: " + def);
+			//LOG.debug("Starting with definition: " + def);
 			while (def.contains("[FLP]")){
 				def = def.replace("[FLP]","<sup>FLP</sup>");
-				LOG.debug("Resolving [FLP] definition: " + def);
+				//LOG.debug("Resolving [FLP] definition: " + def);
 			}
 			while (def.contains("at al.")){
 				def = def.replace("at al.","et al.");
 				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
-				LOG.debug("Resolving (at al) definition: " + def);
+				//LOG.debug("Resolving (at al) definition: " + def);
 			}
 			while (def.contains("et al,")){
 				def = def.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition");
-				LOG.debug("Resolving (et al[.]) definition: " + def);
+				//LOG.debug("Resolving (et al[.]) definition: " + def);
 			}
 			while (def.contains(",20")){
 				def = def.replace(",20",", 20");
 				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition");
-				LOG.debug("Resolving (year spacing 20xx) definition: " + def);
+				//LOG.debug("Resolving (year spacing 20xx) definition: " + def);
 			}
 			while (def.contains(",19")){
 				def = def.replace(",19",", 19");
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
-				LOG.debug("Resolving (year spacing 19xx) definition: " + def);
+				//LOG.debug("Resolving (year spacing 19xx) definition: " + def);
 			}
 			if (def.contains("GO:")){
 				for (String del:dels){
@@ -117,7 +117,7 @@ public class OntBeanController implements Controller {
 					while (def.contains(del+"GO:")){
 						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
 						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term [" + goRef + "]\" target=\"_new\" >" + goRef + "</a>");
-						LOG.debug("Resolving GO in definition: " + def);
+						//LOG.debug("Resolving GO in definition: " + def);
 					}
 				}
 			}
@@ -128,7 +128,7 @@ public class OntBeanController implements Controller {
 					//flybase reference links handled differently to others.
 					while (def.contains(del+"FBrf")){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
-						LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
+						//LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 					}
 					while (def.contains(del+"FB") && (f < def.length())){
 						f = def.indexOf(del+"FB", f);
@@ -138,14 +138,14 @@ public class OntBeanController implements Controller {
 							l = 11;
 							while (def.substring(f+8,f+l+1).matches("[0-9]+")){
 								l = l + 1;
-								LOG.debug("Length of ref resolved to: " + l.toString());
+								//LOG.debug("Length of ref resolved to: " + l.toString());
 							}
 							String fbRef = def.substring(f, f+l).replace(del,"");
-							LOG.debug("Found ref: " + fbRef);
+							//LOG.debug("Found ref: " + fbRef);
 							PubBean bean = new PubBean(fbRef);
 							String linkedRef = "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>";
 							def = def.replace(fbRef, linkedRef);
-							LOG.debug("Resolving (" + fbRef + ") definition: " + def);
+							//LOG.debug("Resolving (" + fbRef + ") definition: " + def);
 							f = f + linkedRef.length();
 						}
 					}
@@ -154,17 +154,17 @@ public class OntBeanController implements Controller {
 			for (PubBean bean:pbList){
 				if (def.contains(bean.getShortref())){
 					def = def.replace(bean.getShortref(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
-					LOG.debug("Resolving (short ref: " + bean.getShortref() + " ) definition: " + def);
+					//LOG.debug("Resolving (short ref: " + bean.getShortref() + " ) definition: " + def);
 				}
 
 				if (def.contains(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")")){
 					def = def.replace(bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")", "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + "</a>");
-					LOG.debug("Resolving (short ref: " + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + " ) definition: " + def);
+					//LOG.debug("Resolving (short ref: " + bean.getAuthors().trim() + " (" + bean.getYear().trim() + ")" + " ) definition: " + def);
 				}
 				if (def.contains("FlyBase:" + bean.getId())){
 					LOG.error("Raw FlyBase ref (" + bean.getId() +  ") found in definition for: " + ob.getId());
 					def = def.replace("FlyBase:" + bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
-					LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
+					//LOG.debug("Resolving (FlyBase ref: " + bean.getId() + " ) definition: " + def);
 				}
 			}
 			if (def.contains("PMID:")){
@@ -176,7 +176,7 @@ public class OntBeanController implements Controller {
 					def = def.replace(pmRef, "<a href=\"http://www.ncbi.nlm.nih.gov/pubmed/" + pmRef + "\" title=\"PubMed reference [" + pmRef + "]\" target=\"_new\" >" + pmRef + "</a>");
 				}
 			}
-			LOG.debug("Final definition: " + def);
+			//LOG.debug("Final definition: " + def);
 		}
 		return def;
 	}
