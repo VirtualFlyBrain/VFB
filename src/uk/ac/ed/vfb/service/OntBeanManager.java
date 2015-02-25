@@ -69,6 +69,13 @@ public class OntBeanManager extends APageable {
 	private void addBeansToHash(Set<OntBean> beans){
 		if (beans == null || beans.size() < 1)return;
 		for (OntBean bean:beans){
+			if (bean.getFbbtId().contains("VFB")) {
+				ThirdPartyBean tpb = tpbm.getBeanForVfbId(bean.getFbbtIdAsOWL());
+				if (tpb==null){
+					tpb = tpbm.createThirdPartyBean(bean.getFbbtIdAsOWL());
+				}
+				bean.setThirdPartyBean(tpb);
+			}
 			ontBeans.put(bean.getFbbtId(), bean);
 		}
 	}
