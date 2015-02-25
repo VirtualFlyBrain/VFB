@@ -1,7 +1,6 @@
 package uk.ac.ed.vfb.service;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
