@@ -77,12 +77,13 @@ public class ThirdPartyBeanManager {
 			String link = "/site/vfb_site/image_data_downloads.htm";
 			LOG.debug("Finding source: " + source);
 			List<String> refs = subBean.getRefs(); 
-			for (String curr: refs) {
+			for (String curr : refs) {
 				/**	Yu2013			PMID:23541733	FBrf0221412		
 				*	Ito2013			PMID:23541729	FBrf0221438
 				*	CacheroOstrovsky2010	PMID:20832311	FBrf0211926	
 				*/ 
 				source=curr;
+				LOG.debug("Found source: " + source);
 				if (curr.contains("PMID:20832311") || curr.contains("FBrf0211926")){
 					source="CacheroOstrovsky2010";
 					link="/site/vfb_site/image_data_downloads.htm#CacheroOstrovsky2010";
