@@ -67,11 +67,11 @@ public class ThirdPartyBeanManager {
 					LOG.debug("Checking: " + relationships.get(str)[0]);
 					if (relationships.get(str)[0] == "expresses"){
 						fbbtId = str.replace("http://flybase.org/reports/", "");
-						LOG.debug("Using: " + fbbId);
+						LOG.debug("Using: " + fbbtId);
 					}
 				}
 			}
-			LOG.debug("Finished with fb ref of: " + fbbId);
+			LOG.debug("Finished with fb ref of: " + fbbtId);
 			// Resolving dataset source - TBD resolve from OWL
 			String source = "See the listed reference";
 			String link = "/site/vfb_site/image_data_downloads.htm";
