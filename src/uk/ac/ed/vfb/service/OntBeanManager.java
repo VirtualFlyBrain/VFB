@@ -81,14 +81,21 @@ public class OntBeanManager extends APageable {
 	}
 
 	public OntBean getBeanForId(String fbbtId){
-		LOG.debug("getBeanForId: " + fbbtId + " as OBO: " + OntBean.idAsOBO(fbbtId));
-		OntBean result = this.ontBeans.get(OntBean.idAsOBO(fbbtId));
+		LOG.debug("getBeanForId requested as: " + fbbtId);
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
+		LOG.debug("getBeanForId: " + fbbtId);
+		OntBean result = this.ontBeans.get(fbbtId);
 		LOG.debug("bean = " + result);
 		if (result == null) {
 			LOG.debug("Creating new bean");
 			if (fbbtId.contains("VFB")) {
 				LOG.debug("Detected as individual");
 				result = ontClient.getBeanForId(fbbtId);
+				LOG.debug("Found OntBean: " + result);
 				ThirdPartyBean tpb = tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
 				LOG.debug("TPB result: " + tpb);
 				if ( tpb!=null){
@@ -96,7 +103,7 @@ public class OntBeanManager extends APageable {
 					LOG.debug("Setting name: " + result.getName());
 				}else{
 					LOG.debug("TPB is null, Creating one:");
-					tpb = tpbm.createThirdPartyBean(result.getFbbtIdAsOWL(), result.getFbbtId(), result.getName(), "MadeUpOne2015");
+					tpb = tpbm.createThirdPartyBean(result.getFbbtIdAsOWL(), result.getFbbtId(), result.getName(), "See Reference Above");
 				}
 				result.setThirdPartyBean(tpb);
 				LOG.debug("OBM result: " + result);
