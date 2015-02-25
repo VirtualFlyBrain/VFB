@@ -67,16 +67,37 @@ public class ThirdPartyBeanManager {
 					}
 				}
 			}
-			// Resolving dataset source
-			
-			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), "See Ref");
+			// Resolving dataset source - TBD resolve from OWL
+			String source = "See the listed reference";
+			String link = "/site/vfb_site/image_data_downloads.htm";
+			List<String> refs = subBean.getRefs(); 
+			for (String curr: refs) {
+				/**	Yu2013			PMID:23541733	FBrf0221412		
+				*	Ito2013			PMID:23541729	FBrf0221438
+				*	CacheroOstrovsky2010	PMID:20832311	FBrf0211926	
+				*/ 
+				source=curr;
+				if (curr.contains("PMID:20832311") || curr.contains("FBrf0211926")){
+					source="CacheroOstrovsky2010";
+					link="/site/vfb_site/image_data_downloads.htm#CacheroOstrovsky2010"
+				}
+				if (curr.contains("PMID:23541729") || curr.contains("FBrf0221438")){
+					source="Ito2013";
+					link="/site/vfb_site/image_data_downloads.htm#Ito2013"
+				}
+				if (curr.contains("PMID:23541733") || curr.contains("FBrf0221412")){
+					source="Yu2013";
+					link="/site/vfb_site/image_data_downloads.htm#Yu2013"
+				}
+			}
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), source, link);
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 			LOG.debug("Returning: " + bean);
 			return bean;
 		}else{
 			LOG.error("Creating blank tpb (This should not happen!)");
-			ThirdPartyBean bean = new ThirdPartyBean(vfbId, null, "See Details", "See Reference");
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, null, "See Details", "See Reference", "/site/vfb_site/image_data_downloads.htm");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 			LOG.debug("Returning: " + bean);
