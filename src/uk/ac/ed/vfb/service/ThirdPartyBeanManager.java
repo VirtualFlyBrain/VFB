@@ -77,6 +77,7 @@ public class ThirdPartyBeanManager {
 			String link = "/site/vfb_site/image_data_downloads.htm";
 			LOG.debug("Finding source: " + source);
 			List<String> refs = subBean.getRefs(); 
+			LOG.debug("Found " + refs.size() + " reference(s)");
 			for (String curr : refs) {
 				/**	Yu2013			PMID:23541733	FBrf0221412		
 				*	Ito2013			PMID:23541729	FBrf0221438
