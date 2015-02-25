@@ -94,7 +94,25 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.fbId = fbId;
 		this.remoteId = "";
 		this.sourceName = resourceName;
-		this.baseUrl = "";
+		this.baseUrl = "/site/vfb_site/image_data_downloads.htm";
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = "";
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName, String link) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = "";
+		this.sourceName = resourceName;
+		this.baseUrl = link;
 		this.thumbName = "thumbnail.png";
 		this.vfbIm = getVFBidAsImageRef(vfbId);
 		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
