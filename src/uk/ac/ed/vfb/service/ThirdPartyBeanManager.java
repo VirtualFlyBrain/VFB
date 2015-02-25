@@ -98,9 +98,9 @@ public class ThirdPartyBeanManager {
 						source="Yu2013";
 						link="/site/vfb_site/image_data_downloads.htm#Yu2013";
 					}
-				}else{
-					LOG.debug("Found no references!");
 				}
+			}else{
+				LOG.debug("Found no references!");
 			}
 			LOG.debug("Finished with source: " + source + " -> " + link);
 			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), source, link);
