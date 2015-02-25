@@ -55,13 +55,28 @@ public class ThirdPartyBeanManager {
 		LOG.debug("Creating Third Party Bean form ID: " + vfbId);
 		OntBean subBean = OntBean.getOntBean(vfbId);
 		if (subBean!=null){
-			ThirdPartyBean bean = new ThirdPartyBean(vfbId, subBean.getFbbtId(), subBean.getName(), "See Ref");
+			// Resolving fb expression ref
+			String fbbtId = vfbId;
+			Hashtable<String, String[]> relationships = subBean.getRelationships();
+			Enumeration links = relationships.keys();
+			String str = "";
+			while(links.hasMoreElements()){
+				str = (String) names.nextElement();
+				if (str.contains("http://flybase.org/reports/")){
+					if (relationships.get(str)[0] == "expresses"){
+						fbbtId = str.replace("http://flybase.org/reports/", "");
+					}
+				}
+			}
+			// Resolving dataset source
+			
+			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), "See Ref");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
 			LOG.debug("Returning: " + bean);
 			return bean;
 		}else{
-			LOG.error("Creating blank tpb");
+			LOG.error("Creating blank tpb (This should not happen!)");
 			ThirdPartyBean bean = new ThirdPartyBean(vfbId, null, "See Details", "See Reference");
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
