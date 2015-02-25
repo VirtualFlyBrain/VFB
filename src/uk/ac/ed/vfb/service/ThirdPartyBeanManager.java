@@ -56,20 +56,26 @@ public class ThirdPartyBeanManager {
 		if (subBean!=null){
 			// Resolving fb expression ref
 			String fbbtId = vfbId;
+			LOG.debug("Finding fbref: " + fbbtId);
 			Hashtable<String, String[]> relationships = subBean.getRelationships();
 			Enumeration links = relationships.keys();
 			String str = "";
 			while(links.hasMoreElements()){
 				str = (String) links.nextElement();
+				LOG.debug("Found relationship:" + str);
 				if (str.contains("http://flybase.org/reports/")){
+					LOG.debug("Checking: " + relationships.get(str)[0]);
 					if (relationships.get(str)[0] == "expresses"){
 						fbbtId = str.replace("http://flybase.org/reports/", "");
+						LOG.debug("Using: " + fbbId);
 					}
 				}
 			}
+			LOG.debug("Finished with fb ref of: " + fbbId);
 			// Resolving dataset source - TBD resolve from OWL
 			String source = "See the listed reference";
 			String link = "/site/vfb_site/image_data_downloads.htm";
+			LOG.debug("Finding source: " + source);
 			List<String> refs = subBean.getRefs(); 
 			for (String curr: refs) {
 				/**	Yu2013			PMID:23541733	FBrf0221412		
@@ -90,6 +96,7 @@ public class ThirdPartyBeanManager {
 					link="/site/vfb_site/image_data_downloads.htm#Yu2013"
 				}
 			}
+			LOG.debug("Finished with source: " + source + " -> " + link);
 			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), source, link);
 			thirdPartyBeansFbId.put(bean.getFbId(), bean);
 			thirdPartyBeansVfbId.put(bean.getVfbId(), bean);
