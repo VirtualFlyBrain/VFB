@@ -68,6 +68,61 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.stackType = stackType;
 		this.completeExpressionPattern = completeExpressionPattern;
 	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String remoteId, String resourceName, String baseUrl, 
+			String descr, String displayName) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = remoteId;
+		this.sourceName = resourceName;
+		this.baseUrl = baseUrl;
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = descr;
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = "";
+		this.sourceName = resourceName;
+		this.baseUrl = "/site/vfb_site/image_data_downloads.htm";
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = "";
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName, String link) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = "";
+		this.sourceName = resourceName;
+		this.baseUrl = link;
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = "";
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
 
 	public String getVfbId() {
 		return vfbId;

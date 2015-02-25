@@ -45,14 +45,14 @@ public class PubBean {
 		super();
 		this.id = id;
 		this.miniref = miniref;
-		LOG.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
+		//LOG.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
 	}
 
 	public PubBean(String id) {
 		super();
 		this.id = id;
 		this.miniref = decodeId2miniref(id);
-		LOG.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
+		//LOG.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
 	}
 
 	public String getId() {
@@ -69,12 +69,12 @@ public class PubBean {
 	}
 
 	public String getShortref() {
-		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
+		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		return produceShortref(id, miniref);
 	}
 
 	public String getYear() {
-		LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
+		//LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
 			if (miniref.contains(",") && id.contains("FBrf")){
 				String[] parts = miniref.split(",");
