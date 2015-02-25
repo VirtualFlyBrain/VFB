@@ -76,26 +76,30 @@ public class ThirdPartyBeanManager {
 			String source = "See the listed reference";
 			String link = "/site/vfb_site/image_data_downloads.htm";
 			LOG.debug("Finding source: " + source);
+			if (subBean.getRefs()!=null){
 			List<String> refs = subBean.getRefs(); 
-			LOG.debug("Found " + refs.size() + " reference(s)");
-			for (String curr : refs) {
-				/**	Yu2013			PMID:23541733	FBrf0221412		
-				*	Ito2013			PMID:23541729	FBrf0221438
-				*	CacheroOstrovsky2010	PMID:20832311	FBrf0211926	
-				*/ 
-				source=curr;
-				LOG.debug("Found source: " + source);
-				if (curr.contains("PMID:20832311") || curr.contains("FBrf0211926")){
-					source="CacheroOstrovsky2010";
-					link="/site/vfb_site/image_data_downloads.htm#CacheroOstrovsky2010";
-				}
-				if (curr.contains("PMID:23541729") || curr.contains("FBrf0221438")){
-					source="Ito2013";
-					link="/site/vfb_site/image_data_downloads.htm#Ito2013";
-				}
-				if (curr.contains("PMID:23541733") || curr.contains("FBrf0221412")){
-					source="Yu2013";
-					link="/site/vfb_site/image_data_downloads.htm#Yu2013";
+				LOG.debug("Found " + refs.size() + " reference(s)");
+				for (String curr : refs) {
+					/**	Yu2013			PMID:23541733	FBrf0221412		
+					*	Ito2013			PMID:23541729	FBrf0221438
+					*	CacheroOstrovsky2010	PMID:20832311	FBrf0211926	
+					*/ 
+					source=curr;
+					LOG.debug("Found source: " + source);
+					if (curr.contains("PMID:20832311") || curr.contains("FBrf0211926")){
+						source="CacheroOstrovsky2010";
+						link="/site/vfb_site/image_data_downloads.htm#CacheroOstrovsky2010";
+					}
+					if (curr.contains("PMID:23541729") || curr.contains("FBrf0221438")){
+						source="Ito2013";
+						link="/site/vfb_site/image_data_downloads.htm#Ito2013";
+					}
+					if (curr.contains("PMID:23541733") || curr.contains("FBrf0221412")){
+						source="Yu2013";
+						link="/site/vfb_site/image_data_downloads.htm#Yu2013";
+					}
+				}else{
+					LOG.debug("Found no references!");
 				}
 			}
 			LOG.debug("Finished with source: " + source + " -> " + link);
