@@ -13,11 +13,11 @@ import uk.ac.ed.vfb.model.OntBean;
 import uk.ac.ed.vfb.model.ThirdPartyBean;
 import uk.ac.ed.vfb.web.exception.SessionExpiredException;
 
-/** Retrieves, creates and manages a OntBean entity - either single one or a list 
+/** Retrieves, creates and manages a OntBean entity - either single one or a list
  * The entity is created and its fields are populated based on text parsing on ontology OBO file
  * NB: the way of creating annotation fields may be changed to anything as required, eg OWL API.
  * @author nmilyaev
- */ 
+ */
 
 public class OntBeanManager extends APageable {
 	/** Content of the ontology file */
@@ -30,8 +30,8 @@ public class OntBeanManager extends APageable {
 	/** Ontology client - used for ontology querying */
 	private OWLClient ontClient;
 	private static final Log LOG = LogFactory.getLog(OntBeanManager.class);
-	
-	/** Individuals for id can not be found in run-time, so we need to 
+
+	/** Individuals for id can not be found in run-time, so we need to
 		 pre-create all the individual beans first*/
 	private void getIndividuals() {
 		LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Trying to create individuals, found beans: " +  " > " + ontBeans.size()) ;
@@ -42,9 +42,9 @@ public class OntBeanManager extends APageable {
 			LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>> Individuals created" + ontBeans.size() + "> " + individuals.size());
 		}
 	}
-	
+
 	/**
-	 * Queried the ontology and returns a list of OntBeans satisfying the query 
+	 * Queried the ontology and returns a list of OntBeans satisfying the query
 	 * @param query
 	 * @return
 	 */
@@ -103,7 +103,7 @@ public class OntBeanManager extends APageable {
 					LOG.debug("Setting name: " + result.getName());
 				}else{
 					LOG.debug("TPB is null, Creating one:");
-					tpb = tpbm.createThirdPartyBean(result.getFbbtIdAsOWL(), result.getFbbtId(), result.getName(), "See Reference Above");
+					tpb = tpbm.createThirdPartyBean(result.getFbbtIdAsOWL());
 				}
 				result.setThirdPartyBean(tpb);
 				LOG.debug("OBM result: " + result);
@@ -142,7 +142,7 @@ public class OntBeanManager extends APageable {
 			}
 		}
 	}
-	
+
 	public void setOntClient(OWLClient ontClient) {
 		this.ontClient = ontClient;
 	}
@@ -154,6 +154,6 @@ public class OntBeanManager extends APageable {
 		LOG.debug("Loading VFB DB individuals...");
 		this.getIndividuals();
 		LOG.debug("Done creating tpbm");
-	}	
-	
+	}
+
 }
