@@ -61,7 +61,7 @@ public class ThirdPartyBeanManager {
 			Enumeration links = relationships.keys();
 			String str = "";
 			while(links.hasMoreElements()){
-				str = (String) names.nextElement();
+				str = (String) links.nextElement();
 				if (str.contains("http://flybase.org/reports/")){
 					if (relationships.get(str)[0] == "expresses"){
 						fbbtId = str.replace("http://flybase.org/reports/", "");
