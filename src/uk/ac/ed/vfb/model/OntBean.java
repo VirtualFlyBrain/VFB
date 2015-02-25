@@ -29,10 +29,14 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
 	 * Used when creating beans after outcome from OWLClient query.
 	 */
-	public static OntBean getOntBean(String value){
-		if (value.equals("Nothing")) return null;
-		//Bring id to OBO format just to be sure...
-		return new OntBean(value.replace("_", ":"));
+	public static OntBean getOntBean(String fbbtId){
+		if (fbbtId.equals("Nothing")) return null;
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
+		return new OntBean(fbbtId);
 	}
 
 	public OntBean() {
@@ -43,6 +47,11 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public OntBean(String fbbtId) {
 		this();
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
 		this.fbbtId = OntBean.idAsOBO(fbbtId);
 	}
 
