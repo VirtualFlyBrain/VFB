@@ -84,14 +84,16 @@ public class OWLClient {
 	 */
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
+		LOG.debug("getBeanForId: " + fbbtId);
 		fbbtId = OntBean.correctIdFormat(fbbtId);
 		Set<OntBean> results =  this.askQuery(fbbtId);
-		if (result!=null) {
+		LOG.debug("askQuery results: " + results);
+		if (results!=null) {
 			Iterator<OntBean> it = results.iterator();
 			if (it.hasNext()){
 				result =  it.next();
 			}
-			
+			LOG.debug("result: " + result);
 		}else{
 			LOG.error("null result for OWLClient.getBeanForId(" + fbbtId + ")");
 		}
