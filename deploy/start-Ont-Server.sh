@@ -21,7 +21,7 @@ then
   nohup nice /usr/lib/jvm/java-1.7.0-sun/bin/java -classpath ../lib/postgresql-9.0-801.jdbc3.jar:../lib/commons-pool.jar:../lib/commons-dbcp.jar:${path}/../lib/servlet-api.jar:../lib/spring.jar::../lib/commons-logging.jar:../lib/log4j.jar:../lib/Brain-1.5.1-jar-with-dependencies.jar:../lib/elk-owlapi.jar:../lib/owltools-oort-all.jar:. -Djava.rmi.server.codebase=file:$path -Dlog4j.configuration=./log4j.properties uk.ac.ed.vfb.dao.client_server.Server > ../../logs/ontServer.log 2>&1 &
 
 echo 'waiting for the ontology server to initialise...'
-sleep 90s
+sleep 2m
 om tomcat restart
 else
   echo "Must be run from specific server script"
