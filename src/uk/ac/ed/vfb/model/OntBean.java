@@ -31,11 +31,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 */
 	public static OntBean getOntBean(String fbbtId){
 		if (fbbtId.equals("Nothing")) return null;
-		if (fbbtId.contains("VFB")) {
-			fbbtId = OntBean.idAsOWL(fbbtId);
-		}else{
-			fbbtId = OntBean.idAsOBO(fbbtId);
-		}
+		fbbtId = OntBean.correctIdFormat(fbbtId);
 		return new OntBean(fbbtId);
 	}
 
@@ -47,11 +43,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public OntBean(String fbbtId) {
 		this();
-		if (fbbtId.contains("VFB")) {
-			fbbtId = OntBean.idAsOWL(fbbtId);
-		}else{
-			fbbtId = OntBean.idAsOBO(fbbtId);
-		}
+		fbbtId = OntBean.correctIdFormat(fbbtId);
 		this.fbbtId = OntBean.idAsOBO(fbbtId);
 	}
 
@@ -162,6 +154,15 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 */
 	public static String idAsOBO(String fbbtId) {
 		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
+	}
+	
+	public static String correctIdFormat(String fbbtId) {
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
+		return fbbtId;
 	}
 
 	/**
