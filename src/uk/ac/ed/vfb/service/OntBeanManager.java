@@ -127,7 +127,7 @@ public class OntBeanManager extends APageable {
 
 	protected void setThirdPartyBeans(Set<OntBean> ontBeans){
 		//LOG.debug("ThirdPartyBeans : "+ tpbm);
-		if (ontbeans!=null){
+		if (ontBeans!=null){
 			for (OntBean ob: ontBeans) {
 				try{
 					ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
