@@ -55,11 +55,12 @@
 			<ul>
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 					<li>
-						<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>${ontBean.name}</h3> <vfbUtil:trimToWhite
-							string="${ontBean.def}" size="210" /><br /> 
+						<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>
+								<a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}">${ontBean.name}</a>
+							</h3> <vfbUtil:trimToWhite string="${ontBean.def}" size="210" /><br /> 
 							<a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}">More info >> </a>
 							&nbsp; or &nbsp; 
-							<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">Check in FlyBase >> </a>
+							<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">See in FlyBase >> </a>
 					</li>
 				</c:forEach>
 			</ul>

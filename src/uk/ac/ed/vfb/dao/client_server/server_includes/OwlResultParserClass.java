@@ -15,10 +15,10 @@ import uk.ac.ed.vfb.model.OntBean;
 
 /**
  * Author: NM
- * For the anatomy file in memory, and given a term id it parses the term info to extract core properties 
+ * For the anatomy file in memory, and given a term id it parses the term info to extract core properties
  * Works for classes
- * such as name, synonyms, etc. 
- * Uses OWLTools  
+ * such as name, synonyms, etc.
+ * Uses OWLTools
  */
 public class OwlResultParserClass extends AOwlResultParser {
 
@@ -27,7 +27,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 	}
 
 	/**
-	 * Convenience wrapper method to retrieve OntBean by OWLEntity 
+	 * Convenience wrapper method to retrieve OntBean by OWLEntity
 	 * @param id
 	 * @return
 	 */
@@ -40,7 +40,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 	}
 
 	/**
-	 * The main parsing method. 
+	 * The main parsing method.
 	 * Invoke:   OntBean ontBean = getOntBeanForClass(result);
 	 * @param result
 	 * @return
@@ -60,22 +60,66 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//xrefs
 			List<String> axioms = ogw.getDefXref(result);
 			//LOG.debug("=========== xrefs ==============" + axioms.size());
-			for (String axiom:axioms){
+			//for (String axiom:axioms){
 				//LOG.debug(axiom.toString() + "\n");
-			}
-			ob.setRefs(axioms);
+			//}
+
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
+			List<String> synXrefs = new ArrayList<String>();
+			Boolean refExists = false;
+			Integer refI = 1;
+			String refIs = "";
+			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
-					syns.add(syn.getLabel());   
+					refIs = "";
+					type = "";
+					refExists = false;
+					// adding synonyn type
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+						type = type.replace("EXACT", "<a href=\"#\" title=\"an exact equivalent; interchangeable with the term name\">EXACT</a>");
+						type = type.replace("NARROW", "<a href=\"#\" title=\"the synonym is narrower or more precise than the term name\">NARROW</a>");
+						type = type.replace("RELATED", "<a href=\"#\" title=\"the terms are related in some way\">RELATED</a>");
+						type = type.replace("BROAD", "<a href=\"#\" title=\"the synonym is broader than the term name\">BROAD</a>");
+					}
+					// adding synonyn xrefs to references list
+					if (syn.getXrefs()!=null) {
+						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
+						for (String synXref:synXrefs){
+							refExists = true;
+							if (synXref != ""){
+								if (refIs != ""){
+									refIs = refIs + "," + synXref;
+								}else{
+									refIs = synXref;
+								}
+								axioms.add(synXref);
+								refI = refI +1;
+							}
+						}
+					}
+					if (refExists){
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");	
+					}else{
+						syns.add(syn.getLabel() + type);
+					}
+					
 				}
 				ob.setSynonyms(syns);
 			}
+			// removing duplicates and adding full ref list
+			axioms = new ArrayList<String>(new HashSet<String>(axioms));
+			//LOG.debug("======== extended xrefs =========" + axioms.size());
+			//for (String axiom:axioms){
+			//	//LOG.debug(axiom.toString() + "\n");
+			//}
+			ob.setRefs(axioms);
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
 			//LOG.debug("=========== rels ==============" + rels.size());
@@ -96,7 +140,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 				}
 				Set<OWLClass> clas = rel.getClassesInSignature();
 				//LOG.debug("=========== rel classes ==============" + clas.size());
-				// We assume the class that is not equal to result(current OWL object) is the relation's target class 
+				// We assume the class that is not equal to result(current OWL object) is the relation's target class
 				OWLClass targetClass= null;
 				for (OWLClass currClass:clas){
 					if (!currClass.getIRI().equals(result.getIRI())) {
@@ -113,8 +157,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 					ob.getIsa().put(ogw.getIdentifier(targetClass), ogw.getAnnotationValue(targetClass, namePropery));
 				}
 				else {
-					//LOG.debug("CurrRel: " + currRel1);
+					//LOG.debug("CurrRel: " + currRel);
 					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery)};
+					//LOG.debug("vals: " + Arrays.toString(vals));
 					ob.getRelationships().put(ogw.getIdentifier(targetClass), vals);
 				}
 			}
@@ -122,16 +167,17 @@ public class OwlResultParserClass extends AOwlResultParser {
 		catch (Exception e) {
 			// TODO: handle exception
 			//Return whatever OntBean is created so far
-			//LOG.error(e.getMessage());
+			LOG.error("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
+			LOG.error(e.getMessage());
 			e.printStackTrace();
 		}
 		//Set<OWLSubClassOfAxiom> axioms1 = this.ontology.getSubClassAxiomsForSuperClass((OWLClass)result);
-		////LOG.debug(axioms);
+		//LOG.debug(axioms);
 		return ob;
 	}
-	
+
 	/**
-	 * Convenience wrapper method to retrieve OntBean by id 
+	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
 	 * @return
 	 */

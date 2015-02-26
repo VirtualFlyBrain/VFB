@@ -47,11 +47,11 @@
 					<a id="csv" style="float: right; margin-right: 10px" href="/do/csv_report.html?type=${type}&filename=${fileName}">Save
 						as CSV</a>
 				</form>
-				
+
 				<c:if test="${perPage lt 10 || perPage gt 100}">
 					<script> document.getElementById('perPage').onchange(); </script>
 				</c:if>
-				
+
 			</span>
 
 			<table>
@@ -64,23 +64,23 @@
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 					<tr>
 						<td style="padding: 2px 0; text-align: center;">
-							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_new"> 
-								<img height="100" src="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" />
+							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_new">
+								<img height="100" src="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" alt="${query}: ${ontBean.name}, ${ontBean.def}" />
 							</a>
 						</td>
 						<td>
 							<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>${ontBean.name}</h3> <vfbUtil:trimToWhite
-								string="${ontBean.def}" size="210" /> 
-							<c:set var="tpb" value="${ontBean.thirdPartyBean}" /><br /> 
+								string="${ontBean.def}" size="210" />
+							<c:set var="tpb" value="${ontBean.thirdPartyBean}" /><br />
 							<b>Source:</b>
 							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
 						</td>
 						<c:if test="${!empty tpb}">
 							<td style="padding: 2px 0; text-align: center;"><a href="${tpb.baseUrl}${tpb.remoteId}"
-								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" /></a> &nbsp;&nbsp; 
+								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a> &nbsp;&nbsp; 
 							</td>
 							<td style="padding: 2px">
-								<c:if test="${empty param.popup}">							
+								<c:if test="${empty param.popup}">
 								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">Show
 										individual members&nbsp;>> </a>
 								</c:if>
@@ -93,5 +93,5 @@
 		</div>
 	</div>
 	<!-- help_wrapper -->
-	
+
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>

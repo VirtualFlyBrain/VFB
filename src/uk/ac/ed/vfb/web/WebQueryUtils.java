@@ -95,7 +95,7 @@ public class WebQueryUtils {
 		ad.put("neuron_found",
 				new String[]{"found in", "Neurons with shape similar to XXX ",
 		//		"individual&'member_of' some ('has_exemplar' value X)"
-				"individual&RO_0002350 some (C888C3DB-AEFA-447F-BD4C-858DFE33DBE7 value XXX"
+				"individual&RO_0002350 some (C888C3DB-AEFA-447F-BD4C-858DFE33DBE7 value XXX)"
 		});
 		ad.put("exemplar_neuron",
 				new String[]{"exemplar neurons", "Examples of XXX",  // Misuse of term exemplar...
@@ -153,7 +153,7 @@ public class WebQueryUtils {
 	 * @return
 	 */
 	public static String getInterfaceString(String action){
-		LOG.debug(action);
+		//LOG.debug(action);
 		String result = actionDefs.get(action)[0];
 		return result;
 	}

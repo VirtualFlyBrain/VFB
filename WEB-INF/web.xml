@@ -18,6 +18,13 @@
       VirtualFlyBrain Server -WEBAPP_NAME-
     </description>
 	<display-name>VirtualFlyBrain Server -WEBAPP_NAME-</display-name>
+	
+	<welcome-file-list>
+		<welcome-file></welcome-file>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.htm</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 	<jsp-config>
 		<jsp-property-group>
@@ -32,16 +39,20 @@
 			<url-pattern>/sitemap.xml</url-pattern>
 		</jsp-property-group>
 	</jsp-config>
-
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>/jdoc/*</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-                <servlet-name>default</servlet-name>
-                <url-pattern>/logs/*</url-pattern>
-        </servlet-mapping>
+	
+	<servlet>
+    	<servlet-name>directData</servlet-name>
+    	<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    	<init-param>
+    	    <param-name>debug</param-name>
+    	    <param-value>0</param-value>
+    	</init-param>
+    	<init-param>
+        	<param-name>listings</param-name>
+        	<param-value>true</param-value>    <!-- This setting enables/disables directory listings -->
+    	</init-param>
+    	<load-on-startup>1</load-on-startup>
+	</servlet>
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
@@ -54,6 +65,41 @@
 			</param-value>
 		</init-param>
 	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>directData</servlet-name>
+		<url-pattern>/jdoc/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>directData</servlet-name>
+		<url-pattern>/logs/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>/owl/*</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>*.log</url-pattern>
+    </servlet-mapping>    
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>*.wlz</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+		<servlet-name>directData</servlet-name>
+        <url-pattern>*.gz</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
