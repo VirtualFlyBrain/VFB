@@ -65,10 +65,10 @@ public class OWLClient {
 	 * @return Set<OntBean>
 	 */
 	public Set<OntBean> askQuery(String query){
-		//LOG.debug("Asking query: " + query);
+		LOG.debug("Asking query: " + query);
 		try {
 			Set<OntBean> results = this.askServer(query);
-			//LOG.debug("Query results: " + results);
+			LOG.debug("Query results: " + results);
 			return results;
 		}catch (Exception e){
 			LOG.error("Ask ontology server exception: " + e.getMessage());
@@ -146,21 +146,23 @@ public class OWLClient {
 
 		public void run() {
 			try {
-				//LOG.debug("Connectiong on : " + Server.host + " / " + Server.port);
+				LOG.debug("Connectiong on : " + Server.host + " / " + Server.port);
 				socket = new Socket(Server.host, Server.port);
-				//LOG.debug("created socket:  " + socket.getInetAddress());
+				LOG.debug("created socket:  " + socket.getInetAddress());
 				//sending Objects to server(connection)
 				out = new ObjectOutputStream(socket.getOutputStream());
 				//Reading Object from socket
 				in = new ObjectInputStream(socket.getInputStream());
 				//Starting Thread
 				out.writeObject(this.query);
-				//LOG.debug("sent query:  " + this.query);
+				LOG.debug("sent query:  " + this.query);
 				out.flush();
 				this.results = (Set<OntBean>) in.readObject();
 			} catch (IOException ex) {
+				LOG.error("IOException for query:  " + this.query);
 				ex.printStackTrace();
 			} catch (ClassNotFoundException ex) {
+				LOG.error("ClassNotFoundException for query:  " + this.query);
 				ex.printStackTrace();
 			}
 		}
