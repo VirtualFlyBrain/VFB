@@ -9,7 +9,7 @@ then
     echo "Ontology server is already running"
     echo "Killing "$psCmd
 	  kill -9 $psCmd
-	  wait
+	  sleep 1m
 	  echo "Killed old processes."
 	fi
   wait
