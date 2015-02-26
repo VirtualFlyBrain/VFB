@@ -74,7 +74,7 @@ public class CompositeViewBean implements Serializable {
 
 	public String removeStack(ThirdPartyBean stack) {
 		// only works for mutable composites 
-		//LOG.debug("Deleting stack : " + stack + " immutable? " + isImmutable + " stacks: " + this.stacks);
+		LOG.debug("Deleting stack : " + stack + " immutable? " + isImmutable + " stacks: " + this.stacks);
 		if (isImmutable) return IMMUTABLE_ERROR_MSG;
 		else {
 			this.stacks.remove(stack);
@@ -147,7 +147,7 @@ public class CompositeViewBean implements Serializable {
 		//this.json = json.replace("LAYER_DATA", layers.toString());
 		layers = null; 
 		layerNames = null;
-		//LOG.debug("\n" + json);
+		LOG.debug("\n" + json);
 		return json.toString();
 	}
 
@@ -158,22 +158,22 @@ public class CompositeViewBean implements Serializable {
 	 */
 	public String save(){
 		//Url to retrieve/view the composite at a later stage
-		//LOG.debug("saving composite bean");
+		LOG.debug("saving composite bean");
 		String url = Utils.getStackPathForType(uuid, COMPOSITE);
 		String dir = Utils.getProp("IMAGES_BASE_DIR") + Utils.getProp("COMPOSITE_STACKS_DIR") + uuid;
 		String command = MAKE_FOLDER.replaceAll("XXX", dir);
-		//LOG.debug(command);
+		LOG.debug(command);
 		Utils.runCommand(command.split(" "));
-		//LOG.debug("folder created!!");
+		LOG.debug("folder created!!");
 		command = COPY_META_FOLDER.replaceAll("XXX", dir);
-		//LOG.debug(command);
+		LOG.debug(command);
 		Utils.runCommand(command.split(" "));
-		//LOG.debug("files copied!!");
+		LOG.debug("files copied!!");
 		//let disk operation fininsh
 		//this.wait(500);
 		//LOG.debug(output);
 		String jsoFile = dir + Utils.getProp("STACK_META_URL");
-		//LOG.debug("saving to json file: " + jsoFile);
+		LOG.debug("saving to json file: " + jsoFile);
 		try {
 			FileWriter fw = new FileWriter(new File(jsoFile).getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -182,6 +182,7 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem writing file :-P
+			LOG.error("Problem saving composite json " + jsoFile);
 			ex.printStackTrace();
 		}
 		return url;
@@ -193,19 +194,19 @@ public class CompositeViewBean implements Serializable {
 	 */
 	public String serialize(){
 		//Url to retrieve/view the composite at a later stage
-		//LOG.debug("saving composite bean as object");
+		LOG.debug("saving composite bean as object");
 		String url = Utils.getStackPathForType(uuid, COMPOSITE);
 		String dir = Utils.getProp("IMAGES_BASE_DIR") + Utils.getProp("COMPOSITE_STACKS_DIR") + uuid;
 		String command = MAKE_FOLDER.replaceAll("XXX", dir);
-		//LOG.debug(command);
+		LOG.debug(command);
 		Utils.runCommand(command.split(" "));
-		//LOG.debug("folder created!!");
+		LOG.debug("folder created!!");
 		command = COPY_META_FOLDER.replaceAll("XXX", dir);
-		//LOG.debug(command);
+		LOG.debug(command);
 		Utils.runCommand(command.split(" "));
-		//LOG.debug("files copied!!");
+		LOG.debug("files copied!!");
 		String jObjFile = dir + "/" + Utils.getProp("COMPOSITE_FILE_URL");
-		//LOG.debug("serializing as jObj file: " + jObjFile);
+		LOG.debug("serializing as jObj file: " + jObjFile);
 		try {
 			FileOutputStream fout = new FileOutputStream(jObjFile);
 			ObjectOutputStream oos = new ObjectOutputStream(fout);   
@@ -214,6 +215,7 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem writing file :-P
+			LOG.error("Problem saving composite serial " + jObjFile);
 			ex.printStackTrace();
 		}
 		return url;
@@ -227,12 +229,12 @@ public class CompositeViewBean implements Serializable {
 	public static CompositeViewBean deserialize(String uuid) throws Exception {
 		CompositeViewBean newBean = null;
 		//Url to retrieve/view the composite at a later stage
-		//LOG.debug("loading existing composite bean");
+		LOG.debug("loading existing composite bean");
 		String fileContent = null;
 		String url = Utils.getStackPathForType(uuid, COMPOSITE);
 		String dir = Utils.getProp("IMAGES_BASE_DIR") + Utils.getProp("COMPOSITE_STACKS_DIR") + uuid;
 		String jObjFile = dir + "/" + Utils.getProp("COMPOSITE_FILE_URL");
-		//LOG.debug("reading jObj file: " + jObjFile);
+		LOG.debug("reading jObj file: " + jObjFile);
 		try {
 			   FileInputStream fin = new FileInputStream(jObjFile);
 			   ObjectInputStream ois = new ObjectInputStream(fin);
@@ -244,9 +246,11 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem reading file :-P
+			LOG.error("problem reading file " + jObjFile);
 			ex.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// Problem serializing class
+			LOG.error("Problem serializing class " + jObjFile);
 			e.printStackTrace();
 		}
 		// We presume that the only time we have to deserilaze is when loading via permalink.
