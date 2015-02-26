@@ -127,9 +127,7 @@ public class CompositeViewBean implements Serializable {
 		int ind = 0;
 		for (ThirdPartyBean stack:stacks){
 			layer = new StringBuffer(LAYER_BODY);
-			String stackDir = stack.getStackUrl();
-			//cut off filename (everything after last "/")
-			stackDir = stackDir.replace("/data.jso", "/");
+			String stackDir = stack.getImageDir();
 			ind = layer.indexOf("IMAGE_DIR");
 			layer.replace(ind, ind+9, stackDir);
 			ind = layer.indexOf("FILTER");
