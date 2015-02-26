@@ -1,6 +1,6 @@
 package uk.ac.ed.vfb.model;
 
-import java.io.Serializable;
+import java.io.*;
 import uk.ac.ed.vfb.annotation.web.Utils;
 
 import org.apache.commons.logging.Log;
@@ -251,7 +251,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 	public String getImageDir() {
 		String result = vfbId;
 		result = result.toLowerCase().replace("vfb_","");
-		result = "/disk/data/VFB/IMAGE_DATA/VFB/i/" + result.subString(0, 4) + "/" + result.subString(4, 8) + "/";
+		result = "/disk/data/VFB/IMAGE_DATA/VFB/i/" + result.subString(0, 4) + "/" + result.subString(4) + "/";
+		LOG.debug(vfbId + " resolved to image directory " + result);
 		return result;
 	}
 
