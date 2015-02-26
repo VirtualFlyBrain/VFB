@@ -92,6 +92,8 @@ public class OWLClient {
 				result =  it.next();
 			}
 			
+		}else{
+			LOG.error("null result for OWLClient.getBeanForId(" + fbbfId + ")");
 		}
 		return result;
 	}
