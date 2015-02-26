@@ -65,7 +65,7 @@ public class CompositeViewBean implements Serializable {
 			}
 			else {
 				this.stacks.add(stack);
-				//LOG.debug("Added" + stack + " count: " + stacks.size());
+				LOG.debug("Added" + stack + " count: " + stacks.size());
 				modified = true;
 			}
 		}
