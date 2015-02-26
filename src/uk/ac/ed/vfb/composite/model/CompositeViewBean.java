@@ -119,6 +119,7 @@ public class CompositeViewBean implements Serializable {
 	 */
 	public String getAsJson(){
 		//Composing json for individual layers first
+		LOG.debug("Creating composite json...");
 		StringBuffer layers = new StringBuffer();
 		StringBuffer layerNames = new StringBuffer();
 		StringBuffer layer = null;
@@ -128,9 +129,7 @@ public class CompositeViewBean implements Serializable {
 			layer = new StringBuffer(LAYER_BODY);
 			String stackDir = stack.getStackUrl();
 			//cut off filename (everything after last "/")
-			String afterSlash = stackDir.substring(stackDir.lastIndexOf("_meta/tiledImageModelData.jso"));
-			stackDir = stackDir.replace("_meta/tiledImageModelData.jso", "/");
-			stackDir = Utils.getStackPathForType(stackDir, "THIRD_PARTY_STACK");
+			stackDir = stackDir.replace("/data.jso", "/");
 			ind = layer.indexOf("IMAGE_DIR");
 			layer.replace(ind, ind+9, stackDir);
 			ind = layer.indexOf("FILTER");
