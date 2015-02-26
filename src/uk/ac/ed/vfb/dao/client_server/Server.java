@@ -136,7 +136,7 @@ public class Server {
 				in = new ObjectInputStream(clientSocket.getInputStream());
 				out = new ObjectOutputStream(clientSocket.getOutputStream());
 				this.query = (String) in.readObject();
-				//LOG.debug("Query: " + query);
+				LOG.info("Query: " + query);
 				//We assume that query should either start with one of OntQueryQueue.QUERY_TYPES or
 				// the query type will be missing - for the getBeanForId(id) queries
 				OntQueryQueue oqq = new OntQueryQueue(query);
@@ -145,6 +145,7 @@ public class Server {
 					this.results =  new TreeSet<OntBean>();
 					String fbbtId = oqq.getQueries().get(0);
 					OntBean ob = dlQueryServer.getBeanForId(fbbtId);
+					LOG.info("Returning single OntBean: " + ob);
 					this.results.add(ob);
 				}
 				else {
@@ -153,12 +154,15 @@ public class Server {
 				}
 				sendObjectToClient(this.results);
 			} catch (IOException ex) {
+				LOG.error("Ontology server IOException:");
 				ex.printStackTrace();
 			} catch (ClassNotFoundException ex) {
+				LOG.error("Ontology server ClassNotFoundException:");
 				ex.printStackTrace();
 			} catch (NullPointerException ex) {
-                ex.printStackTrace();
-            }
+				LOG.error("Ontology server NullPointerException:");
+                		ex.printStackTrace();
+            		}
 		}
 	}
 
