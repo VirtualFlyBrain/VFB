@@ -43,7 +43,7 @@ window.addEvent('load', function() {
 <div style="position:absolute; bottom: 10px; height:auto; width:96%; font-size:.9em; padding:0 4px;" >
 	<b>Stack actions:</b> <br/>
 	<!-- Displaying single stack -->
-	<c:if test="${!empty tpb || param.type!='COMPOSITE'}">
+	<c:if test="${(!empty tpb) && (param.type!='COMPOSITE')}">
 		<a href="#" onclick="getMeta('${tpb.vfbId}');return false;">About <b>${tpb.name}</b></a><br/>
 		<a href="/do/composite_view.html?id=${tpb.vfbId}&action=add" ><b>Add to composite view</b></a>
 	</c:if>
