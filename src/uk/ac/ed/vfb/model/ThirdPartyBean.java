@@ -252,7 +252,7 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		String result = vfbId;
 		result = result.toLowerCase().replace("vfb_","");
 		result = "/disk/data/VFB/IMAGE_DATA/VFB/i/" + result.substring(0, 4) + "/" + result.substring(4) + "/";
-		LOG.debug(vfbId + " resolved to image directory " + result);
+		//LOG.debug(vfbId + " resolved to image directory " + result);
 		return result;
 	}
 
