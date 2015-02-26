@@ -51,10 +51,10 @@ public class Server {
 	 * In this method we try to serve connections from client
 	 */
 	public void serveClients(){
-		//LOG.debug("ServeClients: " + this);
+		LOG.info("ServeClients: " + this);
 		try {
 			serverSocket = new ServerSocket(Server.port, 0, InetAddress.getByName(Server.host));
-			//LOG.debug("Wainting for a connection on : " + serverSocket.getLocalSocketAddress());
+			LOG.info("Wainting for a connection on : " + serverSocket.getLocalSocketAddress());
 			while(true){
 				ClientHandler thread = new ClientHandler(serverSocket);
 				thread.start();
@@ -89,6 +89,7 @@ public class Server {
 	}
 
 	public static void main (String[] argv) {
+		LOG.info("Starting ontology server...");
 		Server server = new Server();
 	}
 
