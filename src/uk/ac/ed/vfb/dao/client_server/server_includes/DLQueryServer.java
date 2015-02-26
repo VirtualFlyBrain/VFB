@@ -95,7 +95,7 @@ public class DLQueryServer {
 		if (entities != null && !resultStr.isEmpty()){
 			result =  entities;
 		}
-		//LOG.debug("Results: " + result.size());
+		LOG.info("DLQueryServer returning " + result.size() + " result(s)");
 		return result;
 	}
 
