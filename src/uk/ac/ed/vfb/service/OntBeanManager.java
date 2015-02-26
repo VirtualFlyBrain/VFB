@@ -127,19 +127,23 @@ public class OntBeanManager extends APageable {
 
 	protected void setThirdPartyBeans(Set<OntBean> ontBeans){
 		//LOG.debug("ThirdPartyBeans : "+ tpbm);
-		for (OntBean ob: ontBeans) {
-			try{
-				ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
-				if ( tpb!=null){
-					tpb.setName(ob.getName());
-					//LOG.debug("Setting name: " + ob.getName());
+		if (ontbeans!=null){
+			for (OntBean ob: ontBeans) {
+				try{
+					ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(ob.getFbbtId()));
+					if ( tpb!=null){
+						tpb.setName(ob.getName());
+						//LOG.debug("Setting name: " + ob.getName());
+					}
+					ob.setThirdPartyBean(tpb);
+					//LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
+				} catch (Exception ex) {
+					LOG.error("Exception setting third party bean: " + ob.getName());
+					ex.printStackTrace();
 				}
-				ob.setThirdPartyBean(tpb);
-				//LOG.debug("Curr bean: " + ob.idAsOWL(ob.getFbbtId()) + " TPB: " + ob.getThirdPartyBean());
-			} catch (Exception ex) {
-				LOG.error("Exception setting third party bean: " + ob.getName());
-				ex.printStackTrace();
 			}
+		}else{
+			LOG.error("OntBeanManager.setThirdPartyBeans(null)");
 		}
 	}
 
