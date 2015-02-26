@@ -133,10 +133,7 @@ then
         then
             echo "Redeploying ontology server..."
             nice deploy/start-${branch}-Ont-Server.sh
-            echo "Waiting for intitialisation..."
-            sleep 1m
-            echo "Rebooting tomcat"
-            om tomcat restart
+            echo "giving tomcat time to restart..."
             sleep 5m
         fi
         echo "Done."
