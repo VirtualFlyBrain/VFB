@@ -93,7 +93,7 @@ public class OWLClient {
 			}
 			
 		}else{
-			LOG.error("null result for OWLClient.getBeanForId(" + fbbfId + ")");
+			LOG.error("null result for OWLClient.getBeanForId(" + fbbtId + ")");
 		}
 		return result;
 	}
