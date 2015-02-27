@@ -119,6 +119,7 @@ public class CompositeViewBean implements Serializable {
 	 */
 	public String getAsJson(){
 		//Composing json for individual layers first
+		//LOG.debug("Creating composite json...");
 		StringBuffer layers = new StringBuffer();
 		StringBuffer layerNames = new StringBuffer();
 		StringBuffer layer = null;
@@ -126,11 +127,7 @@ public class CompositeViewBean implements Serializable {
 		int ind = 0;
 		for (ThirdPartyBean stack:stacks){
 			layer = new StringBuffer(LAYER_BODY);
-			String stackDir = stack.getStackUrl();
-			//cut off filename (everything after last "/")
-			String afterSlash = stackDir.substring(stackDir.lastIndexOf("_meta/tiledImageModelData.jso"));
-			stackDir = stackDir.replace("_meta/tiledImageModelData.jso", "/");
-			stackDir = Utils.getStackPathForType(stackDir, "THIRD_PARTY_STACK");
+			String stackDir = stack.getImageDir();
 			ind = layer.indexOf("IMAGE_DIR");
 			layer.replace(ind, ind+9, stackDir);
 			ind = layer.indexOf("FILTER");
@@ -182,6 +179,7 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem writing file :-P
+			LOG.error("Problem saving composite json " + jsoFile);
 			ex.printStackTrace();
 		}
 		return url;
@@ -214,6 +212,7 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem writing file :-P
+			LOG.error("Problem saving composite serial " + jObjFile);
 			ex.printStackTrace();
 		}
 		return url;
@@ -244,9 +243,11 @@ public class CompositeViewBean implements Serializable {
 		}
 		catch (IOException ex) {
 			//problem reading file :-P
+			LOG.error("problem reading file " + jObjFile);
 			ex.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// Problem serializing class
+			LOG.error("Problem serializing class " + jObjFile);
 			e.printStackTrace();
 		}
 		// We presume that the only time we have to deserilaze is when loading via permalink.
