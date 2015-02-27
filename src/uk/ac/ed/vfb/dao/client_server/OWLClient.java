@@ -84,10 +84,18 @@ public class OWLClient {
 	 */
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
+		//LOG.debug("getBeanForId: " + fbbtId);
+		fbbtId = OntBean.correctIdFormat(fbbtId);
 		Set<OntBean> results =  this.askQuery(fbbtId);
-		Iterator<OntBean> it = results.iterator();
-		if (it.hasNext()){
-			result =  it.next();
+		//LOG.debug("askQuery results: " + results);
+		if (results!=null) {
+			Iterator<OntBean> it = results.iterator();
+			if (it.hasNext()){
+				result =  it.next();
+			}
+			//LOG.debug("result: " + result);
+		}else{
+			LOG.error("null result for OWLClient.getBeanForId(" + fbbtId + ")");
 		}
 		return result;
 	}
@@ -153,8 +161,10 @@ public class OWLClient {
 				out.flush();
 				this.results = (Set<OntBean>) in.readObject();
 			} catch (IOException ex) {
+				LOG.error("IOException for query:  " + this.query);
 				ex.printStackTrace();
 			} catch (ClassNotFoundException ex) {
+				LOG.error("ClassNotFoundException for query:  " + this.query);
 				ex.printStackTrace();
 			}
 		}

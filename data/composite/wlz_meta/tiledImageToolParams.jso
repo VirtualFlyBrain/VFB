@@ -1,0 +1,77 @@
+{
+  "distance": {
+      "width":"175",
+      "height":"20",
+      "x":"5",
+      "y":"10",
+      "draggable":"false",
+      "isHorizontal":"false",
+      "targetId":"toolContainerDiv"
+   },
+   "scale": {
+      "width":"175",
+      "height":"20",
+      "x":"5",
+      "y":"45",
+      "draggable":"false",
+      "isHorizontal":"true",
+      "targetId":"toolContainerDiv"
+   },
+   "rotation": {
+      "width":"175",
+      "height":"85",
+      "x":"5",
+      "y":"80",
+      "draggable":"false",
+      "isHorizontal":"true",
+      "targetId":"toolContainerDiv"
+   },
+   "refresh": {
+      "width":"134",
+      "height":"20",
+      "x":"5",
+      "y":"170",
+      "draggable":"false",
+      "thinTopEdge":"true",
+      "borders":"false",
+      "targetId":"toolContainerDiv"
+   },
+   "locator": {
+      "width":"170",
+      "height":"160",
+      "x":"5",
+      "y":"208",
+      "draggable":"false",
+      "thinTopEdge":"false",
+      "borders":"true",
+      "targetId":"toolContainerDiv"
+   },
+   "layer": {
+      "width":"175",
+      "x":"5",
+      "y":"315",
+      "draggable":"false",
+      "isHorizontal":"true",
+      "thinTopEdge":"false",
+      "targetId":"toolContainerDiv"
+   },
+   "properties": {
+      "width":"130",
+      "height":"230",
+      "x":"50",
+      "y":"50",
+      "draggable":"true",
+      "isHorizontal":"true",
+      "thinTopEdge":"false",
+      "allowClose":"true",
+      "targetId":"emapIIPViewerDiv"
+   },
+   "tree": {
+      "draggable":"false",
+      "thinTopEdge":"true",
+      "borders":"false",
+      "embed":"true",
+      "targetId":"right_panel"
+   }
+}
+

@@ -37,14 +37,16 @@ public class AutocompleteDAO extends AQueryDAO {
 	 */
 	static Map<String,String> createMap() {
 		Map<String, String> map = new HashMap<String, String>();
+		/** BFO_0000050 = part_of, RO_0002131 = overlaps, RO_0002134 = innervates, FBbt_00003004 = adult, FBbt_00005095 = brain, FBbt_00003624 = adult brain.
 		/** Neuropil: 'adult brain' or (('ganglion' or 'synaptic neuropil block' or 'synaptic neuropil domain' or 'synaptic neuropil subdomain') and part_of some 'adult brain') */
-		map.put("neuropilAB", "subclass&FBbt_00005095 that BFO_0000050 some  FBbt_00003624, FBbt_00005137 that BFO_0000050 some  FBbt_00003624, FBbt_00041000 that BFO_0000050 some FBbt_00003624, FBbt_00040007 that BFO_0000050 some  FBbt_00003624, FBbt_00040006 that BFO_0000050 some  FBbt_00003624, FBbt_00005095 that BFO_0000050 some FBbt_00003004");
+		map.put("neuropilAB", "subclass&FBbt_00005095 that BFO_0000050 some  FBbt_00003624, FBbt_00005137 that BFO_0000050 some  FBbt_00003624, FBbt_00041000 that BFO_0000050 some FBbt_00003624, FBbt_00040007 that BFO_0000050 some  FBbt_00003624, FBbt_00040006 that BFO_0000050 some  FBbt_00003624, " + 
+				"FBbt_00005095 that BFO_0000050 some FBbt_00003004");
 		/** Neuron: neuron that overlaps some ('adult brain' or part_of some 'adult brain') */
 		map.put("neuronAB", "subclass&FBbt_00005106 that RO_0002131 some FBbt_00003624");
 		/** Tract: 'neuron projection bundle' that 'innervates' some 'adult brain' */
-		map.put("tract", "subclass&FBbt_00005099 that RO_0002134 some FBbt_00003624");
+		map.put("tractAB", "subclass&FBbt_00005099 that RO_0002134 some FBbt_00003624");
 		/** lineage_clone: 'lineage clone that part_of some 'adult brain' */
-	    map.put("lineage_clone", "subclass&FBbt_00007683 that RO_0002131 some FBbt_00003624");
+	    	map.put("lineage_clone", "subclass&FBbt_00007683 that RO_0002131 some FBbt_00003624");
 		/** Both Neuron and Neuropil: combination of the above */
 		map.put("allAB", "subclass&FBbt_00005095 that BFO_0000050 some  FBbt_00003624, FBbt_00005137 that BFO_0000050 some FBbt_00003624, FBbt_00041000 that BFO_0000050 some FBbt_00003624, FBbt_00040007 that BFO_0000050 some  FBbt_00003624, FBbt_00040006 that BFO_0000050 some  FBbt_00003624, "+
 				"FBbt_00005106 that RO_0002131 some FBbt_00003624, " +

@@ -15,16 +15,16 @@
 				<vfbUtil:trimToWhite string="${ontBean.def}" size="210" />
 				<c:if test="${!empty tpb}">
 					<b>Source:</b>
-					<a href="${tpb.baseUrl}${tpb.remoteId}">${tpb.sourceName}</a>
+					<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
 					<br/>
-					<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?json=${tpb.stackUrl}&type=THIRD_PARTY_STACK&tpbid=${tpb.vfbId}">
+					<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" target="_top">
 						See in viewer >>
 					</a>
 					<br clear="all"/>
-					<a href="${tpb.baseUrl}${tpb.remoteId}">
-						<img class="thumb" src="${tpb.thumbUrl}" />
+					<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" target="_top">
+						<img class="thumb" src="${tpb.thumbUrl}" alt="${tpb.sourceName} (${tpb.remoteId})" />
 					</a>
-					<br/>			
+					<br/>
 				</c:if>
 			</div>
 		</c:if>

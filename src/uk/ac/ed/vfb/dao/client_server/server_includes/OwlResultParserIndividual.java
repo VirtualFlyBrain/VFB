@@ -17,10 +17,10 @@ import uk.ac.ed.vfb.model.*;
 
 /**
  * Author: NM
- * For the anatomy file in memory, and given a term id it parses the term info to extract core properties 
- * such as name, synonyms, etc. 
+ * For the anatomy file in memory, and given a term id it parses the term info to extract core properties
+ * such as name, synonyms, etc.
  * Works for individuals
- * Uses OWLTools  
+ * Uses OWLTools
  */
 public class OwlResultParserIndividual extends AOwlResultParser {
 
@@ -29,7 +29,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	}
 
 	/**
-	 * Convenience wrapper method to retrieve OntBean by id 
+	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
 	 * @return
 	 */
@@ -41,7 +41,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	}
 
 	/**
-	 * The main parsing method. 
+	 * The main parsing method.
 	 * Invoke:   OntBean ontBean = getOntBeanForClass(result);
 	 * @param result
 	 * @return
@@ -58,7 +58,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			ob.setComment(ogw.getAnnotationValue(result, commentPropery));
 			//LOG.debug(result + " : " + "\n" + fbbtId + " > " + ogw.getLabel(result) + "\ndef: " + ogw.getAnnotationValue(result, defPropery) + "\ncomment: " + ogw.getAnnotationValue(result, commentPropery));
 			//xrefs
-			List<String> xrefs = ogw.getXref(result);  
+			List<String> xrefs = ogw.getXref(result);
 			//LOG.debug("=========== xrefs ==============");
 			for (String xref:xrefs){
 				//LOG.debug("Xref: " + xref + "\n");
@@ -68,11 +68,62 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			for (String axiom:axioms){
 				//LOG.debug(axiom.toString() + "\n");
 			}
-			ob.setRefs(axioms);
+			//ob.setRefs(axioms); //moved to post synonym processing
 			//synonyms
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
+			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
-			ob.setSynonyms(syns);
+			List<String> synXrefs = new ArrayList<String>();
+			Boolean refExists = false;
+			Integer refI = 1;
+			String refIs = "";
+			String type = "";
+			if (synonyms != null && !synonyms.isEmpty()) {
+				for (ISynonym syn:synonyms){
+					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
+					refIs = "";
+					type = "";
+					refExists = false;
+					// adding synonyn type
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+						type = type.replace("EXACT", "<a href=\"#\" title=\"an exact equivalent; interchangeable with the term name\">EXACT</a>");
+						type = type.replace("NARROW", "<a href=\"#\" title=\"the synonym is narrower or more precise than the term name\">NARROW</a>");
+						type = type.replace("RELATED", "<a href=\"#\" title=\"the terms are related in some way\">RELATED</a>");
+						type = type.replace("BROAD", "<a href=\"#\" title=\"the synonym is broader than the term name\">BROAD</a>");
+					}
+					// adding synonyn xrefs to references list
+					if (syn.getXrefs()!=null) {
+						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
+						for (String synXref:synXrefs){
+							refExists = true;
+							if (synXref != ""){
+								if (refIs != ""){
+									refIs = refIs + "," + synXref;
+								}else{
+									refIs = synXref;
+								}
+								axioms.add(synXref);
+								refI = refI +1;
+							}
+						}
+					}
+					if (refExists){
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");
+					}else{
+						syns.add(syn.getLabel() + type);
+					}
+
+				}
+				ob.setSynonyms(syns);
+			}
+			// removing duplicates and adding full ref list
+			axioms = new ArrayList<String>(new HashSet<String>(axioms));
+			//LOG.debug("======== extended xrefs =========" + axioms.size());
+			//for (String axiom:axioms){
+			//	//LOG.debug(axiom.toString() + "\n");
+			//}
+			ob.setRefs(axioms);
 			//classification
 			OWLIndividual indiv = (OWLIndividual)result;
 			Set<OWLClassExpression> types = indiv.getTypes(this.ontology);
@@ -91,10 +142,10 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 					Set<OWLClass> clas = classExp.getClassesInSignature();
 					OWLClass targetClass= null;
 					for (OWLClass currClass:clas){
-						//We assume there will only ever be 1(one) class in signature. 
-						//This complies with VFB convention, not with OWL  
+						//We assume there will only ever be 1(one) class in signature.
+						//This complies with VFB convention, not with OWL
 						targetClass = currClass;
-					}		
+					}
 					//currRel = currRel + " " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, nameProperty);
 					//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
 					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty)};
@@ -110,8 +161,8 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 				}
 			}
 		}
-		catch(NullPointerException ex) { 
-			//shit happened, keep goin' 
+		catch(NullPointerException ex) {
+			//shit happened, keep goin'
 			//ex.printStackTrace();
 		}
 		//LOG.debug("OB: " + ob + " types: " + ob.getTypes()) ;
@@ -119,7 +170,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	}
 
 	/**
-	 * Convenience wrapper method to retrieve OntBean by id 
+	 * Convenience wrapper method to retrieve OntBean by id
 	 * @param id
 	 * @return
 	 */
@@ -129,5 +180,5 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	// 	//LOG.debug("OWLEntity: " + oo);
 	// 	return this.getOntBeanForEntity(oo);
 	// }
-	
+
 }
