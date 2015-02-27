@@ -127,7 +127,9 @@ then
         if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
         then
             echo "Recompiling the site..."
+            om tomcat stop
             nice ant
+            om tomcat start
         fi
         if [ `git diff --name-only $current | grep "\.owl\|deploy/start" | wc -l` -gt 0 ]
         then
