@@ -55,7 +55,7 @@
 
 	<!-- SCV reports -->
 	<bean name="/do/csv_report.html" class="uk.ac.ed.vfb.web.CsvController" 
-		scope="session">
+		scope="request">
 		<property name="obm" ref="ontBeanManager" />
 		<property name="gbm" ref="geneBeanManager" />
 		<property name="oqm" ref="ontQueryManager" />
@@ -184,6 +184,11 @@
 	<!-- Autocomplete servlet for neuropils -->
 	<bean name="/do/autocomplete_list_neuropil.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
 		<property name="autocompleteDAO" ref="autocompleteDAONeuropil" />
+	</bean>
+	
+	<!-- Autocomplete servlet for adult brain anatomy -->
+	<bean name="/do/autocomplete_list_adultbrain.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
+		<property name="autocompleteDAO" ref="autocompleteDAOAB" />
 	</bean>
 	
 	<!-- Controller for Json files (IIP3D metadata) -->

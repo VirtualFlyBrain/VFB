@@ -23,8 +23,8 @@ import uk.ac.ed.vfb.model.OntBean;
 /**
  * @author nmilyaev
  * Top-level wrapper class for query server.
- * Creates all required query engines ands loads ontologies 
- * Upon receiving a quiery request forks the query to a desired engine depending on the 
+ * Creates all required query engines ands loads ontologies
+ * Upon receiving a quiery request forks the query to a desired engine depending on the
  * query type (class or individual)
  */
 
@@ -39,14 +39,14 @@ public class DLQueryServer {
 //	private ADLQueryEngine engineClass;
 	//Engine for Brain reasoner
 	private ADLQueryEngine engineBrain;
-	private static final Log LOG = LogFactory.getLog(DLQueryServer.class); 
-    
+	private static final Log LOG = LogFactory.getLog(DLQueryServer.class);
+
     public DLQueryServer() {
     	ResourceBundle bundle = ResourceBundle.getBundle("resources");
-    	// change "/classes" to "/build" to run locally (in eclipse) 
-		String url1 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + 
+    	// change "/classes" to "/build" to run locally (in eclipse)
+		String url1 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] +
         	bundle.getString("resource_path") + bundle.getString("ont_file_owl");
-		String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + 
+		String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] +
 	        	bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");//ont_file_owl");
 		//LOG.debug("Creating Brain Class reasoner....");
 		engineBrain = new DLQueryEngineBrain(url1);
@@ -54,10 +54,10 @@ public class DLQueryServer {
         engineIndividual = new DLQUeryEngineBrainInd(url2);
 //		//LOG.debug("Creating JF reasoner....");
 //        engineClass = null; //new DLQueryEngineJF(url1, tpbm);
-    } 
-  
+    }
+
 	/**
-	 * Main querying method. Receives and processes the query by invoking corresponding method on 
+	 * Main querying method. Receives and processes the query by invoking corresponding method on
 	 * one of the target query engines
 	 * A query should be in the form: queryType&Query1,query2...queryn
 	 * @param query
@@ -95,7 +95,7 @@ public class DLQueryServer {
 		if (entities != null && !resultStr.isEmpty()){
 			result =  entities;
 		}
-		//LOG.debug("Results: " + result.size());
+		LOG.info("DLQueryServer returning " + result.size() + " result(s)");
 		return result;
 	}
 
@@ -120,6 +120,11 @@ public class DLQueryServer {
 	/** Returns an OntBean given an Id - only works for classes*/
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
 		try {
 			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
@@ -127,9 +132,9 @@ public class DLQueryServer {
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
-			//LOG.debug("Trying to retrieve individual for id: " + fbbtId);
+			LOG.error("Trying to retrieve individual for id: " + fbbtId);
 			result = engineIndividual.getOntBeanForId(fbbtId);
-			//LOG.debug("Found?: " + result);
+			LOG.error("Found?: " + result);
 		}
 		return result;
 	}

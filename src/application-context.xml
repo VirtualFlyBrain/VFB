@@ -108,6 +108,13 @@
 		<property name="type" value="neuropilAB" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
+	
+	<bean id="autocompleteDAOTractAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
+		scope="singleton">
+		<property name="dataSource" ref="dataSource" />
+		<property name="type" value="tractAB" />
+		<property name="obm" ref="ontBeanManagerSingleton" />
+	</bean>
 
 	<bean id="autocompleteDAOAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">

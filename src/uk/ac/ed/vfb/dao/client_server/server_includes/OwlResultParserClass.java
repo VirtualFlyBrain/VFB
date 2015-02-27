@@ -70,17 +70,46 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
+			Boolean refExists = false;
+			Integer refI = 1;
+			String refIs = "";
+			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
 					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
-					syns.add(syn.getLabel());
+					refIs = "";
+					type = "";
+					refExists = false;
+					// adding synonyn type
+					if (syn.getScope()!=null) {
+						type = " [" + syn.getScope() +"]";
+						type = type.replace("EXACT", "<a href=\"#\" title=\"an exact equivalent; interchangeable with the term name\">EXACT</a>");
+						type = type.replace("NARROW", "<a href=\"#\" title=\"the synonym is narrower or more precise than the term name\">NARROW</a>");
+						type = type.replace("RELATED", "<a href=\"#\" title=\"the terms are related in some way\">RELATED</a>");
+						type = type.replace("BROAD", "<a href=\"#\" title=\"the synonym is broader than the term name\">BROAD</a>");
+					}
 					// adding synonyn xrefs to references list
 					if (syn.getXrefs()!=null) {
 						synXrefs = new ArrayList<String>(new HashSet<String>(syn.getXrefs()));
 						for (String synXref:synXrefs){
-							axioms.add(synXref);
+							refExists = true;
+							if (synXref != ""){
+								if (refIs != ""){
+									refIs = refIs + "," + synXref;
+								}else{
+									refIs = synXref;
+								}
+								axioms.add(synXref);
+								refI = refI +1;
+							}
 						}
 					}
+					if (refExists){
+						syns.add(syn.getLabel() + type + " (" + refIs + ")");	
+					}else{
+						syns.add(syn.getLabel() + type);
+					}
+					
 				}
 				ob.setSynonyms(syns);
 			}
@@ -138,7 +167,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 		catch (Exception e) {
 			// TODO: handle exception
 			//Return whatever OntBean is created so far
-			//LOG.debug("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
+			LOG.error("Exception in getOntBeanForClass for OWLObject: " + oo.toString());
 			LOG.error(e.getMessage());
 			e.printStackTrace();
 		}
