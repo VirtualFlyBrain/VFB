@@ -164,11 +164,18 @@ public class OntBean implements Comparable<Object>, Serializable{
 		}
 		return fbbtId;
 	}
+	
+	public static String correctIdFormat() {
+		return correctIdFormat(this.fbbtId);
+	}
 
 	/**
 	 *  Returns numerical Id of the ontBean
 	 */
 	public String getId() {
+		if (fbbtId.contains("VFB")){
+			return fbbtId.substring(4);
+		}
 		return fbbtId.substring(5);
 	}
 
