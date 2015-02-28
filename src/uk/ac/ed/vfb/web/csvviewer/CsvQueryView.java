@@ -27,9 +27,9 @@ public class CsvQueryView  extends CsvViewer {
 		while (it.hasNext()) {
 			OntBean curr = it.next();
 			if (curr.correctIdFormat().contains("VFB")){
-				link = "=HYPERLINK(\"http://www.virtualflybrain.org/" + curr.correctIdFormat() + "\",\"" + curr.correctIdFormat() + "\")";
+				link = "=HYPERLINK(\"http://www.virtualflybrain.org/" + curr.correctIdFormat() + "\")";
 			}else{
-				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat() + "\",\"" + curr.correctIdFormat() + "\")";
+				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat() + "\")";
 			}
 			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + link + "\"\n";
 			writer.write(line);
