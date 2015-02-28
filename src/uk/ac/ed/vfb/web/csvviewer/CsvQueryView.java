@@ -22,10 +22,16 @@ public class CsvQueryView  extends CsvViewer {
 		String line = "";  
 		//LOG.debug("Mamager: " + manager);
 		@SuppressWarnings("unchecked")
+		String link = "";
 		Iterator<OntBean> it = manager.getResultSet().iterator();		
 		while (it.hasNext()) {
 			OntBean curr = it.next();
-			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + curr.getFbbtIdAsOBO() + "\"\n";
+			if (curr.correctIdFormat().contains("VFB")){
+				link = "http://www.virtualflybrain.org/" + curr.correctIdFormat();
+			}else{
+				link = "http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat();
+			}
+			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + link + "\"\n";
 			writer.write(line);
 		}
 	}
