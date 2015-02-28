@@ -165,7 +165,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		return fbbtId;
 	}
 	
-	public static String correctIdFormat() {
+	public String correctIdFormat() {
 		return correctIdFormat(fbbtId);
 	}
 
