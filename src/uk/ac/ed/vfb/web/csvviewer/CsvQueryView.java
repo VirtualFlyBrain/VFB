@@ -31,7 +31,7 @@ public class CsvQueryView  extends CsvViewer {
 			}else{
 				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat() + "\")";
 			}
-			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + link + "\"\n";
+			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\"," + link + "\n";
 			writer.write(line);
 		}
 	}
