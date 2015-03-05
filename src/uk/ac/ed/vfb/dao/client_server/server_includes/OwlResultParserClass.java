@@ -158,9 +158,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 				}
 				else {
 					//LOG.debug("CurrRel: " + currRel);
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery)};
+					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
 					//LOG.debug("vals: " + Arrays.toString(vals));
-					ob.getRelationships().put(ogw.getIdentifier(targetClass), vals);
+					ob.getRelationships().put('rel'+relI.toString(), vals);
 				}
 			}
 		}
