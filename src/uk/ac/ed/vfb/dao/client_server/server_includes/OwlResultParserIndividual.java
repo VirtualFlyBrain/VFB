@@ -150,7 +150,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 					}
 					//currRel = currRel + " " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, nameProperty);
 					//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty, ogw.getIdentifier(targetClass))};
+					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty), ogw.getIdentifier(targetClass)};
 					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 					//LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
 				}
