@@ -168,8 +168,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</c:otherwise>
 			</c:choose>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
-				<c:if test="${curr.key == neuropil.fbbtId}">
-					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.key} " target="_top"
+				<c:if test="${curr.value[2] == neuropil.fbbtId}">
+					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.value[2]} " target="_top"
 						title="Add to the selected domains in the viewer">See in the viewer >> </a>
 				</c:if>
 			</c:forEach>
