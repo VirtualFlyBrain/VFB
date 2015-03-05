@@ -120,19 +120,19 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 		<b>Relationships: </b><br />
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			<c:choose>
-				<c:when test="${fn:containsIgnoreCase(curr.key, 'http')}">
+				<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-					<a href="${curr.key}" title="External look up" target="_new">${curr.value[1]}</a>
+					<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
 				</c:when>
 				<c:otherwise>
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
 
 				</c:otherwise>
 			</c:choose>
 			<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
-				<c:if test="${curr.key == neuropil.fbbtId}">
-					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.key} " target="_top"
+				<c:if test="${curr.value[2] == neuropil.fbbtId}">
+					&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.value[2]} " target="_top"
 						title="Add to the selected domains in the viewer">See in the viewer >> </a>
 				</c:if>
 			</c:forEach>
