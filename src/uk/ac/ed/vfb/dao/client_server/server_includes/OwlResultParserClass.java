@@ -128,7 +128,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			String relName = "";
 			OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
 			for (OWLSubClassOfAxiom rel:rels){
-				relI++
+				relI++;
 				//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
 				//LOG.debug("=========== rel props ==============");
 				Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
