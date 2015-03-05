@@ -128,7 +128,8 @@ public class OwlResultParserClass extends AOwlResultParser {
 			String relName = "";
 			OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
 			for (OWLSubClassOfAxiom rel:rels){
-				//LOG.debug("rel" + relI++ + " : " + rel.toString() + " > " + "\n");
+				relI++;
+				//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
 				//LOG.debug("=========== rel props ==============");
 				Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
 				int propI = 0;
@@ -158,9 +159,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 				}
 				else {
 					//LOG.debug("CurrRel: " + currRel);
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery)};
+					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
 					//LOG.debug("vals: " + Arrays.toString(vals));
-					ob.getRelationships().put(ogw.getIdentifier(targetClass), vals);
+					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 				}
 			}
 		}
