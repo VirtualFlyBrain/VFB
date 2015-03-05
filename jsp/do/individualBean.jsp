@@ -146,7 +146,7 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 	<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="See source" ${tpb.sourceName}</a>
 	<br clear="all"/>
 	<a href="/owl/${tpb.vfbId}" target="_top" title="See in viewer" >
-		<img class="thumb"src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})" />
+		<img class="thumb" src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})" />
 	</a>
 	<br/>
 	<a href="/owl/${tpb.vfbId}">See in the viewer >> </a>
