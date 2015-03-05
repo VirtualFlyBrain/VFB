@@ -23,7 +23,9 @@ public class CsvQueryView  extends CsvViewer {
 		//LOG.debug("Mamager: " + manager);
 		@SuppressWarnings("unchecked")
 		String link = "";
-		Iterator<OntBean> it = manager.getResultSet().iterator();		
+		Iterator<OntBean> it = manager.getResultSet().iterator();
+		line = "\"Name\",\"Definition\",\"Id\",\"Link\"\n";
+		writer.write(line);
 		while (it.hasNext()) {
 			OntBean curr = it.next();
 			if (curr.correctIdFormat().contains("VFB")){
@@ -31,7 +33,7 @@ public class CsvQueryView  extends CsvViewer {
 			}else{
 				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat() + "\")";
 			}
-			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\"," + link + "\n";
+			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + curr.correctIdFormat() + "\"," + link + "\n";
 			writer.write(line);
 		}
 	}
