@@ -163,7 +163,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</c:when>
 				<c:otherwise>
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
 
 				</c:otherwise>
 			</c:choose>
