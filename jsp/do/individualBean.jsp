@@ -143,10 +143,10 @@ pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
 <c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
 <c:if test="${!empty tpb}">
 	<b>Source:</b>
-	<a href="${tpb.baseUrl}${tpb.remoteId}">${tpb.sourceName}</a>
+	<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="See source" ${tpb.sourceName}</a>
 	<br clear="all"/>
-	<a href="${tpb.baseUrl}${tpb.remoteId}">
-		<img class="thumb"src="${tpb.thumbUrl}" />
+	<a href="/owl/${tpb.vfbId}" target="_top" title="See in viewer" >
+		<img class="thumb"src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})" />
 	</a>
 	<br/>
 	<a href="/owl/${tpb.vfbId}">See in the viewer >> </a>
