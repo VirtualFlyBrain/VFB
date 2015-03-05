@@ -22,11 +22,11 @@ then
 
 echo 'waiting for the ontology server to initialise...'
 MAX_WAIT=24
-until [ `cat logs/ontServer.log | grep "Wainting for a connection" | wc -l` -gt 0 ] || [ $MAX_WAIT -lt 1 ]; do
+until [ `cat ../../logs/ontServer.log | grep "Wainting for a connection" | wc -l` -gt 0 ] || [ $MAX_WAIT -lt 1 ]; do
    sleep 5s
    let MAX_WAIT=MAX_WAIT-1
 done
-let MAX_WAIT=MAX_WAIT*5
+let MAX_WAIT=(24-MAX_WAIT)*5
 echo Ontology server restart took ${MAX_WAIT} Seconds
 om tomcat restart
 else
