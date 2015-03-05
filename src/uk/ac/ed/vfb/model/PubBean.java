@@ -139,7 +139,7 @@ public class PubBean {
 				return "http://flybase.org";
 			}
 			// TBR: to handle block consultant links.
-			if (miniref.contains("FlyBase")){ 
+			if (miniref.contains("Consultant")){ 
 				return "http://flybase.org";
 			}
 			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
