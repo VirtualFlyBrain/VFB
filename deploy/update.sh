@@ -153,6 +153,7 @@ then
                 sleep 5m
             fi
         fi
+        chmod -R 777 . 2>/dev/null | :
         echo "Done."
     fi
 
