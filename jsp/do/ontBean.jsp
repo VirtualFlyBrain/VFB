@@ -157,9 +157,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			<c:choose>
-				<c:when test="${fn:containsIgnoreCase(curr.key, 'http')}"> <!-- This probably never happens so TBR -->
+				<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}"> 
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-					<a href="${curr.key}" title="External look up" target="_new">${curr.value[1]}</a>
+					<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
 				</c:when>
 				<c:otherwise>
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
