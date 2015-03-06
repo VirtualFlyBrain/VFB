@@ -10,7 +10,7 @@
    "coronalView": {"pitch": "90", "yaw": "0", "roll": "90"},
    "viewerTargetId": "emapIIPViewerDiv",
    "layerNames": [
-      "grey",
+      "background",
       "anatomy"
    ],
    "layerData": [
