@@ -2524,12 +2524,6 @@
                 95.9576,
                 96.5922
             ],
-            "domainColour": [
-                0,
-                255,
-                26,
-                123
-            ],
             "domainId": "20",
             "domainSelected": "false"
         },
@@ -2537,7 +2531,7 @@
             "FBbt:00045007"
         ],
         "name": "mushroom body accessory calyx",
-        "nodeId": "170",
+        "nodeId": "276",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4428,12 +4422,6 @@
                 233.636,
                 72.8754
             ],
-            "domainColour": [
-                0,
-                202,
-                220,
-                106
-            ],
             "domainId": "43",
             "domainSelected": "false"
         },
@@ -4453,12 +4441,6 @@
                 440.169,
                 180.541,
                 72.6541
-            ],
-            "domainColour": [
-                0,
-                176,
-                79,
-                220
             ],
             "domainId": "40",
             "domainSelected": "false"
@@ -4480,12 +4462,6 @@
                 362.557,
                 6.58298
             ],
-            "domainColour": [
-                0,
-                79,
-                9,
-                18
-            ],
             "domainId": "46",
             "domainSelected": "false"
         },
@@ -4502,15 +4478,29 @@
     {
         "domainData": {
             "domainCentre": [
+                305.177,
+                95.9576,
+                96.5922
+            ],
+            "domainId": "20",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00045007"
+        ],
+        "name": "mushroom body accessory calyx",
+        "nodeId": "276",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
                 226.17,
                 175.082,
                 62.8267
-            ],
-            "domainColour": [
-                0,
-                123,
-                176,
-                211
             ],
             "domainId": "41",
             "domainSelected": "false"
@@ -4519,7 +4509,7 @@
             "FBbt:00100337"
         ],
         "name": "optic anterior tract",
-        "nodeId": "276",
+        "nodeId": "277",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4532,12 +4522,6 @@
                 475.029,
                 107.587
             ],
-            "domainColour": [
-                0,
-                141,
-                53,
-                246
-            ],
             "domainId": "44",
             "domainSelected": "false"
         },
@@ -4545,7 +4529,7 @@
             "FBbt:00110653"
         ],
         "name": "labro frontal nerve",
-        "nodeId": "277",
+        "nodeId": "278",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4558,12 +4542,6 @@
                 464.405,
                 34.2172
             ],
-            "domainColour": [
-                0,
-                88,
-                0,
-                167
-            ],
             "domainId": "47",
             "domainSelected": "false"
         },
@@ -4571,7 +4549,7 @@
             "FBbt:00004020"
         ],
         "name": "giant fiber neuron",
-        "nodeId": "278",
+        "nodeId": "279",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4584,22 +4562,491 @@
                 283.092,
                 84.0615
             ],
-            "domainColour": [
-                0,
-                237,
-                141,
-                255
-            ],
+            "domainColour": [],
             "domainId": "42",
+            "domainSelected": "false"
+        },
+        "extId": [],
+        "name": "posterior optic commissure",
+        "nodeId": "280",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "393.166,361.756,34.4937",
+            "domainColour": "0.51724,0.51724,1",
+            "domainId": "328",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007354"
+        ],
+        "name": "antenno-subesophageal tract",
+        "nodeId": "281",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "421.428,413.945,69.0701",
+            "domainColour": "0.31034,0.13793,0",
+            "domainId": "321",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100346"
+        ],
+        "name": "anterior cerebro-cervical fascicle",
+        "nodeId": "282",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "433.627,33.5619,55.1881",
+            "domainColour": "0.82759,0.65517,0.65517",
+            "domainId": "343",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007072"
+        ],
+        "name": "anterior dorsal commissure",
+        "nodeId": "283",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "283.902,125.615,56.3609",
+            "domainColour": "0,0.51724,0.58621",
+            "domainId": "307",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100339"
+        ],
+        "name": "anterior superior lateral protocerebrum fascicle",
+        "nodeId": "284",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "269.072,198.667,62.0887",
+            "domainColour": "0.44828,0.96552,1",
+            "domainId": "325",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100340"
+        ],
+        "name": "horizontal ventrolateral protocerebral fascicle",
+        "nodeId": "285",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "284.868,200.127,41.7269",
+            "domainColour": "0.62069,0.75862,1",
+            "domainId": "336",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100340"
+        ],
+        "name": "horizontal ventrolateral protocerebral fascicle",
+        "nodeId": "286",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "450.124,220.145,42.8145",
+            "domainColour": "0.41379,0,0.75862",
+            "domainId": "322",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100352"
+        ],
+        "name": "inferior antennal lobe commissure",
+        "nodeId": "287",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "359.651,271.97,57.0568",
+            "domainColour": "0,1,0.75862",
+            "domainId": "312",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100350"
+        ],
+        "name": "inferior fiber system",
+        "nodeId": "288",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "440.324,205.555,44.356",
+            "domainColour": "0.17241,0.37931,0.27586",
+            "domainId": "318",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007074"
+        ],
+        "name": "lateral accessory lobe commissure",
+        "nodeId": "289",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "289.788,206.89,57.4928",
+            "domainColour": "0,0.34483,0",
+            "domainId": "306",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003983"
+        ],
+        "name": "lateral antennal lobe tract",
+        "nodeId": "290",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "368.889,402.347,67.3408",
+            "domainColour": "0.51724,0.44828,0",
+            "domainId": "327",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100347"
+        ],
+        "name": "lateral cerebro-cervical fascicle",
+        "nodeId": "291",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "323.488,208.13,86.682",
+            "domainColour": "0.068966,0.65517,0.37931",
+            "domainId": "315",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100343"
+        ],
+        "name": "lateral equatorial fascicle",
+        "nodeId": "292",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "433.916,415.889,96.5987",
+            "domainColour": "0.27586,1,0.48276",
+            "domainId": "320",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100345"
+        ],
+        "name": "medial cerebro-cervical fascicle",
+        "nodeId": "293",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "374.576,198.076,89.1618",
+            "domainColour": "0.034483,0.58621,0",
+            "domainId": "314",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100342"
+        ],
+        "name": "medial equatorial fascicle",
+        "nodeId": "294",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "450.37,198.084,56.2772",
+            "domainColour": "0,0.58621,0.96552",
+            "domainId": "308",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003683"
+        ],
+        "name": "median bundle",
+        "nodeId": "295",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "305.24,158.089,68.2272",
+            "domainColour": "0,0.31034,1",
+            "domainId": "305",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003984"
+        ],
+        "name": "mediolateral antennal lobe tract",
+        "nodeId": "296",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "416.484,370.744,90.9613",
+            "domainColour": "0.24138,0,0.10345",
+            "domainId": "319",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100344"
+        ],
+        "name": "posterior cerebro-cervical fascicle",
+        "nodeId": "297",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "283.447,161.844,75.1895",
+            "domainColour": "0.44828,0.37931,0.24138",
+            "domainId": "323",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007083"
+        ],
+        "name": "posterior lateral fascicle",
+        "nodeId": "298",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "315.342,282.915,84.5578",
+            "domainColour": "0,0,1",
+            "domainId": "303",
             "domainSelected": "false"
         },
         "extId": [
             "FBbt:00007427"
         ],
-        "name": "posterior optic commissure",
-        "nodeId": "279",
+        "name": "posterior optic tract",
+        "nodeId": "299",
         "nodeState": {
-            "open": "false",
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "420.684,237.604,92.449",
+            "domainColour": "0.65517,0.96552,0.7931",
+            "domainId": "338",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100355"
+        ],
+        "name": "posterior posteriolateral protocerebral commissure",
+        "nodeId": "300",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "287.82,91.929,69.2617",
+            "domainColour": "0.44828,0.37931,0.48276",
+            "domainId": "324",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100338"
+        ],
+        "name": "pyriform fascicle",
+        "nodeId": "301",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "319.645,261.336,54.066",
+            "domainColour": "0.65517,0.34483,0.034483",
+            "domainId": "337",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100357"
+        ],
+        "name": "superior AMMC commissure",
+        "nodeId": "302",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "452.823,186.311,41.9486",
+            "domainColour": "0.93103,1,0.68966",
+            "domainId": "345",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100351"
+        ],
+        "name": "superior antennal lobe commissure",
+        "nodeId": "303",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "399.449,121.944,61.6778",
+            "domainColour": "0.17241,0,0.31034",
+            "domainId": "317",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100354"
+        ],
+        "name": "superior ellipsoid commissure",
+        "nodeId": "304",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "364.123,98.233,77.0855",
+            "domainColour": "0,1,0",
+            "domainId": "311",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100349"
+        ],
+        "name": "superior fiber system",
+        "nodeId": "305",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "394.655,133.03,90.9395",
+            "domainColour": "0.58621,0.68966,0.72414",
+            "domainId": "330",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007077"
+        ],
+        "name": "superior posterior lateral protocerebrum commissure",
+        "nodeId": "306",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "268.394,182.484,46.2075",
+            "domainColour": "0.13793,0.13793,0.034483",
+            "domainId": "316",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100341"
+        ],
+        "name": "vertical ventrolateral protocerebral fascicle",
+        "nodeId": "307",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": "427.088,277.514,90.1682",
+            "domainColour": "0.034483,0.24138,0.31034",
+            "domainId": "313",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100356"
+        ],
+        "name": "wedge commissure",
+        "nodeId": "308",
+        "nodeState": {
+            "open": "true",
             "selected": "false"
         }
     }
