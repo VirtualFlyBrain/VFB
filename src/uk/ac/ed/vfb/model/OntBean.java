@@ -96,11 +96,15 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public Hashtable<String, String[]> getRelationships() {
+		LOG.debug("Id:" + fbbtId);
+		LOG.debug("Relationships:" + relationships);
 		return relationships;
 	}
 
 	public void setRelationships(Hashtable<String, String[]> relationships) {
 		this.relationships = relationships;
+		LOG.debug("Id:" + fbbtId);
+		LOG.debug("Relationships:" + relationships);
 	}
 
 	public HashMap<String, String> getIsa() {
@@ -164,11 +168,18 @@ public class OntBean implements Comparable<Object>, Serializable{
 		}
 		return fbbtId;
 	}
+	
+	public String correctIdFormat() {
+		return correctIdFormat(fbbtId);
+	}
 
 	/**
 	 *  Returns numerical Id of the ontBean
 	 */
 	public String getId() {
+		if (fbbtId.contains("VFB")){
+			return fbbtId.substring(4);
+		}
 		return fbbtId.substring(5);
 	}
 
