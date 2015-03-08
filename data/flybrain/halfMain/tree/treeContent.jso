@@ -4542,6 +4542,11 @@
                 464.405,
                 34.2172
             ],
+            "domainColour": [
+                0,
+                255,
+                0
+            ],
             "domainId": "47",
             "domainSelected": "false"
         },
@@ -4562,7 +4567,11 @@
                 283.092,
                 84.0615
             ],
-            "domainColour": [],
+            "domainColour": [
+                255,
+                0,
+                0
+            ],
             "domainId": "42",
             "domainSelected": "false"
         },
