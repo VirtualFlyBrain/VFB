@@ -4477,6 +4477,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                70,
+                149,
+                127
+            ],
             "domainCentre": [
                 403.787,
                 233.636,
@@ -4497,6 +4503,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                0,
+                44,
+                127
+            ],
             "domainCentre": [
                 440.169,
                 180.541,
@@ -4517,6 +4529,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                141,
+                167,
+                123,
+                127
+            ],
             "domainCentre": [
                 371.999,
                 362.557,
@@ -4557,6 +4575,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                0,
+                123,
+                127
+            ],
             "domainCentre": [
                 226.17,
                 175.082,
@@ -4568,7 +4592,7 @@
         "extId": [
             "FBbt:00100337"
         ],
-        "name": "optic anterior tract",
+        "name": "anterior optic tract",
         "nodeId": "277",
         "nodeState": {
             "open": "false",
@@ -4577,6 +4601,12 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                158,
+                106,
+                185,
+                127
+            ],
             "domainCentre": [
                 423.362,
                 475.029,
@@ -4588,7 +4618,7 @@
         "extId": [
             "FBbt:00110653"
         ],
-        "name": "labro frontal nerve",
+        "name": "labro-frontal nerve",
         "nodeId": "278",
         "nodeState": {
             "open": "false",
