@@ -1238,7 +1238,7 @@ emouseatlas.emap.tiledImageView = function() {
 				text = text + ", "
 			}
 			if(indexData[indexArr[i]] !== undefined) {
-				text = text + indexData[indexArr[1]].name;
+				text = text + indexData[indexArr[i]].name;
 			}
 		}
 		if (text == ""){
