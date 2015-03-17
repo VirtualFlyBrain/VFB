@@ -1234,7 +1234,7 @@ emouseatlas.emap.tiledImageView = function() {
 		var text = "";
 		// uses all but background domain
 		for (var i=1;i<indexArr.length;i++) {
-			if (i>1){
+			if (i>1 && text!=""){
 				text = text + ", "
 			}
 			if(indexData[indexArr[i]] !== undefined) {
