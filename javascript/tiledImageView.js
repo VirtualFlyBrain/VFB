@@ -1232,12 +1232,14 @@ emouseatlas.emap.tiledImageView = function() {
 		}
 
 		var text;
-		// for now just use indexArr[1]
-		if(indexData[indexArr[1]] === undefined) {
-			//return false;
-			text = "not defined";
-		} else {
-			text = indexData[indexArr[1]].name;
+		// uses all but background domain
+		for (var i=1;i<indexArr.length;i++) {
+			if(indexData[indexArr[i]] === undefined) {
+				//return false;
+				text = "not defined";
+			} else {
+				text = indexData[indexArr[1]].name;
+			}
 		}
 
 		var viewerPos = emouseatlas.emap.utilities.findPos(targetContainer);
