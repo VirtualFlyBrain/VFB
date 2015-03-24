@@ -28,9 +28,9 @@ public class tomcatController implements Controller {
     try{
       LOG.debug("Loading info from meta file: " + getFileForId(getTemplateId()).replace("composite.wlz", "meta.json"));
       List<String> lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
-      if (lines.length > 500){
+      if (lines.size() > 500){
         List<String> data = new ArrayList<String>();
-        for (i=lines.length-500; i<lines.length; i++){
+        for (i=lines.size()-500; i<lines.size(); i++){
           data.add(lines.get(i));
         }
       lines = data;  
