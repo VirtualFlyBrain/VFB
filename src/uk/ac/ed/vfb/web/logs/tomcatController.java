@@ -29,7 +29,7 @@ public class tomcatController implements Controller {
       List<String> lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
       if (lines.size() > 500){
         List<String> data = new ArrayList<String>();
-        for (i=lines.size()-500; i<lines.size(); i++){
+        for (Integer i=lines.size()-500; i<lines.size(); i++){
           data.add(lines.get(i));
         }
       lines = data;  
