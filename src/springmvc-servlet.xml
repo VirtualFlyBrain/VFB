@@ -25,7 +25,7 @@
 	</bean>
 	
 	<!-- tomcat logfile -->
-	<bean name="/logs/tomcat.html" class="uk.ac.ed.vfb.web.logs.tomcatController" scope="request">
+	<bean name="/do/tomcat.html" class="uk.ac.ed.vfb.web.logs.tomcatController" scope="request">
 	</bean>
 
 	<!-- List of beans as result of an OWL query -->
