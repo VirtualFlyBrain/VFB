@@ -25,7 +25,7 @@ public class ontServerController implements Controller {
   private static final Log LOG = LogFactory.getLog(ontServerController.class);
   
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    ModelAndView modelAndView = new ModelAndView("logs/tomcat");
+    ModelAndView modelAndView = new ModelAndView("logs/ontServer");
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
     //String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
