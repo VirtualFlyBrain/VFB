@@ -57,6 +57,7 @@
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/Utils.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/WoolzRegisterController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/logs/tomcatController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/logs/ontServerController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/composite/model/CompositeViewBean.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/composite/web/CompositeViewController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/OWLClient.java"/>
