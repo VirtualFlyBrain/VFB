@@ -21,6 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import uk.ac.ed.vfb.annotation.web.Utils;
+
 public class ontServerController implements Controller {
   private static final Log LOG = LogFactory.getLog(ontServerController.class);
   
@@ -28,8 +30,9 @@ public class ontServerController implements Controller {
     ModelAndView modelAndView = new ModelAndView("logs/ontServer");
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
+    String site = Utils.getProp("server_name");
     //String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
-    String logfile = "logs/ontServer.log";
+    String logfile = "/disk/data/tomcat/fly/webapps/" + site + "/logs/ontServer.log";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.info("Loading ontServer log: " + logfile);
