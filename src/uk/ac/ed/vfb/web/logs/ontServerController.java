@@ -30,9 +30,8 @@ public class ontServerController implements Controller {
     ModelAndView modelAndView = new ModelAndView("logs/ontServer");
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
-    String site = Utils.getProp("server_name");
     //String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
-    String logfile = "/disk/data/tomcat/fly/webapps/" + site + "/logs/ontServer.log";
+    String logfile = "/usr/local/tomcat-6/webapps/WEBAPP_NAME/logs/ontServer.log";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.info("Loading ontServer log: " + logfile);
