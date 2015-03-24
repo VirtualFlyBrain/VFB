@@ -23,7 +23,7 @@ public class tomcatController implements Controller {
   
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("logs/tomcat");
-    String logfile = "/disk/data/tomcat/fly/webapps/vfb/logs/tomcat.log";
+    String logfile = "/disk/data/tomcat/fly/logs/catalina.out";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.debug("Loading tomcat log: " + logfile);
