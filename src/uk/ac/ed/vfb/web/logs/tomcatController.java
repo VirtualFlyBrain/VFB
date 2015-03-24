@@ -10,6 +10,9 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import java.nio.charset.StandardCharsets;
 import java.io.IOException;
@@ -23,7 +26,9 @@ public class tomcatController implements Controller {
   
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("logs/tomcat");
-    String logfile = "/disk/data/tomcat/fly/logs/catalina.out";
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date date = new Date();
+    String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.debug("Loading tomcat log: " + logfile);
