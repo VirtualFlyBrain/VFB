@@ -26,9 +26,10 @@ public class tomcatController implements Controller {
   
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("logs/tomcat");
-    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    Date date = new Date();
-    String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
+    //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    //Date date = new Date();
+    //String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
+    String logfile = "/tmp/tomcat.log";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.debug("Loading tomcat log: " + logfile);
