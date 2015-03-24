@@ -27,6 +27,10 @@
 	<!-- tomcat logfile -->
 	<bean name="/do/tomcat.html" class="uk.ac.ed.vfb.web.logs.tomcatController" scope="request">
 	</bean>
+	
+	<!-- tomcat logfile -->
+	<bean name="/do/ontServer.html" class="uk.ac.ed.vfb.web.logs.ontServerController" scope="request">
+	</bean>
 
 	<!-- List of beans as result of an OWL query -->
 	<bean name="/do/ont_bean_list.html" class="uk.ac.ed.vfb.web.OntBeanListController"
