@@ -16,30 +16,32 @@
 <hr />
 </head>
 <body>
+<c:set var="col" value="blue" scope="page" />
 <c:forEach items="${log}" var="curr" varStatus="status">
 <c:if test="${fn:contains(curr, today)}">
-<font color="blue"><br />
+<c:set var="col" value="blue" scope="page" />
+	<br />
 </c:if>
 <c:if test="${fn:contains(curr, ' PM ')}">
-<font color="blue"><br />
+<c:set var="col" value="blue" scope="page" />
+<br />
 </c:if>
 <c:if test="${fn:contains(curr, 'INFO:')}">
-<font color="green">
-</c:if>
-<c:if test="${fn:contains(curr, 'ERROR:')}">
-<font color="red">
-</c:if>
-<c:if test="${fn:contains(curr, 'SEVERE:')}">
-<font color="red">
-</c:if>
-<c:if test="${fn:contains(curr, 'WARNING:')}">
-<font color="orange">
+<c:set var="col" value="green" scope="page" />
 </c:if>
 <c:if test="${fn:contains(curr, 'DEBUG:')}">
-<font color="yellow">
+<c:set var="col" value="yellow" scope="page" />
 </c:if>
-${curr}<br />
-
+<c:if test="${fn:contains(curr, 'WARNING:')}">
+<c:set var="col" value="orange" scope="page" />
+</c:if>
+<c:if test="${fn:contains(curr, 'ERROR:')}">
+<c:set var="col" value="red" scope="page" />
+</c:if>
+<c:if test="${fn:contains(curr, 'SEVERE:')}">
+<c:set var="col" value="red" scope="page" />
+</c:if>
+<font color="${col}">${curr}<br /></font>
 </c:forEach>
 </body>
 </html>
