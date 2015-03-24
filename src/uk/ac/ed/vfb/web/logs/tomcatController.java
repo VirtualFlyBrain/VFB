@@ -30,7 +30,7 @@ public class Viewer2dController implements Controller {
       List<String> lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
       if (lines.length > 500){
         List<String> data = new ArrayList<String>();
-        for (i=lines.length-500; i<lines.length; i++;){
+        for (i=lines.length-500; i<lines.length; i++){
           data.add(lines.get(i));
         }
       lines = data;  
