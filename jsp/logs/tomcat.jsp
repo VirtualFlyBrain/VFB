@@ -26,19 +26,19 @@
 <c:set var="col" value="blue" scope="page" />
 <br />
 </c:if>
-<c:if test="${fn:contains(curr, 'INFO:')}">
+<c:if test="${fn:contains(curr, 'INFO')}">
 <c:set var="col" value="green" scope="page" />
 </c:if>
-<c:if test="${fn:contains(curr, 'DEBUG:')}">
+<c:if test="${fn:contains(curr, 'DEBUG')}">
 <c:set var="col" value="yellow" scope="page" />
 </c:if>
-<c:if test="${fn:contains(curr, 'WARNING:')}">
+<c:if test="${fn:contains(curr, 'WARNING')}">
 <c:set var="col" value="orange" scope="page" />
 </c:if>
-<c:if test="${fn:contains(curr, 'ERROR:')}">
+<c:if test="${fn:contains(curr, 'ERROR')}">
 <c:set var="col" value="red" scope="page" />
 </c:if>
-<c:if test="${fn:contains(curr, 'SEVERE:')}">
+<c:if test="${fn:contains(curr, 'SEVERE')}">
 <c:set var="col" value="red" scope="page" />
 </c:if>
 <font color="${col}">${curr}<br /></font>
