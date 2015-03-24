@@ -18,7 +18,7 @@
 <body>
 <c:forEach items="${log}" var="curr" varStatus="status">
 <c:if test="${fn:contains(curr, ' PM ')}">
-<br />
+<font color="blue"><br />
 </c:if>
 <c:if test="${fn:contains(curr, 'INFO:')}">
 <font color="green">
