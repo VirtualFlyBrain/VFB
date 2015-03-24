@@ -30,7 +30,7 @@
 <c:set var="col" value="green" scope="page" />
 </c:if>
 <c:if test="${fn:contains(curr, 'DEBUG')}">
-<c:set var="col" value="yellow" scope="page" />
+<c:set var="col" value="darkgoldenrod" scope="page" />
 </c:if>
 <c:if test="${fn:contains(curr, 'WARNING')}">
 <c:set var="col" value="orange" scope="page" />
