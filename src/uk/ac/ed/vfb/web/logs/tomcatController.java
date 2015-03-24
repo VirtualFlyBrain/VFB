@@ -24,9 +24,10 @@ public class tomcatController implements Controller {
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("logs/tomcat");
     String logfile = "/disk/data/tomcat/fly/webapps/vfb/logs/tomcat.log";
+    List<String> lines = new ArrayList<String>();
     try{
       LOG.debug("Loading tomcat log: " + logfile);
-      List<String> lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
+      lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
       if (lines.size() > 500){
         List<String> data = new ArrayList<String>();
         for (Integer i=lines.size()-500; i<lines.size(); i++){
