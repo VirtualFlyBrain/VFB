@@ -25,7 +25,7 @@ public class tomcatController implements Controller {
     ModelAndView modelAndView = new ModelAndView("logs/tomcat");
     String logfile = "/disk/data/tomcat/fly/webapps/vfb/logs/tomcat.log";
     try{
-      LOG.debug("Loading info from meta file: " + getFileForId(getTemplateId()).replace("composite.wlz", "meta.json"));
+      LOG.debug("Loading tomcat log: " + logfile);
       List<String> lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
       if (lines.size() > 500){
         List<String> data = new ArrayList<String>();
