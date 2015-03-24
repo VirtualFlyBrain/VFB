@@ -32,7 +32,7 @@ public class tomcatController implements Controller {
     String logfile = "/tmp/tomcat.log";
     List<String> lines = new ArrayList<String>();
     try{
-      LOG.debug("Loading tomcat log: " + logfile);
+      LOG.info("Loading tomcat log: " + logfile);
       lines = Files.readAllLines(Paths.get(logfile), StandardCharsets.UTF_8);
       if (lines.size() > 500){
         List<String> data = new ArrayList<String>();
