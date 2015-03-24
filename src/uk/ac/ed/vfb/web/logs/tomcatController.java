@@ -1,4 +1,4 @@
-package uk.ac.ed.vfb.web;
+package uk.ac.ed.vfb.web.logs;
 
 import java.util.*;
 
