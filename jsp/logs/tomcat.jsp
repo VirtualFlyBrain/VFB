@@ -17,6 +17,9 @@
 </head>
 <body>
 <c:forEach items="${log}" var="curr" varStatus="status">
+<c:if test="${fn:contains(curr, today)}">
+<font color="blue"><br />
+</c:if>
 <c:if test="${fn:contains(curr, ' PM ')}">
 <font color="blue"><br />
 </c:if>
