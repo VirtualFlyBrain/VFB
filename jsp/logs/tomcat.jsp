@@ -17,7 +17,26 @@
 </head>
 <body>
 <c:forEach items="${log}" var="curr" varStatus="status">
+<c:if test="${fn:contains(curr, ' PM ')}">
+<br />
+</c:if>
+<c:if test="${fn:contains(curr, 'INFO:')}">
+<font color="green">
+</c:if>
+<c:if test="${fn:contains(curr, 'ERROR:')}">
+<font color="red">
+</c:if>
+<c:if test="${fn:contains(curr, 'SEVERE:')}">
+<font color="red">
+</c:if>
+<c:if test="${fn:contains(curr, 'WARNING:')}">
+<font color="orange">
+</c:if>
+<c:if test="${fn:contains(curr, 'DEBUG:')}">
+<font color="yellow">
+</c:if>
 ${curr}<br />
+
 </c:forEach>
 </body>
 </html>
