@@ -256,6 +256,9 @@ public class PubBean {
 			if (id.contains("FBbt:")){
 				return id;
 			}
+			if (id.contains("doi:")){
+				return id;
+			}
 			if (id.contains("VFB_vol:")){
 				return "VFB volume [FBbt:" + id.replace("VFB_vol:","") + "]";
 			}
