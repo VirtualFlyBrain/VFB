@@ -31,7 +31,7 @@ public class ontServerController implements Controller {
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date date = new Date();
     //String logfile = "/disk/data/tomcat/fly/logs/catalina." + dateFormat.format(date) + ".log";
-    String logfile = "/usr/local/tomcat-6/webapps/WEBAPP_NAME/logs/ontServer.log";
+    String logfile = "/usr/local/tomcat-6/webapps/WEBAPP_NAME/logs/ontServer_cliped.log";
     List<String> lines = new ArrayList<String>();
     try{
       LOG.info("Loading ontServer log: " + logfile);
