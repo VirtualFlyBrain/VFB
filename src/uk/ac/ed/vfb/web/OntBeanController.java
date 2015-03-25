@@ -89,7 +89,7 @@ public class OntBeanController implements Controller {
 	}
 
 	public String resolveRefs(String def, OntBean ob, List<PubBean> pbList){
-		if (def != null && def.contains("(") && !def.contains("<")){
+		if (def != null && (def.contains("(") || def.contains("doi:")) && !def.contains("<")){
 			//LOG.debug("Starting with definition: " + def);
 			while (def.contains("[FLP]")){
 				def = def.replace("[FLP]","<sup>FLP</sup>");
