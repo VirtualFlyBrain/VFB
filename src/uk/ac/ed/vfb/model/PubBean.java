@@ -159,6 +159,9 @@ public class PubBean {
 		if (id.contains("FBbt:")){
 			return "/site/tools/anatomy_finder/index.htm?id=" + id;
 		}
+		if (id.contains("doi:")){
+			return id.replace("doi:", "http://dx.doi.org/");
+		}
 		//handling FBxx other types
 		for (String key:rep.keySet()){
 			if (id.contains(key)){
@@ -206,6 +209,10 @@ public class PubBean {
 		}
 		if (id.contains("FBbt:")){
 			result = id.replace("FBbt:","Anatomy Term [FBbt:") + "]";
+			return result;
+		}
+		if (id.contains("doi:")){
+			result = id.replace("doi:","Digital Object Identifier [doi:") + "]";
 			return result;
 		}
 		//handling FBxx other types
