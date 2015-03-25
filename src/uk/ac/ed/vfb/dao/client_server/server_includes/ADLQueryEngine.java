@@ -124,7 +124,6 @@ public abstract class ADLQueryEngine {
 	}
     
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
-		LOG.debug("RESULTS FOR QUERY '" + name + "' : SAhort formProvider: " + shortFormProvider + "\n");
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
 				LOG.debug("Entity : " + entity + "\n");
