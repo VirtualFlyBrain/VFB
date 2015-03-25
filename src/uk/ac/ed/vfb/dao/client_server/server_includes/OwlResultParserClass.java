@@ -60,9 +60,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//xrefs
 			List<String> axioms = ogw.getDefXref(result);
 			LOG.debug("=========== xrefs ==============" + axioms.size());
-			//for (String axiom:axioms){
+			for (String axiom:axioms){
 				LOG.debug(axiom.toString() + "\n");
-			//}
+			}
 
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
@@ -173,7 +173,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			e.printStackTrace();
 		}
 		//Set<OWLSubClassOfAxiom> axioms1 = this.ontology.getSubClassAxiomsForSuperClass((OWLClass)result);
-		LOG.debug(axioms);
+		LOG.debug(ob);
 		return ob;
 	}
 
