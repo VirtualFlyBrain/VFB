@@ -45,11 +45,11 @@ public abstract class ADLQueryEngine {
 	}
 
 	public ADLQueryEngine(String ontologyURL) {
-		//LOG.debug("Loading ontology for: " + this.getClass() + "...");
+		LOG.debug("Loading ontology for: " + this.getClass() + "...");
 		try {
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
-			//LOG.debug("Ontology: " + ontologyURL);
+			LOG.debug("Ontology: " + ontologyURL);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -71,7 +71,7 @@ public abstract class ADLQueryEngine {
 		OntBean currBean;
 		while (it.hasNext()){
 			currId = it.next();
-			//LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
+			LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
 			// Skip if it's nothing
 			if (currId.toString().equals("owl:Nothing")) {continue;}
 			currBean = this.orp.getOntBeanForEntity(currId);
@@ -89,14 +89,14 @@ public abstract class ADLQueryEngine {
 	 * @return
 	 */
 	protected OntBean getOntBeanForId(String entityid) {
-		//LOG.debug("Cache " + this.ontBeans);
+		LOG.debug("Cache " + this.ontBeans);
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
-		//LOG.debug("bean = " + result);
+		LOG.debug("bean = " + result);
 		if (result == null) {
-			//LOG.debug("Creating new bean");
+			LOG.debug("Creating new bean");
 			result = orp.getOntBeanForId(entityid);
 			this.ontBeans.put(result.getFbbtId(), result);
-			//LOG.debug("new bean:  " + result);
+			LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
@@ -124,10 +124,10 @@ public abstract class ADLQueryEngine {
 	}
     
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
-		//LOG.debug("RESULTS FOR QUERY '" + name + "' : SAhort formProvider: " + shortFormProvider + "\n");
+		LOG.debug("RESULTS FOR QUERY '" + name + "' : SAhort formProvider: " + shortFormProvider + "\n");
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
-				//LOG.debug("Entity : " + entity + "\n");
+				LOG.debug("Entity : " + entity + "\n");
 				idSet.add(entity);
 			}
 		}
