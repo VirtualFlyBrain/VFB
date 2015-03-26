@@ -144,6 +144,9 @@ public class PubBean {
 			}
 			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
 		}
+		if (id.contains("CARO:MAH")){
+			return "http://www.pubfacts.com/author/" + miniref.replace("Common Anatomy Reference Ontology: ","").replace(" ","+");
+		}
 		if (id.contains("ISBN:")){
 			return "https://www.google.com/search?q=" + id.replace("-","");
 		}
@@ -181,6 +184,11 @@ public class PubBean {
 				result = result.replace("Curator","Consultant");
 				result = "FlyBase"; // TBR: once the Consultants are approved.
 			}
+			return result;
+		}
+		if (id.contains("CARO:")){
+			result = id.replace("CARO:", "Common Anatomy Reference Ontology: ");
+			result = result.replace("MAH", "Melissa Haendel");
 			return result;
 		}
 		if (id.contains("FlyBrain_NDB:")){
@@ -257,6 +265,9 @@ public class PubBean {
 				return id;
 			}
 			if (id.contains("doi:")){
+				return id;
+			}
+			if (id.contains("CARO:")){
 				return id;
 			}
 			if (id.contains("VFB_vol:")){
