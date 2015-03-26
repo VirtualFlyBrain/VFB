@@ -188,7 +188,7 @@ public class PubBean {
 		}
 		if (id.contains("CARO:")){
 			result = id.replace("CARO:", "Common Anatomy Reference Ontology: ");
-			result = result.replace("MAH", "Melissa Haendal");
+			result = result.replace("MAH", "Melissa Haendel");
 			return result;
 		}
 		if (id.contains("FlyBrain_NDB:")){
