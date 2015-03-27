@@ -7,6 +7,9 @@ import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.util.Collections;
 import java.util.Set;
 
@@ -23,6 +26,8 @@ public class DLQueryEngine {
     private OWLReasoner reasoner;
 
     private DLQueryParser parser;
+
+    protected static final Log LOG = LogFactory.getLog(DLQueryEngine.class);
 
     /**
      * Constructs a DLQueryEngine.  This will answer "DL queries" using the specified reasoner.  A short form provider
@@ -49,9 +54,17 @@ public class DLQueryEngine {
         }
         OWLClassExpression classExpression = parser.parseClassExpression(classExpressionString);
         NodeSet<OWLClass> superClasses = reasoner.getSuperClasses(classExpression, direct);
-        return superClasses.getFlattened();
+        try{
+          return superClasses.getFlattened();
+        }catch  (Exception ex) {
+          LOG.error("Error geting super classes for expression " + classExpressionString);
+    			ex.printStackTrace();
+          LOG.error("Returning emptyset");
+          return Collections.emptySet();
+    		}
+
     }
-    
+
     /**
      * Gets the equivalent classes of a class expression parsed from a string.
      * @param classExpressionString The string from which the class expression will be parsed.
