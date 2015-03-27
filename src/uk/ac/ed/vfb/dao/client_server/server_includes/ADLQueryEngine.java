@@ -52,10 +52,11 @@ public abstract class ADLQueryEngine {
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
 		}
 		catch (Exception ex) {
+			LOG.error("Error loading ontology:" + ontologyURL);
 			ex.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Queries given ontology against the specified query
 	 * @param oqq
