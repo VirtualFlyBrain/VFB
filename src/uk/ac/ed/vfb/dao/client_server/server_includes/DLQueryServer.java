@@ -51,7 +51,7 @@ public class DLQueryServer {
 				engineBrain = new DLQueryEngineBrain(url1);
 				LOG.debug("Creating Brain Ind reasoner....");
 	    	engineIndividual = new DLQUeryEngineBrainInd(url2);
-			}catch  (Exception ex) {
+			}catch (Exception ex) {
 				LOG.error("Error creating resoners");
 				LOG.error("Creating Brain Class reasoner for:" + url1);
 				LOG.error("Creating Brain Ind reasoner for:" + url2);
