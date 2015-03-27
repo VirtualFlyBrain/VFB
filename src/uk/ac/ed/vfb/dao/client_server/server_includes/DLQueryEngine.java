@@ -49,9 +49,17 @@ public class DLQueryEngine {
         }
         OWLClassExpression classExpression = parser.parseClassExpression(classExpressionString);
         NodeSet<OWLClass> superClasses = reasoner.getSuperClasses(classExpression, direct);
-        return superClasses.getFlattened();
+        try{
+          return superClasses.getFlattened();
+        }catch  (Exception ex) {
+          LOG.error("Error geting super classes for expression " + classExpressionString);
+    			ex.printStackTrace();
+          LOG.error("Returning emptyset");
+          return Collections.emptySet(); 
+    		}
+
     }
-    
+
     /**
      * Gets the equivalent classes of a class expression parsed from a string.
      * @param classExpressionString The string from which the class expression will be parsed.
