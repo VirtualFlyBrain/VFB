@@ -35,11 +35,11 @@ public abstract class ADLQueryEngine {
 	protected ManchesterSyntaxTool parser;
 	protected OWLOntology ontology;
 	protected AOwlResultParser orp;
-	protected static final Log LOG = LogFactory.getLog(ADLQueryEngine.class); 
+	protected static final Log LOG = LogFactory.getLog(ADLQueryEngine.class);
 	/** beans cache */
 	private static HashMap<String, OntBean> ontBeans = new HashMap<String, OntBean>();
 
-	
+
 	public ADLQueryEngine() {
 		super();
 	}
@@ -47,9 +47,9 @@ public abstract class ADLQueryEngine {
 	public ADLQueryEngine(String ontologyURL) {
 		LOG.debug("Loading ontology for: " + this.getClass() + "...");
 		try {
+			LOG.debug("Ontology: " + ontologyURL);
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
-			LOG.debug("Ontology: " + ontologyURL);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -59,11 +59,11 @@ public abstract class ADLQueryEngine {
 	/**
 	 * Queries given ontology against the specified query
 	 * @param oqq
-	 * @return 
-	 * String - "\n"-separated list of ids for found anatomy terms  
+	 * @return
+	 * String - "\n"-separated list of ids for found anatomy terms
 	 */
 	public abstract Set<OntBean> askQuery(OntQueryQueue oqq);
-	
+
 	protected TreeSet<OntBean> getOntBeans(Set<OWLEntity> entities){
 		TreeSet<OntBean> resultSet = new TreeSet<OntBean>();
 		Iterator<OWLEntity> it = entities.iterator();
@@ -82,9 +82,9 @@ public abstract class ADLQueryEngine {
 		//setThirdPartyBeans(resultSet);
 		return resultSet;
 	}
-	
+
 	/** Convenience method - retrieves OntBean for known id
-	 * 
+	 *
 	 * @param entityid
 	 * @return
 	 */
@@ -100,7 +100,7 @@ public abstract class ADLQueryEngine {
 		}
 		return result;
 	}
-	
+
 	/** Stores all found beans in the hash for future use */
 	protected void addBeansToHash(Set<OntBean> beans){
 		if (beans == null || beans.size() < 1)return;
@@ -122,7 +122,7 @@ public abstract class ADLQueryEngine {
 		OWLClassExpression classExpression = parser.parseManchesterExpression(classExpressionString);
 		return classExpression;
 	}
-    
+
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
@@ -134,9 +134,9 @@ public abstract class ADLQueryEngine {
 			// Add nothing
 		}
 	}
-	
+
 	public OWLOntology getOntology(){
 		return this.ontology;
 	}
-	
+
 }
