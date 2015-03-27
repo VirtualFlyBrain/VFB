@@ -82,13 +82,16 @@ then
             echo $branch > branch
             cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
             head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
+	    head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
             echo "which are:"
             cat branch
             cat revision
             echo "Flybase version:"
             cat flybase
-            echo "OWL date:"
+            echo "OWL Ont Ver:"
             cat owldate
+            echo "OWL Ind Ver:"
+            cat owlIndRev
             if [ `git diff --name-only $current | grep "deploy/attributes\|deploy/config" | wc -l` -gt 0 ]
             then
                 echo "updating git filters"
