@@ -44,16 +44,19 @@ public class DLQueryServer {
     public DLQueryServer() {
     	ResourceBundle bundle = ResourceBundle.getBundle("resources");
     	// change "/classes" to "/build" to run locally (in eclipse)
-		String url1 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] +
-        	bundle.getString("resource_path") + bundle.getString("ont_file_owl");
-		String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] +
-	        	bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");//ont_file_owl");
-		LOG.debug("Creating Brain Class reasoner....");
-		engineBrain = new DLQueryEngineBrain(url1);
-		LOG.debug("Creating Brain Ind reasoner....");
-        engineIndividual = new DLQUeryEngineBrainInd(url2);
-//		LOG.debug("Creating JF reasoner....");
-//        engineClass = null; //new DLQueryEngineJF(url1, tpbm);
+			String url1 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + bundle.getString("resource_path") + bundle.getString("ont_file_owl");
+			String url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");//ont_file_owl");
+			try{
+				LOG.debug("Creating Brain Class reasoner....");
+				engineBrain = new DLQueryEngineBrain(url1);
+				LOG.debug("Creating Brain Ind reasoner....");
+	    	engineIndividual = new DLQUeryEngineBrainInd(url2);
+			}catch  (Exception ex) {
+				LOG.error("Error creating resoners");
+				LOG.error("Creating Brain Class reasoner for:" + url1);
+				LOG.error("Creating Brain Ind reasoner for:" + url2);
+				ex.printStackTrace();
+			}
     }
 
 	/**
