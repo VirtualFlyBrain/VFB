@@ -26,6 +26,10 @@
 <c:set var="col" value="blue" scope="page" />
 <br />
 </c:if>
+<c:if test="${fn:contains(curr, ' AM ')}">
+<c:set var="col" value="blue" scope="page" />
+<br />
+</c:if>
 <c:if test="${fn:contains(curr, 'INFO')}">
 <c:set var="col" value="green" scope="page" />
 </c:if>
