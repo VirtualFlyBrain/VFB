@@ -151,7 +151,7 @@ then
                 echo "updating fbbt_vfb_ind_pr_nr.owl symlink..."
                 nice ln -sf ../resources/fbbt_vfb_ind_pr_nr.owl owl/fbbt_vfb_ind_pr_nr.owl
             fi
-            if [ `git diff --name-only $current | grep "\.owl\|deploy/start" | wc -l` -gt 0 ]
+            if [ `git diff --name-only $current | grep "\.owl\|\.owl\.gz\.part\-aa\|deploy/start" | wc -l` -gt 0 ]
             then
                 echo "Redeploying ontology server..."
                 nice deploy/start-${branch}-Ont-Server.sh
