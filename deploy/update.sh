@@ -72,7 +72,7 @@ then
         then
             nice deploy/update.sh
         else
-            if [ `git diff --name-only $current | grep "\.gz" | wc -l` -gt 0 ]
+            if [ `git diff --name-only $current | grep "\.gz\|\.gz\.part\-aa" | wc -l` -gt 0 ]
             then
                 nice deploy/decompress.sh
             fi
