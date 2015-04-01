@@ -96,8 +96,8 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public Hashtable<String, String[]> getRelationships() {
-		LOG.debug("Id:" + fbbtId);
-		LOG.debug("Relationships:" + relationships);
+		//LOG.debug("Id:" + fbbtId);
+		//LOG.debug("Relationships:" + relationships);
 		return relationships;
 	}
 
