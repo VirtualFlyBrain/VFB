@@ -27,16 +27,16 @@ import uk.ac.ed.vfb.web.exception.SessionExpiredException;
 
 public class Server {
 	private static DLQueryServer dlQueryServer = null;
-	protected static String host; 
-	protected static int port; 
+	protected static String host;
+	protected static int port;
 	public static String BIND_NAME = "OntServer";
 	private ServerSocket serverSocket = null;
 	private static final Log LOG = LogFactory.getLog(Server.class);
-	
+
 	static {
-		ResourceBundle bundle = ResourceBundle.getBundle("resources"); 
+		ResourceBundle bundle = ResourceBundle.getBundle("resources");
 		Server.port = Integer.valueOf(bundle.getString("ont_port"));
-		Server.host = bundle.getString("ont_host");	
+		Server.host = bundle.getString("ont_host");
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class Server {
 //				}
 				//LOG.debug("Got a connection");
 			}
-		} 
+		}
 		catch (IOException ex) {
 			// Access from wrong location or otherwise problem with connection
 			ex.printStackTrace();
@@ -77,7 +77,7 @@ public class Server {
 	private void init() {
 		// To run it from Eclipse
 		//Resource res = new FileSystemResource("build/classes/beans.xml");
-		// To run it from command-line 
+		// To run it from command-line
 		Resource res = new FileSystemResource("beans.xml");
 		dlQueryServer = new DLQueryServer();
 		//serverSocket = new ServerSocket(SocketClient.serverPort, 0);
@@ -102,11 +102,11 @@ public class Server {
 		Socket clientSocket = null;
 		private ObjectOutputStream out = null;
 		private ObjectInputStream in = null;
-		private String query; 
-		Set<OntBean> results; 
+		private String query;
+		Set<OntBean> results;
 		/**
 		 * constructor
-		 * @throws IOException 
+		 * @throws IOException
 		 */
 		public ClientHandler(ServerSocket serverSocket) throws IOException {
 			this.clientSocket = serverSocket.accept();
