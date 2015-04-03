@@ -11,7 +11,7 @@ import uk.ac.ed.vfb.model.OntBean;
 
 
 public class DLQUeryEngineBrainInd extends ADLQueryEngine {
-	
+
 	protected static int numThreads = 0;
 	protected Brain brain;  // Changed this from static - makes no sense for this to be bound to class!
 	protected static boolean isFree = true;
@@ -24,18 +24,18 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 			//LOG.debug("BRAIN': " + brain + " this " + this);
 			this.brain.learn(ontologyURL);
 			this.orp = new OwlResultParserIndividual(this.ontology); // over-ride parent
-		} 
+		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 		//LOG.debug("Ontology: " + this.ontology);
 	}
-	
+
 	public synchronized Set<OntBean> askQuery(OntQueryQueue oqq) {
 		Set<OntBean> results = new TreeSet<OntBean>();
 		List<String> queries = oqq.getQueries();
 		for (String currExpr: queries){
-			//LOG.debug("currExpr: " + currExpr);		
+			//LOG.debug("currExpr: " + currExpr);
 			List<String> Instances = null;
 			try {
 				Instances = this.brain.getInstances(currExpr, false);
@@ -50,7 +50,7 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 				} catch (Exception e) {
 					e.printStackTrace();
 					//LOG.debug("Instance: " + Instance + " results : " + results.size());
-				}	
+				}
 			}
 		}
 		//setThirdPartyBeans(results);

@@ -127,10 +127,12 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			//classification
 			OWLIndividual indiv = (OWLIndividual)result;
 			Set<OWLClassExpression> types = indiv.getTypes(this.ontology);
+			Integer relI = 0;
 			String currRel = "";
 			String relName = "";
 			OWLAnnotationProperty nameProperty = ogw.getAnnotationProperty("name");
 			for (OWLClassExpression classExp: types){
+				relI++;
 				if (classExp.isAnonymous()) {
 					//Anonymous class = relationship on individual
 					//LOG.debug("=========== rel props ==============" + ob.getRelationships());
@@ -148,8 +150,8 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 					}
 					//currRel = currRel + " " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, nameProperty);
 					//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty)};
-					ob.getRelationships().put(ogw.getIdentifier(targetClass), vals);
+					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty), ogw.getIdentifier(targetClass)};
+					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 					//LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
 				}
 				else {

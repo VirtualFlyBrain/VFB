@@ -2392,6 +2392,12 @@
         }
     },
     {
+        "domainColour": [
+                100,
+                100,
+                255,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2406,6 +2412,12 @@
         }
     },
     {
+        "domainColour": [
+                100,
+                255,
+                0,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2420,6 +2432,12 @@
         }
     },
     {
+        "domainColour": [
+                100,
+                255,
+                100,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2434,6 +2452,12 @@
         }
     },
     {
+        "domainColour": [
+                0,
+                100,
+                155,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2448,6 +2472,12 @@
         }
     },
     {
+        "domainColour": [
+                100,
+                0,
+                255,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2462,6 +2492,12 @@
         }
     },
     {
+        "domainColour": [
+                100,
+                100,
+                255,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2476,6 +2512,12 @@
         }
     },
     {
+        "domainColour": [
+                255,
+                100,
+                100,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2490,6 +2532,12 @@
         }
     },
     {
+        "domainColour": [
+                0,
+                255,
+                255,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2504,6 +2552,12 @@
         }
     },
     {
+        "domainColour": [
+                255,
+                255,
+                0,
+                127
+            ],
         "domainData": {
             "domainSelected": "false"
         },
@@ -2518,17 +2572,17 @@
         }
     },
     {
+        "domainColour": [
+                255,
+                0,
+                255,
+                127
+            ],
         "domainData": {
             "domainCentre": [
                 305.177,
                 95.9576,
                 96.5922
-            ],
-            "domainColour": [
-                0,
-                255,
-                26,
-                123
             ],
             "domainId": "20",
             "domainSelected": "false"
@@ -2537,7 +2591,7 @@
             "FBbt:00045007"
         ],
         "name": "mushroom body accessory calyx",
-        "nodeId": "170",
+        "nodeId": "276",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4423,16 +4477,16 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                70,
+                149,
+                127
+            ],
             "domainCentre": [
                 403.787,
                 233.636,
                 72.8754
-            ],
-            "domainColour": [
-                0,
-                202,
-                220,
-                106
             ],
             "domainId": "43",
             "domainSelected": "false"
@@ -4449,16 +4503,16 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                0,
+                44,
+                127
+            ],
             "domainCentre": [
                 440.169,
                 180.541,
                 72.6541
-            ],
-            "domainColour": [
-                0,
-                176,
-                79,
-                220
             ],
             "domainId": "40",
             "domainSelected": "false"
@@ -4475,16 +4529,16 @@
     },
     {
         "domainData": {
-            "domainCentre": [
-                371.999,
-                362.557,
-                6.58298
-            ],
             "domainColour": [
-                0,
-                79,
-                9,
-                18
+                141,
+                167,
+                123,
+                127
+            ],
+            "domainCentre": [
+                369,
+                454,
+                33
             ],
             "domainId": "46",
             "domainSelected": "false"
@@ -4502,23 +4556,17 @@
     {
         "domainData": {
             "domainCentre": [
-                226.17,
-                175.082,
-                62.8267
+                305.177,
+                95.9576,
+                96.5922
             ],
-            "domainColour": [
-                0,
-                123,
-                176,
-                211
-            ],
-            "domainId": "41",
+            "domainId": "20",
             "domainSelected": "false"
         },
         "extId": [
-            "FBbt:00100337"
+            "FBbt:00045007"
         ],
-        "name": "optic anterior tract",
+        "name": "mushroom body accessory calyx",
         "nodeId": "276",
         "nodeState": {
             "open": "false",
@@ -4527,16 +4575,42 @@
     },
     {
         "domainData": {
+            "domainColour": [
+                0,
+                0,
+                123,
+                127
+            ],
+            "domainCentre": [
+                226.17,
+                175.082,
+                62.8267
+            ],
+            "domainId": "41",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100337"
+        ],
+        "name": "anterior optic tract",
+        "nodeId": "277",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainColour": [
+                158,
+                106,
+                185,
+                127
+            ],
             "domainCentre": [
                 423.362,
                 475.029,
                 107.587
-            ],
-            "domainColour": [
-                0,
-                141,
-                53,
-                246
             ],
             "domainId": "44",
             "domainSelected": "false"
@@ -4544,8 +4618,8 @@
         "extId": [
             "FBbt:00110653"
         ],
-        "name": "labro frontal nerve",
-        "nodeId": "277",
+        "name": "labro-frontal nerve",
+        "nodeId": "278",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4560,9 +4634,8 @@
             ],
             "domainColour": [
                 0,
-                88,
-                0,
-                167
+                255,
+                0
             ],
             "domainId": "47",
             "domainSelected": "false"
@@ -4571,7 +4644,7 @@
             "FBbt:00004020"
         ],
         "name": "giant fiber neuron",
-        "nodeId": "278",
+        "nodeId": "279",
         "nodeState": {
             "open": "false",
             "selected": "false"
@@ -4585,21 +4658,718 @@
                 84.0615
             ],
             "domainColour": [
+                255,
                 0,
-                237,
-                141,
-                255
+                0
             ],
             "domainId": "42",
+            "domainSelected": "false"
+        },
+        "extId": [],
+        "name": "posterior optic commissure",
+        "nodeId": "280",
+        "nodeState": {
+            "open": "false",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                393.166,
+                361.756,
+                34.4937
+            ],
+            "domainColour": [
+                132,
+                132,
+                255
+            ],
+            "domainId": "328",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007354"
+        ],
+        "name": "antenno-subesophageal tract",
+        "nodeId": "281",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                421.428,
+                413.945,
+                69.0701
+            ],
+            "domainColour": [
+                79,
+                35,
+                0
+            ],
+            "domainId": "321",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100346"
+        ],
+        "name": "anterior cerebro-cervical fascicle",
+        "nodeId": "282",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                433.627,
+                33.5619,
+                55.1881
+            ],
+            "domainColour": [
+                211,
+                167,
+                167
+            ],
+            "domainId": "343",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007072"
+        ],
+        "name": "anterior dorsal commissure",
+        "nodeId": "283",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                283.902,
+                125.615,
+                56.3609
+            ],
+            "domainColour": [
+                0,
+                132,
+                149
+            ],
+            "domainId": "307",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100339"
+        ],
+        "name": "anterior superior lateral protocerebrum fascicle",
+        "nodeId": "284",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                269.072,
+                198.667,
+                62.0887
+            ],
+            "domainColour": [
+                114,
+                246,
+                255
+            ],
+            "domainId": "325",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100340"
+        ],
+        "name": "horizontal ventrolateral protocerebral fascicle",
+        "nodeId": "285",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                284.868,
+                200.127,
+                41.7269
+            ],
+            "domainColour": [
+                158,
+                193,
+                255
+            ],
+            "domainId": "336",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100340"
+        ],
+        "name": "horizontal ventrolateral protocerebral fascicle",
+        "nodeId": "286",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                450.124,
+                220.145,
+                42.8145
+            ],
+            "domainColour": [
+                106,
+                0,
+                193
+            ],
+            "domainId": "322",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100352"
+        ],
+        "name": "inferior antennal lobe commissure",
+        "nodeId": "287",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                359.651,
+                271.97,
+                57.0568
+            ],
+            "domainColour": [
+                0,
+                255,
+                193
+            ],
+            "domainId": "312",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100350"
+        ],
+        "name": "inferior fiber system",
+        "nodeId": "288",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                440.324,
+                205.555,
+                44.356
+            ],
+            "domainColour": [
+                44,
+                97,
+                70
+            ],
+            "domainId": "318",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007074"
+        ],
+        "name": "lateral accessory lobe commissure",
+        "nodeId": "289",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                289.788,
+                206.89,
+                57.4928
+            ],
+            "domainColour": [
+                0,
+                88,
+                0
+            ],
+            "domainId": "306",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003983"
+        ],
+        "name": "lateral antennal lobe tract",
+        "nodeId": "290",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                368.889,
+                402.347,
+                67.3408
+            ],
+            "domainColour": [
+                132,
+                114,
+                0
+            ],
+            "domainId": "327",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100347"
+        ],
+        "name": "lateral cerebro-cervical fascicle",
+        "nodeId": "291",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                323.488,
+                208.13,
+                86.682
+            ],
+            "domainColour": [
+                18,
+                167,
+                97
+            ],
+            "domainId": "315",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100343"
+        ],
+        "name": "lateral equatorial fascicle",
+        "nodeId": "292",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                433.916,
+                415.889,
+                96.5987
+            ],
+            "domainColour": [
+                70,
+                255,
+                123
+            ],
+            "domainId": "320",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100345"
+        ],
+        "name": "medial cerebro-cervical fascicle",
+        "nodeId": "293",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                374.576,
+                198.076,
+                89.1618
+            ],
+            "domainColour": [
+                9,
+                149,
+                0
+            ],
+            "domainId": "314",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100342"
+        ],
+        "name": "medial equatorial fascicle",
+        "nodeId": "294",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                450.37,
+                198.084,
+                56.2772
+            ],
+            "domainColour": [
+                0,
+                149,
+                246
+            ],
+            "domainId": "308",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003683"
+        ],
+        "name": "median bundle",
+        "nodeId": "295",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                305.24,
+                158.089,
+                68.2272
+            ],
+            "domainColour": [
+                0,
+                79,
+                255
+            ],
+            "domainId": "305",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00003984"
+        ],
+        "name": "mediolateral antennal lobe tract",
+        "nodeId": "296",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                416.484,
+                370.744,
+                90.9613
+            ],
+            "domainColour": [
+                62,
+                0,
+                26
+            ],
+            "domainId": "319",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100344"
+        ],
+        "name": "posterior cerebro-cervical fascicle",
+        "nodeId": "297",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                283.447,
+                161.844,
+                75.1895
+            ],
+            "domainColour": [
+                114,
+                97,
+                62
+            ],
+            "domainId": "323",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007083"
+        ],
+        "name": "posterior lateral fascicle",
+        "nodeId": "298",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                315.342,
+                282.915,
+                84.5578
+            ],
+            "domainColour": [
+                0,
+                0,
+                255
+            ],
+            "domainId": "303",
             "domainSelected": "false"
         },
         "extId": [
             "FBbt:00007427"
         ],
-        "name": "posterior optic commissure",
-        "nodeId": "279",
+        "name": "posterior optic tract",
+        "nodeId": "299",
         "nodeState": {
-            "open": "false",
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                420.684,
+                237.604,
+                92.449
+            ],
+            "domainColour": [
+                167,
+                246,
+                202
+            ],
+            "domainId": "338",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100355"
+        ],
+        "name": "posterior posteriolateral protocerebral commissure",
+        "nodeId": "300",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                287.82,
+                91.929,
+                69.2617
+            ],
+            "domainColour": [
+                114,
+                97,
+                123
+            ],
+            "domainId": "324",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100338"
+        ],
+        "name": "pyriform fascicle",
+        "nodeId": "301",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                319.645,
+                261.336,
+                54.066
+            ],
+            "domainColour": [
+                167,
+                88,
+                9
+            ],
+            "domainId": "337",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100357"
+        ],
+        "name": "superior AMMC commissure",
+        "nodeId": "302",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                452.823,
+                186.311,
+                41.9486
+            ],
+            "domainColour": [
+                237,
+                255,
+                176
+            ],
+            "domainId": "345",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100351"
+        ],
+        "name": "superior antennal lobe commissure",
+        "nodeId": "303",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                399.449,
+                121.944,
+                61.6778
+            ],
+            "domainColour": [
+                44,
+                0,
+                79
+            ],
+            "domainId": "317",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100354"
+        ],
+        "name": "superior ellipsoid commissure",
+        "nodeId": "304",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                364.123,
+                98.233,
+                77.0855
+            ],
+            "domainColour": [
+                0,
+                255,
+                0
+            ],
+            "domainId": "311",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100349"
+        ],
+        "name": "superior fiber system",
+        "nodeId": "305",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                394.655,
+                133.03,
+                90.9395
+            ],
+            "domainColour": [
+                149,
+                176,
+                185
+            ],
+            "domainId": "330",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00007077"
+        ],
+        "name": "superior posterior lateral protocerebrum commissure",
+        "nodeId": "306",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                268.394,
+                182.484,
+                46.2075
+            ],
+            "domainColour": [
+                35,
+                35,
+                9
+            ],
+            "domainId": "316",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100341"
+        ],
+        "name": "vertical ventrolateral protocerebral fascicle",
+        "nodeId": "307",
+        "nodeState": {
+            "open": "true",
+            "selected": "false"
+        }
+    },
+    {
+        "domainData": {
+            "domainCentre": [
+                427.088,
+                277.514,
+                90.1682
+            ],
+            "domainColour": [
+                9,
+                62,
+                79
+            ],
+            "domainId": "313",
+            "domainSelected": "false"
+        },
+        "extId": [
+            "FBbt:00100356"
+        ],
+        "name": "wedge commissure",
+        "nodeId": "308",
+        "nodeState": {
+            "open": "true",
             "selected": "false"
         }
     }
