@@ -5,7 +5,7 @@ then
     echo "Compressing any *.wlz data..."
     for filename in `find . -name '*.wlz'`
     do
-        if [ ${filename} -nt ${filename}.gz.part-aa ]
+        if [ `date -r ${filename} +%s` -gt `expr $(date -r ${filename}.gz.part-aa +%s) + 1000` ]
         then
 	        mergedname=${filename}.gz
 	        echo compressing ${filename} keeping original file.
@@ -22,7 +22,7 @@ then
     echo "Compressing any *.owl data..."
     for filename in `find . -name '*.owl'`
     do
-    	if [ ${filename} -nt ${filename}.gz.part-aa ]
+    	if [ `date -r ${filename} +%s` -gt `expr $(date -r ${filename}.gz.part-aa +%s) + 1000` ]
         then
 		if [[ ${filename} == "./owl/"* ]]
 		then
