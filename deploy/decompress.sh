@@ -5,19 +5,31 @@ then
     echo "Decompressing any *.gz or *.gz.part-?? data..."
     for filename in `find . -name '*.gz.part-aa'`
     do
-        mergedname=${filename/gz.part-aa/gz}
-        echo merging files to reconstruct ${mergedname}
-        cat ${filename/part-aa/part-??} > ${mergedname}
-        echo decompressing and removing gzip copy of ${mergedname} 
-        pigz -df ${mergedname}
-        echo completed deploying ${mergedname/.gz/}
+        origname=${filename/.gz.part-aa/}
+        if [ ${origname} -ot ${origname}.gz.part-aa ]
+        then
+            mergedname=${filename/gz.part-aa/gz}
+            echo merging files to reconstruct ${mergedname}
+            cat ${filename/part-aa/part-??} > ${mergedname}
+            echo decompressing and removing gzip copy of ${mergedname} 
+            pigz -df ${mergedname}
+            echo completed deploying ${mergedname/.gz/}
+        else
+            echo skipping ${filename} as no change.
+        fi
     done
     for filename in `find . -name '*.gz'`
     do
-        decomname=${filename/.gz/}
-        echo decompressing and keeping gzip copy of ${filename} 
-        pigz -dkf ${filename}
-        echo completed deploying ${decomname}
+        origname=${filename/.gz/}
+        if [ ${origname} -ot ${origname}.gz ]
+        then
+            decomname=${filename/.gz/}
+            echo decompressing and keeping gzip copy of ${filename} 
+            pigz -dkf ${filename}
+            echo completed deploying ${decomname}
+        else
+            echo skipping ${filename} as no change.
+        fi
     done 
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
