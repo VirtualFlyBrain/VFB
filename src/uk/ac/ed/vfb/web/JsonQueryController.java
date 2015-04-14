@@ -97,7 +97,6 @@ import org.json.JSONObject;
         rJsonStr = rJsonStr + "\"" + syn + "\", ";
  			}
       rJsonStr = rJsonStr + " ] ";
-      rJsonStr = rJsonStr.replace(", ]"," ]");
  			ob.setSynonyms(cleanedSyn);
  		}
  		// resolve any refs in definition text
@@ -108,6 +107,7 @@ import org.json.JSONObject;
  		//modelAndView.addObject("refs", pbList);
 
     rJsonStr = rJsonStr + "}";
+    rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
  	}
