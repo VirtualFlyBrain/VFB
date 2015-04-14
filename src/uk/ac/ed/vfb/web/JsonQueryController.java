@@ -58,21 +58,25 @@ import org.json.JSONObject;
   	 }
     }else{
       String url = req.getParameter("json");
-      LOG.debug("encoded json: " + url);
-      JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("\"{","{").replace("}\"","}").replace("???",""));
-      String qType = qJson.getString("query_type");
-      String qValue = qJson.getString("query");
-      if (qType.contains("descendant_class")){
-        modelAndView.addObject("beanType", "ind");
-        id = OntBean.idAsOBO(qValue);
-        LOG.info("descendant_class query on: " + id);
-        ob = this.obm.getBeanForId(id);
-      }
-      if (qType.contains("individuals")){
-        modelAndView.addObject("beanType", "ind");
-        id = OntBean.idAsOWL(qValue);
-        LOG.info("individuals query on: " + id);
-        ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+      try{
+        //LOG.debug("encoded json: " + url);
+        JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("\"{","{").replace("}\"","}").replace("???",""));
+        String qType = qJson.getString("query_type");
+        String qValue = qJson.getString("query");
+        if (qType.contains("descendant_class")){
+          modelAndView.addObject("beanType", "ind");
+          id = OntBean.idAsOBO(qValue);
+          LOG.info("descendant_class query on: " + id);
+          ob = this.obm.getBeanForId(id);
+        }
+        if (qType.contains("individuals")){
+          modelAndView.addObject("beanType", "ind");
+          id = OntBean.idAsOWL(qValue);
+          LOG.info("individuals query on: " + id);
+          ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+        }
+      } catch(exception ex){
+        LOG.error("url encoded json: " + url);
       }
     }
 
