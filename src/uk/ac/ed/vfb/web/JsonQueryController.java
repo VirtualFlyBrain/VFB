@@ -56,8 +56,8 @@ import org.json.JSONObject;
   	 }
     }else{
       JSONObject qJson = new JSONObject(req.getParameter("json"));
-      qType = qJson.getString("query_type");
-      qValue = qJson.getString("query");
+      String qType = qJson.getString("query_type");
+      String qValue = qJson.getString("query");
       if (qType.contains("descendant_class")){
         modelAndView.addObject("beanType", "ind");
         id = OntBean.idAsOBO(qValue);
@@ -106,7 +106,7 @@ import org.json.JSONObject;
  		//ob.setComment(resolveRefs(ob.getComment(), ob, pbList));
  		//modelAndView.addObject("ontBean", ob);
  		//modelAndView.addObject("refs", pbList);
-    
+
     rJsonStr = rJsonStr + "}";
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
