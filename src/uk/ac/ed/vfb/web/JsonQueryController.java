@@ -2,6 +2,8 @@ package uk.ac.ed.vfb.web;
 
 import java.util.*;
 
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -55,7 +57,9 @@ import org.json.JSONObject;
   			modelAndView.addObject("beanType", "ont");
   	 }
     }else{
-      JSONObject qJson = new JSONObject(req.getParameter("json").replace("\"{","{").replace("}\"","}"));
+      String url = req.getParameter("json");
+      LOG.debug("encoded json: " + url);
+      JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("\"{","{").replace("}\"","}"));
       String qType = qJson.getString("query_type");
       String qValue = qJson.getString("query");
       if (qType.contains("descendant_class")){
