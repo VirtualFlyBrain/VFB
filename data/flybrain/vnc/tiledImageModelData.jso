@@ -1,0 +1,51 @@
+{
+   "webServer": "SERVER_NAME",
+   "iipServerPath": "/fcgi/wlziipsrv.fcgi",
+   "metadataRoot": "/data/flybrain/",
+   "toolsMetadataFilename": "vnc/tiledImageToolParams.jso",
+   "interfaceImageDir": "/images/",
+   "dataType": "wlz",
+   "transverseView": {"pitch": "0", "yaw": "0", "roll": "0"},
+   "sagittalView": {"pitch": "90", "yaw": "90", "roll": "90"},
+   "coronalView": {"pitch": "90", "yaw": "0", "roll": "90"},
+   "viewerTargetId": "emapIIPViewerDiv",
+   "layerNames": [
+      "grey",
+      "anatomy"
+   ],
+   "layerData": [
+      {
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/vnc/woolz/",
+         "imageName":"vncbrain.wlz",
+         "type":"greyLevel",
+         "opacity":"1.0",
+         "visible":"true"
+      },
+      {
+         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/vnc/woolz/",
+         "imageName":"vncbrain.wlz",
+         "type":"label",
+         "opacity":"0.5",
+         "current":"",
+         "visible":"true",
+         "treeStructureFile": "/data/flybrain/vnc/tree/treeStructure.jso",
+         "treeDataFile": "/data/flybrain/vnc/tree/treeContent.jso"   
+        }
+   ],
+   "initialState": {"scale":"1.1", "distance":"-10", "pitch":"3", "yaw":"353", "roll":"0","x":"463","y":"369","z":"-10"},
+   "pixelResolution": {"x":"1.0", "y":"1.0", "z":"1.0", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
+   "menuStructureFile": "/data/flybrain/vnc/menu/menuStructure.jso",
+   "menuContentFile": "/data/flybrain/vnc/menu/menuContent.jso",
+   "wlzMode": "zeta",
+   "tools": [
+      "locator",
+      "distance",
+      "scale",
+      "rotation",
+      "refresh",
+      "measure", 
+      "fixedPoint", 
+      "tree"
+      ],
+   "tileframe": {"enabled": "true"}
+}

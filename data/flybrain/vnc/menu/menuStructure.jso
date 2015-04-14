@@ -1,0 +1,14 @@
+[
+   {
+      "target": "emapIIPViewerDiv",
+      "type": "rightClick",
+      "itemWidthPx": "190",
+      "itemHeightPx": "20",
+      "structure": [
+         {
+            "id":"0",
+            "children":[]
+         }
+      ]
+   }
+]
