@@ -129,7 +129,6 @@
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/UserPermissionsException.java"/>
         <pathelement location="./src/org/json/JSONArray.java"/>
         <pathelement location="./src/org/json/JSONException.java"/>
-        <pathelement location="./src/org/json/JSONML.java"/>
         <pathelement location="./src/org/json/JSONObject.java"/>
         <pathelement location="./src/org/json/JSONString.java"/>
         <pathelement location="./src/org/json/JSONStringer.java"/>
