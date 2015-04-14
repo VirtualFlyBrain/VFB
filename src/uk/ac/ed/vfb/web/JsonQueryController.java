@@ -59,7 +59,7 @@ import org.json.JSONObject;
     }else{
       String url = req.getParameter("json");
       LOG.debug("encoded json: " + url);
-      JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("\"{","{").replace("}\"","}"));
+      JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("\"{","{").replace("}\"","}").replace("???",""));
       String qType = qJson.getString("query_type");
       String qValue = qJson.getString("query");
       if (qType.contains("descendant_class")){
