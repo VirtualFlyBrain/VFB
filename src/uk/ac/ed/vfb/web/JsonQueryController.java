@@ -55,7 +55,7 @@ import org.json.JSONObject;
   			modelAndView.addObject("beanType", "ont");
   	 }
     }else{
-      JSONObject qJson = new JSONObject(req.getParameter("json"));
+      JSONObject qJson = new JSONObject(req.getParameter("json").replace("\"{","{").replace("}\"","}"));
       String qType = qJson.getString("query_type");
       String qValue = qJson.getString("query");
       if (qType.contains("descendant_class")){
@@ -88,7 +88,7 @@ import org.json.JSONObject;
       rJsonStr = rJsonStr + " ] ";
  			ob.setSynonyms(cleanedSyn);
  		}
- 		
+
     rJsonStr = rJsonStr + "}";
     rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
     modelAndView.addObject("json", rJsonStr);
