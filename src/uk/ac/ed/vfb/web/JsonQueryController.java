@@ -82,30 +82,13 @@ import org.json.JSONObject;
  		if (synonyms != null && synonyms.size() > 0){
       rJsonStr = rJsonStr + "\"synonyms\": [ ";
  			for (String syn:synonyms){
- 				if (syn.contains("(") && !syn.contains("(<")){
- 					for (PubBean bean:pbList){
- 						if (syn.contains(bean.getId())){
- 							if (syn.contains("FlyBase:FBrf")){
- 								syn = syn.replace("FlyBase:"+ bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
- 							}else{
- 								syn = syn.replace(bean.getId(), "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + bean.getShortref() + "</a>");
- 							}
- 						}
- 					}
- 				}
  				cleanedSyn.add(syn);
         rJsonStr = rJsonStr + "\"" + syn + "\", ";
  			}
       rJsonStr = rJsonStr + " ] ";
  			ob.setSynonyms(cleanedSyn);
  		}
- 		// resolve any refs in definition text
- 		//ob.setDef(resolveRefs(ob.getDef(), ob, pbList));
- 		// resolve any refs in comment text
- 		//ob.setComment(resolveRefs(ob.getComment(), ob, pbList));
- 		//modelAndView.addObject("ontBean", ob);
- 		//modelAndView.addObject("refs", pbList);
-
+ 		
     rJsonStr = rJsonStr + "}";
     rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
     modelAndView.addObject("json", rJsonStr);
