@@ -75,7 +75,7 @@ import org.json.JSONObject;
           LOG.info("individuals query on: " + id);
           ob = (OntBeanIndividual)this.obm.getBeanForId(id);
         }
-      } catch(exception ex){
+      } catch(Exception ex){
         LOG.error("url encoded json: " + url);
       }
     }
