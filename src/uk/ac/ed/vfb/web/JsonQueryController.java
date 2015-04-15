@@ -77,6 +77,7 @@ import org.json.JSONObject;
         }
       } catch(Exception ex){
         LOG.error("url encoded json: " + url);
+        ex.printStackTrace();
       }
     }
 
