@@ -26,9 +26,8 @@
 
 	<!-- Single response to json query -->
 	<bean name="/do/jsonQuery.html" class="uk.ac.ed.vfb.web.JsonQueryController"
-		scope="request">
+		scope="session">
 		<property name="obm" ref="ontBeanManager" />
-		<property name="pbm" ref="pubBeanManager" />
 	</bean>
 
 	<!-- tomcat logfile -->
