@@ -87,23 +87,25 @@ import org.json.JSONObject;
       }
     }
 
-    for (OntBean ob:obSet){
-      rJsonStr = rJsonStr + " {";
-      id = ob.correctIdFormat();
-   		LOG.debug("Returning id: " + ob.getId());
-      rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
-      rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
-   		List<String> synonyms = ob.getSynonyms();
-   		if (synonyms != null && synonyms.size() > 0){
-        rJsonStr = rJsonStr + "\"synonyms\": [ ";
-   			for (String syn:synonyms){
-          rJsonStr = rJsonStr + "\"" + syn + "\", ";
-   			}
-        rJsonStr = rJsonStr + " ] ";
-   		}
+    if ( obSet != null && obSet.size() > 0 ){
+      for (OntBean ob:obSet){
+        rJsonStr = rJsonStr + " {";
+        id = ob.correctIdFormat();
+     		LOG.debug("Returning id: " + ob.getId());
+        rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
+        rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
+     		List<String> synonyms = ob.getSynonyms();
+     		if (synonyms != null && synonyms.size() > 0){
+          rJsonStr = rJsonStr + "\"synonyms\": [ ";
+     			for (String syn:synonyms){
+            rJsonStr = rJsonStr + "\"" + syn + "\", ";
+     			}
+          rJsonStr = rJsonStr + " ] ";
+     		}
 
-      rJsonStr = rJsonStr + "},";
-      rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
+        rJsonStr = rJsonStr + "},";
+        rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
+      }
     }
     rJsonStr = rJsonStr + "]}";
     rJsonStr = rJsonStr.replace(",]"," ]").replace(",}"," }");
