@@ -91,7 +91,7 @@ import org.json.JSONObject;
       for (OntBean ob:obSet){
         rJsonStr = rJsonStr + " {";
         id = ob.correctIdFormat();
-     		LOG.debug("Returning id: " + ob.getId());
+     		//LOG.debug("Returning id: " + id);
         rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
         rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
      		List<String> synonyms = ob.getSynonyms();
