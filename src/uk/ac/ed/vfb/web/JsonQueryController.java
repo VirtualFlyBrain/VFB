@@ -85,7 +85,7 @@ import org.json.JSONObject;
     for (OntBean ob:obSet){
       rJsonStr = rJsonStr + " {";
       id = ob.correctIdFormat();
-   		//LOG.debug("For Id: " + ob.getId());
+   		LOG.debug("Returning id: " + ob.getId());
       rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
       rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
    		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
