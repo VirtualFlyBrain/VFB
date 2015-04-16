@@ -72,7 +72,7 @@ public class DLQueryServer {
 	public Set<OntBean> askQuery(String query) {
 		Set<OntBean> result = new TreeSet<OntBean>();
 		String resultStr = "Nohting";
-		//LOG.debug("Asking Query: "+ query);
+		LOG.debug("Asking Query: "+ query);
 		OntQueryQueue oqq = new OntQueryQueue();
 		try{
 			oqq.parseQuery(query);
@@ -95,7 +95,7 @@ public class DLQueryServer {
 			//Brain
 			queryEngine = engineBrain;
 		}
-		//LOG.debug("running: " + queryEngine);
+		LOG.debug("running: " + queryEngine);
 		Set<OntBean> entities = queryEngine.askQuery(oqq);
 		if (entities != null && !resultStr.isEmpty()){
 			result =  entities;
