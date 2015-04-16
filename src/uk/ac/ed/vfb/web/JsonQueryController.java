@@ -64,7 +64,7 @@ import org.json.JSONObject;
         String qType = qJson.getString("query_type");
         String qValue = qJson.getString("query");
         String qAction = "parts"; // parts_of
-        String id = "FBbt:00003624"; // adult brain by default
+        id = "FBbt:00003624"; // adult brain by default
         if (qType.contains("descendant_class")){
           qAction = "parts";
           id = OntBean.idAsOBO(qValue);
