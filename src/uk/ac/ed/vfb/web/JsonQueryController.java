@@ -80,6 +80,7 @@ import org.json.JSONObject;
         String actionStr = WebQueryUtils.getDefString(qAction, id);
         LOG.debug("calling action: " + actionStr);
         obSet = this.obm.getBeanListForQuery(actionStr);
+        LOG.debug("returned " + obSet.size().toString() + " results");
       } catch(Exception ex){
         LOG.error("url encoded json: " + url);
         ex.printStackTrace();
