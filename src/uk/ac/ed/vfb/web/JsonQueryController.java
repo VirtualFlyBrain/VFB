@@ -108,7 +108,7 @@ import org.json.JSONObject;
         rJsonStr = rJsonStr.replaceAll(", ]"," ]").replaceAll(", }"," }");
       }
     }
-    rJsonStr = rJsonStr.replaceAll(",]"," ]").replaceAll(",}"," }")
+    rJsonStr = rJsonStr.replaceAll(",]"," ]").replaceAll(",}"," }");
     if (rJsonStr.contains(",")) { rJsonStr = rJsonStr.substring(0, rJsonStr.lastIndexOf(",")); }
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
