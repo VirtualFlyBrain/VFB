@@ -99,7 +99,7 @@ import org.json.JSONObject;
      		if (synonyms != null && synonyms.size() > 0){
           rJsonStr = rJsonStr + "\"synonyms\": [ ";
      			for (String syn:synonyms){
-            rJsonStr = rJsonStr + "\"" + syn + "\", ";
+            rJsonStr = rJsonStr + "\"" + removeRefs(syn) + "\", ";
      			}
           rJsonStr = rJsonStr + " ] ";
      		}
@@ -113,6 +113,19 @@ import org.json.JSONObject;
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
  	}
+
+  public String removeRefs(String txt){
+      if (txt.contains("(") || txt.contains("[")) {
+        int sqbr = txt.size();
+        int clbr = txt.size();
+        if (txt.contains("[")) { sqbr = txt.indexOf("["); }
+        if (txt.contains("(")) { clbr = txt.indexOf("("); }
+        if (clbr < sqbr) { sqbr = clbr; }
+        txt = txt.substring(sqbr);
+        txt = txt.trim();
+      }
+      return txt;
+  }
 
  	public void setObm(OntBeanManager manager) {
  		this.obm = manager;
