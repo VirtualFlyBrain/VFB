@@ -105,7 +105,7 @@ import org.json.JSONObject;
      		}
 
         rJsonStr = rJsonStr + "}, ";
-        rJsonStr = rJsonStr.replaceAll(", ]"," ]").Allreplace(", }"," }");
+        rJsonStr = rJsonStr.replaceAll(", ]"," ]").replaceAll(", }"," }");
       }
     }
     rJsonStr = rJsonStr.replaceAll(",]"," ]").replaceAll(",}"," }")
