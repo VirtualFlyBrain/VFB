@@ -35,7 +35,7 @@ import org.json.JSONObject;
 
  	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
  		ModelAndView modelAndView = new ModelAndView("do/jsonQuery");
-    String rJsonStr = "";
+    String rJsonStr = "{ \"results\":[";
  		OntBean obSingle = null;
     Set<OntBean> obSet = new HashSet<OntBean>();
  		String id = "";
@@ -105,11 +105,12 @@ import org.json.JSONObject;
      		}
 
         rJsonStr = rJsonStr + "}, ";
-        rJsonStr = rJsonStr.replaceAll(", ]"," ]").replaceAll(", }"," }");
       }
     }
+    rJsonStr = rJsonStr + "]}";
+    rJsonStr = rJsonStr.replaceAll(", ]"," ]").replaceAll(", }"," }");
     rJsonStr = rJsonStr.replaceAll(",]"," ]").replaceAll(",}"," }").replaceAll(",  ]"," ]").replaceAll(",  }"," }");
-    if (rJsonStr.contains(",")) { rJsonStr = rJsonStr.substring(0, rJsonStr.lastIndexOf(",")); }
+    //if (rJsonStr.contains(",")) { rJsonStr = rJsonStr.substring(0, rJsonStr.lastIndexOf(",")); }
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
  	}
