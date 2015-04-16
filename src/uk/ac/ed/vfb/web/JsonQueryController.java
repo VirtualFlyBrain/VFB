@@ -58,9 +58,12 @@ import org.json.JSONObject;
      obSet.add(obSingle);
     }else{
       String url = req.getParameter("json");
+      LOG.debug("encoded json: " + url);
+      url = URLDecoder.decode(url, "UTF-8").replace("“","\"").replace("\"{","{").replace("}\"","}").replace("???","");
+      LOG.debug("decoded json: " + url);
       try{
-        LOG.debug("encoded json: " + url);
-        JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("“","\"").replace("\"{","{").replace("}\"","}").replace("???",""));
+        LOG.info("Running json query: " + url);
+        JSONObject qJson = new JSONObject(url);
         String qType = qJson.getString("query_type");
         String qValue = qJson.getString("query");
         String qAction = "parts"; // parts_of
