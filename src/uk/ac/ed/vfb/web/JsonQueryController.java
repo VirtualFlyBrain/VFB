@@ -35,7 +35,7 @@ import org.json.JSONObject;
 
  	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
  		ModelAndView modelAndView = new ModelAndView("do/jsonQuery");
-    String rJsonStr = "{ [";
+    String rJsonStr = "";
  		OntBean obSingle = null;
     Set<OntBean> obSet = new HashSet<OntBean>();
  		String id = "";
@@ -90,7 +90,7 @@ import org.json.JSONObject;
 
     if ( obSet != null && obSet.size() > 0 ){
       for (OntBean ob:obSet){
-        rJsonStr = rJsonStr + " {";
+        rJsonStr = rJsonStr + "{";
         id = ob.correctIdFormat();
      		//LOG.debug("Returning id: " + id);
         rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
@@ -104,12 +104,12 @@ import org.json.JSONObject;
           rJsonStr = rJsonStr + " ] ";
      		}
 
-        rJsonStr = rJsonStr + "},";
+        rJsonStr = rJsonStr + "}, ";
         rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
       }
     }
-    rJsonStr = rJsonStr + "]}";
-    rJsonStr = rJsonStr.replace(",]"," ]").replace(",}"," }");
+    rJsonStr = rJsonStr.replace(",]"," ]").replace(",}"," }").replace(", ]"," ]");
+    if (rJsonStr.contains(",")) { rJsonStr = rJsonStr.substring(0, rJsonStr.lastIndexOf(",")); }
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
  	}
@@ -121,7 +121,7 @@ import org.json.JSONObject;
         if (txt.contains("[")) { sqbr = txt.indexOf("["); }
         if (txt.contains("(")) { clbr = txt.indexOf("("); }
         if (clbr < sqbr) { sqbr = clbr; }
-        txt = txt.substring(sqbr);
+        txt = txt.substring(0, sqbr);
         txt = txt.trim();
       }
       return txt;
