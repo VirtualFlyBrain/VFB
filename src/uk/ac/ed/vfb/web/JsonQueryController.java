@@ -39,6 +39,7 @@ import org.json.JSONObject;
  		OntBean obSingle = null;
     Set<OntBean> obSet = new HashSet<OntBean>();
  		String id = "";
+    List<String> synonyms;
     if (req.getParameter("json") == null) {
      if (req.getParameter("fbId") == null) {
  			if (req.getParameter("id") == null) {
@@ -94,7 +95,7 @@ import org.json.JSONObject;
      		//LOG.debug("Returning id: " + id);
         rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
         rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
-     		List<String> synonyms = ob.getSynonyms();
+     		synonyms = ob.getSynonyms();
      		if (synonyms != null && synonyms.size() > 0){
           rJsonStr = rJsonStr + "\"synonyms\": [ ";
      			for (String syn:synonyms){
