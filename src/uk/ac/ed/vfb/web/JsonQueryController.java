@@ -93,8 +93,6 @@ import org.json.JSONObject;
    		LOG.debug("Returning id: " + ob.getId());
       rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
       rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
-   		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-   		//LOG.debug("Found publications:" + pbList.size());
    		List<String> synonyms = ob.getSynonyms();
    		if (synonyms != null && synonyms.size() > 0){
         rJsonStr = rJsonStr + "\"synonyms\": [ ";
