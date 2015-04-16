@@ -105,10 +105,10 @@ import org.json.JSONObject;
      		}
 
         rJsonStr = rJsonStr + "}, ";
-        rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
+        rJsonStr = rJsonStr.replaceAll(", ]"," ]").Allreplace(", }"," }");
       }
     }
-    rJsonStr = rJsonStr.replace(",]"," ]").replace(",}"," }").replace(", ]"," ]");
+    rJsonStr = rJsonStr.replaceAll(",]"," ]").replaceAll(",}"," }")
     if (rJsonStr.contains(",")) { rJsonStr = rJsonStr.substring(0, rJsonStr.lastIndexOf(",")); }
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
