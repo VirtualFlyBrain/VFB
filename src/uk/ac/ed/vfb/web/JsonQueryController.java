@@ -36,7 +36,7 @@ import org.json.JSONObject;
  	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
  		ModelAndView modelAndView = new ModelAndView("do/jsonQuery");
     String rJsonStr = "{ [";
- 		OntBean ob = null;
+ 		OntBean obSingle = null;
     Set<OntBean> obSet = new HashSet<OntBean>();
  		String id = "";
     if (req.getParameter("json") == null) {
@@ -51,11 +51,11 @@ import org.json.JSONObject;
  		     id = OntBean.idAsOBO(req.getParameter("fbId"));
  		 }
      if (id.contains("VFB")){
-  			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+  			obSingle = (OntBeanIndividual)this.obm.getBeanForId(id);
   	 }else{
-  			ob = this.obm.getBeanForId(id);
+  			obSingle = this.obm.getBeanForId(id);
   	 }
-     obSet.add(ob);
+     obSet.add(obSingle);
     }else{
       String url = req.getParameter("json");
       try{
@@ -74,7 +74,7 @@ import org.json.JSONObject;
           id = OntBean.idAsOWL(qValue);
         }
         LOG.info(qAction + " query on: " + id);
-        actionStr = WebQueryUtils.getDefString(qAction, id);
+        String actionStr = WebQueryUtils.getDefString(qAction, id);
         obSet = this.obm.getBeanListForQuery(actionStr);
       } catch(Exception ex){
         LOG.error("url encoded json: " + url);
