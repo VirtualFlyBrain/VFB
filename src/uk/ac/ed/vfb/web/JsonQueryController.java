@@ -116,8 +116,8 @@ import org.json.JSONObject;
 
   public String removeRefs(String txt){
       if (txt.contains("(") || txt.contains("[")) {
-        int sqbr = txt.size();
-        int clbr = txt.size();
+        int sqbr = txt.length();
+        int clbr = sqbr;
         if (txt.contains("[")) { sqbr = txt.indexOf("["); }
         if (txt.contains("(")) { clbr = txt.indexOf("("); }
         if (clbr < sqbr) { sqbr = clbr; }
