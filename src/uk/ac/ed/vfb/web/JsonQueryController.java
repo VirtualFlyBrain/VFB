@@ -35,8 +35,9 @@ import org.json.JSONObject;
 
  	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
  		ModelAndView modelAndView = new ModelAndView("do/jsonQuery");
-    String rJsonStr = "{";
+    String rJsonStr = "{ [";
  		OntBean ob = null;
+    Set<OntBean> obSet = new HashSet<OntBean>();
  		String id = "";
     if (req.getParameter("json") == null) {
      if (req.getParameter("fbId") == null) {
@@ -44,62 +45,65 @@ import org.json.JSONObject;
         LOG.error("No id of any type given!");
  				return null;
  			}else{
- 				id = OntBean.idAsOWL(req.getParameter("id"));
+ 			     id = OntBean.idAsOWL(req.getParameter("id"));
  			}
  		 }else{
- 			id = OntBean.idAsOBO(req.getParameter("fbId"));
+ 		     id = OntBean.idAsOBO(req.getParameter("fbId"));
  		 }
      if (id.contains("VFB")){
   			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
-  			modelAndView.addObject("beanType", "ind");
   	 }else{
   			ob = this.obm.getBeanForId(id);
-  			modelAndView.addObject("beanType", "ont");
   	 }
+     obSet.add(ob);
     }else{
       String url = req.getParameter("json");
       try{
-        //LOG.debug("encoded json: " + url);
+        LOG.debug("encoded json: " + url);
         JSONObject qJson = new JSONObject(URLDecoder.decode(url, "UTF-8").replace("“","\"").replace("\"{","{").replace("}\"","}").replace("???",""));
         String qType = qJson.getString("query_type");
         String qValue = qJson.getString("query");
+        String qAction = "parts"; // parts_of
+        String id = "FBbt:00003624"; // adult brain by default
         if (qType.contains("descendant_class")){
-          modelAndView.addObject("beanType", "ind");
+          qAction = "parts";
           id = OntBean.idAsOBO(qValue);
-          LOG.info("descendant_class query on: " + id);
-          ob = this.obm.getBeanForId(id);
         }
         if (qType.contains("individuals")){
-          modelAndView.addObject("beanType", "ind");
+          qAction = "ind_neuron_overlap";
           id = OntBean.idAsOWL(qValue);
-          LOG.info("individuals query on: " + id);
-          ob = (OntBeanIndividual)this.obm.getBeanForId(id);
         }
+        LOG.info(qAction + " query on: " + id);
+        actionStr = WebQueryUtils.getDefString(qAction, id);
+        obSet = this.obm.getBeanListForQuery(actionStr);
       } catch(Exception ex){
         LOG.error("url encoded json: " + url);
         ex.printStackTrace();
       }
     }
 
- 		//LOG.debug("For Id: " + ob.getId());
-    rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
-    rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
- 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
- 		//LOG.debug("Found publications:" + pbList.size());
- 		List<String> synonyms = ob.getSynonyms();
- 		List<String> cleanedSyn = new ArrayList<String>();
- 		if (synonyms != null && synonyms.size() > 0){
-      rJsonStr = rJsonStr + "\"synonyms\": [ ";
- 			for (String syn:synonyms){
- 				cleanedSyn.add(syn);
-        rJsonStr = rJsonStr + "\"" + syn + "\", ";
- 			}
-      rJsonStr = rJsonStr + " ] ";
- 			ob.setSynonyms(cleanedSyn);
- 		}
+    for (OntBean ob:obSet){
+      rJsonStr = rJsonStr + " {";
+      id = ob.correctIdFormat();
+   		//LOG.debug("For Id: " + ob.getId());
+      rJsonStr = rJsonStr + "\"ID\": \"" + id + "\", ";
+      rJsonStr = rJsonStr + "\"name\": \"" + ob.getName() + "\", ";
+   		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
+   		//LOG.debug("Found publications:" + pbList.size());
+   		List<String> synonyms = ob.getSynonyms();
+   		if (synonyms != null && synonyms.size() > 0){
+        rJsonStr = rJsonStr + "\"synonyms\": [ ";
+   			for (String syn:synonyms){
+          rJsonStr = rJsonStr + "\"" + syn + "\", ";
+   			}
+        rJsonStr = rJsonStr + " ] ";
+   		}
 
-    rJsonStr = rJsonStr + "}";
-    rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
+      rJsonStr = rJsonStr + "},";
+      rJsonStr = rJsonStr.replace(", ]"," ]").replace(", }"," }");
+    }
+    rJsonStr = rJsonStr + "]}";
+    rJsonStr = rJsonStr.replace(",]"," ]").replace(",}"," }");
     modelAndView.addObject("json", rJsonStr);
  		return modelAndView;
  	}
