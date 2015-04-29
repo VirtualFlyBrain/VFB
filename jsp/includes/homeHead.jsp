@@ -11,7 +11,8 @@
 	<title>Virtual Fly Brain: ${param.title}</title>
 	<!-- Bootstrap -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-
+	<!-- Custom styles for this template -->
+  <link href="offcanvas.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -25,12 +26,6 @@
 			<meta itemprop="description" content="Integrative queries of Drosophila neuroanatomical data.">
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
 		<!-- START Google Snippit code -->
-
-	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout-home.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/table.css" />
       	<c:forEach items="${fn:split(param.css, ';')}" var="item">
       		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
       	</c:forEach>
@@ -38,7 +33,6 @@
       	<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
 	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
 	<script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 </head>
 <body>
   <jsp:include page="/jsp/includes/js/tag.jsp" />
