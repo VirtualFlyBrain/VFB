@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Virtual Fly Brain: ${param.title}</title>
+	<link rel="icon" href="/favicon.ico">
 	<!-- Bootstrap -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
