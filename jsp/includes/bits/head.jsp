@@ -5,7 +5,7 @@
 
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
- 	<div id="head_wrapper">
+
 
  			<c:if test="${!empty param.res}">
  				<c:set var="resolution" value="?res=${param.res}" scope="session"/>
@@ -20,7 +20,8 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/site/vfb_site/home.htm">About <span class="caret"></span></a>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/site/vfb_site/home.htm">About <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
         					<li><a href="/site/vfb_site/home.htm">Homepage</a></li>
         					<li><a href="/site/vfb_site/overview.htm">Overview</a></li>
@@ -75,4 +76,3 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav><!-- header -->
-  </div> <!-- head_wrapper -->
