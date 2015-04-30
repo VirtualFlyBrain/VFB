@@ -30,8 +30,7 @@
       	<c:forEach items="${fn:split(param.css, ';')}" var="item">
       		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
       	</c:forEach>
-      	<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-      	<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
+      	
 	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
 	<script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
 </head>
@@ -42,7 +41,7 @@
 		<jsp:include page="/jsp/includes/bits/head.jsp"/>
 	</c:if>
 
-	
+
 
 	<div id="contentwrapper">
 	<!--  Closing tag is in homeFoot.js -->
