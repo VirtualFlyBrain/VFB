@@ -14,6 +14,7 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
   <link href="/css/offcanvas.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -30,7 +31,7 @@
       	<c:forEach items="${fn:split(param.css, ';')}" var="item">
       		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
       	</c:forEach>
-      	
+
 	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
 	<script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
 </head>
