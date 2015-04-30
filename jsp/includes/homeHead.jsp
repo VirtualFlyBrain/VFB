@@ -13,7 +13,7 @@
 	<!-- Bootstrap -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
-  <link href="offcanvas.css" rel="stylesheet">
+  <link href="/css/offcanvas.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 
   <c:if test="${empty param.nonav}">
 		<jsp:include page="/jsp/includes/bits/head.jsp"/>
