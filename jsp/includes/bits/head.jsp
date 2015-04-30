@@ -20,7 +20,7 @@
 <c:set var="path"><%=request.getRequestURL()%></c:set>
 <c:set var="title" value="${param.title}" />
 
-<div class="menu">
+
 	<nav class="navbar navbar-default navbar-static-top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -90,4 +90,3 @@
 	    </div><!--/.nav-collapse -->
 	  </div>
 	</nav><!-- header -->
-</div>
