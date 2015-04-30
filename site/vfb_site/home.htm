@@ -2,48 +2,43 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="navpath" value="VFB Home@"/>
-	<jsp:param name="title" value="VFB Home" />	
+	<jsp:param name="title" value="VFB Home" />
 	<jsp:param name="css" value="/css/tree/autocomplete.css;" />
 </jsp:include>
 
 	  <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 	  <script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
-	  <script type="text/javascript" src="/javascript/tree/contextMenuVFB.js" ></script>
-	  <script type="text/javascript" src="/site/tools/anatomy_finder/anatomyFinder.js" ></script>	  
-	  
+
 <script type="text/javascript">
 window.addEvent('domready', createAutocomplete);
 </script>
 
 <div id="center_wide" style="overflow:auto;">
 
-<div class="icon_row">
-	<div class="icon">  
-		<small>
-			<a class="icon_link" href="/site/stacks/index.htm" title="Explore and run queiries on the adult Drosophila Brain"> <h3 style="margin:3px 0 -10px 0 ">Browse and query the adult brain anatomy</h3> <br/>
-				<img src="/images/vfb/project/viewerIcon.png" width="180" height="110"></img>
-			</a>
-		</small>
+<div class="jumbotron">
+	<div class="container">
+		<a class="btn btn-primary btn-lg" href="/site/stacks/index.htm" title="Explore and run queiries on the adult Drosophila Brain"><img src="/images/vfb/project/viewerIcon.png" width="180" height="110" /></a>
+		<a class="btn btn-primary btn-lg" href="/site/stacks/index.htm" title="Explore and run queiries on the adult Drosophila Brain">Adult Brain Anatomy</a>
 	</div>
 	<div class="icon">
 		<small>
 			<a class="icon_link" href="/site/tools/query_builder/index.htm" title="Build and execute connectivity queries"> <h3 style="margin:3px 0 -10px 0">For connectivity queries</h3> <br/>
-				<img src="/images/vfb/project/queryBuilderIcon.png" width="180" height="110"></img> 
+				<img src="/images/vfb/project/queryBuilderIcon.png" width="180" height="110"></img>
 			</a>
 		</small>
 	</div>
 	<div class="icon" style="width:452px;">
-		<small> 
+		<small>
 			<jsp:include page="/site/vfb_site/whats_new.htm" />
 			<p>For full details about the site see the <a class="icon_link" href="overview.htm">overview</a> and <a class="icon_link" href="features.htm">features</a> pages.</p>
 		</small>
 	</div>
-</div> <!-- icon_row --> 
-	
+</div> <!-- icon_row -->
+
 <div class="icon_row">
 	<div id="search_panel" class="icon" style="width:948px; height:160px;">
 		<h2>Search for brain region or neuron</h2>
-		<label>Search in:</label> 
+		<label>Search in:</label>
 		<select name="scope" id="scope" onchange="setScope()">
 			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
 			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
@@ -52,7 +47,7 @@ window.addEvent('domready', createAutocomplete);
 		<br/><br/>
 		<input id="search_text" type="text" style="width:600px;" alt="Type in the name of the anatomy term/neuron to search"/>
 		<input id="id_container" type="hidden" />
-		<input id="scopeValue" type="hidden" />			
+		<input id="scopeValue" type="hidden" />
 		<!-- p> Query options will be available on each term's page</p -->
 	</div> &nbsp;
 
@@ -67,18 +62,18 @@ window.addEvent('domready', createAutocomplete);
 	  	</a>
 	  	<a class="help " href="./home_query_howtos/q1.htm" style="float:none; margin-left:10px" title="What and where is the 'saddle':" target="_blank">&nbsp;Show me how</a>
 	  </li>
-	
+
 	  <li><a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
 	  		Find neuron classes with synaptic terminals in the <b>antennal mechanosensory and motor centre (AMMC)</b>
 	  	</a>
 	  	<a class="help " href="./home_query_howtos/q2.htm" style="float:none; margin-left:10px" title="Find neurons that innervate the AMMC:" target="_blank">&nbsp;Show me how</a>
 	  </li>
-	 
+
 	  <li><a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
 	  		Find images of single neurons with some part in the <b>ellipsoid body</b>
 	  	</a>
 	  	<a class="help " href="./home_query_howtos/q3.htm" style="float:none; margin-left:10px" title="Find images of neuron that overlap the EB:" target="_blank">&nbsp;Show me how</a>
-	
+
 		<li><a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
 		  		Find neurons that develop from one of the <b>neuroblasts in the antennal lobe</b>
 		  	</a>
@@ -100,8 +95,8 @@ window.addEvent('domready', createAutocomplete);
 	  	</a>
 	  	<a class="help" href="/site/tools/help/composite_help.htm" style="float:none; margin-left:10px" title="How to work with composite views" target="_blank">&nbsp;Show me how</a>
 	  </li>
-	  
-	  
+
+
 	</ul>
   </div>
 </div> <!-- icon_row -->
