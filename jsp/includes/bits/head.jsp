@@ -20,18 +20,17 @@
 <c:set var="title" value="${param.title}" />
 
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/site/vfb_site/home.htm">VirtualFlyBrain.org</a>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
+    <div id="navbar-collapse-1" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/site/vfb_site/home.htm">About <span class="caret"></span></a>
