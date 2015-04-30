@@ -37,15 +37,16 @@
 </head>
 <body>
   <jsp:include page="/jsp/includes/js/tag.jsp" />
-	<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="/js/bootstrap.min.js"></script>
 
   <c:if test="${empty param.nonav}">
 		<jsp:include page="/jsp/includes/bits/head.jsp"/>
 	</c:if>
+	
+	<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/bootstrap.min.js"></script>
 
 	<div id="contentwrapper">
 	<!--  Closing tag is in homeFoot.js -->

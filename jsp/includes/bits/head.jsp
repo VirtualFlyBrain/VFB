@@ -22,7 +22,6 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-              <span class="sr-only">Toggle navigation</span>
             </button>
             <a class="navbar-brand" href="/site/vfb_site/home.htm">VirtualFlyBrain.org</a>
           </div>
