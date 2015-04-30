@@ -13,7 +13,7 @@
   		<c:set var="path"><%=request.getRequestURL()%></c:set>
 			<c:set var="title" value="${param.title}" />
 
-      <nav class="navbar navbar-fixed-top navbar-inverse">
+      <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
