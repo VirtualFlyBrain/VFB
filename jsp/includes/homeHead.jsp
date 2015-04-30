@@ -10,7 +10,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Virtual Fly Brain: ${param.title}</title>
 	<link rel="icon" href="/favicon.ico">
-	
+
 	<meta name="keywords" content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
 
 		<!-- START Google Snippit code -->
@@ -34,5 +34,5 @@
 
 
 
-	<div id="contentwrapper">
+	<div id="row row-offcanvas row-offcanvas-right">
 	<!--  Closing tag is in homeFoot.js -->
