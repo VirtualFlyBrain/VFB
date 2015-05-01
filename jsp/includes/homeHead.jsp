@@ -22,8 +22,6 @@
       		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
       	</c:forEach>
 
-	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
-	<script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
 </head>
 <body>
   <jsp:include page="/jsp/includes/js/tag.jsp" />
