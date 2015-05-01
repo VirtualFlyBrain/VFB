@@ -13,8 +13,6 @@
 window.addEvent('domready', createAutocomplete);
 </script>
 
-<div id="center_wide" style="overflow:auto;">
-
 <div class="row">
 	<div class="col-sm-4 col-md-4 col-lg-4">
 		<center>
@@ -26,18 +24,19 @@ window.addEvent('domready', createAutocomplete);
 
 	<div class="col-sm-4 col-md-4 col-lg-4">
 		<center>
+			<jsp:include page="/site/vfb_site/whats_new.htm" />
+			<p>For full details about the site see the <a href="overview.htm">overview</a> and <a href="features.htm">features</a> pages.</p>
+		</center>
+	</div>
+
+	<div class="col-sm-4 col-md-4 col-lg-4">
+		<center>
 			<a href="/site/tools/query_builder/index.htm" title="Build and execute connectivity queries">
 				<h3>Connectivity query</h3><img src="/images/vfb/project/queryBuilderIcon.png" width="180" height="110" />
 			</a>
 		</center>
 	</div>
-	<div class="col-sm-4 col-md-4 col-lg-4">
-		<center>
-			<jsp:include page="/site/vfb_site/whats_new.htm" />
-			<p>For full details about the site see the <a href="overview.htm">overview</a> and <a href="features.htm">features</a> pages.</p>
-		</center>
-	</div>
-</div> <!-- icon_row -->
+
 
 <div class="col-sm-6 col-md-6 col-lg-6">
 	<div id="search_panel">
