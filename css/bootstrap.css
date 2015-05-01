@@ -4247,7 +4247,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     left: 0;
     z-index: 1030
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-fixed-bottom,
     .navbar-fixed-top {
         border-radius: 0
