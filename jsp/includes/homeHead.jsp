@@ -33,6 +33,6 @@
 	</c:if>
 
 
+	<div class="container">
 
-	<div id="row row-offcanvas row-offcanvas-right">
 	<!--  Closing tag is in homeFoot.js -->
