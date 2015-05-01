@@ -41,18 +41,20 @@ window.addEvent('domready', createAutocomplete);
 
 <div class="col-sm-6 col-md-6 col-lg-6">
 	<div id="search_panel">
-		<h2>Search for brain region or neuron</h2>
-		<label>Search in:</label>
-		<select name="scope" id="scope" onchange="setScope()">
-			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-		</select>
-		<a class="help " href="./home_query_howtos/scope.htm" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
-		<br/><br/>
-		<input id="search_text" type="text" style="width:600px;" alt="Type in the name of the anatomy term/neuron to search"/>
-		<input id="id_container" type="hidden" />
-		<input id="scopeValue" type="hidden" />
-		<!-- p> Query options will be available on each term's page</p -->
+		<center>
+			<h2>Search for brain region or neuron</h2>
+			<label>Search in:</label>
+			<select name="scope" id="scope" onchange="setScope()">
+				<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
+				<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
+			</select>
+			<a class="help " href="./home_query_howtos/scope.htm" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
+			<br/><br/>
+			<input id="search_text" type="text" style="width:600px;" alt="Type in the name of the anatomy term/neuron to search"/>
+			<input id="id_container" type="hidden" />
+			<input id="scopeValue" type="hidden" />
+			<!-- p> Query options will be available on each term's page</p -->
+		</center>
 	</div> &nbsp;
 
 </div> <!-- icon_row -->
