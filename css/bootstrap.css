@@ -4046,7 +4046,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     top: auto;
     left: auto
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .nav-tabs.nav-justified>li {
         display: table-cell;
         width: 1%
@@ -4064,7 +4064,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav-tabs.nav-justified>.active>a:hover {
     border: 1px solid #ddd
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .nav-tabs.nav-justified>li>a {
         border-bottom: 1px solid #ddd;
         border-radius: 4px 4px 0 0
@@ -4111,7 +4111,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     top: auto;
     left: auto
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .nav-justified>li {
         display: table-cell;
         width: 1%
@@ -4132,7 +4132,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav-tabs-justified>.active>a:hover {
     border: 1px solid #ddd
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .nav-tabs-justified>li>a {
         border-bottom: 1px solid #ddd;
         border-radius: 4px 4px 0 0
@@ -4160,12 +4160,12 @@ textarea.input-group-sm>.input-group-btn>.btn {
     margin-bottom: 20px;
     border: 1px solid transparent
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar {
         border-radius: 4px
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-header {
         float: left
     }
@@ -4235,7 +4235,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     z-index: 1000;
     border-width: 0 0 1px
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-static-top {
         border-radius: 0
     }
@@ -4276,7 +4276,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .navbar-brand>img {
     display: block
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar>.container .navbar-brand,
     .navbar>.container-fluid .navbar-brand {
         margin-left: -15px
@@ -4342,7 +4342,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
         background-image: none
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-nav {
         float: left;
         margin: 0
@@ -4366,7 +4366,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1)
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-form .form-group {
         display: inline-block;
         margin-bottom: 0;
@@ -4424,7 +4424,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
         margin-bottom: 0
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-form {
         width: auto;
         padding-top: 0;
@@ -4464,14 +4464,14 @@ textarea.input-group-sm>.input-group-btn>.btn {
     margin-top: 15px;
     margin-bottom: 15px
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-text {
         float: left;
         margin-right: 15px;
         margin-left: 15px
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navbar-left {
         float: left!important
     }
