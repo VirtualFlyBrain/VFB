@@ -1,10 +1,10 @@
 	<div class="row">
 		
-		<div class="col-xs-3 col-lg-12">
+		<div class="col-xs-3 col-md-12">
 			<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 		</div>
 		
-		<div class="col-xs-3 col-lg-12">
+		<div class="col-xs-3 col-md-12">
 			<!-- START Twitter code -->
 			<div id="tw-root" style="margin-top:2px"></div>
 			<div class="t-page" data-width="237">
@@ -25,7 +25,7 @@
 			<!-- END twitter code -->
 		</div>
 		
-		<div class="col-xs-3 col-lg-12">
+		<div class="col-xs-3 col-md-12">
 			<!-- START Google+ page badge -->
 			<div id="gp-root" style="margin-top:2px"></div>
 			<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
@@ -43,7 +43,7 @@
 			<!-- END Google+ page badge -->
 		</div>
 		
-		<div class="col-xs-3 col-lg-12">
+		<div class="col-xs-3 col-md-12">
 			<!-- START facebook code -->
 			<div id="fb-root" style="margin-top:2px"></div>
 			<script>
