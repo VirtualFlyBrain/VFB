@@ -8,6 +8,28 @@
 		
 		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
+				<!-- START Google+ page badge -->
+				<div id="gp-root" style="margin-top:2px"></div>
+				<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
+	
+				<!-- Place this tag after the last widget tag. -->
+				<script type="text/javascript">
+					window.___gcfg = {lang: 'en-GB'};
+	
+					(function() {
+						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						po.src = 'https://apis.google.com/js/platform.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+				<!-- END Google+ page badge -->
+			</div>	
+		</div>
+		
+		<div class="clearfix visible-xs-block"></div>
+		
+		<div class="col-xs-6 col-sm-3 col-md-12">
+			<div class="well pull-right">
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
 				<div class="t-page" data-width="237">
@@ -29,27 +51,7 @@
 			</div>
 		</div>
 		
-		<div class="clearfix visible-xs-block"></div>
 		
-		<div class="col-xs-6 col-sm-3 col-md-12">
-			<div class="well pull-right">
-				<!-- START Google+ page badge -->
-				<div id="gp-root" style="margin-top:2px"></div>
-				<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
-	
-				<!-- Place this tag after the last widget tag. -->
-				<script type="text/javascript">
-					window.___gcfg = {lang: 'en-GB'};
-	
-					(function() {
-						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-						po.src = 'https://apis.google.com/js/platform.js';
-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-					})();
-				</script>
-				<!-- END Google+ page badge -->
-			</div>	
-		</div>
 		
 		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
