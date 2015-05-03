@@ -53,7 +53,7 @@ $scope.isActive = function (viewLocation) {
 	    <div id="navbar-collapse-1" class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
 	        <li class="dropdown">
-	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/site/vfb_site/home.htm">About <span class="caret"></span></a>
+	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#">About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	  					<li ng-class="{ active: isActive('/site/vfb_site/home.htm') }"><a href="/site/vfb_site/home.htm">Homepage</a></li>
 	  					<li ng-class="{ active: isActive('/site/vfb_site/overview.htm') }"><a href="/site/vfb_site/overview.htm">Overview</a></li>
@@ -87,9 +87,9 @@ $scope.isActive = function (viewLocation) {
 	            <li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="${helpURL}" target="_new">Help <span class="caret"></span></a>
+	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#" target="_new">Help <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="${helpURL}" target="_new">Quick help</a></li>
+	            <li><a href="${helpURL}" target="_new">Help for the current page</a></li>
 	            <li><a href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new">Tutorial Videos</a></li>
 	          </ul>
 	        </li>
