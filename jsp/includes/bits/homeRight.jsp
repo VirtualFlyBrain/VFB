@@ -1,12 +1,12 @@
 	<div class="row">
 		
-		<div class="col-xs-3 col-md-12">
+		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 		</div>
 		
-		<div class="col-xs-3 col-md-12">
+		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		
-		<div class="col-xs-3 col-md-12">
+		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
 				<!-- START Google+ page badge -->
 				<div id="gp-root" style="margin-top:2px"></div>
@@ -49,7 +49,7 @@
 			</div>	
 		</div>
 		
-		<div class="col-xs-3 col-md-12">
+		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
 				<!-- START facebook code -->
 				<div id="fb-root" style="margin-top:2px"></div>
