@@ -66,7 +66,7 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
 				<ul>	
 				<c:forEach items="${neuropils}" var="neuropil" varStatus="i">
 				<li>
-					${a1}/site/tools/anatomy_finder/index.htm?id=${neuropil.fbbtId}${a2}${neuropil.name} [${neuropil.correctIdFormat}]${a3}
+					${a1}/site/tools/anatomy_finder/index.htm?id=${neuropil.fbbtId}${a2}${neuropil.name} [${neuropil.fbbtIdAsOBO}]${a3}
 				</li>
 				</c:forEach>
 				</ul>
@@ -76,7 +76,7 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
 				<ul>	
 				<c:forEach items="${tracts}" var="tract" varStatus="i">
 				<li>
-					${a1}/site/tools/anatomy_finder/index.htm?id=${tract.fbbtId}${a2}${tract.name} [${neuropil.correctIdFormat}]${a3}
+					${a1}/site/tools/anatomy_finder/index.htm?id=${tract.fbbtId}${a2}${tract.name} [${neuropil.fbbtIdAsOBO}]${a3}
 				</li>
 				</c:forEach>
 				</ul>
@@ -87,7 +87,7 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
 				<ul>	
 				<c:forEach items="${neurons}" var="neuron" varStatus="i">
 				<li>
-					${a1}/site/tools/anatomy_finder/index.htm?id=${neuron.fbbtId}${a2}${neuron.name} [${neuropil.correctIdFormat}]${a3}
+					${a1}/site/tools/anatomy_finder/index.htm?id=${neuron.fbbtId}${a2}${neuron.name} [${neuropil.fbbtIdAsOBO}]${a3}
 				</li>
 				</c:forEach>
 				</ul>
