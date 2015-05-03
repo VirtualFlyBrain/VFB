@@ -19,6 +19,12 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/jsp/includes/js/bootstrap.min.js"></script>
 
+<script>
+$scope.isActive = function (viewLocation) {
+     var active = (viewLocation === $location.url());
+     return active;
+};
+</script>
 
 <c:set var="headAtt" scope="session" value="true" />
 
@@ -49,8 +55,8 @@
 	        <li class="dropdown">
 	          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/site/vfb_site/home.htm">About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	  					<li><a href="/site/vfb_site/home.htm">Homepage</a></li>
-	  					<li><a href="/site/vfb_site/overview.htm">Overview</a></li>
+	  					<li ng-class="{ active: isActive('/site/vfb_site/home.htm') }"><a href="/site/vfb_site/home.htm">Homepage</a></li>
+	  					<li ng-class="{ active: isActive('/site/vfb_site/overview.htm') }"><a href="/site/vfb_site/overview.htm">Overview</a></li>
 	  					<li><a href="/site/vfb_site/features.htm">Features</a></li>
 	  					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
 	  					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
