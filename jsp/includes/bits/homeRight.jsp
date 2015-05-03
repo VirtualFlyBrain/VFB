@@ -29,6 +29,8 @@
 			</div>
 		</div>
 		
+		<div class="clearfix visible-xs-block"></div>
+		
 		<div class="col-xs-6 col-sm-3 col-md-12">
 			<div class="well pull-right">
 				<!-- START Google+ page badge -->
