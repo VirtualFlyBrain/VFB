@@ -8,7 +8,7 @@
 			<!-- START Twitter code -->
 			<div id="tw-root" style="margin-top:2px"></div>
 			<div class="t-page" data-width="237">
-				<a class="twitter-timeline" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656">
+				<a class="twitter-timeline"  width="237" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656">
 					Tweets by @virtualflybrain
 				</a>
 				<script>
