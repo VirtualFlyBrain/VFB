@@ -9,10 +9,12 @@ To create a new main site page simply create a new file in this folder and add t
 	<jsp:param name="title" value="My Page" />
 </jsp:include>
 
-<div id="center_wide">
+<div class="row">
+
+	<div class="col-md-9">
 
 	<!-- START - editable content -->
-	
+
 		<h2>Title</h2>
 
 			<h3>Sub title</h3>
@@ -24,14 +26,15 @@ To create a new main site page simply create a new file in this folder and add t
 				Next pargraph of text
 			</p>
 
-		
+
 	<!-- END - editable content -->
 
-</div> <!-- center_wide -->
+	</div> <!-- col -->
 
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
-
-
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
 ```
 
@@ -140,4 +143,3 @@ If you want to add it as a new menu item on it's own then you can simple add the
 ```
 
 Any problems feel free to raise an <a href="https://github.com/VirtualFlyBrain/VFB/issues" target="_new">issue</a> with a question.
-

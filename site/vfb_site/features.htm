@@ -1,18 +1,20 @@
 <jsp:include page="/jsp/includes/homeHead.jsp" >
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Features@ " />
-	<jsp:param name="title" value="Features" />	
+	<jsp:param name="title" value="Features" />
 </jsp:include>
 
-	
 
-	<div id="center_wide">
+
+<div class="row">
+
+	<div class="col-md-9">
 		<center>
 			<div style="border: 1px solid red;">
 				<jsp:include page="/site/vfb_site/whats_new.htm" />
 			</div>
 		</center>
 		<hr />
-		
+
 		<p> Our site provides several anatomy browsing, image display and querying tools. Using our Viewer, one can explore the anatomy of the adult brain, as well as view image stacks from datasets integrated by VFB.<br/>
 		<br/>
 		These currently include the FlyCircuit neurons <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_new">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a>, lineage clone datasets by Tzumin Lee <a href="http://dx.doi.org/doi:10.1016/j.cub.2013.02.057" target="_new">(Yu et al., 2013, Curr. Biol. 23(8): 633-43)</a> and Kei Ito <a href="http://dx.doi.org/10.1016/j.cub.2013.03.015" target="_new">(Ito et al., 2013, Curr. Biol. 23(8): 644--655)</a> and a <i>fruitless</i> clone dataset by Cachero and Ostrovsky <a href="http://dx.doi.org/10.1016/j.cub.2010.07.045" target="_new">(Cachero et al., 2010, Curr. Biol. 20(18): 1589--1601)</a>, the GAL4 lines from Janelia Farm FlyLight <a href="http://dx.doi.org/10.1016/j.celrep.2012.09.011" target="_new">(Jenett et al., 2012, Cell Rep. 2(4): 991--1001)</a> and the BrainTrap protein trap lines <a href="http://dx.doi.org/10.1093/database/baq005" target="_new">(Knowles-Barley et al., 2010, Database)</a><br/>
@@ -20,7 +22,7 @@
 		</p>
 		<p> Below is a short description of the tools available and what they will allow you to do. For more detailed information on each tool please check our <a href="tutorial.htm">Tutorial videos</a> page or the help menu on the top right corner of each tool page.
 	    </p>
-	<p> 
+	<p>
 	  <ul>
 	    <li> <a href="#3dviewer">The 3D Brain Viewer</a></li>
 	    <li> <a href="#querymenu">The Query Menu</a></li>
@@ -44,10 +46,10 @@
 
 	<p>* The painted adult brain image stack currently used for the viewer and shown on this page, is kindly provided by Arnim Jenett of HHMI Janelia Farm research campus, and Kei Ito and Kazunori Shinomiya of University of Tokyo. The painted domain boundaries comply with the new BrainName's standard nomenclature <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017" target="_new">(Ito et al., 2014)</a>. </p>
 	<p>
-		Using the Viewer one can: 
+		Using the Viewer one can:
 		</p>
 		<ul>
-		<li>Explore the image stack by rotating, zooming, or changing the plane of view. 
+		<li>Explore the image stack by rotating, zooming, or changing the plane of view.
 		For example, shown below is an horizontal view of the stack:
 				<p style="text-align: center;">
 					<img src="/images/vfb/project/horizontal.png" alt="Horizontal view" style="border: 1px solid gray;" width="400">
@@ -59,16 +61,16 @@
 		<li>Search for neuropil domains using the autocomplete search box (below) on top of the anatomy tree, which recognises synonyms, or by simply browsing the tree.
 				<p style="text-align: center;">
 					<img src="/images/vfb/project/search.gif" alt="Search box" style="border: 1px solid gray;" width="240">
-			
+
 				</p>
 			</li>
 		<li>Once you have found and selected your term, all information associated with it is displayed in the lower panel, the term info window. This includes a definition, synonyms, references, parent classes and ontology relationships. For example, searching for "protocerebral bridge" would give:</li>
 				<p style="text-align: center;">
 					<img src="/images/vfb/project/annotation.png" alt="Simple search for neuropil" style="border: 1px solid gray;" width="650">
 				</p>
-	
+
                <li> If multiple terms are selected, only the last selected term will be shown on the term info window. The information displayed is the same as the one in the Anatomy/Neuron Finder page for that term.</li>
-			 
+
 		</ul>
 
 	<p> For more details and query examples possible from this page see <a href="#querymenu">The Query Menus' section</a> below.
@@ -95,14 +97,14 @@
 					<img src="/images/vfb/project/annotation_querymenu.png" alt="Query menu in term info window" style="border: 1px solid gray;" width="650">
 				</p>
 
-		  <p>		  
+		  <p>
 		    Below are a few examples of possible queries:</p>
 
 <a name="neuronsbylocation"></a>
-	  
+
 		    <ol>
 		    <li> <i>Search for neurons that have synaptic terminals in the "antennal mechanosensory and motor center" (AMMC): </i></li>
-		 
+
 
 		    <p>
 		     Search for antennal mechanosensory and motor center or one of its synonyms, AMMC, on the search box above the anatomy tree in the Brain Viewer page or on the Anatomy/Neuron Finder page. On the 'Query for' menu bar at the top of the term info window, hover on 'Neuron classes with:' and click on the option 'synaptic terminals here'.
@@ -128,8 +130,8 @@
 			<p style="text-align: center;">
 					<img src="/images/vfb/project/cluster_menu.png" alt="Query menu for single neurons by location: AL" style="border: 1px solid gray;" width="200">
 				</p>
-		      <p> 
-			The results window lists groups of morphologically similar neurons (clusters, see below). 
+		      <p>
+			The results window lists groups of morphologically similar neurons (clusters, see below).
 		      </p>
 
 		      <p style="text-align: center;">
@@ -160,12 +162,12 @@
 		      <p style="text-align: center;">
 					<img src="/images/vfb/project/cluster_showAll.png" alt="All neurons in a cluster with annotations" style="border: 1px solid gray;" width="600">
 				</p>
-	
+
 		      <p>
-			Matching the neuron clusters to previously defined neurons classes present in the ontology, as seen in the example above, is ongoing. 
+			Matching the neuron clusters to previously defined neurons classes present in the ontology, as seen in the example above, is ongoing.
 			</p>
 
-	 
+
 	<a name="expquery"></a>
 		  <p>
 		    <li><i>Find transgenes expressed in the wedge (also known as IVLP) or in neurons that overlap it </i></li>
@@ -173,7 +175,7 @@
 
 		    <p>
 		     Search for 'wedge' or 'IVLP' on the Anatomy/Neuron Finder page. On the 'Query for' menu bar at the top of the term info window, hover on 'Expression/Phenotypes found here:' and click on the option 'Transgenes expressed here'.<br />
-		One advantage of our query system is that even if you do not know which specific classes of neurons you should be looking for with respect to a specific brain region, our results list will incorporate all the neuron classes known to overlap (partly or completely) that neuropil domain. 
+		One advantage of our query system is that even if you do not know which specific classes of neurons you should be looking for with respect to a specific brain region, our results list will incorporate all the neuron classes known to overlap (partly or completely) that neuropil domain.
 		     </p>
 
 		  <p style="text-align: center;">
@@ -186,7 +188,7 @@
 			<p style="text-align: center;">
 					<img src="/images/vfb/project/query2.png" alt="Query results for transgenes" style="border: 1px solid gray;" width="600">
 				</p>
-				
+
 		<a name="anatfinder"></a>
                 <h2>The Anatomy/Neuron Finder</h2>
 		<p>This search tool, available on the homepage, or in <a href="../tools/anatomy_finder/index.htm">Tools</a>, displays all the associated information to a neuron class, neuropil domain, lineage clone or tract, similarly to the term info window in the 'Brain Viewer' page. Links to the Brain Viewer page ('See in viewer') from neuropil domains allow easy visualisation of the brain anatomy.</p>
@@ -194,10 +196,10 @@
 		<p style="text-align: center;">
 					<img src="/images/vfb/project/searchbox_anatfinder.png" alt="Neuron or neuropil search box" style="border: 1px solid gray;" width="300">
 				</p>
-		  <p> 
-		    Searching for a term is made easy by the autocomplete search box which recognises synonyms.<br /> 
+		  <p>
+		    Searching for a term is made easy by the autocomplete search box which recognises synonyms.<br />
 		    Sections displayed for each term include a definition, synonyms, references, parent classes, ontology relationships and example neuron or lineage clone images.</p>
-		  
+
 		  <p>
 		    Direct queries on neuron classes are only possible on this page, not on the interactive anatomy tree in the 'Brain Viewer' page. </p>
 	  <p>
@@ -210,7 +212,7 @@
 		  <p>Queries on neurons, lineage or neuropil domains can be done from this page, by using the 'Query for' menu bar at the top of the term info window. To see the options available for each of the query menus to the right of 'Query for', hover the mouse over each one. <br />
 		    For neuropil domains, the search menu is the same as the one in the 'Brain Viewer' page. For neurons, possible queries include subclasses, genes, transgenes or phenotypes associated with that neuron. For lineage clones, the menu is the same as for neurons, except that one more option has been added: to find neurons that are part of that lineage ('Component neurons'). For more details and query examples see <a href="#querymenu">The Query Menu</a> section above.
 		    </p>
-		
+
 		<a name="composite"></a>
 		<h2>Overlaying image stacks</h2>
 		<p>
@@ -221,15 +223,15 @@
 				<p style="text-align: center">
 					<img src="/images/vfb/project/composite.png" alt="Composite view" width="650" style="border: 1px solid gray" />
 				</p>
-				
-			<p>To create a composite view, you first need to select the image stacks. From any thumbnail image that is displayed either at the bottom of the term info page, or on the results list, click 'See in viewer'. Now, from the Viewer page, you can add the stack to the composite view by clicking 'Add to composite view' on the left hand side, under 'Stack actions'. This will take you to the Composite view page, where you can see what stacks are currently selected. To add more stacks, just click on the back button of your browser to return to your query results, or to run a new search. At any time, you can click on 'Edit current composite view' to check what stacks you have already added. 
+
+			<p>To create a composite view, you first need to select the image stacks. From any thumbnail image that is displayed either at the bottom of the term info page, or on the results list, click 'See in viewer'. Now, from the Viewer page, you can add the stack to the composite view by clicking 'Add to composite view' on the left hand side, under 'Stack actions'. This will take you to the Composite view page, where you can see what stacks are currently selected. To add more stacks, just click on the back button of your browser to return to your query results, or to run a new search. At any time, you can click on 'Edit current composite view' to check what stacks you have already added.
 					<p style="text-align: center">
 						<img src="/images/vfb/project/composite_labels.png" alt="Composite view" width="650" style="border: 1px solid gray" />
 					</p>
-					
+
 			<p>
-				Once you have added the stacks you want to overlay, from the Composite page, click on 'View composite'. Each composite view has a unique link (permalink), which allows you to share a specific composite view with others (non-editable). To obtain this link click on 'Get permalink and start new composite'. 
-				
+				Once you have added the stacks you want to overlay, from the Composite page, click on 'View composite'. Each composite view has a unique link (permalink), which allows you to share a specific composite view with others (non-editable). To obtain this link click on 'Get permalink and start new composite'.
+
 				<p style="text-align: center">
 					<img src="/images/vfb/project/composite_view.png" alt="Composite view" width="650" style="border: 1px solid gray" />
 				</p>
@@ -247,7 +249,7 @@
 
                <p>
 		Neuropil domains can be selected from the interactive anatomy tree and easily added to the query clicking 'Add to the query' at the top of the term info window. <br/>
-		Once a term has been added, you can specify the directionality of the innervation by choosing the type of terminals: pre-, postsynaptic or any (synaptic) using the drop-down menu to the right of your chosen term. For example, in the screenshot below, we are interested in neurons that receive their input in the medulla and innervate the lobula. Queries can have multiple query legs. 
+		Once a term has been added, you can specify the directionality of the innervation by choosing the type of terminals: pre-, postsynaptic or any (synaptic) using the drop-down menu to the right of your chosen term. For example, in the screenshot below, we are interested in neurons that receive their input in the medulla and innervate the lobula. Queries can have multiple query legs.
 		</p>
 			<p>
 			In order to prevent executing empty queries, a running count of results is displayed whilst you compose your query ('Records found'). Click the "Execute" button to browse the results.<br/>
@@ -265,22 +267,22 @@
 <a name="tech"></a>
 	<h2>Technical details</h2>
 <p>
-		The Virtual Fly Brain (VFB) browser application consists of the Image Server and a lightweight client. 
-		The Image Server uses the <a href="http://iipimage.sourceforge.net/" target="_new">Internet Imaging Protocol</a> that streams image tiles that are 
-		specified by a client's request. This tile-based approach for viewing large, high-resolution images is widely used by popular 
-		providers such as <a href="http://google.com" target="_new">Google</a> or <a href="http://www.zoomify.com/" target="_new">Zoomify</a>, as well as by research projects 
+		The Virtual Fly Brain (VFB) browser application consists of the Image Server and a lightweight client.
+		The Image Server uses the <a href="http://iipimage.sourceforge.net/" target="_new">Internet Imaging Protocol</a> that streams image tiles that are
+		specified by a client's request. This tile-based approach for viewing large, high-resolution images is widely used by popular
+		providers such as <a href="http://google.com" target="_new">Google</a> or <a href="http://www.zoomify.com/" target="_new">Zoomify</a>, as well as by research projects
 		such as <a href="http://www.eurexpress.org/ee/" target="_new">Eurexpress</a>. <br/>
-		The key advantage of such an approach is that the client only downloads 
-		the portion of the whole image that is visible, rather than the entire image. This efficiently uses bandwidth and memory, allowing it to 
-		be usable even over slow internet connections. An extension of the IIP protocol that we use allows to serve arbitrary sections of a 3D 
-		object in <i>Woolz</i> format. Please see the overall architecture of the VFB application below: 
+		The key advantage of such an approach is that the client only downloads
+		the portion of the whole image that is visible, rather than the entire image. This efficiently uses bandwidth and memory, allowing it to
+		be usable even over slow internet connections. An extension of the IIP protocol that we use allows to serve arbitrary sections of a 3D
+		object in <i>Woolz</i> format. Please see the overall architecture of the VFB application below:
 	</p>
-	
+
 	<p style="text-align:center">
 		<img src= "/images/vfb/project/architecture.png" alt="Overall architecture" width="580" style="padding:5px"/>
 	</p>
-	
-	<p>Please feel free to download a <a href="/public_resources/NeuroFly2010.ppt">poster</a> for more details on the application 
+
+	<p>Please feel free to download a <a href="/public_resources/NeuroFly2010.ppt">poster</a> for more details on the application
 		or refer to the <a href="http://www.emouseatlas.org/emap/analysis_tools_resources/software/woolz.html" target="_new">Woolz page</a> for details on Woolz software and IIP3D protocol.
 	</p>
 
@@ -290,10 +292,13 @@
 	  <p>
 	  This ontology is used extensively to record gene/transgene expression and phenotypes in FlyBase.  By combining reasoner driven queries of the ontology with queries of FlyBase, VFB allows simple point-and-click queries for neuroanatomy, expression and phenotypes.
 	  </p>
-				
+
 	</div> <!-- center_wide -->
-	
-	<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

@@ -4,10 +4,11 @@
 	<jsp:param name="title" value="Template files" />
 </jsp:include>
 
-<div id="center_wide">
+<div class="row">
 
+	<div class="col-md-9">
 	<!-- START - editable content -->
-	
+
 		<h2>Download of template files</h2>
 
 			<h3>Adult Brain from Janelia Farm/VFB (JFRC2)</h3>
@@ -18,11 +19,11 @@
 			<p>
 				The files are available <a type="text/csv" href="https://github.com/VirtualFlyBrain/DrosAdultBRAINdomains" target="_new">here</a>.
 			</p>
-			
+
 			<h3>Adult brain from BrainName</h3>
 
   		<p>
-  			These are the template and accompanying supplementary image files of the BrainName paper <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017" target="_new">(Ito et al., 2014)</a>. It includes: 
+  			These are the template and accompanying supplementary image files of the BrainName paper <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017" target="_new">(Ito et al., 2014)</a>. It includes:
   			<ul>
   			<li>A tricolor brain template (half-brain) displaying presynaptic (n-syb-GFP, green ), postsynaptic (GABA receptor targeted Rdl-HA receptor, blue) and cytoplasmic counter stains (Cytoplasmic DsRed, red).
   			</li>
@@ -34,12 +35,14 @@
 	  		The files are available <a href="https://github.com/VirtualFlyBrain/DrosAdultHalfBRAINdomains" target="_new">here</a>.
   		</p>
 
-		
+
 	<!-- END - editable content -->
 
-</div> <!-- center_wide -->
+</div> <!-- col -->
 
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
-
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
