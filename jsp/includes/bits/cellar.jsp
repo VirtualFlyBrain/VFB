@@ -1,4 +1,4 @@
-	<div id="cellar">
+	<div class="row" align="center">
 	  | <a href="/site/vfb_site/sitemap.htm">Sitemap</a> |
 	  <a href="/">Virtual Fly Brain</a> |
 	  <script>mail2("support","virtualflybrain",1,"","Email us")</script> |
