@@ -31,6 +31,6 @@
 	</c:if>
 
 
-	<div class="container">
+	<div class="container-fluid">
 
 	<!--  Closing tag is in homeFoot.js -->
