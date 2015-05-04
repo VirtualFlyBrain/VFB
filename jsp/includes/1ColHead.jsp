@@ -41,5 +41,5 @@
   	<div id="wrapper">
 	<jsp:include page="/jsp/includes/bits/head.jsp"/> 	 
 	
-	<div id="contentwrapper" style="border:1px solid gray" >
+	<div id="content-fluid">
 	<!--  Closing tags is in homeFoot.js -->	
