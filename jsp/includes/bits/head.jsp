@@ -8,9 +8,12 @@
 <link href="/css/offcanvas.css" rel="stylesheet">
 <!-- text search and help etc -->
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
-<script type="text/javascript" src="/javascript/vfb/utils.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
+<script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
+<script type="text/javascript">
+window.addEvent('domready', createAutocomplete);
+</script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
