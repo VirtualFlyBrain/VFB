@@ -1,13 +1,13 @@
 	<div class="row-fluid" align="center">
 		
-		<div class="span2" style="min-width:240px">
-			<div class="well pull-right">
+		<div class="span2" style="min-width:240px" align="center">
+			<div class="well">
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 		</div>
 		
-		<div class="span3" style="min-width:240px">
-			<div class="well pull-right">
+		<div class="span3" style="min-width:240px" align="center">
+			<div class="well">
 				<!-- START Google+ page badge -->
 				<div id="gp-root" style="margin-top:2px"></div>
 				<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
@@ -28,8 +28,8 @@
 		
 		<div class="clearfix visible-xs-block"></div>
 		
-		<div class="span2" style="min-width:240px">
-			<div class="well pull-right">
+		<div class="span2" style="min-width:240px" align="center">
+			<div class="well">
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
 				<div class="t-page" data-width="237">
@@ -53,8 +53,8 @@
 		
 		
 		
-		<div class="span2" style="min-width:240px">
-			<div class="well pull-right">
+		<div class="span2" style="min-width:240px" align="center">
+			<div class="well">
 				<!-- START facebook code -->
 				<div id="fb-root" style="margin-top:2px"></div>
 				<script>
