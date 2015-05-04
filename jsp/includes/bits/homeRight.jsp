@@ -1,4 +1,4 @@
-	<div class="row">
+	<div class="row-fluid">
 		
 		<div class="col-xs-6 col-sm-3 col-md-12" style="min-width:240px">
 			<div class="well pull-right">
