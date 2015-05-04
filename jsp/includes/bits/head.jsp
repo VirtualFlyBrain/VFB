@@ -39,7 +39,7 @@ $scope.isActive = function (viewLocation) {
 <c:set var="title" value="${param.title}" />
 
 
-	<nav class="navbar navbar-default navbar-static-top" style="position:absolute;width:95%;top:0px;">
+	<nav class="navbar navbar-default navbar-static-top" style="position:absolute;width:100%;top:0px;">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
