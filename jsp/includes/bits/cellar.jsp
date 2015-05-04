@@ -1,3 +1,4 @@
+</div> <!-- end for div started in head -->	
 	<div class="row" align="center">
 	  | <a href="/site/vfb_site/sitemap.htm">Sitemap</a> |
 	  <a href="/">Virtual Fly Brain</a> |
