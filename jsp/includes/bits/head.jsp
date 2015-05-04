@@ -12,6 +12,7 @@
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 <link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css">
 <script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
+<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
 <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
 <script type="text/javascript">
 window.addEvent('domready', createAutocomplete);
