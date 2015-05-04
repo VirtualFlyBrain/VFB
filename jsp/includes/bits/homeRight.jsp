@@ -1,12 +1,12 @@
-	<div class="row-fluid">
+	<div class="row-fluid" align="center">
 		
-		<div class="col-xs-6 col-sm-3 col-md-12" style="min-width:240px">
+		<div class="span2" style="min-width:240px">
 			<div class="well pull-right">
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 		</div>
 		
-		<div class="col-xs-6 col-sm-3 col-md-12" style="min-width:240px">
+		<div class="span3" style="min-width:240px">
 			<div class="well pull-right">
 				<!-- START Google+ page badge -->
 				<div id="gp-root" style="margin-top:2px"></div>
@@ -28,7 +28,7 @@
 		
 		<div class="clearfix visible-xs-block"></div>
 		
-		<div class="col-xs-6 col-sm-3 col-md-12" style="min-width:240px">
+		<div class="span2" style="min-width:240px">
 			<div class="well pull-right">
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
@@ -53,7 +53,7 @@
 		
 		
 		
-		<div class="col-xs-6 col-sm-3 col-md-12" style="min-width:240px">
+		<div class="span2" style="min-width:240px">
 			<div class="well pull-right">
 				<!-- START facebook code -->
 				<div id="fb-root" style="margin-top:2px"></div>
