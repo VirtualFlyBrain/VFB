@@ -10,6 +10,7 @@
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css">
 <script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
 <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
 <script type="text/javascript">
