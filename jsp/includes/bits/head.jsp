@@ -11,6 +11,7 @@
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 <script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
+<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
 <script type="text/javascript">
 window.addEvent('domready', createAutocomplete);
 </script>
