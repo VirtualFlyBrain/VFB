@@ -7,8 +7,6 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-<!-- Custom styles for this template -->
-<link href="/css/offcanvas.css" rel="stylesheet">
 <!-- text search and help etc -->
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
