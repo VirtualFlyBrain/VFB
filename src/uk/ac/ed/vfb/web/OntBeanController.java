@@ -18,7 +18,7 @@ import uk.ac.ed.vfb.service.PubBeanManager;
 
 /**
  * Controller providing the front-end for the /do/ont_bean.html view.
- * @author rcourt
+ * @author nmilyaev
  */
 
 public class OntBeanController implements Controller {
@@ -37,7 +37,7 @@ public class OntBeanController implements Controller {
 				return null;
 			}else{
 				id = OntBean.idAsOWL(req.getParameter("id"));
-
+				
 			}
 		}else{
 			id = OntBean.idAsOBO(req.getParameter("fbId"));
