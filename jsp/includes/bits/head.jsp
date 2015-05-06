@@ -73,8 +73,7 @@ $scope.isActive = function (viewLocation) {
 	  					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
 	  					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
 	  					<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
-	  					<li><a href="/site/vfb_site/privacy_cookies.htm">Privacy and Sitemap</a></li>
-	            <li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
+	            				<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
 	  					<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 	          </ul>
 	        </li>
