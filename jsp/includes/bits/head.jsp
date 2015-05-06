@@ -81,7 +81,6 @@ $scope.isActive = function (viewLocation) {
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
 	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron&nbsp;Finder</a></li>
 	            <li><a href="/http://jefferislab.org/si/nblast/">NBLAST</a></li>
-	            <li><a href="/site/tools/protected/index.htm">Protected Area</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
