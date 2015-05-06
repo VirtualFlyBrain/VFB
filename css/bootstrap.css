@@ -3343,6 +3343,16 @@ fieldset[disabled] .btn-link:focus {
   color: #777777;
   text-decoration: none;
 }
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-info.outline {
+    border: 2px solid #5bc0de;
+    color: #5bc0de;
+}
+
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
