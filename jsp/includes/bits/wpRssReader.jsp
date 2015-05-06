@@ -26,7 +26,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
 </div>
 <div style="height:500px; overflow-y: auto; overflow-x: hidden;">
-	<% for(int i=0;i<nodes.getLength();i++) {
+	<% for(int i=0;i<3;i++) {
 	Element element = (Element)nodes.item(i); 
 	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
 		<div style="padding:2px;background:white">
