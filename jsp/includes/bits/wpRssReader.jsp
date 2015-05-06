@@ -29,7 +29,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 	<% for(int i=0;i<nodes.getLength();i++) {
 	Element element = (Element)nodes.item(i); 
 	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
-		<div style="padding:2px;">
+		<div style="padding:2px;background:white">
 			<b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b><br/>
 			<p style="margin: 0; font-size:1.2em; font-weight:bold"><a href="<%=getElementValue(element,"link")%>"><%=getElementValue(element,"title")%></a></p><br/>
 			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
