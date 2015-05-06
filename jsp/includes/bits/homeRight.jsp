@@ -55,18 +55,18 @@
 			</div>
 		</div>  
 		
+		<div class="span3" style="min-width:240px" align="center">
+			<div class="well">
+				<!-- START Google+ page badge -->
+				<div id="gp-root" style="margin-top:2px"></div>
+				<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
+		
 		<div class="span2" style="min-width:240px" align="center">
 			<div class="well">
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 		</div>
 		
-		<div class="span3" style="min-width:240px" align="center">
-			<div class="well">
-				<!-- START Google+ page badge -->
-				<div id="gp-root" style="margin-top:2px"></div>
-				<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
-	
 				<!-- Place this tag after the last widget tag. -->
 				<script type="text/javascript">
 					window.___gcfg = {lang: 'en-GB'};
