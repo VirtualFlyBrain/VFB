@@ -57,3 +57,14 @@ footer {
     width: 50%; /* 6 columns */
   }
 }
+/****************
+ Outline button
+*************/
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-info.outline {
+    border: 2px solid #5bc0de;
+    color: #5bc0de;
+}
