@@ -11,10 +11,27 @@
 	<div class="col-md-9">
 		
 		<div class="row">
-	
+			
+			<div class="col-md-12" align="center">
+				<div class="well" align="center">
+					<h2>Search for brain region or neuron</h2>
+					<label>Search in:</label>
+					<select name="scope" id="scope" onchange="setScope()">
+						<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
+						<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
+					</select>
+					<a class="help " href="./home_query_howtos/scope.htm" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
+					<br/><br/>
+					<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search" style="color: orange;"/>
+					<input id="id_container" type="hidden" />
+					<input id="scopeValue" type="hidden" />
+					<!-- p> Query options will be available on each term's page</p -->
+				</div>
+			</div>
+			
 			<div class="col-md-3" align="center">
 				<div class="well" align="center">
-					<a href="/site/stacks/index.htm" title="Explore and run queiries on the adult Drosophila Brain">
+					<a href="/site/stacks/index.htm" title="Explore and run queries on the adult Drosophila Brain">
 						<h3>Adult Brain Anatomy</h3><img src="/images/vfb/project/viewerIcon.png" style="max-width:100%;" />
 					</a>
 				</div>
@@ -32,23 +49,6 @@
 					<a href="/site/tools/query_builder/index.htm" title="Build and execute connectivity queries">
 						<h3>Connectivity Query</h3><img src="/images/vfb/project/queryBuilderIcon.png" style="max-width:100%;" />
 					</a>
-				</div>
-			</div>
-			
-			<div class="col-md-12" align="center">
-				<div class="well" align="center">
-					<h2>Search for brain region or neuron</h2>
-					<label>Search in:</label>
-					<select name="scope" id="scope" onchange="setScope()">
-						<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-						<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-					</select>
-					<a class="help " href="./home_query_howtos/scope.htm" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
-					<br/><br/>
-					<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search" style="color: orange;"/>
-					<input id="id_container" type="hidden" />
-					<input id="scopeValue" type="hidden" />
-					<!-- p> Query options will be available on each term's page</p -->
 				</div>
 			</div>
 		
