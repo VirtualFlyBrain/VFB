@@ -66,7 +66,7 @@ $scope.isActive = function (viewLocation) {
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	  					<li ng-class="{ active: isActive('/site/vfb_site/home.htm') }"><a href="/site/vfb_site/home.htm">Homepage</a></li>
-	  					<li ng-class="{ active: isActive('/site/vfb_site/features.htm') }"><a href="/site/vfb_site/features.htm">Features</a></li>
+	  					<li ng-class="{ active: isActive('/site/vfb_site/features.htm') }"><a href="/site/vfb_site/features.htm"></a></li>
 	  					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
 	  					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
 	  					<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
