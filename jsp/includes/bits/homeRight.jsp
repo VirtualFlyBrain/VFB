@@ -25,5 +25,25 @@
 			</div>
 		</div>
 		
+		<div class="span2" style="min-width:240px" align="center">
+-			<div class="well">
+-				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
+-			</div>
+-		</div>
+-		
+-				<!-- Place this tag after the last widget tag. -->
+-				<script type="text/javascript">
+-					window.___gcfg = {lang: 'en-GB'};
+-	
+-					(function() {
+-						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+-						po.src = 'https://apis.google.com/js/platform.js';
+-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+-					})();
+-				</script>
+-				<!-- END Google+ page badge -->
+-			</div>	
+-		</div>
+		
 	</div> <!--  row -->
 	
