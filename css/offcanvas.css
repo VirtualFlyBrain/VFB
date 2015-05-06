@@ -67,4 +67,5 @@ footer {
 .btn-info.outline {
     border: 2px solid #5bc0de;
     color: #5bc0de;
+    text-shadow: none
 }
