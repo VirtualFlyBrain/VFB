@@ -2,6 +2,12 @@
 		
 		<div class="span2" style="min-width:240px" align="center">
 			<div class="well">
+			
+			<div class="span2" style="min-width:240px" align="center">
+			
+			<div class="well">
+				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
+			</div>
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
 				<div class="t-page" data-width="237">
@@ -23,10 +29,7 @@
 			</div>
 		</div>
 		
-		<div class="span2" style="min-width:240px" align="center">
-			<div class="well">
-				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
-			</div>
+		
 		</div>
 		
 	</div> <!--  row -->
