@@ -1,9 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!-- Bootstrap -->
-<link href="/css/bootstrap.css" rel="stylesheet">
-<link href="/css/bootstrap-theme.css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 <!-- Custom styles for this template -->
 <link href="/css/offcanvas.css" rel="stylesheet">
 <!-- text search and help etc -->
@@ -26,8 +32,7 @@ window.addEvent('domready', createAutocomplete);
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/jsp/includes/js/bootstrap.min.js"></script>
+
 
 <script>
 $scope.isActive = function (viewLocation) {
@@ -80,7 +85,7 @@ $scope.isActive = function (viewLocation) {
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
 	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron&nbsp;Finder</a></li>
-	            <li><a href="/http://jefferislab.org/si/nblast/">NBLAST</a></li>
+	            <li><a href="http://jefferislab.org/si/nblast/">NBLAST</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
