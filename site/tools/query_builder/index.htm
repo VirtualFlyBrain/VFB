@@ -21,7 +21,13 @@
 		}
 		
 	</script>
-		<iframe id="browser_interface" src="/site/tools/query_builder/vfbInterfaceBasic.htm?currURL=${sessionScope.currURL}" height="1500px" width="830px" align="left" scrolling="no" FRAMEBORDER="0"></iframe>
-		<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" height="1500px" width="420px" align="left" FRAMEBORDER="0"></iframe>
-
+	
+	<div class="row">
+		<div class="col-md-8">
+			<iframe id="browser_interface" src="/site/tools/query_builder/vfbInterfaceBasic.htm?currURL=${sessionScope.currURL}" style="width=100%; height=100%" align="left" scrolling="no" FRAMEBORDER="0"></iframe>
+		</div>
+		<div class="col-md-8">
+			<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width=100%; height=100%" align="left" FRAMEBORDER="0"></iframe>
+		</div>
+	</div>
 	<jsp:include page="/jsp/includes/bits/cellar.jsp" />
