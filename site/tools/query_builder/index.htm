@@ -4,7 +4,6 @@
 	<jsp:param name="css" value="/css/vfb/layout/layout-query.css;" />
 </jsp:include>
 
-<div id="center_wide">
 	<script type="text/javascript">
 		window.addEvent('load', function() {
 			$(browser_interface).contentDocument.location.reload(true);
@@ -26,7 +25,6 @@
 		<iframe id="browser_interface" src="/site/tools/query_builder/vfbInterfaceBasic.htm?currURL=${sessionScope.currURL}" height="1500px" width="830px" align="left" scrolling="no" FRAMEBORDER="0"></iframe>
 		<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" height="1500px" width="420px" align="left" FRAMEBORDER="0"></iframe>
 
-</div>
-<!-- center_wide -->
-
+<div>
 <jsp:include page="/jsp/includes/homeFoot.jsp" /> 
+</div>
