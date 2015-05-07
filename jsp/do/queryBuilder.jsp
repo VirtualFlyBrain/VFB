@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>VFB</title>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout-query.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />  	  	
 	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
     <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
