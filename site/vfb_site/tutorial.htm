@@ -4,7 +4,9 @@
 	<jsp:param name="css" value="/css/vfb/utils/table.css" />
 </jsp:include>
 
-<div id="center_wide">
+<div class="row">
+
+	<div class="col-md-9">
 
 	<h2>Interactive 3D Viewer overview</h2>
 	<p style="text-align: center">
@@ -67,7 +69,10 @@
 </div>
 <!-- center_wide -->
 
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
