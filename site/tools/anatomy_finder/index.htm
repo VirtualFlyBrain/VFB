@@ -30,39 +30,42 @@ window.addEvent('domready', createAutocomplete);
 
 <div class="row">
 	
-	<div class="well">
-		
-		<h2 id="header">Search for the anatomy term/neuron here</h2>
-		<label>Search in:</label>
-		<select name="scope" id="scope" onchange="setScope()">
-			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-		</select>
-		<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search"/>
-		<input id="scopeValue" type="hidden" />	
-		<input id="id_container" type="hidden" />
+	<div class="col-xs-12">
+		<div class="well">
+			<h2 id="header">Search for the anatomy term/neuron here</h2>
+			<label>Search in:</label>
+			<select name="scope" id="scope" onchange="setScope()">
+				<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
+				<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
+			</select>
+			<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search"/>
+			<input id="scopeValue" type="hidden" />	
+			<input id="id_container" type="hidden" />
+		</div>
 	</div>
 	
-	<div class="well" >
-		<c:if test="${!empty param.id}" >
-			<jsp:include page="/do/ont_bean.html">
-				<jsp:param name="fbId" value="${param.id}" />
-			</jsp:include>
-		</c:if>	
-		
-		<c:if test="${empty param.id}" >
-			<h2 class="panel_header">Annotations for Selected Anatomy Term/Neuron</h2>
-			Search for a neuron, neuropil domain, lineage clone or tract in the search box above to see further query options. <br/><br/>
-		</c:if>
-
-
-		<c:if test="${!empty errorMsg}" >
-			<script type="text/javascript">
-				alert("${errorMsg}");
-			</script>
-		</c:if>
-
-	</div> <!-- annotation -->
+	<div class="col-xs-12">
+		<div class="well">
+			<c:if test="${!empty param.id}" >
+				<jsp:include page="/do/ont_bean.html">
+					<jsp:param name="fbId" value="${param.id}" />
+				</jsp:include>
+			</c:if>	
+			
+			<c:if test="${empty param.id}" >
+				<h2 class="panel_header">Annotations for Selected Anatomy Term/Neuron</h2>
+				Search for a neuron, neuropil domain, lineage clone or tract in the search box above to see further query options. <br/><br/>
+			</c:if>
+	
+	
+			<c:if test="${!empty errorMsg}" >
+				<script type="text/javascript">
+					alert("${errorMsg}");
+				</script>
+			</c:if>
+	
+		</div> <!-- annotation -->
+	</div>
 </div>
 
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
