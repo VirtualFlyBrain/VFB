@@ -5,9 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>VFB</title>
-    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout-query.css" />
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />  	  	
 	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
     <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
@@ -19,10 +16,10 @@
       	var target = $('query_text');
     	var url = "/do/ont_query_result.html";
     	var params = 'action=count';
-    	var tip = "This tool allows you to search for neurons that innervate two different brain regions, allowing you to specify pre/post-synaptic terminals. <br/>"+
+    	var tip = "This tool allows you to search for neurons that innervate two different brain regions, specify pre or post-synaptic terminals. <br/>"+
 		"To begin, please select a term from the anatomy tree on the right and add it to the query using the 'Add to Query' option on the top of the term info panel." +
 		"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
-		"Continue adding more terms as required by your query.<br/>"+
+		"Continue adding more terms as required.<br/>"+
 		"A query can be executed at any time by clicking the 'Execute' button.<br/><br/>" + 
 		"Your query is currently empty.";
 		var queryText = "${queryText}";
