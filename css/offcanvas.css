@@ -69,3 +69,8 @@ footer {
     color: #5bc0de;
     text-shadow: none
 }
+
+/****************
+ Adding top bugger to rows
+*************/
+.top-buffer { margin-top:5px; }
