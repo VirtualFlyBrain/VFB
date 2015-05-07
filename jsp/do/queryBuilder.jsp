@@ -85,6 +85,10 @@
 			alert("${errorMsg}");
 		</script>
 	</c:if>
+	
+	<div>
+	<jsp:include page="/jsp/includes/bits/cellar.jsp" />
+</div>
 
  </body>
 </html>
