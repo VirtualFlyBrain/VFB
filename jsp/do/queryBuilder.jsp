@@ -86,6 +86,8 @@
 		</script>
 	</c:if>
 	
+	</div>
+	
 	<div>
 	<jsp:include page="/jsp/includes/bits/cellar.jsp" />
 </div>
