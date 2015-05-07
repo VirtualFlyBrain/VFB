@@ -30,7 +30,7 @@ window.addEvent('domready', createAutocomplete);
 
 <div class="row">
 	
-	<div class="col-xs-12">
+	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="well">
 			<h2 id="header">Search for the anatomy term/neuron here</h2>
 			<label>Search in:</label>
@@ -44,7 +44,7 @@ window.addEvent('domready', createAutocomplete);
 		</div>
 	</div>
 	
-	<div class="col-xs-12">
+	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="well">
 			<c:if test="${!empty param.id}" >
 				<jsp:include page="/do/ont_bean.html">
