@@ -21,11 +21,11 @@ Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 <div id="rss_feed" style="width:235px; font-size:0.8em;">
-<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center;border:1px solid gray;"> &nbsp;&nbsp;&nbsp;News 
+<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center"> &nbsp;&nbsp;&nbsp;News 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 2px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
 </div>
-<div style="height:400px; overflow-y: auto; overflow-x: hidden;border:1px solid gray;">
+<div style="height:400px; overflow-y: auto; overflow-x: hidden; border:1px solid gray;">
 	<% for(int i=0;i<3;i++) {
 	Element element = (Element)nodes.item(i); 
 	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
@@ -35,11 +35,11 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
 			<tr><td>comments:</td><td><%=getElementValue(element,"wfw:comment")%></td></tr--%>
 			<%=getElementValue(element,"description")%><br/>
-			<hr style="width:180px; color:#3d3d3d; height:1px"/>
+			<hr style="width:180px; color:solid gray; height:1px"/>
 		</div>
 	<%} %>
 	</div>
-	<div style="height:98px; background-color:#99BCDB; color:#333; border-top: 1px solid #ccc;padding: 2px 5px 8px 5px;">
+	<div style="height:98px; background-color:#99BCDB; color:#333; border:1px solid gray;padding: 2px 5px 8px 5px;">
 		<h5 style="font-weight:bold; margin-top:6px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
 		<!--<label>email</label> -->
