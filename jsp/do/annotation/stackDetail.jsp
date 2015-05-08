@@ -4,7 +4,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <jsp:include page="/jsp/includes/1ColHead.jsp">
 	<jsp:param name="title" value="User Stack Details" />
-	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/overview.htm|Tools@#|User Stack Details@ " />
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/features.htm|Tools@#|User Stack Details@ " />
 	<jsp:param name="css" value="/css/vfb/layout/layout-query.css;/css/vfb/annotation/upload.css;" />
 </jsp:include>
 
