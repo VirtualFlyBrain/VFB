@@ -21,11 +21,31 @@
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 	<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
 	<script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+	<script type="text/javascript" src="/javascript/thirdParty/typeahead.bundle.min.js"></script>
 	
 
 <script type="text/javascript">
 window.addEvent('domready', createAutocomplete);
 
+</script>
+
+<script>
+	  var suggestions = new Bloodhound({
+	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+	  queryTokenizer: Bloodhound.tokenizers.whitespace,
+	  prefetch: 'http://vfbdev.inf.ed.ac.uk:8983/solr/ontology/select?q=label%3Aadult&wt=json',
+	  remote: {
+	    url: 'http://vfbdev.inf.ed.ac.uk:8983/solr/ontology/select?q=label%3A%QUERY&wt=json',
+	    wildcard: '%QUERY'
+	  }
+	});
+	 
+	$('#remote .typeahead').typeahead(null, {
+	  name: 'matching-names',
+	  display: 'value',
+	  source: suggestions
+	});
+	
 </script>
 
 <div class="row">
@@ -38,7 +58,9 @@ window.addEvent('domready', createAutocomplete);
 				<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
 				<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
 			</select>
-			<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search" placeholder="Search for neuropil, neuron, lineage clone or tract"/>
+			<div id="remote">
+  				<input class="typeahead" type="text" placeholder="Neuropil, neuron, lineage clone or tract">
+			</div>
 			<input id="scopeValue" type="hidden" />	
 			<input id="id_container" type="hidden" />
 		</div>
