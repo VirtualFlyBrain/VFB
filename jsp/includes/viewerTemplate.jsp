@@ -139,12 +139,10 @@
 			<!-- Need this to get the context menu on the term info box working, see span above -->
 			<div id="annotation_content">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
-				Annotations for the selected anatomical term are displayed here.<br/><br/>
 				Click anywhere on the stack viewer or on any node of the
 				tree to select a domain.<br/><br/>
-			
-				Further query options will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
-				<b>Tip: </b> To keep your current domain/tree selection open links in a new tab. Right/control click the link and select "Open link in new tab".  
+				Annotations for the selected anatomical term will displayed here, with further query options visible after selection.<br/><br/>
+				<b>Tip: </b> To keep your current domain/tree selection, open links in a new tab. Right/control click and select "Open link in new tab".  
 			</div>
 		</div>
 		<jsp:include page="/jsp/includes/bits/cellar.jsp" />
