@@ -138,12 +138,12 @@
 		<div id="annotation">
 			<!-- Need this to get the context menu on the term info box working, see span above -->
 			<div id="annotation_content">
-				<h2 class="panel_header">Annotation for Selected Node</h2>
-				Annotation for currently selected anatomical term is displayed here.<br/><br/>
-				Please click anywhere on the stack viewer above or on any node of the
-				tree on the right to select a domain.<br/><br/>
-				<b>Did you know?</b> You can run simple queries on a chosen term from the current panel. <br/> 
-				Simply choose one of the query options to the right of 'Query for', on the term-specific menu bar that will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
+				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
+				Annotations for the selected anatomical term are displayed here.<br/><br/>
+				Please click anywhere on the stack viewer or on any node of the
+				tree to select a domain.<br/><br/>
+			
+				Further query options will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
 				<b>Tip: </b> To keep your current domain/tree selection open links in a new tab. Right/control click the link and select "Open link in new tab".  
 			</div>
 		</div>
