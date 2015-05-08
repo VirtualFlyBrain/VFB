@@ -12,8 +12,8 @@
 			
 		
 				<!-- START Twitter code -->
-				<div id="tw-root" style="margin-top:2px; background-color:#333"></div>
-				<div class="t-page" data-width="237">
+				<div id="tw-root" style="margin-top:2px"></div>
+				<div class="t-page" data-width="237" style="background-color:#333; border:1px solid gray">
 					<a class="twitter-timeline"  width="237" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656">
 						Tweets by @virtualflybrain
 					</a>
