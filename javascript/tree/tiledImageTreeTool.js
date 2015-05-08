@@ -86,7 +86,7 @@ var tiledImageTreeTool = new Class ({
 		this.searchHeader = new Element("h2", {
 			"id": "search_header",
 			"class":"panel_header",
-			"text":"Anatomy Tree and Search",
+			"text":"Anatomy Tree",
 			"style":"margin-top:0"
 		});
 		this.searchHeader.inject(this.treeControlContainer, 'inside');
@@ -95,6 +95,7 @@ var tiledImageTreeTool = new Class ({
 			"type":"text",
 			"id": "search_text",
 			"text":"start typing here"
+			"placeholder": "Search for a neuropil"
 		});
 		this.searchTextBox.inject(this.treeControlContainer, 'inside');
 		//----------------------------------------
