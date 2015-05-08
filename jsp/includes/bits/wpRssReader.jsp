@@ -21,7 +21,7 @@ Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 <div id="rss_feed" style="width:235px; font-size:0.8em;">
-<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center;"> &nbsp;&nbsp;&nbsp;News Feed 
+<div style="font: 16px Arial; border:1px solid gray; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center;"> &nbsp;&nbsp;&nbsp;News Feed 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 2px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
 </div>
