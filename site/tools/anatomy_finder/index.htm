@@ -33,9 +33,9 @@ window.addEvent('domready', createAutocomplete);
 	  var suggestions = new Bloodhound({
 	  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
 	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  prefetch: 'http://vfbdev.inf.ed.ac.uk:8983/solr/ontology/select?q=label%3Aadult&wt=json',
+	  prefetch: 'http://www.virtualflybrain.org:8983/solr/ontology/select?q=label%3Aadult&wt=json',
 	  remote: {
-	    url: 'http://vfbdev.inf.ed.ac.uk:8983/solr/ontology/select?q=label%3A%QUERY&wt=json',
+	    url: 'http://www.virtualflybrain.org:8983/solr/ontology/select?q=label%3A%QUERY&wt=json',
 	    wildcard: '%QUERY'
 	  }
 	});
