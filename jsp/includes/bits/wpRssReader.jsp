@@ -22,7 +22,7 @@ String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 <div id="rss_feed" style="width:235px; font-size:0.8em;">
 <div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center"> &nbsp;&nbsp;&nbsp;News 
-	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 80px;" title="Subscribe to RSS feed">
+	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:center; margin-right: 2px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
 </div>
 <div style="height:400px; overflow-y: auto; overflow-x: hidden; border:1px solid gray;">
