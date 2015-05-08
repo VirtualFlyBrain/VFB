@@ -35,7 +35,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
 			<tr><td>comments:</td><td><%=getElementValue(element,"wfw:comment")%></td></tr--%>
 			<%=getElementValue(element,"description")%><br/>
-			<hr style="width:180px; color:white ; height:1px"/>
+			<hr style="width:180px"/>
 		</div>
 	<%} %>
 	</div>
