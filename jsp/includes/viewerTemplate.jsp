@@ -140,7 +140,7 @@
 			<div id="annotation_content">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
 				Annotations for the selected anatomical term are displayed here.<br/><br/>
-				Please click anywhere on the stack viewer or on any node of the
+				Click anywhere on the stack viewer or on any node of the
 				tree to select a domain.<br/><br/>
 			
 				Further query options will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
