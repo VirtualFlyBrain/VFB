@@ -68,19 +68,19 @@ $scope.isActive = function (viewLocation) {
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	  					<li ng-class="{ active: isActive('/site/vfb_site/home.htm') }"><a href="/site/vfb_site/home.htm">Homepage</a></li>
-	  					<li ng-class="{ active: isActive('/site/vfb_site/features.htm') }"><a href="/site/vfb_site/features.htm">Features</a></li>
-	  					<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
-	  					<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
-	  					<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
-	            				<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
-	  					<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
+	  		<li><a href="/site/vfb_site/home.htm">Homepage</a></li>
+	  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
+	  		<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
+	  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
+	  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
+	    		<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
+	  		<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
-	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron&nbsp;Finder</a></li>
+	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/">NBLAST</a></li>
 	          </ul>
 	        </li>
@@ -106,13 +106,13 @@ $scope.isActive = function (viewLocation) {
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li>
-	  				<script>
-	  					var theURL = encodeURIComponent(window.location);
-	  				</script>
-	          <a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Report an issue</a>
+	  		<script>
+	  			var theURL = encodeURIComponent(window.location);
+	  		</script>
+	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Report an issue</a>
 	        </li>
 	        <li>
-	          <a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a>
+	        	<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a>
 	        </li>
 	      </ul>
 	    </div><!--/.nav-collapse -->
