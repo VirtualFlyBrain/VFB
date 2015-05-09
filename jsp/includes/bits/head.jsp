@@ -51,6 +51,20 @@ $scope.isActive = function (viewLocation) {
 };
 </script>
 
+<script>
+  if (MooTools != undefined) {
+    var mHide = Element.prototype.hide;
+    Element.implement({
+        hide: function() {
+                if (this.hasClass("deeper")) {
+                    return this;
+                }
+                mHide.apply(this, arguments);
+            }
+    });
+  }
+</script>
+
 <c:set var="headAtt" scope="session" value="true" />
 
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
