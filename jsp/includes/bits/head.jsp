@@ -13,6 +13,7 @@
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools-yui-compressed.js"></script>
 <!-- solr autocomplete components -->
 <script src="/javascript/ajax-solr/vfb.js"></script>
 <script src="/javascript/ajax-solr/core/Core.js"></script>
