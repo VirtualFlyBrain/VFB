@@ -24,6 +24,8 @@
 <script src="/javascript/ajax-solr/widgets/ResultWidget.js"></script>
 <script src="/javascript/ajax-solr/widgets/jquery/PagerWidget.js"></script>
 <script src="/javascript/ajax-solr/core/AbstractFacetWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/TagcloudWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
 <script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
 <script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
