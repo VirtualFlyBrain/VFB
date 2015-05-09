@@ -53,8 +53,15 @@
 			</c:if>
 
 			<c:if test="${empty param.id}" >
-
-				Search for a neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/><br/>
+				Select a specific neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/>
+				<div id="result">
+	        <div id="navigation">
+	          <ul id="pager"></ul>
+	          <div id="pager-header"></div>
+	        </div>
+	        <div id="docs"></div>
+	      </div>
+				<br />
 			</c:if>
 
 
