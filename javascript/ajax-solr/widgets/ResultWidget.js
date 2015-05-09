@@ -43,11 +43,11 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       $(this.target).append(this.template(doc));
 
       var items = [];
-      items = items.concat(this.facetLinks('topics', doc.topics));
-      items = items.concat(this.facetLinks('organisations', doc.organisations));
-      items = items.concat(this.facetLinks('exchanges', doc.exchanges));
+      items = items.concat(this.facetLinks('label', doc.label));
+      items = items.concat(this.facetLinks('type', doc.type));
+      items = items.concat(this.facetLinks('logical_description', doc.logical_description));
 
-      var $links = $('#links_' + doc.id);
+      var $links = $('#links_' + doc.id_annotation);
       $links.empty();
       for (var j = 0, m = items.length; j < m; j++) {
         $links.append($('<li></li>').append(items[j]));
@@ -57,17 +57,17 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   template: function (doc) {
     var snippet = '';
-    if (doc.text.length > 300) {
-      snippet += doc.dateline + ' ' + doc.text.substring(0, 300);
-      snippet += '<span style="display:none;">' + doc.text.substring(300);
+    if (doc.description.length > 300) {
+      snippet += doc.description.substring(0, 300);
+      snippet += '<span style="display:none;">' + doc.description.substring(300);
       snippet += '</span> <a href="#" class="more">more</a>';
     }
     else {
       snippet += doc.dateline + ' ' + doc.text;
     }
 
-    var output = '<div><h2>' + doc.title + '</h2>';
-    output += '<p id="links_' + doc.id + '" class="links"></p>';
+    var output = '<div><h2>' + doc.label + '</h2>';
+    output += '<p id="links_' + doc.id_annotation + '" class="links"></p>';
     output += '<p>' + snippet + '</p></div>';
     return output;
   },
