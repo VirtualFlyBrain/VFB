@@ -210,7 +210,7 @@ AjaxSolr.PagerWidget = AjaxSolr.AbstractWidget.extend(
       $target.empty();
 
       for (var i = 0, l = links.length; i < l; i++) {
-        var $li = $('<li></li>');
+        var $li = $('&nbsp;&nbsp;');
         if (this.separator && i > 0) {
           $li.append(this.separator);
         }
