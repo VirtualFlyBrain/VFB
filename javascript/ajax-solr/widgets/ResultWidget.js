@@ -45,8 +45,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       var items = [];
       items = items.concat(this.facetLinks('label', doc.label));
       items = items.concat(this.facetLinks('type', doc.type));
-      items = items.concat(this.facetLinks('logical_description', doc.logical_description));
-
+      
       var $links = $('#links_' + doc.id_annotation);
       $links.empty();
       for (var j = 0, m = items.length; j < m; j++) {
