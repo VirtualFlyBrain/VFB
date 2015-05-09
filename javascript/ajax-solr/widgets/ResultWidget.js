@@ -46,7 +46,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       items = items.concat(this.facetLinks('label', doc.label));
       items = items.concat(this.facetLinks('type', doc.type));
 
-      var $links = $('#links_' + doc.id_annotation);
+      var $links = $('#links_' + doc.short_form[0]);
       $links.empty();
       for (var j = 0, m = items.length; j < m; j++) {
         $links.append($('<li></li>').append(items[j]));
@@ -66,7 +66,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     }
 
     var output = '<div><a href="/site/tools/anatomy_finder/?id=' + doc.id_annotation + '" ><h5>' + doc.label + '</h5>';
-    output += '<p id="links_' + doc.id_annotation + '" class="links"></p>';
+    output += '<p id="links_' + doc.short_form[0] + '" class="links"></p>';
     output += '<p>' + snippet + '</p></a></div>';
     return output;
   },
