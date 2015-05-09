@@ -14,23 +14,7 @@
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools-yui-compressed.js"></script>
-<!-- solr autocomplete components -->
-<script src="/javascript/ajax-solr/vfb.js"></script>
-<script src="/javascript/ajax-solr/core/Core.js"></script>
-<script src="/javascript/ajax-solr/core/AbstractManager.js"></script>
-<script src="/javascript/ajax-solr/managers/Manager.jquery.js"></script>
-<script src="/javascript/ajax-solr/core/Parameter.js"></script>
-<script src="/javascript/ajax-solr/core/ParameterStore.js"></script>
-<script src="/javascript/ajax-solr/core/AbstractWidget.js"></script>
-<script src="/javascript/ajax-solr/widgets/ResultWidget.js"></script>
-<script src="/javascript/ajax-solr/widgets/jquery/PagerWidget.js"></script>
-<script src="/javascript/ajax-solr/core/AbstractFacetWidget.js"></script>
-<script src="/javascript/ajax-solr/widgets/TagcloudWidget.js"></script>
-<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
-<script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
-<script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

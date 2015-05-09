@@ -17,7 +17,7 @@
 			<meta itemprop="name" content="Virtual Fly Brain">
 			<meta itemprop="description" content="Integrative queries of Drosophila neuroanatomical data.">
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
-		<!-- START Google Snippit code -->
+		<!-- END Google Snippit code -->
       	<c:forEach items="${fn:split(param.css, ';')}" var="item">
       		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
       	</c:forEach>
