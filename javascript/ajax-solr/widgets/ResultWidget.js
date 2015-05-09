@@ -45,7 +45,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       var items = [];
       items = items.concat(this.facetLinks('label', doc.label));
       items = items.concat(this.facetLinks('type', doc.type));
-      
+
       var $links = $('#links_' + doc.id_annotation);
       $links.empty();
       for (var j = 0, m = items.length; j < m; j++) {
@@ -62,7 +62,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += '</span> <a href="#" class="more">more</a>';
     }
     else {
-      snippet += doc.dateline + ' ' + doc.text;
+      snippet += doc.description;
     }
 
     var output = '<div><h2>' + doc.label + '</h2>';
