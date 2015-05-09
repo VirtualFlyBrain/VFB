@@ -14,6 +14,7 @@
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 <!-- solr autocomplete components -->
+<script src="/javascript/ajax-solr/vfb.js"></script>
 <script src="/javascript/ajax-solr/core/Core.js"></script>
 <script src="/javascript/ajax-solr/core/AbstractManager.js"></script>
 <script src="/javascript/ajax-solr/managers/Manager.jquery.js"></script>
