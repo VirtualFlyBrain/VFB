@@ -46,30 +46,37 @@
 
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="well">
-			<c:if test="${!empty param.id}" >
-				<jsp:include page="/do/ont_bean.html">
-					<jsp:param name="fbId" value="${param.id}" />
-				</jsp:include>
-			</c:if>
+			<div class="row">
+				<div class="col-xs-4">
+					<div id="result">
+						<div id="navigation">
+							<ul id="pager"></ul>
+							<div id="pager-header"></div>
+						</div>
+						<div id="docs"></div>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<c:if test="${!empty param.id}" >
+						<jsp:include page="/do/ont_bean.html">
+							<jsp:param name="fbId" value="${param.id}" />
+						</jsp:include>
+					</c:if>
 
-			<c:if test="${empty param.id}" >
-				Select a specific neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/>
-				<div id="result">
-	        <div id="navigation">
-	          <ul id="pager"></ul>
-	          <div id="pager-header"></div>
-	        </div>
-	        <div id="docs"></div>
-	      </div>
-				<br />
-			</c:if>
+					<c:if test="${empty param.id}" >
+						Select a specific neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/>
+
+						<br />
+					</c:if>
 
 
-			<c:if test="${!empty errorMsg}" >
-				<script type="text/javascript">
-					alert("${errorMsg}");
-				</script>
-			</c:if>
+					<c:if test="${!empty errorMsg}" >
+						<script type="text/javascript">
+							alert("${errorMsg}");
+						</script>
+					</c:if>
+				</div>
+			</div>
 
 		</div> <!-- annotation -->
 	</div>
