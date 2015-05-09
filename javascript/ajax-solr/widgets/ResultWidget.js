@@ -65,9 +65,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><h2>' + doc.label + '</h2>';
+    var output = '<div><a href="/site/tools/anatomy_finder/?id=' + doc.id_annotation + '" ><h5>' + doc.label + '</h5>';
     output += '<p id="links_' + doc.id_annotation + '" class="links"></p>';
-    output += '<p>' + snippet + '</p></div>';
+    output += '<p>' + snippet + '</p></a></div>';
     return output;
   },
 
