@@ -23,17 +23,9 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="/jsp/includes/js/bootstrap.min.js"></script>
-
-<script>
-$scope.isActive = function (viewLocation) {
-     var active = (viewLocation === $location.url());
-     return active;
-};
-</script>
 
 <script>
   if (MooTools != undefined) {

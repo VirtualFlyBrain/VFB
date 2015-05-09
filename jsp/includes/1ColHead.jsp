@@ -14,6 +14,11 @@
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
 		<!-- END Google Snippit code -->
 
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 		<!-- START solr autocomplete components -->
 		<script src="/javascript/ajax-solr/vfb.js"></script>
 		<script src="/javascript/ajax-solr/core/Core.js"></script>
@@ -29,8 +34,6 @@
 		<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
 		<script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
 		<script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<!-- END solr autocomplete components -->
 
   	<c:forEach items="${fn:split(param.css, ';')}" var="item">
@@ -41,6 +44,6 @@
 <body>
 	<jsp:include page="/jsp/includes/js/tag.jsp" />
 	<jsp:include page="/jsp/includes/bits/head.jsp"/>
-	
+
 	<div id="content-fluid">
 	<!--  Closing tags is in homeFoot.js -->
