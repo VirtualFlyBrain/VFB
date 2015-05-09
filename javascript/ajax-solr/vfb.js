@@ -4,7 +4,7 @@ var Manager;
 
   $(function () {
     Manager = new AjaxSolr.Manager({
-      solrUrl: 'http://vfbdev.inf.ed.ac.uk:8983/solr/ontology/'
+      solrUrl: 'http://www.virtualflybrain.org:8983/solr/ontology/'
     });
     // Manager.addWidget(new AjaxSolr.ResultWidget({
     //   id: 'result',
