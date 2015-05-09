@@ -56,18 +56,18 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   template: function (doc) {
     var snippet = '';
-    if (typeof(doc.description) != "undefined" && doc.description.length > 300) {
-      snippet += doc.description.substring(0, 300);
-      snippet += '<span style="display:none;">' + doc.description.substring(300);
+    if (typeof(doc.description) != "undefined" && doc.description.length > 150) {
+      snippet += doc.description.substring(0, 150);
+      snippet += '<span style="display:none;">' + doc.description.substring(150);
       snippet += '</span> <a href="#" class="more">more</a>';
     }
     else {
       snippet += doc.description;
     }
 
-    var output = '<div><a href="/site/tools/anatomy_finder/?id=' + doc.id_annotation + '" ><h5>' + doc.label + '</h5>';
-    output += '<p id="links_' + doc.short_form[0] + '" class="links"></p>';
-    output += '<p>' + snippet + '</p></a></div>';
+    var output = '<div><a href="/site/tools/anatomy_finder/?id=' + doc.short_form[0] + '" ><b>' + doc.label + '</b>';
+    output += ' (' + doc.short_form[0] + ')';
+    output += ' - ' + snippet + '</a></div>';
     return output;
   },
 
