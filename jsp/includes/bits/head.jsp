@@ -13,13 +13,8 @@
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css">
-<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
-<script type="text/javascript">
-window.addEvent('domready', createAutocomplete);
-</script>
+
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -118,4 +113,3 @@ $scope.isActive = function (viewLocation) {
 	    </div><!--/.nav-collapse -->
 	  </div>
 	</nav><!-- header -->
-
