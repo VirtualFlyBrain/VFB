@@ -28,10 +28,10 @@ var Manager;
     //     field: fields[i]
     //   }));
     // }
-    // Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
-    //   id: 'currentsearch',
-    //   target: '#selection'
-    // }));
+    Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
+      id: 'currentsearch',
+      target: '#selection'
+    }));
     Manager.addWidget(new AjaxSolr.AutocompleteWidget({
       id: 'text',
       target: '#search',
