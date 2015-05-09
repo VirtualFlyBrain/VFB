@@ -56,9 +56,10 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   template: function (doc) {
     var snippet = '';
-    if (typeof(doc.description) != "undefined" && doc.description.length > 150) {
-      snippet += doc.description.substring(0, 150);
-      snippet += '<span style="display:none;">' + doc.description.substring(150);
+    var maxNum = 50;
+    if (typeof(doc.description) != "undefined" && doc.description.length > maxNum) {
+      snippet += doc.description.substring(0, maxNum);
+      snippet += '<span style="display:none;">' + doc.description.substring(maxNum);
       snippet += '</span> <a href="#" class="more">more</a>';
     }
     else {
