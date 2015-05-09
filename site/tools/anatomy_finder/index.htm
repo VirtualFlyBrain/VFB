@@ -21,7 +21,7 @@
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
 	<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
 	<script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
-	
+
 
 <script type="text/javascript">
 window.addEvent('domready', createAutocomplete);
@@ -29,41 +29,34 @@ window.addEvent('domready', createAutocomplete);
 </script>
 
 <div class="row">
-	
+
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="well">
-			<h2 id="header">Search for the anatomy term</h2>
-			<label>Search in:</label>
-			<select name="scope" id="scope" onchange="setScope()">
-				<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-				<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-			</select>
-			<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search" placeholder="Search for neuropil, neuron, lineage clone or tract"/>
-			<input id="scopeValue" type="hidden" />	
-			<input id="id_container" type="hidden" />
+			<h2>Search for the anatomy term</h2>
+			<input type="text" id="query" name="query" autocomplete="off" alt="Type in the name of the anatomy term/neuron to search" placeholder="Search for neuropil, neuron, lineage clone or tract"/>
 		</div>
 	</div>
-	
+
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="well">
 			<c:if test="${!empty param.id}" >
 				<jsp:include page="/do/ont_bean.html">
 					<jsp:param name="fbId" value="${param.id}" />
 				</jsp:include>
-			</c:if>	
-			
+			</c:if>
+
 			<c:if test="${empty param.id}" >
-			
+
 				Search for a neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/><br/>
 			</c:if>
-	
-	
+
+
 			<c:if test="${!empty errorMsg}" >
 				<script type="text/javascript">
 					alert("${errorMsg}");
 				</script>
 			</c:if>
-	
+
 		</div> <!-- annotation -->
 	</div>
 </div>

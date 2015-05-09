@@ -19,6 +19,14 @@
 <script src="/javascript/ajax-solr/managers/Manager.jquery.js"></script>
 <script src="/javascript/ajax-solr/core/Parameter.js"></script>
 <script src="/javascript/ajax-solr/ParameterStore.js"></script>
+<script src="/javascript/ajax-solr/core/AbstractWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/ResultWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/jquery/PagerWidget.js"></script>
+<script src="/javascript/ajax-solr/core/AbstractFacetWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
+<script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
+<script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
