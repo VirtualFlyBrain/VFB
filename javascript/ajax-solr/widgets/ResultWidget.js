@@ -66,7 +66,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#" onclick="$(\'#anatomyDetails\').load(\'/site/tools/anatomy_finder/index.htm?id=' + doc.short_form[0] + '\');" ><b>' + doc.label + '</b>';
+    var output = '<div><a href="#" onclick="function(){$(\'#anatomyDetails\').load(\'/site/tools/anatomy_finder/index.htm?id=' + doc.short_form[0] + '\');};" ><b>' + doc.label + '</b>';
     output += ' (' + doc.short_form[0] + ')';
     output += ' - ' + snippet + '</a></div>';
     return output;
