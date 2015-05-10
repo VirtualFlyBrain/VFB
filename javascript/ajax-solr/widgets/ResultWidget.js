@@ -60,13 +60,13 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     if (typeof(doc.description) != "undefined" && doc.description.length > maxNum) {
       snippet += doc.description.substring(0, maxNum);
       snippet += '<span style="display:none;">' + doc.description.substring(maxNum);
-      snippet += '</span> <a href="#anatomyDetails" class="more">more</a>';
+      snippet += '</span> <a href="#" class="more">more</a>';
     }
     else {
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0] + '\');" ><dt>' + doc.label;
+    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0] + '\');" ><dt>' + doc.label;
     output += ' (' + doc.short_form[0] + ')</dt>';
     output += '<dd>' + snippet + '</dd></a></div>';
     return output;
