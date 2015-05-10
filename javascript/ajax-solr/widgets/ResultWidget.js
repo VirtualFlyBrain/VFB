@@ -66,12 +66,13 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0] + '\');" ><dt>' + doc.label;
+    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0] + '\');" >'
+    if (doc.short_form[0].contains('VFB')) {
+      output += '<img align="right" src="/owl/' + doc.short_form[0].replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height": 45px;" >'
+    }
+    output += '<dt>' + doc.label;
     output += ' (' + doc.short_form[0] + ')</dt>';
     output += '<dd>';
-    if (doc.short_form[0].contains('VFB')) {
-      output += '<img align="right" data-src="holder.js/42x42" src="/owl/' + doc.short_form[0].replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="width: 42px; height: 42px;" data-holder-rendered="true" >'
-    }
     output += snippet + '</dd></a></div>';
     return output;
   },
