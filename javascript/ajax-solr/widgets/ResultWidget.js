@@ -46,7 +46,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       // var items = [];
       // items = items.concat(this.facetLinks('label', doc.label));
       // items = items.concat(this.facetLinks('type', doc.type));
-      // 
+      //
       // var $links = $('#links_' + doc.short_form[0]);
       // $links.empty();
       // for (var j = 0, m = items.length; j < m; j++) {
@@ -68,7 +68,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#" onclick="function(){$(\'#anatomyDetails\').load(\'/site/tools/anatomy_finder/index.htm?id=' + doc.short_form[0] + '\');};" ><dt>' + doc.label;
+    var output = '<div><a href="#" onclick="function(){$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0] + '\');};" ><dt>' + doc.label;
     output += ' (' + doc.short_form[0] + ')</dt>';
     output += '<dd>' + snippet + '</dd></a></div>';
     return output;
