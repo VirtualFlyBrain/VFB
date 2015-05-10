@@ -66,9 +66,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0].replace('VFB:','VFB_').replace('FBbt_','FBbt:') + '\');" >'
+    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_') + '\');" >'
     if (doc.short_form[0].contains('VFB')) {
-      output += '<img align="right" src="/owl/' + doc.short_form[0].replace('VFB:','VFB_').replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height: 40px; padding: 0px" data-holder-rendered="false" >'
+      output += '<img align="right" src="/owl/' + doc.short_form[0].replace(':','_').replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height: 40px; padding: 0px" data-holder-rendered="false" >'
     }
     output += '<dt>' + doc.label;
     output += ' (' + doc.short_form[0] + ')</dt>';
