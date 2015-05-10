@@ -29,8 +29,8 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 	<% for(int i=0;i<3;i++) {
 	Element element = (Element)nodes.item(i); 
 	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
-		<div style="padding:2px; color:#99BCDB>
-			<b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b><br/>
+		<div style="padding:2px;>
+			<p style="margin: 0; font-size:0.9em; font-weight:bold; color:#99BCDB"><b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b></p><br/>
 			<p style="margin: 0; font-size:1.2em; font-weight:bold"><a href="<%=getElementValue(element,"link")%>"><%=getElementValue(element,"title")%></a></p><br/>
 			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
 			<tr><td>comments:</td><td><%=getElementValue(element,"wfw:comment")%></td></tr--%>
