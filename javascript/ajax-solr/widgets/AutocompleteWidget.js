@@ -11,11 +11,19 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
       for (var i = 0; i < self.fields.length; i++) {
         var field = self.fields[i];
         for (var facet in response.facet_counts.facet_fields[field]) {
-          list.push({
-            field: field,
-            value: facet,
-            label: facet + ' (' + response.facet_counts.facet_fields[field][facet] + ') - ' + field
-          });
+          if (response.facet_counts.facet_fields[field][facet] > 1){
+            list.push({
+              field: field,
+              value: facet,
+              label: facet + ' (' + response.facet_counts.facet_fields[field][facet] + ') - ' + field
+            });
+          }else{
+            list.push({
+              field: field,
+              value: facet,
+              label: facet + ' - ' + field
+            });
+          }
         }
       }
 
