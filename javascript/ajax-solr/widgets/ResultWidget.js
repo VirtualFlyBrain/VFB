@@ -38,7 +38,6 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   afterRequest: function () {
     $(this.target).empty();
-    $(this.target).append('<dl class="dl-horizontal">');
     for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
       var doc = this.manager.response.response.docs[i];
       $(this.target).append(this.template(doc));
@@ -53,7 +52,6 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       //   $links.append($('<li></li>').append(items[j]));
       // }
     }
-    $(this.target).append('</dl>');
   },
 
   template: function (doc) {
