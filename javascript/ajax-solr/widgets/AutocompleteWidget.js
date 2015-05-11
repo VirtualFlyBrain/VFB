@@ -21,7 +21,7 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
             list.push({
               field: field,
               value: facet,
-              label: facet + ' - ' + field
+              label: facet
             });
           }
         }

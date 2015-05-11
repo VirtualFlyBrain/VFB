@@ -51,7 +51,7 @@ var Manager;
     Manager.store.addByValue('q', '*:*');
     var params = {
       facet: true,
-      'facet.field': [ 'label_suggest' ],
+      'facet.field': [ 'label_suggest', 'short_form' ],
       'facet.limit': 20,
       'facet.mincount': 1,
       'json.nl': 'map'
