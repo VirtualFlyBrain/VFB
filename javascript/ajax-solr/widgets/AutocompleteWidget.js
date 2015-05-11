@@ -24,7 +24,7 @@
      *   using multiple cores. It is a good idea to use a non-default one to
      *   differentiate these requests in server logs and Solr statistics.
      */
-    
+
     afterRequest: function () {
       $(this.target).find('input').unbind().removeData('events').val('');
       $(this.target).find('input').autocomplete();
@@ -86,7 +86,7 @@
         params.push('fq=' + encodeURIComponent(values[i]));
       }
       params.push('q=' + this.manager.store.get('q').val());
-      $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
+      $.getJSON(this.manager.solrUrl + 'ontologySelect?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
     }
   });
 
