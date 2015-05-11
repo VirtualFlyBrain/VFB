@@ -56,9 +56,11 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       this.manager.store.get('q').val('*:*');
       this.manager.store.remove('fq');
       $('#result-section').hide();
+      $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
       self.doRequest();
     }else{
       $('#result-section').show();
+      $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
     }
   },
 
