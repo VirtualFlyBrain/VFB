@@ -40,7 +40,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     $(this.target).empty();
     var l = this.manager.response.response.docs.length;
     if (l < 2) { // only show results list if multiple results
-      $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
+      if (l > 0){
+        $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
+      }
       self.manager.store.get('q').val('*:*');
       self.manager.store.remove('fq');
       $('#result-section').hide();
