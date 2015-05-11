@@ -84,7 +84,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     }
     output += '<dt>' + doc.label;
     output += ' [' + doc.short_form[0].replace(':','_') + ']</dt>';
-    output += '<dd>';
+    output += '<dd class="small">';
     output += snippet + '</dd></a></div>';
     return output;
   },
