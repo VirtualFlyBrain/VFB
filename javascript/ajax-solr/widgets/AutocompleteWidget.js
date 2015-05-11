@@ -38,7 +38,7 @@
                   self.doRequest();
                 }
               }else{
-                if (self.manager.store.addByValue('fq', 'label_suggest' + ':*' + AjaxSolr.Parameter.escapeValue(ui.item.value) + '*')) {
+                if (self.manager.store.addByValue('fq', 'label' + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
                   self.doRequest();
                 }
               }
