@@ -50,15 +50,15 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       // for (var j = 0, m = items.length; j < m; j++) {
       //   $links.append($('<li></li>').append(items[j]));
       // }
-      if (l < 2) { // only show results list if multiple results
-        $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
-        self.manager.store.get('q').val('*:*');
-        self.manager.store.remove('fq');
-        $('#result-section').hide();
-        self.doRequest();
-      }else{
-        $('#result-section').show();
-      }
+    }
+    if (this.manager.response.response.numFound == 1) { // only show results list if multiple results
+      $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
+      self.manager.store.get('q').val('*:*');
+      self.manager.store.remove('fq');
+      $('#result-section').hide();
+      self.doRequest();
+    }else{
+      $('#result-section').show();
     }
   },
 
