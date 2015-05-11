@@ -60,7 +60,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       $('#result-section').hide();
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
       self.doRequest();
-    }else{
+    }else if (self.manager.response.response.numFound < 34000){ // if a resonable number of results then reshow.
       $('#result-section').show();
       $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
     }
