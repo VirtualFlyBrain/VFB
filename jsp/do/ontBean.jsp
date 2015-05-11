@@ -1,26 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page
-	import="org.springframework.web.context.*,org.springframework.web.context.support.*,uk.ac.ed.vfb.tools.autocomplete.*"%>
-<%
-//test the spring framework
-ServletContext servletContext = this.getServletContext();
+	import="org.springframework.web.context.*,org.springframework.web.context.support.*"%>
 
-WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
-
-AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
-pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
-
-
-acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuron");
-pageContext.setAttribute("aclNeuron", acdao.getSynSet());
-
-acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOTract");
-pageContext.setAttribute("aclTract", acdao.getSynSet());
-
-acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
-pageContext.setAttribute("aclClone", acdao.getSynSet());
-%>
 
 <c:choose>
 	<c:when test="${headAtt == true}">
@@ -29,14 +11,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=${ontBean.fbbtId}'});
 			</script>
 		<!-- End Google Analytics -->
-		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
-		<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/resultList.css" />
+
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="/jsp/includes/1ColHead.jsp">
 			<jsp:param name="title" value="${ontBean.name}" />
-			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|${ontBean.fbbtId}@ " />
-			<jsp:param name="css" value="/css/vfb/utils/p7menu_secondary.css;/css/vfb/utils/resultList.css;" />
 		</jsp:include>
 		<c:set var="needFoot" value="true" />
 	</c:otherwise>
@@ -157,7 +136,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 		<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
 			<c:choose>
-				<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}"> 
+				<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">
 					&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
 					<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
 				</c:when>
