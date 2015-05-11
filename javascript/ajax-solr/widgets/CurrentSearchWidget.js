@@ -9,8 +9,10 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 
     var q = this.manager.store.get('q').val();
     if (q != '*:*') {
-      if (!q.contains(':')){
-        q = 'label_suggest:*' + q + '*'
+      if (!q.contains(':')){ // force wildcard search by default
+        q = 'label_suggest:*' + q + '*';
+        this.manager.store.removeByValue('q', this.manager.store.get('q').val());
+        this.manager.store.addByValue('q', q);
       }
       links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
         self.manager.store.get('q').val('*:*');
