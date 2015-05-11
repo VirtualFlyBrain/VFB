@@ -33,8 +33,14 @@
           select: function(event, ui) {
             if (ui.item) {
               self.requestSent = true;
-              if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
-                self.doRequest();
+              if (ui.item.field && ui.item.field.length > 1){
+                if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
+                  self.doRequest();
+                }
+              }else{
+                if (self.manager.store.addByValue('fq', 'label' + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
+                  self.doRequest();
+                }
               }
             }
           }
@@ -44,8 +50,10 @@
         $(self.target).find('input').bind('keydown', function(e) {
           if (self.requestSent === false && e.which == 13) {
             var value = $(this).val();
-            if (value && self.set(value)) {
-              self.doRequest();
+            if (value && value.length > 1){
+              if (value && self.set(value)) {
+                self.doRequest();
+              }
             }
           }
         });
