@@ -18,7 +18,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
         self.manager.store.get('q').val(q);
         self.doRequest();
       }
-      links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
+      links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + q).click(function () {
         self.manager.store.get('q').val('*:*');
         self.doRequest();
         return false;
