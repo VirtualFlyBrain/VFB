@@ -51,6 +51,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       // for (var j = 0, m = items.length; j < m; j++) {
       //   $links.append($('<li></li>').append(items[j]));
       // }
+      if (l == 1) {
+        $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
+      }
     }
   },
 
