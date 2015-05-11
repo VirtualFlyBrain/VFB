@@ -39,28 +39,28 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   afterRequest: function () {
     $(this.target).empty();
     var l = this.manager.response.response.docs.length;
-    if (l < 2) { // only show results list if multiple results
-      if (l > 0){
+    for (var i = 0; i < l; i++) {
+      var doc = this.manager.response.response.docs[i];
+      $(this.target).append(this.template(doc));
+      // var items = [];
+      // items = items.concat(this.facetLinks('label', doc.label));
+      // items = items.concat(this.facetLinks('type', doc.type));
+      //
+      // var $links = $('#links_' + doc.short_form[0]);
+      // $links.empty();
+      // for (var j = 0, m = items.length; j < m; j++) {
+      //   $links.append($('<li></li>').append(items[j]));
+      // }
+      if (l < 2) { // only show results list if multiple results
         $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
-      }
-      self.manager.store.get('q').val('*:*');
-      self.manager.store.remove('fq');
-      $('#result-section').hide();
-      self.doRequest();
-    }else{
-      $('#result-section').show();
-      for (var i = 0; i < l; i++) {
-        var doc = this.manager.response.response.docs[i];
-        $(this.target).append(this.template(doc));
-        // var items = [];
-        // items = items.concat(this.facetLinks('label', doc.label));
-        // items = items.concat(this.facetLinks('type', doc.type));
-        //
-        // var $links = $('#links_' + doc.short_form[0]);
-        // $links.empty();
-        // for (var j = 0, m = items.length; j < m; j++) {
-        //   $links.append($('<li></li>').append(items[j]));
-        // }
+        if (self.manager.store)
+          self.manager.store.get('q').val('*:*');
+          self.manager.store.remove('fq');
+          $('#result-section').hide();
+          self.doRequest();
+        }else{
+          $('#result-section').show();
+        }
       }
     }
   },
