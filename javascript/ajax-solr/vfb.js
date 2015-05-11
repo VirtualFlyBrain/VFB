@@ -35,7 +35,7 @@ var Manager;
     Manager.addWidget(new AjaxSolr.AutocompleteWidget({
       id: 'text',
       target: '#search',
-      fields: [ 'label_suggest' ]
+      fields: [ 'label', 'label_suggest', 'short_form' ]
     }));
     // Manager.addWidget(new AjaxSolr.CountryCodeWidget({
     //   id: 'countries',
