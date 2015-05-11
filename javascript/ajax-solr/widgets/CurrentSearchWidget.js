@@ -18,7 +18,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
         self.manager.store.get('q').val(q);
         self.doRequest();
       }
-      links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + q).click(function () {
+      links.push($('<a href="#"></a>').html('<span class="glyphicon glyphicon-remove-circle"></span> ' + q).click(function () {
         self.manager.store.get('q').val('*:*');
         self.doRequest();
         return false;
@@ -30,15 +30,15 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       if (fq[i].match(/[\[\{]\S+ TO \S+[\]\}]/)) {
         var field = fq[i].match(/^\w+:/)[0];
         var value = fq[i].substr(field.length + 1, 10);
-        links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + field + value).click(self.removeFacet(fq[i])));
+        links.push($('<a href="#"></a>').html('<span class="glyphicon glyphicon-remove-circle"></span> ' + field + value).click(self.removeFacet(fq[i])));
       }
       else {
-        links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + fq[i]).click(self.removeFacet(fq[i])));
+        links.push($('<a href="#"></a>').html('<span class="glyphicon glyphicon-remove-circle"></span> ' + fq[i]).click(self.removeFacet(fq[i])));
       }
     }
 
     if (links.length > 1) {
-      links.unshift($('<a href="#"></a>').text('remove all').click(function () {
+      links.unshift($('<a href="#"></a>').text('clear all').click(function () {
         self.manager.store.get('q').val('*:*');
         self.manager.store.remove('fq');
         self.doRequest();
