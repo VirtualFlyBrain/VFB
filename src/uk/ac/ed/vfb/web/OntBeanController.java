@@ -37,15 +37,16 @@ public class OntBeanController implements Controller {
 				return null;
 			}else{
 				id = OntBean.idAsOWL(req.getParameter("id"));
-				
 			}
 		}else{
 			id = OntBean.idAsOBO(req.getParameter("fbId"));
 		}
 		if (id.contains("VFB")){
+			id = OntBean.idAsOWL(id);
 			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
 			modelAndView.addObject("beanType", "ind");
 		}else{
+			id = OntBean.idAsOBO(id);
 			ob = this.obm.getBeanForId(id);
 			modelAndView.addObject("beanType", "ont");
 		}
