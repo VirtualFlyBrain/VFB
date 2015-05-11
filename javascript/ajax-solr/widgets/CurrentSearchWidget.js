@@ -30,10 +30,10 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       if (fq[i].match(/[\[\{]\S+ TO \S+[\]\}]/)) {
         var field = fq[i].match(/^\w+:/)[0];
         var value = fq[i].substr(field.length + 1, 10);
-        links.push($('<a href="#"></a>').text('(x) ' + field + value).click(self.removeFacet(fq[i])));
+        links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + field + value).click(self.removeFacet(fq[i])));
       }
       else {
-        links.push($('<a href="#"></a>').text('(x) ' + fq[i]).click(self.removeFacet(fq[i])));
+        links.push($('<a href="#"></a>').text('<span class="glyphicon glyphicon-remove-circle"></span> ' + fq[i]).click(self.removeFacet(fq[i])));
       }
     }
 
