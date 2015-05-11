@@ -31,10 +31,7 @@
 		      <span id="search">
 						<input type="text" id="query" name="query" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" alt="Type in the name of the anatomy term/neuron to search" placeholder="Search for neuropil, neuron, lineage clone or tract" style="width:100%;">
 					</span>
-					<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
-	  				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  				<strong>Warning!</strong> You're search contains a restricted special character. Please remove and try again.
-					</div>
+					<span id="warning-area"></span>
 				</div>
 			</div>
 		</div>
@@ -86,5 +83,4 @@
 		</div> <!-- annotation -->
 	</div>
 </div>
-<script>$('warning-char').hide();</script>
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
