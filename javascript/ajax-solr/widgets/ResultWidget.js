@@ -38,8 +38,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
 
   afterRequest: function () {
     $(this.target).empty();
-    var l = this.manager.response.response.docs.length;
-    for (var i = 0; i < l; i++) {
+    for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
       var doc = this.manager.response.response.docs[i];
       $(this.target).append(this.template(doc));
       // var items = [];
@@ -53,14 +52,12 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       // }
       if (l < 2) { // only show results list if multiple results
         $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
-        if (self.manager.store)
-          self.manager.store.get('q').val('*:*');
-          self.manager.store.remove('fq');
-          $('#result-section').hide();
-          self.doRequest();
-        }else{
-          $('#result-section').show();
-        }
+        self.manager.store.get('q').val('*:*');
+        self.manager.store.remove('fq');
+        $('#result-section').hide();
+        self.doRequest();
+      }else{
+        $('#result-section').show();
       }
     }
   },
