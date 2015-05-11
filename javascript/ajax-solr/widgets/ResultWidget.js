@@ -37,13 +37,14 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   },
 
   afterRequest: function () {
-    $(this.target).empty();
-    for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
-      var doc = this.manager.response.response.docs[i];
-      $(this.target).append(this.template(doc));
+    var self = this;
+    $(self.target).empty();
+    for (var i = 0, l = self.manager.response.response.docs.length; i < l; i++) {
+      var doc = self.manager.response.response.docs[i];
+      $(self.target).append(self.template(doc));
       // var items = [];
-      // items = items.concat(this.facetLinks('label', doc.label));
-      // items = items.concat(this.facetLinks('type', doc.type));
+      // items = items.concat(self.facetLinks('label', doc.label));
+      // items = items.concat(self.facetLinks('type', doc.type));
       //
       // var $links = $('#links_' + doc.short_form[0]);
       // $links.empty();
@@ -51,13 +52,14 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       //   $links.append($('<li></li>').append(items[j]));
       // }
     }
-    if (this.manager.response.response.numFound == 1) { // only show results list if multiple results
+    if (self.manager.response.response.numFound == 1) { // only show results list if multiple results
+
       $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
-      this.manager.store.get('q').val('*:*');
-      this.manager.store.remove('fq');
+      self.manager.store.get('q').val('*:*');
+      self.manager.store.remove('fq');
       $('#result-section').hide();
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
-      this.doRequest();
+      self.doRequest();
     }else{
       $('#result-section').show();
       $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
