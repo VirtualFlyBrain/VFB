@@ -53,7 +53,7 @@ var Manager;
       facet: true,
       'facet.field': [ 'label', 'label_suggest', 'short_form' ],
       'facet.limit': 20,
-      'facet.sort' : 'count'
+      'facet.sort' : 'count',
       'facet.mincount': 1,
       'json.nl': 'map'
     };
