@@ -16,6 +16,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
           q = 'label:' + q;
         }
         self.manager.store.get('q').val(q);
+        self.doRequest();
       }
       links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
         self.manager.store.get('q').val('*:*');
