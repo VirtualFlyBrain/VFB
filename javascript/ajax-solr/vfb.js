@@ -53,11 +53,11 @@ var Manager;
     Manager.store.addByValue('q', '*:*');
     var params = {
       facet: true,
-      'facet.field': [ 'label_suggest', 'short_form' ],
-      'facet.limit': -1,
-      'facet.sort' : 'count',
-      'facet.mincount': 1,
-      'json.nl': 'map'
+      facet.field: [ 'label_suggest', 'short_form' ],
+      facet.limit: -1,
+      facet.sort: 'count',
+      facet.mincount: 1,
+      json.nl: 'map'
     };
     for (var name in params) {
       Manager.store.addByValue(name, params[name]);
