@@ -53,9 +53,11 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     }
     if (this.manager.response.response.numFound == 1) { // only show results list if multiple results
       $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
-      self.manager.store.remove('q');
-      self.manager.store.addByValue('q', '*:*');
-      self.manager.store.remove('fq');
+      if (typeof self.manager.store != 'undefined'){
+        self.manager.store.remove('q');
+        self.manager.store.addByValue('q', '*:*');
+        self.manager.store.remove('fq');
+      }
       $('#result-section').hide();
       self.doRequest();
     }else{
