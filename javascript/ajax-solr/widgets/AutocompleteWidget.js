@@ -33,14 +33,8 @@
           select: function(event, ui) {
             if (ui.item) {
               self.requestSent = true;
-              if (ui.item.field && ui.item.field.length > 1 && ui.item.field != 'label_suggest'){
-                if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
-                  self.doRequest();
-                }
-              }else{
-                if (self.manager.store.addByValue('fq', 'label_suggest' + ':*' + AjaxSolr.Parameter.escapeValue(ui.item.value) + '*')) {
-                  self.doRequest();
-                }
+              if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
+                self.doRequest();
               }
             }
           }

@@ -10,7 +10,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
     var q = this.manager.store.get('q').val();
     if (q != '*:*') {
       if (!q.contains(':')){
-        q = 'label_suggest:' + q
+        q = 'label_suggest:*' + q + '*'
       }
       links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
         self.manager.store.get('q').val('*:*');
