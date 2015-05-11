@@ -83,7 +83,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       output += '<img align="right" src="/owl/' + doc.short_form[0].replace(':','_').replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height: 40px; padding: 0px" data-holder-rendered="false" >'
     }
     output += '<dt>' + doc.label;
-    output += ' (' + doc.short_form[0] + ')</dt>';
+    output += ' (' + doc.short_form[0].replace(':','_') + ')</dt>';
     output += '<dd>';
     output += snippet + '</dd></a></div>';
     return output;
