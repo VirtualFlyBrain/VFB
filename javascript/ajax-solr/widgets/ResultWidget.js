@@ -72,9 +72,8 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     if (typeof(doc.description) != "undefined" && doc.description.length > maxNum) {
       snippet += doc.description.substring(0, maxNum);
       snippet += '<span style="display:none;">' + doc.description.substring(maxNum);
-      snippet += '</span> <a href="#" class="more">more</a>';
-    }
-    else {
+      snippet += '</span><a href="#" class="more">more</a>';
+    }else{
       snippet += doc.description;
     }
 
