@@ -24,19 +24,7 @@
      *   using multiple cores. It is a good idea to use a non-default one to
      *   differentiate these requests in server logs and Solr statistics.
      */
-    constructor: function (attributes) {
-      AjaxSolr.AutocompleteWidget.__super__.constructor.apply(this, arguments);
-      AjaxSolr.extend(this, {
-        field: null,
-        tokenized: true,
-        lowercase: true,
-        limit: 10,
-        minLength: 2,
-        servlet: null
-      }, attributes);
-    },
-
-
+    
     afterRequest: function () {
       $(this.target).find('input').unbind().removeData('events').val('');
       $(this.target).find('input').autocomplete();
