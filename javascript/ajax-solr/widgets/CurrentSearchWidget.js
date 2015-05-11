@@ -9,7 +9,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 
     var q = this.manager.store.get('q').val();
     if (q != '*:*') {
-      if (!q.indexOf(':') > -1){ // force wildcard search by default
+      if (q.indexOf(':') < 0){ // force wildcard search by default
         if (q.indexOf('VFB') > -1 || q.indexOf('FBbt') > -1){
           q = 'short_form:' + q + '*';
         }else{
