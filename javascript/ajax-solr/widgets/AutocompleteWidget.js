@@ -8,10 +8,12 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
 
     var callback = function (response) {
       var list = [];
-      for (var i = 0; i < self.fields.length && i < 20; i++) {
+      for (var i = 0; i < self.fields.length; i++) {
         var field = self.fields[i];
+        var c = 0;
         for (var facet in response.facet_counts.facet_fields[field]) {
           if (response.facet_counts.facet_fields[field][facet] > 1){
+            c++;
             list.push({
               field: field,
               value: facet,
@@ -23,6 +25,9 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
               value: facet,
               label: facet
             });
+          }
+          if (c > 20){ // limit number of results
+            break;
           }
         }
       }
