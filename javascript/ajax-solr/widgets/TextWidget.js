@@ -6,8 +6,15 @@ AjaxSolr.TextWidget = AjaxSolr.AbstractTextWidget.extend({
     $(this.target).find('input').bind('keydown', function(e) {
       if (e.which == 13) {
         var value = $(this).val();
-        if (value && self.set(value)) {
-          self.doRequest();
+        if (value.contains(':')){
+          if (value && self.set(value)) {
+            self.doRequest();
+          }
+        }else{
+          value = 'label_suggest:*' + value + '*';
+          if (value && self.set(value)) {
+            self.doRequest();
+          }
         }
       }
     });
