@@ -11,7 +11,6 @@
         for (var i = 0; i < self.fields.length; i++) {
           var field = self.fields[i];
           for (var facet in response.facet_counts.facet_fields[field]) {
-            c++;
             if (response.facet_counts.facet_fields[field][facet] > 1){
               list.push({
                 field: field,
