@@ -106,7 +106,7 @@ AjaxSolr.AbstractFacetWidget = AjaxSolr.AbstractWidget.extend(
   set: function (value) {
     return this.changeSelection(function () {
       var a = this.manager.store.removeByValue('fq', new RegExp('^-?' + this.field + ':')),
-          b = this.manager.store.addByValue('fq', this.fq(value));
+          b = this.manager.store.addByValue('fq', AjaxSolr.Parameter.escapeValue(this.fq(value)));
       return a || b;
     });
   },
@@ -118,7 +118,7 @@ AjaxSolr.AbstractFacetWidget = AjaxSolr.AbstractWidget.extend(
    */
   add: function (value) {
     return this.changeSelection(function () {
-      return this.manager.store.addByValue('fq', this.fq(value));
+      return this.manager.store.addByValue('fq', AjaxSolr.Parameter.escapeValue(this.fq(value)));
     });
   },
 

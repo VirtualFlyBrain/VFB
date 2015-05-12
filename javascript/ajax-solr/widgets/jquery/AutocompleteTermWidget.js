@@ -92,19 +92,19 @@ AjaxSolr.AutocompleteTermWidget = AjaxSolr.AbstractTextWidget.extend(
             fq = '',
             store = new AjaxSolr.ParameterStore();
 
-        store.addByValue('fq', self.manager.store.values('fq'));
+        store.addByValue('fq', AjaxSolr.Parameter.escapeValue(self.manager.store.values('fq')));
 
         if (self.tokenized) {
           // Split out the last word of the term from the words before it.
           var lastSpace = term.lastIndexOf(' ');
           if (lastSpace > -1) {
-            fq = term.substring(0, lastSpace);
+            fq = AjaxSolr.Parameter.escapeValue(term.substring(0, lastSpace));
             facetPrefix = term.substring(lastSpace + 1);
             store.addByValue('fq', '{!dismax qf=' + self.field + '}' + fq);
           }
         }
         if (self.lowercase) {
-          facetPrefix = facetPrefix.toLowerCase();
+          facetPrefix = AjaxSolr.Parameter.escapeValue(facetPrefix.toLowerCase());
         }
 
         store.addByValue('facet.field', self.field);
