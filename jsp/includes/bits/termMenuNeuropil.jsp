@@ -24,7 +24,7 @@ var currBeanId = "${param.fbbtId}";
       <ul class="nav nav-pills nav-justified">
         <li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">Parts of</a></li>
 				<li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Neurons with: <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span>Neurons with: </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/ont_bean_list.html?action=found&id=${param.fbbtId}" target="_top">some part here</a></li>
 						<li class="divider"></li>
@@ -34,7 +34,7 @@ var currBeanId = "${param.fbbtId}";
           </ul>
         </li>
 				<li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Images of neurons with: <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span>Images of neurons with: </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/cluster_list.html?action=cluster_found&id=${param.fbbtId}" target="_top">some part here (clustered by shape)</a></li>
             <li><a href="/do/individual_list.html?action=ind_neuron_overlap&id=${param.fbbtId}" target="_top">some part here (unclustered)</a></li>
@@ -42,13 +42,13 @@ var currBeanId = "${param.fbbtId}";
         </li>
 				<li><a href="/do/ont_bean_list.html?action=tract&id=${param.fbbtId}" target="_top">Tracts/nerves innervating here</a></li>
 				<li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lineage clones with: <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span>Lineage clones with: </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/ont_bean_list.html?action=lineage_clone&id=${param.fbbtId}" target="_top">some part here</a></li>
           </ul>
         </li>
 				<li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expression/Phenotypes found here: <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span>Expression/Phenotypes found here: </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/gene_list.html?action=transgene&id=${param.fbbtId}" target="_top">Transgenes expressed here</a></li>
             <li><a href="/do/gene_list.html?action=geneex&id=${param.fbbtId}" target="_top">Genes expressed here</a></li>
