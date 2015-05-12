@@ -21,7 +21,7 @@ var currBeanId = "${param.fbbtId}";
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav nav-pills nav-justified">
         <li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">Parts of</a></li>
 				<li class="dropup">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Neurons with: <span class="caret"></span></a>
