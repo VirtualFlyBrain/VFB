@@ -24,7 +24,7 @@
      *   using multiple cores. It is a good idea to use a non-default one to
      *   differentiate these requests in server logs and Solr statistics.
      */
-    
+
     afterRequest: function () {
       $(this.target).find('input').unbind().removeData('events').val('');
       $(this.target).find('input').autocomplete();
@@ -68,6 +68,7 @@
         $(self.target).find('input').bind('keydown', function(e) {
           if (self.requestSent === false && e.which == 13) {
             var value = $(this).val();
+            value = value.replace('{','\{').replace('}','\}').replace(':','\:');
             if (value && value.length > 1){
               if (value && self.set(value)) {
                 self.doRequest();
