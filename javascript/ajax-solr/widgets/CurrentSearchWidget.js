@@ -11,7 +11,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
     if (q != '*:*') {
       q = q.toLowerCase().replace('fbbt:','fbbt_').replace('vfb:','vfb_');
       if (q.indexOf(':') < 0){ // force wildcard search by default
-        if (q.indexOf('VFB') > -1 || q.indexOf('FBbt') > -1){
+        if (q.indexOf('vfb_') > -1 || q.indexOf('fbbt_') > -1){
           q = 'short_form:' + q + '*';
         }else{
           q = 'label:' + q;
