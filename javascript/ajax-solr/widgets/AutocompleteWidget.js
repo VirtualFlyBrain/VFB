@@ -68,7 +68,6 @@
         $(self.target).find('input').bind('keydown', function(e) {
           if (self.requestSent === false && e.which == 13) {
             var value = $(this).val();
-            value = value.replace('%7B','%5C%7B').replace('%7B','%5C%7B').replace('%3A','%5C%3A');
             if (value && value.length > 1){
               if (value && self.set(value)) {
                 self.doRequest();
