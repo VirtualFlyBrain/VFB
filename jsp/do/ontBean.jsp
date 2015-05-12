@@ -1,8 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@page
-	import="org.springframework.web.context.*,org.springframework.web.context.support.*"%>
+<%@page import="org.springframework.web.context.*,org.springframework.web.context.support.*,uk.ac.ed.vfb.tools.autocomplete.*"%>
+<%
+//test the spring framework
+ServletContext servletContext = this.getServletContext();
+WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
 
+AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
+pageContext.setAttribute("aclNeuropil", acdao.getSynSet());
+
+
+acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuron");
+pageContext.setAttribute("aclNeuron", acdao.getSynSet());
+
+acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOTract");
+pageContext.setAttribute("aclTract", acdao.getSynSet());
+
+acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
+pageContext.setAttribute("aclClone", acdao.getSynSet());
+%>
 
 <c:choose>
 	<c:when test="${headAtt == true}">
