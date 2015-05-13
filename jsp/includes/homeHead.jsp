@@ -41,8 +41,13 @@
 		<!-- END solr autocomplete components -->
 
   	<c:forEach items="${fn:split(param.css, ';')}" var="item">
-  		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
+  		<link rel="stylesheet" href="${item}" />
   	</c:forEach>
+
+		<c:forEach items="${fn:split(param.js, ';')}" var="item">
+			<script src="${item}"></script>
+  	</c:forEach>
+
 
 </head>
 <body>

@@ -10,7 +10,8 @@
 <jsp:include page="/jsp/includes/1ColHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+	<jsp:param name="css" value="/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;" />
+	<jsp:param name="js" value="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;" />
 </jsp:include>
 
 <script type="text/javascript">
@@ -22,50 +23,50 @@
 </script>
 
 
+<%-- <div id="example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"> --%>
+<div class="row">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-xs-6">
+				<h1 id="help_header">Query: ${query}</h1>
+			</div>
+			<div class="col-xs-6">
+				<a id="csv" style="float: right; margin-right: 10px"
+					href="/do/csv_report.html?type=${type}&filename=${fileName}">
+					<span class="glyphicon glyphicon-save-file"></span>Save as CSV
+				</a>
+			</div>
 
-	<div id="help_wrapper">
-		<div id="help_head_wrapper">
-			<h1 id="help_header">Query: ${query}</h1>
-		</div>
-
-		<div id="help_content">
-
-			<span style="width: 100%;">
-				<form name="perPage" action="?${paramString}">
-					${nav} &nbsp; Records per page:
-					<c:forEach items="${paramItems}" var="curr">
-						<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}" />
+			<table id="results" class="display">
+	    	<thead>
+	        <tr>
+							<th>ID</tr>
+	            <th>Name</th>
+	            <th>Definition</th>
+							<th>Query VFB</th>
+							<th>Query FlyBase</th>
+	        </tr>
+	    	</thead>
+		    <tbody>
+					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+		        <tr>
+		            <td>${ontBean.fbbtId}</td>
+		            <td>${ontBean.name}</td>
+								<td>${ontBean.def}</td>
+								<td><a class="label label-success" href="/site/tools/anatomy_finder/?id=${ontBean.fbbtId}">More info</a></td>
+								<td><a class="label label-info" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">FlyBase Report</a></td>
+		        </tr>
 					</c:forEach>
-					<select id="perPage" name="perPage" onchange='this.form.submit()'>
-						<option value="10" ${(perPage==10)?"selected":""} >10</option>
-						<option value="20" ${(perPage==20)?"selected":""} >20</option>
-						<option value="50" ${(perPage==50)?"selected":""} >50</option>
-						<option value="100" ${(!(perPage==10 || perPage==20 || perPage==50))?"selected":""} >100</option>
-					</select>
-					<a id="csv" style="float: right; margin-right: 10px" href="/do/csv_report.html?type=${type}&filename=${fileName}">Save
-						as CSV</a>
-				</form>
-				
-				<c:if test="${perPage lt 10 || perPage gt 100}">
-					<script> document.getElementById('perPage').onchange(); </script>
-				</c:if>
-				
-			</span>
+		    </tbody>
+			</table>
 
-			<ul>
-				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-					<li>
-						<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>
-								<a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}">${ontBean.name}</a>
-							</h3> <vfbUtil:trimToWhite string="${ontBean.def}" size="210" /><br /> 
-							<a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtId}&name=${ontBean.name}">More info >> </a>
-							&nbsp; or &nbsp; 
-							<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">See in FlyBase >> </a>
-					</li>
-				</c:forEach>
-			</ul>
+			<script>
+			$(document).ready( function () {
+				$('#results').DataTable();
+			} );
+			</script>
 
 		</div>
 	</div>
-	<!-- help_wrapper -->
+</div>
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
