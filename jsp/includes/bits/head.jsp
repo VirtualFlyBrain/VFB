@@ -106,9 +106,9 @@
 	  </div>
 	</nav><!-- header -->
 
-	${currDomain}
-	<c:if test="${fn:contains(currDomain, 'inf.ed.ac.uk')}">
-		<c:if test="${!fn:contains(currDomain, 'vfb-bocian')}">
+	${currURL}
+	<c:if test="${fn:contains(currURL, 'inf.ed.ac.uk')}">
+		<c:if test="${!fn:contains(currURL, 'vfb-bocian')}">
 			<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<strong>Warning!</strong> This is a test server and not the official VFB site.
