@@ -8,7 +8,7 @@
 <div class="row">
 
 	<div class="col-md-9">
-		<div class="jumbotron">
+		<div class="jumbotron" align="center">
 			<jsp:include page="/site/vfb_site/whats_new.htm" />
 		</div>
 
@@ -153,7 +153,7 @@
 						An interactive 3D representation (WebGL) of each cluster, together with some more cluster information is available by clicking on the cluster thumbnail, or <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusters/DvGlutMARCM-F003135_seg001/" target="_new">here</a>.
 		  		</p>
 
-		  		<img src="/images/vfb/project/cluster_eg.png" alt="3D representation of neuron cluster" style="border: 1px solid gray;" width="600">
+		  		<img class="img-responsive center-block" src="/images/vfb/project/cluster_eg.png" alt="3D representation of neuron cluster" style="border: 1px solid gray;" width="600">
 
 		  		<p>
 						These neuron clusters were obtained using NBLAST, a tool developed by Gregory Jefferis (Division of Neurobiology, MRC Laboratory of Molecular Biology). For more information on how you can use NBLAST see <a href="http://jefferislab.org/si/nblast/">here</a>. This tool was applied to 16129 registered images of single neurons derived from the publicly available FlyCircuit raw image dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_new">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a>, resulting in 1052 clusters of similar neurons. We thank the group of A.S. Chiang for taking the lead in making their raw image data available.
@@ -252,55 +252,60 @@
 				This search tool is available on the homepage, or <a href="../tools/query_builder/index.htm">here</a>.
 			</p>
 
-		  <p style="text-align: center;">
-					<img src="/images/vfb/project/queryBuilder.png" alt="Query Builder" style="border: 1px solid gray;" width="600">
-				</p>
+		  <img class="img-responsive center-block" src="/images/vfb/project/queryBuilder.png" alt="Query Builder" style="border: 1px solid gray;" width="600">
 
-	               <p>
-			Neuropil domains can be selected from the interactive anatomy tree and easily added to the query clicking 'Add to the query' at the top of the term info window. <br/>
-			Once a term has been added, you can specify the directionality of the innervation by choosing the type of terminals: pre-, postsynaptic or any (synaptic) using the drop-down menu to the right of your chosen term. Queries can have multiple query legs.
+			<p>
+				Neuropil domains can be selected from the interactive anatomy tree and easily added to the query clicking 'Add to the query' at the top of the term info window. <br/>
+				Once a term has been added, you can specify the directionality of the innervation by choosing the type of terminals: pre-, postsynaptic or any (synaptic) using the drop-down menu to the right of your chosen term.
+				Queries can have multiple query legs.
 			</p>
-				<p>
-				In order to prevent executing empty queries, a running count of results is displayed whilst you compose your query ('Records found'). Click the "Execute" button to browse the results.<br/>
-
+			<p>
+				In order to prevent executing empty queries, a running count of results is displayed whilst you compose your query ('Records found'). Click the "Execute" button to browse the results.
+				<br/>
 				Below is the results from the query "Find all neurons that have postsynaptic terminals in medulla and have presynaptic terminals in lobula":
-				</p>
+			</p>
 
-				<p style="text-align: center;">
-					<img src="/images/vfb/project/queryBuilder1.png" alt="Query result" style="border: 1px solid gray;" width="600">
-				</p>
+			<img class="img-responsive center-block" src="/images/vfb/project/queryBuilder1.png" alt="Query result" style="border: 1px solid gray;" width="600">
 
+			<a name="tech"></a>
+			<h2>Technical details</h2>
+			<p>
+				The Virtual Fly Brain (VFB) browser application consists of the Image Server and a lightweight client.
+				The Image Server uses the <a href="http://iipimage.sourceforge.net/" target="_new">Internet Imaging Protocol</a> that streams image tiles that are
+				specified by a client's request. This tile-based approach for viewing large, high-resolution images is widely used by popular
+				providers such as <a href="http://google.com" target="_new">Google</a> or
+				<a href="http://www.zoomify.com/" target="_new">Zoomify</a>, as well as by research projects
+				such as <a href="http://www.eurexpress.org/ee/" target="_new">Eurexpress</a>. <br/>
+				The key advantage of such an approach is that the client only downloads
+				the portion of the whole image that is visible, rather than the entire image. This efficiently uses bandwidth and memory, allowing it to
+				be usable even over slow internet connections. An extension of the IIP protocol that we use allows to serve arbitrary sections of a 3D
+				object in <i>Woolz</i> format. Please see the overall architecture of the VFB application below:
+			</p>
 
-	<a name="tech"></a>
-		<h2>Technical details</h2>
-	<p>
-			The Virtual Fly Brain (VFB) browser application consists of the Image Server and a lightweight client.
-			The Image Server uses the <a href="http://iipimage.sourceforge.net/" target="_new">Internet Imaging Protocol</a> that streams image tiles that are
-			specified by a client's request. This tile-based approach for viewing large, high-resolution images is widely used by popular
-			providers such as <a href="http://google.com" target="_new">Google</a> or <a href="http://www.zoomify.com/" target="_new">Zoomify</a>, as well as by research projects
-			such as <a href="http://www.eurexpress.org/ee/" target="_new">Eurexpress</a>. <br/>
-			The key advantage of such an approach is that the client only downloads
-			the portion of the whole image that is visible, rather than the entire image. This efficiently uses bandwidth and memory, allowing it to
-			be usable even over slow internet connections. An extension of the IIP protocol that we use allows to serve arbitrary sections of a 3D
-			object in <i>Woolz</i> format. Please see the overall architecture of the VFB application below:
-		</p>
+			<img class="img-responsive center-block" src= "/images/vfb/project/architecture.png" alt="Overall architecture" width="580" style="padding:5px"/>
 
-		<p style="text-align:center">
-			<img src= "/images/vfb/project/architecture.png" alt="Overall architecture" width="580" style="padding:5px"/>
-		</p>
+			<p>
+				Please feel free to download a <a href="/public_resources/NeuroFly2010.ppt">poster</a> for more details on the application
+				or refer to the <a href="http://www.emouseatlas.org/emap/analysis_tools_resources/software/woolz.html" target="_new">Woolz page</a>
+				for details on Woolz software and IIP3D protocol.
+			</p>
 
-		<p>Please feel free to download a <a href="/public_resources/NeuroFly2010.ppt">poster</a> for more details on the application
-			or refer to the <a href="http://www.emouseatlas.org/emap/analysis_tools_resources/software/woolz.html" target="_new">Woolz page</a> for details on Woolz software and IIP3D protocol.
-		</p>
-
-		<p>
-		     The images served by this protocol and displayed on VFB are annotated using an ontology of the Drosophila brain anatomy developed by VFB in co-ordination with <a href="http://www.flybase.org" target="_new">FlyBase</a>.  This ontology contains referenced, textual descriptions of painted domains (brain regions) and relates these domains to each other, to unpainted subdomains, and to neurons. The ontology follows the W3C standard, <a href="http://www.w3.org/TR/owl2-primer/" target="_new">OWL2</a>. This allows us to use standard <a href="http://owlapi.sourceforge.net/reasoners.html" target="_new">OWL reasoning software</a> to drive queries on the site for neurons by their location and innervation patterns.
+			<p>
+		    The images served by this protocol and displayed on VFB are annotated using an ontology of the Drosophila brain anatomy developed
+				by VFB in co-ordination with <a href="http://www.flybase.org" target="_new">FlyBase</a>.  This ontology contains referenced,
+				textual descriptions of painted domains (brain regions) and relates these domains to each other,
+				to unpainted subdomains, and to neurons. The ontology follows the W3C standard,
+				<a href="http://www.w3.org/TR/owl2-primer/" target="_new">OWL2</a>. This allows us to use standard
+				<a href="http://owlapi.sourceforge.net/reasoners.html" target="_new">OWL reasoning software</a>
+				to drive queries on the site for neurons by their location and innervation patterns.
 		  </p>
 		  <p>
-		  This ontology is used extensively to record gene/transgene expression and phenotypes in FlyBase.  By combining reasoner driven queries of the ontology with queries of FlyBase, VFB allows simple point-and-click queries for neuroanatomy, expression and phenotypes.
+		  	This ontology is used extensively to record gene/transgene expression and phenotypes in FlyBase.
+				By combining reasoner driven queries of the ontology with queries of FlyBase,
+				VFB allows simple point-and-click queries for neuroanatomy, expression and phenotypes.
 		  </p>
 
-		</div>
+		</div> <!-- well -->
 	</div> <!-- center_wide -->
 
 	<div class="col-md-3">
