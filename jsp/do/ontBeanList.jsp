@@ -63,12 +63,13 @@
 		</div>
 		<script>
 		$(document).ready( function () {
-			$('#results').DataTable({
+			var table = $('#results').DataTable({
 				paging: true,
 				searching: true,
 				ordering:  true,
 				responsive: true
 			});
+    	new $.fn.dataTable.FixedHeader( table );
 		} );
 		</script>
 	</div>
