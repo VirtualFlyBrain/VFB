@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<table id="results" class="display">
+			<table id="results" class="display" style="width:100%;">
 	    	<thead>
 	        <tr>
 							<th>ID</th>
