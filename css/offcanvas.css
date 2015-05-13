@@ -74,3 +74,8 @@ footer {
  Adding top bugger to rows
 *************/
 .top-buffer { margin-top:10px; }
+
+/* expanding popover width */
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
