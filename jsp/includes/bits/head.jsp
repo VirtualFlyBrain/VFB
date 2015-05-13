@@ -27,7 +27,7 @@
 
 <c:set var="headAtt" scope="session" value="true" />
 
-<c:set var="currDomain" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[0]%></c:set>
+<c:set var="currDomain" scope="session"><%=request.getServerName().toString()%></c:set>
 <c:set var="currURL" scope="session"><%=request.getRequestURL().toString().split(request.getServerName().toString())[1]%></c:set>
 <c:set var="helpURL" value="${(empty param.helpURL)?'./help.htm':param.helpURL}" />
 
@@ -106,9 +106,9 @@
 	  </div>
 	</nav><!-- header -->
 
-	${currURL}
-	<c:if test="${fn:contains(currURL, 'inf.ed.ac.uk')}">
-		<c:if test="${!fn:contains(currURL, 'vfb-bocian')}">
+	${currDomain}
+	<c:if test="${fn:contains(currDomain, 'inf.ed.ac.uk')}">
+		<c:if test="${!fn:contains(currDomain, 'vfb-bocian')}">
 			<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<strong>Warning!</strong> This is a test server and not the official VFB site.
