@@ -53,7 +53,7 @@
 
         self.requestSent = false;
         $(self.target).find('input').autocomplete('destroy').autocomplete({
-          delay: 500,
+          delay: 1000,
           autoFocus: true,
           source: list,
           select: function(event, ui) {
