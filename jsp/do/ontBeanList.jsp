@@ -7,7 +7,7 @@
 <c:set var="cleanTitle">${fileName}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<jsp:include page="/jsp/includes/1ColHead.jsp">
+<jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;" />
@@ -66,7 +66,8 @@
 			$('#results').DataTable({
 				paging: true,
 				searching: true,
-				ordering:  true
+				ordering:  true,
+				responsive: true
 			});
 		} );
 		</script>
