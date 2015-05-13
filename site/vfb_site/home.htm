@@ -75,7 +75,7 @@
 								 	</ul>
 									<script>
 										$(function(){
-	    								$('[rel="question1"]').popover({trigger: 'focus',container: '.well',html: true,content: function () {
+	    								$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
 		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 								        	return clone;
 								        }
