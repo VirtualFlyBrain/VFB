@@ -60,6 +60,10 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       $('#result-section').hide();
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
       self.doRequest();
+      var url = window.location.href;
+      if (url.indexOf('anatomy_finder') < 0){
+        window.location = '/site/tools/anatomy_finder/?id=' + doc.short_form[0].replace(':','_');
+      }
     }else if (self.manager.response.response.numFound < 34000){ // if a resonable number of results then reshow.
       $('#result-section').show();
       $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
