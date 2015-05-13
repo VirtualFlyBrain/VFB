@@ -27,7 +27,7 @@
 
     afterRequest: function () {
       $(this.target).find('input').unbind().removeData('events').val('');
-      $(this.target).find('input').autocomplete({delay:500,autoFocus:true});
+      $(this.target).find('input').autocomplete({delay:1500,autoFocus:true});
       var self = this;
 
       var callback = function (response) {
