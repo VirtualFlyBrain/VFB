@@ -27,8 +27,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
-			<div class="col-xs-6">
-				<h1 id="help_header">Query: ${query}</h1>
+			<div class="col-xs-6" align="center">
+				<h1>Query: ${query}</h1>
 			</div>
 			<div class="col-xs-6">
 				<a id="csv" style="float: right; margin-right: 10px"
