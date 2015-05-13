@@ -90,7 +90,7 @@
 						  		Find neuron classes with synaptic terminals in the <b>antennal mechanosensory and motor centre (AMMC)</b>
 						  	</a>
 						  	&nbsp;
-								<a href="#" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+								<a href="#" tabindex="0" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find neurons that innervate the AMMC:"
 									data-popover-content="#Question2">Show me how &raquo;
@@ -131,7 +131,7 @@
 									<script>
 										$(function(){
 	    								$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('content')).clone(true).removeClass('hide');
+		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 								        	return clone;
 								        }
 								    	}).click(function(e) {e.preventDefault();});
@@ -144,14 +144,19 @@
 								<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
 						  		Find images of single neurons with some part in the <b>ellipsoid body</b>
 						  	</a>
-						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q3.htm" title="Find images of neuron that overlap the EB:" target="_blank">Show me how &raquo;</a>
+						  	&nbsp;
+								<a href="#" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+									data-placement="bottom"
+									title="Find images of neuron that overlap the EB:"
+									data-popover-content="#Question3">Show me how &raquo;
+								</a>
 								<div id="Question3" class="hide">
 
 								</div>
 								<script>
 									$(function(){
 										$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 												return clone;
 											}
 										}).click(function(e) {e.preventDefault();});
@@ -169,7 +174,7 @@
 								<script>
 									$(function(){
 										$('[rel="question4"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 												return clone;
 											}
 										}).click(function(e) {e.preventDefault();});
@@ -187,7 +192,7 @@
 								<script>
 									$(function(){
 										$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 												return clone;
 											}
 										}).click(function(e) {e.preventDefault();});
@@ -262,7 +267,7 @@
 								<script>
 									$(function(){
 										$('[rel="question6"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 												return clone;
 											}
 										}).click(function(e) {e.preventDefault();});
