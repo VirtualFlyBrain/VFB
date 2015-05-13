@@ -106,6 +106,7 @@
 	  </div>
 	</nav><!-- header -->
 
+	${currDomain}
 	<c:if test="${fn:contains(currDomain, 'inf.ed.ac.uk')}">
 		<c:if test="${!fn:contains(currDomain, 'vfb-bocian')}">
 			<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
