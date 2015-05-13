@@ -174,7 +174,7 @@
 									  </li>
 									  <li>
 									  	The query menu is at the top of the term info window. Hover on the main query options to see all available sub-options. </br>
-											<b>Did you know?</b> You can run the same query on the <a href="/site/tools/anatomy_finder/index.htm"<Anatomy/Neuron Finder</a> page.
+											<b>Did you know?</b> You can run the same query on the <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
 									 	</li>
 									  <li>
 									  	Select the query <i>Individual neurons with: some part here</i>.
@@ -225,7 +225,7 @@
 									</p>
 									<ul>
 										<li>
-											Go to the <a href="/site/tools/anatomy_finder/index.htm"<Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools-> Anatomy/Neuron Finder</i>.
+											Go to the <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools-> Anatomy/Neuron Finder</i>.
 										</li>
 										<li>
 											In the search box, start typing <i>mushroom body alpha/beta neuron</i>.<br/>
@@ -282,7 +282,7 @@
 
 									<ul>
 										<li>
-											Go to the <a href="/site/tools/query_builder/index.htm"<Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools ->  Query Builder</i>.
+											Go to the <a href="/site/tools/query_builder/index.htm">Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools ->  Query Builder</i>.
 										</li>
 										<li>
 											In the search box above the anatomy tree, start typing <i>lobula</i>.<br/>
@@ -331,18 +331,13 @@
 								<a href="/do/ont_query_result.html?action=multiquery&id=FBbt:00003852&id=FBbt:00003748&type=postsynaptic&type=presynaptic&rel=include&rel=include" target="_blank">
 						  		Find all neurons that have postsynaptic terminals in <b>lobula</b> and presynaptic terminals in <b>medulla</b>
 						  	</a>
-						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q5.htm" title="Find neurons that innervate the medulla and lobula:" target="_blank">Show me how &raquo;</a>
-						  </li>
-						   <li class="list-group-item">
-								<a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
-						  		Overlay 3 different image stacks of neurons and lineage clones that overlap the <b>adult central complex</b>
-						  	</a>
 						  	&nbsp;
 								<a href="#" tabindex="0" rel="question6" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
-									title="How to work with composite views:"
+									title="Find neurons that innervate the medulla and lobula:"
 									data-popover-content="#Question6">Show me how &raquo;
 								</a>
+								<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q5.htm" title="Find neurons that innervate the medulla and lobula:" target="_blank">Show me how &raquo;</a>
 								<div id="Question6" class="hide">
 									<p>
 										For more information on this type of query click <a href="/site/vfb_site/features.htm#querymenu">here</a>.
@@ -400,6 +395,66 @@
 								<script>
 									$(function(){
 										$('[rel="question6"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
+						   <li class="list-group-item">
+								<a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
+						  		Overlay 3 different image stacks of neurons and lineage clones that overlap the <b>adult central complex</b>
+						  	</a>
+						  	&nbsp;
+								<a href="#" tabindex="0" rel="question7" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+									data-placement="bottom"
+									title="How to work with composite views:"
+									data-popover-content="#Question7">Show me how &raquo;
+								</a>
+								<div id="Question7" class="hide">
+									<h2>Generating a composite view</h2>
+								  <ul>
+									  <li>
+											You can build a composite view from different images stacks which have been integrated on the site. Clicking on "See in viewer" from any image stack to see that image in the Viewer. Together with the image stack, any neuropil domain can be highlighted on the brain stack.
+									  </li>
+									  <li>
+											On this page, you can see which stacks have been added, and delete them.
+									  </li>
+									  <li>
+											Each composite view is associated to a permanent URL, permalink, which you can share with others.
+									  </li>
+										<li>
+											Permalinks are generated with each new browser session.<br/>
+											 A permalink looks like:
+											http://www.virtualflybrain.org/do/composite_view.html?action=load&uuid=2013-06-13_15.18.49.723.
+										</li>
+									  <li>
+										  To obtain a permalink to the current composite stack, click the link "Get permalink and start new composite".
+										  A pop-up window will appear asking if you are sure you want to do this. Once you obtain the permalink, that composite will no longer be editable. Click 'OK'. <br/>
+										  You can copy the permalink from the dialog box that appears. The link may be displayed over more than one line, depending on the browser you use - you need to select all of it (as in example above).
+									  </li>
+									  <li>
+										  Now you can save this link anywhere in a text file or share it via email/facebook/etc.
+									  </li>
+									  <li>
+										  Anyone can paste the composite link in a browser address bar to view your composite at any time. (*)
+									  </li>
+									</ul>
+									<h2> Important notes to bear in mind:</h2>
+									<ul>
+									  <li>
+										  (*) Although we do not set a time limit on how long we keep user's composites on our server, we reserve the right to delete old composites should the number of composite stacks
+										  grow too large. Old composites will be removed without prior warning to the composite owner.
+									  </li>
+									  <li>
+										  Do note that obtaining a permalink means that you can no longer edit the composite view.
+									  </li>
+							 		</ul>
+								</div>
+								<script>
+									$(function(){
+										$('[rel="question7"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
 												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 												return clone;
 											}
