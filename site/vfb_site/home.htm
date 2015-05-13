@@ -37,7 +37,7 @@
 						  	&nbsp;
 								<a href="#" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
-									title="What and where is the 'saddle'?"
+									title="What and where is the saddle:"
 									data-content="#Question1">Show me how &raquo;
 								</a>
 								<div id="Question1" class="hide">
@@ -76,7 +76,7 @@
 									<script>
 										$(function(){
 	    								$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+		            					var clone = $($(this).data('content')).clone(true).removeClass('hide');
 								        	return clone;
 								        }
 								    	}).click(function(e) {e.preventDefault();});
@@ -89,13 +89,18 @@
 								<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
 						  		Find neuron classes with synaptic terminals in the <b>antennal mechanosensory and motor centre (AMMC)</b>
 						  	</a>
-						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q2.htm" title="Find neurons that innervate the AMMC:" target="_blank">Show me how &raquo;</a>
+						  	&nbsp;
+								<a href="#" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+									data-placement="bottom"
+									title="Find neurons that innervate the AMMC:"
+									data-content="#Question2">Show me how &raquo;
+								</a>
 								<div id="Question2" class="hide">
-										<p>
-										For more information on this type of query go <a href="../features.htm#neuronsbylocation">here</a>.
-										</p>
+									<p>
+									For more information on this type of query go <a href="../features.htm#neuronsbylocation">here</a>.
+									</p>
 
-										<ul>
+									<ul>
 										<li>
 										Go to the <a href="../../../site/stacks/index.htm">Stack Viewer</a>, accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
 										</li>
@@ -122,8 +127,17 @@
 										A list with the query results will be displayed.<br/>
 										<b>Did you know?</b> You can run the same query on the <a href="../../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
 										</li>
-
 									</ul>
+									<script>
+										$(function(){
+	    								$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+								        	return clone;
+								        }
+								    	}).click(function(e) {e.preventDefault();});
+										});
+									</script>
+								</div>
 							</li>
 
 						  <li class="list-group-item">
