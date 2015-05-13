@@ -35,44 +35,54 @@
 						  		What and where is the <b>saddle</b>?
 						  	</a>
 						  	&nbsp;
-								<a class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+								<a href="#" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="What and where is the 'saddle'?"
-									data-content="
-										<p>
-								    	For more information on this type of query go <a href='../features.htm#3dviewer'>here</a>.
-								    </p>
-								  	<ul>
-										  <li>
-										  	Go to the <a href='../../../site/stacks/index.htm'>Stack Viewer</a>,
-												accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
-										  </li>
-										  <li>
-										  	In the search box above the anatomy tree on the right panel, start typing <i>saddle</i>.<br/>
-										  	<b>Did you know?</b> You can also search by any known synonym, such as <i>SAD</i>.
-										  </li>
-										  <li>
-										  	A list of matching terms appears. The term list shrinks as you continue typing.
-										  </li>
-										  <li>
-										  	Once you see <i>saddle</i> in the list, select it (you might have to scroll down).
-										  </li>
-										  <li>
-										  	The anatomy tree will expand to display and highlight this term.
-												To highlight this domain on the stack viewer, click on the square to the left or on
-												<i>centre</i> to the right of the term in the tree.
-										  </li>
-										  <li>
-										  	The term info window at the bottom of the page will display all the annotations.
-										  </li>
-										  <li>
-												Further queries are now possible from the <i>Query for</i> menu, at the top of
-												the term info window. Hover on the query options to the right of it to see all available queries.
-												Choose the desired option and click to run the query.
-									   </li>
-									 	</ul>
-									">Show me how &raquo;
+									data-content="#Question1">Show me how &raquo;
 								</a>
+								<div id="Question1" class="hide">
+									<p>
+							    	For more information on this type of query go <a href='../features.htm#3dviewer'>here</a>.
+							    </p>
+							  	<ul>
+									  <li>
+									  	Go to the <a href='../../../site/stacks/index.htm'>Stack Viewer</a>,
+											accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
+									  </li>
+									  <li>
+									  	In the search box above the anatomy tree on the right panel, start typing <i>saddle</i>.<br/>
+									  	<b>Did you know?</b> You can also search by any known synonym, such as <i>SAD</i>.
+									  </li>
+									  <li>
+									  	A list of matching terms appears. The term list shrinks as you continue typing.
+									  </li>
+									  <li>
+									  	Once you see <i>saddle</i> in the list, select it (you might have to scroll down).
+									  </li>
+									  <li>
+									  	The anatomy tree will expand to display and highlight this term.
+											To highlight this domain on the stack viewer, click on the square to the left or on
+											<i>centre</i> to the right of the term in the tree.
+									  </li>
+									  <li>
+									  	The term info window at the bottom of the page will display all the annotations.
+									  </li>
+									  <li>
+											Further queries are now possible from the <i>Query for</i> menu, at the top of
+											the term info window. Hover on the query options to the right of it to see all available queries.
+											Choose the desired option and click to run the query.
+								   </li>
+								 	</ul>
+								</div>
+								<script>
+									$(function(){
+    								$('[rel="question1"]').popover({container: 'body',html: true,content: function () {
+	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							        	return clone;
+							        }
+							    	}).click(function(e) {e.preventDefault();});
+									});
+								</script>
 						  </li>
 
 						  <li class="list-group-item">
