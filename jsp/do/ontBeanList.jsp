@@ -41,7 +41,7 @@
 			<table id="results" class="display">
 	    	<thead>
 	        <tr>
-							<th>ID</tr>
+							<th>ID</th>
 	            <th>Name</th>
 	            <th>Definition</th>
 							<th>Query VFB</th>
