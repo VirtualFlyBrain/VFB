@@ -73,16 +73,16 @@
 											Choose the desired option and click to run the query.
 								   </li>
 								 	</ul>
+									<script>
+										$(function(){
+	    								$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+								        	return clone;
+								        }
+								    	}).click(function(e) {e.preventDefault();});
+										});
+									</script>
 								</div>
-								<script>
-									$(function(){
-    								$('[rel="question1"]').popover({container: 'body',html: true,content: function () {
-	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							        	return clone;
-							        }
-							    	}).click(function(e) {e.preventDefault();});
-									});
-								</script>
 						  </li>
 
 						  <li class="list-group-item">
@@ -90,26 +90,96 @@
 						  		Find neuron classes with synaptic terminals in the <b>antennal mechanosensory and motor centre (AMMC)</b>
 						  	</a>
 						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q2.htm" title="Find neurons that innervate the AMMC:" target="_blank">Show me how &raquo;</a>
-						  </li>
+								<div id="Question2" class="hide">
+										<p>
+										For more information on this type of query go <a href="../features.htm#neuronsbylocation">here</a>.
+										</p>
+
+										<ul>
+										<li>
+										Go to the <a href="../../../site/stacks/index.htm">Stack Viewer</a>, accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
+										</li>
+										<li>
+									In the search box above the anatomy tree on the right panel, start typing <i>antennal mechanosensory and motor centre</i>.<br/>
+										<b>Did you know?</b> You can also search by any known synonym, such as <i>AMMC</i>.
+										</li>
+										<li>
+										A list of matching terms appears. The term list shrinks as you continue typing.
+										</li>
+										<li>
+										Once you see <i>antennal mechanosensory and motor centre</i> in the list, select it (you might have to scroll down).
+										</li>
+										<li>
+										The anatomy tree will expand to display and highlight the term <i>antennal mechanosensory and motor centre</i>. To highlight this domain on the stack viewer, click on the square to the left or on <i>centre</i> to the right of the term in the tree.
+										</li>
+										<li>
+										The query menu is at the top of the term info window. Hover on the main query options to see all available sub-options.
+										</li>
+										<li>
+										Select the query <i>Neuron classes with: synaptic terminals here</i>.
+										</li>
+										<li>
+										A list with the query results will be displayed.<br/>
+										<b>Did you know?</b> You can run the same query on the <a href="../../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
+										</li>
+
+									</ul>
+							</li>
 
 						  <li class="list-group-item">
 								<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
 						  		Find images of single neurons with some part in the <b>ellipsoid body</b>
 						  	</a>
 						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q3.htm" title="Find images of neuron that overlap the EB:" target="_blank">Show me how &raquo;</a>
+								<div id="Question3" class="hide">
 
+								</div>
+								<script>
+									$(function(){
+    								$('[rel="question3"]').popover({container: 'body',html: true,content: function () {
+	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							        	return clone;
+							        }
+							    	}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
 							<li class="list-group-item">
 								<a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
 						  		Find neurons that develop from one of the <b>neuroblasts in the antennal lobe</b>
 							  </a>
 						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q6.htm" title="Find neurons from an AL lineage" target="_blank">Show me how &raquo;</a>
-						  </li>
+								<div id="Question4" class="hide">
+
+								</div>
+								<script>
+									$(function(){
+    								$('[rel="question4"]').popover({container: 'body',html: true,content: function () {
+	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							        	return clone;
+							        }
+							    	}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
 						  <li class="list-group-item">
 								<a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
 						  		Find transgenes expressed in <b>mushroom body alpha/beta neurons</b>
 						  	</a>
 						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="./home_query_howtos/q4.htm" title="Find transgenes expressed in the MB-alpha'/beta' neurons:" target="_blank">Show me how &raquo;</a>
-						  </li>
+								<div id="Question5" class="hide">
+
+								</div>
+								<script>
+									$(function(){
+    								$('[rel="question5"]').popover({container: 'body',html: true,content: function () {
+	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							        	return clone;
+							        }
+							    	}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
 						  <li class="list-group-item">
 								<a href="/do/ont_query_result.html?action=multiquery&id=FBbt:00003852&id=FBbt:00003748&type=postsynaptic&type=presynaptic&rel=include&rel=include" target="_blank">
 						  		Find all neurons that have postsynaptic terminals in <b>lobula</b> and presynaptic terminals in <b>medulla</b>
@@ -121,7 +191,19 @@
 						  		Overlay 3 different image stacks of neurons and lineage clones that overlap the <b>adult central complex</b>
 						  	</a>
 						  	&nbsp;<a class="btn btn-info btn-xs outline" role="button" href="/site/tools/help/composite_help.htm" title="How to work with composite views" target="_blank">Show me how &raquo;</a>
-						  </li>
+								<div id="Question6" class="hide">
+
+								</div>
+								<script>
+									$(function(){
+    								$('[rel="question6"]').popover({container: 'body',html: true,content: function () {
+	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							        	return clone;
+							        }
+							    	}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
 						</ul>
 					</div><!-- example query panel -->
 
