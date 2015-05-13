@@ -63,7 +63,11 @@
 		</div>
 		<script>
 		$(document).ready( function () {
-			$('#results').DataTable();
+			$('#results').DataTable({
+				paging: true,
+				searching: true,
+				ordering:  true
+			});
 		} );
 		</script>
 	</div>
