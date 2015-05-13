@@ -38,7 +38,7 @@
 								<a href="#" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="What and where is the saddle:"
-									data-content="#Question1">Show me how &raquo;
+									data-popover-content="#Question1">Show me how &raquo;
 								</a>
 								<div id="Question1" class="hide">
 									<p>
@@ -76,7 +76,7 @@
 									<script>
 										$(function(){
 	    								$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('content')).clone(true).removeClass('hide');
+		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 								        	return clone;
 								        }
 								    	}).click(function(e) {e.preventDefault();});
@@ -131,7 +131,7 @@
 									<script>
 										$(function(){
 	    								$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+		            					var clone = $($(this).data('content')).clone(true).removeClass('hide');
 								        	return clone;
 								        }
 								    	}).click(function(e) {e.preventDefault();});
@@ -150,11 +150,11 @@
 								</div>
 								<script>
 									$(function(){
-    								$('[rel="question3"]').popover({container: 'body',html: true,content: function () {
-	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							        	return clone;
-							        }
-							    	}).click(function(e) {e.preventDefault();});
+										$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
 							</li>
@@ -168,11 +168,11 @@
 								</div>
 								<script>
 									$(function(){
-    								$('[rel="question4"]').popover({container: 'body',html: true,content: function () {
-	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							        	return clone;
-							        }
-							    	}).click(function(e) {e.preventDefault();});
+										$('[rel="question4"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
 							</li>
@@ -186,11 +186,11 @@
 								</div>
 								<script>
 									$(function(){
-    								$('[rel="question5"]').popover({container: 'body',html: true,content: function () {
-	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							        	return clone;
-							        }
-							    	}).click(function(e) {e.preventDefault();});
+										$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
 							</li>
@@ -210,11 +210,11 @@
 								</div>
 								<script>
 									$(function(){
-    								$('[rel="question6"]').popover({container: 'body',html: true,content: function () {
-	            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							        	return clone;
-							        }
-							    	}).click(function(e) {e.preventDefault();});
+										$('[rel="question6"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
 							</li>
