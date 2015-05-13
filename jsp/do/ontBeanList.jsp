@@ -62,15 +62,15 @@
 			</table>
 		</div>
 		<script>
-		$(document).ready( function () {
-			var table = $('#results').DataTable({
-				paging: true,
-				searching: true,
-				ordering:  true,
-				responsive: true
-			});
-    	new $.fn.dataTable.FixedHeader( table );
-		} );
+			$(document).ready( function () {
+				var table = $('#results').DataTable( {
+					paging: true,
+					searching: true,
+					ordering:  true,
+					responsive: true
+				} );
+	    	new $.fn.dataTable.FixedHeader( table );
+			} );
 		</script>
 	</div>
 </div>
