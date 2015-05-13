@@ -36,7 +36,8 @@
 					<span class="glyphicon glyphicon-save-file"></span>Save as CSV
 				</a>
 			</div>
-
+		</div>
+		<div class="content">
 			<table id="results" class="display">
 	    	<thead>
 	        <tr>
@@ -59,14 +60,12 @@
 					</c:forEach>
 		    </tbody>
 			</table>
-
-			<script>
-			$(document).ready( function () {
-				$('#results').DataTable();
-			} );
-			</script>
-
 		</div>
+		<script>
+		$(document).ready( function () {
+			$('#results').DataTable();
+		} );
+		</script>
 	</div>
 </div>
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
