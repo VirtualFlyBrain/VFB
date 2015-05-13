@@ -11,24 +11,10 @@
 
 		<div class="row">
 
-			<div class="col-md-12" align="center">
-				<div class="well" align="center">
-					<h2>Virtual Fly Brain</h2>
-					<label>Search in:</label>
-					<select name="scope" id="scope" onchange="setScope()">
-						<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-						<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-					</select>
-					<a href="./home_query_howtos/scope.htm" title="How search scope works"><span class="glyphicon glyphicon-question-sign"></span></a>
-					<br/><br/>
-					<input id="search_text" style="width:100%" type="text" alt="Type in the name of the anatomy term/neuron to search" placeholder="Search for neuropil, neuron, lineage clone or tract"/>
-					<input id="id_container" type="hidden" />
-					<input id="scopeValue" type="hidden" />
-					<!-- p> Query options will be available on each term's page</p -->
-				</div>
-			</div>
+			<div class="col-xs-12" align="center" id="search-tab"></div>
+			<script>$('#search-tab').load('/site/tools/anatomy_finder/index.htm #search-vfb');</script>
 
-			<div class="col-md-12 col-lg-12" align="center">
+			<div class="col-xs-12" align="center">
 				<div class="well" align="left">
 					<center>
 				    		<h2>What can VFB do for me? Example queries</h2>
