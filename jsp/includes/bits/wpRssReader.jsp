@@ -20,14 +20,14 @@ URL u = new URL("http://vfbblog.inf.ed.ac.uk/?feed=rss2"); // feed address
 Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
-<div id="rss_feed" style="width:230px; font-size:0.9em;">
+<div id="rss_feed" style="width:100%; font-size:0.9em;">
 <div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">News 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
-		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
+		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
 <div style="height:400px; overflow-y: auto; overflow-x: hidden; border:1px solid gray;font-size:0.9em">
 	<% for(int i=0;i<3;i++) {
-	Element element = (Element)nodes.item(i); 
+	Element element = (Element)nodes.item(i);
 	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
 		<div style="padding:2px;>
 			<p style="margin: 0; color:#99BCDB"><b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b></p>
@@ -47,7 +47,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 		<input type="hidden" value="ac/RAmc" name="uri"/>
 		<input type="hidden" name="loc" value="en_US"/>
 		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
-		</form>		
+		</form>
 	</div>
 </div>
 
