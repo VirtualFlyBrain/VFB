@@ -112,7 +112,9 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<strong>Warning!</strong> This is a test server and not the official VFB site.
+							<center>
+								<strong>Warning!</strong> This is a test server and not the official VFB site.
+							</center>
 						</div>
 					</div>
 			</div>
