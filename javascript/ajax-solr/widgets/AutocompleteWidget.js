@@ -27,7 +27,7 @@
 
     afterRequest: function () {
       $(this.target).find('input').unbind().removeData('events').val('');
-      $(this.target).find('input').autocomplete();
+      $(this.target).find('input').autocomplete({delay:500,autoFocus:true});
       var self = this;
 
       var callback = function (response) {
@@ -53,6 +53,8 @@
 
         self.requestSent = false;
         $(self.target).find('input').autocomplete('destroy').autocomplete({
+          delay: 500,
+          autoFocus: true,
           source: list,
           select: function(event, ui) {
             if (ui.item) {
