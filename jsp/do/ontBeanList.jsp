@@ -79,7 +79,7 @@
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-	    	new $.fn.dataTable.FixedHeader( table );
+	    	// new $.fn.dataTable.FixedHeader( table );
 			} );
 		</script>
 	</div>
