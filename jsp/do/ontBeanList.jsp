@@ -97,6 +97,8 @@
         	}
 				} );
 	    	new $.fn.dataTable.FixedHeader( table );
+				var tt = new $.fn.dataTable.TableTools( table );
+				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 			} );
 		</script>
 	</div>
