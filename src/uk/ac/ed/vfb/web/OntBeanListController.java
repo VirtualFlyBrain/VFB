@@ -30,11 +30,10 @@ public class OntBeanListController extends AbstractController{
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");
 		Set<OntBean> results = null;
-			String actionStr;
-			actionStr = WebQueryUtils.getDefString(action, id);
-			this.obm.getBeanListForQuery(actionStr);
-			results = obm.getCompleteSet();
-		}
+		String actionStr;
+		actionStr = WebQueryUtils.getDefString(action, id);
+		this.obm.getBeanListForQuery(actionStr);
+		results = obm.getCompleteSet();
 		modelAndView.addObject("ontBeanList", results);
 		modelAndView.addObject("type", "obm");
 		params = obm.getUsefulParams(params);
