@@ -24,6 +24,7 @@
 		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/fixedheader/2.1.2/js/dataTables.fixedHeader.min.js;
+		https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js;
 	" />
 </jsp:include>
 
@@ -85,6 +86,10 @@
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 	    	new $.fn.dataTable.FixedHeader( table );
 			} );
+			
+			$(function() {
+    		$("img.lazy").lazyload();
+			});
 		</script>
 	</div>
 </div>
