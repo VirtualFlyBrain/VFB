@@ -198,7 +198,7 @@ public class APageable {
 		return result;
 	}
 
-	private Set getCompleteSet() {
+	public Set getCompleteSet() {
 		return resultSet;
 	}
 
