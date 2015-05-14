@@ -66,8 +66,8 @@
 		            <td>${ontBean.fbbtId}</td>
 		            <td>${ontBean.name}</td>
 								<td>${ontBean.def}</td>
-								<td><a class="label label-success" href="/site/tools/anatomy_finder/?id=${ontBean.fbbtId}">More info</a></td>
-								<td><a class="label label-info" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new">FlyBase Report</a></td>
+								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtId}</td>
+								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
 		        </tr>
 					</c:forEach>
 		    </tbody>
@@ -79,7 +79,18 @@
 					paging: true,
 					searching: true,
 					ordering:  true,
-					responsive: true
+					responsive: true,
+					aoColumns:[
+						null,null,null,
+						{ "fnRender": function (oObj) {
+						    return '<a class="label label-success" href=' + oObj.aData[0] + '>' + 'More info' + '</a>';
+						  }
+						},
+						{ "fnRender": function (oObj) {
+								return '<a class="label label-info" href=' + oObj.aData[0] + ' target="_new">' + 'FlyBase Report' + '</a>';
+							}
+						},
+	        ],
 				} );
 				var tableTools = new $.fn.dataTable.TableTools( table, {
 		        "buttons": [
