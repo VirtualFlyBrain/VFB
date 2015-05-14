@@ -22,7 +22,7 @@
 				<c:if test="${status.index < 6}">
 					<div class="${status.index eq 0 ? 'item active':'item'}">
 						<a href="/owl/${tpb.vfbId}" target="_top">
-						<img src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})">
+						<img src="${tpb.thumbUrl}" alt="">
 						<div class="carousel-caption">
 			        <b>${ontBean.name}</b>
 							<span class="small">${tpb.vfbId}</span>
@@ -34,13 +34,11 @@
 		<!-- Left and right controls -->
 		<a class="left carousel-control" href="#exampleImages" role="button" data-slide="prev">
 	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
   	</a>
 	  <a class="right carousel-control" href="#exampleImages" role="button" data-slide="next">
 	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
 	  </a>
 	</div>
-	<a href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Show	all >></a>
+	<a align="right" href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Query all >></a>
 </div>
 </c:if>
