@@ -49,6 +49,7 @@
 		</c:if>
 	</c:if>
 	<c:if test="${empty ontBeanList}">
+		<script>$('div[style]').removeAttr('style');</script>
 		<a id="queryLink" class="btn btn-danger btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" alt="Query all" style="margin-left:110px;">Found <span class="badge">0</span></a>
 	</c:if>
 </div>
