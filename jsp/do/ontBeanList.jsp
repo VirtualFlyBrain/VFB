@@ -39,14 +39,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
-			<div class="col-xs-6" align="center">
+			<div class="container" align="center">
 				<h2>Query: ${query}</h2>
-			</div>
-			<div class="col-xs-6">
-				<a id="csv" style="float: right; margin-right: 10px"
-					href="/do/csv_report.html?type=${type}&filename=${fileName}">
-					<span class="glyphicon glyphicon-save-file"></span>Save as CSV
-				</a>
 			</div>
 		</div>
 		<div class="container">
