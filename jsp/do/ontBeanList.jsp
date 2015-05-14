@@ -70,7 +70,14 @@
 		</div>
 		<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 			<script>
-				$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
+				$(document).ready(function(){
+					function loadExem${status.index}() {
+						$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
+					}
+					function() {
+        		setTimeout(loadExem${status.index}, ${status.index * 100});
+    			});
+				});
 			</script>
 		</c:forEach>
 		<script>
