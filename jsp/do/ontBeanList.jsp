@@ -53,11 +53,8 @@
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.name}</a></td>
 								<td>${ontBean.def}</td>
 								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
-								<td>
-									<jsp:include page="/do/individual_film_strip.html">
-										<jsp:param name="action" value="exemplar_neuron" />
-										<jsp:param name="id" value="${ontBean.fbbtId}" />
-									</jsp:include>
+								<td id="exemplar${status.index}">
+									$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
 								</td>
 								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
 		        </tr>
