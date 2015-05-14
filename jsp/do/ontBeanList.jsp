@@ -76,13 +76,13 @@
 										  </ol>
 											<!-- Wrapper for slides -->
 											<div class="carousel-inner" role="listbox">
-												<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
+												<c:forEach items="${tpb}" var="curr" varStatus="status">
 													<div class="item">
-														<a href="/owl/${tpb.vfbId}" target="_top">
-														<img src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})">
+														<a href="/owl/${curr.vfbId}" target="_top">
+														<img src="${curr.thumbUrl}" alt="${curr.vfbId} - ${curr.sourceName} (${curr.remoteId})">
 														<div class="carousel-caption">
-											        <h3>${tpb.displayName}</h3>
-											        <p>${tpb.descr}</p>
+											        <h3>${curr.displayName}</h3>
+											        <p>${curr.descr}</p>
 											      </div>
 													</div>
 												</c:forEach>
