@@ -40,7 +40,7 @@
 	  </a>
 	</div>
 	<c:if test="${fn:length(ontBeanList) > 1}">
-		<a class="label label-success" href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Query all <span class="badge">${fn:length(ontBeanList)}</span></a>
+		<a class="label label-success" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="padding-left:210px;">Query all <span class="badge">${fn:length(ontBeanList)}</span></a>
 	</c:if>
 </div>
 </c:if>
