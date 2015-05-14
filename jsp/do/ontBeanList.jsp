@@ -74,9 +74,9 @@
 					function loadExem${status.index}() {
 						$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
 					};
-					function() {
+					$(function() {
         		setTimeout(loadExem${status.index}, ${(status.index + 1) * 100});
-    			};
+    			});
 				});
 			</script>
 		</c:forEach>
