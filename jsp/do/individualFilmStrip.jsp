@@ -7,12 +7,12 @@
 		<c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 		<c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-		<div id="exampleImages" class="carousel slide" data-ride="carousel" style="width: 300px;">
+		<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel slide" data-ride="carousel" style="width: 300px;">
 			<ol class="carousel-indicators">
-				<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
+				<li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 					<c:if test="${status.index < showMax && status.index > 0}">
-	    			<li data-target="#exampleImages" data-slide-to="${status.index}"></li>
+	    			<li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="${status.index}"></li>
 					</c:if>
 				</c:forEach>
 	  	</ol>
@@ -33,10 +33,10 @@
 				</c:forEach>
 			</div>
 			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#exampleImages" role="button" data-slide="prev">
+			<a class="left carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="prev">
 		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 	  	</a>
-		  <a class="right carousel-control" href="#exampleImages" role="button" data-slide="next">
+		  <a class="right carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="next">
 		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		  </a>
 		</div>
