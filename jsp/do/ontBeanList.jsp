@@ -10,8 +10,8 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;" />
-	<jsp:param name="js" value="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;" />
+	<jsp:param name="css" value="/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;//cdn.datatables.net/1.10.7/css/jquery.dataTables.css;" />
+	<jsp:param name="js" value="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;" />
 </jsp:include>
 
 <script type="text/javascript">
@@ -28,7 +28,7 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-xs-6" align="center">
-				<h1>Query: ${query}</h1>
+				<h2>Query: ${query}</h2>
 			</div>
 			<div class="col-xs-6">
 				<a id="csv" style="float: right; margin-right: 10px"
@@ -37,8 +37,8 @@
 				</a>
 			</div>
 		</div>
-		<div class="content">
-			<table id="results" class="display" style="width:100%;">
+		<div class="container">
+			<table id="resultsTable" class="display" style="width:100%;">
 	    	<thead>
 	        <tr>
 							<th>ID</th>
@@ -63,7 +63,7 @@
 		</div>
 		<script>
 			$(document).ready( function () {
-				var table = $('#results').DataTable( {
+				var table = $('#resultsTable').DataTable( {
 					paging: true,
 					searching: true,
 					ordering:  true,
