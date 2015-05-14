@@ -86,9 +86,8 @@
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 	    	new $.fn.dataTable.FixedHeader( table );
 			} );
-
-			$(function() {
-    		$("img.lazy").lazyload();
+			$("img.lazy").lazyload({
+    		skip_invisible : true
 			});
 		</script>
 	</div>
