@@ -23,7 +23,7 @@
 					<div class="${status.index eq 0 ? 'item active':'item'}">
 						<a href="/owl/${tpb.vfbId}" target="_top">
 						<img src="${tpb.thumbUrl}" alt="">
-						<div class="carousel-caption" style="top:0px;">
+						<div class="carousel-caption" style="bottom:-30px;opacity: 0.6;">
 			        <b>${ontBean.name}</b>
 							<span class="small">${tpb.vfbId}</span>
 						</div>
