@@ -42,7 +42,7 @@
 	            <th>Name</th>
 	            <th>Definition</th>
 							<th>Query VFB</th>
-							<th>Exemplar</th>
+							<th>Exemplar Images</th>
 							<th>Query FlyBase</th>
 	        </tr>
 	    	</thead>
