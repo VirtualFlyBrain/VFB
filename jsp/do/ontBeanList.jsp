@@ -27,16 +27,6 @@
 	" />
 </jsp:include>
 
-<script type="text/javascript">
-	function formSubmit() {
-		alert(document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value);
-		var value = document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value;
-		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
-	}
-</script>
-
-
-<%-- <div id="example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"> --%>
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
