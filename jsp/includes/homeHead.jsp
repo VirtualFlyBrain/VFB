@@ -23,23 +23,6 @@
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-		<!-- START solr autocomplete components -->
-			<script src="/javascript/ajax-solr/vfb.js"></script>
-			<script src="/javascript/ajax-solr/core/Core.js"></script>
-			<script src="/javascript/ajax-solr/core/AbstractManager.js"></script>
-			<script src="/javascript/ajax-solr/managers/Manager.jquery.js"></script>
-			<script src="/javascript/ajax-solr/core/Parameter.js"></script>
-			<script src="/javascript/ajax-solr/core/ParameterStore.js"></script>
-			<script src="/javascript/ajax-solr/core/AbstractWidget.js"></script>
-			<script src="/javascript/ajax-solr/widgets/ResultWidget.js"></script>
-			<script src="/javascript/ajax-solr/widgets/jquery/PagerWidget.js"></script>
-			<script src="/javascript/ajax-solr/core/AbstractFacetWidget.js"></script>
-			<script src="/javascript/ajax-solr/widgets/TagcloudWidget.js"></script>
-			<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
-			<script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
-			<script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
-		<!-- END solr autocomplete components -->
-
   	<c:forEach items="${fn:split(param.css, ';')}" var="item">
   		<link rel="stylesheet" href="${item}" />
   	</c:forEach>
