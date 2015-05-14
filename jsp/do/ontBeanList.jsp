@@ -56,7 +56,7 @@
 									<a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">More info</a>
 									<span class="sr-only">http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</span>
 								</td>
-								<td id="exemplar${status.index}">
+								<td id="exemplar${status.index}" style="padding:0px;">
 									http://www.virtualflybrain.org/do/individual_list.html?action=exemplar_neuron&id=${ontBean.fbbtIdAsOWL}
 								</td>
 								<td>
