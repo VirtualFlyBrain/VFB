@@ -52,7 +52,7 @@
 	            <th>Name</th>
 	            <th>Definition</th>
 							<th>Query VFB</th>
-							<th>Examples</th>
+							<th>Exemplar</th>
 							<th>Query FlyBase</th>
 	        </tr>
 	    	</thead>
@@ -64,40 +64,10 @@
 								<td>${ontBean.def}</td>
 								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
 								<td>
-									<c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
-									<c:if test="${!empty tpb}">
-										<div id="exampleImages" class="carousel slide" data-ride="carousel">
-										  <!-- Indicators -->
-										  <ol class="carousel-indicators">
-										    <li data-target="#exampleImages" data-slide-to="0" class="active"></li>
-										    <li data-target="#exampleImages" data-slide-to="1"></li>
-										    <li data-target="#exampleImages" data-slide-to="2"></li>
-										    <li data-target="#exampleImages" data-slide-to="3"></li>
-										  </ol>
-											<!-- Wrapper for slides -->
-											<div class="carousel-inner" role="listbox">
-												<c:forEach items="${tpb}" var="curr" varStatus="status">
-													<div class="item">
-														<a href="/owl/${curr.vfbId}" target="_top">
-														<img src="${curr.thumbUrl}" alt="${curr.vfbId} - ${curr.sourceName} (${curr.remoteId})">
-														<div class="carousel-caption">
-											        <h3>${curr.displayName}</h3>
-											        <p>${curr.descr}</p>
-											      </div>
-													</div>
-												</c:forEach>
-											</div>
-											<!-- Left and right controls -->
-										  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-										    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-										    <span class="sr-only">Previous</span>
-										  </a>
-										  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-										    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-										    <span class="sr-only">Next</span>
-										  </a>
-										</div>
-									</c:if>
+									<jsp:include page="/do/individual_film_strip.html">
+										<jsp:param name="action" value="exemplar_neuron" />
+										<jsp:param name="id" value="${ontBean.fbbtId}" />
+									</jsp:include>
 								</td>
 								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
 		        </tr>
