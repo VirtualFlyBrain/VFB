@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<table id="resultsTable" class="display" style="width:100%;">
+			<table id="resultsTable" class="display" width="100%">
 	    	<thead>
 	        <tr>
 							<th>ID</th>
