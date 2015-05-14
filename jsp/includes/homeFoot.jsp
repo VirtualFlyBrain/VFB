@@ -9,7 +9,7 @@
      $("img.lazy").lazyload({
        skip_invisible : true
      });
-   }, 30000);
+   }, 10000);
    </script>
    <!-- END lazy image loading -->
    </body>
