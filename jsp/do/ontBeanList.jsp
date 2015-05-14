@@ -80,7 +80,7 @@
 					searching: true,
 					ordering:  true,
 					responsive: true,
-					aoColumns:[
+					"aoColumns":[
 						null,null,null,
 						{ "fnRender": function (oObj) {
 						    return '<a class="label label-success" href=' + oObj.aData[0] + '>' + 'More info' + '</a>';
