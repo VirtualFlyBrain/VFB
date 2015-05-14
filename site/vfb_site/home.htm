@@ -51,7 +51,7 @@
 						  		What and where is the <b>saddle</b>?
 						  	</a>
 						  	&nbsp;
-								<a href="#" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+								<a href="#" tabindex="0" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="What and where is the saddle:"
 									data-popover-content="#Question1">Show me how &raquo;
@@ -89,16 +89,16 @@
 											Choose the desired option and click to run the query.
 								   </li>
 								 	</ul>
-									<script>
-										$(function(){
-	    								$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-								        	return clone;
-								        }
-								    	}).click(function(e) {e.preventDefault();});
-										});
-									</script>
 								</div>
+								<script>
+									$(function(){
+										$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
+									});
+								</script>
 						  </li>
 
 						  <li class="list-group-item">
@@ -144,16 +144,16 @@
 										<b>Did you know?</b> You can run the same query on the <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
 										</li>
 									</ul>
-									<script>
-										$(function(){
-	    								$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-		            					var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-								        	return clone;
-								        }
-								    	}).click(function(e) {e.preventDefault();});
-										});
-									</script>
 								</div>
+								<script>
+									$(function(){
+										$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
+									});
+								</script>
 							</li>
 
 						  <li class="list-group-item">
@@ -161,7 +161,7 @@
 						  		Find images of single neurons with some part in the <b>ellipsoid body</b>
 						  	</a>
 						  	&nbsp;
-								<a href="#" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+								<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find images of neuron that overlap the EB:"
 									data-popover-content="#Question3">Show me how &raquo;
