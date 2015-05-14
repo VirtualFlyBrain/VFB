@@ -13,17 +13,17 @@
 	<jsp:param name="css" value="
 		/css/vfb/utils/help.css;
 		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
 		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
 		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
 		//cdn.datatables.net/fixedheader/2.1.2/css/dataTables.fixedHeader.css;
-		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
 	" />
 	<jsp:param name="js" value="
 		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
 		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/fixedheader/2.1.2/js/dataTables.fixedHeader.min.js;
-		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
 	" />
 </jsp:include>
 
@@ -52,6 +52,7 @@
 	            <th>Name</th>
 	            <th>Definition</th>
 							<th>Query VFB</th>
+							<th>Examples</th>
 							<th>Query FlyBase</th>
 	        </tr>
 	    	</thead>
@@ -62,6 +63,7 @@
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.name}</a></td>
 								<td>${ontBean.def}</td>
 								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
+								<td></td>
 								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
 		        </tr>
 					</c:forEach>
@@ -78,6 +80,7 @@
 					"aoColumns":[
 						null,null,null,
 						{ "fnRender": function(oObj){return '<a class="label label-success" href="' + oObj.aData[0] + '" >' + 'More info' + '</a>';}},
+						null,
 						{ "fnRender": function(oObj){return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';}}
 	        ]
 				} );
