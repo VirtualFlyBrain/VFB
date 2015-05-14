@@ -5,6 +5,11 @@
    <!-- START lazy image loading -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
    <script>
+   $(function() {
+     $("img.lazy").lazyload({
+       skip_invisible : true
+     });
+   });
    window.setInterval(function(){
      $("img.lazy").lazyload({
        skip_invisible : true
