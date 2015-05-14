@@ -52,14 +52,16 @@
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.fbbtIdAsOWL}</a></td>
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.name}</a></td>
 								<td>${ontBean.def}</td>
-								<td id="more${status.index}">
-									http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}
+								<td>
+									<a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">More info</a>
+									<span class="sr-only">http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</span>
 								</td>
 								<td id="exemplar${status.index}">
 									http://www.virtualflybrain.org/do/individual_list.html?action=exemplar_neuron&id=${ontBean.fbbtIdAsOWL}
 								</td>
-								<td id="flybase${status.index}">
-									http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}
+								<td>
+									<a class="btn btn-info btn-sm" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">FlyBase Report</a>
+									<span class="sr-only">http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</span>
 								</td>
 		        </tr>
 					</c:forEach>
@@ -69,8 +71,6 @@
 		<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 			<script>
 				$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
-				$('#more${status.index}').html('<a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" alt="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" >More info</a>');
-				$('#flybase${status.index}').html('<a class="btn btn-info btn-sm" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" alt="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" >FlyBase Report</a>');
 			</script>
 		</c:forEach>
 		<script>
