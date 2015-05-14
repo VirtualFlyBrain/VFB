@@ -23,6 +23,9 @@
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
+		<!-- https://github.com/CWSpear/bootstrap-hover-dropdown -->
+		<script src="/javascript/thirdParty/bootstrap-hover-dropdown.min.js"></script>
+
   	<c:forEach items="${fn:split(param.css, ';')}" var="item">
   		<link rel="stylesheet" href="${item}" />
   	</c:forEach>

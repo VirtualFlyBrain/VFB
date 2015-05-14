@@ -53,7 +53,7 @@
 	    <div id="navbar-collapse-1" class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	  		<li><a href="/site/vfb_site/home.htm">Homepage</a></li>
 	  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
@@ -64,27 +64,27 @@
 	  		<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
+	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
 	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/">NBLAST</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
+	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
 	            <li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
+	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/vfb_site/template_files_downloads.htm">Template data</a></li>
 	            <li><a href="/site/vfb_site/image_data_downloads.htm">Image data</a></li>
 	            <li><a href="/site/vfb_site/supp_files_downloads.htm">Support files</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
+	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="${helpURL}" target="_new">Help for the current page</a></li>
 	            <li><a href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new">Tutorial Videos</a></li>
