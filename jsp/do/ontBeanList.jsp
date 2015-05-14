@@ -63,10 +63,10 @@
 		    <tbody>
 					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 		        <tr>
-		            <td>${ontBean.fbbtId}</td>
+		            <td>${ontBean.fbbtIdAsOWL}</td>
 		            <td>${ontBean.name}</td>
 								<td>${ontBean.def}</td>
-								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtId}</td>
+								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
 								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
 		        </tr>
 					</c:forEach>
