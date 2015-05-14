@@ -30,7 +30,7 @@ public class OntBeanListController extends AbstractController{
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");
-		String perPage = "all";
+		String perPage = "-1";
 		Set<OntBean> results = null;
 		// Initial request - here we initialise the bean and run the query
 		if ( (page == null || page.equals("")) && (perPage==null || perPage.equals("")) ){
