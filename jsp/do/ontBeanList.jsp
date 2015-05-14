@@ -57,8 +57,8 @@
 		    <tbody>
 					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 		        <tr>
-		            <td>${ontBean.fbbtIdAsOWL}</td>
-		            <td>${ontBean.name}</td>
+		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.fbbtIdAsOWL}</a></td>
+		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.name}</a></td>
 								<td>${ontBean.def}</td>
 								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
 								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
@@ -76,14 +76,8 @@
 					responsive: true,
 					"aoColumns":[
 						null,null,null,
-						{ "fnRender": function (oObj) {
-						    return '<a class="label label-success" href="' + oObj.aData[0] + '" >' + 'More info' + '</a>';
-						  }
-						},
-						{ "fnRender": function (oObj) {
-								return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';
-							}
-						}
+						{ "fnRender": function(oObj){return '<a class="label label-success" href="' + oObj.aData[0] + '" >' + 'More info' + '</a>';}},
+						{ "fnRender": function(oObj){return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';}}
 	        ]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
