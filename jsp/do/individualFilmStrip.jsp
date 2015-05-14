@@ -49,6 +49,6 @@
 		</c:if>
 	</c:if>
 	<c:if test="${empty ontBeanList}">
-		<a id="queryLink" class="btn btn-danger btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" alt="Query all" style="margin-left:60px;">Found <span class="badge">0</span></a>
+		<a id="queryLink" class="btn btn-danger btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" alt="Query all" style="margin-left:110px;">Found <span class="badge">0</span></a>
 	</c:if>
 </div>
