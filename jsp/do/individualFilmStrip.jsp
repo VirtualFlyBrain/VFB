@@ -23,11 +23,8 @@
 						<a href="/owl/${tpb.vfbId}" target="_top">
 						<img src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})">
 						<div class="carousel-caption">
-			        <h3>${ontBean.name}</h3>
-			        <p>${tpb.descr}</p>
-							<p>Source:
-								<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="See source" >${tpb.sourceName}</a>
-							</p>
+			        <b>${ontBean.name}</b>
+							<span class="small">${tpb.vfbId}</span>
 						</div>
 					</div>
 				</c:if>
