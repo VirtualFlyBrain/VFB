@@ -9,7 +9,7 @@
 		<ol class="carousel-indicators">
 			<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
 			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-				<c:if test="${status.index < 6}">
+				<c:if test="${status.index < 6 && status.index > 0}">
     			<li data-target="#exampleImages" data-slide-to="${status.index}"></li>
 				</c:if>
 			</c:forEach>
