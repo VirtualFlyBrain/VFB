@@ -1,4 +1,4 @@
-	<div class="row-fluid" align="center">
+	<div class="row-fluid visible-desktop" align="center">
 
 		<div class="span2" style="min-width:240px" align="center">
 
