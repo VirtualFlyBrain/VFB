@@ -75,7 +75,7 @@
           	{
               "render": function ( data, type, row ) {
                 if (type=='display') {
-									return '<a class="label label-success" href="' + data + '" >' + 'More info' + '</a>';
+									return '<a class="label label-success" href="' + data + '" alt="' + data + '" >' + 'More info' + '</a>';
 								}else{
 									return data;
 								}
@@ -85,7 +85,7 @@
 						{
               "render": function ( data, type, row ) {
 								if (type=='display') {
-              		return '<a class="label label-info" href="' + data + '" target="_new">' + 'FlyBase Report' + '</a>';
+              		return '<a class="label label-info" href="' + data + '" target="_new" alt="' + data + '" >' + 'FlyBase Report' + '</a>';
 								}else{
 									return data;
 								}
