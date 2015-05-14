@@ -83,14 +83,14 @@
 					"aoColumns":[
 						null,null,null,
 						{ "fnRender": function (oObj) {
-						    return '<a class="label label-success" href=' + oObj.aData[0] + '>' + 'More info' + '</a>';
+						    return '<a class="label label-success" href="' + oObj.aData[0] + '" >' + 'More info' + '</a>';
 						  }
 						},
 						{ "fnRender": function (oObj) {
-								return '<a class="label label-info" href=' + oObj.aData[0] + ' target="_new">' + 'FlyBase Report' + '</a>';
+								return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';
 							}
 						},
-	        ],
+	        ]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
