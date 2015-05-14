@@ -23,7 +23,7 @@
 					<div class="${status.index eq 0 ? 'item active':'item'}">
 						<a href="/owl/${tpb.vfbId}" target="_top">
 						<img src="${tpb.thumbUrl}" alt="">
-						<div class="carousel-caption">
+						<div class="carousel-caption" style="position:relative; top:0px;">
 			        <b>${ontBean.name}</b>
 							<span class="small">${tpb.vfbId}</span>
 						</div>
@@ -39,6 +39,8 @@
 	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	  </a>
 	</div>
-	<a align="right" href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Query all >></a>
+	<c:if test="${fn:length(ontBeanList) > 1}">
+		<a href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Query all <span class="badge">${fn:length(ontBeanList)}</span></a>
+	</c:if>
 </div>
 </c:if>
