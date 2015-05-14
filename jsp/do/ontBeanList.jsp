@@ -52,14 +52,21 @@
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.fbbtIdAsOWL}</a></td>
 		            <td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">${ontBean.name}</a></td>
 								<td>${ontBean.def}</td>
-								<td>http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</td>
-								<td id="exemplar${status.index}">
-									<script>
-										$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
-									</script>
+								<td id="more${status.index}">
+									http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}
 								</td>
-								<td>http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</td>
+								<td id="exemplar${status.index}">
+									http://www.virtualflybrain.org/do/individual_list.html?action=exemplar_neuron&id=${ontBean.fbbtIdAsOWL}
+								</td>
+								<td id="flybase${status.index}">
+									http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}
+								</td>
 		        </tr>
+						<script>
+							$('#exemplar${status.index}').load('/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}&showMin=6&showMax=6');
+							$('#more${status.index}').html('<a class="label label-success" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" alt="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" >More info</a>');
+							$('#more${flybase.index}').html('<a class="label label-info" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" alt="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" >FlyBase Report</a>');
+						</script>
 					</c:forEach>
 		    </tbody>
 			</table>
@@ -71,28 +78,6 @@
 					searching: true,
 					ordering:  true,
 					responsive: true,
-					"columnDefs": [
-          	{
-              "render": function ( data, type, row ) {
-                if (type=='display') {
-									return '<a class="label label-success" href="' + data + '" alt="' + data + '" >' + 'More info' + '</a>';
-								}else{
-									return data;
-								}
-              },
-              "targets": 3
-            },
-						{
-              "render": function ( data, type, row ) {
-								if (type=='display') {
-              		return '<a class="label label-info" href="' + data + '" target="_new" alt="' + data + '" >' + 'FlyBase Report' + '</a>';
-								}else{
-									return data;
-								}
-              },
-              "targets": 5
-            }
-        	]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
