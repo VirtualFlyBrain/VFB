@@ -91,18 +91,11 @@
 							}
 						},
 	        ],
+					"dom": 'T<"clear">lfrtip',
+        	"tableTools": {
+            "sSwfPath": "https://cdnjs.cloudflare.com/ajax/libs/datatables-tabletools/2.1.5/swf/copy_csv_xls_pdf.swf"
+        	}
 				} );
-				var tableTools = new $.fn.dataTable.TableTools( table, {
-		        "buttons": [
-		            "copy",
-		            "csv",
-		            "xls",
-		            "pdf",
-		            { "type": "print", "buttonText": "Print me!" }
-		        ]
-		    } );
-
-		    $( tableTools.fnContainer() ).insertAfter('div.info');
 	    	new $.fn.dataTable.FixedHeader( table );
 			} );
 		</script>
