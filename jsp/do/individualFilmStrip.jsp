@@ -6,7 +6,7 @@
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 <c:if test="${!empty ontBeanList}">
 <div class="content-fluid">
-	<div id="exampleImages" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
+	<div id="exampleImages" class="carousel slide" data-ride="carousel" style="width: 300px;">
 		<ol class="carousel-indicators">
 			<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
 			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
