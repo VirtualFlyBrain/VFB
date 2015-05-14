@@ -10,8 +10,16 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;//cdn.datatables.net/1.10.7/css/jquery.dataTables.css;" />
-	<jsp:param name="js" value="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;" />
+	<jsp:param name="css" value="
+		/css/vfb/utils/help.css;//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+		//cdn.datatables.net/1.10.7/css/jquery.dataTables.css;
+		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
+	" />
+	<jsp:param name="js" value="
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
+		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js;
+	" />
 </jsp:include>
 
 <script type="text/javascript">
