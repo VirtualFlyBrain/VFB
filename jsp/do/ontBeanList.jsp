@@ -91,7 +91,7 @@
 						{ "fnRender": function (oObj) {
 								return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';
 							}
-						},
+						}
 	        ]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
