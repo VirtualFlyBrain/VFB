@@ -5,31 +5,43 @@
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 <c:if test="${!empty ontBeanList}">
-	<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>Example images</h3>
-	<br />
-	<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-		<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
-		<c:if test="${status.index < 6}">
-			<div style="border: 1px solid gray; float: left; margin: 0 3px;">
-				<h3 style='margin: -2px 0 2px 0; font-size: 1em;'>${ontBean.name}</h3>
-				<vfbUtil:trimToWhite string="${ontBean.def}" size="210" />
-				<c:if test="${!empty tpb}">
-					<b>Source:</b>
-					<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="See source" >${tpb.sourceName}</a>
-					<br/>
-					<a style="float: left; margin: 0 3px;" href="/owl/${tpb.vfbId}" target="_top">
-						See in viewer >>
-					</a>
-					<br clear="all"/>
-					<a href="/owl/${tpb.vfbId}" target="_top" title="See in viewer" >
-						<img class="thumb" src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})" />
-					</a>
-					<br/>
+	<div id="exampleImages" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
+			<li data-target="#exampleImages" data-slide-to="1"></li>
+			<li data-target="#exampleImages" data-slide-to="2"></li>
+			<li data-target="#exampleImages" data-slide-to="3"></li>
+		</ol>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+				<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
+				<c:if test="${status.index < 6}">
+					<div class="item">
+						<a href="/owl/${tpb.vfbId}" target="_top">
+						<img src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})">
+						<div class="carousel-caption">
+			        <h3>${ontBean.name}</h3>
+			        <p>${tpb.descr}</p>
+							<p>Source:
+								<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="See source" >${tpb.sourceName}</a>
+							</p>
+						</div>
+					</div>
 				</c:if>
-			</div>
-		</c:if>
-	</c:forEach>
-	<div style="float: left; margin: 0 3px;">
+			</c:forEach>
+		</div>
+		<!-- Left and right controls -->
+	  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
 		<a href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Show	all >></a>
 	</div>
 </c:if>
