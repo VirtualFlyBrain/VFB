@@ -20,7 +20,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 
 public class OntBeanListController extends AbstractController{
 	private OntBeanManager obm;
-	private static final Log LOG = LogFactory.getLog(OntBeanListController.class); 
+	private static final Log LOG = LogFactory.getLog(OntBeanListController.class);
 
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -30,7 +30,7 @@ public class OntBeanListController extends AbstractController{
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");
-		String perPage = req.getParameter("perPage");
+		String perPage = 0;
 		Set<OntBean> results = null;
 		// Initial request - here we initialise the bean and run the query
 		if ( (page == null || page.equals("")) && (perPage==null || perPage.equals("")) ){
@@ -43,10 +43,10 @@ public class OntBeanListController extends AbstractController{
 		}
 		// Set per page first
 		else if (perPage != null) {
-			obm.setPerPage(req);			
+			obm.setPerPage(req);
 			results = obm.getPageNumber(obm.getCurrPage());
 		}
-		// Now, deal with the rest of the request	
+		// Now, deal with the rest of the request
 		else if (page != null){
 			try{
 				int pageI = Integer.parseInt(page);
@@ -60,16 +60,16 @@ public class OntBeanListController extends AbstractController{
 					results = obm.getPreviousPage();
 				}
 			}
-		}		
+		}
 		modelAndView.addObject("ontBeanList", results);
-		modelAndView.addObject("type", "obm");		
+		modelAndView.addObject("type", "obm");
 		params = obm.getUsefulParams(params);
 		String actionDesc = WebQueryUtils.getDescString(action) + "<i>" + obm.getBeanForId(id).getName() + "</i>";
 		modelAndView.addObject("query", actionDesc);
 		modelAndView.addObject("paramItems", params.split("&"));
 		modelAndView.addObject("paramString", params);
 		modelAndView.addObject("nav", obm.getNav(params));
-		return modelAndView;			
+		return modelAndView;
 	}
 
 	public void setObm(OntBeanManager obm) {
