@@ -5,6 +5,7 @@
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 <c:if test="${!empty ontBeanList}">
+<div class="content-fluid">
 	<div id="exampleImages" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
 		<ol class="carousel-indicators">
 			<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
@@ -31,9 +32,15 @@
 			</c:forEach>
 		</div>
 		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#exampleImages" data-slide="prev">‹</a>
-  	<a class="right carousel-control" href="#exampleImages" data-slide="next">›</a>
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+  	</a>
+	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
 	</div>
-		<a href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Show	all >></a>
-	</div>
+	<a href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Show	all >></a>
+</div>
 </c:if>
