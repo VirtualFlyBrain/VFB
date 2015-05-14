@@ -29,37 +29,11 @@ public class OntBeanListController extends AbstractController{
 		//LOG.debug(">>> Manager: " + obm + " > " + params);
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");
-		String page = req.getParameter("page");
-		String perPage = "999999";
 		Set<OntBean> results = null;
-		// Initial request - here we initialise the bean and run the query
-		if ( (page == null || page.equals("")) && (perPage==null || perPage.equals("")) ){
-			obm.setCurrPage(1);
-			obm.setPerPage(req);
 			String actionStr;
 			actionStr = WebQueryUtils.getDefString(action, id);
 			this.obm.getBeanListForQuery(actionStr);
-			results = obm.getPageRecords();
-		}
-		// Set per page first
-		else if (perPage != null) {
-			obm.setPerPage(req);
-			results = obm.getPageNumber(obm.getCurrPage());
-		}
-		// Now, deal with the rest of the request
-		else if (page != null){
-			try{
-				int pageI = Integer.parseInt(page);
-				results = obm.getPageNumber(pageI);
-			}
-			catch(NumberFormatException ex){
-				if (page.equals("next")) {
-					results = obm.getNextPage();
-				}
-				if (page.equals("prev")) {
-					results = obm.getPreviousPage();
-				}
-			}
+			results = obm.getCompleteSet();
 		}
 		modelAndView.addObject("ontBeanList", results);
 		modelAndView.addObject("type", "obm");
@@ -68,7 +42,6 @@ public class OntBeanListController extends AbstractController{
 		modelAndView.addObject("query", actionDesc);
 		modelAndView.addObject("paramItems", params.split("&"));
 		modelAndView.addObject("paramString", params);
-		modelAndView.addObject("nav", obm.getNav(params));
 		return modelAndView;
 	}
 
