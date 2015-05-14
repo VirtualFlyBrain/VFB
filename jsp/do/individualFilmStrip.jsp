@@ -6,6 +6,14 @@
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 <c:if test="${!empty ontBeanList}">
 	<div id="exampleImages" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
+		<ol class="carousel-indicators">
+			<li data-target="#exampleImages" data-slide-to="0" class="active"></li>
+			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+				<c:if test="${status.index < 6}">
+    			<li data-target="#exampleImages" data-slide-to="${status.index}"></li>
+				</c:if>
+			</c:forEach>
+  	</ol>
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">

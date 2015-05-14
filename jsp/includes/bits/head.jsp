@@ -23,7 +23,7 @@
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="/jsp/includes/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <c:set var="headAtt" scope="session" value="true" />
 
