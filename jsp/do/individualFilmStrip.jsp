@@ -19,7 +19,7 @@
 			<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
 				<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 				<c:if test="${status.index < 6}">
-					<div class="item">
+					<div class="${status.index eq 0 ? 'item active':'item'}">
 						<a href="/owl/${tpb.vfbId}" target="_top">
 						<img src="${tpb.thumbUrl}" alt="${tpb.vfbId} - ${tpb.sourceName} (${tpb.remoteId})">
 						<div class="carousel-caption">
