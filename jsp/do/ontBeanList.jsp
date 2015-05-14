@@ -91,10 +91,6 @@
 							}
 						},
 	        ],
-					"dom": 'T<"clear">lfrtip',
-        	"tableTools": {
-            "sSwfPath": "https://cdnjs.cloudflare.com/ajax/libs/datatables-tabletools/2.1.5/swf/copy_csv_xls_pdf.swf"
-        	}
 				} );
 	    	new $.fn.dataTable.FixedHeader( table );
 				var tt = new $.fn.dataTable.TableTools( table );
