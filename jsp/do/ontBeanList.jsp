@@ -75,13 +75,21 @@
 					"columnDefs": [
           	{
               "render": function ( data, type, row ) {
-                return '<a class="label label-success" href="' + data + '" >' + 'More info' + '</a>';
+                if (type=='display') {
+									return '<a class="label label-success" href="' + data + '" >' + 'More info' + '</a>';
+								}else{
+									return data;
+								}
               },
               "targets": 3
             },
 						{
               "render": function ( data, type, row ) {
-              	return '<a class="label label-info" href="' + data + '" target="_new">' + 'FlyBase Report' + '</a>';
+								if (type=='display') {
+              		return '<a class="label label-info" href="' + data + '" target="_new">' + 'FlyBase Report' + '</a>';
+								}else{
+									return data;
+								}
               },
               "targets": 5
             }
