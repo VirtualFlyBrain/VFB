@@ -72,12 +72,20 @@
 					searching: true,
 					ordering:  true,
 					responsive: true,
-					"aoColumns":[
-						null,null,null,
-						{ "fnRender": function(oObj){return '<a class="label label-success" href="' + oObj.aData[0] + '" >' + 'More info' + '</a>';}},
-						null,
-						{ "fnRender": function(oObj){return '<a class="label label-info" href="' + oObj.aData[0] + '" target="_new">' + 'FlyBase Report' + '</a>';}}
-	        ]
+					"columnDefs": [
+          	{
+              "render": function ( data, type, row ) {
+                return '<a class="label label-success" href="' + data + '" >' + 'More info' + '</a>';
+              },
+              "targets": 3
+            },
+						{
+              "render": function ( data, type, row ) {
+              	return '<a class="label label-info" href="' + data + '" target="_new">' + 'FlyBase Report' + '</a>';
+              },
+              "targets": 5
+            }
+        	]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
