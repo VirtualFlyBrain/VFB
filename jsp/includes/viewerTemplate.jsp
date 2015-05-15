@@ -22,6 +22,9 @@
 		/css/tree/colourPick.css;
 		" />
 	<jsp:param name="js" value="
+		https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js;
+		https://cdnjs.cloudflare.com/ajax/libs/mootools-more/1.5.1/mootools-more-full-nocompat.min.js;
+		https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js;
 		/javascript/ajax-solr/vfb.js;
 		/javascript/ajax-solr/core/Core.js;
 		/javascript/ajax-solr/core/AbstractManager.js;
@@ -114,9 +117,9 @@
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script> --%>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js"></script>
+<%-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools-more/1.5.1/mootools-more-full-nocompat.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script> --%>
 
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
