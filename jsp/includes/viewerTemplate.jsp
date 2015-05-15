@@ -114,6 +114,9 @@
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script> --%>
 
+<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
+<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
+
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
 	   var selectedNodeId = "${param.id}";
