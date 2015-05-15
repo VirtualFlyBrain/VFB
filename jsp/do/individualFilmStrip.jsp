@@ -41,11 +41,11 @@
 </c:if>
 </div>
 <c:if test="${fn:length(ontBeanList) > showMin || fn:length(ontBeanList) > (showMax - 1)}">
-<a id="queryLink" class="btn btn-success btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" alt="Query all" style="margin-left:210px">Found <span class="badge">${fn:length(ontBeanList)}</span></a>
+<a id="queryLink" class="btn btn-success btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:210px">Found <span class="badge">${fn:length(ontBeanList)}</span></a>
 </c:if>
 </c:if>
 <c:if test="${empty ontBeanList}">
 <script>$("div[style]").removeAttr("style");</script>
-<a id="queryLink" class="btn btn-danger btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" alt="Query all" style="margin-left:110px">Found <span class="badge">0</span></a>
+<a id="queryLink" class="btn btn-info btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:110px">Run Query</a>
 </c:if>
 </div>
