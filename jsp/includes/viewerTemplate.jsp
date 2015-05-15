@@ -114,8 +114,9 @@
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script> --%>
 
-<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools-more/1.5.1/mootools-more-full-nocompat.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
 
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
