@@ -11,7 +11,7 @@
        $("img.lazy").lazyload({
          skip_invisible : true
        });
-       if (imageLoad < 30000) {
+       if (imageLoad < 300000) {
          imageLoad = imageLoad + 500;
        };
      }, imageLoad);
