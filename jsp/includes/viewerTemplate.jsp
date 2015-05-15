@@ -1,51 +1,84 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 <c:set var="meta_root">${(empty param.meta_root)?"/data/flybrain/":param.meta_root}</c:set>
+<jsp:include page="/jsp/includes/homeHead.jsp">
+	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
+	<jsp:param name="css" value="
+		/css/tree/autocomplete.css;
+		/css/tools/tiledImage.css;
+		/css/tools/draggableWindow.css;
+		/css/tools/rotation.css;
+		/css/tools/fixedPoint.css;
+		/css/tools/scale.css;
+		/css/tools/refresh.css;
+		/css/tools/measuring.css;
+		/css/tools/selector.css;
+		/css/tools/locator.css;
+		/css/tools/slider.css;
+		/css/utils/busyIndicator.css;
+		/css/utils/marker.css;
+		/css/utils/emapMenu.css;
+		/css/tree/tree.css;
+		/css/tree/colourPick.css;
+		" />
+	<jsp:param name="js" value="
+		/javascript/ajax-solr/vfb.js;
+		/javascript/ajax-solr/core/Core.js;
+		/javascript/ajax-solr/core/AbstractManager.js;
+		/javascript/ajax-solr/managers/Manager.jquery.js;
+		/javascript/ajax-solr/core/Parameter.js;
+		/javascript/ajax-solr/core/ParameterStore.js;
+		/javascript/ajax-solr/core/AbstractWidget.js;
+		/javascript/ajax-solr/widgets/ResultWidget.js;
+		/javascript/ajax-solr/widgets/jquery/PagerWidget.js;
+		/javascript/ajax-solr/core/AbstractFacetWidget.js;
+		/javascript/ajax-solr/widgets/TagcloudWidget.js;
+		/javascript/ajax-solr/widgets/CurrentSearchWidget.js;
+		/javascript/ajax-solr/core/AbstractTextWidget.js;
+		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
+		/javascript/thirdParty/json2.js;
+		/javascript/thirdParty/mifTree.js;
+		/javascript/utils/busyIndicator.js;
+		/javascript/utils/utilities.js;
+		/javascript/utils/ajaxContentLoader.js;
+		/javascript/utils/emapMenu.js;
+		/javascript/tiledImageModel.js;
+		/javascript/tiledImageView.js;
+		/javascript/tools/draggableWindow.js;
+		/javascript/tools/tiledImageTool.js;
+		/javascript/tools/expressionLevelKey.js;
+		/javascript/tools/sliderComponent.js;
+		/javascript/tools/tiledImageLocatorTool.js;
+		/javascript/tools/tiledImageDistanceTool.js;
+		/javascript/tools/tiledImageLayerTool.js;
+		/javascript/tools/tiledImagePropertiesTool.js;
+		/javascript/tools/tiledImageRotationTool.js;
+		/javascript/tools/tiledImageRefreshTool.js;
+		/javascript/tools/tiledImageMeasuringTool.js;
+		/javascript/tree/treeImplementVFB.js;
+		/javascript/tree/tiledImageTreeTool.js;
+		/javascript/tools/tiledImageScaleTool.js;
+		/javascript/tools/tiledImageFixedPointTool.js;
+		/javascript/tree/colorPicker.js;
+		" />
+</jsp:include>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Virtual Fly Brain: ${param.title}</title>
-<meta name="keywords"
-	content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
-<meta name="author" content="Virtual Fly Brain Project" />
-<meta name="description" content="High Resolution 3D Drosophila brain atlas" />
 
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
+
+
+<%-- <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/help.css" />
 <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
 <link rel="stylesheet" type="text/css" href="/css/vfb/utils/p7menu.css" />
 
 <link rel="stylesheet" media="all" type="text/css" href="/css/utils/contextMenu.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css" />
+<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css" /> --%>
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/tiledImage.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/draggableWindow.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/rotation.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/fixedPoint.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/scale.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/refresh.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/measuring.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/selector.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/locator.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/slider.css" />
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/utils/busyIndicator.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/utils/marker.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/utils/emapMenu.css" />
+<%-- <link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" /> --%>
 
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/tree.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/colourPick.css" />
-<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
-
-<c:forEach items="${fn:split(param.css, ';')}" var="item">
-	<link rel="stylesheet" media="all" type="text/css" href="${item}" />
-</c:forEach>
-
-<script type="text/javascript" src="/javascript/thirdParty/json2.js"></script>
+<%-- <script type="text/javascript" src="/javascript/thirdParty/json2.js"></script>
 <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
 <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
 <script type="text/javascript" src="/javascript/thirdParty/mifTree.js"></script>
@@ -79,7 +112,7 @@
 <script type="text/javascript" src="/javascript/tree/contextMenuVFB.js"></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
 <script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
-<script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script>
+<script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script> --%>
 
 <script type="text/javascript">
 	   var emapModel = emouseatlas.emap.tiledImageModel;
@@ -103,14 +136,8 @@
 		</c:if>
 	      emapModel.initialise(jso);
 		});
-	
+
 </script>
-
-</head>
-<body>
-	<jsp:include page="/jsp/includes/js/tag.jsp" />
-
-	<jsp:include page="/jsp/includes/bits/head.jsp" />
 
 	<div id="contentwrapper">
 		<div id="center_panel">
@@ -126,7 +153,7 @@
 			</c:if>
 			<c:if test="${!empty param.json}">
 				<jsp:include page="/jsp/includes/bits/credits3party.jsp">
-					<jsp:param name="tpb" value="${param.tpb}" /> 
+					<jsp:param name="tpb" value="${param.tpb}" />
 				</jsp:include>
 			</c:if>
 		</div>
@@ -142,12 +169,9 @@
 				Click anywhere on the stack viewer or on any node of the
 				tree to select a domain.<br/><br/>
 				Annotations for the selected anatomical term will be displayed here, with further query options visible after selection.<br/><br/>
-				<b>Tip: </b> To keep your current domain/tree selection, open links in a new tab. Right/control click and select "Open link in new tab".  
+				<b>Tip: </b> To keep your current domain/tree selection, open links in a new tab. Right/control click and select "Open link in new tab".
 			</div>
 		</div>
-		<jsp:include page="/jsp/includes/bits/cellar.jsp" />
 	</div>
 
-
-</body>
-</html>
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
