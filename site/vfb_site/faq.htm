@@ -1,0 +1,37 @@
+<jsp:include page="/jsp/includes/homeHead.jsp">
+	<jsp:param name="navpath"
+		value="The VFB Site@/site/vfb_site/home.htm|FAQ" />
+	<jsp:param name="css" value="/css/vfb/utils/table.css" />
+	<jsp:param name="title" value="FAQ" />
+</jsp:include>
+
+<div class="row">
+
+	<div class="col-md-9">
+
+	<h2>FAQ</h2>
+		<iframe id="forum_embed"
+ src="javascript:void(0)"
+ scrolling="no"
+ frameborder="0"
+ width="900"
+ height="700">
+</iframe>
+
+<script type="text/javascript">
+ document.getElementById("forum_embed").src =
+  "https://groups.google.com/forum/embed/?place=forum/VFB_community" +
+  "&showsearch=true&showpopout=true&hideforumtitle=true&h1&fragments=true&parenturl=" +
+  encodeURIComponent(window.location.href);
+</script>
+		
+	</div>
+<!-- center_wide -->
+
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
+
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
