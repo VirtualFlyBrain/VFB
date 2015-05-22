@@ -53,22 +53,21 @@
 	    </div>
 	    <div id="navbar-collapse-1" class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
+	      <li><a href="/site/vfb_site/home.htm">Home</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	  		<li><a href="/site/vfb_site/home.htm">Homepage</a></li>
 	  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
-	  		<li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
-	  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
 	  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
+	  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
 	    		<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
-	  		<li><a href="/site/vfb_site/about_us.htm">About Us</a></li>
+	  		<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
+	          <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
-	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_new">NBLAST</a></li>
 	          </ul>
 	        </li>
@@ -89,6 +88,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="${helpURL}" target="_new">Help for the current page</a></li>
 	            <li><a href="/site/vfb_site/faq.htm">FAQ</a></li>
+	            <li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
 	            <li><a href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new">Tutorial Videos</a></li>
 	          </ul>
 	        </li>
