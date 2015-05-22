@@ -69,7 +69,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
 	            <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
-	            <li><a href="http://jefferislab.org/si/nblast/">NBLAST</a></li>
+	            <li><a href="http://jefferislab.org/si/nblast/" target="_new">NBLAST</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
