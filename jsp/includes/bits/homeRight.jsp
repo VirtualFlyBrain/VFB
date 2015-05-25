@@ -8,8 +8,6 @@
 
 			<div class="well">
 
-			<div class="span2" style="min-width:240px" align="center">
-
 
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
@@ -31,8 +29,7 @@
 				</div>
 				<!-- END twitter code -->
 				</div> <!-- border -->
-			</div>
-		</div> <!-- well -->
+			</div> <!-- well -->
 
 		</div>
 
