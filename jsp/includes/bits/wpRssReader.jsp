@@ -26,13 +26,13 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
-<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656" ></div>
+<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656" style="margin-bottom: 5px"></div>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
 </div>
 
-<div class="panel panel-info" style="width:100%; font-size:0.9em; padding: 5px 0px 0px 0px">
+<div class="panel panel-info" style="width:100%; font-size:0.9em;">
 <div class="panel-heading">Receive updates by email</div>
   <div class="panel-body">
     <div class="input-group">
