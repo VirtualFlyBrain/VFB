@@ -48,7 +48,8 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 
 </div>
 
-<%
+
+<%!
 public String getElementValue(Element parent,String label) {
 return getCharacterDataFromElement((Element)parent.getElementsByTagName(label).item(0));
 }
