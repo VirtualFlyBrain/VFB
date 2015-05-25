@@ -29,17 +29,33 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
-	<div style="height:60px; background-color:#C4E3F3; color:#050608;padding: 0px 5px 0px 5px;">
+<div class="panel panel-info">
+<div class="panel-heading">Receive updates by email</div>
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Subscribe</button>
+      </span>
+      <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
+      <input type="hidden" value="ac/RAmc" name="uri"/>
+		<input type="hidden" name="loc" value="en_US"/>
+		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
+    </div>
+  </div>
+</div>
+</div>
+<!--	<div style="height:60px; background-color:#C4E3F3; color:#050608;padding: 0px 5px 0px 5px;">
 		<h5 style="font-weight:bold; padding:6px 0px 2px 0px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
-		<!--<label>email</label> -->
-		<input id="feedburner_email_widget_sbef_email" name="email" type="text" placeholder="Your email"/>
+	<!--	<!--<label>email</label> -->
+<!--		<input id="feedburner_email_widget_sbef_email" name="email" type="text" placeholder="Your email"/>
 		<input type="hidden" value="ac/RAmc" name="uri"/>
 		<input type="hidden" name="loc" value="en_US"/>
 		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
 		</form>
 	</div>
 </div>
+<!--
 
 <%!
 public String getElementValue(Element parent,String label) {
