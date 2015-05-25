@@ -48,21 +48,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 
 </div>
 
-
-<!--	<div style="height:60px; background-color:#C4E3F3; color:#050608;padding: 0px 5px 0px 5px;">
-		<h5 style="font-weight:bold; padding:6px 0px 2px 0px;">Receive updates by email</h5>
-		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
-	<!--	<!--<label>email</label> -->
-<!--		<input id="feedburner_email_widget_sbef_email" name="email" type="text" placeholder="Your email"/>
-		<input type="hidden" value="ac/RAmc" name="uri"/>
-		<input type="hidden" name="loc" value="en_US"/>
-		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
-		</form>
-	</div>
-</div>
-<!--
-
-<%!
+<%
 public String getElementValue(Element parent,String label) {
 return getCharacterDataFromElement((Element)parent.getElementsByTagName(label).item(0));
 }
