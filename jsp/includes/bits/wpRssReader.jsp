@@ -21,7 +21,7 @@ Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 <div id="rss_feed" style="width:100%; font-size:0.9em;">
-<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">News 
+<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
@@ -29,7 +29,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
-	<div style="height:98px; background-color:#99BCDB; color:#333; border:1px solid gray;padding: 2px 5px 8px 5px;">
+	<div style="height:80px; background-color:#C4E3F3; color:#050608;padding: 8px 5px 8px 5px;">
 		<h5 style="font-weight:bold; margin-top:6px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
 		<!--<label>email</label> -->
