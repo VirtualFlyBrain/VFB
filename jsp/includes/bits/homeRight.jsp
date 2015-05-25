@@ -13,9 +13,9 @@
 
 				<!-- START Twitter code -->
 				<div id="tw-root" style="margin-top:2px"></div>
-				<div style="border: 1px solid gray; overflow:hidden; width:100%"
+				<div style="overflow:hidden; width:100%"
 				<div class="t-page">
-					<a class="twitter-timeline" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656" data-theme="light" data-chrome="transparent" data-border-color="#808080" data-tweet-limit="3">
+					<a class="twitter-timeline" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656" data-theme="light" data-border-color="#C4E3F3" data-tweet-limit="3">
 						Tweets by @virtualflybrain
 					</a>
 					<script>
