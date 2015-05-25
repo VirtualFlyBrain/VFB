@@ -25,20 +25,10 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
-<div style="height:400px; overflow-y: auto; overflow-x: hidden; border:1px solid gray;font-size:0.9em">
-	<% for(int i=0;i<3;i++) {
-	Element element = (Element)nodes.item(i);
-	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
-		<div style="padding:2px;>
-			<p style="margin: 0; color:#99BCDB"><b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b></p>
-			<p style="margin: 0; font-weight:bold"><a href="<%=getElementValue(element,"link")%>"><%=getElementValue(element,"title")%></a></p><br/>
-			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
-			<tr><td>comments:</td><td><%=getElementValue(element,"wfw:comment")%></td></tr--%>
-			<%=getElementValue(element,"description")%><br/>
-			<hr style="width:180px; border:0; background:#5b5b5b; height:1px"/>
-		</div>
-	<%} %>
-	</div>
+<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656"></div>
+<script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
+<script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
+
 	<div style="height:98px; background-color:#99BCDB; color:#333; border:1px solid gray;padding: 2px 5px 8px 5px;">
 		<h5 style="font-weight:bold; margin-top:6px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
