@@ -20,16 +20,19 @@ URL u = new URL("http://vfbblog.inf.ed.ac.uk/?feed=rss2"); // feed address
 Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
+
 <div id="rss_feed" style="width:100%; font-size:0.9em;">
 <div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
-<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656"></div>
+<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656" ></div>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
-<div class="panel panel-info">
+</div>
+
+<div class="panel panel-info" style="width:100%; font-size:0.9em;">
 <div class="panel-heading">Receive updates by email</div>
   <div class="panel-body">
     <div class="input-group">
@@ -42,8 +45,8 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
     </div>
   </div>
 </div>
-</div>
-</div>
+
+
 <!--	<div style="height:60px; background-color:#C4E3F3; color:#050608;padding: 0px 5px 0px 5px;">
 		<h5 style="font-weight:bold; padding:6px 0px 2px 0px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
