@@ -32,8 +32,7 @@
 				<!-- END twitter code -->
 				</div> <!-- border -->
 			</div>
-		</div>
-
+		</div> <!-- well -->
 
 		</div>
 
