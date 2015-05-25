@@ -32,7 +32,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 
 </div>
 
-<div class="panel panel-info" style="width:100%; font-size:0.9em;">
+<div class="panel panel-info" style="width:100%; font-size:0.9em; padding: 5px 0px 0px 0px">
 <div class="panel-heading">Receive updates by email</div>
   <div class="panel-body">
     <div class="input-group">
