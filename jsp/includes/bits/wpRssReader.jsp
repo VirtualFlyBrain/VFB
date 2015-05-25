@@ -29,7 +29,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
-	<div style="height:80px; background-color:#C4E3F3; color:#050608;padding: 8px 5px 8px 5px;">
+	<div style="height:80px; background-color:#C4E3F3; color:#050608;padding: 0px 5px 0px 5px;">
 		<h5 style="font-weight:bold; margin-top:6px;">Receive updates by email</h5>
 		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=470');return true;" target="popupwindow">
 		<!--<label>email</label> -->
