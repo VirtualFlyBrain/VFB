@@ -34,12 +34,12 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
   <div class="panel-body">
     <div class="input-group">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Subscribe</button>
-      </span>
       <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
-      <input type="hidden" value="ac/RAmc" name="uri"/>
+        <button class="btn btn-default" type="button">Subscribe</button>
+        <input id="feedburner_email_widget_sbef_submit" type="submit" />
+        <input type="hidden" value="ac/RAmc" name="uri"/>
 		<input type="hidden" name="loc" value="en_US"/>
-		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
+      </span>
     </div>
   </div>
 </div>
