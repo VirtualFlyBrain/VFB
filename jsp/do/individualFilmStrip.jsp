@@ -5,7 +5,7 @@
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
-<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:295px;height:171px">
+<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:295px; height:171px;">
 <c:if test="${fn:length(ontBeanList) > 1}">
 <ol class="carousel-indicators">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
