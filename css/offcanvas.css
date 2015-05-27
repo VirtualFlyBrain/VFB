@@ -90,6 +90,7 @@ div.carousel-caption {
     opacity: 0.3;
 }
 
-ol.carousel-indicators {
+.carousel-indicators {
     opacity: 0.3;
+    top: 0px;
 }
