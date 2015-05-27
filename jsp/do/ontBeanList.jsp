@@ -59,9 +59,9 @@
 					ordering:  true,
 					responsive: true,
 					stateSave: true,
-					"dom": 'T<"clear">lfrtip',
+					"dom": 'fTlrtip',
 					"tableTools": {
-            "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+            "sSwfPath": "https://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
         	}
 				} );
 			} );
