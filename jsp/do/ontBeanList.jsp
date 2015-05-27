@@ -30,12 +30,12 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
-			<div class="container" align="center">
+			<div class="container-fluid" align="center">
 				<h2>Query: ${query}</h2>
 			</div>
 		</div>
-		<div class="container">
-			<table id="resultsTable" class="display" width="100%">
+		<div class="container-fluid">
+			<table id="resultsTable" class="display">
 	    	<thead>
 	        <tr>
 							<th>ID</th>
