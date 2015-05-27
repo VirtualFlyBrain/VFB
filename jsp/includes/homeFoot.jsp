@@ -8,9 +8,10 @@
      $(window).scroll(function() {
        $("img.lazy").lazyload();
      });
-     $("img.lazy").lazyload({
-       skip_invisible : true
-     });
+     $("div.carousel").on('slid', function() {
+       $("img.lazy").lazyload();
+     });​
+     $("img.lazy").lazyload();
    </script>
    <!-- END lazy image loading -->
    </body>
