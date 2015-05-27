@@ -39,16 +39,6 @@ var Manager;
       minLength: 2,
       fields: [ 'label_suggest' ]
     }));
-    // Manager.addWidget(new AjaxSolr.CountryCodeWidget({
-    //   id: 'countries',
-    //   target: '#countries',
-    //   field: 'countryCodes'
-    // }));
-    // Manager.addWidget(new AjaxSolr.CalendarWidget({
-    //   id: 'calendar',
-    //   target: '#calendar',
-    //   field: 'date'
-    // }));
     Manager.init();
     Manager.store.addByValue('q', '*:*');
     var params = {
