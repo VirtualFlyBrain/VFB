@@ -24,7 +24,7 @@
 <a href="/owl/${tpb.vfbId}" target="_top">
 <img class="lazy" data-original="${tpb.thumbUrl}" alt="">
 <div class="carousel-caption" style="bottom:-10px;opacity:0.6;">
-<b>${ontBean.name}</b>
+<b>${ontBean.name}</b><br />
 <span class="small">${tpb.vfbId}</span>
 </div>
 </div>
