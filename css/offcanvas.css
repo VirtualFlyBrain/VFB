@@ -85,7 +85,7 @@ div.DTTT {
     float: right;
 }
 
-.carousel-caption {
+div.carousel-caption {
     bottom: 10px;
     opacity: 0.6;
 }
