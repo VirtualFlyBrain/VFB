@@ -11,7 +11,6 @@
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="
-		/css/vfb/utils/help.css;
 		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
 		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
 		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
