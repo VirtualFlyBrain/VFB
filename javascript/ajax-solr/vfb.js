@@ -4,7 +4,7 @@ var Manager;
 
   $(function () {
     Manager = new AjaxSolr.Manager({
-      solrUrl: 'http://blanik.inf.ed.ac.uk/search/'
+      solrUrl: '/search/'
     });
     Manager.addWidget(new AjaxSolr.ResultWidget({
       id: 'result',
