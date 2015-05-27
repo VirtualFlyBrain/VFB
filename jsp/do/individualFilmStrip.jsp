@@ -9,7 +9,7 @@
 <c:if test="${fn:length(ontBeanList) > 1}">
 <ol class="carousel-indicators">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
-<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status" begin="0" end="10">
 <c:if test="${status.index < showMax && status.index > 0}">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="${status.index}"></li>
 </c:if>
@@ -17,7 +17,7 @@
 </ol>
 </c:if>
 <div class="carousel-inner">
-<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status" begin="0" end="10">
 <c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
