@@ -79,3 +79,8 @@ footer {
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }
+
+div.DTTT {
+    margin-bottom: 0.5em;
+    float: right;
+}
