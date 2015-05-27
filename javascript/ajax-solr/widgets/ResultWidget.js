@@ -39,21 +39,12 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   afterRequest: function () {
     var self = this;
     $(self.target).empty();
+    var doc;
     for (var i = 0, l = self.manager.response.response.docs.length; i < l; i++) {
-      var doc = self.manager.response.response.docs[i];
+      doc = self.manager.response.response.docs[i];
       $(self.target).append(self.template(doc));
-      // var items = [];
-      // items = items.concat(self.facetLinks('label', doc.label));
-      // items = items.concat(self.facetLinks('type', doc.type));
-      //
-      // var $links = $('#links_' + doc.short_form[0]);
-      // $links.empty();
-      // for (var j = 0, m = items.length; j < m; j++) {
-      //   $links.append($('<li></li>').append(items[j]));
-      // }
     }
     if (self.manager.response.response.numFound == 1) { // only show results list if multiple results
-
       $('#anatomyDetails').load('/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_'));
       self.manager.store.get('q').val('*:*');
       self.manager.store.remove('fq');
