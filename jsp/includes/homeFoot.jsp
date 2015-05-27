@@ -6,9 +6,10 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
    <script>
      $(window).scroll(function() {
-       $("img.lazy").lazyload({
-         skip_invisible : true
-       });
+       $("img.lazy").lazyload();
+     });
+     $("img.lazy").lazyload({
+       skip_invisible : true
      });
    </script>
    <!-- END lazy image loading -->
