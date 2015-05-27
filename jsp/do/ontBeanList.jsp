@@ -59,7 +59,7 @@
 					ordering:  true,
 					responsive: true,
 					stateSave: true,
-					"dom": '<lfT><t>ipr>',
+					"dom": 'T<"clear">lfrtip',
 					"tableTools": {
             "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
         	}
