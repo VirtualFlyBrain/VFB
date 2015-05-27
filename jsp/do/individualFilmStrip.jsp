@@ -5,7 +5,7 @@
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
-<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:304px;height:171px">
+<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:295px;height:171px">
 <c:if test="${fn:length(ontBeanList) > 1}">
 <ol class="carousel-indicators">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
@@ -22,7 +22,7 @@
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
 <a href="/owl/${tpb.vfbId}" target="_top">
-<img class="lazy" data-original="${tpb.thumbUrl}" alt="" style="height:295px; width:171px;">
+<img class="lazy" data-original="${tpb.thumbUrl}" alt="" style="width:295px; height:171px;">
 <div class="carousel-caption" style="bottom:10px;opacity:0.6;">
   <b>${ontBean.name}</b><br>
   <span class="small">${tpb.vfbId}</span>
