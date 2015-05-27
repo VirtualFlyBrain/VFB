@@ -86,6 +86,10 @@ div.DTTT {
 }
 
 div.carousel-caption {
-    bottom: 10px;
-    opacity: 0.6;
+    bottom: -33px;
+    opacity: 0.3;
+}
+
+ol.carousel-indicators {
+    opacity: 0.3;
 }
