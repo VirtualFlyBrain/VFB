@@ -59,13 +59,11 @@
 					ordering:  true,
 					responsive: true,
 					stateSave: true,
+					"dom": 'T<"clear">lfrtip',
 					"tableTools": {
             "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
         	}
 				} );
-				var tt = new $.fn.dataTable.TableTools( table );
-				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-	    	// new $.fn.dataTable.FixedHeader( table );
 			} );
 		</script>
 	</div>
