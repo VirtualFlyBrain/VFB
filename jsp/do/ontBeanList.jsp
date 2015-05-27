@@ -58,7 +58,10 @@
 					searching: true,
 					ordering:  true,
 					responsive: true,
-					stateSave: true
+					stateSave: true,
+					"tableTools": {
+            "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+        	}
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
