@@ -88,7 +88,7 @@
         params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]));
       }
       params.push('q=' + this.manager.store.get('q').val());
-      $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
+      $.getJSON(this.manager.solrUrl + '?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
     }
   });
 
