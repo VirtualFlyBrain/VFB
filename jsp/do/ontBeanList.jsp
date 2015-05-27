@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<table id="resultsTable" class="display">
+			<table id="resultsTable" class="display" width="100%">
 	    	<thead>
 	        <tr>
 							<th>ID</th>
