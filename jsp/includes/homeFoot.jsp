@@ -5,16 +5,12 @@
    <!-- START lazy image loading -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
    <script>
-   var imageLoad = 10;
    if ( $( "img.lazy" ).length ) {
-     window.setInterval(function(){
+     $(window).scroll(function() {
        $("img.lazy").lazyload({
          skip_invisible : true
        });
-       if (imageLoad < 300000) {
-         imageLoad = imageLoad + 500;
-       };
-     }, imageLoad);
+     });
    };
    </script>
    <!-- END lazy image loading -->
