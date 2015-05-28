@@ -13,6 +13,11 @@
          $("img.lazy").lazyload();
        }, 100);
      });
+     $(window).click(function() {
+       window.setInterval(function(){
+         $("img.lazy").lazyload();
+       }, 100);
+     });
      window.setInterval(function(){
        $("img.lazy").lazyload();
      }, 1000);
