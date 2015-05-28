@@ -108,17 +108,51 @@
 	  </div>
 	</nav><!-- header -->
 
+<!-- START Notices -->
 	<c:if test="${fn:contains(currDomain, 'inf.ed.ac.uk')}">
 		<c:if test="${!fn:contains(currDomain, 'vfb-bocian')}">
-			<div class="row">
+			<div class="row" id="dev-warning">
 					<div class="col-md-8 col-md-offset-2">
 						<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<center>
-								<strong>Warning!</strong> This is a test server and not the official VFB site.
+								<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.
 							</center>
 						</div>
 					</div>
 			</div>
+			<script>
+				jQuery(function( $ ){
+					$('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
+						$.cookie('dev-box', 'closed', { expires: 7, path: '/' });
+					});
+					if( $.cookie('dev-box') === 'closed' ){
+        		$('#dev-warning').hide();
+    			};
+				});
+			</script>
 		</c:if>
 	</c:if>
+	
+	<div class="row" id="cookie-warning">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="alert alert-info alert-dismissible" role="alert" id="info-char">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<center>
+						<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and your preferences.
+						By continuing to use our website, you agree to the use of cookies. If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.
+					</center>
+				</div>
+			</div>
+	</div>
+	<script>
+		jQuery(function( $ ){
+			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
+				$.cookie('cookie-box', 'closed', { expires: 7, path: '/' });
+			});
+			if( $.cookie('cookie-box') === 'closed' ){
+				$('#cookie-warning').hide();
+			};
+		});
+	</script>
+	<!-- END Notices -->
