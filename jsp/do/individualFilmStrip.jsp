@@ -46,6 +46,6 @@
 </c:if>
 <c:if test="${empty ontBeanList}">
 <script>$("div[style]").removeAttr("style");</script>
-<a id="queryLink" class="btn btn-info btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">Run Query</a>
+<a id="queryLink" class="btn btn-info btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">Found <span class="badge">0</span></a>
 </c:if>
 </div>
