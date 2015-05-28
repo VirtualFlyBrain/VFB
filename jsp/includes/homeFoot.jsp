@@ -9,7 +9,9 @@
        $("img.lazy").lazyload();
      });
      $("div.carousel").on('slid', function() {
-       $("img.lazy").lazyload();
+       window.setInterval(function(){
+         $("img.lazy").lazyload();
+       }, 100);
      });
      $("img.lazy").lazyload();
    </script>
