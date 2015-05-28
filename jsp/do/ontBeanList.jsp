@@ -9,7 +9,6 @@
 
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
-	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="
 		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
 		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
@@ -27,7 +26,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="row">
-			<div class="container-fluid" align="center">
+			<div class="center-block">
 				<h2>Query: ${query}</h2>
 			</div>
 		</div>
@@ -67,7 +66,7 @@
 								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 							});
 					});
-				}, 200);
+				}, 100);
 			} );
 		</script>
 	</div>
