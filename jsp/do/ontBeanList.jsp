@@ -39,7 +39,7 @@
 	            <th>Name</th>
 	            <th>Definition</th>
 							<th>Query VFB</th>
-							<th>Available Images</th>
+							<th style="width: 295px">Available Images</th>
 							<th>Query FlyBase</th>
 	        </tr>
 	    	</thead>
