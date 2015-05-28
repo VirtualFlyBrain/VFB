@@ -65,7 +65,7 @@
 							<td>
 								<c:if test="${!empty tpb}">
 									<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" title="See in viewer">
-										<img class="thumb" src="${tpb.thumbUrl}" alt="http://www.virtualflybrain.org/owl/${tpb.vfbId}" />
+										<img class="lazy" data-original="${tpb.thumbUrl}" alt="http://www.virtualflybrain.org/owl/${tpb.vfbId}" />
 									</a>
 								</c:if>
 							</td>
