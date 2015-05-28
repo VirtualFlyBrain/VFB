@@ -10,17 +10,26 @@
      });
      $("div.carousel").on('slide.bs.carousel', function() {
        window.setInterval(function(){
-         $("img.lazy").lazyload();
+         $("img.lazy").lazyload({
+           skip_invisible: false,
+           threshold: 200,
+         });
        }, 100);
      });
      $(window).click(function() {
        window.setInterval(function(){
-         $("img.lazy").lazyload();
+         $("img.lazy").lazyload({
+           skip_invisible: false,
+           threshold: 200,
+         });
        }, 10);
      });
-     window.setInterval(function(){
-       $("img.lazy").lazyload();
-     }, 1000);
+     $(document).ready( function () {
+       $("img.lazy").lazyload({
+         skip_invisible: false,
+         threshold: 200,
+       });
+     });
    </script>
    <!-- END lazy image loading -->
    </body>
