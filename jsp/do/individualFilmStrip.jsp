@@ -7,7 +7,7 @@
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 <div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:295px; height:171px;">
 <c:if test="${fn:length(ontBeanList) > 1}">
-<ol class="carousel-indicators">
+<ol class="carousel-indicators" style="height: 25px;">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
 <c:forEach items="${ontBeanList}" var="ontBean" varStatus="status" begin="0" end="10">
 <c:if test="${status.index < showMax && status.index > 0}">
