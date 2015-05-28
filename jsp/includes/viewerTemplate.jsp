@@ -45,15 +45,14 @@
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		};
 		var disp = $("body").data(JSON.parse($.cookie("displaying")));
+		$("#emapIIPViewerDiv").text(disp);
 	});
 </script>
 
 
 	<div id="contentwrapper">
 		<div id="center_panel">
-			<div id="emapIIPViewerDiv">
-				<script>document.write(disp);</script>
-			</div>
+			<div id="emapIIPViewerDiv"></div>
 		</div>
 	</div>
 
