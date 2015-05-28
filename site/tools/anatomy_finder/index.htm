@@ -89,8 +89,10 @@
 				<div class="well" id="anatomyDetails">
 					<c:if test="${!empty param.id}" >
 						<script>
-							$('#result-section').hide();
-							$('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
+							jQuery(function( $ ){
+								$('#result-section').hide();
+								$('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
+							});
 						</script>
 						<jsp:include page="/do/ont_bean.html">
 							<jsp:param name="fbId" value="${param.id}" />
