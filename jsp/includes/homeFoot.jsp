@@ -10,7 +10,7 @@
      });
      $("div.carousel").on('slid', function() {
        $("img.lazy").lazyload();
-     });​
+     });
      $("img.lazy").lazyload();
    </script>
    <!-- END lazy image loading -->
