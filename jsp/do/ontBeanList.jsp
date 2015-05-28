@@ -53,14 +53,15 @@
 				var table = $('#resultsTable').DataTable( {
 					paging: true,
 					searching: true,
-					ordering:  true,
+					ordering: true,
 					responsive: true,
 					stateSave: true,
-					"dom": 'fTlrtip',
 					"tableTools": {
             "sSwfPath": "https://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
         	}
 				} );
+				var tt = new $.fn.dataTable.TableTools( table );
+				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 			} );
 		</script>
 	</div>
