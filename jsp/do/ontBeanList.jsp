@@ -59,15 +59,15 @@
 					"order": [[ 0, "desc" ]],
 					"tableTools": {
             "sSwfPath": "https://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
-        	},
-					"initComplete": function () {
-            $('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
-                $(this).addClass('btn-sm btn-default btn-primary');
-            });
-					}
+        	}
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+				window.setInterval(function(){
+					$('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
+							$(this).addClass('btn-sm btn-default btn-primary');
+					});
+				}, 200);
 			} );
 		</script>
 	</div>
