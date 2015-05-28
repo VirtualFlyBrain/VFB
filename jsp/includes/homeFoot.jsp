@@ -15,7 +15,7 @@
            threshold: 2000,
            effect: "fadeIn"
          });
-       }, 50);
+       }, 100);
      });
      $(window).click(function() {
        window.setInterval(function(){
