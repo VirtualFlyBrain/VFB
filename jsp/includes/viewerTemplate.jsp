@@ -4,27 +4,8 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
-		/css/tree/autocomplete.css;
-		/css/tools/tiledImage.css;
-		/css/tools/draggableWindow.css;
-		/css/tools/rotation.css;
-		/css/tools/fixedPoint.css;
-		/css/tools/scale.css;
-		/css/tools/refresh.css;
-		/css/tools/measuring.css;
-		/css/tools/selector.css;
-		/css/tools/locator.css;
-		/css/tools/slider.css;
-		/css/utils/busyIndicator.css;
-		/css/utils/marker.css;
-		/css/utils/emapMenu.css;
-		/css/tree/tree.css;
-		/css/tree/colourPick.css;
 		" />
 	<jsp:param name="js" value="
-		https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js;
-		https://cdnjs.cloudflare.com/ajax/libs/mootools-more/1.5.1/mootools-more-full-nocompat.min.js;
-		https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js;
 		/javascript/ajax-solr/vfb.js;
 		/javascript/ajax-solr/core/Core.js;
 		/javascript/ajax-solr/core/AbstractManager.js;
@@ -40,111 +21,25 @@
 		/javascript/ajax-solr/core/AbstractTextWidget.js;
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/thirdParty/json2.js;
-		/javascript/thirdParty/mifTree.js;
-		/javascript/utils/busyIndicator.js;
-		/javascript/utils/utilities.js;
-		/javascript/utils/ajaxContentLoader.js;
-		/javascript/utils/emapMenu.js;
-		/javascript/tiledImageModel.js;
-		/javascript/tiledImageView.js;
-		/javascript/tools/draggableWindow.js;
-		/javascript/tools/tiledImageTool.js;
-		/javascript/tools/expressionLevelKey.js;
-		/javascript/tools/sliderComponent.js;
-		/javascript/tools/tiledImageLocatorTool.js;
-		/javascript/tools/tiledImageDistanceTool.js;
-		/javascript/tools/tiledImageLayerTool.js;
-		/javascript/tools/tiledImagePropertiesTool.js;
-		/javascript/tools/tiledImageRotationTool.js;
-		/javascript/tools/tiledImageRefreshTool.js;
-		/javascript/tools/tiledImageMeasuringTool.js;
-		/javascript/tree/treeImplementVFB.js;
-		/javascript/tree/tiledImageTreeTool.js;
-		/javascript/tools/tiledImageScaleTool.js;
-		/javascript/tools/tiledImageFixedPointTool.js;
-		/javascript/tree/colorPicker.js;
 		" />
 </jsp:include>
 
-
-
-
-<%-- <link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
-<link rel="stylesheet" type="text/css" href="/css/vfb/utils/p7menu.css" />
-
-<link rel="stylesheet" media="all" type="text/css" href="/css/utils/contextMenu.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css" /> --%>
-
-
-<%-- <link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" /> --%>
-
-<%-- <script type="text/javascript" src="/javascript/thirdParty/json2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mifTree.js"></script>
-
-<script type="text/javascript" src="/javascript/utils/busyIndicator.js"></script>
-<script type="text/javascript" src="/javascript/utils/utilities.js"></script>
-<script type="text/javascript" src="/javascript/utils/ajaxContentLoader.js"></script>
-<script type="text/javascript" src="/javascript/utils/emapMenu.js"></script>
-
-<script type="text/javascript" src="/javascript/tiledImageModel.js"></script>
-<script type="text/javascript" src="/javascript/tiledImageView.js"></script>
-
-<script type="text/javascript" src="/javascript/tools/draggableWindow.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/expressionLevelKey.js"></script>
-<script type="text/javascript" src="/javascript/tools/sliderComponent.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageLocatorTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageDistanceTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageLayerTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImagePropertiesTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageRotationTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageRefreshTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageMeasuringTool.js"></script>
-<script type="text/javascript" src="/javascript/tree/treeImplementVFB.js"></script>
-<script type="text/javascript" src="/javascript/tree/tiledImageTreeTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageScaleTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageFixedPointTool.js"></script>
-<script type="text/javascript" src="/javascript/tree/colorPicker.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
-<script type="text/javascript" src="/javascript/tree/contextMenu.js"></script>
-<script type="text/javascript" src="/javascript/tree/contextMenuVFB.js"></script>
-<script type="text/javascript" src="/javascript/vfb/utils.js"></script>
-<script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
-<script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script> --%>
-
-<%-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-nocompat.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools-more/1.5.1/mootools-more-full-nocompat.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script> --%>
-
-<script type="text/javascript">
-	   var emapModel = emouseatlas.emap.tiledImageModel;
-	   var selectedNodeId = "${param.id}";
-	   var addNodeId = '${param.add}';
-	   var domainList = readCookieAsArray('domainList');
-	   //alert("Domain List: " + domainList);
-	   if (addNodeId !== undefined && addNodeId != null && addNodeId != ''){
-		    //alert("including " + addNodeId);
-	   	 	domainList.include(addNodeId);
-	   }
-	   //alert("Updated cookie: " + domainList);
-	   saveArrayAsCookie(domainList, 'domainList');
-//	   Cookie.dispose('domainList');
-	   window.addEvent('domready', function() {
-	   <c:if test="${!empty param.json}">
-		  jso = {"modelDataUrl":"/do/get_json.html?json=${param.json}&type=${param.type}"};
-		</c:if>
-		<c:if test="${!empty param.woolz}">
-		  jso = {"modelDataUrl":"${meta_root}${param.woolz}"};
-		</c:if>
-	      emapModel.initialise(jso);
-		});
-
+<script>
+	$(document).ready(function() {
+		if (!jQuery.cookie('displaying')) {
+			$("body").data("current", "VFBt_001");
+			$("body").data({"VFBt_001": [
+				0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
+				<c:if test="${empty param.add}">
+					, 1: { id: "${param.add}", colour: "0,255,0", visible: true }
+				</c:if>
+			]});
+			$.cookie("displaying", JSON.stringify($("body").data()));
+		};
+		$("body").data(JSON.parse($.cookie("displaying")));
+	});
 </script>
+
 
 	<div id="contentwrapper">
 		<div id="center_panel">
