@@ -71,20 +71,20 @@
 							</td>
 							<td>
 								<c:if test="${!empty tpb}">
-									<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new" class="btn-warning">${tpb.sourceName}</a>
+									<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new" class="btn-sm btn-warning">${tpb.sourceName}</a>
 								</c:if>
 							</td>
 							<td>
 								<c:if test="${!empty types}">
 									<c:forEach items="${types}" var="item" varStatus="stat">
-										<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
+										<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn-sm btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
 										<br/>
 									</c:forEach>
 								</c:if>
 							</td>
 							<td>
 									<c:set var="driverDetails" value='${drivers[ontBean.fbbtIdAsOWL]}'/>
-									<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new" class="btn-info">${driverDetails[1]}</a>
+									<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new" class="btn-sm btn-info">${driverDetails[1]}</a>
 							</td>
 						</tr>
 					</c:forEach>
