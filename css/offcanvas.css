@@ -123,3 +123,7 @@ div.carousel-caption {
     z-index: 2;
   }
 }
+
+div.imagesCaro {
+  width: 295px;
+}
