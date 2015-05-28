@@ -13,21 +13,23 @@
          $("img.lazy").lazyload({
            skip_invisible: false,
            threshold: 200,
+           effect: "fadeIn"
          });
-       }, 100);
+       }, 50);
      });
      $(window).click(function() {
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
            threshold: 200,
+           effect: "fadeIn"
          });
        }, 10);
      });
      $(document).ready( function () {
        $("img.lazy").lazyload({
          skip_invisible: false,
-         threshold: 200,
+         threshold: 200
        });
      });
    </script>
