@@ -46,7 +46,7 @@
 		};
 		$("body").data(JSON.parse($.cookie("displaying")));
 		var disp = $("body").data();
-		$("#emapIIPViewerDiv").text(disp);
+		$("#emapIIPViewerDiv").text(JSON.stringify(disp));
 	});
 </script>
 
