@@ -61,7 +61,7 @@
             "sSwfPath": "https://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
         	},
 					"initComplete": function (oSettings, json) {
-            $(this).closest('#resultsTable_wrapper').find('.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
+            $(this).closest('#resultsTable').find('.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
                 $(this).addClass('btn-sm btn-default btn-primary');
             });
 					}
