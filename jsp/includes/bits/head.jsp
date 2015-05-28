@@ -140,7 +140,8 @@
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<center>
 						<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and your preferences.
-						By continuing to use our website, you agree to the use of cookies. If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.
+						By continuing to use our website, you agree to the use of cookies. <br>
+						If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.
 					</center>
 				</div>
 			</div>
