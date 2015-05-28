@@ -27,10 +27,20 @@
 <script>
 	$(document).ready(function() {
 		if (!jQuery.cookie('displaying')) {
-			$("body").data("current", "VFBt_001");
+			$("body").data("current", { template: "VFBt_001",
+			 														scl: 1.0,
+																	mod: "zeta",
+																	dst: 0,
+																	pit: 0,
+																	yaw: 0,
+																	rol: 0,
+																	qlt: 80,
+																	cvt: "png",
+																	fxp: "0,0,0"
+																});
 			$("body").data("VFBt_001", { selected: {
-				"0": { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
-				"1": { id: "${param.add}", colour: "0,255,0", visible: true }</c:if>
+				0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
+				1: { id: "${param.add}", colour: "0,255,0", visible: true }</c:if>
 			}});
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		};
