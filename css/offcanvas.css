@@ -127,3 +127,8 @@ div.carousel-caption {
 div.imagesCaro {
   width: 295px;
 }
+
+li.paginate_button {
+  padding-left: 0px;
+  padding-right: 0px;
+}
