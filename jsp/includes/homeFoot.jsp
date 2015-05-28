@@ -12,8 +12,7 @@
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
-           threshold: 2000,
-           effect: "fadeIn"
+           threshold: 2000
          });
        }, 100);
      });
@@ -21,8 +20,7 @@
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
-           threshold: 2000,
-           effect: "fadeIn"
+           threshold: 2000
          });
        }, 10);
      });
@@ -30,8 +28,7 @@
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
-           threshold: 2000,
-           effect: "fadeIn"
+           threshold: 2000
          });
        }, 100);
      });
