@@ -16,7 +16,7 @@
      $(window).click(function() {
        window.setInterval(function(){
          $("img.lazy").lazyload();
-       }, 100);
+       }, 10);
      });
      window.setInterval(function(){
        $("img.lazy").lazyload();
