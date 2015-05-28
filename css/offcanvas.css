@@ -57,18 +57,6 @@ footer {
     width: 50%; /* 6 columns */
   }
 }
-/****************
- Outline button
-*************/
-.btn.outline {
-    background: none;
-    padding: 2px 5px;
-}
-.btn-info.outline {
-    border: 2px solid #5bc0de;
-    color: #5bc0de;
-    text-shadow: none
-}
 
 /****************
  Adding top bugger to rows
