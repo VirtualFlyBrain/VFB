@@ -26,7 +26,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="row">
-			<div class="center-block">
+			<div class="center-block" align="center">
 				<h2>Query: ${query}</h2>
 			</div>
 		</div>
