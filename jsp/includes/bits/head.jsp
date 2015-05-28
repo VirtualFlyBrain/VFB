@@ -133,7 +133,7 @@
 			</script>
 		</c:if>
 	</c:if>
-	
+
 	<div class="row" id="cookie-warning">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="alert alert-info alert-dismissible" role="alert" id="info-char">
@@ -148,7 +148,7 @@
 	<script>
 		jQuery(function( $ ){
 			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
-				$.cookie('cookie-box', 'closed', { expires: 7, path: '/' });
+				$.cookie('cookie-box', 'closed', { path: '/' });
 			});
 			if( $.cookie('cookie-box') === 'closed' ){
 				$('#cookie-warning').hide();
