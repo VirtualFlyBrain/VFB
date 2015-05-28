@@ -28,11 +28,9 @@
 	$(document).ready(function() {
 		if (!jQuery.cookie('displaying')) {
 			$("body").data("current", "VFBt_001");
-			$("body").data({"VFBt_001": [
-				0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
-				<c:if test="${empty param.add}">
-					, 1: { id: "${param.add}", colour: "0,255,0", visible: true }
-				</c:if>
+			$("body").data("VFBt_001", { selected: [
+				"0": { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
+				"1": { id: "${param.add}", colour: "0,255,0", visible: true }</c:if>
 			]});
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		};
