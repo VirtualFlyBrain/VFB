@@ -12,7 +12,7 @@
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
-           threshold: 200,
+           threshold: 2000,
            effect: "fadeIn"
          });
        }, 50);
@@ -21,16 +21,19 @@
        window.setInterval(function(){
          $("img.lazy").lazyload({
            skip_invisible: false,
-           threshold: 200,
+           threshold: 2000,
            effect: "fadeIn"
          });
        }, 10);
      });
      $(document).ready( function () {
-       $("img.lazy").lazyload({
-         skip_invisible: false,
-         threshold: 200
-       });
+       window.setInterval(function(){
+         $("img.lazy").lazyload({
+           skip_invisible: false,
+           threshold: 2000,
+           effect: "fadeIn"
+         });
+       }, 100);
      });
    </script>
    <!-- END lazy image loading -->
