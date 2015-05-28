@@ -56,6 +56,7 @@
 					ordering: true,
 					responsive: true,
 					stateSave: true,
+					"order": [[ 0, "desc" ]],
 					"tableTools": {
             "sSwfPath": "https://cdn.datatables.net/tabletools/2.2.4/swf/copy_csv_xls_pdf.swf"
         	},
