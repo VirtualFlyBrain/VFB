@@ -24,7 +24,7 @@ var currBeanId = "${param.fbbtId}";
       <ul class="nav navbar-nav">
 				<li><a href="/do/ont_bean_list.html?action=subclass&id=${param.fbbtId}" target="_top">SubClasses</a></li>
         <li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">Parts of</a></li>
-				<li class="dropup">
+				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expression/Phenotypes found here: <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/gene_list.html?action=transgene&id=${param.fbbtId}" target="_top">Transgenes expressed here</a></li>

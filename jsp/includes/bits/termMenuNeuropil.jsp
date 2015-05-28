@@ -23,7 +23,7 @@ var currBeanId = "${param.fbbtId}";
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-pills nav-justified">
         <li><a href="/do/ont_bean_list.html?action=parts&id=${param.fbbtId}" target="_top">Parts of</a></li>
-				<li class="dropup">
+				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span> Neurons with:</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/ont_bean_list.html?action=found&id=${param.fbbtId}" target="_top">some part here</a></li>
@@ -33,7 +33,7 @@ var currBeanId = "${param.fbbtId}";
             <li><a href="/do/ont_bean_list.html?action=postsynaptic&id=${param.fbbtId}" target="_top">postsynaptic terminals here</a></li>
           </ul>
         </li>
-				<li class="dropup">
+				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span> Images of neurons with:</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/cluster_list.html?action=cluster_found&id=${param.fbbtId}" target="_top">some part here (clustered by shape)</a></li>
@@ -41,13 +41,13 @@ var currBeanId = "${param.fbbtId}";
           </ul>
         </li>
 				<li><a href="/do/ont_bean_list.html?action=tract&id=${param.fbbtId}" target="_top">Tracts/nerves innervating here</a></li>
-				<li class="dropup">
+				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span> Lineage clones with:</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/ont_bean_list.html?action=lineage_clone&id=${param.fbbtId}" target="_top">some part here</a></li>
           </ul>
         </li>
-				<li class="dropup">
+				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span> Expression/Phenotypes found here:</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/do/gene_list.html?action=transgene&id=${param.fbbtId}" target="_top">Transgenes expressed here</a></li>
