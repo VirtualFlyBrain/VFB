@@ -44,7 +44,8 @@
 			}});
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		};
-		var disp = $("body").data(JSON.parse($.cookie("displaying")));
+		$("body").data(JSON.parse($.cookie("displaying")));
+		var disp = $("body").data();
 		$("#emapIIPViewerDiv").text(disp);
 	});
 </script>
