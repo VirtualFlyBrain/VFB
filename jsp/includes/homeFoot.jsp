@@ -8,12 +8,14 @@
      $(window).scroll(function() {
        $("img.lazy").lazyload();
      });
-     $("div.carousel").on('slid', function() {
+     $("div.carousel").on('slide.bs.carousel', function() {
        window.setInterval(function(){
          $("img.lazy").lazyload();
        }, 100);
      });
-     $("img.lazy").lazyload();
+     window.setInterval(function(){
+       $("img.lazy").lazyload();
+     }, 1000);
    </script>
    <!-- END lazy image loading -->
    </body>
