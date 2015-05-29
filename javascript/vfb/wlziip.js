@@ -10,7 +10,7 @@
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
-       $("body").data(key, val);
+       $("body").data(key, JSON.stringify(val));
      });
    });
  }
@@ -28,9 +28,10 @@
    return file;
  }
 
- function initWlzDisplay() {
+ function initWlzDisplay(ids) {
    if (!jQuery.cookie('displaying')) {
      loadTemplateMeta("VFBt_001");
+     var count = 0;
      $("body").data("current", { template: "VFBt_001",
                                   scl: 1.0,
                                   mod: "zeta",
@@ -43,11 +44,19 @@
                                   fxp: "0.0,0.0,0.0"
                                 });
      $("body").data("VFBt_001", { selected: {
-       0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
-       1: { id: "${param.add}", colour: "0,255,0", visible: true }</c:if>
+       0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
      }});
+     if (ids !== undefined && ids !== null) {
+       var id;
+       var text = "";
+       for (id in ids) {
+         count ++;
+         text = '{ selected: { " + count + ": { id: "' + id + '", colour: "0,255,0", visible: true }}}';
+         $("body").data("VFBt_001", text);
+       }
+     }
      $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
-   };
+   }
    $("body").data(JSON.parse($.cookie("displaying")));
    $("body").bind('changeData', function(e){
      alert("change in data");
