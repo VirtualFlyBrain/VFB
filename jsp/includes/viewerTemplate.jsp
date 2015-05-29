@@ -50,9 +50,7 @@
 		$("body").bind('changeData', function(e){
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		});
-		if (!$("body").data("meta")){
-			loadTemplateMeta($("body").data("current").template);
-		}
+		loadTemplateMeta($("body").data("current").template);
 		var disp = $("body").data();
 		$("#emapIIPViewerDiv").text(JSON.stringify(disp));
 	});
