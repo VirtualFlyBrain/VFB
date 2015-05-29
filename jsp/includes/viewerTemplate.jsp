@@ -44,11 +44,11 @@
 				0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
 				1: { id: "${param.add}", colour: "0,255,0", visible: true }</c:if>
 			}});
-			$.cookie("displaying", JSON.stringify($("body").data()));
+			$.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
 		};
 		$("body").data(JSON.parse($.cookie("displaying")));
 		$("body").bind('changeData', function(e){
-			$.cookie("displaying", JSON.stringify($("body").data()));
+			$.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
 		});
 		loadTemplateMeta($("body").data("current").template);
 		var disp = $("body").data();
