@@ -82,7 +82,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</jsp:include>
 </c:if>
 
-<div class="well">
+<div class="well-white">
 	<h2><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
