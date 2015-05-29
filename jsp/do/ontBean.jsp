@@ -165,7 +165,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
 					<c:if test="${curr.value[2] == neuropil.fbbtId}">
 						&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.value[2]} " target="_top"
-							title="Add to the selected domains in the viewer">See in the viewer >> </a>
+							title="Add to the selected domains in the viewer">See in viewer >> </a>
 					</c:if>
 				</c:forEach>
 				<br />
@@ -182,7 +182,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<img class="thumb"src="${tpb.thumbUrl}" />
 		</a>
 		<br/>
-		<a href="/owl/${tpb.vfbId}" target="_top" >See in the viewer >> </a>
+		<a href="/owl/${tpb.vfbId}" target="_top" >See in viewer >> </a>
 		<br/>
 
 	</c:if>
@@ -214,7 +214,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:if test="${!isNeuron && !isClone}">
 				<c:set var="isNeuropil" value="true"/>
 				&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
-				title="Add to the selected domains in the viewer">See in the viewer >> </a>
+				title="Add to the selected domains in the viewer">See in viewer >> </a>
 			</c:if>
 		</p>
 	</c:if>
