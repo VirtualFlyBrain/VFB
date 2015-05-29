@@ -10,7 +10,7 @@
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
-       $("body").data(key, JSON.stringify(val));
+       parent.$("body").data(key, JSON.stringify(val));
      });
    });
  }
@@ -32,7 +32,7 @@
    if (!jQuery.cookie('displaying')) {
      loadTemplateMeta("VFBt_001");
      var count = 0;
-     $("body").data("current", { template: "VFBt_001",
+     parent.$("body").data("current", { template: "VFBt_001",
                                   scl: 1.0,
                                   mod: "zeta",
                                   dst: 0,
@@ -43,7 +43,7 @@
                                   cvt: "png",
                                   fxp: "0.0,0.0,0.0"
                                 });
-     $("body").data("VFBt_001", { selected: {
+     parent.$("body").data("VFBt_001", { selected: {
        0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
      }});
      if (ids !== undefined && ids !== null) {
@@ -52,18 +52,18 @@
        for (id in ids) {
          count ++;
          text = '{ selected: { " + count + ": { id: "' + id + '", colour: "0,255,0", visible: true }}}';
-         $("body").data("VFBt_001", text);
+         parent.$("body").data("VFBt_001", text);
        }
      }
-     $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
+     $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
    }
-   $("body").data(JSON.parse($.cookie("displaying")));
-   $("body").bind('changeData', function(e){
+   parent.$("body").data(JSON.parse($.cookie("displaying")));
+   parent.$("body").bind('changeData', function(e){
      alert("change in data");
      $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
    });
-   loadTemplateMeta($("body").data("current").template);
-   $("#right_panel").text($("body").data("meta").center);
+   loadTemplateMeta(parent.$("body").data("current").template);
+   $("#right_panel").text(parent.$("body").data("meta").center);
    var disp = $("body").data();
    $("#emapIIPViewerDiv").text(JSON.stringify(disp));
  }
