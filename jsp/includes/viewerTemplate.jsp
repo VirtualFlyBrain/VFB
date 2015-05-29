@@ -21,12 +21,14 @@
 		/javascript/ajax-solr/core/AbstractTextWidget.js;
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/thirdParty/json2.js;
+		/javascript/vfb/wlziip.js;
 		" />
 </jsp:include>
 
 <script>
 	$(document).ready(function() {
 		if (!jQuery.cookie('displaying')) {
+			loadTemplateMeta("VFBt_001");
 			$("body").data("current", { template: "VFBt_001",
 			 														scl: 1.0,
 																	mod: "zeta",
@@ -45,6 +47,12 @@
 			$.cookie("displaying", JSON.stringify($("body").data()));
 		};
 		$("body").data(JSON.parse($.cookie("displaying")));
+		$("body").bind('changeData', function(e){
+			$.cookie("displaying", JSON.stringify($("body").data()));
+		});
+		if (!$("body").data("meta")){
+			loadTemplateMeta($("body").data("current").template);
+		}
 		var disp = $("body").data();
 		$("#emapIIPViewerDiv").text(JSON.stringify(disp));
 	});
