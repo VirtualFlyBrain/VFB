@@ -10,10 +10,9 @@
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
-       alert(key);
        parent.$("body").data(key,val);
-       alert(JSON.stringify(parent.$("body").data()));
      });
+     updateWlzDisplay();
    });
  }
 
@@ -30,7 +29,13 @@
    return file;
  }
 
- function initWlzDisplay(ids) {
+function updateWlzDisplay(){
+  $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
+  $("#emapIIPViewerDiv").text(JSON.stringify($("body").data()));
+}
+
+
+function initWlzDisplay(ids) {
    if (!jQuery.cookie('displaying')) {
      loadTemplateMeta("VFBt_001");
      var count = 0;
@@ -57,15 +62,12 @@
          parent.$("body").data("VFBt_001", text);
        }
      }
-     $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
+     updateWlzDisplay();
    }
    parent.$("body").data(JSON.parse($.cookie("displaying")));
-   parent.$("body").change(function(){
-     alert("change in data");
-     $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
-     $("#emapIIPViewerDiv").text(JSON.stringify($("body").data()));
-   });
+
+
    loadTemplateMeta(parent.$("body").data("current").template);
-   var disp = $("body").data();
-   $("#emapIIPViewerDiv").text(JSON.stringify(disp));
+
+   updateWlzDisplay();
  }
