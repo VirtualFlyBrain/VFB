@@ -63,7 +63,6 @@
      $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
    });
    loadTemplateMeta(parent.$("body").data("current").template);
-   $("#right_panel").text(parent.$("body").data("meta").center);
    var disp = $("body").data();
    $("#emapIIPViewerDiv").text(JSON.stringify(disp));
  }
