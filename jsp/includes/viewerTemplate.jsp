@@ -50,7 +50,9 @@
 		$("body").bind('changeData', function(e){
 			$.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
 		});
-		loadTemplateMeta($("body").data("current").template);
+		var template = $("body").data("current").template;
+		$("#right_panel").text(template);
+		loadTemplateMeta(template);
 		var disp = $("body").data();
 		$("#emapIIPViewerDiv").text(JSON.stringify(disp));
 	});
