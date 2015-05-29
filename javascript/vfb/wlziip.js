@@ -10,7 +10,7 @@
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
-       alert(key + " - " + val);
+       alert(key + " - " + JSON.stringify(val));
        $("body").data(key, val);
      });
    });
