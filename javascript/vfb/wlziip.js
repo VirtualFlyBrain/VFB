@@ -60,9 +60,10 @@
      $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
    }
    parent.$("body").data(JSON.parse($.cookie("displaying")));
-   parent.$("body").bind('changeData', function(e){
+   parent.$("body").data.change(function(){
      alert("change in data");
      $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
+     $("#emapIIPViewerDiv").text(JSON.stringify($("body").data()));
    });
    loadTemplateMeta(parent.$("body").data("current").template);
    var disp = $("body").data();
