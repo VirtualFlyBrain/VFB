@@ -12,7 +12,7 @@
      $.each( data, function( key, val ) {
        alert(key);
        parent.$("body").data(key,val);
-       alert(JSON.stringify(parent.$("body").data()))
+       alert(JSON.stringify(parent.$("body").data()));
      });
    });
  }
@@ -60,7 +60,7 @@
      $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
    }
    parent.$("body").data(JSON.parse($.cookie("displaying")));
-   parent.$("body").data.change(function(){
+   parent.$("body").change(function(){
      alert("change in data");
      $.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
      $("#emapIIPViewerDiv").text(JSON.stringify($("body").data()));
