@@ -38,7 +38,7 @@
 																	rol: 0,
 																	qlt: 80,
 																	cvt: "png",
-																	fxp: "0,0,0"
+																	fxp: "0.0,0.0,0.0"
 																});
 			$("body").data("VFBt_001", { selected: {
 				0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }<c:if test="${empty param.add}">,
@@ -48,11 +48,11 @@
 		};
 		$("body").data(JSON.parse($.cookie("displaying")));
 		$("body").bind('changeData', function(e){
+			alert("change in data");
 			$.cookie("displaying", JSON.stringify($("body").data()), { path: '/' });
 		});
-		var template = $("body").data("current").template;
-		$("#right_panel").text(template);
-		loadTemplateMeta(template);
+		loadTemplateMeta($("body").data("current").template);
+		$("#right_panel").text($("body").data("meta").center);
 		var disp = $("body").data();
 		$("#emapIIPViewerDiv").text(JSON.stringify(disp));
 	});

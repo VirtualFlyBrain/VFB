@@ -10,7 +10,6 @@
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
-       alert(key + " - " + JSON.stringify(val));
        $("body").data(key, val);
      });
    });
@@ -26,6 +25,5 @@
    }else if (id.indexOf("VFB_") > -1){
      file = "VFB/i/" + id.substr(4,8) + "/" + id.substr(8,12) + "/volume.wlz";
    }
-   alert(file);
    return file;
  }
