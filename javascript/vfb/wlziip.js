@@ -88,7 +88,7 @@ function animateWlzDisplay(){
       for (i=0; i < layers; i++) {
         if (selected[i].visible){
           image[i] = document.createElement('img');
-          image[i].src = ;
+          image[i].src = generateWlzURL(i);
           if (count===0){
             ctx.clearRect (0,0,500,500);
             ctx.globalCompositeOperation = 'source-over';
