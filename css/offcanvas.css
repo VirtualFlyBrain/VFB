@@ -145,3 +145,100 @@ border:1px solid #e3e3e3;
 border-radius:4px;
 -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.05);
 box-shadow:inset 0 1px 1px rgba(0,0,0,.05)}
+
+/****************
+ Adding css for news feed
+*************/
+
+.shortcuts.transparent>div {
+    background: transparent
+}
+
+.article-date {
+    color: #999;
+    font-size: 76.9%;
+    margin-bottom: .7em
+}
+
+.newsArchiveLink {
+    padding-left: 5px
+}
+#mission-statement {
+    padding-top: .4em;
+    padding-bottom: 1.2em;
+    display: inline-block;
+    width: 97.91667%;
+    margin: 0 1.04167%
+}
+#news-container {
+    display: inline-block;
+    width: 31.25%;
+    margin: 0 1.04167%;
+    height: 26em;
+    vertical-align: top
+}
+@media(min-width:1500px) {
+    #news-container {
+        height: 30em
+    }
+}
+#news-container h3 {
+    padding-left: 5px
+}
+#newsection {
+    overflow-y: auto;
+    overflow-y: none;
+    height: 250px;
+    clear: right
+}
+#newsection ul {
+    margin: 0;
+    padding: 0
+}
+#newsection ul li {
+    border-bottom: 1px dotted #333;
+    padding: 10px 5px 0 5px;
+    list-style: none
+}
+
+.icon-right,
+div.icon-right {
+    float: right;
+    margin-left: 10px
+}
+
+.icon_rss {
+    width: 24px;
+    height: 24px;
+    background: url(/images/sprite_icons.png) 0 -25px;
+    display: inline-block;
+    cursor: pointer
+}
+
+.icon_facebook {
+    width: 24px;
+    height: 24px;
+    background: url(/images/sprite_icons.png) 0 0;
+    display: inline-block;
+    cursor: pointer
+}
+
+.icon_twitter {
+    width: 24px;
+    height: 24px;
+    background: url(/images/sprite_icons.png) 0 -166px;
+    display: inline-block;
+    cursor: pointer
+}
+
+.socialmedia {
+    cursor: pointer
+}
+.lastshortcut {
+    margin-right: 10px
+}
+.shortcuts h3 {
+    padding-bottom: 5px;
+    font-size: 190%;
+    padding-top: 0
+}
