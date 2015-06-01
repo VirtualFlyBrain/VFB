@@ -27,7 +27,8 @@
 
 <script>
 	$(document).ready(function() {
-		initWlzDisplay()
+		var ids = "";
+		initWlzDisplay(ids);
 	});
 </script>
 
@@ -40,7 +41,7 @@
 			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
 				<canvas id="canvas" style="width: 1024px; height: 681px; display: block;"></canvas>
 				<script>
-					
+
 				</script>
 			</div>
 		</div>
