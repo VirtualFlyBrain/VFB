@@ -36,38 +36,38 @@
 			<section class="shortcuts transparent" id="news-container">
    <div id="news">
       <h3 class="pane-title">
-         <a href=“#”>News</a>
-         <div title="News Feed" style="overflow:hidden; width:100%" class="icon-right socialmedia lastshortcut" onclick="document.location=“http://vfbblog.inf.ed.ac.uk/“><img src="/images/vfb/utils/rss.png"/></div>
+         <a href="#">News</a>
+         <div title="News Feed" style="overflow:hidden; width:100%" class="icon-right socialmedia lastshortcut" onclick="document.location="http://vfbblog.inf.ed.ac.uk/"><img src="/images/vfb/utils/rss.png"/></div>
          <div title="Facebook Logo" class="icon-right socialmedia" onclick="document.location=“https://www.facebook.com/virtualflybrain"><img src="/images/vfb/utils/facebook.logo.png"/></div>
-         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location=“http://twitter.com/virtualflybrain”><img src="/images/vfb/utils/TwitterLogo_55acee.png"/></div>
-         <div title="Blog Logo" class="icon-right socialmedia" onclick="document.location=“http://vfbblog.inf.ed.ac.uk/"><img src="/images/vfb/utils/plus.png"/></div>
+         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location=“http://twitter.com/virtualflybrain"><img src="/images/vfb/utils/TwitterLogo_55acee.png"/></div>
+         <div title="Blog Logo" class="icon-right socialmedia" onclick="document.location="http://vfbblog.inf.ed.ac.uk/"><img src="/images/vfb/utils/plus.png"/></div>
       </h3>
       <div id="newsection">
          <ul>
             <li>
-               <p><a href=“#”>Forthcoming changes</a>
+               <p><a href="#">Forthcoming changes</a>
 			<br/>Planned changes for VFB
                </p>
             </li>
             <li>
-               <p><a href=“#”>VFB item 1</a><br/>
+               <p><a href="#">VFB item 1</a><br/>
                   This is new   
                </p>
             </li>
             <li>
-               <p><a href=“#”>VFB item 1</a><br/>
+               <p><a href="#">VFB item 1</a><br/>
                   This is new too
                </p>
             </li>
             <li>
-               <p><a href=“#”>VFB item 1</a><br/>
+               <p><a href="#">VFB item 1</a><br/>
                  And this
                </p>
             </li>
          </ul>
       </div>
       <br clear="all"/>
-<a href=“#” data-icon=";" class="icon icon-generic newsArchiveLink">News archive</a>
+<a href="/images/vfb/utils/info-26.png" data-icon=";" class="icon icon-generic newsArchiveLink">News archive</a>
    </div>
 </section>
 
