@@ -81,23 +81,25 @@ function animateWlzDisplay(){
   canvas.height = 681;
   function step() {
     selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-    var layers = Object.keys(selected).length;
-    if (layers > 0){
-      var count = 0;
-      var image = [];
-      for (i=0; i < layers; i++) {
-        if (selected[i].visible){
-          image[i] = document.createElement('img');
-          image[i].src = generateWlzURL(i);
-          if (count===0){
-            ctx.clearRect (0,0,500,500);
-            ctx.globalCompositeOperation = 'source-over';
+    if (selected){
+      var layers = Object.keys(selected).length;
+      if (layers > 0){
+        var count = 0;
+        var image = [];
+        for (i=0; i < layers; i++) {
+          if (selected[i].visible){
+            image[i] = document.createElement('img');
+            image[i].src = generateWlzURL(i);
+            if (count===0){
+              ctx.clearRect (0,0,500,500);
+              ctx.globalCompositeOperation = 'source-over';
+            }
+            ctx.drawImage(image[i], 0, 0);
+            if (count===0){
+              ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+            }
+            count++;
           }
-          ctx.drawImage(image[i], 0, 0);
-          if (count===0){
-            ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-          }
-          count++;
         }
       }
     }
