@@ -37,10 +37,10 @@
    <div id="news">
       <h3 class="pane-title">
          <a href="#">News</a>
-         <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="document.location='http://vfbblog.inf.ed.ac.uk/?feed=rss2'"><img src="/images/vfb/utils/rss.png" height="18"/></div>
-         <div title="Facebook Logo" class="icon-right socialmedia" onclick="document.location='https://www.facebook.com/virtualflybrain'"><img src="/images/vfb/utils/facebook.logo.png" height="18"/></div>
-         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location='http://twitter.com/virtualflybrain'"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="18"/></div>
-         <div title="Blog Logo" class="icon-right socialmedia" onclick="document.location='http://vfbblog.inf.ed.ac.uk/'"><img src="/images/vfb/utils/plus.png" height="18"/></div>
+         <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="document.location='http://vfbblog.inf.ed.ac.uk/?feed=rss2'"><img src="/images/vfb/utils/rss.png" height="20"/></div>
+         <div title="Facebook Logo" class="icon-right socialmedia" onclick="document.location='https://www.facebook.com/virtualflybrain'"><img src="/images/vfb/utils/facebook.logo.png" height="20"/></div>
+         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location='http://twitter.com/virtualflybrain'"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="20"/></div>
+         <div title="Blog Logo" class="icon-right socialmedia" onclick="document.location='http://vfbblog.inf.ed.ac.uk/'"><img src="/images/vfb/utils/plus.png" height="20"/></div>
       </h3>
       <div id="newsection">
          <ul>
