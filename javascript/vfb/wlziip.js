@@ -118,25 +118,14 @@ function initWlzDisplay(ids) {
    if (!jQuery.cookie('displaying')) {
      loadTemplateMeta("VFBt_001");
      var count = 0;
-     parent.$("body").data("current", { template: "VFBt_001",
-                                  scl: 1.0,
-                                  mod: "zeta",
-                                  dst: 0.0,
-                                  pit: 0.0,
-                                  yaw: 0.0,
-                                  rol: 0.0,
-                                  qlt: 80,
-                                  cvt: "png",
-                                  fxp: "0.0,0.0,0.0",
-                                  blend:"screen",
-                                  inverted:false
-                                });
+     var text = '{ template: "VFBt_001",scl:1.0,mod:"zeta",dst:0.0,pit:0.0,yaw:0.0,rol:0.0,qlt:80,cvt:"png",fxp:' + parent.$("body").data.centre + ',alpha: 100,blend:"screen",inverted:false}';
+     parent.$("body").data("current", text);
      parent.$("body").data("VFBt_001", { selected: {
        0: { id: "VFBt_00100000", colour: "auto", visible: true }
      }});
      if (ids !== undefined && ids !== null) {
        var id;
-       var text = "";
+       text = "";
        for (id in ids) {
          count ++;
          text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
