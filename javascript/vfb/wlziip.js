@@ -19,8 +19,8 @@
  }
 
  function fileFromId(id) {
+   var file = "";
    if (id){
-     var file = "";
      id = id.replace(":","_");
      if (id.indexOf("VFBt_") > -1){
        file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "/composite.wlz";
