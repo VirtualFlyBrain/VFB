@@ -5,6 +5,8 @@
  * @param template
  */
 
+ var colours = loadColours();
+
  function loadTemplateMeta(id) {
    file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
    $.getJSON( file, function( data ) {
@@ -48,7 +50,7 @@ function addToWlzDisplay(ids){
          parent.$("body").data("current",text);
          loadTemplateMeta(id);
          if (!parent.$("body").data(id)){
-           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"255,0,255","visible":true}}}}';
+           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"auto","visible":true}}}}';
            parent.$("body").data(id,text);
          }
        }
@@ -58,7 +60,7 @@ function addToWlzDisplay(ids){
 
         }else{
           layers = Object.keys(selected).length;
-          text = '{' + layers + ':{"id":,"' + id + '","colour":"0,255,0","visible":true}}';
+          text = '{' + layers + ':{"id":,"' + id + '","colour":"auto","visible":true}}';
           selected.push(text);
         }
       }else if (id.indexOf("VFB_") > -1){
@@ -86,7 +88,7 @@ function animateWlzDisplay(){
       for (i=0; i < layers; i++) {
         if (selected[i].visible){
           image[i] = document.createElement('img');
-          image[i].src = fileFromId(selected[i].id);
+          image[i].src = ;
           if (count===0){
             ctx.clearRect (0,0,500,500);
             ctx.globalCompositeOperation = 'source-over';
@@ -104,6 +106,14 @@ function animateWlzDisplay(){
   requestAnimationFrame(step);
 }
 
+function loadColours(){
+  file = "/data/VFB/colours200.csv";
+  $.get(file, function(data) {
+    var lines = data.split("\n");
+    return lines;
+  });
+}
+
 function initWlzDisplay(ids) {
    if (!jQuery.cookie('displaying')) {
      loadTemplateMeta("VFBt_001");
@@ -111,10 +121,10 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current", { template: "VFBt_001",
                                   scl: 1.0,
                                   mod: "zeta",
-                                  dst: 0,
-                                  pit: 0,
-                                  yaw: 0,
-                                  rol: 0,
+                                  dst: 0.0,
+                                  pit: 0.0,
+                                  yaw: 0.0,
+                                  rol: 0.0,
                                   qlt: 80,
                                   cvt: "png",
                                   fxp: "0.0,0.0,0.0",
@@ -122,14 +132,14 @@ function initWlzDisplay(ids) {
                                   inverted:false
                                 });
      parent.$("body").data("VFBt_001", { selected: {
-       0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
+       0: { id: "VFBt_00100000", colour: "auto", visible: true }
      }});
      if (ids !== undefined && ids !== null) {
        var id;
        var text = "";
        for (id in ids) {
          count ++;
-         text = '{ selected: { " + count + ": { id: "' + id + '", colour: "0,255,0", visible: true }}}';
+         text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
          parent.$("body").data("VFBt_001", text);
        }
      }
@@ -141,4 +151,19 @@ function initWlzDisplay(ids) {
    loadTemplateMeta(parent.$("body").data("current").template);
 
    updateWlzDisplay();
+ }
+
+ function generateWlzURL(index){
+   var current = parent.$("body").data("current");
+   var selected = parent.$("body").data(current.template).selected;
+   var layer = selected[index];
+   var file = fileFromId(layer.id);
+   var colour = "255,255,255";
+   if (layer.colour!="auto"){
+     colour = layer.colour;
+   }else{
+     colour = colours[index];
+   }
+   var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/IMAGE_DATA/" + file + "&sel=" + layer.id.substr(9) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+   return text;
  }
