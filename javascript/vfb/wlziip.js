@@ -84,7 +84,7 @@ function animateWlzDisplay(){
     var layers = Object.keys(selected).length;
     if (layers > 0){
       var count = 0;
-      var image;
+      var image = [];
       for (i=0; i < layers; i++) {
         if (selected[i].visible){
           image[i] = document.createElement('img');
