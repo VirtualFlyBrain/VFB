@@ -31,14 +31,22 @@
 	});
 </script>
 
+<div class="row">
 
-	<div id="contentwrapper">
-		<div id="center_panel">
-			<div id="emapIIPViewerDiv"></div>
+	<div class="span2" id="left-panel"></div>
+
+	<div class="span8" id="contentwrapper">
+		<div class="well" id="center_panel">
+			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
+				<canvas id="canvas" style="width: 1024px; height: 681px; display: block;"></canvas>
+				<script>
+					
+				</script>
+			</div>
 		</div>
 	</div>
 
-	<div id="left_panel">
+	<div class="span2" id="right-panel">
 		<div id="toolContainerDiv">
 			<!-- We presume that for third party stacks with proper credits the param.json will be used-->
 			<c:if test="${empty param.json}">
@@ -52,7 +60,9 @@
 		</div>
 	</div>
 
-	<div id="right_panel"></div>
+
+
+</div>
 
 	<div id="footer">
 		<div id="annotation">

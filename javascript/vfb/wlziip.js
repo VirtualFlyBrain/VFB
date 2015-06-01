@@ -31,9 +31,78 @@
 
 function updateWlzDisplay(){
   $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
-  $("#emapIIPViewerDiv").text(JSON.stringify($("body").data()));
 }
 
+function addToWlzDisplay(ids){
+  if (ids !== undefined && ids !== null) {
+    var id;
+    var text;
+    var selected;
+    var layers;
+    for (id in ids) {
+      id = id.replace(":","_");
+      if (id.indexOf("VFBt_") > -1){
+       id = id.replace("00000", "");
+       if (id != parent.$("body").data("current").template){
+         text = '{ "template": "' + id + '", scl: 1.0,mod:"zeta",dst:0,pit:0,yaw:0,rol:0,qlt:80,cvt:"png",fxp:"0.0,0.0,0.0",blend:"screen",inverted:false}';
+         parent.$("body").data("current",text);
+         loadTemplateMeta(id);
+         if (!parent.$("body").data(id)){
+           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"255,0,255","visible":true}}}}';
+           parent.$("body").data(id,text);
+         }
+       }
+      }else if (id.indexOf("VFBi_") > -1){
+        selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        if (JSON.stringify(selected).indexOf(id) > -1){
+
+        }else{
+          layers = Object.keys(selected).length;
+          text = '{' + layers + ':{"id":,"' + id + '","colour":"0,255,0","visible":true}}';
+          selected.push(text);
+        }
+      }else if (id.indexOf("VFB_") > -1){
+       file = "VFB/i/" + id.substr(4,8) + "/" + id.substr(8,12) + "/volume.wlz";
+      }
+    }
+  }
+}
+
+function animateWlzDisplay(){
+  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  window.requestAnimationFrame = requestAnimationFrame;
+
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = 1024;
+  canvas.height = 681;
+  function step() {
+    selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+    var layers = Object.keys(selected).length;
+    if (layers > 0){
+      var count = 0;
+      var image;
+      for (i=0; i < layers; i++) {
+        if (selected[i].visible){
+          image[i] = document.createElement('img');
+          image[i].src = fileFromId(selected[i].id);
+          if (count===0){
+            ctx.clearRect (0,0,500,500);
+            ctx.globalCompositeOperation = 'source-over';
+          }
+          ctx.drawImage(image[i], 0, 0);
+          if (count===0){
+            ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+          }
+          count++;
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
 function initWlzDisplay(ids) {
    if (!jQuery.cookie('displaying')) {
@@ -48,7 +117,9 @@ function initWlzDisplay(ids) {
                                   rol: 0,
                                   qlt: 80,
                                   cvt: "png",
-                                  fxp: "0.0,0.0,0.0"
+                                  fxp: "0.0,0.0,0.0",
+                                  blend:"screen",
+                                  inverted:false
                                 });
      parent.$("body").data("VFBt_001", { selected: {
        0: { id: "VFBt_00100000", colour: "255,0,255", visible: true }
