@@ -172,7 +172,7 @@ box-shadow:inset 0 1px 1px rgba(0,0,0,.05)}
 }
 #news-container {
     display: inline-block;
-    width: 31.25%;
+    width: 100%;
     margin: 0 1.04167%;
     height: 26em;
     vertical-align: top
