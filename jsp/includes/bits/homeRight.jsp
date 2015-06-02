@@ -2,7 +2,7 @@
 
 		<div class="span2" style="min-width:240px" align="center">
 
-			<div class="well">
+			<!--<div class="well">
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 
@@ -29,7 +29,7 @@
 				</div>
 				<!-- END twitter code -->
 				</div> <!-- border -->
-			</div> <!-- well -->
+			</div> <!-- well --> -->
 			
 			<div class="well-white"> <!-- new news well-->
 			
