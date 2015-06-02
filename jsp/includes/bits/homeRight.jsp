@@ -40,7 +40,7 @@
 
 		</div><!-- end of news well-->	
 		
-		<div class="well"> 
+		<div class="well-white"> 
 				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
 
