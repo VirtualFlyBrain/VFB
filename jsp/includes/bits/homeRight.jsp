@@ -67,7 +67,7 @@
          </ul>
       </div>
       <br clear="all"/>
-<a href="../../../../images/vfb/utils/info-26.png" data-icon=";" class="icon icon-generic newsArchiveLink">News archive</a>
+<a href="#" data-icon=";" class="icon icon-generic newsArchiveLink"><img src="../../../../images/vfb/utils/info-26.png">News archive</a>
    </div>
 </section>
 
