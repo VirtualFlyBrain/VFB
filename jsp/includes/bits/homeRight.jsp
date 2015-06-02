@@ -45,23 +45,18 @@
       <div id="newsection">
          <ul>
             <li>
-               <p><a href="#">Forthcoming changes</a>
-			<br/>Planned changes for VFB
+               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=809">Work with us</a>
+			<br/>Job opportunity at VFB
                </p>
             </li>
             <li>
-               <p><a href="#">VFB item 1</a><br/>
-                  This is new   
+               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=782">New adult brain stack</a><br/>
+                  Now hosting tricolour adult brain stack from Ito 2014   
                </p>
             </li>
             <li>
-               <p><a href="#">VFB item 1</a><br/>
-                  This is new too
-               </p>
-            </li>
-            <li>
-               <p><a href="#">VFB item 1</a><br/>
-                 And this
+               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=774">We're looking for fedback</a><br/>
+                  How do you use VFB?
                </p>
             </li>
          </ul>
