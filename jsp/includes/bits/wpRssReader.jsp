@@ -21,7 +21,7 @@ Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 
-<div id="rss_feed" style="width:100%; font-size:0.9em;">
+<!--<div id="rss_feed" style="width:100%; font-size:0.9em;">
 <div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog 
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
@@ -30,7 +30,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 <script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
 <script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
 
-</div>
+</div> -->
 
 <div class="panel panel-info" style="width:100%; font-size:0.9em;">
 <div class="panel-heading">Receive updates by email</div>
