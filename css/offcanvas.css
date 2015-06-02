@@ -205,25 +205,19 @@ div.icon-right {
 }
 
 .icon_rss {
-    width: 24px;
-    height: 24px;
-    background: url(/images/sprite_icons.png) 0 -25px;
+    height: 20px;
     display: inline-block;
     cursor: pointer
 }
 
 .icon_facebook {
-    width: 24px;
-    height: 24px;
-    background: url(/images/sprite_icons.png) 0 0;
+    height: 20px;
     display: inline-block;
     cursor: pointer
 }
 
 .icon_twitter {
-    width: 24px;
-    height: 24px;
-    background: url(/images/sprite_icons.png) 0 -166px;
+    height: 20px;
     display: inline-block;
     cursor: pointer
 }
