@@ -67,7 +67,7 @@
          </ul>
       </div>
       <br clear="all"/>
-<a href="#" data-icon=";" class="icon icon-generic newsArchiveLink"><img src="../../../../images/vfb/utils/info-26.png">News archive</a>
+<a href="http://vfbblog.inf.ed.ac.uk/" target="_blank" class="btn btn-info btn-xs outline" role="button">More</a>
    </div>
 </section>
 
