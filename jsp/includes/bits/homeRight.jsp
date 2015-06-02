@@ -37,9 +37,9 @@
    <div id="news">
       <h3 class="pane-title">
          <a href="#">News</a>
-         <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="document.location='http://vfbblog.inf.ed.ac.uk/?feed=rss2'"><img src="/images/vfb/utils/rss.png" height="20"/></div>
-         <div title="Facebook Logo" class="icon-right socialmedia" onclick="document.location='https://www.facebook.com/virtualflybrain'"><img src="/images/vfb/utils/facebook.logo.png" height="20"/></div>
-         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location='http://twitter.com/virtualflybrain'"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="20"/></div>
+         <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="document.location='http://vfbblog.inf.ed.ac.uk/?feed=rss2'"><img src="/images/vfb/utils/rss.png"/></div>
+         <div title="Facebook Logo" class="icon-right socialmedia" onclick="document.location='https://www.facebook.com/virtualflybrain'"><img src="/images/vfb/utils/facebook.logo.png"/></div>
+         <div title="Twitter Logo" class="icon-right socialmedia" onclick="document.location='http://twitter.com/virtualflybrain'"><img src="/images/vfb/utils/TwitterLogo_55acee.png"/></div>
 
       </h3>
       <div id="newsection">
@@ -67,7 +67,7 @@
          </ul>
       </div>
       <br clear="all"/>
-<a href="http://vfbblog.inf.ed.ac.uk/" target="_blank" class="btn btn-info btn-xs outline" role="button">More &raquo</a>
+<a href="http://vfbblog.inf.ed.ac.uk/" target="_blank" class="btn btn-info btn-xs outline" role="button" style="text-align:left">More &raquo</a>
    </div>
 </section>
 
