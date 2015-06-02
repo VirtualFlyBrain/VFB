@@ -1,10 +1,6 @@
 	<div class="row-fluid visible-desktop" align="center">
 
 		<div class="span2" style="min-width:240px" align="center">
-
-			 <div class="well"> 
-				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
-			</div>
 			
 			<div class="well-white"> <!-- new news well-->
 			
@@ -42,7 +38,11 @@
 </section>
 
 
-		</div><!-- end of news well-->			
+		</div><!-- end of news well-->	
+		
+		<div class="well"> 
+				<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
+			</div>
 
 		</div>
 
