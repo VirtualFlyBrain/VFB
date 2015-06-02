@@ -29,7 +29,7 @@
 				</div>
 				<!-- END twitter code -->
 				</div> <!-- border -->
-			</div> <!-- well --> -->
+			</div> --> <!-- well --> 
 			
 			<div class="well-white"> <!-- new news well-->
 			
