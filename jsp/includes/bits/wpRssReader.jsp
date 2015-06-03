@@ -22,7 +22,7 @@ String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
 
 <!--<div id="rss_feed" style="width:100%; font-size:0.9em;">
-<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog 
+<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog
 	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
 		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
@@ -33,19 +33,20 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 </div> -->
 
 <div class="panel panel-info" style="width:100%; font-size:0.9em;">
-<div class="panel-heading">Receive updates by email</div>
-  <div class="panel-body">
-    <div class="input-group">
-    <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
-      <span class="input-group-btn">
-        <input type="submit" class="btn btn-default" value="Subscribe" id="feedburner_email_widget_sbef_submit" />
-        <input type="hidden" value="ac/RAmc" name="uri"/>
-		<input type="hidden" name="loc" value="en_US"/>
-          </span>  
+  <div class="panel-heading">Receive updates by email</div>
+    <div class="panel-body">
+      <div class="input-group">
+        <form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true;" target="popupwindow">
+          <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
+          <span class="input-group-btn">
+            <input type="submit" class="btn btn-default" value="Subscribe" id="feedburner_email_widget_sbef_submit" />
+            <input type="hidden" value="ac/RAmc" name="uri"/>
+  	        <input type="hidden" name="loc" value="en_GB"/>
+          </span>
+        </form>  
+      </div>
     </div>
   </div>
-</div>
-
 </div>
 
 
