@@ -5,7 +5,7 @@
  * @param template
  */
 
- var colours = loadColours();
+
 
  function loadTemplateMeta(id) {
    if (id){
@@ -120,39 +120,41 @@ function loadColours(){
   file = "/data/VFB/colours200.csv";
   $.get(file, function(data) {
     var lines = data.split("\n");
-    return lines;
+    parent.$("body").data("colours", lines);
   });
 }
 
 function initWlzDisplay(ids) {
-   if (!jQuery.cookie('displaying')) {
-     loadTemplateMeta("VFBt_001");
-     var count = 0;
-     var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"' + parent.$("body").data.centre + '","alpha": 100,"blend":"screen","inverted":false}';
-     parent.$("body").data("current", JSON.parse(text));
-     parent.$("body").data("VFBt_001", { selected: {
-       0: { id: "VFBt_00100000", colour: "auto", visible: true }
-     }});
-     if (ids !== undefined && ids !== null && ids !== "") {
-       var id;
-       text = "";
-       for (id in ids) {
-         count ++;
-         text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
-         parent.$("body").data("VFBt_001", text);
-       }
+  loadColours();
+  if (!jQuery.cookie('displaying')) {
+   loadTemplateMeta("VFBt_001");
+   var count = 0;
+   var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"' + parent.$("body").data.centre + '","alpha": 100,"blend":"screen","inverted":false}';
+   parent.$("body").data("current", JSON.parse(text));
+   parent.$("body").data("VFBt_001", { selected: {
+     0: { id: "VFBt_00100000", colour: "auto", visible: true }
+   }});
+   if (ids !== undefined && ids !== null && ids !== "") {
+     var id;
+     text = "";
+     for (id in ids) {
+       count ++;
+       text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
+       parent.$("body").data("VFBt_001", text);
      }
-     updateWlzDisplay();
    }
-   parent.$("body").data(JSON.parse($.cookie("displaying")));
-   alert($.cookie("displaying"));
-   alert("initWlzDisplay - " + parent.$("body").data("current").template);
-   loadTemplateMeta(parent.$("body").data("current").template);
-
    updateWlzDisplay();
+  }
+  parent.$("body").data(JSON.parse($.cookie("displaying")));
+  alert($.cookie("displaying"));
+  alert("initWlzDisplay - " + parent.$("body").data("current").template);
+  loadTemplateMeta(parent.$("body").data("current").template);
+
+  updateWlzDisplay();
  }
 
  function generateWlzURL(index){
+   var colours = parent.$("body").data("colours");
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
