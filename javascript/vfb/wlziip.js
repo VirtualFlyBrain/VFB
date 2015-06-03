@@ -99,7 +99,7 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              ctx.clearRect (0,0,500,500);
+              ctx.clearRect (0,0,1024,1024);
               ctx.globalCompositeOperation = 'source-over';
             }
             ctx.drawImage(image[i], 0, 0);
