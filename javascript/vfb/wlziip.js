@@ -156,6 +156,7 @@ function initWlzDisplay(ids) {
      loadColours();
    }
    var colours = parent.$("body").data("colours");
+   alert(colours);
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
