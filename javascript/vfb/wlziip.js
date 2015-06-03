@@ -155,8 +155,6 @@ function initWlzDisplay(ids) {
    if (parent.$("body").data("colours") === undefined){
      loadColours();
    }
-   var colours = parent.$("body").data("colours");
-   alert(colours);
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
@@ -165,7 +163,7 @@ function initWlzDisplay(ids) {
    if (layer.colour!="auto"){
      colour = layer.colour;
    }else{
-     colour = colours[index];
+     colour = parent.$("body").data("colours")[index];
    }
    var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + layer.id.substr(9) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
    return text;
