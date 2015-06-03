@@ -52,6 +52,7 @@ function addToWlzDisplay(ids){
        if (id != parent.$("body").data("current").template){
          text = '{ "template": "' + id + '", scl: 1.0,mod:"zeta",dst:0,pit:0,yaw:0,rol:0,qlt:80,cvt:"png",fxp:"0.0,0.0,0.0",blend:"screen",inverted:false}';
          parent.$("body").data("current",text);
+         alert("addToWlzDisplay - " + id);
          loadTemplateMeta(id);
          if (!parent.$("body").data(id)){
            text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"auto","visible":true}}}}';
@@ -79,6 +80,7 @@ function animateWlzDisplay(){
                                 window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
   window.requestAnimationFrame = requestAnimationFrame;
 
+  alert("animate launched");
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   canvas.width = 1024;
