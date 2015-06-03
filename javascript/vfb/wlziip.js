@@ -120,11 +120,11 @@ function loadColours(){
   $.get(file, function(data) {
     var lines = data.split("\n");
     parent.$("body").data("colours", lines);
+    updateWlzDisplay();
   });
 }
 
 function initWlzDisplay(ids) {
-  loadColours();
   if (!jQuery.cookie('displaying')) {
    loadTemplateMeta("VFBt_001");
    var count = 0;
@@ -151,6 +151,9 @@ function initWlzDisplay(ids) {
  }
 
  function generateWlzURL(index){
+   if (parent.$("body").data("colours") === undefined){
+     loadColours();
+   }
    var colours = parent.$("body").data("colours");
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
