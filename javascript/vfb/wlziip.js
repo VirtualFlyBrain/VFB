@@ -182,8 +182,6 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").scl = String($("#slider-scale").slider('getValue'));
      updateWlzDisplay();
    });
-   $("#slider-slice").data("slider-max", parseInt(parent.$("body").data("meta").extent.split(',')[2])+1);
+   $("#slider-slice").data('slider').max = parseInt(parent.$("body").data("meta").extent.split(',')[2])+1;
    $("#slider-slice").slider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
-
-
  }
