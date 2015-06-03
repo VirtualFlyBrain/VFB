@@ -34,7 +34,12 @@
 
 <div class="row">
 
-	<div class="span2" id="left-panel"></div>
+	<div class="span2" id="left-panel">
+		<form class="form-inline">
+			<input id="ex3" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical"/>
+			<input id="ex4" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical"/>
+		</form>
+	</div>
 
 	<div class="span8" id="contentwrapper">
 		<div class="well" id="center_panel">
@@ -52,14 +57,14 @@
 	<div class="span2" id="right-panel">
 		<div id="toolContainerDiv">
 			<!-- We presume that for third party stacks with proper credits the param.json will be used-->
-			<c:if test="${empty param.json}">
+			<%-- <c:if test="${empty param.json}">
 				<jsp:include page="/jsp/includes/bits/credits.jsp" />
 			</c:if>
 			<c:if test="${!empty param.json}">
 				<jsp:include page="/jsp/includes/bits/credits3party.jsp">
 					<jsp:param name="tpb" value="${param.tpb}" />
 				</jsp:include>
-			</c:if>
+			</c:if> --%>
 		</div>
 	</div>
 
