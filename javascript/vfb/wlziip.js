@@ -39,7 +39,7 @@
 
 function updateWlzDisplay(){
   $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
-  $("#left-panel").text(JSON.stringify(parent.$("body").data()));
+  //$("#left-panel").text(JSON.stringify(parent.$("body").data()));
 }
 
 function addToWlzDisplay(ids){
