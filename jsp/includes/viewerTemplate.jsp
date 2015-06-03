@@ -38,8 +38,8 @@
 
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
-			<input id="slider-scale" class="span2" type="text" data-slider-min="0.1" data-slider-max="5" data-slider-step="0.1" data-slider-value="1" data-slider-orientation="vertical"/>
-			<input id="slider-slice" class="span2" type="text" data-slider-min="1" data-slider-max="1024" data-slider-step="1" data-slider-value="1" data-slider-orientation="vertical"/>
+			<input id="slider-scale" class="span2" type="text" data-slider-min="0.1" data-slider-max="5" data-slider-step="0.1" data-slider-value="1"/>
+			<input id="slider-slice" class="span2" type="text" data-slider-min="1" data-slider-max="1024" data-slider-step="1" data-slider-value="1"/>
 		</form>
 	</div>
 
