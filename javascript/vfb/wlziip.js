@@ -153,16 +153,21 @@ function initWlzDisplay(ids) {
 
  function generateWlzURL(index){
    if (parent.$("body").data("colours") === undefined){
+     alert(parent.$("body").data("colours")[index]);
      loadColours();
+     alert(parent.$("body").data("colours")[index]);
+     updateWlzDisplay();
+     alert(parent.$("body").data("colours")[index]);
    }
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
    var file = fileFromId(layer.id);
    var colour = "255,255,255";
-   if (layer.colour!="auto"){
+   if (layer.colour !== "auto"){
      colour = layer.colour;
    }else{
+     alert(parent.$("body").data("colours")[index]);
      colour = parent.$("body").data("colours")[index];
    }
    var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + layer.id.substr(9) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
