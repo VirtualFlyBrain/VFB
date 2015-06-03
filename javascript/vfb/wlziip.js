@@ -153,9 +153,9 @@ function initWlzDisplay(ids) {
 
  function generateWlzURL(index){
    if (parent.$("body").data("colours") === undefined){
-     alert(parent.$("body").data("colours")[index]);
+     alert(parent.$("body").data("colours"));
      loadColours();
-     alert(parent.$("body").data("colours")[index]);
+     alert(parent.$("body").data("colours"));
      updateWlzDisplay();
      alert(parent.$("body").data("colours")[index]);
    }
