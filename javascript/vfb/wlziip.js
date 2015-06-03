@@ -174,11 +174,11 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   $("#slider-slice").slider({reversed : true}).on('slide', function(ev){
+   $("#slider-slice").slider({reversed: true, focus: true}).on('slide', function(ev){
      parent.$("body").data("current").dst = String(parseInt($("#slider-slice").data('slider').value[0])-1);
      updateWlzDisplay();
    });
-   $("#slider-scale").slider({reversed : false}).on('slide', function(ev){
+   $("#slider-scale").slider({reversed: false, focus: true}).on('slide', function(ev){
      parent.$("body").data("current").scl = String($("#slider-scale").data('slider').value[0]);
      updateWlzDisplay();
    });
