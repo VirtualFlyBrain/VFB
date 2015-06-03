@@ -18,8 +18,7 @@
        updateWlzDisplay();
      });
      if (parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0"){
-       alert(JSON.stringify(parent.$("body").data()));
-       parent.$("body").data("current").fxp = parent.$("body").data("center");
+       parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
      }
    }
  }
