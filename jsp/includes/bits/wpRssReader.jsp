@@ -37,10 +37,12 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
     <div class="panel-body">
       <div class="input-group">
         <form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true;" target="popupwindow">
-          <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
-          <input type="submit" class="btn btn-default" value="Subscribe" id="feedburner_email_widget_sbef_submit" />
-          <input type="hidden" value="ac/RAmc" name="uri"/>
-	        <input type="hidden" name="loc" value="en_GB"/>
+          <div class="form-group">
+            <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
+            <input type="submit" class="btn btn-default" value="Subscribe" id="feedburner_email_widget_sbef_submit" />
+            <input type="hidden" value="ac/RAmc" name="uri"/>
+  	        <input type="hidden" name="loc" value="en_GB"/>
+          </div>
         </form>
       </div>
     </div>
