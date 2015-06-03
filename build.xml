@@ -161,13 +161,13 @@
             </fileset>
         </copy>
     </target>
-    
+
     <target name="clean">
         <delete dir="build"/>
     </target>
-    
-    <target depends="jdoc-clean, init, compile, copy, jdoc, clean" name="build"/>
- 
+
+    <target depends="init, compile, copy, clean" name="build"/>
+
     <target depends="init" name="compile">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="build" includeantruntime="false" source="${source}" target="${target}">
@@ -181,7 +181,7 @@
         </copy>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-	
+
 	<!-- Generate javadocs for current project into doc -->
 	<target name="jdoc-clean">
         <delete dir="jdoc"/>
@@ -193,4 +193,3 @@
     </target>
 
 </project>
-
