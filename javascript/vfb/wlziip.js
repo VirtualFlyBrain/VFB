@@ -122,7 +122,9 @@ function loadColours(){
     var lines = data.split("\n");
     parent.$("body").data("colours", lines);
     updateWlzDisplay();
+    return true;
   });
+  return false;
 }
 
 function initWlzDisplay(ids) {
@@ -153,8 +155,7 @@ function initWlzDisplay(ids) {
 
  function generateWlzURL(index){
    if (parent.$("body").data("colours") === undefined){
-     alert(parent.$("body").data("colours"));
-     loadColours();
+     alert(loadColours());
      alert(parent.$("body").data("colours"));
      updateWlzDisplay();
      alert(parent.$("body").data("colours")[index]);
