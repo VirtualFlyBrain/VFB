@@ -122,6 +122,7 @@ function loadColours(){
     var lines = data.split("\n");
     parent.$("body").data("colours", lines);
     updateWlzDisplay();
+    alert(lines);
     return true;
   });
   return false;
