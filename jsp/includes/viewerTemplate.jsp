@@ -26,6 +26,7 @@
 </jsp:include>
 
 <script>
+	loadColours();
 	$(document).ready(function() {
 		var ids = "";
 		initWlzDisplay(ids);
