@@ -4,7 +4,7 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
-		" />
+		/css/slider.css;" />
 	<jsp:param name="js" value="
 		/javascript/ajax-solr/vfb.js;
 		/javascript/ajax-solr/core/Core.js;
@@ -22,6 +22,7 @@
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/thirdParty/json2.js;
 		/javascript/vfb/wlziip.js;
+		/javascript/thirdParty/bootstrap-slider.js;
 		" />
 </jsp:include>
 
