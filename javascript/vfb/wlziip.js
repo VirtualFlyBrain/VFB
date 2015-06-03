@@ -16,6 +16,7 @@
        });
        if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0")){
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+         alert(parent.$("body").data("meta").center);
        }
        updateWlzDisplay();
      });
