@@ -8,16 +8,18 @@
  var colours = loadColours();
 
  function loadTemplateMeta(id) {
-   alert(id);
-   file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
-   alert(file);
-   $.getJSON( file, function( data ) {
-     var items = [];
-     $.each( data, function( key, val ) {
-       parent.$("body").data(key,val);
+   if (id){
+     file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
+     $.getJSON( file, function( data ) {
+       var items = [];
+       $.each( data, function( key, val ) {
+         parent.$("body").data(key,val);
+       });
+       updateWlzDisplay();
      });
-     updateWlzDisplay();
-   });
+   }else{
+     alert("launched with blank id");
+   }
  }
 
  function fileFromId(id) {
@@ -143,6 +145,7 @@ function initWlzDisplay(ids) {
      updateWlzDisplay();
    }
    parent.$("body").data(JSON.parse($.cookie("displaying")));
+   alert($.cookie("displaying"));
    alert("initWlzDisplay - " + parent.$("body").data("current").template);
    loadTemplateMeta(parent.$("body").data("current").template);
 
