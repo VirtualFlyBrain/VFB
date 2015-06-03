@@ -177,5 +177,5 @@ function initWlzDisplay(ids) {
    $("#slider-slice").slider({reversed : true});
    $("#slider-scale").slider({reversed : true});
    $("#slider-slice").data("slider-max", parent.$("body").data("meta").extent.split(',')[2]+1);
-   $("#slider-slice").data("slider-value", parent.$("body").data("meta").center.split(',')[2]+1);
+   $("#slider-slice").slider('setValue', parent.$("body").data("meta").center.split(',')[2]+1);
  }
