@@ -175,7 +175,7 @@ function initWlzDisplay(ids) {
 
  function initWlzControls(){
    $("#slider-slice").slider({reversed: true, focus: true}).on('slide', function(ev){
-     parent.$("body").data("current").dst = String(parseInt($("#slider-slice").data('slider').value[0])-1);
+     parent.$("body").data("current").dst = String(parseInt($("#slider-slice").data('slider').value[0])-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
      updateWlzDisplay();
    });
    $("#slider-scale").slider({reversed: false, focus: true}).on('slide', function(ev){
