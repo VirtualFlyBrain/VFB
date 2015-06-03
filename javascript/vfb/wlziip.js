@@ -18,6 +18,7 @@
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
        }
        updateWlzDisplay();
+       initWlzControls();
      });
    }
  }
