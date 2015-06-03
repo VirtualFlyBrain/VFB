@@ -22,7 +22,7 @@
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/thirdParty/json2.js;
 		/javascript/vfb/wlziip.js;
-		/javascript/thirdParty/bootstrap-slider.js;
+		/javascript/thirdParty/bootstrap-slider.min.js;
 		" />
 </jsp:include>
 
