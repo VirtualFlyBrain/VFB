@@ -174,8 +174,16 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   $("#slider-slice").slider({reversed : true});
-   $("#slider-scale").slider({reversed : true});
+   $("#slider-slice").slider({reversed : true}).on('slide', function(ev){
+     parent.$("body").data("current").dst = String(parseInt($("#slider-slice").slider('getValue'))-1);
+     updateWlzDisplay();
+   });
+   $("#slider-scale").slider({reversed : false}).on('slide', function(ev){
+     parent.$("body").data("current").scl = String($("#slider-scale").slider('getValue'));
+     updateWlzDisplay();
+   });
    $("#slider-slice").data("slider-max", parseInt(parent.$("body").data("meta").extent.split(',')[2])+1);
    $("#slider-slice").slider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
+
+
  }
