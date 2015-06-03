@@ -8,7 +8,9 @@
  var colours = loadColours();
 
  function loadTemplateMeta(id) {
+   alert(id);
    file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
+   alert(file);
    $.getJSON( file, function( data ) {
      var items = [];
      $.each( data, function( key, val ) {
