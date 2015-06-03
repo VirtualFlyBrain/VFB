@@ -15,11 +15,11 @@
        $.each( data, function( key, val ) {
          parent.$("body").data(key,val);
        });
+       if (parent.$("body").data("meta") !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0")){
+         parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+       }
        updateWlzDisplay();
      });
-     if (parent.$("body").data("meta") !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0")){
-       parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
-     }
    }
  }
 
