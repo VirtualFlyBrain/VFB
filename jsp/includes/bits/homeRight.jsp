@@ -22,7 +22,7 @@
 			            </li>
 			            <li>
 			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=782">New adult brain stack</a><br/>
-			                  Now hosting tricolour adult brain stack from Ito 2014
+			                  Now hosting Ito's tricolour adult brain stack
 			               </p>
 			            </li>
 			            <li>
