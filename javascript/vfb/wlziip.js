@@ -174,11 +174,11 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   $("#slider-slice").slider({reversed: true, focus: true}).on('slide', function(ev){
+   $("#slider-slice").slider({reversed: true, min: 1, max: 1024, step: 1, value: 1, focus: true}).on('slide', function(ev){
      parent.$("body").data("current").dst = String(parseInt($("#slider-slice").data('slider').value[0])-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
      updateWlzDisplay();
    });
-   $("#slider-scale").slider({reversed: false, focus: true}).on('slide', function(ev){
+   $("#slider-scale").slider({reversed: false, min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [1, 2], ticks_labels: ['1x', '2x'], ticks_snap_bounds: 0.3}).on('slide', function(ev){
      parent.$("body").data("current").scl = String($("#slider-scale").data('slider').value[0]);
      updateWlzDisplay();
    });
