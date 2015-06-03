@@ -37,8 +37,8 @@
 
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
-			<input id="ex3" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical"/>
-			<input id="ex4" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical"/>
+			<input id="slider-scale" type="text" data-slider-min="0.1" data-slider-max="5" data-slider-step="0.1" data-slider-value="1" data-slider-orientation="vertical"/>
+			<input id="slider-slice" type="text" data-slider-min="0" data-slider-max="1024" data-slider-step="1" data-slider-value="0" data-slider-orientation="vertical"/>
 		</form>
 	</div>
 

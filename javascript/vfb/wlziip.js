@@ -148,6 +148,9 @@ function initWlzDisplay(ids) {
   loadTemplateMeta(parent.$("body").data("current").template);
 
   updateWlzDisplay();
+
+
+
  }
 
  function generateWlzURL(index){
@@ -167,4 +170,11 @@ function initWlzDisplay(ids) {
    }
    var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + layer.id.substr(9) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
    return text;
+ }
+
+ function initWlzControls(){
+   $("#slider-slice").slider({reversed : true});
+   $("#slider-scale").slider({reversed : true});
+   $("#slider-slice").data("slider-max", parent.$("body").data("meta").extent.split(',')[2]+1);
+   $("#slider-slice").data("slider-value", parent.$("body").data("meta").center.split(',')[2]+1);
  }
