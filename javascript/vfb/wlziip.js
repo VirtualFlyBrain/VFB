@@ -129,7 +129,7 @@ function initWlzDisplay(ids) {
      parent.$("body").data("VFBt_001", { selected: {
        0: { id: "VFBt_00100000", colour: "auto", visible: true }
      }});
-     if (ids !== undefined && ids !== null) {
+     if (ids !== undefined && ids !== null && ids !== "") {
        var id;
        text = "";
        for (id in ids) {
@@ -141,8 +141,7 @@ function initWlzDisplay(ids) {
      updateWlzDisplay();
    }
    parent.$("body").data(JSON.parse($.cookie("displaying")));
-
-
+   alert(parent.$("body").data("current").template);
    loadTemplateMeta(parent.$("body").data("current").template);
 
    updateWlzDisplay();

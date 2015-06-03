@@ -41,7 +41,9 @@
 			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
 				<canvas id="canvas" style="width: 1024px; height: 681px; display: block;"></canvas>
 				<script>
-					animateWlzDisplay();
+					$(document).ready(function() {
+						animateWlzDisplay();
+					});
 				</script>
 			</div>
 		</div>
