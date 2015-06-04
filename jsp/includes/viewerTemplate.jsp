@@ -40,9 +40,9 @@
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
-			<div id="slider-sliceCurrentSlider" style="display: none;"><input id="slider-slice" type="text" /></div>
+			<div id="slider-sliceCurrentSlider" style="display: none;display: initial;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
 			<div class="btn btn-default btn-xs" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
-			<div id="slider-scaleCurrentSlider" style="display: none;"><input id="slider-scale" type="text" /></div>
+			<div id="slider-scaleCurrentSlider" style="display: none;display:initial;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
 			<div class="btn btn-default btn-xs" id="toggle-view">Toggle View <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
 
 		</form>
