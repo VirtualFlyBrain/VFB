@@ -41,12 +41,4 @@
 		
 		</div><!-- end of row-->
 		
-		<div class="row-fluid visible-desktop row-centered">
-
-		<div class="col-md-12 col-min">
-			<div class="well-white">
-					<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
-			</div>
-		</div>
-	</div><!-- end of row-->
 
