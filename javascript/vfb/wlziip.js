@@ -173,18 +173,20 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   var slSlice = $("#slider-slice").bootstrapSlider({handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
+   var slSlice = $("#slider-slice").bootstrapSlider({tooltip: 'hide', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
    slSlice.on('slide', function(ev){
      parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+     $("#slider-sliceSliderVal").text(ev.value);
    });
    slSlice.on('slideStop', function(ev){
      parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
-   var slScale = $("#slider-scale").bootstrapSlider({handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: 1, step: 0.1, focus: true});
+   var slScale = $("#slider-scale").bootstrapSlider({tooltip: 'hide', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: 1, step: 0.1, focus: true});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value);
+     $("#slider-scaleSliderVal").text(String(ev.value)+'x');
    });
    slScale.on('slideStop', function(ev){
      parent.$("body").data("current").scl = String(ev.value);
@@ -194,11 +196,11 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
        $("#slider-scaleCurrentSlider").hide();
-       $("#slider-scaleSliderVal").show();
+       $("#slider-scaleSliderVal .glyphicon").show();
        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
      }else{
        $("#slider-scaleCurrentSlider").show();
-       $("#slider-scaleSliderVal").hide();
+       $("#slider-scaleSliderVal .glyphicon").hide();
        $("#slider-scaleCurrentSliderValLabel").addClass("active");
        $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
      }
@@ -206,11 +208,11 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
      if ($("#slider-sliceCurrentSlider").is(":visible")){
        $("#slider-sliceCurrentSlider").hide();
-       $("#slider-sliceSliderVal").show();
+       $("#slider-sliceSliderVal .glyphicon").show();
        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
      }else{
        $("#slider-sliceCurrentSlider").show();
-       $("#slider-sliceSliderVal").hide();
+       $("#slider-sliceSliderVal .glyphicon").hide();
        $("#slider-sliceCurrentSliderValLabel").addClass("active");
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
