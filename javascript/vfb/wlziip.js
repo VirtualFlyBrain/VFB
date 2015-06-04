@@ -155,7 +155,9 @@ function initWlzDisplay(ids) {
      }
    }
    updateWlzDisplay();
-  }
+ }else{
+   alert("found cookie" + $.cookie("displaying"));
+ }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   loadTemplateMeta(parent.$("body").data("current").template);
   updateWlzDisplay();
