@@ -191,22 +191,24 @@ function initWlzDisplay(ids) {
      $("#slider-scaleSliderVal").text(String(ev.value)+'x');
      updateWlzDisplay();
    });
-   $("#slider-scaleCurrentSliderValLabel").click(function(){
+   $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").isVisable()){
        $("#slider-scaleCurrentSlider").hide();
        $("#slider-scaleSliderVal").show();
      }else{
        $("#slider-scaleCurrentSlider").show();
        $("#slider-scaleSliderVal").hide();
+       $("#slider-scaleCurrentSlider").focus();
      }
    });
-   $("#slider-sliceCurrentSliderValLabel").click(function(){
+   $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
      if ($("#slider-sliceCurrentSlider").isVisable()){
        $("#slider-sliceCurrentSlider").hide();
        $("#slider-sliceSliderVal").show();
      }else{
        $("#slider-sliceCurrentSlider").show();
        $("#slider-sliceSliderVal").hide();
+       $("#slider-sliceCurrentSlider").focus();
      }
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);

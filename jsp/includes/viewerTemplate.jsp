@@ -38,9 +38,9 @@
 
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
-			<div id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span></div>
+			<div class="btn btn-default btn-xs" id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span><span class="caret"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display: none;"><input id="slider-scale" type="text" /></div>
-			<div id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" style="display: none;">1</span></div>
+			<div class="btn btn-default btn-xs" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" style="display: none;">1</span><span class="caret"></span></div>
 			<div id="slider-sliceCurrentSlider"><input id="slider-slice" type="text" /></div>
 		</form>
 	</div>
