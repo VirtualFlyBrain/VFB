@@ -105,8 +105,10 @@ function animateWlzDisplay(){
               if (parent.$("body").data("meta")){
                 var predWidth = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
                 var predHeight = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
-                canvas.height = predWidth;
-                canvas.width = predHeight;
+                if (predWidth !== "0px"){
+                  canvas.height = predWidth;
+                  canvas.width = predHeight;
+                }
               }
               if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
                 ctx.clearRect (0,0,canvas.width,canvas.height);
