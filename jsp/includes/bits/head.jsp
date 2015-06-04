@@ -151,7 +151,7 @@
 	<script>
 		jQuery(function( $ ){
 			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
-				$.cookie('cookie-box', 'closed', { path: '/' });
+				$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
 			});
 			if( $.cookie('cookie-box') === 'closed' ){
 				$('#cookie-warning').hide();
