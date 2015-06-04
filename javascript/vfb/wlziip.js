@@ -201,7 +201,7 @@ function initWlzControls() {
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
-   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl).toFixed(1), step: 0.1, focus: true});
+   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl), step: 0.1, focus: true});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = ev.value.toFixed(1);
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
