@@ -70,6 +70,18 @@ footer {
     text-shadow: none
 }
 
+.btn-sucess.outline {
+    border: 2px solid #5bc0de;
+    color: #5cb85c;
+    text-shadow: none
+}
+
+.btn-danger.outline {
+    border: 2px solid #5bc0de;
+    color: #d9534f;
+    text-shadow: none
+}
+
 /****************
  Adding top bugger to rows
 *************/
