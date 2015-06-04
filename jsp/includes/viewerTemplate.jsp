@@ -56,7 +56,7 @@
 					<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
 					<p>${credits[0]}</p>
 				  <p><b>Created by: </b>${credits[1]}</p>
-				  <p><b>Background Staining: </b>${credits[2]} <a href="${credits[3]}">${credits[4]}</a></p>
+				  <p><b>Background Staining: </b>${credits[2]} <a href="${credits[3]}" target="_new">${credits[4]}</a></p>
 					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
 					<h3><span class="glyphicon glyphicon-info-sign"></span> See individual details sheet for any images overlayed for attributation information.</h3>
 				</c:if>
