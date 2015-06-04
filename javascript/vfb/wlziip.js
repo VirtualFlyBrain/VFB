@@ -85,22 +85,27 @@ function animateWlzDisplay(){
 
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  // canvas.width = 1024;
-  // canvas.height = 681;
+  canvas.width = 1024;
+  canvas.height = 681;
   function step() {
-    selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+    var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
       var layers = Object.keys(selected).length;
       if (layers > 0){
+        var current = parent.$("body").data("current");
         var count = 0;
         var image = [];
+        var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+        var orient = parent.$("body").data("current").slice;
         for (i=0; i < layers; i++) {
           if (selected[i].visible){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (parent.$("body").data(parent.$("body").data("current").template).selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
-                ctx.clearRect (0,0,1024,1024);
+              canvas.width = String(parseInt((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
+              canvas.height = String(parseInt((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
+              if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
+                ctx.clearRect (0,0,canvas.width,canvas.height);
               }
               ctx.globalCompositeOperation = 'source-over';
             }
@@ -131,7 +136,7 @@ function initWlzDisplay(ids) {
   if (!jQuery.cookie('displaying')) {
    loadTemplateMeta("VFBt_001");
    var count = 0;
-   var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+   var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
    parent.$("body").data("current", JSON.parse(text));
    parent.$("body").data("VFBt_001", { selected: {
      0: { id: "VFBt_00100000", colour: "auto", visible: true }
@@ -173,7 +178,9 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'hide', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
+   var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+   var orient = parent.$("body").data("current").slice;
+   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'hide', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
    slSlice.on('slide', function(ev){
      parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
      $("#slider-sliceSliderVal").text(ev.value);
