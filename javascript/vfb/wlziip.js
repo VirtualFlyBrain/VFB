@@ -39,7 +39,8 @@
  }
 
 function updateWlzDisplay(){
-  $.cookie("displaying", JSON.stringify(parent.$("body").data()), { path: '/' });
+  $.cookie("displaying", JSON.stringify(parent.$("body").data()), { expires: 5*365, path: '/' });
+  alert('saved cookie:' + $.cookie("displaying"));
   //$("#left-panel").text(JSON.stringify(parent.$("body").data()));
 }
 
