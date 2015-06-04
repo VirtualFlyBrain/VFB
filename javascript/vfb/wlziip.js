@@ -107,7 +107,7 @@ function animateWlzDisplay(){
                 canvas.style.height = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
               }
               if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
-                ctx.clearRect (0,0,canvas.width,canvas.height);
+                ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
               }
               ctx.globalCompositeOperation = 'source-over';
             }
