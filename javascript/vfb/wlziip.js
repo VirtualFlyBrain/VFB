@@ -189,11 +189,13 @@ function initWlzDisplay(ids) {
    var orient = parent.$("body").data("current").slice;
    var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'hide', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
    slSlice.on('slide', function(ev){
-     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+     orient = parent.$("body").data("current").slice;
+     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]));
      $("#slider-sliceSliderVal").text(ev.value);
    });
    slSlice.on('slideStop', function(ev){
-     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+     orient = parent.$("body").data("current").slice;
+     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]));
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
@@ -244,7 +246,10 @@ function initWlzDisplay(ids) {
    });
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
-     $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+     orient = parent.$("body").data("current").slice;
+     $("#toggle-viewVal").text(orient);
+     parent.$("body").data("current").dst = 0;
+     slSlice.setValue(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
      requestAnimationFrame(scale);
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
