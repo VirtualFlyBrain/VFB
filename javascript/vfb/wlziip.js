@@ -262,10 +262,10 @@ function initWlzControls() {
    hideAllSliders();
    parent.$("body").data("disp", "scale");
  }else{
-   loadTemplateMeta(parent.$("body").data("current").template);
    window.setTimeout(function(){
      initWlzControls();
-   },100);
+     loadTemplateMeta(parent.$("body").data("current").template);
+   },2000);
  }
 }
 
