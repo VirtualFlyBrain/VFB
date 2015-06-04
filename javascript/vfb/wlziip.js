@@ -182,7 +182,7 @@ function initWlzDisplay(ids) {
    slSlice.on('slideStop', function(ev){
      updateWlzDisplay();
    });
-   var slScale = $("#slider-scale").bootstrapSlider({reversed: false, min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [1, 2], ticks_labels: ['1x', '2x'], ticks_snap_bounds: 0.3});
+   var slScale = $("#slider-scale").bootstrapSlider({reversed: false, min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [0.1, 0.5, 1, 2, 4, 5], ticks_labels: ['.1x','.5x','1x', '2x','4x','5x'], ticks_snap_bounds: 0.3});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value);
      $("#slider-scaleSliderVal").text(ev.value);
