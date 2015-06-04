@@ -198,7 +198,7 @@ function initWlzDisplay(ids) {
      }else{
        $("#slider-scaleCurrentSlider").show();
        $("#slider-scaleSliderVal").hide();
-       $("#slider-scaleCurrentSlider").focus();
+       $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
@@ -208,7 +208,7 @@ function initWlzDisplay(ids) {
      }else{
        $("#slider-sliceCurrentSlider").show();
        $("#slider-sliceSliderVal").hide();
-       $("#slider-sliceCurrentSlider").focus();
+       $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
