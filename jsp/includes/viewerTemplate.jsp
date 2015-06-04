@@ -75,7 +75,12 @@
 					}).click(function(e) {
 						e.preventDefault();
 						if ($(this).is(":focus")) {
-							$(this).blur();
+							if ($(this).data("open")) {
+								$(this).blur();
+								$(this).data("open", false);
+							}else{
+								$(this).data("open", true);
+							}
 						}
 					});
 				});
