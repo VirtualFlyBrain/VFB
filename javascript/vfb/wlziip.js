@@ -192,7 +192,7 @@ function initWlzDisplay(ids) {
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
-   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'hide', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: 1, step: 0.1, focus: true});
+   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'hide', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parent.$("body").data("current").scl, step: 0.1, focus: true});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
@@ -241,6 +241,7 @@ function initWlzDisplay(ids) {
      $("#toggle-viewVal").text(parent.$("body").data("current").slice);
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
+   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
  }
 
  function setOrientaion(ori){
