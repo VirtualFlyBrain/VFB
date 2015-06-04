@@ -249,7 +249,6 @@ function initWlzControls() {
      setOrientaion();
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = 0;
-     $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
      parent.$("body").data("disp", "scale");
      updateLabels();
    });
@@ -264,6 +263,7 @@ function updateLabels() {
   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
   $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+  $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
 }
 
 function hideAllSliders() {
