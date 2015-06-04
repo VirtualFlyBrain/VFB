@@ -44,7 +44,7 @@
 			<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display:initial;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
 			<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Toggle View <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
-			<div class="text-muted hidden-xs" id="positionDiv">Centered on: <span id="positionVal" class="badge">1x</span></div> 
+			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">1x</span></div>
 		</form>
 	</div>
 
