@@ -37,11 +37,11 @@
 			<div class="col-md-12">
 				<div class="well" align="left">
 					<center>
-				    		<h2>What can VFB do for me? <small>testing testing testing</small></h2>
+				    		<h2>What can VFB do for me? <small>Example queries with detailed steps</small></h2>
 					</center>
 
 					<div class="panel panel-info"> <!-- example query panel -->
-					  <div class="panel-heading">Example queries with detailed steps</div>
+					  <div class="panel-heading"><strong>Anatomy</strong></div>
 
 						<ul class="list-group">
 						  <li class="list-group-item">
@@ -153,76 +153,6 @@
 									});
 								</script>
 							</li>
-
-						  <li class="list-group-item">
-								<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
-						  		Find images of neurons with some part in the <b>ellipsoid body</b>
-						  	</a>
-						  	&nbsp;
-								<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find images of neuron that overlap the EB:"
-									data-popover-content="#Question3">More &raquo;
-								</a>
-								<div id="Question3" class="hide">
-									<p>
-								    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
-							    </p>
-
-							  	<ul>
-									  <li>
-								   		Go to the <a href="/site/stacks/index.htm">Stack Viewer</a>, accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
-									  </li>
-									  <li>
-										 	In the search box above the anatomy tree on the right panel, start typing <i>ellipsoid body</i>.<br/>
-										  <b>Did you know?</b> You can also search by any known synonym, such as <i>EB</i>.
-									  </li>
-									  <li>
-									 		A list of matching terms appears. The term list shrinks as you continue typing.
-									  </li>
-									  <li>
-									  	Once you see <i>ellipsoid body</i> in the list, select it (you might have to scroll down).
-									  </li>
-									  <li>
-								   		The anatomy tree will expand to display and highlight the term <i>ellipsoid body</i>. To highlight this domain on the stack viewer, click on the square to the left or on <i>centre</i> to the right of the term in the tree.
-									  </li>
-									  <li>
-									  	The query menu is at the top of the term info window. Hover on the main query options to see all available sub-options. </br>
-											<b>Did you know?</b> You can run the same query on the <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
-									 	</li>
-									  <li>
-									  	Select the query <i>Individual neurons with: some part here</i>.
-									  </li>
-									  <li>
-										  A list with the query results will be displayed. These are organised by cluster of neurons that overlap the antennal lobe, and these are named by the exemplar of the cluster. This allows you to quickly scan the clusters to find the neurons you are interested in.
-										</li>
-										<li>
-											The result list has fours columns: on the left is a snapshot of the cluster, followed by the exemplar, exemplar preview and a link to see all the neurons in that cluster.
-									  </li>
-										<li>
-											Clicking on the cluster snapshot will take you to the cluster page. There, you can see a 3D rendering of the cluster (in WebGL), and interact with it (rotate, zoom). In addition, the page displays a list of the neurons in that clusters sorted by similarity score, and a list of the top 5 clusters most similar to that one.
-										</li>
-										<li>
-											Back on the result list, clicking on <i>Show Individual members</i>, displays a list of all the neurons that are part of that cluster. The results are organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D viewer, neuron class and GAL4 driver.
-										</li>
-										<li>
-											Clicking on the thumbnail or on the <i>See in viewer</i> link will display the neuron in the viewer. This means you can overlay any of the painted anatomy domains on the brain, together with the neuron. On the term info page, below the viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
-										</li>
-										<li>
-											You can also create a composite view, to compare image stacks with each others (eg. compare two neuron images). Click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the result list. Select another neuron, click on <i>See in viewer</i> and then <i>Add to composite view</i>. Now click on <i>View composite</i> on the <i>Edit composite view</i> page.
-										</li>
-							 		</ul>
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-							</li>
 							<li class="list-group-item">
 								<a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
 						  		Find neurons that develop from one of the <b>neuroblasts in the antennal lobe</b>
@@ -279,69 +209,7 @@
 									});
 								</script>
 							</li>
-						  <li class="list-group-item">
-								<a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
-						  		Find transgenes expressed in <b>mushroom body alpha/beta neurons</b>
-						  	</a>
-						  	&nbsp;
-								<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find transgenes expressed in the MB-alpha/beta neurons:"
-									data-popover-content="#Question5">More &raquo;
-								</a>
-								<div id="Question5" class="hide">
-									<p>
-										For more information on this type of query click <a href="/site/vfb_site/features.htm#querybuilder">here</a>.
-									</p>
-
-									<ul>
-										<li>
-											Go to the <a href="/site/tools/query_builder/index.htm">Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools ->  Query Builder</i>.
-										</li>
-										<li>
-											In the search box above the anatomy tree, start typing <i>lobula</i>.<br/>
-										</li>
-										<li>
-											A list of matching terms appears. The term list shrinks as you continue typing.
-										</li>
-										<li>
-											Once you see <i>lobula</i> in the list, select it (you might have to scroll down).
-										</li>
-										<li>
-											The anatomy tree will expand to display and highlight the term <i>lobula</i>. To highlight this domain on the stack viewer, click on the square to the left or on <i>centre</i> to the right of the term in the tree.
-										</li>
-										<li>
-											To add the term to the query, click  <i>Add to the query</i> at the top of the term info window.
-										</li>
-										<li>
-											The entry for <i>lobula</i> will be added to the panel on the right, <i>Your query</i> - that represents your current query.<br/>
-											The query text below will be updated to reflect your query.
-										</li>
-										<li>
-											Select the directionality of the connectivity, by changing the type of terminals from <i>synaptic</i> to <i>postsynaptic</i> using the dropdown menu to the right of the term.
-										</li>
-										<li>
-											Repeat the same steps for <i>medulla</i>.
-										</li>
-										<li>
-											Check the query text in the <i>Your query</i> panel. When happy with it, click the <i>Execute</i> button at the bottom of the <i>Your query</i> panel.
-										</li>
-										<li>
-											A list with the query results will be displayed.
-										</li>
-									</ul>
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-							</li>
-						  <li class="list-group-item">
+							<li class="list-group-item">
 								<a href="/do/ont_query_result.html?action=multiquery&id=FBbt:00003852&id=FBbt:00003748&type=postsynaptic&type=presynaptic&rel=include&rel=include" target="_blank">
 						  		Find neurons that have postsynaptic terminals in <b>lobula</b> and presynaptic ones in <b>medulla</b>
 						  	</a>
@@ -415,7 +283,86 @@
 									});
 								</script>
 							</li>
-						   <li class="list-group-item">
+							
+						</ul>
+					</div>
+					</div> <!--end of panel-->
+					
+							<div class="panel panel-info"> <!-- example query panel -->
+					  <div class="panel-heading"><strong>Images</strong></div>
+
+						<ul class="list-group">
+
+						  <li class="list-group-item">
+								<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
+						  		Find images of neurons with some part in the <b>ellipsoid body</b>
+						  	</a>
+						  	&nbsp;
+								<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+									data-placement="bottom"
+									title="Find images of neuron that overlap the EB:"
+									data-popover-content="#Question3">More &raquo;
+								</a>
+								<div id="Question3" class="hide">
+									<p>
+								    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
+							    </p>
+
+							  	<ul>
+									  <li>
+								   		Go to the <a href="/site/stacks/index.htm">Stack Viewer</a>, accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
+									  </li>
+									  <li>
+										 	In the search box above the anatomy tree on the right panel, start typing <i>ellipsoid body</i>.<br/>
+										  <b>Did you know?</b> You can also search by any known synonym, such as <i>EB</i>.
+									  </li>
+									  <li>
+									 		A list of matching terms appears. The term list shrinks as you continue typing.
+									  </li>
+									  <li>
+									  	Once you see <i>ellipsoid body</i> in the list, select it (you might have to scroll down).
+									  </li>
+									  <li>
+								   		The anatomy tree will expand to display and highlight the term <i>ellipsoid body</i>. To highlight this domain on the stack viewer, click on the square to the left or on <i>centre</i> to the right of the term in the tree.
+									  </li>
+									  <li>
+									  	The query menu is at the top of the term info window. Hover on the main query options to see all available sub-options. </br>
+											<b>Did you know?</b> You can run the same query on the <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
+									 	</li>
+									  <li>
+									  	Select the query <i>Individual neurons with: some part here</i>.
+									  </li>
+									  <li>
+										  A list with the query results will be displayed. These are organised by cluster of neurons that overlap the antennal lobe, and these are named by the exemplar of the cluster. This allows you to quickly scan the clusters to find the neurons you are interested in.
+										</li>
+										<li>
+											The result list has fours columns: on the left is a snapshot of the cluster, followed by the exemplar, exemplar preview and a link to see all the neurons in that cluster.
+									  </li>
+										<li>
+											Clicking on the cluster snapshot will take you to the cluster page. There, you can see a 3D rendering of the cluster (in WebGL), and interact with it (rotate, zoom). In addition, the page displays a list of the neurons in that clusters sorted by similarity score, and a list of the top 5 clusters most similar to that one.
+										</li>
+										<li>
+											Back on the result list, clicking on <i>Show Individual members</i>, displays a list of all the neurons that are part of that cluster. The results are organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D viewer, neuron class and GAL4 driver.
+										</li>
+										<li>
+											Clicking on the thumbnail or on the <i>See in viewer</i> link will display the neuron in the viewer. This means you can overlay any of the painted anatomy domains on the brain, together with the neuron. On the term info page, below the viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
+										</li>
+										<li>
+											You can also create a composite view, to compare image stacks with each others (eg. compare two neuron images). Click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the result list. Select another neuron, click on <i>See in viewer</i> and then <i>Add to composite view</i>. Now click on <i>View composite</i> on the <i>Edit composite view</i> page.
+										</li>
+							 		</ul>
+								</div>
+								<script>
+									$(function(){
+										$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+							</li>
+							<li class="list-group-item">
 								<a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
 						  		Overlay 3 different image stacks that overlap the <b>adult central complex</b>
 						  	</a>
@@ -476,17 +423,83 @@
 								</script>
 							</li>
 						</ul>
-					</div><!-- example query panel -->
-					
-					<div class="panel panel-success"> <!-- example query panel -->
-					  <div class="panel-heading"><strong>testing another panel</strong></div>
+							
+							</ul>
+							
+						</div>
+					</div><!--example query panel-->
+							
+							<div class="panel panel-success"> <!-- example query panel -->
+					  <div class="panel-heading"><strong>Expression</strong></div>
 
 						<ul class="list-group">
+							
 						  <li class="list-group-item">
-						  testing 
-						  </li>
-						</ul>
+								<a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
+						  		Find transgenes expressed in <b>mushroom body alpha/beta neurons</b>
+						  	</a>
+						  	&nbsp;
+								<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+									data-placement="bottom"
+									title="Find transgenes expressed in the MB-alpha/beta neurons:"
+									data-popover-content="#Question5">More &raquo;
+								</a>
+								<div id="Question5" class="hide">
+									<p>
+										For more information on this type of query click <a href="/site/vfb_site/features.htm#querybuilder">here</a>.
+									</p>
+
+									<ul>
+										<li>
+											Go to the <a href="/site/tools/query_builder/index.htm">Anatomy/Neuron Finder</a> page, accessible from the homepage or from the top menu <i>Tools ->  Query Builder</i>.
+										</li>
+										<li>
+											In the search box above the anatomy tree, start typing <i>lobula</i>.<br/>
+										</li>
+										<li>
+											A list of matching terms appears. The term list shrinks as you continue typing.
+										</li>
+										<li>
+											Once you see <i>lobula</i> in the list, select it (you might have to scroll down).
+										</li>
+										<li>
+											The anatomy tree will expand to display and highlight the term <i>lobula</i>. To highlight this domain on the stack viewer, click on the square to the left or on <i>centre</i> to the right of the term in the tree.
+										</li>
+										<li>
+											To add the term to the query, click  <i>Add to the query</i> at the top of the term info window.
+										</li>
+										<li>
+											The entry for <i>lobula</i> will be added to the panel on the right, <i>Your query</i> - that represents your current query.<br/>
+											The query text below will be updated to reflect your query.
+										</li>
+										<li>
+											Select the directionality of the connectivity, by changing the type of terminals from <i>synaptic</i> to <i>postsynaptic</i> using the dropdown menu to the right of the term.
+										</li>
+										<li>
+											Repeat the same steps for <i>medulla</i>.
+										</li>
+										<li>
+											Check the query text in the <i>Your query</i> panel. When happy with it, click the <i>Execute</i> button at the bottom of the <i>Your query</i> panel.
+										</li>
+										<li>
+											A list with the query results will be displayed.
+										</li>
+									</ul>
+								</div>
+								<script>
+									$(function(){
+										$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+												return clone;
+											}
+										}).click(function(e) {e.preventDefault();});
+									});
+								</script>
+								</li>
+							</ul>
+						</div>   
 					</div><!-- example query panel -->
+					
 
 				</div><!-- well-->
 			</div> <!-- icon_row -->
