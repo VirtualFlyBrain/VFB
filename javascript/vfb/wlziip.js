@@ -113,19 +113,19 @@ function animateWlzDisplay(){
         }
       }
     }
-    function clear(){
-      ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
-    }
-    function scale(){
-      var current = parent.$("body").data("current");
-      var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-      var orient = current.slice;
-      if (parent.$("body").data("meta")){
-        canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
-        canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
-      }
-    }
     requestAnimationFrame(step);
+  }
+  function clear(){
+    ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
+  }
+  function scale(){
+    var current = parent.$("body").data("current");
+    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+    var orient = current.slice;
+    if (parent.$("body").data("meta")){
+      canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
+      canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
+    }
   }
   requestAnimationFrame(step);
 }
