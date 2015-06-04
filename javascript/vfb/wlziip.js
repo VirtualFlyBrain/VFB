@@ -212,6 +212,9 @@ function initWlzControls(){
        $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
      }else{
+       $('[id$=CurrentSlider]').each(function() {
+         $(this).hide();
+       });
        $("#slider-scaleCurrentSlider").show();
        $("#slider-scaleCurrentSliderValLabel .glyphicon").hide();
        $("#slider-scaleCurrentSliderValLabel").addClass("active");
@@ -224,6 +227,9 @@ function initWlzControls(){
        $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
      }else{
+       $('[id$=CurrentSlider]').each(function() {
+         $(this).hide();
+       });
        $("#slider-sliceCurrentSlider").show();
        $("#slider-sliceCurrentSliderValLabel .glyphicon").hide();
        $("#slider-sliceCurrentSliderValLabel").addClass("active");
