@@ -106,7 +106,7 @@ function animateWlzDisplay(){
                 canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
                 canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
               }
-              if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
+              if (selected[0].visible === false){
                 ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
               }
               ctx.globalCompositeOperation = 'source-over';
@@ -119,6 +119,9 @@ function animateWlzDisplay(){
           }
         }
       }
+    }
+    function clear(){
+      ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
     }
     requestAnimationFrame(step);
   }
@@ -201,6 +204,7 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
+     requestAnimationFrame(clear);
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
@@ -239,6 +243,7 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
      $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+     requestAnimationFrame(clear);
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
