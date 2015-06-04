@@ -143,7 +143,7 @@ function loadColours(){
 }
 
 function initWlzDisplay(ids) {
-  if (!jQuery.cookie('displaying')) {
+  if (!$.cookie('displaying')) {
    loadTemplateMeta("VFBt_001");
    var count = 0;
    var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
@@ -262,6 +262,7 @@ function initWlzControls() {
    hideAllSliders();
    parent.$("body").data("disp", "scale");
  }else{
+   loadTemplateMeta(parent.$("body").data("current").template);
    window.setTimeout(function(){
      initWlzControls();
    },100);
