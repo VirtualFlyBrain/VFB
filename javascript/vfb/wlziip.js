@@ -42,8 +42,8 @@ function updateWlzDisplay(){
   var save = parent.$("body").data();
   delete save.domains;
   delete save.disp;
-  // delete save.meta;
-  // delete save.colours;
+  delete save.meta;
+  delete save.colours;
   $.cookie("displaying", JSON.stringify(save), { expires: 5*365, path: '/' });
   alert('saved cookie:' + $.cookie("displaying"));
   //$("#left-panel").text(JSON.stringify(parent.$("body").data()));
@@ -188,6 +188,7 @@ function generateWlzURL(index){
  }
 
 function initWlzControls() {
+  if (parent.$("body").data("meta")){
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    var orient = parent.$("body").data("current").slice;
    var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
@@ -262,6 +263,11 @@ function initWlzControls() {
    updateLabels();
    hideAllSliders();
    parent.$("body").data("disp", "scale");
+ }else{
+   window.setTimeout(function(){
+     initWlzControls();
+   },100);
+ }
 }
 
 function updateLabels() {
