@@ -201,7 +201,7 @@ function initWlzControls() {
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
-   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl), step: 0.1, focus: true});
+   var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl).toFixed(1), step: 0.1, focus: true});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
@@ -277,7 +277,7 @@ function updateLabels() {
   var orient = parent.$("body").data("current").slice;
   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
-  $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+  $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
   $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
   var pos = parent.$("body").data("current").fxp.split(',');
   for (var i=0; i<3; i++){
