@@ -192,7 +192,7 @@ function initWlzDisplay(ids) {
      updateWlzDisplay();
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
-     if ($("#slider-scaleCurrentSlider").isVisable()){
+     if ($("#slider-scaleCurrentSlider").is(":visible")){
        $("#slider-scaleCurrentSlider").hide();
        $("#slider-scaleSliderVal").show();
      }else{
@@ -202,7 +202,7 @@ function initWlzDisplay(ids) {
      }
    });
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
-     if ($("#slider-sliceCurrentSlider").isVisable()){
+     if ($("#slider-sliceCurrentSlider").is(":visible")){
        $("#slider-sliceCurrentSlider").hide();
        $("#slider-sliceSliderVal").show();
      }else{
