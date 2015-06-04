@@ -196,11 +196,11 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
        $("#slider-scaleCurrentSlider").hide();
-       $("#slider-scaleSliderVal .glyphicon").show();
+       $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
      }else{
        $("#slider-scaleCurrentSlider").show();
-       $("#slider-scaleSliderVal .glyphicon").hide();
+       $("#slider-scaleCurrentSliderValLabel .glyphicon").hide();
        $("#slider-scaleCurrentSliderValLabel").addClass("active");
        $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
      }
@@ -208,11 +208,11 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
      if ($("#slider-sliceCurrentSlider").is(":visible")){
        $("#slider-sliceCurrentSlider").hide();
-       $("#slider-sliceSliderVal .glyphicon").show();
+       $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
      }else{
        $("#slider-sliceCurrentSlider").show();
-       $("#slider-sliceSliderVal .glyphicon").hide();
+       $("#slider-sliceCurrentSliderValLabel .glyphicon").hide();
        $("#slider-sliceCurrentSliderValLabel").addClass("active");
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
