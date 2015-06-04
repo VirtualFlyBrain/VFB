@@ -99,8 +99,19 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (selected[0].visible === false){
+              if (parent.$("body").data("disp") == "scale"){
+                var current = parent.$("body").data("current");
+                var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+                var orient = current.slice;
+                if (parent.$("body").data("meta")){
+                  canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
+                  canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
+                }
+                parent.$("body").data("disp", "done");
+              }
+              if (selected[0].visible === false || parent.$("body").data("disp") == "clear"){
                 ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
+                parent.$("body").data("disp", "done");
               }
               ctx.globalCompositeOperation = 'source-over';
             }
@@ -114,18 +125,6 @@ function animateWlzDisplay(){
       }
     }
     requestAnimationFrame(step);
-  }
-  function clear(){
-    ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
-  }
-  function scale(){
-    var current = parent.$("body").data("current");
-    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-    var orient = current.slice;
-    if (parent.$("body").data("meta")){
-      canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
-      canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
-    }
   }
   requestAnimationFrame(step);
 }
@@ -145,9 +144,7 @@ function initWlzDisplay(ids) {
    var count = 0;
    var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
    parent.$("body").data("current", JSON.parse(text));
-   parent.$("body").data("VFBt_001", { selected: {
-     0: { id: "VFBt_00100000", colour: "auto", visible: true }
-   }});
+   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
    if (ids !== undefined && ids !== null && ids !== "") {
      var id;
      text = "";
@@ -161,11 +158,10 @@ function initWlzDisplay(ids) {
   }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   loadTemplateMeta(parent.$("body").data("current").template);
-
   updateWlzDisplay();
- }
+}
 
- function generateWlzURL(index){
+function generateWlzURL(index){
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
@@ -184,7 +180,7 @@ function initWlzDisplay(ids) {
    return text;
  }
 
- function initWlzControls(){
+function initWlzControls(){
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    var orient = parent.$("body").data("current").slice;
    var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'hide', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
@@ -208,7 +204,7 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
-     requestAnimationFrame(scale);
+     parent.$("body").data("disp", "scale");
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
@@ -250,14 +246,14 @@ function initWlzDisplay(ids) {
      $("#toggle-viewVal").text(orient);
      parent.$("body").data("current").dst = 0;
      slSlice.setValue(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
-     requestAnimationFrame(scale);
+     parent.$("body").data("disp", "scale");
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
    $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
  }
 
- function setOrientaion(ori){
+function setOrientaion(ori){
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    if (ori == "Z" || ori == "X" || ori == "Y"){
      parent.$("body").data("current").slice=ori;
