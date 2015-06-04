@@ -36,7 +36,7 @@
 
 <div class="row">
 
-	<div class="span8" id="left-panel">
+	<div class="span8" id="viewer-panel">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -46,32 +46,17 @@
 			<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Toggle View <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
+		<canvas class="well" id="canvas" style="display: block;"></canvas>
+		<script>
+			$(document).ready(function() {
+				animateWlzDisplay();
+			});
+		</script>
 	</div>
 
-	<div class="span8" id="contentwrapper">
-		<div id="center_panel">
-			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
-				<canvas class="well" id="canvas" style="display: block;"></canvas>
-				<script>
-					$(document).ready(function() {
-						animateWlzDisplay();
-					});
-				</script>
-			</div>
-		</div>
-	</div>
-
-	<div class="span2" id="right-panel">
+	<div class="span4" id="right-panel">
 		<div id="toolContainerDiv">
-			<!-- We presume that for third party stacks with proper credits the param.json will be used-->
-			<%-- <c:if test="${empty param.json}">
-				<jsp:include page="/jsp/includes/bits/credits.jsp" />
-			</c:if>
-			<c:if test="${!empty param.json}">
-				<jsp:include page="/jsp/includes/bits/credits3party.jsp">
-					<jsp:param name="tpb" value="${param.tpb}" />
-				</jsp:include>
-			</c:if> --%>
+			tree TDB
 		</div>
 	</div>
 
