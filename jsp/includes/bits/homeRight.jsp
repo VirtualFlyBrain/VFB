@@ -37,7 +37,7 @@
 			   	</div>
 				</section>
 			</div><!-- end of news well-->
-		</div>
+		</div><!-- end of col-->
 		
 		</div><!-- end of row-->
 		
