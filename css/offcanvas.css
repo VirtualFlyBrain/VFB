@@ -71,13 +71,13 @@ footer {
 }
 
 .btn-sucess.outline {
-    border: 2px solid #5bc0de;
+    border: 2px solid #5cb85c;
     color: #5cb85c;
     text-shadow: none
 }
 
 .btn-danger.outline {
-    border: 2px solid #5bc0de;
+    border: 2px solid #d9534f;
     color: #d9534f;
     text-shadow: none
 }
