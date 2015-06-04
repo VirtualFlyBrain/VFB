@@ -247,12 +247,13 @@ function initWlzDisplay(ids) {
      $("#toggle-viewVal").text(parent.$("body").data("current").slice);
      requestAnimationFrame(scale);
    });
-   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
+   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
    $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
  }
 
  function setOrientaion(ori){
+   var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    if (ori == "Z" || ori == "X" || ori == "Y"){
      parent.$("body").data("current").slice=ori;
    }else {
@@ -267,21 +268,25 @@ function initWlzDisplay(ids) {
         parent.$("body").data("current").slice="Z";
      }
    }
-   switch (parent.$("body").data("current").slice){
+   var orient = parent.$("body").data("current").slice;
+   switch (orient){
     case "Y":
       parent.$("body").data("current").pit=90.0;
       parent.$("body").data("current").yaw=90.0;
       parent.$("body").data("current").rol=90.0;
+      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
       break;
     case "X":
       parent.$("body").data("current").pit=90.0;
       parent.$("body").data("current").yaw=0.0;
       parent.$("body").data("current").rol=90.0;
+      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
       break;
     default:
       parent.$("body").data("current").pit=0.0;
       parent.$("body").data("current").yaw=0.0;
       parent.$("body").data("current").rol=0.0;
+      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
    }
    updateWlzDisplay();
  }
