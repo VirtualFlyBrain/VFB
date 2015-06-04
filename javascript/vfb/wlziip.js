@@ -39,7 +39,7 @@
  }
 
 function updateWlzDisplay(){
-  var save = parent.$("body").data();
+  var save = JSON.parse(JSON.stringify(parent.$("body").data()));
   delete save.domains;
   delete save.disp;
   delete save.meta;
