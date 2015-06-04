@@ -205,6 +205,7 @@ function initWlzControls() {
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
+     parent.$("body").data("disp", "scale");
    });
    slScale.on('slideStop', function(ev){
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
