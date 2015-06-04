@@ -199,12 +199,12 @@ function initWlzDisplay(ids) {
    });
    var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'hide', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: 1, step: 0.1, focus: true});
    slScale.on('slide', function(ev){
-     parent.$("body").data("current").scl = String(ev.value);
-     $("#slider-scaleSliderVal").text(String(ev.value)+'x');
+     parent.$("body").data("current").scl = String(ev.value.toFixed(1));
+     $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
    });
    slScale.on('slideStop', function(ev){
-     parent.$("body").data("current").scl = String(ev.value);
-     $("#slider-scaleSliderVal").text(String(ev.value)+'x');
+     parent.$("body").data("current").scl = String(ev.value.toFixed(1));
+     $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
