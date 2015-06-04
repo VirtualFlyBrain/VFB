@@ -42,8 +42,8 @@ function updateWlzDisplay(){
   var save = parent.$("body").data();
   delete save.domains;
   delete save.disp;
-  delete save.meta;
-  delete save.colours;
+  // delete save.meta;
+  // delete save.colours;
   $.cookie("displaying", JSON.stringify(save), { expires: 5*365, path: '/' });
   alert('saved cookie:' + $.cookie("displaying"));
   //$("#left-panel").text(JSON.stringify(parent.$("body").data()));
@@ -161,11 +161,10 @@ function initWlzDisplay(ids) {
      }
    }
    updateWlzDisplay();
- }else{
-   alert("found cookie" + $.cookie("displaying"));
  }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   loadTemplateMeta(parent.$("body").data("current").template);
+  loadColours();
   updateWlzDisplay();
 }
 
