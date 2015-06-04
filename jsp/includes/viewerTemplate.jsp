@@ -40,8 +40,8 @@
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span> <span class="caret"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display: none;"><input id="slider-scale" type="text" /></div>
-			<div class="btn btn-default btn-xs" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" style="display: none;">1</span> <span class="caret"></span></div>
-			<div id="slider-sliceCurrentSlider"><input id="slider-slice" type="text" /></div>
+			<div class="btn btn-default btn-xs" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal">1</span> <span class="caret"></span></div>
+			<div id="slider-sliceCurrentSlider" style="display: none;"><input id="slider-slice" type="text" /></div>
 		</form>
 	</div>
 
