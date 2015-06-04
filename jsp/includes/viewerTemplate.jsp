@@ -38,10 +38,10 @@
 
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
-			<span id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span></span>
-			<input id="slider-scale" type="text" />
-			<span id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal">1</span></span>
-			<input id="slider-slice" type="text" />
+			<div id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span></div>
+			<div id="slider-scaleCurrentSlider" style="display: none;"><input id="slider-scale" type="text" /></div>
+			<div id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" style="display: none;">1</span></div>
+			<div id="slider-sliceCurrentSlider"><input id="slider-slice" type="text" /></div>
 		</form>
 	</div>
 
