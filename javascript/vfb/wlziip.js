@@ -255,6 +255,7 @@ function initWlzControls() {
    });
    updateLabels();
    hideAllSliders();
+   parent.$("body").data("disp", "scale");
 }
 
 function updateLabels() {

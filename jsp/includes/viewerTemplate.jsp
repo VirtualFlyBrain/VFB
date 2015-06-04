@@ -36,7 +36,7 @@
 
 <div class="row">
 
-	<div class="span2" id="left-panel">
+	<div class="span8" id="left-panel">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -48,9 +48,9 @@
 	</div>
 
 	<div class="span8" id="contentwrapper">
-		<div class="well" id="center_panel">
+		<div id="center_panel">
 			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
-				<canvas id="canvas" style="display: block;"></canvas>
+				<canvas class="well" id="canvas" style="display: block;"></canvas>
 				<script>
 					$(document).ready(function() {
 						animateWlzDisplay();
