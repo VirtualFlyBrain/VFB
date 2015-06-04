@@ -212,9 +212,7 @@ function initWlzControls() {
        $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
      }else{
-       $('[id$=CurrentSlider]').each(function() {
-         $(this).hide();
-       });
+       hideAllSliders();
        $("#slider-scaleCurrentSlider").show();
        $("#slider-scaleCurrentSliderValLabel .glyphicon").hide();
        $("#slider-scaleCurrentSliderValLabel").addClass("active");
@@ -227,9 +225,7 @@ function initWlzControls() {
        $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
      }else{
-       $('[id$=CurrentSlider]').each(function() {
-         $(this).hide();
-       });
+       hideAllSliders();
        $("#slider-sliceCurrentSlider").show();
        $("#slider-sliceCurrentSliderValLabel .glyphicon").hide();
        $("#slider-sliceCurrentSliderValLabel").addClass("active");
@@ -237,6 +233,7 @@ function initWlzControls() {
      }
    });
    $("body").on('click', "#resetPosition", function(){
+     hideAllSliders();
      var text = '{ "scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
      parent.$("body").data("current").scl = 1.0;
      setOrientaion("Z");
@@ -248,6 +245,7 @@ function initWlzControls() {
      updateLabels();
    });
    $("body").on('click', "#toggle-view", function(){
+     hideAllSliders();
      setOrientaion();
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = 0;
@@ -256,14 +254,19 @@ function initWlzControls() {
      updateLabels();
    });
    updateLabels();
-   $("#slider-sliceCurrentSlider").hide();
-   $("#slider-scaleCurrentSlider").hide();
+   hideAllSliders();
 }
 
 function updateLabels() {
   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
   $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+}
+
+function hideAllSliders() {
+  $('[id$=CurrentSlider]').each(function() {
+    $(this).hide();
+  });
 }
 
 function setOrientaion(ori) {
