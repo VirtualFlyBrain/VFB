@@ -180,7 +180,7 @@ function generateWlzURL(index){
    return text;
  }
 
-function initWlzControls(){
+function initWlzControls() {
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    var orient = parent.$("body").data("current").slice;
    var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
@@ -245,23 +245,28 @@ function initWlzControls(){
      parent.$("body").data("current").inverted = false;
      parent.$("body").data("current").blend = "screen";
      updateWlzDisplay();
+     updateLabels();
    });
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
      orient = parent.$("body").data("current").slice;
-     $("#toggle-viewVal").text(orient);
      parent.$("body").data("current").dst = 0;
      $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
      parent.$("body").data("disp", "scale");
+     updateLabels();
    });
-   $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
-   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
-   $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+   updateLabels();
    $("#slider-sliceCurrentSlider").hide();
    $("#slider-scaleCurrentSlider").hide();
- }
+}
 
-function setOrientaion(ori){
+function updateLabels() {
+  $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+  $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+  $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+}
+
+function setOrientaion(ori) {
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    if (ori == "Z" || ori == "X" || ori == "Y"){
      parent.$("body").data("current").slice=ori;
