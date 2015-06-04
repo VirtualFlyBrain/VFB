@@ -48,7 +48,7 @@
 	<div class="span8" id="contentwrapper">
 		<div class="well" id="center_panel">
 			<div id="emapIIPViewerDiv" style="overflow-y:auto; overflow-x:auto">
-				<canvas id="canvas" style="width: 1024px; height: 681px; display: block;"></canvas>
+				<canvas id="canvas" style="display: block;"></canvas>
 				<script>
 					$(document).ready(function() {
 						animateWlzDisplay();
