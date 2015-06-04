@@ -235,7 +235,10 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").inverted = false;
      parent.$("body").data("current").blend = "screen";
    });
-
+   $("body").on('click', "#toggle-view", function(){
+     setOrientaion();
+     $("#slider-scaleSliderVal").text(parent.$("body").data("current").slice);
+   });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
  }
 
