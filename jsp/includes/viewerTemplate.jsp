@@ -38,6 +38,7 @@
 
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
+			<div class="btn btn-default btn-xs" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display: none;"><input id="slider-scale" type="text" /></div>
 			<div class="btn btn-default btn-xs" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal">1</span> <span class="glyphicon glyphicon-edit"></span></div>

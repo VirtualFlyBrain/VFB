@@ -224,5 +224,48 @@ function initWlzDisplay(ids) {
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
+   $("body").on('click', "#resetPosition", function(){
+     var text = '{ "scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+     parent.$("body").data("current").scl = 1.0;
+     setOrientaion("Z");
+     parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+     parent.$("body").data("current").alpha = 100;
+     parent.$("body").data("current").inverted = false;
+     parent.$("body").data("current").blend = "screen";
+   });
+
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
+ }
+
+ function setOrientaion(ori){
+   if (ori == "Z" || ori == "X" || ori == "Y"){
+     parent.$("body").data("current").slice=ori;
+   }else {
+     switch (parent.$("body").data("current").slice){
+       case "Z":
+        parent.$("body").data("current").slice="Y";
+        break;
+       case "Y":
+        parent.$("body").data("current").slice="X";
+        break;
+       default:
+        parent.$("body").data("current").slice="Z";
+     }
+   }
+   switch (parent.$("body").data("current").slice){
+    case "Y":
+      parent.$("body").data("current").pit=90.0;
+      parent.$("body").data("current").yaw=90.0;
+      parent.$("body").data("current").rol=90.0;
+      break;
+    case "X":
+      parent.$("body").data("current").pit=90.0;
+      parent.$("body").data("current").yaw=0.0;
+      parent.$("body").data("current").rol=90.0;
+      break;
+    default:
+      parent.$("body").data("current").pit=0.0;
+      parent.$("body").data("current").yaw=0.0;
+      parent.$("body").data("current").rol=0.0;
+   }
  }
