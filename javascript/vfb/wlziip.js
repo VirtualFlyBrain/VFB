@@ -106,6 +106,7 @@ function animateWlzDisplay(){
                 var predWidth = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
                 var predHeight = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
                 if (predWidth !== "0px"){
+                  alert(predWidth);
                   canvas.height = predWidth;
                   canvas.width = predHeight;
                 }
