@@ -237,7 +237,7 @@ function initWlzDisplay(ids) {
    });
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
-     $("#slider-scaleSliderVal").text(parent.$("body").data("current").slice);
+     $("#toggle-viewVal").text(parent.$("body").data("current").slice);
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
  }
