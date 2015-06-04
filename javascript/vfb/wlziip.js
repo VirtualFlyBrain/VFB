@@ -175,7 +175,7 @@ function generateWlzURL(index){
    if (layer.colour !== "auto"){
      colour = layer.colour;
    }else{
-     if (parent.$("body").data("colours") === undefined){
+     if (!parent.$("body").data("colours")){
        loadColours();
      }else{
        colour = parent.$("body").data("colours")[index];
