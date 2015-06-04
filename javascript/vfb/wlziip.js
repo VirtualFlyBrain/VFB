@@ -103,8 +103,10 @@ function animateWlzDisplay(){
             image[i].src = generateWlzURL(i);
             if (count===0){
               if (parent.$("body").data("meta")){
-                canvas.width = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
-                canvas.height = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
+                var predWidth = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
+                var predHeight = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
+                canvas.height = predWidth;
+                canvas.width = predHeight;
               }
               if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
                 ctx.clearRect (0,0,canvas.width,canvas.height);
@@ -234,6 +236,7 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").alpha = 100;
      parent.$("body").data("current").inverted = false;
      parent.$("body").data("current").blend = "screen";
+     updateWlzDisplay();
    });
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
@@ -273,4 +276,5 @@ function initWlzDisplay(ids) {
       parent.$("body").data("current").yaw=0.0;
       parent.$("body").data("current").rol=0.0;
    }
+   updateWlzDisplay();
  }
