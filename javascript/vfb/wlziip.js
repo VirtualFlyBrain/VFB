@@ -192,12 +192,12 @@ function initWlzControls() {
    var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
    slSlice.on('slide', function(ev){
      orient = parent.$("body").data("current").slice;
-     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]));
+     parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
      $("#slider-sliceSliderVal").text(ev.value);
    });
    slSlice.on('slideStop', function(ev){
      orient = parent.$("body").data("current").slice;
-     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]));
+     parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
