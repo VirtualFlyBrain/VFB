@@ -174,23 +174,22 @@ function initWlzDisplay(ids) {
  }
 
  function initWlzControls(){
-   $("#slider-slice").slider({reversed: true, min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
-   $("#slider-slice").on('slide', function(ev){
+   var slSlice = $("#slider-slice").bootstrapSlider({reversed: true, min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
+   slSlice.on('slide', function(ev){
      parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
      $("#slider-sliceSliderVal").text(ev.value);
    });
-   $("#slider-slice").on('slideStop', function(ev){
+   slSlice.on('slideStop', function(ev){
      updateWlzDisplay();
    });
-   $("#slider-scale").slider({reversed: false, min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [1, 2], ticks_labels: ['1x', '2x'], ticks_snap_bounds: 0.3});
-   $("#slider-scale").on('slide', function(ev){
+   var slScale = $("#slider-scale").slider({reversed: false, min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [1, 2], ticks_labels: ['1x', '2x'], ticks_snap_bounds: 0.3});
+   slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String($("#slider-scale").data('slider').value[0]);
      $("#slider-scaleSliderVal").text(ev.value);
    });
-   $("#slider-scale").on('slideStop', function(ev){
+   slScale.on('slideStop', function(ev){
      updateWlzDisplay();
    });
 
-   $("#slider-slice").slider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
  }
