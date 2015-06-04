@@ -1,6 +1,6 @@
 	<div class="row-fluid visible-desktop row-centered">
 
-		<div class="col-md-4 col-min">
+		<div class="col-md-5 col-min">
 
 			<div class="well-white"> <!-- new news well-->
 
@@ -43,7 +43,7 @@
 		
 		<div class="row-fluid visible-desktop row-centered">
 
-		<div class="col-md-4 col-min">
+		<div class="col-md-5 col-min">
 			<div class="well-white">
 					<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
 			</div>
