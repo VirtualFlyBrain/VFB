@@ -264,8 +264,10 @@ function initWlzControls() {
  }else{
    window.setTimeout(function(){
      initWlzControls();
-     loadTemplateMeta(parent.$("body").data("current").template);
-   },2000);
+     if (parent.$("body").data("current")) {
+       loadTemplateMeta(parent.$("body").data("current").template);
+     }
+   },5000);
  }
 }
 
