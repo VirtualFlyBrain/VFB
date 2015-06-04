@@ -245,7 +245,7 @@ function initWlzControls(){
      orient = parent.$("body").data("current").slice;
      $("#toggle-viewVal").text(orient);
      parent.$("body").data("current").dst = 0;
-     slSlice.setValue(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
+     $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
      parent.$("body").data("disp", "scale");
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
