@@ -250,6 +250,7 @@ function initWlzControls() {
      parent.$("body").data("current").blend = "screen";
      updateWlzDisplay();
      updateLabels();
+     parent.$("body").data("disp", "scale");
    });
    $("body").on('click', "#toggle-view", function(){
      hideAllSliders();

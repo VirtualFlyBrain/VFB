@@ -72,7 +72,12 @@
 							var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
 							return clone;
 						}
-					}).click(function(e) {e.preventDefault();});
+					}).click(function(e) {
+						e.preventDefault();
+						if ($(this).is(":focus")) {
+							$(this).blur();
+						}
+					});
 				});
 			</script>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
