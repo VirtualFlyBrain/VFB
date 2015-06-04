@@ -104,8 +104,8 @@ function animateWlzDisplay(){
                 var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
                 var orient = current.slice;
                 if (parent.$("body").data("meta")){
-                  canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
-                  canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
+                  canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
+                  canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
                 parent.$("body").data("disp", "done");
               }
@@ -251,6 +251,8 @@ function initWlzControls(){
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
    $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
+   $("#slider-sliceCurrentSlider").hide();
+   $("#slider-scaleCurrentSlider").hide();
  }
 
 function setOrientaion(ori){
