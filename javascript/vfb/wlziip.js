@@ -264,6 +264,7 @@ function updateLabels() {
   $("#toggle-viewVal").text(parent.$("body").data("current").slice);
   $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
   $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+  $('#positionVal').text(parent.$("body").data("current").fxp);
 }
 
 function hideAllSliders() {
