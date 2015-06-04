@@ -172,29 +172,40 @@ function initWlzDisplay(ids) {
 
  function initWlzControls(){
    var slSlice = $("#slider-slice").bootstrapSlider({reversed: false, min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
-  //  slSlice.on('slide', function(ev){
-  //    parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
-  //    $("#slider-sliceSliderVal").text(ev.value);
-  //  });
-    slSlice.on('change', function(ev){
-      parent.$("body").data("current").dst = String(parseInt(ev.newValue)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
-      $("#slider-sliceSliderVal").text(ev.newValue);
-    });
+   slSlice.on('slide', function(ev){
+     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+   });
    slSlice.on('slideStop', function(ev){
+     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+     $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
    });
    var slScale = $("#slider-scale").bootstrapSlider({scale: 'logarithmic', min: 0.1, max: 5, value: 1, step: 0.1, focus: true, ticks: [0.1, 0.5, 1, 2, 4, 5], ticks_labels: ['.1x','.5x','1x', '2x','4x','5x'], ticks_snap_bounds: 0.3});
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value);
-     $("#slider-scaleSliderVal").text(String(ev.value)+'x');
-   });
-   slScale.on('change', function(ev){
-     parent.$("body").data("current").scl = String(ev.newValue);
-     $("#slider-scaleSliderVal").text(String(ev.newValue)+'x');
    });
    slScale.on('slideStop', function(ev){
+     parent.$("body").data("current").scl = String(ev.value);
+     $("#slider-scaleSliderVal").text(String(ev.value)+'x');
      updateWlzDisplay();
    });
-
+   $("#slider-scaleCurrentSliderValLabel").click(function(){
+     if ($("#slider-scaleCurrentSlider").isVisable()){
+       $("#slider-scaleCurrentSlider").hide();
+       $("#slider-scaleSliderVal").show();
+     }else{
+       $("#slider-scaleCurrentSlider").show();
+       $("#slider-scaleSliderVal").hide();
+     }
+   });
+   $("#slider-sliceCurrentSliderValLabel").click(function(){
+     if ($("#slider-sliceCurrentSlider").isVisable()){
+       $("#slider-sliceCurrentSlider").hide();
+       $("#slider-sliceSliderVal").show();
+     }else{
+       $("#slider-sliceCurrentSlider").show();
+       $("#slider-sliceSliderVal").hide();
+     }
+   });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
  }
