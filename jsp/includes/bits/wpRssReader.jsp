@@ -35,7 +35,7 @@ NodeList nodes = doc.getElementsByTagName("item"); %>
 <div class="panel panel-info" style="width:100%; font-size:0.9em; margin-bottom:0px">
   <div class="panel-heading">Receive updates by email</div>
     <div class="panel-body">
-      <div class="input-group">
+      <div class="input-group-btn">
         <form class="form-inline" id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true;" target="popupwindow">
           <label class="sr-only" for="feedburner_email_widget_sbef_email">Email address</label>
           <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
