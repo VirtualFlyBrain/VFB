@@ -52,7 +52,11 @@
 			</a>
 			<div id="imageAttributes" class="hide">
 				<c:if test="${empty param.json}">
-					<jsp:include page="/jsp/includes/bits/credits.jsp" />
+					<c:set var="credits" value="${fn:split(param.stackInfo,'|')}" />
+					<h3>Stack Info:</h3>
+					<p>${credits[0]}</p>
+				  <p><b>Created by: </b>${credits[1]}</p>
+				  <p><b>Background Staining: </b>${credits[2]} <a href="${credits[3]}">${credits[4]}</a></p>
 				</c:if>
 				<c:if test="${!empty param.json}">
 					<jsp:include page="/jsp/includes/bits/credits3party.jsp">
