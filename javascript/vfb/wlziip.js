@@ -175,10 +175,14 @@ function initWlzDisplay(ids) {
 
  function initWlzControls(){
    var slSlice = $("#slider-slice").bootstrapSlider({reversed: false, min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[2])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[2])+1, focus: true});
-   slSlice.on('slide', function(ev){
-     parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
-     $("#slider-sliceSliderVal").text(ev.value);
-   });
+  //  slSlice.on('slide', function(ev){
+  //    parent.$("body").data("current").dst = String(parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+  //    $("#slider-sliceSliderVal").text(ev.value);
+  //  });
+    slSlice.on('change', function(ev){
+      parent.$("body").data("current").dst = String(parseInt(ev.newValue)-1-parseInt(parent.$("body").data("meta").center.split(',')[2]));
+      $("#slider-sliceSliderVal").text(ev.newValue);
+    });
    slSlice.on('slideStop', function(ev){
      updateWlzDisplay();
    });
@@ -186,6 +190,10 @@ function initWlzDisplay(ids) {
    slScale.on('slide', function(ev){
      parent.$("body").data("current").scl = String(ev.value);
      $("#slider-scaleSliderVal").text(String(ev.value)+'x');
+   });
+   slScale.on('change', function(ev){
+     parent.$("body").data("current").scl = String(ev.newValue);
+     $("#slider-scaleSliderVal").text(String(ev.newValue)+'x');
    });
    slScale.on('slideStop', function(ev){
      updateWlzDisplay();
