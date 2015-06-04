@@ -94,14 +94,24 @@
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li>
-	  		<script>
-	  			var theURL = encodeURIComponent(window.location);
-	  		</script>
-	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Report an issue</a>
+					<li>
+						<a href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">0</span></a>
+						<script>
+							$(document).ready( function () {
+								window.setInterval(function(){
+									if ($.cookie("displaying")) {
+										var stack = JSON.parse($.cookie("displaying"));
+										$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length)
+									});
+								}, 5000);
+							});
+						</script>
 	        </li>
-	        <li>
-	        	<a href="/do/composite_view.html?action=edit" class="recent_query_link" title="View/Edit composite">Edit current composite view</a>
+					<li>
+			  		<script>
+			  			var theURL = encodeURIComponent(window.location);
+			  		</script>
+	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Report an issue</a>
 	        </li>
 	      </ul>
 	    </div><!--/.nav-collapse -->
