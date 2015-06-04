@@ -44,6 +44,22 @@
 			<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display:initial;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
 			<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Toggle View <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
+			<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
+				data-placement="bottom"
+				title="Image Attribution"
+				data-popover-content="#imageAttributes">
+					<span class="glyphicon glyphicon-info-sign"></span>
+			</a>
+			<div id="imageAttributes" class="hide">
+				<c:if test="${empty param.json}">
+					<jsp:include page="/jsp/includes/bits/credits.jsp" />
+				</c:if>
+				<c:if test="${!empty param.json}">
+					<jsp:include page="/jsp/includes/bits/credits3party.jsp">
+						<jsp:param name="tpb" value="${param.tpb}" />
+					</jsp:include>
+				</c:if>
+			</div>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block;"></canvas>
