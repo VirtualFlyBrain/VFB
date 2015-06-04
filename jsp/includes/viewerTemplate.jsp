@@ -39,9 +39,9 @@
 	<div class="span2" id="left-panel">
 		<form class="form-inline">
 			<span id="slider-scaleCurrentSliderValLabel">Scale: <span id="slider-scaleSliderVal">1x</span></span>
-			<input id="slider-scale" class="span2" type="text" />
+			<input id="slider-scale" type="text" />
 			<span id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal">1</span></span>
-			<input id="slider-slice" class="span2" type="text" />
+			<input id="slider-slice" type="text" />
 		</form>
 	</div>
 
