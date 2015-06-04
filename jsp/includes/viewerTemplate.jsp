@@ -60,6 +60,15 @@
 					</jsp:include>
 				</c:if>
 			</div>
+			<script>
+				$(function(){
+					$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+							var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+							return clone;
+						}
+					}).click(function(e) {e.preventDefault();});
+				});
+			</script>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block;"></canvas>
