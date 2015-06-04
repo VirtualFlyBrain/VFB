@@ -92,20 +92,13 @@ function animateWlzDisplay(){
     if (selected){
       var layers = Object.keys(selected).length;
       if (layers > 0){
-        var current = parent.$("body").data("current");
         var count = 0;
         var image = [];
-        var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-        var orient = parent.$("body").data("current").slice;
         for (i=0; i < layers; i++) {
           if (selected[i].visible){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (parent.$("body").data("meta")){
-                canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
-                canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
-              }
               if (selected[0].visible === false){
                 ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
               }
@@ -122,6 +115,15 @@ function animateWlzDisplay(){
     }
     function clear(){
       ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
+    }
+    function scale(){
+      var current = parent.$("body").data("current");
+      var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+      var orient = current.slice;
+      if (parent.$("body").data("meta")){
+        canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
+        canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
+      }
     }
     requestAnimationFrame(step);
   }
@@ -204,7 +206,7 @@ function initWlzDisplay(ids) {
      parent.$("body").data("current").scl = String(ev.value.toFixed(1));
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
-     requestAnimationFrame(clear);
+     requestAnimationFrame(scale);
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
@@ -243,7 +245,7 @@ function initWlzDisplay(ids) {
    $("body").on('click', "#toggle-view", function(){
      setOrientaion();
      $("#toggle-viewVal").text(parent.$("body").data("current").slice);
-     requestAnimationFrame(clear);
+     requestAnimationFrame(scale);
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
