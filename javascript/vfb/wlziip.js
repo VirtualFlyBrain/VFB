@@ -85,8 +85,8 @@ function animateWlzDisplay(){
 
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  canvas.style.width = "1024px";
-  canvas.style.height = "681px";
+  canvas.width = 1024;
+  canvas.height = 681;
   function step() {
     var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
@@ -103,8 +103,8 @@ function animateWlzDisplay(){
             image[i].src = generateWlzURL(i);
             if (count===0){
               if (parent.$("body").data("meta")){
-                canvas.style.width = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)+"px";
-                canvas.style.height = String(parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)+"px";
+                canvas.width = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1;
+                canvas.height = parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1;
               }
               if (selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
                 ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
