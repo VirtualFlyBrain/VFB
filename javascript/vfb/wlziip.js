@@ -242,6 +242,7 @@ function initWlzDisplay(ids) {
    });
    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("meta").center.split(',')[2])+1);
    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+   $("#slider-scaleSliderVal").text(String(parent.$("body").data("current").scl.toFixed(1))+'x');
  }
 
  function setOrientaion(ori){
