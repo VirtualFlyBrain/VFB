@@ -99,7 +99,7 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (!parent.$("body").data(parent.$("body").data("current").template).selected[0].visible){
+              if (parent.$("body").data(parent.$("body").data("current").template).selected[0].visible === false || $("#slider-scaleCurrentSlider").is(":visible")){
                 ctx.clearRect (0,0,1024,1024);
               }
               ctx.globalCompositeOperation = 'source-over';
