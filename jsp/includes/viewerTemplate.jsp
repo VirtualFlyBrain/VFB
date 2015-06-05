@@ -127,7 +127,11 @@
 			        </div>
 			        <div class="tab-pane" id="search">
 			            <h4>Search</h4>
-									<p id="searchContent"></p>
+									<p id="searchContent">
+										<script>
+										$('#searchContent').load('/site/tools/anatomy_finder/index.htm #search-page');
+										</script>
+									</p>
 			        </div>
 			</div><!-- tab content -->
 		</div><!-- end of container -->
