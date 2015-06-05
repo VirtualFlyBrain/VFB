@@ -372,7 +372,7 @@ function loadRightMenuDisplayed() {
     content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
     for (i=0; i < layers; i++) {
       content += "<tr>";
-      layer = selected[index];
+      layer = selected[i];
       // visible:
       content += '<th>';
       if (layer.visible) {
