@@ -178,6 +178,11 @@ function initWlzDisplay(ids) {
    updateWlzDisplay();
  }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
+  if (!parent.$("body").data("current")){
+    alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
+    $.cookie("displaying", null, { expires: -5, path: '/' });
+    initWlzDisplay(ids);
+  }
   loadTemplateMeta(parent.$("body").data("current").template);
   loadColours();
   parent.$("body").data("menu","disp");
