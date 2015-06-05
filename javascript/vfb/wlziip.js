@@ -369,7 +369,7 @@ function loadRightMenuDisplayed() {
     var temp = '<th>#</th><th><span class="glyphicon glyphicon-info-sign"></span></th><th><span class="glyphicon glyphicon-eye-open"></span></th><th><span class="glyphicon glyphicon-tint"></span></th><th>Name</th><th>Type</th>';
     content += temp;
     content += '</tr></thead>';
-    content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
+    // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
     for (i=0; i < layers; i++) {
       content += "<tr>";
       layer = selected[i];
