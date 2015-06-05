@@ -364,6 +364,7 @@ function loadRightMenuDisplayed() {
     for (i=0; i < layers; i++) {
       content += "<tr>";
       layer = selected[index];
+      // visible:
       content += '<th>';
       if (layer.visible) {
         content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
@@ -375,6 +376,7 @@ function loadRightMenuDisplayed() {
         content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
       }
       content += '</th>';
+      // Colour:
       content += '<th>';
       if (layer.colour == "auto") {
         temp = parent.$("body").data("colours")[i];
@@ -385,7 +387,10 @@ function loadRightMenuDisplayed() {
       content += "updateWlzDisplay();";
       content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
       content += '</th>';
-
+      // Name:
+      content += '<th>';
+      content += '<span id="nameFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
+      content += '</th>';
       content += "</tr>";
     }
     content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable(); } );</script>";
