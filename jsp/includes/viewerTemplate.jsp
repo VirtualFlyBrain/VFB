@@ -105,17 +105,32 @@
 	</div>
 
 	<div class="col-md-5" id="right-panel">
-		<div class="well" id="toolContainerDiv">
+		<div class="container well">
 			<ul class="nav nav-tabs nav-justified">
-			  <li role="presentation" onclick='parent.$("body").data("menu", "selec")'><span class="glyphicon glyphicon-screenshot"></span>Selected</li>
-			  <li role="presentation" onclick='parent.$("body").data("menu", "disp")' class="active"><span class="glyphicon glyphicon-picture"></span>Displayed</li>
-			  <li role="presentation" onclick='parent.$("body").data("menu", "anato")'><span class="glyphicon glyphicon-list-alt"></span>Anatomy</li>
-				<li role="presentation" onclick='parent.$("body").data("menu", "search")'><span class="glyphicon glyphicon-search"></span>Search</li>
+			  <li><a href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-screenshot"></span>Selected</a></li>
+			  <li class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span>Displayed</a></li>
+			  <li><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span>Anatomy</a></li>
+			  <li><a href="#search" data-toggle="tab"><span class="glyphicon glyphicon-search"></span>Search</a></li>
 			</ul>
-			<div id="rightMenuContent">
-			</div>
-
-		</div>
+			<div class="tab-content">
+			        <div class="tab-pane" id="selec">
+			            <h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
+			            <p id="selecContent"></p>
+			        </div>
+			        <div class="tab-pane active" id="disp">
+			            <h4>Currently Displayed</h4>
+									<p id="dispContent"></p>
+			        </div>
+			        <div class="tab-pane" id="anato">
+			            <h4>Neuro Anatomy Tree</h4>
+									<p id="anatoContent"></p>
+			        </div>
+			        <div class="tab-pane" id="search">
+			            <h4>Search</h4>
+									<p id="searchContent"></p>
+			        </div>
+			</div><!-- tab content -->
+		</div><!-- end of container -->
 	</div>
 
 

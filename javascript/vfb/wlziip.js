@@ -417,5 +417,5 @@ function loadRightMenuDisplayed() {
     }
     content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { paging: true, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
   }
-  $("#rightMenuContent").html(content);
+  $("#dispContent").html(content);
 }
