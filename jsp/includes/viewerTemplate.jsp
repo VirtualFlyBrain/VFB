@@ -36,7 +36,7 @@
 
 <div class="row">
 
-	<div class="col-md-8" id="viewer-panel">
+	<div class="col-md-7" id="viewer-panel">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -95,7 +95,7 @@
 		</script>
 	</div>
 
-	<div class="col-md-4" id="right-panel">
+	<div class="col-md-5" id="right-panel">
 		<div class="well" id="toolContainerDiv">
 			<ul class="nav nav-pills nav-justified">
 			  <li role="presentation" onclick='parent.$("body").data("menu", "selec")'><span class="glyphicon glyphicon-screenshot"></span>Selected</li>
