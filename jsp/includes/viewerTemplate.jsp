@@ -45,7 +45,7 @@
 
 <div class="row">
 
-	<div class="col-md-7" id="viewer-panel">
+	<div class="span6" id="viewer-panel">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -104,7 +104,7 @@
 		</script>
 	</div>
 
-	<div class="col-md-5" id="right-panel">
+	<div class="span6" id="right-panel">
 		<div class="well">
 			<ul class="nav nav-tabs nav-justified">
 			  <li><a href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-screenshot"></span> Selected</a></li>
