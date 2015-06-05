@@ -100,7 +100,7 @@
 			<ul class="nav nav-pills nav-justified">
 			  <li role="presentation" onclick='parent.$("body").data("menu", "selec")'><span class="glyphicon glyphicon-screenshot"></span>Selected</li>
 			  <li role="presentation" onclick='parent.$("body").data("menu", "disp")' class="active"><span class="glyphicon glyphicon-picture"></span>Displayed</li>
-			  <li role="presentation" onclick='parent.$("body").data("menu", "anato")'><span class="glyphicon glyphicon-list-alt"></span>Anatomy Tree</li>
+			  <li role="presentation" onclick='parent.$("body").data("menu", "anato")'><span class="glyphicon glyphicon-list-alt"></span>Anatomy</li>
 				<li role="presentation" onclick='parent.$("body").data("menu", "search")'><span class="glyphicon glyphicon-search"></span>Search</li>
 			</ul>
 			<div id="rightMenuContent">
