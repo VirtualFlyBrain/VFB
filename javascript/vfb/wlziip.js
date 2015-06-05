@@ -365,7 +365,7 @@ function loadRightMenuDisplayed() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
-    content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
+    content += '<table id="displayed" class="display compact" cellspacing="0" width="100%"><thead><tr>';
     var temp = '<th>#</th><th>Visable</th><th>Colour</th><th>Name</th><th>Type</th><th>Details</th>';
     content += temp;
     content += '</tr></thead>';
