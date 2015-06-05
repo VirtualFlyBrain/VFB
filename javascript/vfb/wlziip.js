@@ -142,6 +142,11 @@ function animateWlzDisplay(){
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
             }
             count++;
+          }else{
+            if (selected[0].visible === false || parent.$("body").data("disp") == "clear"){
+              ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
+              parent.$("body").data("disp", "done");
+            }
           }
         }
       }
