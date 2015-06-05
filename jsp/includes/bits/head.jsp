@@ -101,7 +101,7 @@
 								window.setInterval(function(){
 									if ($.cookie("displaying")) {
 										var stack = JSON.parse($.cookie("displaying"));
-										if (stack){
+										if (stack.current){
 											$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
 										}
 									}
