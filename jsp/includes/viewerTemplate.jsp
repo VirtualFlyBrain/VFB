@@ -105,7 +105,7 @@
 	</div>
 
 	<div class="col-md-5" id="right-panel">
-		<div class="container well">
+		<div class="well">
 			<ul class="nav nav-tabs nav-justified">
 			  <li><a href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-screenshot"></span>Selected</a></li>
 			  <li class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span>Displayed</a></li>

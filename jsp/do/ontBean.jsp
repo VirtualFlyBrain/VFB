@@ -83,13 +83,13 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </c:if>
 
 <div class="well-white">
-	<h2><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
+	<h2 id="partName"><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder">${ontBean.name}</a></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
 		<b>ID: </b><a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder" >${ontBean.fbbtIdAsOWL}</a>
 	</p>
 	</c:if>
-	<p>
+	<p id="partDef">
 		<b>Definition: </b>${ontBean.def}
 	</p>
 	<c:if test="${!empty ontBean.comment}">
