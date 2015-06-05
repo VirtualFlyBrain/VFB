@@ -361,7 +361,7 @@ function setOrientaion(ori) {
 
 function loadRightMenuDisplayed() {
   var content = "";
-  if (parent.$("body").data("current")){
+  if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
@@ -401,6 +401,16 @@ function loadRightMenuDisplayed() {
       // Name:
       content += '<th>';
       content += '<span id="nameFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
+      content += '</th>';
+      // Type:
+      content += '<th>';
+      content += '<span id="typeFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
+      content += '</th>';
+      // Details:
+      content += '</th>';
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
+      content += "annotation_content.load('')";
+      content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
       content += '</th>';
       content += "</tr>";
     }
