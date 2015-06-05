@@ -182,7 +182,7 @@ function initWlzDisplay(ids) {
     loadDefaultData(ids);
   }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
-  if (!parent.$("body").data("current")){
+  if (parent.$("body").data("current") === undefined){
     alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
