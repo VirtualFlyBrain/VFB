@@ -365,8 +365,8 @@ function loadRightMenuDisplayed() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
-    content += '<table id="displayed" class="display compact" cellspacing="0" width="100%"><thead><tr>';
-    var temp = '<th>#</th><th>Visable</th><th>Colour</th><th>Name</th><th>Type</th><th>Details</th>';
+    content += '<table id="displayed" class="display dt-center" cellspacing="0" width="100%"><thead><tr>';
+    var temp = '<th>#</th><th><span class="glyphicon glyphicon-info-sign"></span></th><th><span class="glyphicon glyphicon-eye-open"></span></th><th><span class="glyphicon glyphicon-tint"></span></th><th>Name</th><th>Type</th>';
     content += temp;
     content += '</tr></thead>';
     content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
@@ -375,6 +375,12 @@ function loadRightMenuDisplayed() {
       layer = selected[i];
       // index:
       content += '<th>' + String(i) + '</th>';
+      // Details:
+      content += '<th>';
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+      content += "$('#annotation_content').load('do/ont_bean.html?id=" + layer.id + "')";
+      content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
+      content += '</th>';
       // visible:
       content += '<th>';
       if (layer.visible) {
@@ -406,16 +412,22 @@ function loadRightMenuDisplayed() {
       content += '<th>';
       content += '<span id="typeFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
       content += '</th>';
-      // Details:
-      content += '<th>';
-      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
-      content += "$('#annotation_content').load('do/ont_bean.html?id=" + layer.id + "')";
-      content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
-      content += '</th>';
       // end row
       content += "</tr>";
     }
     content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
   }
   $("#dispContent").html(content);
+  $('[id^=nameFor]').each(function() {
+    content = $(this).data('id');
+    content = content.replace('VFBi_','VFB_');
+    switch (content.substr(4)) {
+      case "VFB_":
+        $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
+        break;
+      case "VFBt":
+        $(this).text(parent.$("body").data("meta").name);
+    }
+
+  });
 }
