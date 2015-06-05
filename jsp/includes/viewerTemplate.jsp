@@ -106,7 +106,7 @@
 
 	<div class="col-md-5" id="right-panel">
 		<div class="well" id="toolContainerDiv">
-			<ul class="nav nav-pills nav-justified">
+			<ul class="nav nav-tabs nav-justified">
 			  <li role="presentation" onclick='parent.$("body").data("menu", "selec")'><span class="glyphicon glyphicon-screenshot"></span>Selected</li>
 			  <li role="presentation" onclick='parent.$("body").data("menu", "disp")' class="active"><span class="glyphicon glyphicon-picture"></span>Displayed</li>
 			  <li role="presentation" onclick='parent.$("body").data("menu", "anato")'><span class="glyphicon glyphicon-list-alt"></span>Anatomy</li>
@@ -114,6 +114,7 @@
 			</ul>
 			<div id="rightMenuContent">
 			</div>
+
 		</div>
 	</div>
 
