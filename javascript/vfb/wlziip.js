@@ -159,29 +159,33 @@ function loadColours(){
   });
 }
 
+function loadDefaultData() {
+  loadTemplateMeta("VFBt_001");
+  var count = 0;
+  var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+  parent.$("body").data("current", JSON.parse(text));
+  parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
+  if (ids !== undefined && ids !== null && ids !== "") {
+    var id;
+    text = "";
+    for (id in ids) {
+      count ++;
+      text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
+      parent.$("body").data("VFBt_001", text);
+    }
+  }
+  updateWlzDisplay();
+}
+
 function initWlzDisplay(ids) {
   if (!$.cookie('displaying')) {
-   loadTemplateMeta("VFBt_001");
-   var count = 0;
-   var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
-   parent.$("body").data("current", JSON.parse(text));
-   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
-   if (ids !== undefined && ids !== null && ids !== "") {
-     var id;
-     text = "";
-     for (id in ids) {
-       count ++;
-       text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
-       parent.$("body").data("VFBt_001", text);
-     }
-   }
-   updateWlzDisplay();
- }
+    loadDefaultData();
+  }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   if (!parent.$("body").data("current")){
     alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
     $.cookie("displaying", null, { expires: -5, path: '/' });
-    initWlzDisplay(ids);
+    loadDefaultData();
   }
   loadTemplateMeta(parent.$("body").data("current").template);
   loadColours();
