@@ -44,7 +44,24 @@ function updateWlzDisplay(){
   delete save.disp;
   delete save.meta;
   delete save.colours;
+  delete save.menu;
   $.cookie("displaying", JSON.stringify(save), { expires: 5*365, path: '/' });
+  switch (parent.$("body").data("menu")) {
+    case "disp":
+      loadRightMenuDisplayed();
+      break;
+    case "selec":
+      loadRightMenuSelected();
+      break;
+    case "anato":
+      loadRightMenuAnatomy();
+      break;
+    case "search":
+      loadRightMenuSearch();
+      break;
+    default:
+      loadRightMenuDisplayed();
+  }
 }
 
 function addToWlzDisplay(ids){
@@ -163,6 +180,7 @@ function initWlzDisplay(ids) {
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   loadTemplateMeta(parent.$("body").data("current").template);
   loadColours();
+  parent.$("body").data("menu","disp");
   updateWlzDisplay();
 }
 
@@ -331,3 +349,44 @@ function setOrientaion(ori) {
    }
    updateWlzDisplay();
  }
+
+function loadRightMenuDisplayed() {
+  var content = "";
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
+  var layers = Object.keys(selected).length;
+  content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
+  var temp = '<th>#</th><th>Visable</th><th>Colour</th><th>Name</th><th>Type</th><th>Details</th>';
+  content += temp;
+  content += '</tr></thead>';
+  content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
+  for (i=0; i < layers; i++) {
+    content += "<tr>";
+    layer = selected[index];
+    content += '<th>';
+    if (layer.visible) {
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay();";
+      content += '"><span class="glyphicon glyphicon-eye-open"></span></buton>';
+    }else{
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
+      content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
+    }
+    content += '</th>';
+    content += '<th>';
+    if (layer.colour == "auto") {
+      temp = parent.$("body").data("colours")[i];
+    }else{
+      temp = layer.colour;
+    }
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
+    content += "updateWlzDisplay();";
+    content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
+    content += '</th>';
+    
+    content += "</tr>";
+  }
+  content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable(); } );</script>";
+  $("#rightMenuContent").html(content);
+}
