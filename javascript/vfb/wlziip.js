@@ -159,7 +159,7 @@ function loadColours(){
   });
 }
 
-function loadDefaultData() {
+function loadDefaultData(ids) {
   loadTemplateMeta("VFBt_001");
   var count = 0;
   var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
@@ -179,13 +179,13 @@ function loadDefaultData() {
 
 function initWlzDisplay(ids) {
   if (!$.cookie('displaying')) {
-    loadDefaultData();
+    loadDefaultData(ids);
   }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   if (!parent.$("body").data("current")){
     alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
     $.cookie("displaying", null, { expires: -5, path: '/' });
-    loadDefaultData();
+    loadDefaultData(ids);
   }
   loadTemplateMeta(parent.$("body").data("current").template);
   loadColours();
