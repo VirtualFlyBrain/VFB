@@ -407,7 +407,7 @@ function loadRightMenuDisplayed() {
       content += '<span id="typeFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
       content += '</th>';
       // Details:
-      content += '</th>';
+      content += '<th>';
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
       content += "$('#annotation_content').load('do/ont_bean.html?id=" + layer.id + "')";
       content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
