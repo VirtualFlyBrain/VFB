@@ -386,7 +386,7 @@ function loadRightMenuDisplayed() {
       content += '<th>';
       if (layer.visible) {
         content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
-        content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay();";
+        content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
         content += '"><span class="glyphicon glyphicon-eye-open"></span></buton>';
       }else{
         content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
