@@ -101,7 +101,9 @@
 								window.setInterval(function(){
 									if ($.cookie("displaying")) {
 										var stack = JSON.parse($.cookie("displaying"));
-										$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length)
+										if (stack){
+											$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
+										}
 									}
 								}, 5000);
 							});
