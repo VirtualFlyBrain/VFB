@@ -261,10 +261,10 @@ function loadRightMenuDisplayed() {
           content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
           break;
         case "VFBd":
-          content += "$('#anatomyDetails').load('do/ont_bean.html?id=" + layer.extid + "')";
+          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
           break;
         default:
-          content += "$('#anatomyDetails').load('do/ont_bean.html?id=" + layer.id + "')";
+          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id + "')";
       }
       content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
       content += '</th>';
@@ -318,13 +318,13 @@ function loadRightMenuDisplayed() {
       content = content.replace('VFBi_','VFB_');
       switch (content.substr(0,4)) {
         case "VFB_":
-          $(this).load('do/ont_bean.html?id=' + content + ' #partName');
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
           break;
         case "VFBt":
           $(this).text(parent.$("body").data("meta").name);
           break;
         case "FBbt":
-          $(this).load('do/ont_bean.html?id=' + content + ' #partName');
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
           break;
         default:
           parent.$("body").data("message", "unable to resolve " + content);
@@ -337,13 +337,13 @@ function loadRightMenuDisplayed() {
         content = content.replace('VFBi_','VFB_');
         switch (content.substr(0,4)) {
           case "VFB_":
-            $(this).load('do/ont_bean.html?id=' + content + ' #partParents');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParents');
             break;
           case "VFBt":
             $(this).load('/site/stacks/index.htm #backgroundStain');
             break;
           case "FBbt":
-            $(this).load('do/ont_bean.html?id=' + content + ' #partParents');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParents');
             break;
           default:
             parent.$("body").data("message", "unable to resolve " + content);
