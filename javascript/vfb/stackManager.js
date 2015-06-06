@@ -44,7 +44,10 @@ function fileFromId(id) {
 }
 
 function updateStackData(){
-  $.cookie("displaying", returnCleanData(), { expires: 5*365, path: '/' });
+  var data = returnCleanData();
+  if (data.length > 10){
+    $.cookie("displaying", data, { expires: 5*365, path: '/' });
+  }
 }
 
 function returnCleanData() {
