@@ -85,7 +85,7 @@ function alertMessage(message) {
   $('#alert-message-text').text(message);
   $('#alert_message').show();
   window.setTimeout(function() {
-      $(".alert-message").fadeTo(500, 0).slideUp(500, function(){
+      $("#alert_message").fadeTo(500, 0).slideUp(500, function(){
           $(this).remove();
       });
   }, 3000);
