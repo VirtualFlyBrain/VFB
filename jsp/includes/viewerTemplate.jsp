@@ -25,7 +25,6 @@
 		/javascript/ajax-solr/widgets/CurrentSearchWidget.js;
 		/javascript/ajax-solr/core/AbstractTextWidget.js;
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
-		/javascript/thirdParty/json2.js;
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
 		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;

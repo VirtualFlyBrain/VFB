@@ -25,6 +25,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 		<!-- Code to manage stacks -->
+		<script type="text/javascript" src="/javascript/thirdParty/json2.js" ></script>
 		<script type="text/javascript" src="/javascript/vfb/stackManager.js" ></script>
 
 		<!-- https://github.com/CWSpear/bootstrap-hover-dropdown -->
