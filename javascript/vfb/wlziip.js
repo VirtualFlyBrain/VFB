@@ -385,5 +385,6 @@ function loadRightMenuDisplayed() {
         }
 
       });
+    }
   }
 }
