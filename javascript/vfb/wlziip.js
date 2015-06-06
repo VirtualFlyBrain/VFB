@@ -282,9 +282,9 @@ function loadRightMenuDisplayed() {
       content += "<tr>";
       layer = selected[i];
       // index:
-      content += '<th>' + String(i) + '</th>';
+      content += '<th class="text-center">' + String(i) + '</th>';
       // Details:
-      content += '<th>';
+      content += '<th class="text-center">';
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
       switch (layer.id.substr(0,4)) {
         case "VFBt":
@@ -299,7 +299,7 @@ function loadRightMenuDisplayed() {
       content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
       content += '</th>';
       // visible:
-      content += '<th>';
+      content += '<th class="text-center">';
       if (layer.visible) {
         content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
         content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
@@ -311,7 +311,7 @@ function loadRightMenuDisplayed() {
       }
       content += '</th>';
       // Colour:
-      content += '<th>';
+      content += '<th class="text-center">';
       if (layer.colour == "auto") {
         temp = parent.$("body").data("colours")[i];
       }else{
@@ -327,11 +327,11 @@ function loadRightMenuDisplayed() {
         temp = layer.id;
       }
       // Name:
-      content += '<th>';
+      content += '<th class="text-center">';
       content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id + '</span>';
       content += '</th>';
       // Type:
-      content += '<th>';
+      content += '<th class="text-center">';
       content += '<span id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp + '</span>';
       content += '</th>';
       // end row
