@@ -65,7 +65,7 @@ function loadDefaultData(ids) {
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
-  updateWlzDisplay();
+  updateStackData();
 }
 
 function initStackData(ids) {
@@ -84,8 +84,7 @@ function initStackData(ids) {
     loadDefaultData(ids);
   }
   loadTemplateMeta(parent.$("body").data("current").template);
-  loadColours();
-  updateWlzDisplay();
+  updateStackData();
 }
 
 function pad(num, size) {
