@@ -56,6 +56,7 @@ function returnCleanData() {
   delete save.disp;
   delete save.meta;
   delete save.colours;
+  delete save.tree;
   return JSON.stringify(save);
 }
 

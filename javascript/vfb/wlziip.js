@@ -354,6 +354,17 @@ function loadRightMenuDisplayed() {
   }
 }
 
+function loadTemplateAnatomyTree(id) {
+   if (id){
+     file = "/data/" + fileFromId(id).replace("composite.wlz","tree.json");
+     $.getJSON( file, function( data ) {
+       parent.$("body").data("tree",data);
+       updateWlzDisplay();
+     });
+   }
+}
+
+
 
 loadColours();
 $(document).ready( function () {
