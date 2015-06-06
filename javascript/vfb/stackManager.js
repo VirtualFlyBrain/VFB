@@ -40,7 +40,6 @@ function returnCleanData() {
   delete save.meta;
   delete save.colours;
   delete save.menu;
-  delete save.message;
   return JSON.stringify(save);
 }
 
@@ -67,7 +66,7 @@ function initStackData(ids) {
   }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   if (parent.$("body").data("current") === undefined){
-    alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
+    alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
   }
@@ -80,6 +79,16 @@ function initStackData(ids) {
 function pad(num, size) {
     var s = "000000000" + num;
     return s.substr(s.length-size);
+}
+
+function alertMessage(message) {
+  $('#alert-message-text').text(message);
+  $('#alert_message').show();
+  window.setTimeout(function() {
+      $(".alert-message").fadeTo(500, 0).slideUp(500, function(){
+          $(this).remove();
+      });
+  }, 3000);
 }
 
 function addToStackData(ids){
@@ -150,7 +159,7 @@ function addToStackData(ids){
           for (layers in parent.$("body").data("domains")){
             if (parent.$("body").data("domains")[layers].extId[0] == id) {
               if (parent.$("body").data("domains")[layers].id === ""){
-                alert(id + ' not found in current stack');
+                alertMessage(id + ' not found in current stack');
               }else{
                 text += parent.$("body").data("current").template + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }}';
               }

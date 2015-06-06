@@ -152,8 +152,15 @@
 				</div>
 			</div>
 	</div>
+
+	<div id="alert_message" class="alert alert-warning alert-dismissible" style="display: none;">
+      <span class="close" data-dismiss="alert" aria-label="Close">&times;</span>
+      <span><strong>!</strong> <span id="alert-message-text">All is well, nothing to see here.</span></span>
+  </div>
+
 	<script>
 		jQuery(function( $ ){
+			$('#alert_message').hide();
 			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
 				$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
 			});
