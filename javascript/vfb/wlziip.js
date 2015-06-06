@@ -337,7 +337,11 @@ function loadRightMenuDisplayed() {
       // end row
       content += "</tr>";
     }
-    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { paging: false, searching: true, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    if (i>10) {
+      content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { paging: true, searching: true, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    }else{
+      content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { paging: false, searching: false, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    }
   }
   $("#dispContent").html(content);
   if (parent.$("body").data("meta")){
