@@ -118,12 +118,12 @@
 									<p id="anatoContent"></p>
 			        </div>
 			        <div class="tab-pane" id="search">
-			            <h4>Search</h4>
-									<p id="searchContent">
-										<script>
-										$('#searchContent').load('/site/tools/anatomy_finder/index.htm #search-page');
-										</script>
-									</p>
+								<div class="content-fluid" id="searchBar"></div>
+								<div class="content-fluid" id="searchResult"></div>
+								<script>
+								$('#searchContent').load('/site/tools/anatomy_finder/index.htm #search-bar');
+								$('#searchContent').load('/site/tools/anatomy_finder/index.htm #result-section');
+								</script>
 			        </div>
 			</div><!-- tab content -->
 		</div><!-- end of container -->
@@ -136,7 +136,7 @@
 	<div id="footer">
 		<div id="annotation">
 			<!-- Need this to get the context menu on the term info box working, see span above -->
-			<div id="annotation_content">
+			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
 				Click anywhere on the stack viewer or on any node of the
 				tree to select a domain.<br/><br/>
