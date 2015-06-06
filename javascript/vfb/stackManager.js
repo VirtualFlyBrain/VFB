@@ -39,7 +39,6 @@ function returnCleanData() {
   delete save.disp;
   delete save.meta;
   delete save.colours;
-  delete save.menu;
   return JSON.stringify(save);
 }
 
@@ -72,7 +71,6 @@ function initStackData(ids) {
   }
   loadTemplateMeta(parent.$("body").data("current").template);
   loadColours();
-  parent.$("body").data("menu","disp");
   updateWlzDisplay();
 }
 

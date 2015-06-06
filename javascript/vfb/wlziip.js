@@ -17,22 +17,7 @@ function fileFromId(id) {
 
 function updateWlzDisplay(){
   updateStackData();
-  switch (parent.$("body").data("menu")) {
-    case "disp":
-      loadRightMenuDisplayed();
-      break;
-    case "selec":
-      loadRightMenuSelected();
-      break;
-    case "anato":
-      loadRightMenuAnatomy();
-      break;
-    case "search":
-      loadRightMenuSearch();
-      break;
-    default:
-      loadRightMenuDisplayed();
-  }
+  loadRightMenuDisplayed();
 }
 
 function animateWlzDisplay(){
