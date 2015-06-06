@@ -388,3 +388,5 @@ function loadRightMenuDisplayed() {
     }
   }
 }
+
+loadColours();

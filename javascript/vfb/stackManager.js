@@ -9,6 +9,8 @@ $(document).ready( function () {
       }
     }
   }, 5000);
+	var ids = "";
+	initStackData(ids);
 });
 
 function updateStackData(){
