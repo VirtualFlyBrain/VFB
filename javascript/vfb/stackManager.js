@@ -23,8 +23,7 @@ function loadTemplateMeta(id) {
        if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
        }
-       updateWlzDisplay();
-       initWlzControls();
+       updateStackData();
      });
    }
 }
@@ -66,7 +65,7 @@ function loadDefaultData(ids) {
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
-  updateWlzDisplay();
+  updateStackData();
 }
 
 function initStackData(ids) {
@@ -85,8 +84,7 @@ function initStackData(ids) {
     loadDefaultData(ids);
   }
   loadTemplateMeta(parent.$("body").data("current").template);
-  loadColours();
-  updateWlzDisplay();
+  updateStackData();
 }
 
 function pad(num, size) {

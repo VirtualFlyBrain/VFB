@@ -357,3 +357,4 @@ function loadRightMenuDisplayed() {
 }
 
 loadColours();
+$(initWlzControls());
