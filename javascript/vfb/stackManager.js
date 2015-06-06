@@ -35,9 +35,9 @@ function fileFromId(id) {
      if (id.indexOf("VFBt_") > -1){
        file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "/composite.wlz";
      }else if (id.indexOf("VFBi_") > -1){
-       file = "VFB/i/" + id.substr(5,9) + "/" + id.substr(9,13) + "/volume.wlz";
+       file = "VFB/i/" + id.substr(5,4) + "/" + id.substr(9,4) + "/volume.wlz";
      }else if (id.indexOf("VFB_") > -1){
-       file = "VFB/i/" + id.substr(4,8) + "/" + id.substr(8,12) + "/volume.wlz";
+       file = "VFB/i/" + id.substr(4,4) + "/" + id.substr(8,4) + "/volume.wlz";
      }
    }
    return file;
