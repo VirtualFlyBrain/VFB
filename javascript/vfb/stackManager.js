@@ -29,6 +29,21 @@ function loadTemplateMeta(id) {
    }
 }
 
+function fileFromId(id) {
+   var file = "";
+   if (id){
+     id = id.replace(":","_");
+     if (id.indexOf("VFBt_") > -1){
+       file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "/composite.wlz";
+     }else if (id.indexOf("VFBi_") > -1){
+       file = "VFB/i/" + id.substr(5,9) + "/" + id.substr(9,13) + "/volume.wlz";
+     }else if (id.indexOf("VFB_") > -1){
+       file = "VFB/i/" + id.substr(4,8) + "/" + id.substr(8,12) + "/volume.wlz";
+     }
+   }
+   return file;
+}
+
 function updateStackData(){
   $.cookie("displaying", returnCleanData(), { expires: 5*365, path: '/' });
 }
