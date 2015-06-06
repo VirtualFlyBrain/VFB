@@ -30,7 +30,7 @@
      $(document).ready( function () {
        window.setInterval(function(){
          $("img.lazy").lazyload({
-           skip_invisible: false,
+           skip_invisible: true,
            threshold: 2000
          });
        }, 200);
