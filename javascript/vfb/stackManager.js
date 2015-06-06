@@ -137,8 +137,8 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{' + layers + ':{"id":,"' + id + '","colour":"auto","visible":true}}';
-          selected.push(text);
+          text = '{"id":,"' + id + '","colour":"auto","visible":true}';
+          selected[layers] = JSON.parse(text);
         }
       }else if (id.indexOf("VFBd_") > -1){
         selected = parent.$("body").data(parent.$("body").data("current").template).selected;
@@ -150,13 +150,13 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{' + layers + ':{"id":,"' + id + '","colour":"auto","visible":true, "extid":"';
+          text = '{"id":,"' + id + '","colour":"auto","visible":true, "extid":"';
           for (layers in parent.$("body").data("domains")){
             if (parseInt(parent.$("body").data("domains")[layers].id) == parseInt(id.substr(8))) {
-              text += parent.$("body").data("domains")[layers].extId[0] + '" }}';
+              text += parent.$("body").data("domains")[layers].extId[0] + '" }';
             }
           }
-          selected.push(text);
+          selected[layers] = JSON.parse(text);
         }
       }else if (id.indexOf("FBbt_") > -1){
         selected = parent.$("body").data(parent.$("body").data("current").template).selected;
@@ -168,17 +168,17 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{' + layers + ':{"id":,"';
+          text = '{"id":,"';
           for (layers in parent.$("body").data("domains")){
             if (parent.$("body").data("domains")[layers].extId[0] == id) {
               if (parent.$("body").data("domains")[layers].id === ""){
                 alertMessage(id + ' not found in current stack');
               }else{
-                text += parent.$("body").data("current").template + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }}';
+                text += parent.$("body").data("current").template + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
               }
             }
           }
-          selected.push(text);
+          selected[layers] = JSON.parse(text);
         }
       }
     }
