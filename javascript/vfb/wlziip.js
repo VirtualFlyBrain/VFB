@@ -358,4 +358,5 @@ function loadRightMenuDisplayed() {
 loadColours();
 $(document).ready( function () {
   initWlzControls();
+  loadRightMenuDisplayed();
 });
