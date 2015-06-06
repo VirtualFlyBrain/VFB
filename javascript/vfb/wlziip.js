@@ -32,7 +32,7 @@ function fileFromId(id) {
 }
 
 function updateWlzDisplay(){
-  $.cookie("displaying", returnCleanData(), { expires: 5*365, path: '/' });
+  updateStackData();
   switch (parent.$("body").data("menu")) {
     case "disp":
       loadRightMenuDisplayed();
