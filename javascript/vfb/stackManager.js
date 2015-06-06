@@ -140,7 +140,7 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{"id":,"' + id + '","colour":"auto","visible":true}';
+          text = '{"id":"' + id + '","colour":"auto","visible":true}';
           selected[layers] = JSON.parse(text);
         }
       }else if (id.indexOf("VFBd_") > -1){
@@ -153,7 +153,7 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{"id":,"' + id + '","colour":"auto","visible":true, "extid":"';
+          text = '{"id":"' + id + '","colour":"auto","visible":true, "extid":"';
           for (layers in parent.$("body").data("domains")){
             if (parseInt(parent.$("body").data("domains")[layers].id) == parseInt(id.substr(8))) {
               text += parent.$("body").data("domains")[layers].extId[0] + '" }';
@@ -171,7 +171,7 @@ function addToStackData(ids){
           }
         }else{
           layers = Object.keys(selected).length;
-          text = '{"id":,"';
+          text = '{"id":"';
           for (layers in parent.$("body").data("domains")){
             if (parent.$("body").data("domains")[layers].extId[0] == id) {
               if (parent.$("body").data("domains")[layers].id === ""){
