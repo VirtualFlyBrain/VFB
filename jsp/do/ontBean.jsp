@@ -100,28 +100,38 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<c:if test="${fn:length(ontBean.synonyms)>0}">
 		<p>
 			<b>Synonyms: </b><br />
-			<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
-				&nbsp;&nbsp;&nbsp; * ${fn:replace(curr, '()', '')}<br />
-			</c:forEach>
+			<div id="partSyn">
+				<ul>
+				<c:forEach items="${ontBean.synonyms}" var="curr" varStatus="status">
+					<li>${fn:replace(curr, '()', '')}</li>
+				</c:forEach>
+				</ul>
+			</div>
 		</p>
 	</c:if>
 	<c:if test="${fn:length(refs)>0}">
 		<p>
 			<b>References: </b><br />
-			<c:forEach items="${refs}" var="curr" varStatus="status">
-				&nbsp;&nbsp;&nbsp; * <a href="${curr.webLink}" title="${curr.miniref}" target="_new">${curr.miniref}</script></a>
-				<br />
-			</c:forEach>
+			<div id="partRefs">
+				<ul>
+				<c:forEach items="${refs}" var="curr" varStatus="status">
+					<li><a href="${curr.webLink}" title="${curr.miniref}" target="_new">${curr.miniref}</script></a></li>
+				</c:forEach>
+				</ul>
+		</div>
 		</p>
 	</c:if>
 	<c:if test="${beanType=='ont'}">
 		<c:if test="${fn:length(ontBean.isa)>0}">
 			<p>
 				<b>Parent classes: </b><br />
-				<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
-					&nbsp;&nbsp;&nbsp; *
-					<a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a>
-				</c:forEach>
+				<div id="partParents">
+					<ul>
+					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
+						<li><a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a></li>
+					</c:forEach>
+					</ul>
+				</div>
 			</p>
 		</c:if>
 	</c:if>
@@ -129,47 +139,53 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:if test="${fn:length(ontBean.types)>0}">
 			<p>
 				<b>Parent classes: </b><br />
-				<c:forEach items="${ontBean.types}" var="curr" varStatus="status">
-					<c:set var="currParts" value="${fn:split(curr, '=')}" />
-					<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
-					<c:choose>
-						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
-							&nbsp;&nbsp;&nbsp; *
-							<a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a>
-						</c:when>
-						<c:otherwise>
-							&nbsp;&nbsp;&nbsp; *
-							<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
+				<div id="partParents">
+					<ul>
+					<c:forEach items="${ontBean.types}" var="curr" varStatus="status">
+						<c:set var="currParts" value="${fn:split(curr, '=')}" />
+						<c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" />
+						<c:choose>
+							<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}">
+								<li><a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					</ul>
+				</div>
 			</p>
 		</c:if>
 	</c:if>
 	<c:if test="${fn:length(ontBean.relationships)>0}">
 		<p>
 			<b>Relationships: </b><br />
-
-			<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-				<c:choose>
-					<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">
-						&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-						<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
-					</c:when>
-					<c:otherwise>
-						&nbsp;&nbsp;&nbsp; * ${curr.value[0]}
-						<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
-
-					</c:otherwise>
-				</c:choose>
-				<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
-					<c:if test="${curr.value[2] == neuropil.fbbtId}">
-						&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${curr.value[2]} " target="_top"
-							title="Add to the selected domains in the viewer">See in viewer >> </a>
-					</c:if>
+			<div id="partParents">
+				<ul>
+				<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
+					<li>
+					<c:choose>
+						<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">
+							${curr.value[0]}
+							<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
+						</c:when>
+						<c:otherwise>
+							${curr.value[0]}
+							<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
+						</c:otherwise>
+					</c:choose>
+					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
+						<c:if test="${curr.value[2] == neuropil.fbbtId}">
+							<button type="button" class="btn btn-default btn-xs" aria-label="Add ${curr.value[0]} to the stack viewer" title="Add ${curr.value[0]} to the stack viewer"
+								onClick="addToStackData(${curr.value[2]})"><span class="glyphicon glyphicon-paperclip"></span> Add ${curr.value[0]} to stack view
+							</buton>
+						</c:if>
+					</c:forEach>
+					</li>
 				</c:forEach>
-				<br />
-			</c:forEach>
+			</ul>
+		</div>
 		</p>
 	</c:if>
 
@@ -182,7 +198,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<img class="thumb"src="${tpb.thumbUrl}" />
 		</a>
 		<br/>
-		<a href="/owl/${tpb.vfbId}" target="_top" >See in viewer >> </a>
+		<button type="button" class="btn btn-default btn-xs" aria-label="Add ${curr.value[0]} to the stack viewer" title="Add ${curr.value[0]} to the stack viewer"
+			onClick="addToStackData(${tpb.vfbId})"><span class="glyphicon glyphicon-paperclip"></span> Add ${curr.value[0]} to stack view
+		</buton>
 		<br/>
 
 	</c:if>
@@ -213,8 +231,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			</c:forEach>
 			<c:if test="${!isNeuron && !isClone}">
 				<c:set var="isNeuropil" value="true"/>
-				&nbsp;&nbsp;<a href="/site/stacks/index.htm?add=${ontBean.fbbtId}" target="_top"
-				title="Add to the selected domains in the viewer">See in viewer >> </a>
+				<button type="button" class="btn btn-default btn-xs" aria-label="Add ${curr.value[0]} to the stack viewer" title="Add ${curr.value[0]} to the stack viewer"
+					onClick="addToStackData(${ontBean.fbbtId})"><span class="glyphicon glyphicon-paperclip"></span> Add ${ontBean.name} to stack viewer
+				</buton>
 			</c:if>
 		</p>
 	</c:if>

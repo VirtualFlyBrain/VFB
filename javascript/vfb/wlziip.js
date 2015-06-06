@@ -2,7 +2,6 @@
  * Interface tools for interfacing with the WlzIIPsrv
  *
  * @author rcourt1977
- * @param template
  */
 
 
@@ -39,13 +38,7 @@
  }
 
 function updateWlzDisplay(){
-  var save = JSON.parse(JSON.stringify(parent.$("body").data()));
-  delete save.domains;
-  delete save.disp;
-  delete save.meta;
-  delete save.colours;
-  delete save.menu;
-  $.cookie("displaying", JSON.stringify(save), { expires: 5*365, path: '/' });
+  $.cookie("displaying", returnCleanData(), { expires: 5*365, path: '/' });
   switch (parent.$("body").data("menu")) {
     case "disp":
       loadRightMenuDisplayed();
@@ -61,41 +54,6 @@ function updateWlzDisplay(){
       break;
     default:
       loadRightMenuDisplayed();
-  }
-}
-
-function addToWlzDisplay(ids){
-  if (ids !== undefined && ids !== null) {
-    var id;
-    var text;
-    var selected;
-    var layers;
-    for (id in ids) {
-      id = id.replace(":","_");
-      if (id.indexOf("VFBt_") > -1){
-       id = id.replace("00000", "");
-       if (id != parent.$("body").data("current").template){
-         text = '{ "template": "' + id + '", scl: 1.0,mod:"zeta",dst:0,pit:0,yaw:0,rol:0,qlt:80,cvt:"png",fxp:"0.0,0.0,0.0",blend:"screen",inverted:false}';
-         parent.$("body").data("current",text);
-         loadTemplateMeta(id);
-         if (!parent.$("body").data(id)){
-           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"auto","visible":true}}}}';
-           parent.$("body").data(id,text);
-         }
-       }
-      }else if (id.indexOf("VFBi_") > -1){
-        selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-        if (JSON.stringify(selected).indexOf(id) > -1){
-
-        }else{
-          layers = Object.keys(selected).length;
-          text = '{' + layers + ':{"id":,"' + id + '","colour":"auto","visible":true}}';
-          selected.push(text);
-        }
-      }else if (id.indexOf("VFB_") > -1){
-       file = "VFB/i/" + id.substr(4,8) + "/" + id.substr(8,12) + "/volume.wlz";
-      }
-    }
   }
 }
 
@@ -163,40 +121,6 @@ function loadColours(){
     parent.$("body").data("colours", lines);
     updateWlzDisplay();
   });
-}
-
-function loadDefaultData(ids) {
-  loadTemplateMeta("VFBt_001");
-  var count = 0;
-  var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
-  parent.$("body").data("current", JSON.parse(text));
-  parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
-  if (ids !== undefined && ids !== null && ids !== "") {
-    var id;
-    text = "";
-    for (id in ids) {
-      count ++;
-      text = '{ selected: { " + count + ": { id: "' + id + '", colour: "auto", visible: true }}}';
-      parent.$("body").data("VFBt_001", text);
-    }
-  }
-  updateWlzDisplay();
-}
-
-function initWlzDisplay(ids) {
-  if (!$.cookie('displaying')) {
-    loadDefaultData(ids);
-  }
-  parent.$("body").data(JSON.parse($.cookie("displaying")));
-  if (parent.$("body").data("current") === undefined){
-    alert('Invalid cookie! Sorry your settings have got currupted so we will have to clear them.');
-    $.cookie("displaying", null, { expires: -5, path: '/' });
-    loadDefaultData(ids);
-  }
-  loadTemplateMeta(parent.$("body").data("current").template);
-  loadColours();
-  parent.$("body").data("menu","disp");
-  updateWlzDisplay();
 }
 
 function generateWlzURL(index){
@@ -371,7 +295,7 @@ function loadRightMenuDisplayed() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
-    content += '<table id="displayed" class="display dt-center" cellspacing="0" width="100%"><thead><tr>';
+    content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
     var temp = '<th>#</th><th><span class="glyphicon glyphicon-info-sign"></span></th><th><span class="glyphicon glyphicon-eye-open"></span></th><th><span class="glyphicon glyphicon-tint"></span></th><th>Name</th><th>Type</th>';
     content += temp;
     content += '</tr></thead>';
@@ -410,30 +334,62 @@ function loadRightMenuDisplayed() {
       content += "updateWlzDisplay();";
       content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
       content += '</th>';
+      if (layer.id.indexOf("VFBd_") > -1) {
+        temp = layer.extid;
+      }else{
+        temp = layer.id;
+      }
       // Name:
       content += '<th>';
-      content += '<span id="nameFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
+      content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id + '</span>';
       content += '</th>';
       // Type:
       content += '<th>';
-      content += '<span id="typeFor' + layer.id + '" data-id="' + layer.id + '">' + layer.id + '</span>';
+      content += '<span id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp + '</span>';
       content += '</th>';
       // end row
       content += "</tr>";
     }
-    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { className: 'align-center', scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
   }
   $("#dispContent").html(content);
-  $('[id^=nameFor]').each(function() {
-    content = $(this).data('id');
-    content = content.replace('VFBi_','VFB_');
-    switch (content.substr(0,4)) {
-      case "VFB_":
-        $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
-        break;
-      case "VFBt":
-        $(this).text(parent.$("body").data("meta").name);
-    }
+  if (parent.$("body").data("meta")){
+    $('[id^=nameFor]').each(function() {
+      content = $(this).data('id');
+      content = content.replace('VFBi_','VFB_');
+      switch (content.substr(0,4)) {
+        case "VFB_":
+          $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
+          break;
+        case "VFBt":
+          $(this).text(parent.$("body").data("meta").name);
+          break;
+        case "FBbt":
+          $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
+          break;
+        default:
+          parent.$("body").data("message", "unable to resolve " + content);
+      }
 
-  });
+    });
+    if (parent.$("body").data("meta")){
+      $('[id^=typeFor]').each(function() {
+        content = $(this).data('id');
+        content = content.replace('VFBi_','VFB_');
+        switch (content.substr(0,4)) {
+          case "VFB_":
+            $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partParents');
+            break;
+          case "VFBt":
+            $(this).load('/site/stacks/index.htm #backgroundStain');
+            break;
+          case "FBbt":
+            $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partParents');
+            break;
+          default:
+            parent.$("body").data("message", "unable to resolve " + content);
+        }
+
+      });
+  }
 }

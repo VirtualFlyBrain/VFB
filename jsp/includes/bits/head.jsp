@@ -14,6 +14,8 @@
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
 
+<script type="text/javascript" src="/javascript/vfb/stackManager.js" ></script>
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -97,16 +99,7 @@
 					<li>
 						<a href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">0</span></a>
 						<script>
-							$(document).ready( function () {
-								window.setInterval(function(){
-									if ($.cookie("displaying")) {
-										var stack = JSON.parse($.cookie("displaying"));
-										if (stack.current){
-											$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
-										}
-									}
-								}, 5000);
-							});
+
 						</script>
 	        </li>
 					<li>
