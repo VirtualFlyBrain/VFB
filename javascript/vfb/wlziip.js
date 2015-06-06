@@ -356,5 +356,8 @@ function loadRightMenuDisplayed() {
   }
 }
 
+
 loadColours();
-$(initWlzControls());
+$(document).ready( function () {
+  initWlzControls();
+});

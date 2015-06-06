@@ -34,6 +34,10 @@
 		" />
 </jsp:include>
 
+<c:if test="${!empty param.add}">
+	<script>$(addToStackData("${!param.add}");)</script>
+</c:if>	
+
 <div class="row">
 
 	<div class="col-md-7" id="viewer-panel">
