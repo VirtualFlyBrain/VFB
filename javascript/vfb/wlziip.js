@@ -2,11 +2,9 @@
  * Interface tools for interfacing with the WlzIIPsrv
  *
  * @author rcourt1977
- */
+*/
 
-
-
- function loadTemplateMeta(id) {
+function loadTemplateMeta(id) {
    if (id){
      file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
      $.getJSON( file, function( data ) {
@@ -20,9 +18,9 @@
        initWlzControls();
      });
    }
- }
+}
 
- function fileFromId(id) {
+function fileFromId(id) {
    var file = "";
    if (id){
      id = id.replace(":","_");
@@ -35,7 +33,7 @@
      }
    }
    return file;
- }
+}
 
 function updateWlzDisplay(){
   $.cookie("displaying", returnCleanData(), { expires: 5*365, path: '/' });
