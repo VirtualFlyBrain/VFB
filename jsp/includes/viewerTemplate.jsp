@@ -51,6 +51,7 @@
 					<span class="glyphicon glyphicon-info-sign"></span>
 			</a>
 			<div id="imageAttributes" class="hide">
+				<span id="imageAttributesText" >
 				<c:if test="${!empty param.stackInfo}">
 					<c:set var="credits" value="${fn:split(param.stackInfo,'|')}" />
 					<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
@@ -65,6 +66,7 @@
 					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
 					<h3><span class="glyphicon glyphicon-info-sign"></span> See individual details sheet for any images overlayed for attributation information.</h3>
 				</c:if>
+				</span>
 			</div>
 			<script>
 				$(function(){

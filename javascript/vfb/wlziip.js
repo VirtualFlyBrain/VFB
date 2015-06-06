@@ -288,7 +288,7 @@ function loadRightMenuDisplayed() {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
       switch (layer.id.substr(0,4)) {
         case "VFBt":
-          content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributes'); setTimeout(function(){$('#anatomyDetails #imageAttributes').removeClass('hide');},100);";
+          content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
           break;
         case "VFBd":
           content += "$('#anatomyDetails').load('do/ont_bean.html?id=" + layer.extid + "')";
