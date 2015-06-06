@@ -318,13 +318,13 @@ function loadRightMenuDisplayed() {
       content = content.replace('VFBi_','VFB_');
       switch (content.substr(0,4)) {
         case "VFB_":
-          $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
+          $(this).load('do/ont_bean.html?id=' + content + ' #partName');
           break;
         case "VFBt":
           $(this).text(parent.$("body").data("meta").name);
           break;
         case "FBbt":
-          $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
+          $(this).load('do/ont_bean.html?id=' + content + ' #partName');
           break;
         default:
           parent.$("body").data("message", "unable to resolve " + content);
@@ -337,13 +337,13 @@ function loadRightMenuDisplayed() {
         content = content.replace('VFBi_','VFB_');
         switch (content.substr(0,4)) {
           case "VFB_":
-            $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partParents');
+            $(this).load('do/ont_bean.html?id=' + content + ' #partParents');
             break;
           case "VFBt":
             $(this).load('/site/stacks/index.htm #backgroundStain');
             break;
           case "FBbt":
-            $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partParents');
+            $(this).load('do/ont_bean.html?id=' + content + ' #partParents');
             break;
           default:
             parent.$("body").data("message", "unable to resolve " + content);
