@@ -1,8 +1,4 @@
-/**
- * Interface tools for interfacing with the WlzIIPsrv
- *
- * @author rcourt1977
-*/
+/*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
 function loadTemplateMeta(id) {
    if (id){

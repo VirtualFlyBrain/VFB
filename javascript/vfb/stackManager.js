@@ -1,8 +1,4 @@
-/**
- * functions to manage image stack
- *
- * @author rcourt1977
- */
+/*! VirtualFlyBrain.org functions to manage image stack */
 
 $(document).ready( function () {
   window.setInterval(function(){
