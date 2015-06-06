@@ -96,7 +96,7 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">0</span></a>
+						<a href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 
 						</script>
