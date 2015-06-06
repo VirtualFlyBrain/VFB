@@ -35,14 +35,6 @@
 		" />
 </jsp:include>
 
-<script>
-	loadColours();
-	$(document).ready(function() {
-		var ids = "";
-		initWlzDisplay(ids);
-	});
-</script>
-
 <div class="row">
 
 	<div class="col-md-7" id="viewer-panel">
