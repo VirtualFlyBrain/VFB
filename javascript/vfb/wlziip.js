@@ -1,21 +1,5 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
-function loadTemplateMeta(id) {
-   if (id){
-     file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
-     $.getJSON( file, function( data ) {
-       $.each( data, function( key, val ) {
-         parent.$("body").data(key,val);
-       });
-       if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
-         parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
-       }
-       updateWlzDisplay();
-       initWlzControls();
-     });
-   }
-}
-
 function fileFromId(id) {
    var file = "";
    if (id){
