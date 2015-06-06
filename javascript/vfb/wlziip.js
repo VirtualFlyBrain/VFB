@@ -290,7 +290,7 @@ function loadRightMenuDisplayed() {
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
     content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
-    var temp = '<th>#</th><th><span class="glyphicon glyphicon-info-sign"></span></th><th><span class="glyphicon glyphicon-eye-open"></span></th><th><span class="glyphicon glyphicon-tint"></span></th><th>Name</th><th>Type</th>';
+    var temp = '<th class="text-center">#</th><th class="text-center"><span class="glyphicon glyphicon-info-sign"></span></th><th class="text-center"><span class="glyphicon glyphicon-eye-open"></span></th><th class="text-center"><span class="glyphicon glyphicon-tint"></span></th><th class="text-center">Name</th><th class="text-center">Type</th>';
     content += temp;
     content += '</tr></thead>';
     // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
@@ -353,7 +353,7 @@ function loadRightMenuDisplayed() {
       // end row
       content += "</tr>";
     }
-    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { className: 'align-center', scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
   }
   $("#dispContent").html(content);
   if (parent.$("body").data("meta")){
