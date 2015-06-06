@@ -2,7 +2,6 @@
  * Interface tools for interfacing with the WlzIIPsrv
  *
  * @author rcourt1977
- * @param template
  */
 
 
