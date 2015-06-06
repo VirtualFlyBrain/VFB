@@ -79,6 +79,8 @@ function initStackData(ids) {
   }
   parent.$("body").data(JSON.parse($.cookie("displaying")));
   if (parent.$("body").data("current") === undefined){
+    alert($.cookie("displaying"));
+    alert(returnCleanData());
     alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
@@ -181,10 +183,5 @@ function addToStackData(ids){
       }
     }
     updateStackData();
-  }
-}
-
-function addStack(id){
-  if ($.cookie("displaying")) {
   }
 }
