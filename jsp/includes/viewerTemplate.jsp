@@ -36,7 +36,7 @@
 
 <c:if test="${!empty param.add}">
 	<script>$(addToStackData("${!param.add}");)</script>
-</c:if>	
+</c:if>
 
 <div class="row">
 
@@ -124,10 +124,21 @@
 			        </div>
 			        <div class="tab-pane" id="search">
 								<div class="content-fluid" id="searchBar"></div>
-								<div class="content-fluid" id="searchResult"></div>
+								<div class="content-fluid" id="result-section">
+									<div class="well">
+										<div class="contence-fluid" id="result">
+											<div class="row" id="navigation">
+												<div class="col-xs-6" id="pager-header"></div>
+												<div class="col-xs-6"><ul class="list-inline" id="pager"></ul></div>
+											</div>
+											<dl>
+												<div class="contence-fluid" id="docs"></div>
+											</dl>
+										</div>
+									</div>
+								</div>
 								<script>
 								$('#searchBar').load('/site/tools/anatomy_finder/index.htm #search-bar');
-								$('#searchResult').load('/site/tools/anatomy_finder/index.htm #result-section');
 								</script>
 			        </div>
 			</div><!-- tab content -->
