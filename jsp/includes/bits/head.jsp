@@ -98,7 +98,12 @@
 					<li>
 						<a href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
-
+							if ($.cookie("displaying")) {
+								var stack = JSON.parse($.cookie("displaying"));
+								if (stack.current){
+									$("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
+								}
+							}
 						</script>
 	        </li>
 					<li>
