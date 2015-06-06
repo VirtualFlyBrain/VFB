@@ -337,7 +337,7 @@ function loadRightMenuDisplayed() {
       // end row
       content += "</tr>";
     }
-    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { scrollY: true, scrollX: true, paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
+    content += "</tbody></table><script>$(document).ready(function() { $('#displayed').DataTable( { paging: false, searching: true, ordering: true, responsive: true, stateSave: true, order: [[ 0, 'asc' ]]} ); } );</script>";
   }
   $("#dispContent").html(content);
   if (parent.$("body").data("meta")){
