@@ -427,7 +427,7 @@ function loadRightMenuDisplayed() {
   $('[id^=nameFor]').each(function() {
     content = $(this).data('id');
     content = content.replace('VFBi_','VFB_');
-    switch (content.substr(4)) {
+    switch (content.substr(0,4)) {
       case "VFB_":
         $(this).load('do/ont_bean.html?id=' + $(this).data('id') + ' #partName');
         break;
