@@ -120,8 +120,8 @@
 								<div class="content-fluid" id="searchBar"></div>
 								<div class="content-fluid" id="searchResult"></div>
 								<script>
-								$('#searchContent').load('/site/tools/anatomy_finder/index.htm #search-bar');
-								$('#searchContent').load('/site/tools/anatomy_finder/index.htm #result-section');
+								$('#searchBar').load('/site/tools/anatomy_finder/index.htm #search-bar');
+								$('#searchResult').load('/site/tools/anatomy_finder/index.htm #result-section');
 								</script>
 			        </div>
 			</div><!-- tab content -->
