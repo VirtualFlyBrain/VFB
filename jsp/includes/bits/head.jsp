@@ -153,7 +153,7 @@
 			</div>
 	</div>
 
-	<div id="alert_message" class="alert alert-warning alert-dismissible" style="display: none;">
+	<div id="alert_message" class="alert alert-warning" style="display: none;">
       <span class="close" data-dismiss="alert" aria-label="Close">&times;</span>
       <span><strong>!</strong> <span id="alert-message-text">All is well, nothing to see here.</span></span>
   </div>
