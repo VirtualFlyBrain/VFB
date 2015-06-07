@@ -357,48 +357,50 @@ function loadRightMenuDisplayed() {
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
-    var layers = Object.keys(selected).length;
-    content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
-    var temp = '<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>';
-    content += temp;
-    content += '</tr></thead>';
-    // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
-    for (i=0; i < layers; i++) {
-      content += "<tr>";
-      layer = selected[i];
-      // index:
-      content += '<th class="text-center">' + String(i) + '</th>';
-      // Details:
-      content += '<th class="text-center">';
-      content += createInfoButtonHTML(layer);
-      // visible:
-      content += createVisibleButtonHTML(layer);
-      // Colour:
-      content += createColourButtonHTML(layer);
-      // Remove:
-      if (i > 0) {
-        content += createCloseButtonHTML(layer);
+    if (selected) {
+      var layers = Object.keys(selected).length;
+      content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
+      var temp = '<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>';
+      content += temp;
+      content += '</tr></thead>';
+      // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
+      for (i=0; i < layers; i++) {
+        content += "<tr>";
+        layer = selected[i];
+        // index:
+        content += '<th class="text-center">' + String(i) + '</th>';
+        // Details:
+        content += '<th class="text-center">';
+        content += createInfoButtonHTML(layer);
+        // visible:
+        content += createVisibleButtonHTML(layer);
+        // Colour:
+        content += createColourButtonHTML(layer);
+        // Remove:
+        if (i > 0) {
+          content += createCloseButtonHTML(layer);
+        }
+        content += '</th>';
+        // Name:
+        if (layer.id.indexOf("VFBd_") > -1) {
+          temp = layer.extid;
+        }else{
+          temp = layer.id;
+        }
+        content += '<th class="text-center">';
+        content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id.replace('VFBi_','VFB_') + '</span>';
+        content += '</th>';
+        // Type:
+        content += '<th class="text-center">';
+        content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
+        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+        content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp.replace('VFBi_','VFB_') + '</span></a>';
+        content += '</th>';
+        // end row
+        content += "</tr>";
       }
-      content += '</th>';
-      // Name:
-      if (layer.id.indexOf("VFBd_") > -1) {
-        temp = layer.extid;
-      }else{
-        temp = layer.id;
-      }
-      content += '<th class="text-center">';
-      content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id.replace('VFBi_','VFB_') + '</span>';
-      content += '</th>';
-      // Type:
-      content += '<th class="text-center">';
-      content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
-      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
-      content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp.replace('VFBi_','VFB_') + '</span></a>';
-      content += '</th>';
-      // end row
-      content += "</tr>";
+      content += "</tbody></table>";
     }
-    content += "</tbody></table>";
   }
   $("#dispContent").html(content);
   $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: false, searching: false, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );
