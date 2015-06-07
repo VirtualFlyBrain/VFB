@@ -1,13 +1,5 @@
 /*! VirtualFlyBrain.org functions to manage image stack */
 
-$('body').ready( function () {
-  window.setInterval(function(){
-    updateStackCounter();
-  }, 5000);
-	var ids = "";
-	initStackData(ids);
-});
-
 function updateStackCounter() {
   if ($.cookie("displaying")) {
     var stack = JSON.parse($.cookie("displaying"));
@@ -240,3 +232,7 @@ function removeFromStackData(ids) {
     updateStackData();
   }
 }
+
+$('body').ready( function () {
+	initStackData(ids);
+});

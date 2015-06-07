@@ -3,7 +3,6 @@
 function updateWlzDisplay(){
   updateStackData();
   loadRightMenuDisplayed();
-  updateAnatomyTree();
 }
 
 function animateWlzDisplay(){
