@@ -39,96 +39,106 @@
 					<center>
 				    		<h2>What can VFB do for me? <small>Example queries with detailed steps</small></h2>
 					</center>
-					
+
 
 					<div class="panel panel-info"> <!-- example query panel -->
 					  <div class="panel-heading">
-					  <h3 class="panel-title">Anatomy information for the whole nervous system</h3>
+					  	<h3 class="panel-title">Anatomy information for the whole nervous system</h3>
 					  </div>
-					 	 
+
 					 	 <!--3 thumbnails-->
-					 	 <div class="container center-block">
-        						<div class="row">
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer">
-                   									 <div class="caption"> 
-                   									 <p>
-                   									 <a href="/site/stacks/index.htm?add=FBbt:00045048">
-						  		<b>What</b> and <b>where</b> is the saddle?
-						  							</a> <br/>
-						  							</p>
-						  						
-								<a href="#" tabindex="0" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="What and where is the saddle:"
-									data-popover-content="#Question1">More &raquo;
-								</a>
-								
-								<div id="Question1" class="hide">
-									<p>
-							    	For more information on this type of query go <a href="/site/vfb_site/features.htm#3dviewer">here</a>.
-							    </p>
-							  	<ul>
-									  <li>
-									  	Go to the <a href="/site/stacks/index.htm">Stack Viewer</a>,
-											accessible from the homepage or from the top menu <i>Stacks -> adult brain - Janelia</i>.
-									  </li>
-									  <li>
-									  	In the search box above the anatomy tree on the right panel, start typing <i>saddle</i> or any other synonym, such as <i>SAD</i>.
-									  </li>
-						
-									  <li>
-									  	Choose the term <i>saddle</i> from the autocomplete list.
-									  </li>
-									  <li>
-									  	The anatomy tree will expand to display and highlight this term.
-											To highlight this domain on the stack viewer, click on the square to the left or on
-											<i>centre</i> to the right of the term in the tree.
-									  </li>
-									  <li>
-									  	The term info window at the bottom of the page will display all the information about that term.
-									  </li>
-									  <li>
-											Further queries are now possible from the <i>Query for</i> menu, at the top of
-											the term info window. Hover on the query options to the right of it to see all available queries.
-											Choose the desired option and click to run the query.
-								   </li>
-								 	</ul>
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-								
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
-            						
-            						
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC">
-                   									 <div class="caption">
-                   									 
+					 	<div class="container center-block">
+        			<div class="row">
+            		<div class="col-xs-3">
+               		<div class="thumbnail thumbnail-top" style="min-width:85px">
+                   	<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer"  />
+										<div class="caption">
+										 	<a href="/site/stacks/index.htm?add=FBbt:00045048">
+												<b>What</b> and <b>where</b> is the saddle?
+											</a>
+											<a href="#" tabindex="0" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom" title="What and where is the saddle:"
+												data-popover-content="#Question1">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+
+
+
+									<div id="Question1" class="hide">
+										<p>
+								    	For more information on this type of query go <a href="/site/vfb_site/features.htm#3dviewer">here</a>.
+								    </p>
+								  	<ul>
+										  <li>
+										  	Go to the <a href="/site/stacks/index.htm">Stack Viewer</a>,
+												accessible from the homepage or from the top menu <i>Stacks <span class="glyphicon glyphicon-arrow-right"></span> adult brain - Janelia</i>.
+										  </li>
+										  <li>
+										  	In the search box above the anatomy tree on the right panel, start typing <i>saddle</i> or any other synonym, such as <i>SAD</i>.
+										  </li>
+
+										  <li>
+										  	Choose the term <i>saddle</i> from the autocomplete list.
+										  </li>
+										  <li>
+										  	The anatomy tree will expand to display and highlight this term.
+												To highlight this domain on the stack viewer, click on the square to the left or on
+												<i>centre</i> to the right of the term in the tree.
+										  </li>
+										  <li>
+										  	The term info window at the bottom of the page will display all the information about that term.
+										  </li>
+										  <li>
+												Further queries are now possible from the <i>Query for</i> menu, at the top of
+												the term info window. Hover on the query options to the right of it to see all available queries.
+												Choose the desired option and click to run the query.
+									   </li>
+									 	</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												e.preventDefault();
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+													}else{
+														$(this).data("open", true);
+													}
+												}
+											});
+										});
+									</script>
+
+
+
+            		</div> <!--col-->
+
+
+    						<div class="col-xs-3">
+ 							 		<div class="thumbnail thumbnail-top" style="min-width:85px">
+           					<img src="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC">
+           					<div class="caption">
+
                    									 <p>
                    									<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
 						  		Find <b>neurons</b> with synaptic <b>terminals</b> in the AMMC
 						  	</a>
 						  							<br/>
 						  							</p>
-						  							
+
 								<a href="#" tabindex="0" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find neurons that arborise in the AMMC:"
 									data-popover-content="#Question2">More &raquo;
 								</a>
-								
+
 								<div id="Question2" class="hide">
 									<p>
 									For more information on this type of query go <a href="/site/vfb_site/features.htm#neuronsbylocation">here</a>.
@@ -144,10 +154,10 @@
 										<li>
 										Choose the term from the autocomplete list. A page with all the information about that neuropil (term info window) will be displayed.
 										</li>
-									
+
 										<li>
 										The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
-							
+
 										</li>
 										<li>
 										Select the query <i>Neuron classes with: synaptic terminals here</i>.
@@ -162,18 +172,18 @@
 
 								<ul>
 								  <li>
-								 Go to the <a href="/site/tools/query_builder/index.htm">Query Builder</a> page, accessible from the homepage or from the top menu <i>Tools ->  Query Builder</i>.
+								 Go to the <a href="/site/tools/query_builder/index.htm">Query Builder</a> page, accessible from the homepage or from the top menu <i>Tools <span class="glyphicon glyphicon-arrow-right"></span>  Query Builder</i>.
 								  </li>
 								  <li>
 								  Search and choose a term as previously, <i>AMMC</i>.
-								  </li> 
-						
+								  </li>
+
 								  <li>
 								To add the term to the query, click  <i>Add to the query</i> at the top of the term info window.
 								  </li>
 								  <li>
 								  The entry for <i>AMMC</i> will be added to the panel on the right, <i>Your query</i> - that represents your current query.<br/>
-								  The query text below will be updated to reflect your query.      
+								  The query text below will be updated to reflect your query.
 								  </li>
 								  <li>
 								  Select the directionality of the connectivity, by changing the type of terminals from <i>synaptic</i> to <i>postsynaptic</i> using the dropdown menu to the right of the term.
@@ -185,7 +195,7 @@
 								  Check the query text in the <i>Your query</i> panel. When happy with it, click the <i>Execute</i> button at the bottom of the <i>Your query</i> panel.
 								  </li>
 								  <li>
-								  A list with the query results will be displayed.     
+								  A list with the query results will be displayed.
 								  </li>
 								 </ul>
 									</ul>
@@ -199,32 +209,32 @@
 										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
-								
+
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
-            						
-            						
+
+
             						<div class="col-xs-3">
                							 <div class="thumbnail thumbnail-top" style="min-width:85px">
                    								 <img src="/images/vfb/project/neuroblast_ALad1_q4.png" alt="Neurons of the lineage ALad1">
                    									 <div class="caption">
-                   									 
+
                    									 <p>
                    									 <a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
 						  		Find <b>neurons</b> that develop from a <b>neuroblast</b> in the antennal lobe
 							  </a>
 						  							<br/>
 						  							</p>
-						  							
+
 								<a href="#" tabindex="0" rel="question4" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find neurons from an AL lineage:"
 									data-popover-content="#Question4">More &raquo;
 								</a>
-								
+
 								<div id="Question4" class="hide">
-								
+
 								<p>
 										For more information on this type of query click <a href="/site/vfb_site/features.htm#querymenu">here</a>.
 									</p>
@@ -236,7 +246,7 @@
 										<li>
 											In the search box, start typing <i>antennal lobe</i> or any known synonym, such as <i>AL</i>.
 										</li>
-						
+
 										<li>
 											Choose the term from the autocomplete list, <i>adult antennal lobe</i> .
 										</li>
@@ -274,7 +284,7 @@
 											You can also create a composite view, to compare image stacks with each others (eg. compare one neuron to a lineage clone). From the Viewer, click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the Anatomy/Neuron Finder. Search for a lineage clone and click on <i>See in viewer</i> link. Again, click on <i>Add to composite view</i>. To display the composite, click on <i>View composite</i> on the </i>Edit composite view</i> page.
 										</li>
 									</ul>
-									
+
 								</div>
 								<script>
 									$(function(){
@@ -288,41 +298,41 @@
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
-            
-            						
+
+
             					</div><!--row-->
-            				</div><!--container--> 
+            				</div><!--container-->
 
 				</div> <!--end of panel-->
-			
-				
-			
+
+
+
 					 <!--3 thumbnails-->
 					<div class="panel panel-info"> <!-- example query panel -->
 					 	 <div class="panel-heading">
 					 	 <h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
 					  </div>
-					 	 
+
 					 	 <div class="container center-block">
         						<div class="row">
             						<div class="col-xs-3">
                							 <div class="thumbnail thumbnail-top" style="min-width:85px">
                    								 <img src="/images/vfb/project/cluster_5-HT1B-M-400020_q3.png" alt="Neuron cluster in the ellipsoid body">
                    									 <div class="caption">
-                   									 
+
                    									 <p>
                    									 <a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
 						  		Find <b>images of neurons</b> with some <b>part in</b> the ellipsoid body
 						  							</a><br/>
-						  							
+
 						  							</p>
-						  							
+
 								<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find images of neurons that overlap the ellipsoid body:"
 									data-popover-content="#Question3">More &raquo;
 								</a>
-								
+
 								<div id="Question3" class="hide">
 									<p>
 								    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
@@ -336,7 +346,7 @@
 										 	In the search box start typing <i>ellipsoid body</i> any known synonym, such as <i>EB</i>.
 									  </li>
 									   <li>
-											Choose the term, <i>ellipsoid body</i> from the autocomplete list.   
+											Choose the term, <i>ellipsoid body</i> from the autocomplete list.
 	 									 </li>
 									  <li>
 											 A page with all the information about that neuropil (term info window) will be displayed.
@@ -376,32 +386,32 @@
 										}).click(function(e) {e.preventDefault();});
 									});
 								</script>
-								
+
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
-            						
-            						
+
+
             						<div class="col-xs-3">
                							 <div class="thumbnail thumbnail-top" style="min-width:85px">
                    								 <img src="/images/vfb/project/R21B06_KCab_q5.png" alt="Transgene that includes alpha/beta Kenyon cells">
                    									 <div class="caption">
-                   									 
+
                    									 <p>
                    									 <a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
 						  		Find <b>transgenes</b> expressed <b>in</b> mushroom body alpha/beta <b>neurons</b>
 						  	</a>
 						  							<br/>
 						  							</p>
-						  							
+
 								<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="Find transgenes expressed in the mushroom body alpha/beta neurons:"
 									data-popover-content="#Question5">More &raquo;
 								</a>
-								
+
 								<div id="Question5" class="hide">
-								
+
 								<p>
 									   For more information on this type of query click <a href="/site/vfb_site/features.htm#expquery">here</a>.
 									</p>
@@ -412,9 +422,9 @@
 										<li>
 											In the search box, start typing <i>mushroom body alpha/beta neuron</i> or any known synonym, such as <i>alpha/beta Kenyon cell</i>.
 										</li>
-									
+
 										<li>
-											Choose the term from the autocomplete list, <i>mushroom body alpha/beta neuron</i>. 
+											Choose the term from the autocomplete list, <i>mushroom body alpha/beta neuron</i>.
 										</li>
 										<li>
 											 A page with all the information about that neuropil (term info window) will be displayed.
@@ -431,9 +441,9 @@
 											If images for the expression pattern of the driver are available they will be shown at the bottom of the page.<br/>
 											<b>Did you know?</b> If you don't find all the results that you hoped, try running the same query for <i>mushroom body alpha or mushroom body beta lobe</i>.
 										</li>
-										
+
 							 		</ul>
-									
+
 								</div>
 								<script>
 									$(function(){
@@ -447,25 +457,25 @@
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
-            						
-            						
+
+
             						<div class="col-xs-3">
                							 <div class="thumbnail thumbnail-top" style="min-width:85px">
                    								 <img src="/images/vfb/project/composite_cropped_q7.png" alt="Overlay of 3 image stacks" >
                    									 <div class="caption">
-                   									 
+
                    									 <p>
                    									 <a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
 						  		<b>Overlay</b> 3 different <b>image stacks</b> that overlap the central complex
 						  	</a><br/>
 						  							</p>
-						  							
+
 								<a href="#" tabindex="0" rel="question7" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
 									data-placement="bottom"
 									title="How to work with composite views:"
 									data-popover-content="#Question7">More &raquo;
 								</a>
-								
+
 								<div id="Question7" class="hide">
 									<h2>Generating a composite view</h2>
 								  <ul>
@@ -499,7 +509,7 @@
 										  grow too large. Old composites will be removed without prior warning to the composite owner.
 									  </li>
 									</ul>
-					
+
 								</div>
 								<script>
 									$(function(){
@@ -513,22 +523,22 @@
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
-            						
+
             		</div><!--row-->
             </div><!--container-->
-            
-            </div><!--example panel-->
-					 	 
 
-				
+            </div><!--example panel-->
+
+
+
 				<!-- well-->
-				
+
 			</div> <!-- div col -->
 
 			<div class="col-md-3" align="center">
 				<div class="well" align="center">
 					<a href="/site/stacks/index.htm" title="Explore and run queries on the adult Drosophila Brain">
-						<h3>Adult Brain Anatomy</h3><img src="/images/vfb/project/viewerIcon.png" style="max-width:100%;" />
+						<h3>Adult Brain Anatomy</h3><img class="lazy" data-original="/images/vfb/project/viewerIcon.png" style="max-width:100%;" />
 					</a>
 				</div>
 			</div>
@@ -543,7 +553,7 @@
 			<div class="col-md-3" align="center">
 				<div class="well" align="center">
 					<a href="/site/tools/query_builder/index.htm" title="Build and execute connectivity queries">
-						<h3>Connectivity Query</h3><img src="/images/vfb/project/queryBuilderIcon.png" style="max-width:100%;" />
+						<h3>Connectivity Query</h3><img class="lazy" data-original="/images/vfb/project/queryBuilderIcon.png" style="max-width:100%;" />
 					</a>
 				</div>
 			</div>
