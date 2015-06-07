@@ -234,5 +234,5 @@ function removeFromStackData(ids) {
 }
 
 $('body').ready( function () {
-	initStackData(ids);
+	initStackData(null);
 });
