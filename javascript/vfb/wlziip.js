@@ -21,7 +21,8 @@ function animateWlzDisplay(){
       if (layers > 0){
         var count = 0;
         var image = [];
-        for (i=0; i < layers; i++) {
+        var i;
+        for (i in selected) {
           if (selected[i].visible){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
