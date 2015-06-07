@@ -21,7 +21,7 @@
 <c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
-<a href="/owl/${tpb.vfbId}" target="_top">
+<a href="/site/stacks/index.htm?add=${tpb.vfbId}" target="_top">
 <img class="lazy" data-original="${tpb.thumbUrl}" alt="" style="width:295px; height:171px;">
 <div class="carousel-caption" style="bottom:-33px;opacity:0.3;">
   <b>${ontBean.name}</b><br>
