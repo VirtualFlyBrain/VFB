@@ -151,7 +151,7 @@
 
 	<div id="footer">
 		<div id="annotation">
-			<!-- Need this to get the context menu on the term info box working, see span above -->
+			<a name="details"></a>
 			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
 				Click anywhere on the stack viewer or on any node of the
