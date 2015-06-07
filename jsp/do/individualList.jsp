@@ -54,17 +54,19 @@
 							<td>
 									<c:choose>
 										<c:when test="${!empty tpb}">
-											<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
+											<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
+											<button type="button" class="btn btn-default btn-xs" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
+												onClick="addToStackData('${tpb.vfbId}')"><span class="glyphicon glyphicon-paperclip"></span></buton>
 										</c:when>
 										<c:otherwise>
-											<a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
+											<a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
 										</c:otherwise>
 									</c:choose>
 							</td>
 							<td class="text-muted">${ontBean.def}</td>
 							<td>
 								<c:if test="${!empty tpb}">
-									<a href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" title="See in viewer">
+									<a href="/site/stacks/index.htm?add=${tpb.vfbId}" title="See in viewer">
 										<img class="lazy" data-original="${tpb.thumbUrl}" alt="http://www.virtualflybrain.org/owl/${tpb.vfbId}" />
 									</a>
 								</c:if>
