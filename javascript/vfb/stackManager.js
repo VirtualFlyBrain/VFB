@@ -225,6 +225,18 @@ function removeFromStackData(ids) {
         }
       }
     }
+    selected = parent.$("body").data(current.template).selected;
+    i=0;
+    for (l in selected) {
+      selected[i]=selected[l];
+      i++;
+    }
+    selected = parent.$("body").data(current.template).selected;
+    for (l in selected) {
+      if (parseInt(l)>i) {
+        delete selected[l];
+      }
+    }
     updateStackData();
   }
 }
