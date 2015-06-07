@@ -182,6 +182,7 @@ function addToStackData(ids){
               }
             }
           }
+          layers = Object.keys(selected).length;
           selected[layers] = JSON.parse(text);
         }
       }
