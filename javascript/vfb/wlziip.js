@@ -412,6 +412,7 @@ function createTreeHTML(treeStruct) {
   var layer = '0';
   var node;
   var temp;
+  var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
   var html = "<ul>";
   for (n in treeStruct) {
