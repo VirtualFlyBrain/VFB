@@ -444,6 +444,6 @@ function createTreeHTML(treeStruct) {
 
 loadColours();
 $(document).ready( function () {
-  loadRightMenuDisplayed();
   initWlzControls();
+  loadRightMenuDisplayed();
 });
