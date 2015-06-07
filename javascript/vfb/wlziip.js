@@ -294,7 +294,7 @@ function createInfoButtonHTML(layer) {
     default:
       content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
   }
-  content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
+  content += '"><span class="glyphicon glyphicon-info-sign"></span></button>';
   return content;
 }
 
@@ -305,11 +305,11 @@ function createVisibleButtonHTML(layer) {
   if (layer.visible) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
     content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
-    content += '"><span class="glyphicon glyphicon-eye-open"></span></buton>';
+    content += '"><span class="glyphicon glyphicon-eye-open"></span></button>';
   }else{
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
     content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
-    content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
+    content += '"><span class="glyphicon glyphicon-eye-close"></span></button>';
   }
   return content;
 }
@@ -324,7 +324,7 @@ function createColourButtonHTML(layer) {
   }
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
   content += "updateWlzDisplay();";
-  content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
+  content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></button>';
   return content;
 }
 
@@ -332,7 +332,7 @@ function createCloseButtonHTML(layer) {
   var content = "";
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
   content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
-  content += '"><span class="glyphicon glyphicon-remove-sign"></span></buton>';
+  content += '"><span class="glyphicon glyphicon-remove-sign"></span></button>';
   return content;
 }
 
@@ -340,7 +340,7 @@ function createAddButtonHTML(id) {
   var content = "";
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add" title="Add" onClick="';
   content += "addToStackData('" + id + "');updateWlzDisplay();";
-  content += '"><span class="glyphicon glyphicon-paperclip"></span></buton>';
+  content += '"><span class="glyphicon glyphicon-paperclip"></span></button>';
   return content;
 }
 
@@ -416,16 +416,17 @@ function loadTemplateAnatomyTree() {
               var children = $(this).parent('li.parent_li').find(' > ul > li');
               if (children.is(":visible")) {
                   children.hide('fast');
-                  $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-plus-sign"></span>');
+                  $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
               } else {
                   children.show('fast');
-                  $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-minus-sign"></span>');
+                  $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-minus-sign" style="border:none;"></span>');
               }
               e.stopPropagation();
           });
           // collapse all at start:
           var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
           children.hide('fast');
+          $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
       });
      });
    }
