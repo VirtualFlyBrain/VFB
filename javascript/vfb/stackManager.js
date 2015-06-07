@@ -178,11 +178,43 @@ function addToStackData(ids){
               if (parent.$("body").data("domains")[layers].id === ""){
                 alertMessage(id + ' not found in current stack');
               }else{
-                text += parent.$("body").data("current").template + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                text += parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
               }
             }
           }
           selected[layers] = JSON.parse(text);
+        }
+      }
+    }
+    updateStackData();
+  }
+}
+
+function removeFromStackData(ids) {
+  if (ids !== undefined && ids !== null) {
+    var i;
+    var l;
+    var id;
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    if (!Array.isArray(ids)) {
+      ids = [ids];
+    }
+    for (i in ids) {
+      id = ids[i].replace(":","_").replace('VFB_','VFBi_');
+      if (JSON.stringify(selected).indexOf(id) > -1) {
+        if (id.indexOf("VFB") > -1){
+          for (l in selected) {
+            if (selected[l].id == id) {
+              delete selected[l];
+            }
+          }
+        }else{
+          for (l in selected) {
+            if (selected[l].extid == id) {
+              delete selected[l];
+            }
+          }
         }
       }
     }

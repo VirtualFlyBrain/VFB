@@ -168,6 +168,7 @@ function initWlzControls() {
    updateLabels();
    hideAllSliders();
    parent.$("body").data("disp", "scale");
+   loadTemplateAnatomyTree();
  }else{
    window.setTimeout(function(){
      initWlzControls();
@@ -280,6 +281,61 @@ function setOrientaion(ori) {
    updateWlzDisplay();
  }
 
+function createInfoButtonHTML(layer) {
+  var content = "";
+  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+  switch (layer.id.substr(0,4)) {
+    case "VFBt":
+      content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+      break;
+    case "VFBd":
+      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
+      break;
+    default:
+      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
+  }
+  content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
+  return content;
+}
+
+function createVisibleButtonHTML(layer) {
+  var content = "";
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
+  if (layer.visible) {
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
+    content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
+    content += '"><span class="glyphicon glyphicon-eye-open"></span></buton>';
+  }else{
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
+    content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
+    content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
+  }
+  return content;
+}
+
+function createColourButtonHTML(layer) {
+  var content = "";
+  var temp;
+  if (layer.colour == "auto") {
+    temp = parent.$("body").data("colours")[i];
+  }else{
+    temp = layer.colour;
+  }
+  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
+  content += "updateWlzDisplay();";
+  content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
+  return content;
+}
+
+function createCloseButtonHTML(layer) {
+  var content = "";
+  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
+  content += "removeFromStackData(" + layer.id + ");updateWlzDisplay();";
+  content += '"><span class="glyphicon glyphicon-remove-sign"></span></buton>';
+  return content;
+}
+
 function loadRightMenuDisplayed() {
   var content = "";
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
@@ -298,38 +354,16 @@ function loadRightMenuDisplayed() {
       content += '<th class="text-center">' + String(i) + '</th>';
       // Details:
       content += '<th class="text-center">';
-      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
-      switch (layer.id.substr(0,4)) {
-        case "VFBt":
-          content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
-          break;
-        case "VFBd":
-          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
-          break;
-        default:
-          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
-      }
-      content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
+      content += createInfoButtonHTML(layer);
       // visible:
-      if (layer.visible) {
-        content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
-        content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
-        content += '"><span class="glyphicon glyphicon-eye-open"></span></buton>';
-      }else{
-        content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
-        content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
-        content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
-      }
+      content += createVisibleButtonHTML(layer);
       // Colour:
-      if (layer.colour == "auto") {
-        temp = parent.$("body").data("colours")[i];
-      }else{
-        temp = layer.colour;
-      }
-      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
-      content += "updateWlzDisplay();";
-      content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
+      content += createColourButtonHTML(layer);
       content += '</th>';
+      // Remove:
+      if (i > 0) {
+        content += createCloseButtonHTML(layer);
+      }
       // Name:
       if (layer.id.indexOf("VFBd_") > -1) {
         temp = layer.extid;
@@ -356,18 +390,55 @@ function loadRightMenuDisplayed() {
   updateLabels();
 }
 
-function loadTemplateAnatomyTree(id) {
-   if (id){
-     file = "/data/" + fileFromId(id).replace("composite.wlz","tree.json");
+function loadTemplateAnatomyTree() {
+   if (parent.$("body").data("current")){
+     var current = parent.$("body").data("current");
+     var selected = parent.$("body").data(current.template).selected;
+     file = "/data/" + fileFromId(current.template).replace("composite.wlz","tree.json");
      $.getJSON( file, function( data ) {
-       parent.$("body").data("tree",data);
+       var content = "";
+       content += '<div class="tree well">';
+       content += createTreeHTML(data);
+       content += "</div>";
+       $("#dispContent").html(content);
        updateWlzDisplay();
      });
    }
 }
 
 function createTreeHTML(treeStruct) {
-
+  var n;
+  var l;
+  var layer = '0';
+  var node;
+  var temp;
+  var selected = parent.$("body").data(current.template).selected;
+  var html = "<ul>";
+  for (n in treeStruct) {
+    node = treeStruct[n];
+    if (treeStruct[n].node) {
+      node = treeStruct[n].node;
+    }
+    html += "<li>";
+    html += '<span>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
+    if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
+      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
+      if (JSON.stringify(selected).indexOf(temp) > -1) {
+        for (l in selected) {
+          if (selected[l].id == temp) {
+            layer = selected[l];
+          }
+        }
+        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
+      }
+      if (node.children) {
+        html += createTreeHTML(node.children);
+      }
+    }
+    html += "</li>";
+  }
+  html += "</ul>";
+  return html;
 }
 
 loadColours();
