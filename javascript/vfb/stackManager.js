@@ -35,7 +35,7 @@ function fileFromId(id) {
      }else if (id.indexOf("VFB_") > -1){
        file = "VFB/i/" + id.substr(4,4) + "/" + id.substr(8,4) + "/volume.wlz";
      }else if (id.indexOf("VFBd_") > -1){
-       file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "domain" + id.substr(8) + ".wlz";
+       file = id.substr(0,8).replace("VFBd_","VFB/t/") + "domain" + id.substr(8) + ".wlz";
      }
    }
    return file;
