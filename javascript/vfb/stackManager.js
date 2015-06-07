@@ -26,6 +26,7 @@ function loadTemplateMeta(id) {
 
 function fileFromId(id) {
    var file = "";
+   id = id.replace('VFBd_','VFB_');
    if (id){
      id = id.replace(":","_");
      if (id.indexOf("VFBt_") > -1){
