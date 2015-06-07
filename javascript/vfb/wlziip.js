@@ -2,7 +2,11 @@
 
 function updateWlzDisplay(){
   updateStackData();
+}
+
+function updateMenuData() {
   loadRightMenuDisplayed();
+  updateAnatomyTree();
 }
 
 function animateWlzDisplay(){
@@ -308,11 +312,11 @@ function createVisibleButtonHTML(layer,i) {
     var selected = parent.$("body").data(current.template).selected;
     if (layer.visible) {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();";
       content += '"><span class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();";
       content += '"><span style="border:none;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
   }
@@ -329,7 +333,7 @@ function createColourButtonHTML(layer,i) {
       temp = layer.colour;
     }
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
-    content += "updateWlzDisplay();";
+    content += "updateWlzDisplay();updateMenuData();";
     content += '" style="background:rgb(' + temp + ');"><span style="border:none;" class="glyphicon glyphicon-tint"></span></button>';
   }
   return content;
@@ -339,7 +343,7 @@ function createCloseButtonHTML(layer) {
   var content = "";
   if (layer) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
-    content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
+    content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
     content += '"><span style="border:none;" class="glyphicon glyphicon-remove-sign"></span></button>';
   }
   return content;
@@ -348,7 +352,7 @@ function createCloseButtonHTML(layer) {
 function createAddButtonHTML(id) {
   var content = "";
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add" title="Add" onClick="';
-  content += "addToStackData('" + id + "');updateWlzDisplay();";
+  content += "addToStackData('" + id + "');updateWlzDisplay();updateMenuData();";
   content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
   return content;
 }
