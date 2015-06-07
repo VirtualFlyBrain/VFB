@@ -179,17 +179,19 @@ function initWlzControls() {
 }
 
 function updateLabels() {
-  var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-  var orient = parent.$("body").data("current").slice;
-  $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
-  $("#toggle-viewVal").text(parent.$("body").data("current").slice);
-  $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
-  $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
-  var pos = parent.$("body").data("current").fxp.split(',');
-  for (var i=0; i<3; i++){
-    pos[i] = String(parseInt(pos[i])+1);
+  if (parent.$("body").data("current")){
+    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+    var orient = parent.$("body").data("current").slice;
+    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+    $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
+    $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+    var pos = parent.$("body").data("current").fxp.split(',');
+    for (var i=0; i<3; i++){
+      pos[i] = String(parseInt(pos[i])+1);
+    }
+    $('#positionVal').text(pos.join(','));
   }
-  $('#positionVal').text(pos.join(','));
 
   if (parent.$("body").data("meta")){
     $('[id^=nameFor]').each(function() {
