@@ -127,7 +127,7 @@ function addToStackData(ids){
          parent.$("body").data("current",text);
          loadTemplateMeta(id);
          if (!parent.$("body").data(id)){
-           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id.replace('VFBt_','VFBd_') + '","colour":"auto","visible":true}}}}';
+           text = '{"' + id + '":{"selected":{"0":{"id":"' + parent.$("body").data("meta").id + '","colour":"auto","visible":true}}}}';
            parent.$("body").data(id,text);
          }
        }
