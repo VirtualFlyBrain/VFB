@@ -438,7 +438,7 @@ function createTreeHTML(treeStruct) {
       node = treeStruct[n].node;
     }
     html += "<li>";
-    html += '<span>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
+    html += '<span><b></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
     if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
       if (JSON.stringify(selected).indexOf(temp) > -1) {
