@@ -140,8 +140,8 @@ function addToStackData(ids){
             }
           }
         }else{
-          layers = Object.keys(selected).length;
           text = '{"id":"' + id + '","colour":"auto","visible":true}';
+          layers = Object.keys(selected).length;
           selected[layers] = JSON.parse(text);
         }
       }else if (id.indexOf("VFBd_") > -1){
@@ -160,6 +160,7 @@ function addToStackData(ids){
               text += parent.$("body").data("domains")[layers].extId[0] + '" }';
             }
           }
+          layers = Object.keys(selected).length;
           selected[layers] = JSON.parse(text);
         }
       }else if (id.indexOf("FBbt_") > -1){
