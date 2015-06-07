@@ -318,7 +318,7 @@ function createVisibleButtonHTML(layer,i) {
   return content;
 }
 
-function createColourButtonHTML(layer) {
+function createColourButtonHTML(layer,i) {
   var content = "";
   if (layer) {
     var temp;
@@ -378,7 +378,7 @@ function loadRightMenuDisplayed() {
           // visible:
           content += createVisibleButtonHTML(layer,i);
           // Colour:
-          content += createColourButtonHTML(layer);
+          content += createColourButtonHTML(layer,i);
           // Remove:
           if (i > 0) {
             content += createCloseButtonHTML(layer);
@@ -471,7 +471,7 @@ function createTreeHTML(treeStruct) {
             layer = selected[l];
           }
         }
-        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
+        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
       }else{
         html += createAddButtonHTML(temp);
       }
