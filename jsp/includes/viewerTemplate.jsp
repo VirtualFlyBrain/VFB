@@ -79,13 +79,14 @@
 							return clone;
 						}
 					}).click(function(e) {
-						e.preventDefault();
 						if ($(this).is(":focus")) {
 							if ($(this).data("open")) {
 								$(this).blur();
 								$(this).data("open", false);
+								return true;
 							}else{
 								$(this).data("open", true);
+								e.preventDefault();
 							}
 						}
 					});
