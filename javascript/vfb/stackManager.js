@@ -2,16 +2,20 @@
 
 $('body').ready( function () {
   window.setInterval(function(){
-    if ($.cookie("displaying")) {
-      var stack = JSON.parse($.cookie("displaying"));
-      if (stack.current){
-        $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
-      }
-    }
+    updateStackCounter();
   }, 5000);
 	var ids = "";
 	initStackData(ids);
 });
+
+function updateStackCounter() {
+  if ($.cookie("displaying")) {
+    var stack = JSON.parse($.cookie("displaying"));
+    if (stack.current){
+      $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
+    }
+  }
+}
 
 function loadTemplateMeta(id) {
    if (id){
@@ -47,6 +51,7 @@ function updateStackData(){
   var data = returnCleanData();
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
+    updateStackCounter();
   }
 }
 
