@@ -364,7 +364,8 @@ function loadRightMenuDisplayed() {
       content += temp;
       content += '</tr></thead>';
       // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
-      for (i=0; i < layers; i++) {
+      var i;
+      for (i in selected) {
         content += "<tr>";
         layer = selected[i];
 
