@@ -149,7 +149,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 								<li><a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a></li>
+								<li><span class="hide" id="partParentId">${fn:trim(currParts[0])}</span>
+									<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top">${currParts[1]}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>

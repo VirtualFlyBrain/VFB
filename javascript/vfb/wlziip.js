@@ -302,7 +302,9 @@ function loadRightMenuDisplayed() {
       content += '</th>';
       // Type:
       content += '<th class="text-center">';
-      content += '<span id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp + '</span>';
+      content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><span class="link" onclick="';
+      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + $("#parentIdFor"+layer.id).text() + "')";
+      content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp + '</span>';
       content += '</th>';
       // end row
       content += "</tr>";
@@ -338,12 +340,14 @@ function loadRightMenuDisplayed() {
         switch (content.substr(0,4)) {
           case "VFB_":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
             break;
           case "VFBt":
             $(this).load('/site/stacks/index.htm #backgroundStain');
             break;
           case "FBbt":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
             break;
           default:
             parent.$("body").data("message", "unable to resolve " + content);
