@@ -264,7 +264,7 @@ function loadRightMenuDisplayed() {
           content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
           break;
         default:
-          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id + "')";
+          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
       }
       content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
       content += '</th>';
