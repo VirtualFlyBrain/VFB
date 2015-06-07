@@ -400,9 +400,9 @@ function loadRightMenuDisplayed() {
           content += '</th>';
           // end row
           content += "</tr>";
+        }else{
+          content += "<tr></tr><tr></tr><tr></tr><tr></tr>";
         }
-      }else{
-        content += "<tr></tr><tr></tr><tr></tr><tr></tr>";
       }
       content += "</tbody></table>";
     }
