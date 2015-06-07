@@ -296,7 +296,7 @@ function createInfoButtonHTML(layer) {
       default:
         content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
     }
-    content += '"><span class="glyphicon glyphicon-info-sign"></span></button>';
+    content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
   return content;
 }
@@ -313,7 +313,7 @@ function createVisibleButtonHTML(layer,i) {
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
-      content += '"><span class="glyphicon glyphicon-eye-close"></span></button>';
+      content += '"><span style="border:none;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
   }
   return content;
@@ -330,7 +330,7 @@ function createColourButtonHTML(layer,i) {
     }
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
     content += "updateWlzDisplay();";
-    content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></button>';
+    content += '" style="background:rgb(' + temp + ');"><span style="border:none;" class="glyphicon glyphicon-tint"></span></button>';
   }
   return content;
 }
@@ -340,7 +340,7 @@ function createCloseButtonHTML(layer) {
   if (layer) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
     content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
-    content += '"><span class="glyphicon glyphicon-remove-sign"></span></button>';
+    content += '"><span style="border:none;" class="glyphicon glyphicon-remove-sign"></span></button>';
   }
   return content;
 }
@@ -349,7 +349,7 @@ function createAddButtonHTML(id) {
   var content = "";
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add" title="Add" onClick="';
   content += "addToStackData('" + id + "');updateWlzDisplay();";
-  content += '"><span class="glyphicon glyphicon-paperclip"></span></button>';
+  content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
   return content;
 }
 
