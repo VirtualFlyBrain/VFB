@@ -1,6 +1,6 @@
 /*! VirtualFlyBrain.org functions to manage image stack */
 
-$(document).ready( function () {
+$('body').ready( function () {
   window.setInterval(function(){
     if ($.cookie("displaying")) {
       var stack = JSON.parse($.cookie("displaying"));
