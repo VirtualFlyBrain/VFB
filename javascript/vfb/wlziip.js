@@ -180,7 +180,7 @@ function initWlzControls() {
 }
 
 function updateLabels() {
-  if (parent.$("body").data("current")){
+  if (parent.$("body").data("current") && ){
     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
     var orient = parent.$("body").data("current").slice;
     $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
@@ -405,7 +405,6 @@ function loadRightMenuDisplayed() {
   $("#dispContent").html(content);
   $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: false, searching: false, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );
 
-  updateLabels();
 }
 
 function loadTemplateAnatomyTree() {
