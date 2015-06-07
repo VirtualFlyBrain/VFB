@@ -150,7 +150,7 @@
 </div>
 
 	<div id="footer">
-		<div id="annotation">
+		<div id="annotation" class="well">
 			<a name="details"></a>
 			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
