@@ -294,13 +294,13 @@ function loadRightMenuDisplayed() {
         temp = layer.id;
       }
       content += '<th class="text-center">';
-      content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id + '</span>';
+      content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id.replace('VFBi_','VFB_') + '</span>';
       content += '</th>';
       // Type:
       content += '<th class="text-center">';
       content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><span class="link" onclick="';
       content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
-      content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp + '</span>';
+      content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp.replace('VFBi_','VFB_') + '</span>';
       content += '</th>';
       // end row
       content += "</tr>";
