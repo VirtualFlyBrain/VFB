@@ -432,9 +432,9 @@ function createTreeHTML(treeStruct) {
         }
         html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
       }
-      if (node.children) {
-        html += createTreeHTML(node.children);
-      }
+    }
+    if (node.children) {
+      html += createTreeHTML(node.children);
     }
     html += "</li>";
   }
