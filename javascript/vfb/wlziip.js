@@ -336,6 +336,14 @@ function createCloseButtonHTML(layer) {
   return content;
 }
 
+function createAddButtonHTML(id) {
+  var content = "";
+  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add" title="Add" onClick="';
+  content += "addToStackData('" + id + "');updateWlzDisplay();";
+  content += '"><span class="glyphicon glyphicon-paperclip"></span></buton>';
+  return content;
+}
+
 function loadRightMenuDisplayed() {
   var content = "";
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
@@ -448,6 +456,8 @@ function createTreeHTML(treeStruct) {
           }
         }
         html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
+      }else{
+        html += createAddButtonHTML(temp);
       }
     }
     if (node.children) {
