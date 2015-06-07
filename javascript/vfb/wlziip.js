@@ -343,7 +343,7 @@ function loadRightMenuDisplayed() {
             $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
             break;
           case "VFBt":
-            $(this).load('/site/stacks/index.htm #backgroundStain');
+            $(this).html($('#backgroundStain').html());
             break;
           case "FBbt":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
