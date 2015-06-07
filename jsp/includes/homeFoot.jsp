@@ -28,13 +28,22 @@
        }, 10);
      });
      $(document).ready( function () {
-       $("img.lazy").lazyload();
+       $("img.lazy").lazyload({
+         skip_invisible: false,
+         threshold: 2000
+       });
        window.setInterval(function(){
          $("img.lazy").lazyload({
-           skip_invisible: true,
+           skip_invisible: false,
            threshold: 2000
          });
        }, 5000);
+       window.setTimeout(function(){
+         $("img.lazy").lazyload({
+           skip_invisible: false,
+           threshold: 2000
+         });
+       }, 200);
      });
    </script>
    <!-- END lazy image loading -->
