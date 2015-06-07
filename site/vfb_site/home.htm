@@ -49,7 +49,7 @@
 					 	 <!--3 thumbnails-->
 					 	<div class="container center-block" style="width:100%;">
         			<div class="row-fluid">
-            		<div class="col-xs-12 col-md-4" style="min-width:85px">
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
                		<div class="thumbnail thumbnail-top">
                    	<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer"/>
 										<div class="caption" align="center">
@@ -101,13 +101,14 @@
 													return clone;
 												}
 											}).click(function(e) {
-												e.preventDefault();
 												if ($(this).is(":focus")) {
 													if ($(this).data("open")) {
 														$(this).blur();
 														$(this).data("open", false);
+														return true;
 													}else{
 														$(this).data("open", true);
+														e.preventDefault();
 													}
 												}
 											});
@@ -115,7 +116,7 @@
 									</script>
 								</div> <!--col-->
 
-    						<div class="col-xs-12 col-md-4" style="min-width:85px">
+    						<div class="col-xs-12 col-sm-4" style="min-width:85px">
  							 		<div class="thumbnail thumbnail-top">
            					<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC"/>
            					<div class="caption" align="center">
@@ -199,13 +200,14 @@
 													return clone;
 												}
 											}).click(function(e) {
-												e.preventDefault();
 												if ($(this).is(":focus")) {
 													if ($(this).data("open")) {
 														$(this).blur();
 														$(this).data("open", false);
+														return true;
 													}else{
 														$(this).data("open", true);
+														e.preventDefault();
 													}
 												}
 											});
@@ -213,7 +215,7 @@
 									</script>
             		</div> <!--col-->
 
-    						<div class="col-xs-12 col-md-4" style="min-width:85px">
+    						<div class="col-xs-12 col-sm-4" style="min-width:85px">
 									<div class="thumbnail thumbnail-top">
 										<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/neuroblast_ALad1_q4.png" alt="Neurons of the lineage ALad1">
 										<div class="caption" align="center">
@@ -287,13 +289,14 @@
 													return clone;
 												}
 											}).click(function(e) {
-												e.preventDefault();
 												if ($(this).is(":focus")) {
 													if ($(this).data("open")) {
 														$(this).blur();
 														$(this).data("open", false);
+														return true;
 													}else{
 														$(this).data("open", true);
+														e.preventDefault();
 													}
 												}
 											});
@@ -311,108 +314,110 @@
 
 
 					 <!--3 thumbnails-->
-					<div class="panel panel-info"> <!-- example query panel -->
-					 	 <div class="panel-heading">
-						 	 <h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
-						  </div>
+					<div class="panel panel-info" style="width:100%;"> <!-- example query panel -->
+					 	<div class="panel-heading">
+							<h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
+				  	</div>
 
-					 	 <div class="container center-block">
-        						<div class="row">
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/cluster_5-HT1B-M-400020_q3.png" alt="Neuron cluster in the ellipsoid body">
-                   									 <div class="caption">
+					 	<div class="container center-block" style="width:100%;">
+							<div class="row-fluid">
+								<div class="col-xs-12 col-sm-4" style="min-width:85px">
+ 							 		<div class="thumbnail thumbnail-top">
+     								 <img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/cluster_5-HT1B-M-400020_q3.png" alt="Neuron cluster in the ellipsoid body">
+     								<div class="caption">
+											<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
+												Find <b>images of neurons</b> with some <b>part in</b> the ellipsoid body
+											</a><br/>
+											<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find images of neurons that overlap the ellipsoid body:"
+												data-popover-content="#Question3">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question3" class="hide">
+										<p>
+									    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
+								    </p>
 
-                   									 <p>
-                   									 <a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
-						  		Find <b>images of neurons</b> with some <b>part in</b> the ellipsoid body
-						  							</a><br/>
-
-						  							</p>
-
-								<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find images of neurons that overlap the ellipsoid body:"
-									data-popover-content="#Question3">More &raquo;
-								</a>
-
-								<div id="Question3" class="hide">
-									<p>
-								    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
-							    </p>
-
-							  	<ul>
-									  <li>
-										Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
-										</li>
-									  <li>
-										 	In the search box start typing <i>ellipsoid body</i> any known synonym, such as <i>EB</i>.
-									  </li>
-									   <li>
-											Choose the term, <i>ellipsoid body</i> from the autocomplete list.
-	 									 </li>
-									  <li>
-											 A page with all the information about that neuropil (term info window) will be displayed.
-										</li>
-										<li>
-											Further query options are available from <i>Query for</i>. Hover the tabs to the right to see all options.
-										</li>
-									  <li>
-									  	Select the query <i>Individual neurons with: some part here (clustered by shape)</i>.
-									  </li>
-									  <li>
-										  A list with the query results will be displayed. These are organised by cluster of neurons (group of similar neurons) that overlap the antennal lobe, and these are named by the exemplar of the cluster. This allows you to quickly scan the clusters to find the neurons you are interested in.
-										</li>
-										<li>
-											The result list has fours columns: on the left is a snapshot of the cluster, followed by the exemplar, exemplar preview and a link to see all the neurons in that cluster.
-									  </li>
-										<li>
-											Clicking on the cluster snapshot will take you to the cluster page. There, you can see a 3D rendering of the cluster (in WebGL), and interact with it (rotate, zoom). In addition, the page displays a list of the neurons in that clusters sorted by similarity score, and a list of the top 5 clusters most similar to that one.
-										</li>
-										<li>
-											Back on the result list, clicking on <i>Show Individual members</i>, displays a list of all the neurons that are part of that cluster. The results are organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D viewer, neuron class and GAL4 driver.
-										</li>
-										<li>
-											Clicking on the thumbnail or on the <i>See in viewer</i> link will display the neuron in the viewer. This means you can overlay any of the painted anatomy domains on the brain, together with the neuron. On the term info page, below the viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
-										</li>
-										<li>
-											You can also create a composite view, to compare image stacks with each others (eg. compare two neuron images). Click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the result list. Select another neuron, click on <i>See in viewer</i> and then <i>Add to composite view</i>. Now click on <i>View composite</i> on the <i>Edit composite view</i> page.
-										</li>
-							 		</ul>
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
+								  	<ul>
+										  <li>
+											Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
+											</li>
+										  <li>
+											 	In the search box start typing <i>ellipsoid body</i> any known synonym, such as <i>EB</i>.
+										  </li>
+										   <li>
+												Choose the term, <i>ellipsoid body</i> from the autocomplete list.
+		 									 </li>
+										  <li>
+												 A page with all the information about that neuropil (term info window) will be displayed.
+											</li>
+											<li>
+												Further query options are available from <i>Query for</i>. Hover the tabs to the right to see all options.
+											</li>
+										  <li>
+										  	Select the query <i>Individual neurons with: some part here (clustered by shape)</i>.
+										  </li>
+										  <li>
+											  A list with the query results will be displayed. These are organised by cluster of neurons (group of similar neurons) that overlap the antennal lobe, and these are named by the exemplar of the cluster. This allows you to quickly scan the clusters to find the neurons you are interested in.
+											</li>
+											<li>
+												The result list has fours columns: on the left is a snapshot of the cluster, followed by the exemplar, exemplar preview and a link to see all the neurons in that cluster.
+										  </li>
+											<li>
+												Clicking on the cluster snapshot will take you to the cluster page. There, you can see a 3D rendering of the cluster (in WebGL), and interact with it (rotate, zoom). In addition, the page displays a list of the neurons in that clusters sorted by similarity score, and a list of the top 5 clusters most similar to that one.
+											</li>
+											<li>
+												Back on the result list, clicking on <i>Show Individual members</i>, displays a list of all the neurons that are part of that cluster. The results are organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D viewer, neuron class and GAL4 driver.
+											</li>
+											<li>
+												Clicking on the thumbnail or on the <i>See in viewer</i> link will display the neuron in the viewer. This means you can overlay any of the painted anatomy domains on the brain, together with the neuron. On the term info page, below the viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
+											</li>
+											<li>
+												You can also create a composite view, to compare image stacks with each others (eg. compare two neuron images). Click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the result list. Select another neuron, click on <i>See in viewer</i> and then <i>Add to composite view</i>. Now click on <i>View composite</i> on the <i>Edit composite view</i> page.
+											</li>
+								 		</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
 
 
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/R21B06_KCab_q5.png" alt="Transgene that includes alpha/beta Kenyon cells">
-                   									 <div class="caption">
+            		</div> <!--col-->
 
-                   									 <p>
-                   									 <a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
-						  		Find <b>transgenes</b> expressed <b>in</b> mushroom body alpha/beta <b>neurons</b>
-						  	</a>
-						  							<br/>
-						  							</p>
 
-								<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find transgenes expressed in the mushroom body alpha/beta neurons:"
-									data-popover-content="#Question5">More &raquo;
-								</a>
-
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
+               		<div class="thumbnail thumbnail-top">
+                   	 <img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/R21B06_KCab_q5.png" alt="Transgene that includes alpha/beta Kenyon cells">
+                   	<div class="caption">
+											<a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
+						  					Find <b>transgenes</b> expressed <b>in</b> mushroom body alpha/beta <b>neurons</b>
+						  				</a><br/>
+											<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find transgenes expressed in the mushroom body alpha/beta neurons:"
+												data-popover-content="#Question5">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
 									<div id="Question5" class="hide">
 
 										<p>
@@ -467,84 +472,90 @@
 											});
 										});
 									</script>
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
+
+            		</div> <!--col-->
 
 
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/composite_cropped_q7.png" alt="Overlay of 3 image stacks" >
-                   									 <div class="caption">
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
+               		<div class="thumbnail thumbnail-top" style="min-width:85px">
+                   	<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/composite_cropped_q7.png" alt="Overlay of 3 image stacks" >
+                   	<div class="caption">
+											<a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
+						  					<b>Overlay</b> 3 different <b>image stacks</b> that overlap the central complex
+						  				</a><br/>
+						  				<a href="#" tabindex="0" rel="question7" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="How to work with composite views:"
+												data-popover-content="#Question7">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question7" class="hide">
+										<h2>Generating a composite view</h2>
+									  <ul>
+										  <li>
+												You can build a composite view from different images stacks which have been integrated on the site. Clicking on <i>See in viewer</i> from any image stack to see that image in the Viewer.
+												Together with the image stack, any neuropil domain can be highlighted on the brain stack.
+										  </li>
+										  <li>
+												On this <a href="/do/composite_view.html?action=edit">page</a>, you can see which stacks have been added, and delete them.
+										  </li>
+										  <li>
+												Each composite view is associated to a permanent URL, permalink, which you can share with others.
+										  </li>
+											<li>
+												Permalinks are generated with each new browser session.<br/>
+												 A permalink looks like:
+												http://www.virtualflybrain.org/do/composite_view.html?action=load&uuid=2013-06-13_15.18.49.723.
+											</li>
+										  <li>
+											  To obtain a permalink to the current composite stack, click the link "Get permalink and start new composite".
+											  A pop-up window will appear asking if you are sure you want to do this. Once you obtain the permalink, that composite will no longer be editable. Click 'OK'. <br/>
+											  You can copy the permalink from the dialog box that appears. The link may be displayed over more than one line, depending on the browser you use - you need to select all of it (as in example above).
+										  </li>
+										  <li>
+											  Now you can save this link anywhere in a text file or share it with others.<br/>
+											  Please note that obtaining a permalink means that you can no longer edit the composite view.
+										  </li>
+										  <li>
+											  Anyone can paste the composite link in a browser address bar to view your composite at any time.<br/>
+											  Note that although we do not set a time limit on how long we keep user's composites on our server, we reserve the right to delete old composites should the number of composite stacks
+											  grow too large. Old composites will be removed without prior warning to the composite owner.
+										  </li>
+										</ul>
 
-                   									 <p>
-                   									 <a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
-						  		<b>Overlay</b> 3 different <b>image stacks</b> that overlap the central complex
-						  	</a><br/>
-						  							</p>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question7"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
 
-								<a href="#" tabindex="0" rel="question7" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="How to work with composite views:"
-									data-popover-content="#Question7">More &raquo;
-								</a>
+            		</div> <!--col-->
 
-								<div id="Question7" class="hide">
-									<h2>Generating a composite view</h2>
-								  <ul>
-									  <li>
-											You can build a composite view from different images stacks which have been integrated on the site. Clicking on <i>See in viewer</i> from any image stack to see that image in the Viewer.
-											Together with the image stack, any neuropil domain can be highlighted on the brain stack.
-									  </li>
-									  <li>
-											On this <a href="/do/composite_view.html?action=edit">page</a>, you can see which stacks have been added, and delete them.
-									  </li>
-									  <li>
-											Each composite view is associated to a permanent URL, permalink, which you can share with others.
-									  </li>
-										<li>
-											Permalinks are generated with each new browser session.<br/>
-											 A permalink looks like:
-											http://www.virtualflybrain.org/do/composite_view.html?action=load&uuid=2013-06-13_15.18.49.723.
-										</li>
-									  <li>
-										  To obtain a permalink to the current composite stack, click the link "Get permalink and start new composite".
-										  A pop-up window will appear asking if you are sure you want to do this. Once you obtain the permalink, that composite will no longer be editable. Click 'OK'. <br/>
-										  You can copy the permalink from the dialog box that appears. The link may be displayed over more than one line, depending on the browser you use - you need to select all of it (as in example above).
-									  </li>
-									  <li>
-										  Now you can save this link anywhere in a text file or share it with others.<br/>
-										  Please note that obtaining a permalink means that you can no longer edit the composite view.
-									  </li>
-									  <li>
-										  Anyone can paste the composite link in a browser address bar to view your composite at any time.<br/>
-										  Note that although we do not set a time limit on how long we keep user's composites on our server, we reserve the right to delete old composites should the number of composite stacks
-										  grow too large. Old composites will be removed without prior warning to the composite owner.
-									  </li>
-									</ul>
-
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question7"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
-
-            		</div><!--row-->
+            	</div><!--row-->
             </div><!--container-->
 
-            </div><!--example panel-->
+          </div><!--panel-->
 
 
 
-				<!-- well-->
+
 
 			</div> <!-- div col -->
 
