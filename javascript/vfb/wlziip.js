@@ -283,56 +283,64 @@ function setOrientaion(ori) {
 
 function createInfoButtonHTML(layer) {
   var content = "";
-  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
-  switch (layer.id.substr(0,4)) {
-    case "VFBt":
-      content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
-      break;
-    case "VFBd":
-      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
-      break;
-    default:
-      content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
+  if (layer) {
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+    switch (layer.id.substr(0,4)) {
+      case "VFBt":
+        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        break;
+      case "VFBd":
+        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
+        break;
+      default:
+        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
+    }
+    content += '"><span class="glyphicon glyphicon-info-sign"></span></button>';
   }
-  content += '"><span class="glyphicon glyphicon-info-sign"></span></button>';
   return content;
 }
 
 function createVisibleButtonHTML(layer) {
   var content = "";
-  var current = parent.$("body").data("current");
-  var selected = parent.$("body").data(current.template).selected;
-  if (layer.visible) {
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
-    content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
-    content += '"><span class="glyphicon glyphicon-eye-open"></span></button>';
-  }else{
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
-    content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
-    content += '"><span class="glyphicon glyphicon-eye-close"></span></button>';
+  if (layer) {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    if (layer.visible) {
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
+      content += '"><span class="glyphicon glyphicon-eye-open"></span></button>';
+    }else{
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
+      content += '"><span class="glyphicon glyphicon-eye-close"></span></button>';
+    }
   }
   return content;
 }
 
 function createColourButtonHTML(layer) {
   var content = "";
-  var temp;
-  if (layer.colour == "auto") {
-    temp = parent.$("body").data("colours")[i];
-  }else{
-    temp = layer.colour;
+  if (layer) {
+    var temp;
+    if (layer.colour == "auto") {
+      temp = parent.$("body").data("colours")[i];
+    }else{
+      temp = layer.colour;
+    }
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
+    content += "updateWlzDisplay();";
+    content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></button>';
   }
-  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
-  content += "updateWlzDisplay();";
-  content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></button>';
   return content;
 }
 
 function createCloseButtonHTML(layer) {
   var content = "";
-  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
-  content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
-  content += '"><span class="glyphicon glyphicon-remove-sign"></span></button>';
+  if (layer) {
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
+    content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
+    content += '"><span class="glyphicon glyphicon-remove-sign"></span></button>';
+  }
   return content;
 }
 
