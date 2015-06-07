@@ -244,7 +244,7 @@ function loadRightMenuDisplayed() {
     var selected = parent.$("body").data(current.template).selected;
     var layers = Object.keys(selected).length;
     content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
-    var temp = '<th class="text-center">#</th><th class="text-center"><span class="glyphicon glyphicon-info-sign"></span></th><th class="text-center"><span class="glyphicon glyphicon-eye-open"></span></th><th class="text-center"><span class="glyphicon glyphicon-tint"></span></th><th class="text-center">Name</th><th class="text-center">Type</th>';
+    var temp = '<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>';
     content += temp;
     content += '</tr></thead>';
     // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
@@ -267,9 +267,7 @@ function loadRightMenuDisplayed() {
           content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
       }
       content += '"><span class="glyphicon glyphicon-info-sign"></span></buton>';
-      content += '</th>';
       // visible:
-      content += '<th class="text-center">';
       if (layer.visible) {
         content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
         content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');";
@@ -279,9 +277,7 @@ function loadRightMenuDisplayed() {
         content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();";
         content += '"><span class="glyphicon glyphicon-eye-close"></span></buton>';
       }
-      content += '</th>';
       // Colour:
-      content += '<th class="text-center">';
       if (layer.colour == "auto") {
         temp = parent.$("body").data("colours")[i];
       }else{
@@ -291,12 +287,12 @@ function loadRightMenuDisplayed() {
       content += "updateWlzDisplay();";
       content += '" style="background:rgb(' + temp + ');"><span class="glyphicon glyphicon-tint"></span></buton>';
       content += '</th>';
+      // Name:
       if (layer.id.indexOf("VFBd_") > -1) {
         temp = layer.extid;
       }else{
         temp = layer.id;
       }
-      // Name:
       content += '<th class="text-center">';
       content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id + '</span>';
       content += '</th>';
