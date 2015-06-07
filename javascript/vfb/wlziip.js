@@ -300,7 +300,7 @@ function createInfoButtonHTML(layer) {
   return content;
 }
 
-function createVisibleButtonHTML(layer) {
+function createVisibleButtonHTML(layer,i) {
   var content = "";
   if (layer) {
     var current = parent.$("body").data("current");
@@ -376,7 +376,7 @@ function loadRightMenuDisplayed() {
           content += '<th class="text-center">';
           content += createInfoButtonHTML(layer);
           // visible:
-          content += createVisibleButtonHTML(layer);
+          content += createVisibleButtonHTML(layer,i);
           // Colour:
           content += createColourButtonHTML(layer);
           // Remove:
@@ -471,7 +471,7 @@ function createTreeHTML(treeStruct) {
             layer = selected[l];
           }
         }
-        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
+        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer) + createCloseButtonHTML(layer);
       }else{
         html += createAddButtonHTML(temp);
       }
