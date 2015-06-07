@@ -368,6 +368,6 @@ function loadTemplateAnatomyTree(id) {
 
 loadColours();
 $(document).ready( function () {
-  initWlzControls();
   loadRightMenuDisplayed();
+  initWlzControls();
 });
