@@ -49,9 +49,9 @@
 					 	 <!--3 thumbnails-->
 					 	<div class="container center-block">
         			<div class="row">
-            		<div class="col-xs-3">
+            		<div class="col-xs-4">
                		<div class="thumbnail thumbnail-top" style="min-width:85px">
-                   	<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer"  />
+                   	<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer"/>
 										<div class="caption">
 										 	<a href="/site/stacks/index.htm?add=FBbt:00045048">
 												<b>What</b> and <b>where</b> is the saddle?
@@ -62,8 +62,6 @@
 											</a>
 										</div><!--caption-->
 									</div><!--thumbnail-->
-
-
 
 									<div id="Question1" class="hide">
 										<p>
@@ -115,203 +113,208 @@
 											});
 										});
 									</script>
+								</div> <!--col-->
 
+    						<div class="col-xs-4">
+ 							 		<div class="thumbnail thumbnail-top" style="min-width:85px">
+           					<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC"/>
+           					<div class="caption">
+											<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
+						  					Find <b>neurons</b> with synaptic <b>terminals</b> in the AMMC
+						  				</a>
+						  				<a href="#" tabindex="0" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find neurons that arborise in the AMMC:"
+												data-popover-content="#Question2">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question2" class="hide">
+										<p>
+											For more information on this type of query go <a href="/site/vfb_site/features.htm#neuronsbylocation">here</a>.
+										</p>
 
+										<ul>
+											<li>
+												Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
+											</li>
+											<li>
+												In the search box start typing <i>antennal mechanosensory and motor centre</i> or any synonym such as <i>AMMC</i>.
+											</li>
+											<li>
+												Choose the term from the autocomplete list. A page with all the information about that neuropil (term info window) will be displayed.
+											</li>
 
+											<li>
+											The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
+
+											</li>
+											<li>
+											Select the query <i>Neuron classes with: synaptic terminals here</i>.
+											</li>
+											<li>
+											A list with the query results will be displayed. Clicking on any of the results will display the term info window for that neuron.<br/>
+											If images for that neuron type are available they will be shown at the bottom of the page. Click in <i>See in Viewer</i> to display them in the Viewer.
+											</li>
+											<li>
+												<p>
+													If you want to find neurons that arborise in AMMC and in another neuropil, you can use one of our other tools, Query Builder. For more information on this type of query click <a href="../features.htm#querybuilder">here</a>.
+												</p>
+
+												<ul>
+												  <li>
+												 		Go to the <a href="/site/tools/query_builder/index.htm">Query Builder</a> page, accessible from the homepage or from the top menu <i>Tools <span class="glyphicon glyphicon-arrow-right"></span>  Query Builder</i>.
+												  </li>
+												  <li>
+												  	Search and choose a term as previously, <i>AMMC</i>.
+												  </li>
+
+												  <li>
+														To add the term to the query, click  <i>Add to the query</i> at the top of the term info window.
+												  </li>
+												  <li>
+													  The entry for <i>AMMC</i> will be added to the panel on the right, <i>Your query</i> - that represents your current query.<br/>
+													  The query text below will be updated to reflect your query.
+												  </li>
+												  <li>
+												  	Select the directionality of the connectivity, by changing the type of terminals from <i>synaptic</i> to <i>postsynaptic</i> using the dropdown menu to the right of the term.
+												  </li>
+												  <li>
+												  	Repeat the same steps for the other neuropil.
+												  </li>
+												  <li>
+												  	Check the query text in the <i>Your query</i> panel. When happy with it, click the <i>Execute</i> button at the bottom of the <i>Your query</i> panel.
+												  </li>
+												  <li>
+												  	A list with the query results will be displayed.
+												  </li>
+												 </ul>
+											</li>
+										</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												e.preventDefault();
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+													}else{
+														$(this).data("open", true);
+													}
+												}
+											});
+										});
+									</script>
             		</div> <!--col-->
 
+    						<div class="col-xs-4">
+									<div class="thumbnail thumbnail-top" style="min-width:85px">
+										<img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/neuroblast_ALad1_q4.png" alt="Neurons of the lineage ALad1">
+										<div class="caption">
+											<a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
+												Find <b>neurons</b> that develop from a <b>neuroblast</b> in the antennal lobe
+											</a>
+											<a href="#" tabindex="0" rel="question4" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find neurons from an AL lineage:"
+												data-popover-content="#Question4">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question4" class="hide">
 
-    						<div class="col-xs-3">
- 							 		<div class="thumbnail thumbnail-top" style="min-width:85px">
-           					<img src="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC">
-           					<div class="caption">
-
-                   									 <p>
-                   									<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
-						  		Find <b>neurons</b> with synaptic <b>terminals</b> in the AMMC
-						  	</a>
-						  							<br/>
-						  							</p>
-
-								<a href="#" tabindex="0" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find neurons that arborise in the AMMC:"
-									data-popover-content="#Question2">More &raquo;
-								</a>
-
-								<div id="Question2" class="hide">
-									<p>
-									For more information on this type of query go <a href="/site/vfb_site/features.htm#neuronsbylocation">here</a>.
-									</p>
-
-									<ul>
-										<li>
-										Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
-										</li>
-										<li>
-									In the search box start typing <i>antennal mechanosensory and motor centre</i> or any synonym such as <i>AMMC</i>.
-										</li>
-										<li>
-										Choose the term from the autocomplete list. A page with all the information about that neuropil (term info window) will be displayed.
-										</li>
-
-										<li>
-										The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
-
-										</li>
-										<li>
-										Select the query <i>Neuron classes with: synaptic terminals here</i>.
-										</li>
-										<li>
-										A list with the query results will be displayed. Clicking on any of the results will display the term info window for that neuron.<br/>
-										If images for that neuron type are available they will be shown at the bottom of the page. Click in <i>See in Viewer</i> to display them in the Viewer.
-										</li>
 										<p>
-								If you want to find neurons that arborise in AMMC and in another neuropil, you can use one of our other tools, Query Builder. For more information on this type of query click <a href="../features.htm#querybuilder">here</a>.
-								</p>
+											For more information on this type of query click <a href="/site/vfb_site/features.htm#querymenu">here</a>.
+										</p>
 
-								<ul>
-								  <li>
-								 Go to the <a href="/site/tools/query_builder/index.htm">Query Builder</a> page, accessible from the homepage or from the top menu <i>Tools <span class="glyphicon glyphicon-arrow-right"></span>  Query Builder</i>.
-								  </li>
-								  <li>
-								  Search and choose a term as previously, <i>AMMC</i>.
-								  </li>
+										<ul>
+											<li>
+											Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
+											</li>
+											<li>
+												In the search box, start typing <i>antennal lobe</i> or any known synonym, such as <i>AL</i>.
+											</li>
 
-								  <li>
-								To add the term to the query, click  <i>Add to the query</i> at the top of the term info window.
-								  </li>
-								  <li>
-								  The entry for <i>AMMC</i> will be added to the panel on the right, <i>Your query</i> - that represents your current query.<br/>
-								  The query text below will be updated to reflect your query.
-								  </li>
-								  <li>
-								  Select the directionality of the connectivity, by changing the type of terminals from <i>synaptic</i> to <i>postsynaptic</i> using the dropdown menu to the right of the term.
-								  </li>
-								  <li>
-								  Repeat the same steps for the other neuropil.
-								  </li>
-								  <li>
-								  Check the query text in the <i>Your query</i> panel. When happy with it, click the <i>Execute</i> button at the bottom of the <i>Your query</i> panel.
-								  </li>
-								  <li>
-								  A list with the query results will be displayed.
-								  </li>
-								 </ul>
-									</ul>
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
+											<li>
+												Choose the term from the autocomplete list, <i>adult antennal lobe</i> .
+											</li>
+											<li>
+												 A page with all the information about that neuropil (term info window) will be displayed.
+											</li>
+											<li>
+												Further query options are available from <i>Query for</i>. Hover the tabs to the right to see all options.
+											</li>
+											<li>
+												Select the query: <i>Lineage clones with: some part here</i>.
+											</li>
+											<li>
+												A list with the query results will be displayed.
+											</li>
+											<li>
+												Click on <i>More info</i> to see more details about each lineage clone, including synonyms and thumbnail image. You can see any of the lineage clones on the <a href="/site/stacks/index.htm">Stack Viewer</a> by clicking <i>See in Viewer</i>. In this way you will be able to overlay any of the painted neuropil domains on the brain, together with the lineage clone.
+											</li>
+											<li>
+												To find neurons, or other clones that are part of this lineage select the query: <i>Component of</i>.
+												<br/>
+												<b>Did you know?</b> If you know which neuroblast lineage you are looking for, you can search directly for <i>adult X lineage clone</i>, where X is the neuroblast you want.
+											</li>
+											<li>
+												A list of neuron types is displayed. For each, you can see all the information available by clicking on <i>More info</i>. Choose your desired neuron type. On the term info page for that neuron type, in addition to the usual information, a few image examples are displayed as thumbnails. To see the complete list and to be able to see the neurons in the 3D Viewer, click on <i>Show all</i>.<br/>
+												<b>Did you know?</b> From this term info page, you can also directly query for transgenes expressed in that neuron class.
+											</li>
+											<li>
+												The list is organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D Viewer, neuron type and driver used.
+											</li>
+											<li>
+												To see a neuron in the Viewer, click on <i>See in Viewer</i> in the first column, or click on the thumbnail. On the term info page, below the Viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
+											</li>
+											<li>
+												You can also create a composite view, to compare image stacks with each others (eg. compare one neuron to a lineage clone). From the Viewer, click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the Anatomy/Neuron Finder. Search for a lineage clone and click on <i>See in viewer</i> link. Again, click on <i>Add to composite view</i>. To display the composite, click on <i>View composite</i> on the <i>Edit composite view</i> page.
+											</li>
+										</ul>
 
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question4"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												e.preventDefault();
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+													}else{
+														$(this).data("open", true);
+													}
+												}
+											});
+										});
+									</script>
 
-
-            						<div class="col-xs-3">
-               							 <div class="thumbnail thumbnail-top" style="min-width:85px">
-                   								 <img src="/images/vfb/project/neuroblast_ALad1_q4.png" alt="Neurons of the lineage ALad1">
-                   									 <div class="caption">
-
-                   									 <p>
-                   									 <a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
-						  		Find <b>neurons</b> that develop from a <b>neuroblast</b> in the antennal lobe
-							  </a>
-						  							<br/>
-						  							</p>
-
-								<a href="#" tabindex="0" rel="question4" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
-									data-placement="bottom"
-									title="Find neurons from an AL lineage:"
-									data-popover-content="#Question4">More &raquo;
-								</a>
-
-								<div id="Question4" class="hide">
-
-								<p>
-										For more information on this type of query click <a href="/site/vfb_site/features.htm#querymenu">here</a>.
-									</p>
-
-									<ul>
-										<li>
-										Searches of this kind can be done straight from the homepage, from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page or from the <a href="/site/stacks/index.htm">Stack Viewer</a>.
-										</li>
-										<li>
-											In the search box, start typing <i>antennal lobe</i> or any known synonym, such as <i>AL</i>.
-										</li>
-
-										<li>
-											Choose the term from the autocomplete list, <i>adult antennal lobe</i> .
-										</li>
-										<li>
-											 A page with all the information about that neuropil (term info window) will be displayed.
-										</li>
-										<li>
-											Further query options are available from <i>Query for</i>. Hover the tabs to the right to see all options.
-										</li>
-										<li>
-											Select the query: <i>Lineage clones with: some part here</i>.
-										</li>
-										<li>
-											A list with the query results will be displayed.
-										</li>
-										<li>
-											Click on <i>More info</i> to see more details about each lineage clone, including synonyms and thumbnail image. You can see any of the lineage clones on the <a href="/site/stacks/index.htm">Stack Viewer</a> by clicking <i>See in Viewer</i>. In this way you will be able to overlay any of the painted neuropil domains on the brain, together with the lineage clone.
-										</li>
-										<li>
-											To find neurons, or other clones that are part of this lineage select the query: <i>Component of</i>.
-											<br/>
-											<b>Did you know?</b> If you know which neuroblast lineage you are looking for, you can search directly for <i>adult X lineage clone</i>, where X is the neuroblast you want.
-										</li>
-										<li>
-											A list of neuron types is displayed. For each, you can see all the information available by clicking on <i>More info</i>. Choose your desired neuron type. On the term info page for that neuron type, in addition to the usual information, a few image examples are displayed as thumbnails. To see the complete list and to be able to see the neurons in the 3D Viewer, click on <i>Show all</i>.<br/>
-											<b>Did you know?</b> From this term info page, you can also directly query for transgenes expressed in that neuron class.
-										</li>
-										<li>
-											The list is organised in 4 columns: name of the neuron, thumbnail which displays the neuron in the 3D Viewer, neuron type and driver used.
-										</li>
-										<li>
-											To see a neuron in the Viewer, click on <i>See in Viewer</i> in the first column, or click on the thumbnail. On the term info page, below the Viewer, all the information relative to that neuron will be displayed, together with a thumbnail.
-										</li>
-										<li>
-											You can also create a composite view, to compare image stacks with each others (eg. compare one neuron to a lineage clone). From the Viewer, click on <i>Add to composite view</i>. Now use your browser <i>Back</i> button to go back to the Anatomy/Neuron Finder. Search for a lineage clone and click on <i>See in viewer</i> link. Again, click on <i>Add to composite view</i>. To display the composite, click on <i>View composite</i> on the </i>Edit composite view</i> page.
-										</li>
-									</ul>
-
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question4"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
-                									</div><!--caption-->
-            								</div><!--thumbnail-->
-            						</div> <!--col-->
+    						</div> <!--col-->
 
 
-            					</div><!--row-->
-            				</div><!--container-->
+          		</div><!--row-->
+          	</div><!--container-->
 
-				</div> <!--end of panel-->
+					</div> <!--end of panel-->
 
 
 
 					 <!--3 thumbnails-->
 					<div class="panel panel-info"> <!-- example query panel -->
 					 	 <div class="panel-heading">
-					 	 <h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
-					  </div>
+						 	 <h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
+						  </div>
 
 					 	 <div class="container center-block">
         						<div class="row">
@@ -410,50 +413,60 @@
 									data-popover-content="#Question5">More &raquo;
 								</a>
 
-								<div id="Question5" class="hide">
+									<div id="Question5" class="hide">
 
-								<p>
-									   For more information on this type of query click <a href="/site/vfb_site/features.htm#expquery">here</a>.
-									</p>
-									<ul>
-										<li>
-										Searches of this kind can be done straight from the homepage or from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
-										</li>
-										<li>
-											In the search box, start typing <i>mushroom body alpha/beta neuron</i> or any known synonym, such as <i>alpha/beta Kenyon cell</i>.
-										</li>
-
-										<li>
-											Choose the term from the autocomplete list, <i>mushroom body alpha/beta neuron</i>.
-										</li>
-										<li>
-											 A page with all the information about that neuropil (term info window) will be displayed.
-										</li>
-										<li>
-											The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
-										</li>
-										<li>
-											Select the query <i>Expression/Phenotypes found here: Transgenes expressed here</i>.
-										</li>
-										<li>
-											A list with the query results will be displayed.
+										<p>
+										   For more information on this type of query click <a href="/site/vfb_site/features.htm#expquery">here</a>.
+										</p>
+										<ul>
 											<li>
-											If images for the expression pattern of the driver are available they will be shown at the bottom of the page.<br/>
-											<b>Did you know?</b> If you don't find all the results that you hoped, try running the same query for <i>mushroom body alpha or mushroom body beta lobe</i>.
-										</li>
+											Searches of this kind can be done straight from the homepage or from <a href="/site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page.
+											</li>
+											<li>
+												In the search box, start typing <i>mushroom body alpha/beta neuron</i> or any known synonym, such as <i>alpha/beta Kenyon cell</i>.
+											</li>
 
-							 		</ul>
+											<li>
+												Choose the term from the autocomplete list, <i>mushroom body alpha/beta neuron</i>.
+											</li>
+											<li>
+												 A page with all the information about that neuropil (term info window) will be displayed.
+											</li>
+											<li>
+												The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
+											</li>
+											<li>
+												Select the query <i>Expression/Phenotypes found here: Transgenes expressed here</i>.
+											</li>
+											<li>
+												A list with the query results will be displayed.
+											</li>
+											<li>
+												If images for the expression pattern of the driver are available they will be shown at the bottom of the page.<br/>
+												<b>Did you know?</b> If you don't find all the results that you hoped, try running the same query for <i>mushroom body alpha or mushroom body beta lobe</i>.
+											</li>
+										</ul>
 
-								</div>
-								<script>
-									$(function(){
-										$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-												var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-												return clone;
-											}
-										}).click(function(e) {e.preventDefault();});
-									});
-								</script>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												e.preventDefault();
+													if ($(this).is(":focus")) {
+														if ($(this).data("open")) {
+															$(this).blur();
+															$(this).data("open", false);
+														}else{
+															$(this).data("open", true);
+														}
+													}
+											});
+										});
+									</script>
                 									</div><!--caption-->
             								</div><!--thumbnail-->
             						</div> <!--col-->
