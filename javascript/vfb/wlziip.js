@@ -400,7 +400,7 @@ function loadTemplateAnatomyTree() {
        content += '<div class="tree well">';
        content += createTreeHTML(data);
        content += "</div>";
-       $("#dispContent").html(content);
+       $("#anatoContent").html(content);
        updateWlzDisplay();
      });
    }
