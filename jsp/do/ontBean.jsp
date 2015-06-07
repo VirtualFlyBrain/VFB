@@ -128,7 +128,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<div id="partParents">
 					<ul>
 					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status">
-						<li><a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top">${curr.value}</a></li>
+						<li><a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top"><span id="partParent">${curr.value}</span></a></li>
 					</c:forEach>
 					</ul>
 				</div>
