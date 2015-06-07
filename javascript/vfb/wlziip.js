@@ -210,28 +210,27 @@ function updateLabels() {
       }
 
     });
-    if (parent.$("body").data("meta")){
-      $('[id^=typeFor]').each(function() {
-        content = $(this).data('id');
-        content = content.replace('VFBi_','VFB_');
-        switch (content.substr(0,4)) {
-          case "VFB_":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
-            break;
-          case "VFBt":
-            $(this).html($('#backgroundStain').html());
-            break;
-          case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
-            break;
-          default:
-            parent.$("body").data("message", "unable to resolve " + content);
-        }
+    $('[id^=typeFor]').each(function() {
+      content = $(this).data('id');
+      content = content.replace('VFBi_','VFB_');
+      switch (content.substr(0,4)) {
+        case "VFB_":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+          break;
+        case "VFBt":
+          $(this).html($('#backgroundStain').html());
+          break;
+        case "FBbt":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+          break;
+        default:
+          parent.$("body").data("message", "unable to resolve " + content);
+      }
 
-      });
-    }
+    });
+  }
 }
 
 function hideAllSliders() {
@@ -353,7 +352,6 @@ function loadRightMenuDisplayed() {
   $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: false, searching: false, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );
 
   updateLabels();
-  }
 }
 
 function loadTemplateAnatomyTree(id) {
