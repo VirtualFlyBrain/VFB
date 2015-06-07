@@ -26,7 +26,6 @@ function loadTemplateMeta(id) {
 
 function fileFromId(id) {
    var file = "";
-   id = id.replace('VFBd_','VFB_');
    if (id){
      id = id.replace(":","_");
      if (id.indexOf("VFBt_") > -1){
@@ -35,6 +34,8 @@ function fileFromId(id) {
        file = "VFB/i/" + id.substr(5,4) + "/" + id.substr(9,4) + "/volume.wlz";
      }else if (id.indexOf("VFB_") > -1){
        file = "VFB/i/" + id.substr(4,4) + "/" + id.substr(8,4) + "/volume.wlz";
+     }else if (id.indexOf("VFBd_") > -1){
+       file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "VFBd_000" + id.replace(parent.$("body").data("current").template.replace("VFBt_","VFBd_"), "") + ".wlz";
      }
    }
    return file;
