@@ -12,7 +12,7 @@ function updateStackCounter() {
   if ($.cookie("displaying")) {
     var stack = JSON.parse($.cookie("displaying"));
     if (stack.current){
-      $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length);
+      $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
     }
   }
 }
