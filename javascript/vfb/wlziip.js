@@ -331,7 +331,7 @@ function createColourButtonHTML(layer) {
 function createCloseButtonHTML(layer) {
   var content = "";
   content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
-  content += "removeFromStackData(" + layer.id + ");updateWlzDisplay();";
+  content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();";
   content += '"><span class="glyphicon glyphicon-remove-sign"></span></buton>';
   return content;
 }
@@ -359,11 +359,11 @@ function loadRightMenuDisplayed() {
       content += createVisibleButtonHTML(layer);
       // Colour:
       content += createColourButtonHTML(layer);
-      content += '</th>';
       // Remove:
       if (i > 0) {
         content += createCloseButtonHTML(layer);
       }
+      content += '</th>';
       // Name:
       if (layer.id.indexOf("VFBd_") > -1) {
         temp = layer.extid;
