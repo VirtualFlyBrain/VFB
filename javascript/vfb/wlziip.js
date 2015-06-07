@@ -327,7 +327,7 @@ function createVisibleButtonHTML(layer,i) {
 
 function createColourButtonHTML(layer,i) {
   var content = "";
-  if (layer) {
+  if (layer && parent.$("body").data("colours")) {
     var temp;
     if (layer.colour == "auto") {
       temp = parent.$("body").data("colours")[i];
