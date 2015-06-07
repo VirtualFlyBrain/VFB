@@ -52,7 +52,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
       self.doRequest();
       var url = window.location.href;
-      if (url.indexOf('anatomy_finder') < 0){
+      if (url.indexOf('anatomy_finder') < 0 && url.indexOf('stacks') < 0){
         window.location = '/site/tools/anatomy_finder/?id=' + doc.short_form[0].replace(':','_');
       }
     }else if (self.manager.response.response.numFound === 0){
