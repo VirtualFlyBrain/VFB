@@ -447,7 +447,7 @@ function loadTemplateAnatomyTree() {
      file = "/data/" + fileFromId(current.template).replace("composite.wlz","tree.json");
      $.getJSON( file, function( data ) {
        parent.$("body").data("tree",data);
-       updateAnatomyTree();
+       updateMenuData();
        // collapse all at start:
        var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
        children.hide('fast');
