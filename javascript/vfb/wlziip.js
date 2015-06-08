@@ -337,13 +337,13 @@ function createInfoButtonHTML(layer) {
     content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (layer.id.substr(0,4)) {
       case "VFBt":
-        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        content += "openFullDetails('/site/stacks/index.htm #imageAttributesText')";
         break;
       case "VFBd":
-        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
+        content += "openFullDetails('/do/ont_bean.html?id=" + layer.extid + "')";
         break;
       default:
-        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + cleanIdforExt(layer.id) + "')";
+        content += "openFullDetails('/do/ont_bean.html?id=" + cleanIdforExt(layer.id) + "')";
     }
     content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
@@ -357,10 +357,10 @@ function createInfoButtonHTMLbyId(id) {
     content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (id.substr(0,4)) {
       case "VFBt":
-        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        content += "openFullDetails('/site/stacks/index.htm #imageAttributesText')";
         break;
       default:
-        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + id + "')";
+        content += "openFullDetails('/do/ont_bean.html?id=" + id + "')";
     }
     content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
@@ -469,9 +469,9 @@ function loadRightMenuDisplayed() {
           content += '<th class="text-center">';
           content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
           if (layer.typeid) {
-            content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.typeid + "').text())";
+            content += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
           }else{
-            content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+            content += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
           }
           content += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
           if (layer.type) {

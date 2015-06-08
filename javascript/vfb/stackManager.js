@@ -161,6 +161,13 @@ function alertMessage(message) {
   }, 3000);
 }
 
+function openFullDetails(id) {
+  if ($('#anatomyDetails')) {
+    id = cleanIdforExt(id);
+    $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+  }
+}
+
 function addToStackData(ids){
   if (ids !== undefined && ids !== null) {
     if (parent.$("body").data("current")) {
@@ -174,6 +181,7 @@ function addToStackData(ids){
       }
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
+        openFullDetails(id);
         if (id.indexOf("VFBt_") > -1){
          id = id.replace("00000", "");
          if (id != parent.$("body").data("current").template){
