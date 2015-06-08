@@ -6,12 +6,21 @@
 <c:set var="cleanTitle">${fileName}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<jsp:include page="/jsp/includes/1ColHead.jsp">
+<jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
-	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+	<jsp:param name="css" value="
+		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
+		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
+		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+	" />
+	<jsp:param name="js" value="
+		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
+		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
+	" />
 </jsp:include>
-
 
 <div class="row">
 	<div class="col-xs-12">
