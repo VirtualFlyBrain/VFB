@@ -501,8 +501,8 @@ function updateAnatomyTree() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var l;
-    $('[id^=buttonsFor]').each(function() {
-      $(this).html(createAddButtonHTML($(this).data("id")));
+    $('[id^=buttonsForVFB]').each(function() {
+      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddButtonHTML($(this).data("id")));
     });
     var layer;
     for (l in selected) {
@@ -531,7 +531,7 @@ function createTreeHTML(treeStruct) {
 
     if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
-      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>";
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + $("body").data("domains")[node.nodeId].extId[0] + "'>";
       if (JSON.stringify(selected).indexOf(temp) > -1) {
         for (l in selected) {
           if (selected[l].id == temp) {
@@ -539,14 +539,13 @@ function createTreeHTML(treeStruct) {
             html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
           }
         }
-
       }else{
         html += createInfoButtonHTMLbyId($("body").data("domains")[node.nodeId].extId[0]), createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
       temp = $("body").data("domains")[node.nodeId].extId[0];
-      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>";
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
       html += createInfoButtonHTMLbyId(temp);
       html += "</span>";
     }
