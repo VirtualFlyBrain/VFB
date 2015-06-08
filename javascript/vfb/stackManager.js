@@ -295,7 +295,7 @@ function removeFromStackData(ids) {
     }
     selected = parent.$("body").data(current.template).selected;
     for (l in selected) {
-      if (parseInt(l)>i) {
+      if (parseInt(l)>i-1) {
         delete selected[l];
       }
     }
