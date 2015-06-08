@@ -83,7 +83,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </c:if>
 
 <div class="well-white">
-	<h2><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder"><span id="partName">${ontBean.name}</span></a></h2>
+	<h2><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
 		<b>ID: </b><a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder" >${ontBean.fbbtIdAsOWL}</a>
@@ -232,6 +232,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</c:if>
 			</c:forEach>
 			<c:if test="${!isNeuron && !isClone}">
+				<br />
 				<c:set var="isNeuropil" value="true"/>
 				<button type="button" class="btn btn-default btn-xs" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
 					onClick="addToStackData('${ontBean.fbbtId}')"><span class="glyphicon glyphicon-paperclip"></span> Add ${ontBean.name} to stack viewer
