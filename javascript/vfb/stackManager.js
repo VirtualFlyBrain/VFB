@@ -5,6 +5,7 @@ function updateStackCounter() {
     var stack = JSON.parse($.cookie("displaying"));
     if (stack.current){
       $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
+      generateAddButtons();
     }
   }
 }
@@ -64,7 +65,7 @@ function generateAddButtons() {
           content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
         }
         $(this).html(content);
-      }else if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template)).indexOf(id) > -1) {
+      }else if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected).indexOf(id) > -1) {
         content += '<button type="button" class="btn btn-primary btn-xs" aria-label="Remove from stack viewer" title="Remove" onClick="';
         content += "removeFromStackData('" + id + "');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
         content += '"><span style="border:none;" class="glyphicon glyphicon-ok-circle"></span></button>';
@@ -96,7 +97,6 @@ function updateStackData(){
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
-    generateAddButtons();
   }
 }
 
@@ -305,4 +305,7 @@ function removeFromStackData(ids) {
 
 $('body').ready( function () {
 	initStackData(null);
+  window.setInterval(function(){
+    generateAddButtons();
+  }, 10000);
 });
