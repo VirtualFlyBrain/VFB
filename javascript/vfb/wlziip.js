@@ -63,11 +63,9 @@ function animateWlzDisplay(){
         }
       }
     }
-  }
-  window.setInterval(function(){
     requestAnimationFrame(step);
-  }, 5000);
-
+  }
+  requestAnimationFrame(step);
 }
 
 function loadColours(){
