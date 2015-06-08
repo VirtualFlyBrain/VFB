@@ -59,7 +59,7 @@
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-				window.setInterval(function(){
+				window.setTimeout(function(){
 					$('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
 							$(this).addClass('btn-sm btn-default btn-primary');
 							$(this).children('div').each(function () {

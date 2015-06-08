@@ -38,6 +38,14 @@ function loadTemplateMeta(id) {
    }
 }
 
+function createAddButtonHTML(id) {
+  var content = "";
+  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
+  content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+  content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
+  return content;
+}
+
 function fileFromId(id) {
    var file = "";
    if (id){

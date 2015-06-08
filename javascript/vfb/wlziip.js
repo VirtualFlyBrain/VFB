@@ -391,14 +391,6 @@ function createCloseButtonHTML(layer) {
   return content;
 }
 
-function createAddButtonHTML(id) {
-  var content = "";
-  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add" title="Add" onClick="';
-  content += "addToStackData('" + id + "');updateWlzDisplay();updateMenuData();";
-  content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
-  return content;
-}
-
 function loadRightMenuDisplayed() {
   var content = "";
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
