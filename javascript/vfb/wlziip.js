@@ -437,7 +437,7 @@ function loadRightMenuDisplayed() {
     }
   }
   $("#dispContent").html(content);
-  $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: false, searching: false, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );
+  $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: true, searching: true, ordering: true, responsive: true, order: [[ 0, 'asc' ]]} ); } );
 
 }
 
