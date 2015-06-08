@@ -140,10 +140,6 @@ div.imagesCaro {
   width: 295px;
 }
 
-li.paginate_button {
-  padding-left: 0px;
-  padding-right: 0px;
-}
 
 /****************
  Adding well with white background
@@ -336,4 +332,9 @@ div.icon-right {
     background:#eee;
     border:1px solid #94a0b4;
     color:#000
+}
+/*tighten page buttons on datatables*/
+li.paginate_button {
+  margin: 0px;
+  padding: 0px;
 }
