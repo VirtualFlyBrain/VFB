@@ -460,16 +460,16 @@ function loadRightMenuDisplayed() {
   $(document).ready(function() {
     window.setTimeout(function(){
       $('#displayed').DataTable( { retrieve: true,
+                                  "columnDefs": [{
+                                    "targets": 0,
+                                    "visible": false,
+                                    "searchable": false
+                                  }],
                                   paging: true,
                                   searching: true,
                                   ordering: false,
                                   responsive: true,
-                                  order: [[ 0, 'asc' ]],
-                                  "columnDefs": [{
-                                    "targets": [ 0 ],
-                                    "visible": false,
-                                    "searchable": false
-                                  }]
+                                  order: [[ 0, 'asc' ]]
                                 });
     }, 500);
   } );
