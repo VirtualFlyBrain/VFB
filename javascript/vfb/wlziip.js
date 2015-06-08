@@ -82,8 +82,9 @@ function generateWlzURL(index){
    var current = parent.$("body").data("current");
    var selected = parent.$("body").data(current.template).selected;
    var layer = selected[index];
-   var file = fileFromId(layer.id);
+   var file = "";
    var colour = "255,255,255";
+   var text = "";
    if (layer.colour !== "auto"){
      colour = layer.colour;
    }else{
@@ -93,8 +94,26 @@ function generateWlzURL(index){
        colour = parent.$("body").data("colours")[index];
      }
    }
-   if ()
-   var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(9))) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+   switch (layer.id.substr(0,4)){
+     case "VFB_":
+       file = fileFromId(layer.id);
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       break;
+     case "VFBi":
+       file = fileFromId(layer.id);
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       break;
+     case "VFBt":
+       file = fileFromId(layer.id);
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       break;
+     case "VFBd":
+       file = fileFromId(current.template);
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(8))) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       break;
+     default:
+       alertMessage("unable to generate URL for id:" + layer.id);
+   }
    return text;
  }
 
@@ -217,7 +236,7 @@ function updateLabels() {
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
           break;
         default:
-          parent.$("body").data("message", "unable to resolve " + content);
+          alertMessage("unable to resolve name for id:" + content);
       }
 
     });
@@ -237,7 +256,7 @@ function updateLabels() {
           $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
           break;
         default:
-          parent.$("body").data("message", "unable to resolve " + content);
+          alertMessage("unable to resolve type for id:" + content);
       }
 
     });

@@ -98,6 +98,8 @@ function pad(num, size) {
 }
 
 function alertMessage(message) {
+  console.log(message);
+  // Needs Fixing:
   $('#alert-message-text').text(message);
   $('#alert_message').show();
   window.setTimeout(function() {
