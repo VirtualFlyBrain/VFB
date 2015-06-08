@@ -151,8 +151,19 @@
 									</div>
 			        </div>
 			        <div class="tab-pane" id="anato">
-			            <h4>Neuroanatomy Tree</h4>
-									<p id="anatoContent"></p>
+								<div class="row-fluid">
+									<div class="col-xs-6">
+			            	<h4>Neuroanatomy Tree</h4>
+									</div>
+									<div id="openCloseAll" class="col-xs-6" align="right">
+										<span class="glyphicon glyphicon-resize-full"
+											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').show('fast');" style="border:none;">
+										</span><span class="glyphicon glyphicon-resize-small"
+											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').hide('fast');" style="border:none;">
+										</span>
+									</div>
+								</div>
+								<div class="content-fluid" id="anatoContent"></div>
 			        </div>
 			        <div class="tab-pane" id="search">
 								<div class="content-fluid" id="searchBar"></div>
