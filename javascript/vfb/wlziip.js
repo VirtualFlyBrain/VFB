@@ -448,37 +448,50 @@ function loadTemplateAnatomyTree() {
      file = "/data/" + fileFromId(current.template).replace("composite.wlz","tree.json");
      $.getJSON( file, function( data ) {
        parent.$("body").data("tree",data);
-       updateMenuData();
+       if (parent.$("body").data("tree")) {
+         var content = "";
+         content += '<div class="tree well">';
+         content += createTreeHTML(parent.$("body").data("tree"));
+         content += "</div>";
+         $("#anatoContent").html(content);
+         updateWlzDisplay();
+         $(function () {
+            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+            $('.tree li.parent_li > span').on('click', function (e) {
+                var children = $(this).parent('li.parent_li').find(' > ul > li');
+                if (children.is(":visible")) {
+                    children.hide('fast');
+                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
+                } else {
+                    children.show('fast');
+                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-minus-sign" style="border:none;"></span>');
+                }
+                e.stopPropagation();
+            });
+         });
+       }
        // collapse all at start:
        var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
        children.hide('fast');
        $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
+       updateMenuData();
      });
    }
 }
 
 function updateAnatomyTree() {
-  if (parent.$("body").data("tree")) {
-    var content = "";
-    content += '<div class="tree well">';
-    content += createTreeHTML(parent.$("body").data("tree"));
-    content += "</div>";
-    $("#anatoContent").html(content);
-    updateWlzDisplay();
-    $(function () {
-       $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-       $('.tree li.parent_li > span').on('click', function (e) {
-           var children = $(this).parent('li.parent_li').find(' > ul > li');
-           if (children.is(":visible")) {
-               children.hide('fast');
-               $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
-           } else {
-               children.show('fast');
-               $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-minus-sign" style="border:none;"></span>');
-           }
-           e.stopPropagation();
-       });
+  if (parent.$("body").data("current")) {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    var l;
+    $('[id^=buttonsFor]').each(function() {
+      $(this).html(createAddButtonHTML($(this).data("id")));
     });
+    var layer;
+    for (l in selected) {
+      layer = selected[l];
+      $('#buttonsFor' + selected[l]).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
+    }
   }
 }
 
@@ -504,12 +517,12 @@ function createTreeHTML(treeStruct) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
-            html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+            html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>" + createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer) + "</span>";
           }
         }
 
       }else{
-        html += createAddButtonHTML(temp);
+        html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>" + createAddButtonHTML(temp) + "</span>";
       }
     }
     if (node.children) {
