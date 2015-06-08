@@ -222,44 +222,46 @@ function updateLabels() {
 
   if (parent.$("body").data("meta")){
     $('[id^=nameFor]').each(function() {
-      content = $(this).data('id');
-      content = cleanIdforExt(content);
-      switch (content.substr(0,4)) {
-        case "VFB_":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
-          $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
-          break;
-        case "VFBt":
-          $(this).text(parent.$("body").data("meta").name);
-          break;
-        case "FBbt":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
-          $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
-          break;
-        default:
-          alertMessage("unable to resolve name for id:" + content);
+      if ($(this).text().indexOf("_") > -1) {
+        content = $(this).data('id');
+        content = cleanIdforExt(content);
+        switch (content.substr(0,4)) {
+          case "VFB_":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+            $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
+            break;
+          case "VFBt":
+            $(this).text(parent.$("body").data("meta").name);
+            break;
+          case "FBbt":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+            $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
+            break;
+          default:
+            alertMessage("unable to resolve name for id:" + content);
+        }
       }
-
     });
     $('[id^=typeFor]').each(function() {
-      content = $(this).data('id');
-      content = cleanIdforExt(content);
-      switch (content.substr(0,4)) {
-        case "VFB_":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
-          break;
-        case "VFBt":
-          $(this).html($('#backgroundStain').html());
-          break;
-        case "FBbt":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-          $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId');
-          break;
-        default:
-          alertMessage("unable to resolve type for id:" + content);
+      if ($(this).text().indexOf("_") > -1) {
+        content = $(this).data('id');
+        content = cleanIdforExt(content);
+        switch (content.substr(0,4)) {
+          case "VFB_":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+            break;
+          case "VFBt":
+            $(this).html($('#backgroundStain').html());
+            break;
+          case "FBbt":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
+            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+            break;
+          default:
+            alertMessage("unable to resolve type for id:" + content);
+        }
       }
-
     });
   }
 }
@@ -454,8 +456,10 @@ function loadRightMenuDisplayed() {
     }
   }
   $("#dispContent").html(content);
+  updateLabels();
   $(document).ready(function() {
-    $('#displayed').DataTable( { retrieve: true,
+    window.setTimeout(function(){
+      $('#displayed').DataTable( { retrieve: true,
                                   paging: true,
                                   searching: true,
                                   ordering: false,
@@ -466,7 +470,8 @@ function loadRightMenuDisplayed() {
                                     "visible": false,
                                     "searchable": false
                                   }]
-                                }); 
+                                });
+    }, 500);
   } );
 
 }
