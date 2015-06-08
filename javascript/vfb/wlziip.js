@@ -450,26 +450,31 @@ function loadRightMenuDisplayed() {
           }else{
             temp = layer.id;
           }
-          name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-          name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-          name += '">';
           if (layer.name) {
+            name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+            name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+            name += '">';
             name += layer.name;
           }else{
+            name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+            name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+            name += '">';
             name += cleanIdforExt(layer.id);
           }
           name += '</span></a>';
           // Type:
-          type = '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
           if (layer.typeid) {
+            type = '<a href="#details"><span class="link" onclick="';
             type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
           }else{
+            type = '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
             type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
           }
-          type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
           if (layer.type) {
+            type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
             type += layer.type;
           }else{
+            type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
             type += cleanIdforExt(temp);
           }
           type += '</span></a>';
