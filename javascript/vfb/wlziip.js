@@ -482,6 +482,14 @@ function loadRightMenuDisplayed() {
         }
       }
       $('#displayed').DataTable().draw();
+    }else{
+      $('#displayed').DataTable( { retrieve: true,
+        paging: true,
+        searching: true,
+        ordering: false,
+        responsive: true,
+        order: [[ 0, 'desc' ]]
+      });
     }
   }
 }

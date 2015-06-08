@@ -134,13 +134,7 @@
 										</table>
 										<script>
 										  $(document).ready(function() {
-										    $('#displayed').DataTable( { retrieve: true,
-										      paging: true,
-										      searching: true,
-										      ordering: false,
-										      responsive: true,
-										      order: [[ 0, 'desc' ]]
-										    });
+												loadRightMenuDisplayed();
 												updateLabels();
 										    window.setInterval(function(){
 													if ($('#displayed').dataTable()) {
