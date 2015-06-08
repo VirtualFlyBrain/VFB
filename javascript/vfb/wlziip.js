@@ -391,6 +391,11 @@ function createCloseButtonHTML(layer) {
   return content;
 }
 
+function createAddButtonHTML(id) {
+  var content = '<span style="border:none;" id="attach" data-id="' + cleanIdforInt(id) + '"></span>';
+  return content;
+}
+
 function loadRightMenuDisplayed() {
   var content = "";
   if (parent.$("body").data("current") && parent.$("body").data("colours")){

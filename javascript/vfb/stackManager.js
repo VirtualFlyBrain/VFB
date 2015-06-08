@@ -33,17 +33,33 @@ function loadTemplateMeta(id) {
        if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
        }
+       var l;
+       var list = "";
+       for (l in $('body').data("domains")) {
+         if ($('body').data("domains")[l].id > "") {
+           list += cleanIdforInt($('body').data("domains")[l].extId[0]);
+         }
+       }
+       parent.$("body").data("available", list);
        updateStackData();
      });
    }
 }
 
-function createAddButtonHTML(id) {
-  var content = "";
-  content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
-  content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
-  content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
-  return content;
+function generateAddButtons() {
+  if (parent.$("body").data("available")) {
+    $("#attach").each(function(){
+      if ($(this).html() === ""){
+        if (parent.$("body").data("available").indexOf(cleanIdforInt($(this).data("id"))) > -1) {
+          var content = "";
+          content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
+          content += "addToStackData('" + cleanIdforInt($(this).data("id")) + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+          content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
+          $(this).html(content);
+        }
+      }
+    });
+  }
 }
 
 function fileFromId(id) {
@@ -68,6 +84,7 @@ function updateStackData(){
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
+    generateAddButtons();
   }
 }
 
@@ -78,6 +95,7 @@ function returnCleanData() {
   delete save.meta;
   delete save.colours;
   delete save.tree;
+  delete save.available;
   return JSON.stringify(save);
 }
 
