@@ -471,7 +471,7 @@ function loadRightMenuDisplayed() {
                                   responsive: true,
                                   order: [[ 0, 'asc' ]]
                                 });
-    }, 500);
+    }, 1000);
   } );
 
 }
@@ -492,7 +492,7 @@ function loadTemplateAnatomyTree() {
          updateWlzDisplay();
          $(function () {
             $('.tree li:has(ul)').addClass('parent_li').find(' > span').has('b').attr('title', 'Collapse this branch');
-            $('.tree li.parent_li > span').first().on('click', function (e) {
+            $('.tree li.parent_li > span').has('b').on('click', function (e) {
                 var children = $(this).parent('li.parent_li').find(' > ul > li');
                 if (children.is(":visible")) {
                     children.hide('fast');
