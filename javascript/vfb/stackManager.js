@@ -48,7 +48,7 @@ function loadTemplateMeta(id) {
 
 function generateAddButtons() {
   if (parent.$("body").data("available")) {
-    $("#attach").each(function(){
+    $("[id^=attach]").each(function(){
       if ($(this).html() === ""){
         var content = "";
         if (cleanIdforInt($(this).data("id")).indexOf("FBbt_") > -1) {
