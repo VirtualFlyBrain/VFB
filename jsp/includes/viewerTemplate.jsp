@@ -129,7 +129,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<div id="dispContentData"><tr><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th></tr></div>
+												<div id="dispContentData"><tr><th class="text-center">0</th><th class="text-center">-</th><th class="text-center">name</th><th class="text-center">type</th></tr></div>
 											</tbody>
 										</table>
 										<script>
