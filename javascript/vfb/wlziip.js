@@ -574,7 +574,7 @@ function createTreeHTML(treeStruct) {
   var temp;
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
-  var html = "<ul>";
+  var html = '<ul style="padding:0;">';
   for (n in treeStruct) {
     node = treeStruct[n];
     if (treeStruct[n].node) {
