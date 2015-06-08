@@ -452,17 +452,13 @@ function loadRightMenuDisplayed() {
   $(document).ready(function() {
     window.setTimeout(function(){
       $('#displayed').DataTable( { retrieve: true,
-                                  columnDefs: [{
-                                    targets: 0,
-                                    visible: false,
-                                    searchable: false
-                                  }],
-                                  paging: true,
-                                  searching: true,
-                                  ordering: false,
-                                  responsive: true,
-                                  order: [[ 0, 'asc' ]]
-                                });
+        columns:[{visible:false},null,null,null],
+        paging: true,
+        searching: true,
+        ordering: false,
+        responsive: true,
+        order: [[ 0, 'asc' ]]
+      });
     }, 1000);
   } );
 
