@@ -119,7 +119,7 @@
 			            <h4>Currently Displayed</h4>
 									<p id="dispContent"></p>
 			        </div>
-			        <div class="tab-pane" id="anato" align="center">
+			        <div class="tab-pane" id="anato">
 			            <h4>Neuroanatomy Tree</h4>
 									<p id="anatoContent"></p>
 			        </div>
