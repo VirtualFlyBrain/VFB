@@ -227,14 +227,18 @@ function updateLabels() {
         content = cleanIdforExt(content);
         switch (content.substr(0,4)) {
           case "VFB_":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+            });
             $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
             break;
           case "VFBt":
             $(this).text(parent.$("body").data("meta").name);
             break;
           case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+            });
             $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
             break;
           default:
@@ -248,15 +252,31 @@ function updateLabels() {
         content = cleanIdforExt(content);
         switch (content.substr(0,4)) {
           case "VFB_":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+              if ($(this).text().indexOf("_") < 0){
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              }
+            });
+            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+              if ($(this).text().indexOf("_") < 0){
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              }
+            });
             break;
           case "VFBt":
             $(this).html($('#backgroundStain').html());
             break;
           case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+              if ($(this).text().indexOf("_") < 0){
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              }
+            });
+            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+              if ($(this).text().indexOf("_") < 0){
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              }
+            });
             break;
           default:
             alertMessage("unable to resolve type for id:" + content);
@@ -435,13 +455,31 @@ function loadRightMenuDisplayed() {
             temp = layer.id;
           }
           content += '<th class="text-center">';
-          content += '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(layer.id) + '</span></a>';
+          content += '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+          content += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+          content += '">';
+          if (layer.name) {
+            content += layer.name;
+          }else{
+            content += cleanIdforExt(layer.id);
+          }
+          content += '</span></a>';
           content += '</th>';
           // Type:
           content += '<th class="text-center">';
           content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
-          content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
-          content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(temp) + '</span></a>';
+          if (layer.typeid) {
+            content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.typeid + "').text())";
+          }else{
+            content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+          }
+          content += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+          if (layer.type) {
+            content += layer.type;
+          }else{
+            content += cleanIdforExt(temp);
+          }
+          content += '</span></a>';
           content += '</th>';
           // end row
           content += "</tr>";
