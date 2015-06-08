@@ -121,7 +121,35 @@
 			        </div>
 			        <div class="tab-pane active" id="disp" align="center">
 			            <h4>Currently Displayed</h4>
-									<p id="dispContent"></p>
+									<div class="content-fluid" id="dispContent">
+										<table id="displayed" class="display" cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>
+												</tr>
+											</thead>
+											<tbody>
+												<div id="dispContentData"><tr><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th></tr></div>
+											</tbody>
+										</table>
+										<string>
+											$("#dispContentData").html(content);
+										  updateLabels();
+										  $(document).ready(function() {
+										    $('#displayed').DataTable( { retrieve: true,
+										      paging: true,
+										      searching: true,
+										      ordering: false,
+										      responsive: true,
+										      order: [[ 0, 'desc' ]]
+										    });
+										    window.setInterval(function(){
+										      $('#displayed').DataTable().column( 0 ).visible( false );
+										      $('#displayed').dataTable().fnAdjustColumnSizing();
+										    }, 10000);
+										  } );
+										</string>
+									</div>
 			        </div>
 			        <div class="tab-pane" id="anato">
 			            <h4>Neuroanatomy Tree</h4>

@@ -417,97 +417,68 @@ function createAddButtonHTML(id) {
 }
 
 function loadRightMenuDisplayed() {
-  var content = "";
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     if (selected) {
       var layers = Object.keys(selected).length;
-      content += '<table id="displayed" class="display" cellspacing="0" width="100%"><thead><tr>';
-      var temp = '<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>';
-      content += temp;
-      content += '</tr></thead>';
-      // content += '<tfoot><tr>' + temp + '</tr></tfoot><tbody>';
+      var temp;
       var i;
+      var index = "0";
+      var controls = "";
+      var name = "name";
+      var type = "type";
+      $('#displayed').DataTable().clear();
       for (i in selected) {
-        content += "<tr>";
         layer = selected[i];
-
         if (layer) {
           // index:
-          content += '<th class="text-center">' + String(i) + '</th>';
+          index = String(i);
           // Details:
-          content += '<th class="text-center">';
-          content += createInfoButtonHTML(layer);
+          controls = createInfoButtonHTML(layer);
           // visible:
-          content += createVisibleButtonHTML(layer,i);
+          controls += createVisibleButtonHTML(layer,i);
           // Colour:
-          content += createColourButtonHTML(layer,i);
+          controls += createColourButtonHTML(layer,i);
           // Remove:
           if (i > 0) {
-            content += createCloseButtonHTML(layer);
+            controls += createCloseButtonHTML(layer);
           }
-          content += '</th>';
           // Name:
           if (layer.id.indexOf("VFBd_") > -1) {
             temp = layer.extid;
           }else{
             temp = layer.id;
           }
-          content += '<th class="text-center">';
-          content += '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-          content += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-          content += '">';
+          name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+          name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+          name += '">';
           if (layer.name) {
-            content += layer.name;
+            name += layer.name;
           }else{
-            content += cleanIdforExt(layer.id);
+            name += cleanIdforExt(layer.id);
           }
-          content += '</span></a>';
-          content += '</th>';
+          name += '</span></a>';
           // Type:
-          content += '<th class="text-center">';
-          content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
+          type = '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
           if (layer.typeid) {
-            content += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
+            type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
           }else{
-            content += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+            type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
           }
-          content += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+          type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
           if (layer.type) {
-            content += layer.type;
+            type += layer.type;
           }else{
-            content += cleanIdforExt(temp);
+            type += cleanIdforExt(temp);
           }
-          content += '</span></a>';
-          content += '</th>';
-          // end row
-          content += "</tr>";
-        }else{
-          content += "<tr></tr><tr></tr><tr></tr><tr></tr>";
+          type += '</span></a>';
+          $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
         }
       }
-      content += "</tbody></table>";
+      $('#displayed').DataTable().draw();
     }
   }
-  $("#dispContent").html(content);
-  updateLabels();
-  $(document).ready(function() {
-    window.setTimeout(function(){
-      $('#displayed').DataTable( { retrieve: true,
-        paging: true,
-        searching: true,
-        ordering: false,
-        responsive: true,
-        order: [[ 0, 'asc' ]]
-      });
-      window.setTimeout(function(){
-        $('#displayed').DataTable().column( 0 ).visible( false );
-        $('#displayed').dataTable().fnAdjustColumnSizing();
-      }, 1000);
-    }, 1000);
-  } );
-
 }
 
 function loadTemplateAnatomyTree() {
