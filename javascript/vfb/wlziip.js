@@ -454,7 +454,20 @@ function loadRightMenuDisplayed() {
     }
   }
   $("#dispContent").html(content);
-  $(document).ready(function() { $('#displayed').DataTable( { retrieve: true, paging: true, searching: true, ordering: false, responsive: true, order: [[ 0, 'asc' ]]} ); } );
+  $(document).ready(function() {
+    $('#displayed').DataTable( { retrieve: true,
+                                  paging: true,
+                                  searching: true,
+                                  ordering: false,
+                                  responsive: true,
+                                  order: [[ 0, 'asc' ]],
+                                  "columnDefs": [{
+                                    "targets": [ 0 ],
+                                    "visible": false,
+                                    "searchable": false
+                                  }]
+                                }); 
+  } );
 
 }
 
