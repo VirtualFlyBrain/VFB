@@ -218,6 +218,8 @@ function updateLabels() {
       pos[i] = String(parseInt(pos[i])+1);
     }
     $('#positionVal').text(pos.join(','));
+    $(".dataTables_paginate li").css("margin", 0);
+    $(".dataTables_paginate li").css("padding", 0);
   }
 
   if (parent.$("body").data("meta")){
@@ -503,8 +505,6 @@ function loadRightMenuDisplayed() {
       });
       window.setTimeout(function(){
         $('#displayed').DataTable().column( 0 ).visible( false );
-        $(".dataTables_paginate li").css("margin", 0);
-        $(".dataTables_paginate li").css("padding", 0);
         $('#displayed').dataTable().fnAdjustColumnSizing();
       }, 1000);
     }, 1000);
