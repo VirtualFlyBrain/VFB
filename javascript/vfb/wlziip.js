@@ -579,5 +579,4 @@ function createTreeHTML(treeStruct) {
 loadColours();
 $('body').ready( function () {
   initWlzControls();
-  loadRightMenuDisplayed();
 });
