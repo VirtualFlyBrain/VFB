@@ -93,6 +93,7 @@ function generateWlzURL(index){
        colour = parent.$("body").data("colours")[index];
      }
    }
+   if ()
    var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(9))) + "," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
    return text;
  }
@@ -315,7 +316,7 @@ function createVisibleButtonHTML(layer,i) {
     if (layer.visible) {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();";
-      content += '"><span class="glyphicon glyphicon-eye-open"></span></button>';
+      content += '"><span style="border:none;" class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();";
@@ -428,6 +429,10 @@ function loadTemplateAnatomyTree() {
      $.getJSON( file, function( data ) {
        parent.$("body").data("tree",data);
        updateAnatomyTree();
+       // collapse all at start:
+       var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
+       children.hide('fast');
+       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
      });
    }
 }
@@ -453,10 +458,6 @@ function updateAnatomyTree() {
            }
            e.stopPropagation();
        });
-       // collapse all at start:
-       var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
-       children.hide('fast');
-       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
     });
   }
 }
@@ -483,9 +484,10 @@ function createTreeHTML(treeStruct) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
+            html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
           }
         }
-        html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+
       }else{
         html += createAddButtonHTML(temp);
       }
