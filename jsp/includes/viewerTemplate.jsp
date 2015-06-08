@@ -133,8 +133,6 @@
 											</tbody>
 										</table>
 										<script>
-											$("#dispContentData").html(content);
-										  updateLabels();
 										  $(document).ready(function() {
 										    $('#displayed').DataTable( { retrieve: true,
 										      paging: true,
@@ -143,6 +141,7 @@
 										      responsive: true,
 										      order: [[ 0, 'desc' ]]
 										    });
+												updateLabels();
 										    window.setInterval(function(){
 										      $('#displayed').DataTable().column( 0 ).visible( false );
 										      $('#displayed').dataTable().fnAdjustColumnSizing();
