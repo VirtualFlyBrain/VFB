@@ -227,12 +227,14 @@ function updateLabels() {
       switch (content.substr(0,4)) {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+          $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
           break;
         case "VFBt":
           $(this).text(parent.$("body").data("meta").name);
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
+          $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
           break;
         default:
           alertMessage("unable to resolve name for id:" + content);
@@ -310,7 +312,7 @@ function setOrientaion(ori) {
 function createInfoButtonHTML(layer) {
   var content = "";
   if (layer) {
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+    content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (layer.id.substr(0,4)) {
       case "VFBt":
         content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
@@ -417,7 +419,7 @@ function loadRightMenuDisplayed() {
             temp = layer.id;
           }
           content += '<th class="text-center">';
-          content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(layer.id) + '</span>';
+          content += '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(layer.id) + '</span></a>';
           content += '</th>';
           // Type:
           content += '<th class="text-center">';
