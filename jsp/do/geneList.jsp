@@ -13,6 +13,7 @@
 		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
 		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
 		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+		/css/offcanvas.css;
 	" />
 	<jsp:param name="js" value="
 		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
