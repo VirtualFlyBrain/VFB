@@ -96,7 +96,7 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 					<li>
-						<a class="btn btn-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
+						<a class="alert alert-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 							updateStackCounter();
 						</script>
