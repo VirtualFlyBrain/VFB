@@ -77,7 +77,7 @@
 				ordering: true,
 				responsive: true,
 				stateSave: true,
-				"order": [[ 3, "asc" ]]
+				"order": [[ 3, "desc" ]]
 			} );
 			var tt = new $.fn.dataTable.TableTools( table );
 			$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
