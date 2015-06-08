@@ -7,6 +7,7 @@ function updateWlzDisplay(){
 function updateMenuData() {
   loadRightMenuDisplayed();
   updateAnatomyTree();
+  updateLabels();
 }
 
 function animateWlzDisplay(){
