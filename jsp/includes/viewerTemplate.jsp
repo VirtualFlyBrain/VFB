@@ -35,7 +35,11 @@
 </jsp:include>
 
 <c:if test="${!empty param.add}">
-	<script>$(addToStackData("${param.add}"))</script>
+	<script>
+		$('body').ready( function () {
+			addToStackData("${param.add}");
+		});
+	</script>
 </c:if>
 
 <div class="row">
