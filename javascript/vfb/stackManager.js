@@ -49,19 +49,25 @@ function loadTemplateMeta(id) {
 function generateAddButtons() {
   if (parent.$("body").data("available")) {
     $("[id^=attach]").each(function(){
+      var id = cleanIdforInt($(this).data("id"));
+      var content = "";
       if ($(this).html() === ""){
-        var content = "";
-        if (cleanIdforInt($(this).data("id")).indexOf("FBbt_") > -1) {
-          if (parent.$("body").data("available").indexOf(cleanIdforInt($(this).data("id"))) > -1) {
+        if (id.indexOf("FBbt_") > -1) {
+          if (parent.$("body").data("available").indexOf(id) > -1) {
             content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
-            content += "addToStackData('" + cleanIdforInt($(this).data("id")) + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+            content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
             content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
           }
-        }else if (cleanIdforInt($(this).data("id")).indexOf("VFB") > -1) {
+        }else if (id.indexOf("VFB") > -1) {
           content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
-          content += "addToStackData('" + cleanIdforInt($(this).data("id")) + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+          content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
           content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
         }
+        $(this).html(content);
+      }else if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template)).indexOf(id) > -1) {
+        content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove from stack viewer" title="Remove" onClick="';
+        content += "removeFromStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+        content += '"><span style="border:none;" class="glyphicon glyphicon-ok-circle"></span></button>';
         $(this).html(content);
       }
     });
