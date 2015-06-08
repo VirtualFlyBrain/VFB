@@ -452,10 +452,10 @@ function loadRightMenuDisplayed() {
   $(document).ready(function() {
     window.setTimeout(function(){
       $('#displayed').DataTable( { retrieve: true,
-                                  "columnDefs": [{
-                                    "targets": 0,
-                                    "visible": false,
-                                    "searchable": false
+                                  columnDefs: [{
+                                    targets: 0,
+                                    visible: false,
+                                    searchable: false
                                   }],
                                   paging: true,
                                   searching: true,
