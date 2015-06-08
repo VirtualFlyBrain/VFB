@@ -254,7 +254,7 @@ function updateLabels() {
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
-          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId');
+          $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId');
           break;
         default:
           alertMessage("unable to resolve type for id:" + content);
