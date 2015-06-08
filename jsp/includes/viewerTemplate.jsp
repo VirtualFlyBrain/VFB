@@ -143,10 +143,12 @@
 										    });
 												updateLabels();
 										    window.setInterval(function(){
-										      $('#displayed').DataTable().column( 0 ).visible( false );
-										      $('#displayed').dataTable().fnAdjustColumnSizing();
+													if ($('#displayed').dataTable()) {
+														$('#displayed').DataTable().column( 0 ).visible( false );
+											      $('#displayed').dataTable().fnAdjustColumnSizing();
+													}
 										    }, 10000);
-										  } );
+										  });
 										</script>
 									</div>
 			        </div>
