@@ -478,10 +478,10 @@ function loadTemplateAnatomyTree() {
                 var children = $(this).parent('li.parent_li').find(' > ul > li');
                 if (children.is(":visible")) {
                     children.hide('fast');
-                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
+                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-chevron-right" style="border:none;"></span>');
                 } else {
                     children.show('fast');
-                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-minus-sign" style="border:none;"></span>');
+                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-chevron-down" style="border:none;"></span>');
                 }
                 e.stopPropagation();
             });
@@ -490,7 +490,7 @@ function loadTemplateAnatomyTree() {
        // collapse all at start:
        var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
        children.hide('fast');
-       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-plus-sign" style="border:none;"></span>');
+       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-chevron-right" style="border:none;"></span>');
        updateMenuData();
      });
    }
