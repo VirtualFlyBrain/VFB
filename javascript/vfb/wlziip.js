@@ -328,6 +328,23 @@ function createInfoButtonHTML(layer) {
   return content;
 }
 
+function createInfoButtonHTMLbyId(id) {
+  var content = "";
+  if (id) {
+    id = cleanIdforExt(id);
+    content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+    switch (id.substr(0,4)) {
+      case "VFBt":
+        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        break;
+      default:
+        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + id + "')";
+    }
+    content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
+  }
+  return content;
+}
+
 function createVisibleButtonHTML(layer,i) {
   var content = "";
   if (layer) {
@@ -511,19 +528,27 @@ function createTreeHTML(treeStruct) {
     }
     html += "<li>";
     html += '<span><b></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
+
     if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>";
       if (JSON.stringify(selected).indexOf(temp) > -1) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
-            html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>" + createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer) + "</span>";
+            html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
           }
         }
 
       }else{
-        html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>" + createAddButtonHTML(temp) + "</span>";
+        html += createInfoButtonHTMLbyId($("body").data("domains")[node.nodeId].extId[0]), createAddButtonHTML(temp);
       }
+      html += "</span>";
+    }else{
+      temp = $("body").data("domains")[node.nodeId].extId[0];
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "'>";
+      html += createInfoButtonHTMLbyId(temp);
+      html += "</span>";
     }
     if (node.children) {
       html += createTreeHTML(node.children);
