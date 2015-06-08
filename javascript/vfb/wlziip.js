@@ -260,7 +260,7 @@ function updateLabels() {
               }
             });
             $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-              if ($(this).text().indexOf("_") < 0){
+              if ($(this).text().length > 5){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
               }
             });
@@ -275,7 +275,7 @@ function updateLabels() {
               }
             });
             $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-              if ($(this).text().indexOf("_") < 0){
+              if ($(this).text().length > 5){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
               }
             });
