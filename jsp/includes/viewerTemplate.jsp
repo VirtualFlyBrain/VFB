@@ -115,12 +115,12 @@
 			            <h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
 			            <p id="selecContent"></p>
 			        </div>
-			        <div class="tab-pane active" id="disp">
+			        <div class="tab-pane active" id="disp" align="center">
 			            <h4>Currently Displayed</h4>
 									<p id="dispContent"></p>
 			        </div>
-			        <div class="tab-pane" id="anato">
-			            <h4>Neuro Anatomy Tree</h4>
+			        <div class="tab-pane" id="anato" align="center">
+			            <h4>Neuroanatomy Tree</h4>
 									<p id="anatoContent"></p>
 			        </div>
 			        <div class="tab-pane" id="search">
