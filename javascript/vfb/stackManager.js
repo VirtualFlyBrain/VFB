@@ -67,7 +67,7 @@ function generateAddButtons() {
         $(this).html(content);
       }else if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected).indexOf(id) > -1) {
         content += '<button type="button" class="btn btn-success btn-xs" aria-label="Remove from stack viewer" title="Currently added to stack viewer; click to remove" onClick="';
-        content += "removeFromStackData('" + id + "');$('*[id=attach][data-id=" + $(this).data("id") + "]')').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+        content += "removeFromStackData('" + id + "');$('*[id=attach][data-id=" + $(this).data("id") + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
         content += '"><span style="border:none;" class="glyphicon glyphicon-ok-circle"></span></button>';
         $(this).html(content);
       }
