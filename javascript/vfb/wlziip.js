@@ -478,10 +478,10 @@ function loadTemplateAnatomyTree() {
                 var children = $(this).parent('li.parent_li').find(' > ul > li');
                 if (children.is(":visible")) {
                     children.hide('fast');
-                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-chevron-right" style="border:none;"></span>');
+                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
                 } else {
                     children.show('fast');
-                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-chevron-down" style="border:none;"></span>');
+                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;"></span>');
                 }
                 e.stopPropagation();
             });
@@ -490,7 +490,7 @@ function loadTemplateAnatomyTree() {
        // collapse all at start:
        var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
        children.hide('fast');
-       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-chevron-right" style="border:none;"></span>');
+       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
        updateMenuData();
      });
    }
@@ -527,7 +527,7 @@ function createTreeHTML(treeStruct) {
       node = treeStruct[n].node;
     }
     html += "<li>";
-    html += '<span><b></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
+    html += '<span><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
 
     if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
