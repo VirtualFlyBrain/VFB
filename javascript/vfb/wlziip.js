@@ -386,7 +386,7 @@ function createCloseButtonHTML(layer) {
   if (layer) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
     content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
-    content += '"><span style="border:none;" class="glyphicon glyphicon-remove-sign"></span></button>';
+    content += '"><span style="border:none;" class="glyphicon glyphicon-trash"></span></button>';
   }
   return content;
 }

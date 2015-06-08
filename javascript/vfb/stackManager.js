@@ -54,18 +54,18 @@ function generateAddButtons() {
       if ($(this).html() === ""){
         if (id.indexOf("FBbt_") > -1) {
           if (parent.$("body").data("available").indexOf(id) > -1) {
-            content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
+            content += '<button type="button" class="btn btn-primary btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
             content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
             content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
           }
         }else if (id.indexOf("VFB") > -1) {
-          content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
+          content += '<button type="button" class="btn btn-primary btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
           content += "addToStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
           content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
         }
         $(this).html(content);
       }else if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template)).indexOf(id) > -1) {
-        content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove from stack viewer" title="Remove" onClick="';
+        content += '<button type="button" class="btn btn-primary btn-xs" aria-label="Remove from stack viewer" title="Remove" onClick="';
         content += "removeFromStackData('" + id + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
         content += '"><span style="border:none;" class="glyphicon glyphicon-ok-circle"></span></button>';
         $(this).html(content);
