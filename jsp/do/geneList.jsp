@@ -89,6 +89,11 @@
 							$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 						});
 				});
+				$("img.lazy").lazyload({
+					skip_invisible: false,
+					threshold: 2000
+				});
+				$('#geneResultsTable').dataTable().fnAdjustColumnSizing();
 			}, 100);
 		} );
 	</script>
