@@ -122,7 +122,7 @@
 			        <div class="tab-pane active" id="disp" align="center">
 			            <h4>Currently Displayed</h4>
 									<div class="content-fluid" id="dispContent">
-										<table id="displayed" class="display" cellspacing="0" width="100%">
+										<table id="displayed compact" class="display" cellspacing="0" width="100%">
 											<thead>
 												<tr>
 													<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>
