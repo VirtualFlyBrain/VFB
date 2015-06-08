@@ -132,7 +132,7 @@
 												<div id="dispContentData"><tr><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th><th class="text-center"></th></tr></div>
 											</tbody>
 										</table>
-										<string>
+										<script>
 											$("#dispContentData").html(content);
 										  updateLabels();
 										  $(document).ready(function() {
@@ -148,7 +148,7 @@
 										      $('#displayed').dataTable().fnAdjustColumnSizing();
 										    }, 10000);
 										  } );
-										</string>
+										</script>
 									</div>
 			        </div>
 			        <div class="tab-pane" id="anato">
