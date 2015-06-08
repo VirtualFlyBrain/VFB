@@ -223,7 +223,7 @@ function updateLabels() {
   if (parent.$("body").data("meta")){
     $('[id^=nameFor]').each(function() {
       content = $(this).data('id');
-      content = content.replace('VFBi_','VFB_');
+      content = cleanIdforExt(content);
       switch (content.substr(0,4)) {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName');
@@ -241,7 +241,7 @@ function updateLabels() {
     });
     $('[id^=typeFor]').each(function() {
       content = $(this).data('id');
-      content = content.replace('VFBi_','VFB_');
+      content = cleanIdforExt(content);
       switch (content.substr(0,4)) {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent');
@@ -319,7 +319,7 @@ function createInfoButtonHTML(layer) {
         content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.extid + "')";
         break;
       default:
-        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + layer.id.replace('VFBi_','VFB_') + "')";
+        content += "$('#anatomyDetails').load('/do/ont_bean.html?id=" + cleanIdforExt(layer.id) + "')";
     }
     content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
@@ -417,13 +417,13 @@ function loadRightMenuDisplayed() {
             temp = layer.id;
           }
           content += '<th class="text-center">';
-          content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + layer.id.replace('VFBi_','VFB_') + '</span>';
+          content += '<span id="nameFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(layer.id) + '</span>';
           content += '</th>';
           // Type:
           content += '<th class="text-center">';
           content += '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
           content += "$('#anatomyDetails').load('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
-          content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + temp.replace('VFBi_','VFB_') + '</span></a>';
+          content += '" id="typeFor' + layer.id + '" data-id="' + temp + '">' + cleanIdforExt(temp) + '</span></a>';
           content += '</th>';
           // end row
           content += "</tr>";

@@ -9,6 +9,20 @@ function updateStackCounter() {
   }
 }
 
+function cleanIdforExt(id) {
+  id = id.replace(":","_");
+  id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+  id = id.replace('VFBi_','VFB_');
+  return id;
+}
+
+function cleanIdforInt(id) {
+  id = id.replace(":","_");
+  id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+  id = id.replace('VFB_','VFBi_');
+  return id;
+}
+
 function loadTemplateMeta(id) {
    if (id){
      file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
@@ -27,7 +41,7 @@ function loadTemplateMeta(id) {
 function fileFromId(id) {
    var file = "";
    if (id){
-     id = id.replace(":","_");
+     id = cleanIdforInt(id);
      if (id.indexOf("VFBt_") > -1){
        file = id.replace("00000", "").replace("VFBt_","VFB/t/") + "/composite.wlz";
      }else if (id.indexOf("VFBi_") > -1){
@@ -120,7 +134,7 @@ function addToStackData(ids){
       ids = [ids];
     }
     for (i in ids) {
-      id = ids[i].replace(":","_").replace('VFB_','VFBi_');
+      id = cleanIdforInt(ids[i]);
       if (id.indexOf("VFBt_") > -1){
        id = id.replace("00000", "");
        if (id != parent.$("body").data("current").template){
@@ -204,7 +218,7 @@ function removeFromStackData(ids) {
       ids = [ids];
     }
     for (i in ids) {
-      id = ids[i].replace(":","_").replace('VFB_','VFBi_');
+      id = cleanIdforInt(ids[i]);
       if (JSON.stringify(selected).indexOf(id) > -1) {
         if (id.indexOf("VFB") > -1){
           for (l in selected) {
