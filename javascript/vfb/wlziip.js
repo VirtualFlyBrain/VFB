@@ -218,8 +218,6 @@ function updateLabels() {
       pos[i] = String(parseInt(pos[i])+1);
     }
     $('#positionVal').text(pos.join(','));
-    $(".dataTables_paginate li").css("margin", 0);
-    $(".dataTables_paginate li").css("padding", 0);
   }
 
   if (parent.$("body").data("meta")){
