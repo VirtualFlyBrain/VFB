@@ -93,9 +93,12 @@
 					skip_invisible: false,
 					threshold: 2000
 				});
-				$(".dataTables_paginate li").css("margin", 0);
-				$(".dataTables_paginate li").css("padding", 0);
-				$('#geneResultsTable').dataTable().fnAdjustColumnSizing();
+				window.setTimeout(function(){
+					$(".dataTables_paginate li").css("margin", 0);
+					$(".dataTables_paginate li").css("padding", 0);
+					$('#geneResultsTable').dataTable().fnAdjustColumnSizing();
+	      }, 1000);
+
 			}, 100);
 		} );
 	</script>

@@ -458,10 +458,12 @@ function loadRightMenuDisplayed() {
         responsive: true,
         order: [[ 0, 'asc' ]]
       });
-      $('#displayed').DataTable().column( 0 ).visible( false );
-      $(".dataTables_paginate li").css("margin", 0);
-      $(".dataTables_paginate li").css("padding", 0);
-      $('#displayed').dataTable().fnAdjustColumnSizing();
+      window.setTimeout(function(){
+        $('#displayed').DataTable().column( 0 ).visible( false );
+        $(".dataTables_paginate li").css("margin", 0);
+        $(".dataTables_paginate li").css("padding", 0);
+        $('#displayed').dataTable().fnAdjustColumnSizing();
+      }, 1000);
     }, 1000);
   } );
 
