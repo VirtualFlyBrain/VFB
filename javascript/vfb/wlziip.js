@@ -490,7 +490,7 @@ function updateAnatomyTree() {
     var layer;
     for (l in selected) {
       layer = selected[l];
-      $('#buttonsFor' + selected[l]).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
+      $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
     }
   }
 }
