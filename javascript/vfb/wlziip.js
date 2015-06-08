@@ -574,7 +574,11 @@ function createTreeHTML(treeStruct) {
   var temp;
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
-  var html = '<ul style="padding:0;">';
+  var html = '<span id="openCloseAll" style="position:absolute;right:0px;"><span class="glyphicon glyphicon-resize-full" onClick="';
+  html += "$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').show('fast');";
+  html += '" style="border:none;"></span><span class="glyphicon glyphicon-resize-small" onClick="';
+  html += "$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').hide('fast');";
+  html += '" style="border:none;"></span></span><ul style="padding:0;">';
   for (n in treeStruct) {
     node = treeStruct[n];
     if (treeStruct[n].node) {
