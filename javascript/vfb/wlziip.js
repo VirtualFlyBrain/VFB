@@ -540,7 +540,7 @@ function createTreeHTML(treeStruct) {
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[node.nodeId].extId[0]), createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[node.nodeId].extId[0]) + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
