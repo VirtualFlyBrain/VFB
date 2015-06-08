@@ -50,13 +50,19 @@ function generateAddButtons() {
   if (parent.$("body").data("available")) {
     $("#attach").each(function(){
       if ($(this).html() === ""){
-        if (parent.$("body").data("available").indexOf(cleanIdforInt($(this).data("id"))) > -1) {
-          var content = "";
+        var content = "";
+        if (cleanIdforInt($(this).data("id")).indexOf("FBbt_") > -1) {
+          if (parent.$("body").data("available").indexOf(cleanIdforInt($(this).data("id"))) > -1) {
+            content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
+            content += "addToStackData('" + cleanIdforInt($(this).data("id")) + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+            content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
+          }
+        }else if (cleanIdforInt($(this).data("id")).indexOf("VFB") > -1) {
           content += '<button type="button" class="btn btn-default btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
           content += "addToStackData('" + cleanIdforInt($(this).data("id")) + "');updateMenuData();if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
           content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
-          $(this).html(content);
         }
+        $(this).html(content);
       }
     });
   }
