@@ -537,6 +537,14 @@ function loadTemplateAnatomyTree() {
    }
 }
 
+function addAllDomains() {
+  addToStackData(parent.$("body").data("available").split(","));
+}
+
+function removeAllDomains() {
+  removeFromStackData(parent.$("body").data("available").split(","));
+}
+
 function expandTree() {
   var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
   children.show('fast');

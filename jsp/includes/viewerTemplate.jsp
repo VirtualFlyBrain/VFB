@@ -153,12 +153,13 @@
 									<div class="col-xs-9">
 			            	<h4>Neuroanatomy Tree</h4>
 									</div>
-									<div id="openCloseAll" class="col-xs-3" align="right">
-										<button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-full"
-											onClick="expandTree();" style="border:none;">
-										</span></button><button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-small"
-											onClick="collapseTree();" style="border:none;">
-										</span></button>
+									<div id="openCloseAll" class="col-xs-3">
+										<div class="btn-group">
+											<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack"><span class="glyphicon glyphicon-plus"></span></button>
+											<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack"><span class="glyphicon glyphicon-minus"></span></button>
+											<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree"><span class="glyphicon glyphicon-resize-full"></span></button>
+											<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree"><span class="glyphicon glyphicon-resize-small"></span></button>
+										</div>
 									</div>
 									<div class="clearfix visible-xs-block"></div>
 									<div class="col-xs-12" id="anatoContent"></div>
