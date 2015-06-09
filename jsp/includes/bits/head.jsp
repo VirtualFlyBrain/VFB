@@ -58,16 +58,16 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
-	  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
-	  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
-	    		<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
-	  		<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
+				  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
+				  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
+				  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
+	    				<li><script>mail2("support","virtualflybrain",1,"","Email us")</script></li>
+	  					<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	          <li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
+	          	<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="/site/tools/query_builder/">Query Builder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_new">NBLAST</a></li>
 	          </ul>
@@ -94,7 +94,7 @@
 	          </ul>
 	        </li>
 					<li id="pageLoading" >
-						<img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="height: 100%;"/>
+						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>
 					</li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
