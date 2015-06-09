@@ -148,18 +148,18 @@
 			        </div>
 			        <div class="tab-pane" id="anato">
 								<div class="row-fluid">
-									<div class="col-xs-6">
+									<div class="col-xs-9">
 			            	<h4>Neuroanatomy Tree</h4>
 									</div>
-									<div id="openCloseAll" class="col-xs-6" align="right">
-										<span class="glyphicon glyphicon-resize-full"
+									<div id="openCloseAll" class="col-xs-3">
+										<button class="glyphicon glyphicon-resize-full"
 											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').show('fast');" style="border:none;">
-										</span><span class="glyphicon glyphicon-resize-small"
+										</button><button class="glyphicon glyphicon-resize-small"
 											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').hide('fast');" style="border:none;">
-										</span>
+										</button>
 									</div>
+									<div class="col-xs-12" id="anatoContent"></div>
 								</div>
-								<div class="content-fluid" id="anatoContent"></div>
 			        </div>
 			        <div class="tab-pane" id="search">
 								<div class="content-fluid" id="searchBar"></div>
