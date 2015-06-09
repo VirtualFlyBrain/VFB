@@ -21,17 +21,23 @@ function updateStackCounter() {
 }
 
 function cleanIdforExt(id) {
-  id = id.replace(":","_");
-  id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
-  id = id.replace('VFBi_','VFB_');
-  return id;
+  if (id) {
+    id = id.replace(":","_");
+    id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+    id = id.replace('VFBi_','VFB_');
+    return id;
+  }
+  return "";
 }
 
 function cleanIdforInt(id) {
-  id = id.replace(":","_");
-  id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
-  id = id.replace('VFB_','VFBi_');
-  return id;
+  if (id) {
+    id = id.replace(":","_");
+    id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+    id = id.replace('VFB_','VFBi_');
+    return id;
+  }
+  return "";
 }
 
 function loadTemplateMeta(id) {
