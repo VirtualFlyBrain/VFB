@@ -197,7 +197,7 @@ function addToStackData(ids){
           selected = parent.$("body").data(parent.$("body").data("current").template).selected;
           if (JSON.stringify(selected).indexOf(id) > -1){
             for (layers in selected){
-              if (selected[layers].id == id){
+              if (cleanIdforInt(selected[layers].id) == id){
                 selected[layers].visible = true;
               }
             }
@@ -210,7 +210,7 @@ function addToStackData(ids){
           selected = parent.$("body").data(parent.$("body").data("current").template).selected;
           if (JSON.stringify(selected).indexOf(id) > -1){
             for (layers in selected){
-              if (selected[layers].id == id){
+              if (cleanIdforInt(selected[layers].id) == id){
                 selected[layers].visible = true;
               }
             }
@@ -229,19 +229,21 @@ function addToStackData(ids){
           selected = parent.$("body").data(parent.$("body").data("current").template).selected;
           if (JSON.stringify(selected).indexOf(id) > -1){
             for (layers in selected){
-              if (selected[layers].extid == id){
+              if (cleanIdforInt(selected[layers].extid) == id){
                 selected[layers].visible = true;
               }
             }
           }else{
             layers = Object.keys(selected).length;
-            text = '{"id":"';
-            for (layers in parent.$("body").data("domains")){
-              if (parent.$("body").data("domains")[layers].extId[0] == id) {
-                if (parent.$("body").data("domains")[layers].id === ""){
-                  alertMessage(id + ' not found in current stack');
-                }else{
-                  text += parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+            if (JSON.stringify(parent.$("body").data("domains")).indexOf(id) > -1) {
+              text = '{"id":"';
+              for (layers in parent.$("body").data("domains")){
+                if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
+                  if (parent.$("body").data("domains")[layers].id === ""){
+                    alertMessage(id + ' not found in current stack');
+                  }else{
+                    text += parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                  }
                 }
               }
             }
