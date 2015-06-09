@@ -10,12 +10,12 @@ function updateStackCounter() {
 				$('#cookie-warning').hide();
 			}else{
 				$('#cookie-warning').show();
-			};
+			}
       if( $.cookie('dev-box') === 'closed' ){
         $('#dev-warning').hide();
       }else{
         $('#dev-warning').show();
-      };
+      }
     }
   }
 }
@@ -134,6 +134,16 @@ function returnCleanData() {
   delete save.colours;
   delete save.tree;
   delete save.available;
+  var t;
+  var l;
+  for (t in save) {
+    if (t.indexOf('VFBt_')>-1) {
+      for (l in save[t]) {
+        delete save[t][l].name;
+        delete save[t][l].type;
+      }
+    }
+  }
   return JSON.stringify(save);
 }
 
