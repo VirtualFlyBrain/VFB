@@ -58,7 +58,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     }else if (self.manager.response.response.numFound === 0){
       $('#result-section').hide();
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
-    }else if (self.manager.response.response.numFound < 34000){ // if a resonable number of results then reshow.
+    }else if (self.manager.response.response.numFound < 3000){ // if a resonable number of results then reshow.
       $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
       $('#result-section').show();
     }
