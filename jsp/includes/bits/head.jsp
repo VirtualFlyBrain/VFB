@@ -133,11 +133,6 @@
 					$('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
 						$.cookie('dev-box', 'closed', { expires: 7, path: '/' });
 					});
-					if( $.cookie('dev-box') === 'closed' ){
-        		$('#dev-warning').hide();
-    			}else{
-						$('#dev-warning').show();
-					};
 				});
 			</script>
 		</c:if>
@@ -167,11 +162,6 @@
 			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
 				$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
 			});
-			if( $.cookie('cookie-box') === 'closed' ){
-				$('#cookie-warning').hide();
-			}else{
-				$('#cookie-warning').show();
-			};
 		});
 	</script>
 	<!-- END Notices -->

@@ -6,6 +6,16 @@ function updateStackCounter() {
     if (stack.current){
       $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
       generateAddButtons();
+      if( $.cookie('cookie-box') === 'closed' ){
+				$('#cookie-warning').hide();
+			}else{
+				$('#cookie-warning').show();
+			};
+      if( $.cookie('dev-box') === 'closed' ){
+        $('#dev-warning').hide();
+      }else{
+        $('#dev-warning').show();
+      };
     }
   }
 }
