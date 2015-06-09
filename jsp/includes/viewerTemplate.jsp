@@ -160,7 +160,8 @@
 											onClick="collapseTree();" style="border:none;">
 										</span></button>
 									</div>
-									<div class="content-fluid" id="anatoContent"></div>
+									<div class="clearfix visible-xs-block"></div>
+									<div class="col-xs-12" id="anatoContent"></div>
 								</div>
 			        </div>
 			        <div class="tab-pane" id="search">
