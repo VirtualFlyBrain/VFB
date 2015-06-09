@@ -48,7 +48,7 @@ function loadTemplateMeta(id) {
        var list = "";
        for (l in $('body').data("domains")) {
          if ($('body').data("domains")[l].id > "") {
-           list += cleanIdforInt($('body').data("domains")[l].extId[0]);
+           list += cleanIdforInt($('body').data("domains")[l].extId[0]) + ",";
          }
        }
        parent.$("body").data("available", list);
