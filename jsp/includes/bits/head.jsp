@@ -93,11 +93,11 @@
 	            <li><a href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new">Tutorial Videos</a></li>
 	          </ul>
 	        </li>
+					<li id="pageLoading" >
+						<img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="height: 100%;"/>
+					</li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-					<li>
-						<img id="pageLoading" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />
-					</li>
 					<li>
 						<a class="alert alert-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
