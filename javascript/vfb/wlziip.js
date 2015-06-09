@@ -228,7 +228,9 @@ function updateLabels() {
         switch (content.substr(0,4)) {
           case "VFB_":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              if ($(this).text().indexOf("_") < 0) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              }
             });
             $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
             break;
@@ -237,7 +239,9 @@ function updateLabels() {
             break;
           case "FBbt":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              if ($(this).text().indexOf("_") < 0) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              }
             });
             $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
             break;
