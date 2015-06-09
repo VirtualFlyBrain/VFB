@@ -48,8 +48,8 @@ var Manager;
       'facet.sort' : 'score',
       'facet.mincount': 1,
       'json.nl': 'map',
-      'fq' : 'short_form:VFB_* FBbt_*',
-      'df' : 'label_suggest'
+      'fq' : 'VFB_* FBbt_*',
+      'df' : 'short_form'
     };
     for (var name in params) {
       Manager.store.addByValue(name, params[name]);
