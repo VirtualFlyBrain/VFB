@@ -79,13 +79,13 @@
         });
       } // end callback
 
-      var params = [ 'df=label_suggest&rows=0&facet=true&facet.limit=-1&facet.mincount=1&json.nl=map' ];
+      var params = [ 'rows=0&facet=true&facet.limit=-1&facet.mincount=1&json.nl=map' ];
       for (var i = 0; i < this.fields.length; i++) {
         params.push('facet.field=' + this.fields[i]);
       }
       var values = this.manager.store.values('fq');
       for (var i = 0; i < values.length; i++) {
-        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]));
+        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]).replace('"short_form:VFB_*%20FBbt_*"','short_form:"VFB_*%20FBbt_*"'));
       }
       params.push('q=' + this.manager.store.get('q').val());
       $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
