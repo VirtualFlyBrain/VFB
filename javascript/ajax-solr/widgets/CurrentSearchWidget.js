@@ -53,8 +53,8 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       for (var i = 0, l = links.length; i < l; i++) {
         $target.append($('<li></li>').append(links[i]));
       }
-    }
-    else {
+      $('#search-tab').show();
+    } else {
       $(this.target).html('<kbd>ESC</kbd> to close suggestions');
       $('#search-tab').show();
     }
