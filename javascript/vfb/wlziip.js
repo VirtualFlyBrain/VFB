@@ -522,6 +522,7 @@ function loadTemplateAnatomyTree() {
                 }
                 e.stopPropagation();
             });
+            $('.tree ul').first().css("padding", 0);
          });
        }
        // collapse all at start:
@@ -557,7 +558,7 @@ function createTreeHTML(treeStruct) {
   var temp;
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
-  var html = '<ul style="padding:0;">';
+  var html = '<ul>';
   for (n in treeStruct) {
     node = treeStruct[n];
     if (treeStruct[n].node) {
