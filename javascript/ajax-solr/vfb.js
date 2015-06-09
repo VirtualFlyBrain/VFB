@@ -40,7 +40,7 @@ var Manager;
       fields: [ 'label', 'label_suggest' ]
     }));
     Manager.init();
-    Manager.store.addByValue('q', '*');
+    Manager.store.addByValue('q', '*:*');
     var params = {
       facet: true,
       'facet.field': [ 'label', 'label_suggest', 'short_form' ],
