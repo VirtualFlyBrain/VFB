@@ -482,6 +482,7 @@ function loadRightMenuDisplayed() {
         }
       }
       $('#displayed').DataTable().draw();
+      updateLabels();
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
