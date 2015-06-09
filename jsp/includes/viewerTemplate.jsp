@@ -139,7 +139,7 @@
 										    window.setInterval(function(){
 													if ($.fn.dataTable.isDataTable('#displayed')) {
 														$('#displayed').DataTable().column( 0 ).visible( false );
-											      $('#displayed').dataTable().fnAdjustColumnSizing();
+											      // $('#displayed').dataTable().fnAdjustColumnSizing();
 													}
 										    }, 10000);
 										  });
