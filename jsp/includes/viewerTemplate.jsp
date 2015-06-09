@@ -155,7 +155,7 @@
 									</div>
 									<div id="openCloseAll" class="col-xs-3" align="right">
 										<button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-full"
-											onClick="ExpandTree();" style="border:none;">
+											onClick="expandTree();" style="border:none;">
 										</span></button><button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-small"
 											onClick="collapseTree();" style="border:none;">
 										</span></button>
