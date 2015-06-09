@@ -235,7 +235,7 @@ function addToStackData(ids){
             }
           }else{
             layers = Object.keys(selected).length;
-            if (JSON.stringify(parent.$("body").data("domains")).indexOf(id) > -1) {
+            if (parent.$("body").data("available").indexOf(id) > -1) {
               text = '{"id":"';
               for (layers in parent.$("body").data("domains")){
                 if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
