@@ -114,7 +114,7 @@ function generateWlzURL(index){
        alertMessage("unable to generate URL for id:" + layer.id);
    }
    return text;
- }
+}
 
 function initWlzControls() {
   if (parent.$("body").data("meta")){
@@ -206,7 +206,7 @@ function initWlzControls() {
 }
 
 function updateLabels() {
-  if (parent.$("body").data("current")){
+  if (parent.$("body").data("current") && $.isFunction($('#slider-slice').bootstrapSlider)){
     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
     var orient = parent.$("body").data("current").slice;
     $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
