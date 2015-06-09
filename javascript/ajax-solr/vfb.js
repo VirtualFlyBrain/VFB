@@ -49,7 +49,8 @@ var Manager;
       'facet.mincount': 1,
       'json.nl': 'map',
       'fq' : 'VFB_* FBbt_*',
-      'df' : 'short_form'
+      'df' : 'short_form',
+      'fl' : 'label,id,short_form,label_suggest,description'
     };
     for (var name in params) {
       Manager.store.addByValue(name, params[name]);
