@@ -37,15 +37,15 @@ var Manager;
       target: '#search',
       limit: 10,
       minLength: 2,
-      fields: [ 'label', 'short_form' ]
+      fields: [ 'label', 'label_suggest', 'short_form' ]
     }));
     Manager.init();
     Manager.store.addByValue('q', '*:*');
     var params = {
       facet: true,
-      'facet.field': [ 'label_suggest', 'short_form' ],
+      'facet.field': [ 'label', 'label_suggest', 'short_form' ],
       'facet.limit': -1,
-      'facet.sort' : 'count',
+      'facet.sort' : 'score',
       'facet.mincount': 1,
       'json.nl': 'map'
     };
