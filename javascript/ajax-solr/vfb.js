@@ -48,7 +48,7 @@ var Manager;
       'facet.sort' : 'score',
       'facet.mincount': 1,
       'json.nl': 'map',
-      'fq' : 'short_form:*_*',
+      'fq' : 'short_form:VFB_* FBbt_*',
       'df' : 'label_suggest'
     };
     for (var name in params) {
