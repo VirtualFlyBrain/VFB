@@ -37,7 +37,7 @@ var Manager;
       target: '#search',
       limit: 10,
       minLength: 2,
-      fields: [ 'label' ]
+      fields: [ 'label', 'short_form' ]
     }));
     Manager.init();
     Manager.store.addByValue('q', '*:*');
