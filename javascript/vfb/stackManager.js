@@ -81,6 +81,7 @@ function generateAddButtons() {
         $(this).html(content);
       }
     });
+    $('#pageLoading').hide();
   }
 }
 

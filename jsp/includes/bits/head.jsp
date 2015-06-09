@@ -96,6 +96,9 @@
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 					<li>
+						<img id="pageLoading" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />
+					</li>
+					<li>
 						<a class="alert alert-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 							updateStackCounter();
