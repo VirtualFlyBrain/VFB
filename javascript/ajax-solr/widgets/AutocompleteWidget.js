@@ -77,7 +77,7 @@
             }
           }
         });
-      } // end callback
+      }; // end callback
 
       var params = [ 'df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&json.nl=map' ];
       for (var i = 0; i < this.fields.length; i++) {
