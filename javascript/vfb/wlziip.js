@@ -487,8 +487,9 @@ function loadRightMenuDisplayed() {
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
         searching: true,
-        ordering: false,
+        ordering: true,
         responsive: true,
+        stateSave: true,
         order: [[ 0, 'desc' ]]
       });
     }
