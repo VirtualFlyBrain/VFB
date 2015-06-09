@@ -125,11 +125,11 @@
 										<table id="displayed" class="display compact" cellspacing="0" width="100%">
 											<thead>
 												<tr>
-													<th class="text-center">#</th><th class="text-center">Display</th><th class="text-center">Name</th><th class="text-center">Type</th>
+													<th>#</th><th>Display</th><th>Name</th><th>Type</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr><th class="text-center">0</th><th class="text-center">-</th><th class="text-center">name</th><th class="text-center">type</th></tr>
+												<tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
 											</tbody>
 										</table>
 										<script>
