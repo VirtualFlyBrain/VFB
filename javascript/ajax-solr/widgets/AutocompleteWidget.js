@@ -85,7 +85,7 @@
       }
       var values = this.manager.store.values('fq');
       for (var i = 0; i < values.length; i++) {
-        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]));
+        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]).replace('"',''));
       }
       params.push('q=' + this.manager.store.get('q').val());
       $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
