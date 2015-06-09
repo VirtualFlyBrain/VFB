@@ -137,7 +137,7 @@
 												loadRightMenuDisplayed();
 												updateLabels();
 										    window.setInterval(function(){
-													if (typeof $('#displayed').dataTable !== 'undefined' && $.isFunction($('#displayed').dataTable)) {
+													if ($.fn.dataTable.isDataTable('#displayed')) {
 														$('#displayed').DataTable().column( 0 ).visible( false );
 											      $('#displayed').dataTable().fnAdjustColumnSizing();
 													}

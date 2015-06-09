@@ -420,7 +420,7 @@ function loadRightMenuDisplayed() {
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
-    if (selected && typeof $('#displayed').dataTable !== 'undefined' && $.isFunction($('#displayed').dataTable)) {
+    if (selected && $.fn.dataTable.isDataTable('#displayed')) {
       var layers = Object.keys(selected).length;
       var temp;
       var i;
