@@ -155,9 +155,9 @@
 									</div>
 									<div id="openCloseAll" class="col-xs-3" align="right">
 										<button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-full"
-											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').show('fast');" style="border:none;">
+											onClick="ExpandTree();" style="border:none;">
 										</span></button><button class"btn btn-default btn-xs"><span class="glyphicon glyphicon-resize-small"
-											onClick="$('.tree li.parent_li > span').has('b').parent('li.parent_li').find(' > ul > li').hide('fast');" style="border:none;">
+											onClick="collapseTree();" style="border:none;">
 										</span></button>
 									</div>
 									<div class="content-fluid" id="anatoContent"></div>

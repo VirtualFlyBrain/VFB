@@ -526,12 +526,24 @@ function loadTemplateAnatomyTree() {
          });
        }
        // collapse all at start:
-       var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
-       children.hide('fast');
-       $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
+       collapseTree();
        updateMenuData();
      });
    }
+}
+
+function expandTree() {
+  var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
+  children.show('fast');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;"></span>');
+  $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Collapse this branch');
+}
+
+function collapseTree() {
+  var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
+  children.hide('fast');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
+  $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
 }
 
 function updateAnatomyTree() {
