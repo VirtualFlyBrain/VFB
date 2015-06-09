@@ -98,7 +98,7 @@
 			</script>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
-		<canvas class="well" id="canvas" style="display: block;"></canvas>
+		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;"></canvas>
 		<script>
 			$(document).ready(function() {
 				animateWlzDisplay();
