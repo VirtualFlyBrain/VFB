@@ -19,6 +19,7 @@ function animateWlzDisplay(){
   var ctx = canvas.getContext('2d');
   canvas.width = 637;
   canvas.height = 319;
+  canvas.onmousedown = GetCoordinates;
   function step() {
     var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
@@ -75,6 +76,67 @@ function loadColours(){
     parent.$("body").data("colours", lines);
     updateWlzDisplay();
   });
+}
+
+var PosX = 0;
+var PosY = 0;
+
+function drawCircle() {
+  var ctx = document.getElementById("main-canvas").getContext("2d");
+  ctx.beginPath();
+  ctx.arc(PosX, PosY, 3, 0, 2 * Math.PI, false);
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = '#ffffff';
+  ctx.stroke();
+}
+
+function updatePosition() {
+  drawCircle();
+  $('#selecContent').html('<img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..."/>');
+  $('.tab-pane').removeClass('active');
+  $('#selec').addClass('active');
+  $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
+  $('#selecHead').addClass('active');
+  
+}
+
+function GetCoordinates(e){
+  PosX = 0;
+  PosY = 0;
+  var ImgPos;
+  ImgPos = FindPosition(canvas);
+  if (!e) var e = window.event;
+  if (e.pageX || e.pageY)
+  {
+    PosX = e.pageX;
+    PosY = e.pageY;
+  }
+  else if (e.clientX || e.clientY)
+    {
+      PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+  PosX = PosX - ImgPos[0];
+  PosY = PosY - ImgPos[1];
+
+  updatePosition();
+
+}
+
+function FindPosition(oElement){
+  if(typeof( oElement.offsetParent ) != "undefined")
+  {
+    for(var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent)
+    {
+      posX += oElement.offsetLeft;
+      posY += oElement.offsetTop;
+    }
+      return [ posX, posY ];
+    }
+    else
+    {
+      return [ oElement.x, oElement.y ];
+    }
 }
 
 function generateWlzURL(index){
