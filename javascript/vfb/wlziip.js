@@ -80,6 +80,7 @@ function loadColours(){
 
 var PosX = 0;
 var PosY = 0;
+var lastSel = [];
 
 function drawCircle() {
   var ctx = document.getElementById("main-canvas").getContext("2d");
@@ -97,7 +98,67 @@ function updatePosition() {
   $('#selec').addClass('active');
   $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
   $('#selecHead').addClass('active');
-  
+  $('#pointVal').text('*,*,*');
+
+  $.ajax({
+      url: queryLink,
+      type: "GET",
+      timeout: 99999999,
+      dataType: "text", // "xml", "json"
+      xhrFields: {
+        withCredentials: true
+      },
+      success: function(data) {
+          // format fcgi response for JSON
+          data = data.trim();
+          data = '{ ' + data.replace(/[\n\r]/g,'], ') + '] }';
+          data = data.replace('], ], ','], ');
+          data = data.replace('Wlz-foreground-objects:','"Wlz-foreground-objects": [');
+          data = data.replace('Wlz-coordinate-3d:','"Wlz-coordinate-3d": [');
+          data = data.replace('[ ','[');
+          data = data.replace(/\s/g,', ');
+          data = data.replace('{,','{');
+          data = data.replace(':,',':');
+          data = data.replace(':,',':');
+          data = data.replace(',,',',');
+          data = data.replace(', }',' }');
+
+          var json = JSON.parse(data);
+
+          // update 3d coordinates
+          selPointX = json['Wlz-coordinate-3d'][0];
+          selPointY = json['Wlz-coordinate-3d'][1];
+          selPointZ = json['Wlz-coordinate-3d'][2];
+          updateCoodinates();
+
+          var newSel = json['Wlz-foreground-objects'];
+          if ( newSel.toString() == lastSel.toString() ){
+            for (var i = 0, l=lastSel.length; i < l; i++) {
+
+              // if (lastSel[i] > 0){
+              fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
+              //   // if already added then remove
+                // if ($.inArray(fullItem, displayed) > -1) {
+                //   remDomain(fullItem);
+                // }else{ // else add it
+                //   addDomain(fullItem);
+                // }
+              }
+            }
+          }
+          lastSel = json['Wlz-foreground-objects'];
+
+          updateTabs();
+
+          // switch to selection tab
+          //window.location.hash="tabSel";
+
+      },
+      error: function(jqXHR, textStatus, ex) {
+          alert(textStatus + "," + ex + "," + jqXHR.responseText);
+      }
+  });
+
 }
 
 function GetCoordinates(e){
