@@ -50,11 +50,9 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
     if (links.length) {
       var $target = $(this.target);
       $target.empty();
-      $target.append('<ul class="list-unstyled">');
       for (var i = 0, l = links.length; i < l; i++) {
         $target.append($('<li></li>').append(links[i]));
       }
-      $target.append('</ul>');
       $('#search-tab').show();
     } else {
       $(this.target).html('<kbd>ESC</kbd> to close suggestions');
