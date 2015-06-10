@@ -28,7 +28,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 
     var fq = this.manager.store.values('fq');
     for (var i = 0, l = fq.length; i < l; i++) {
-      if (fq[i].match(/[\[\{]\S+ TO \S+[\]\}]/) && (value.indexOf('FBbt_') < 0)) {
+      if (fq[i].match(/[\[\{]\S+ TO \S+[\]\}]/) && (fq[i].indexOf('FBbt_') < 0)) {
         var field = fq[i].match(/^\w+:/)[0];
         var value = fq[i].substr(field.length + 1, 10);
         links.push($('<a href="#"></a>').html('<span class="glyphicon glyphicon-remove-circle"></span> ' + field + value).click(self.removeFacet(fq[i])));
