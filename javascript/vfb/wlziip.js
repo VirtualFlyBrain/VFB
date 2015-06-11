@@ -594,7 +594,7 @@ function loadRightMenuDisplayed() {
             type = '<a href="#details"><span class="link" onclick="';
             type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
           }else{
-            type = '<span class="hide" id="parentIdFor' + layer.id + '"></span><a href="#details"><span class="link" onclick="';
+            type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
             type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
           }
           if (layer.type) {
