@@ -2,7 +2,7 @@
 
 var PosX = 0;
 var PosY = 0;
-var lastSel = [];
+var lastSel = [""];
 
 function updateWlzDisplay(){
   updateStackData();
