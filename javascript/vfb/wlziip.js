@@ -83,7 +83,7 @@ function loadColours(){
 }
 
 function drawCircle() {
-  var ctx = document.getElementById("main-canvas").getContext("2d");
+  var ctx = document.getElementById("canvas").getContext("2d");
   ctx.beginPath();
   ctx.arc(PosX, window.PosY, 3, 0, 2 * Math.PI, false);
   ctx.lineWidth = 1;
