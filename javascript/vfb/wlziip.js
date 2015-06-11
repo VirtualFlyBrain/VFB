@@ -1,5 +1,9 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
+var PosX = 0;
+var PosY = 0;
+var lastSel = [];
+
 function updateWlzDisplay(){
   updateStackData();
 }
@@ -77,10 +81,6 @@ function loadColours(){
     updateWlzDisplay();
   });
 }
-
-var PosX = 0;
-var PosY = 0;
-var lastSel = [];
 
 function drawCircle() {
   var ctx = document.getElementById("main-canvas").getContext("2d");
