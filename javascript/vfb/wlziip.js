@@ -1,8 +1,8 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
-var PosX = 0;
-var PosY = 0;
-var lastSel = [""];
+window.PosX = 0;
+window.PosY = 0;
+window.lastSel = [""];
 
 function updateWlzDisplay(){
   updateStackData();
@@ -85,7 +85,7 @@ function loadColours(){
 function drawCircle() {
   var ctx = document.getElementById("main-canvas").getContext("2d");
   ctx.beginPath();
-  ctx.arc(PosX, PosY, 3, 0, 2 * Math.PI, false);
+  ctx.arc(PosX, window.PosY, 3, 0, 2 * Math.PI, false);
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
@@ -132,7 +132,7 @@ function updatePosition() {
           updateCoodinates();
 
           var newSel = json['Wlz-foreground-objects'];
-          if ( newSel.toString() == lastSel.toString() ){
+          if ( newSel.toString() == window.lastSel.toString() ){
             for (var i = 0, l=lastSel.length; i < l; i++) {
 
               // if (lastSel[i] > 0){
@@ -143,10 +143,10 @@ function updatePosition() {
                 // }else{ // else add it
                 //   addDomain(fullItem);
                 // }
-              }
+              //}
             }
           }
-          lastSel = json['Wlz-foreground-objects'];
+          window.lastSel = json['Wlz-foreground-objects'];
 
           updateTabs();
 
@@ -162,23 +162,23 @@ function updatePosition() {
 }
 
 function GetCoordinates(e){
-  PosX = 0;
-  PosY = 0;
+  window.PosX = 0;
+  window.PosY = 0;
   var ImgPos;
   ImgPos = FindPosition(canvas);
   if (!e) var e = window.event;
   if (e.pageX || e.pageY)
   {
-    PosX = e.pageX;
-    PosY = e.pageY;
+    window.PosX = e.pageX;
+    window.PosY = e.pageY;
   }
   else if (e.clientX || e.clientY)
     {
-      PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-      PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+      window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
-  PosX = PosX - ImgPos[0];
-  PosY = PosY - ImgPos[1];
+  window.PosX = window.PosX - ImgPos[0];
+  window.PosY = window.PosY - ImgPos[1];
 
   updatePosition();
 
