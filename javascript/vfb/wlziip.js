@@ -100,8 +100,11 @@ function updatePosition() {
   $('#selecHead').addClass('active');
   $('#pointVal').text('*,*,*');
 
+  var file = fileFromId(parent.$("body").data("current").template);
+  var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects&obj=Wlz-coordinate-3D&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+
   $.ajax({
-      url: queryLink,
+      url: text,
       type: "GET",
       timeout: 99999999,
       dataType: "text", // "xml", "json"
