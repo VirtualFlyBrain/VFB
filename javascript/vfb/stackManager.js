@@ -1,5 +1,9 @@
 /*! VirtualFlyBrain.org functions to manage image stack */
 
+window.selPointX = 0;
+window.selPointY = 0;
+window.selPointZ = 0;
+
 function updateStackCounter() {
   if ($.cookie("displaying")) {
     var stack = JSON.parse($.cookie("displaying"));
@@ -49,6 +53,10 @@ function loadTemplateMeta(id) {
        });
        if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+         var temp = parent.$("body").data("meta").center.split(',');
+         window.selPointX = temp[0];
+         window.selPointY = temp[1];
+         window.selPointZ = temp[2];
        }
        var l;
        var list = "";
