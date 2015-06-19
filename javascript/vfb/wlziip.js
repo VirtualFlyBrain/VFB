@@ -666,10 +666,14 @@ function loadTemplateAnatomyTree() {
 
 function addAllDomains() {
   addToStackData(parent.$("body").data("available").split(","));
+  updateMenuData();
+  updateWlzDisplay();
 }
 
 function removeAllDomains() {
   removeFromStackData(parent.$("body").data("available").split(","));
+  updateMenuData();
+  updateWlzDisplay();
 }
 
 function expandTree() {
