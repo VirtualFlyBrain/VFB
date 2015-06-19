@@ -130,9 +130,9 @@ function updatePosition() {
           var json = JSON.parse(data);
 
           // update 3d coordinates
-          window.selPointX = json['Wlz-coordinate-3d'][0];
-          window.selPointY = json['Wlz-coordinate-3d'][1];
-          window.selPointZ = json['Wlz-coordinate-3d'][2];
+          window.selPointX = parseInt(json['Wlz-coordinate-3d'][0]);
+          window.selPointY = parseInt(json['Wlz-coordinate-3d'][1]);
+          window.selPointZ = parseInt(json['Wlz-coordinate-3d'][2]);
 
           var newSel = json['Wlz-foreground-objects'];
           if ( newSel.toString() == window.lastSel.toString() ){
