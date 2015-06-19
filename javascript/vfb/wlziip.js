@@ -181,8 +181,8 @@ function GetCoordinates(e){
       window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
       window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
-  window.PosX = window.PosX - ImgPos[0];
-  window.PosY = window.PosY - ImgPos[1];
+  window.PosX = window.PosX - ImgPos[0] - parseInt($('#canvas').css('padding').replace('px',''));
+  window.PosY = window.PosY - ImgPos[1] - parseInt($('#canvas').css('padding').replace('px',''));
 
   updatePosition();
 
