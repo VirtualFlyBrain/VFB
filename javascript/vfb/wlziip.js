@@ -151,10 +151,11 @@ function updatePosition() {
           }
           window.lastSel = json['Wlz-foreground-objects'];
 
-          updateTabs();
-
-          // switch to selection tab
-          //window.location.hash="tabSel";
+          $('.tab-pane').removeClass('active');
+          $('#selec').addClass('active');
+          $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
+          $('#selecHead').addClass('active');
+          $('#pointVal').text(String(window.selPointX) + ',' + String(window.selPointY) + ',' + String(window.selPointZ));
 
       },
       error: function(jqXHR, textStatus, ex) {
