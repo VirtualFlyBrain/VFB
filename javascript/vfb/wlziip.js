@@ -748,6 +748,59 @@ function createTreeHTML(treeStruct) {
   return html;
 }
 
+function clearSelectedTable() {
+  if ($.fn.dataTable.isDataTable('#selected')) {
+    $('#selected').dataTable().distroy();
+  }
+  var text = '<table id="selected" class="display compact" cellspacing="0" width="100%"><thead><tr><th>ID</th><th>Display</th><th>Name</th><th>Type</th></tr></thead><tbody><tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr></tbody></table>';
+  $('#selecContent').html(text);
+  if (!$.fn.dataTable.isDataTable('#selected')) {
+    $('#selected').DataTable( { retrieve: true,
+      paging: true,
+      searching: true,
+      ordering: true,
+      responsive: true,
+      stateSave: true,
+      order: [[ 0, 'desc' ]]
+    });
+  }
+}
+
+function addAvailableItems(ids) {
+  if (!Array.isArray(ids)) {
+    ids = [ids];
+  }
+  var i;
+  var id;
+  for (i in ids) {
+    // id = ids[i];
+    // // Name:
+    // name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + id + '" onclick="';
+    // name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+    // name += '">';
+    // name += cleanIdforExt(layer.id);
+    //
+    // name += '</span></a>';
+    // // Type:
+    // if (layer.typeid) {
+    //   type = '<a href="#details"><span class="link" onclick="';
+    //   type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
+    // }else{
+    //   type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
+    //   type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+    // }
+    // if (layer.type) {
+    //   type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+    //   type += layer.type;
+    // }else{
+    //   type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+    //   type += cleanIdforExt(temp);
+    // }
+    // type += '</span></a>';
+    // $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
+  }
+}
+
 loadColours();
 $('body').ready( function () {
   initWlzControls();

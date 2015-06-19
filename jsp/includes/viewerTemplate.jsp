@@ -117,7 +117,7 @@
 			<div class="tab-content">
 			        <div class="tab-pane" id="selec">
 			            <h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
-			            <p id="selecContent"></p>
+									<div class="content-fluid" id="selecContent"></div>
 			        </div>
 			        <div class="tab-pane active" id="disp" align="center">
 			            <h4>Currently Displayed</h4>
