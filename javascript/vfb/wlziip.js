@@ -468,13 +468,13 @@ function createInfoButtonHTML(layer) {
     content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (layer.id.substr(0,4)) {
       case "VFBt":
-        content += "openFullDetails('/site/stacks/index.htm #imageAttributesText')";
+        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
         break;
       case "VFBd":
-        content += "openFullDetails('/do/ont_bean.html?id=" + layer.extid + "')";
+        content += "openFullDetails('" + layer.extid + "')";
         break;
       default:
-        content += "openFullDetails('/do/ont_bean.html?id=" + cleanIdforExt(layer.id) + "')";
+        content += "openFullDetails('" + cleanIdforExt(layer.id) + "')";
     }
     content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
@@ -488,10 +488,10 @@ function createInfoButtonHTMLbyId(id) {
     content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (id.substr(0,4)) {
       case "VFBt":
-        content += "openFullDetails('/site/stacks/index.htm #imageAttributesText')";
+        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
         break;
       default:
-        content += "openFullDetails('/do/ont_bean.html?id=" + id + "')";
+        content += "openFullDetails('" + id + "')";
     }
     content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
@@ -596,10 +596,10 @@ function loadRightMenuDisplayed() {
           // Type:
           if (layer.typeid) {
             type = '<a href="#details"><span class="link" onclick="';
-            type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
+            type += "openFullDetails('" +layer.typeid + "')";
           }else{
             type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
-            type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
+            type += "openFullDetails($('#parentIdFor"+layer.id+"').text())";
           }
           if (layer.type) {
             type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
