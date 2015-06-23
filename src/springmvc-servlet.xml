@@ -61,19 +61,6 @@
 		<!-- property name="formView" value="ont_query/queryBuilder" / -->
 	</bean>
 
-	<!-- Error handling -->
-	<bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<props>
-				<prop key="uk.ac.ed.vfb.web.exception.SessionExpiredException">
-					/errors/sessionExpiredPage
-				</prop>
-				<!-- prop key="java.lang.Exception"> /errors/error </prop -->
-			</props>
-		</property>
-	</bean>
-
 	<!-- List of neuron clusters as result of an OWL query -->
 	<bean name="/do/cluster_list.html" class="uk.ac.ed.vfb.web.ClusterListController" scope="request">
 		<property name="obm" ref="ontBeanManager" />
