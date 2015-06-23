@@ -3,6 +3,7 @@
 window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
+var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 
 function updateStackCounter() {
   if ($.cookie("displaying")) {
@@ -157,18 +158,46 @@ function returnCleanData() {
   save = JSON.stringify(save);
   var count = 1000;
   while (save.indexOf('auto')>-1 && count>0){
-    save = save.replace('"current"','"C"').replace('"selected"','"S"').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"template"','"T"').replace(',"colour":"auto"','').replace(',"visible":true','').replace('"colour"','"c"').replace('"visible"','"v"').replace('"selected"','"S"');
+    save = save.replace(',"visible":true','').replace(',"colour":"auto"','').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"');
+    save = save.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"current"','"C"').replace('"selected"','"S"');
+    save = compressJSONdata(save);
     count--;
   }
   return save;
+}
+
+function compressJSONdata(data) {
+  var i;
+  var count = 0;
+  for (i in CompKey) {
+    count = 1000;
+    while (data.indexOf(CompKey[i]) > -1 && count>0) {
+      data = data.replace(CompKey[i],'!' + String(i));
+    }
+  }
+  return data;
+}
+
+function decompressJSONdata(data) {
+  var i;
+  var count = 0;
+  for (i in CompKey) {
+    count = 1000;
+    while (data.indexOf('!' + String(i)) > -1 && count>0) {
+      data = data.replace('!' + String(i), CompKey[i]);
+    }
+  }
+  return data;
 }
 
 function expandCookieDisplayed() {
   var data = $.cookie("displaying");
   var patt = new RegExp('"[A-z]":');
   var count = 1000;
+  data = decompressJSONdata(data);
   while (patt.test(data) && count>0){
-    data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
+    data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"').replace('"e"','"extid"');
+    data = data.replace(';1','{"').replace(';2','","').replace(';3','"}}}}').replace(';4','"},"').replace(';5','":{"');
     count--;
   }
   data = JSON.parse(data);
