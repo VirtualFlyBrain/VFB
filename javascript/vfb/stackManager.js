@@ -155,8 +155,10 @@ function returnCleanData() {
     }
   }
   save = JSON.stringify(save);
-  while (save.indexOf('auto')>-1){
+  var count = 1000;
+  while (save.indexOf('auto')>-1 && count>0){
     save = save.replace('"current"','"C"').replace('"selected"','"S"').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"template"','"T"').replace(',"colour":"auto"','').replace(',"visible":true','').replace('"colour"','"c"').replace('"visible"','"v"').replace('"selected"','"S"');
+    count--;
   }
   return save;
 }
