@@ -562,61 +562,83 @@ function loadRightMenuDisplayed() {
       var layers = Object.keys(selected).length;
       var temp;
       var i;
+      var rowD;
       var index = "0";
       var controls = "";
       var name = "name";
       var type = "type";
-      $('#displayed').DataTable().clear();
       for (i in selected) {
         layer = selected[i];
         if (layer) {
+          rowD = $('#displayed').dataTable().fnGetData(i);
           // index:
           index = String(i);
-          // Details:
-          controls = createInfoButtonHTML(layer);
-          // visible:
-          controls += createVisibleButtonHTML(layer,i);
-          // Colour:
-          controls += createColourButtonHTML(layer,i);
-          // Remove:
-          if (i > 0) {
-            controls += createCloseButtonHTML(layer);
-          }
-          // Name:
-          if (layer.id.indexOf("VFBd_") > -1) {
-            temp = layer.extid;
+          if (rowD === null || rowD[0] !== index){
+            // Details:
+            controls = createInfoButtonHTML(layer);
+            // visible:
+            controls += createVisibleButtonHTML(layer,i);
+            // Colour:
+            controls += createColourButtonHTML(layer,i);
+            // Remove:
+            if (i > 0) {
+              controls += createCloseButtonHTML(layer);
+            }
+            // Name:
+            if (layer.id.indexOf("VFBd_") > -1) {
+              temp = layer.extid;
+            }else{
+              temp = layer.id;
+            }
+            if (layer.name) {
+              name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+              name += '">';
+              name += layer.name;
+            }else{
+              name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+              name += '">';
+              name += cleanIdforExt(layer.id);
+            }
+            name += '</span></a>';
+            // Type:
+            if (layer.typeid) {
+              type = '<a href="#details"><span class="link" onclick="';
+              type += "openFullDetails('" +layer.typeid + "')";
+            }else{
+              type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
+              type += "openFullDetails($('#parentIdFor"+layer.id+"').text())";
+            }
+            if (layer.type) {
+              type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+              type += layer.type;
+            }else{
+              type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+              type += cleanIdforExt(temp);
+            }
+            type += '</span></a>';
+            if (rowD !== null){
+              $('#displayed').dataTable().fnUpdate(index,i,0);
+              $('#displayed').dataTable().fnUpdate(controls,i,1);
+              $('#displayed').dataTable().fnUpdate(name,i,2);
+              $('#displayed').dataTable().fnUpdate(type,i,3);
+            }else{
+              $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
+            }
           }else{
-            temp = layer.id;
+            // Details:
+            controls = createInfoButtonHTML(layer);
+            // visible:
+            controls += createVisibleButtonHTML(layer,i);
+            // Colour:
+            controls += createColourButtonHTML(layer,i);
+            // Remove:
+            if (i > 0) {
+              controls += createCloseButtonHTML(layer);
+            }
+            $('#displayed').dataTable().fnUpdate(controls,i,1);
           }
-          if (layer.name) {
-            name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-            name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-            name += '">';
-            name += layer.name;
-          }else{
-            name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-            name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-            name += '">';
-            name += cleanIdforExt(layer.id);
-          }
-          name += '</span></a>';
-          // Type:
-          if (layer.typeid) {
-            type = '<a href="#details"><span class="link" onclick="';
-            type += "openFullDetails('" +layer.typeid + "')";
-          }else{
-            type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
-            type += "openFullDetails($('#parentIdFor"+layer.id+"').text())";
-          }
-          if (layer.type) {
-            type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
-            type += layer.type;
-          }else{
-            type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
-            type += cleanIdforExt(temp);
-          }
-          type += '</span></a>';
-          $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
         }
       }
       $('#displayed').DataTable().draw();

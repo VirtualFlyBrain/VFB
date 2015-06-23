@@ -391,12 +391,18 @@ function removeFromStackData(ids) {
           for (l in selected) {
             if (selected[l].id == id) {
               delete selected[l];
+              if ($.fn.dataTable.isDataTable('#displayed')){
+                $('#displayed').dataTable().fnDeleteRow(parseInt(l));
+              }
             }
           }
         }else{
           for (l in selected) {
             if (selected[l].extid == id) {
               delete selected[l];
+              if ($.fn.dataTable.isDataTable('#displayed')){
+                $('#displayed').dataTable().fnDeleteRow(parseInt(l));
+              }
             }
           }
         }
