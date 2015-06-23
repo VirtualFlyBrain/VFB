@@ -146,9 +146,11 @@ function returnCleanData() {
   var l;
   for (t in save) {
     if (t.indexOf('VFBt_')>-1) {
-      for (l in save[t]) {
-        delete save[t][l].name;
-        delete save[t][l].type;
+      if (save[t].selected["20"]){
+        for (l in save[t].selected) {
+          delete save[t].selected[l].name;
+          delete save[t].selected[l].type;
+        }
       }
     }
   }
