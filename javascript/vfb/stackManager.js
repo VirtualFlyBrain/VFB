@@ -161,7 +161,8 @@ function returnCleanData() {
 
 function expandCookieDisplayed() {
   var data = $.cookie("displaying");
-  while (data.indexOf('"t"')>-1){
+  var patt = new RegExp('"[A-z]"');
+  while (patt.test(data)){
     data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
   }
   data = JSON.parse(data);
