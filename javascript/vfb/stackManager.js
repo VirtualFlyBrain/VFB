@@ -154,14 +154,14 @@ function returnCleanData() {
   }
   save = JSON.stringify(save);
   while (save.indexOf('auto')>-1){
-    save = save.replace('"current"','"C"').replace('"selected"','"S"').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"template"','"T"').replace(',"colour":"auto"','').replace(',"visible":true','').replace('"colour"','"c"').replace('"visible"','"v"');
+    save = save.replace('"current"','"C"').replace('"selected"','"S"').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"template"','"T"').replace(',"colour":"auto"','').replace(',"visible":true','').replace('"colour"','"c"').replace('"visible"','"v"').replace('"selected"','"S"');
   }
   return save;
 }
 
 function expandCookieData() {
   var data = $.cookie("displaying");
-  data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"');
+  data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
   data = JSON.parse(data);
   var layer;
   var template;
