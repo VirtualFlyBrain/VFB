@@ -161,8 +161,8 @@ function returnCleanData() {
 
 function expandCookieDisplayed() {
   var data = $.cookie("displaying");
-  var patt = new RegExp('"[A-z]"');
-  var count = 10;
+  var patt = new RegExp('"[A-z]":');
+  var count = 1000;
   while (patt.test(data) && count>0){
     data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
     count--;
