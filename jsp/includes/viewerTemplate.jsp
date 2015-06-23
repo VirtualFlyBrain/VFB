@@ -9,6 +9,7 @@
 		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
 		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
 		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+		//cdn.datatables.net/colreorder/1.1.3/css/dataTables.colReorder.css;
 		" />
 	<jsp:param name="js" value="
 		/javascript/ajax-solr/vfb.js;
@@ -31,6 +32,7 @@
 		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
+		//cdn.datatables.net/colreorder/1.1.3/js/dataTables.colReorder.min.js;
 		" />
 </jsp:include>
 
