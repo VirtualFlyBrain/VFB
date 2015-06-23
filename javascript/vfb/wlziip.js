@@ -70,7 +70,9 @@ function animateWlzDisplay(){
     }
     window.setTimeout(function(){
       requestAnimationFrame(step);
-      window.reloadInterval += 100;
+      if (window.reloadInterval < 30000) {
+        window.reloadInterval = window.reloadInterval * 2;
+      }
     }, window.reloadInterval);
   }
   requestAnimationFrame(step);
