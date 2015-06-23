@@ -160,9 +160,13 @@ function returnCleanData() {
   save = JSON.stringify(save);
   var count = 1000;
   while (save.indexOf('auto')>-1 && count>0){
-    save = save.replace(',"visible":true','').replace(',"colour":"auto"','').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"');
-    save = save.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"current"','"C"').replace('"selected"','"S"');
+    save = save.replace(',"visible":true','').replace(',"colour":"auto"','');
     count--;
+  }
+  count = 1000;
+  while (save.indexOf('"id"')>-1 && count>0){
+    save = save.replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"').replace('"current"','"C"').replace('"selected"','"S"');
+    save = save.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"id"','"i"');
   }
   save = compressJSONdata(save);
   return save;
@@ -199,7 +203,7 @@ function expandCookieDisplayed() {
   data = decompressJSONdata(data);
   while (patt.test(data) && count>0){
     data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"').replace('"e"','"extid"');
-    data = data.replace(';1','{"').replace(';2','","').replace(';3','"}}}}').replace(';4','"},"').replace(';5','":{"');
+    data = data.replace('"i"','"id"');
     count--;
   }
   data = JSON.parse(data);

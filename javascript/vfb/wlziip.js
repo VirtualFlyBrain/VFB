@@ -782,8 +782,8 @@ function addAvailableItems(ids) {
   var i;
   var id;
   for (i in ids) {
-    // id = ids[i];
-    // // Name:
+    id = ids[i];
+    // Name:
     // name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + id + '" onclick="';
     // name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
     // name += '">';
