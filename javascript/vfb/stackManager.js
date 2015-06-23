@@ -161,7 +161,9 @@ function returnCleanData() {
 
 function expandCookieDisplayed() {
   var data = $.cookie("displaying");
-  data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
+  while (data.indexOf('"t"')>-1){
+    data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
+  }
   data = JSON.parse(data);
   var layer;
   var template;
