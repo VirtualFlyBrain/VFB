@@ -162,9 +162,9 @@ function returnCleanData() {
   while (save.indexOf('auto')>-1 && count>0){
     save = save.replace(',"visible":true','').replace(',"colour":"auto"','').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"');
     save = save.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"current"','"C"').replace('"selected"','"S"');
-    save = compressJSONdata(save);
     count--;
   }
+  save = compressJSONdata(save);
   return save;
 }
 
