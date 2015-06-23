@@ -6,7 +6,7 @@ window.selPointZ = 0;
 
 function updateStackCounter() {
   if ($.cookie("displaying")) {
-    var stack = expandCookieData();
+    var stack = expandCookieDisplayed();
     if (stack.current){
       $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
       generateAddButtons();
@@ -159,7 +159,7 @@ function returnCleanData() {
   return save;
 }
 
-function expandCookieData() {
+function expandCookieDisplayed() {
   var data = $.cookie("displaying");
   data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"');
   data = JSON.parse(data);
@@ -197,11 +197,11 @@ function initStackData(ids) {
     loadDefaultData(ids);
   }else{
     if (ids) {
-      parent.$("body").data(expandCookieData());
+      parent.$("body").data(expandCookieDisplayed());
       addToStackData(ids);
     }
   }
-  parent.$("body").data(expandCookieData());
+  parent.$("body").data(expandCookieDisplayed());
   if (parent.$("body").data("current") === undefined){
     alert($.cookie("displaying"));
     alert(returnCleanData());
