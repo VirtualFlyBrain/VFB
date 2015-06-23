@@ -6,7 +6,7 @@ window.selPointZ = 0;
 
 function updateStackCounter() {
   if ($.cookie("displaying")) {
-    var stack = JSON.parse($.cookie("displaying"));
+    var stack = expandCookieData();
     if (stack.current){
       $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
       generateAddButtons();
@@ -152,7 +152,32 @@ function returnCleanData() {
       }
     }
   }
-  return JSON.stringify(save);
+  save = JSON.stringify(save);
+  while (save.indexOf('auto')>-1){
+    save = save.replace('"current"','"C"').replace('"selected"','"S"').replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"template"','"T"').replace(',"colour":"auto"','').replace(',"visible":true','').replace('"colour"','"c"').replace('"visible"','"v"');
+  }
+  return save;
+}
+
+function expandCookieData() {
+  var data = $.cookie("displaying");
+  data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"');
+  data = JSON.parse(data);
+  var layer;
+  var template;
+  for (template in data) {
+    if (data[template].selected){
+      for (layer in data[template].selected) {
+        if (!data[template].selected[layer].colour) {
+          data[template].selected[layer].colour = "auto";
+        }
+        if (!data[template].selected[layer].visible) {
+          data[template].selected[layer].visible = true;
+        }
+      }
+    }
+  }
+  return data;
 }
 
 function loadDefaultData(ids) {
@@ -172,11 +197,11 @@ function initStackData(ids) {
     loadDefaultData(ids);
   }else{
     if (ids) {
-      parent.$("body").data(JSON.parse($.cookie("displaying")));
+      parent.$("body").data(expandCookieData());
       addToStackData(ids);
     }
   }
-  parent.$("body").data(JSON.parse($.cookie("displaying")));
+  parent.$("body").data(expandCookieData());
   if (parent.$("body").data("current") === undefined){
     alert($.cookie("displaying"));
     alert(returnCleanData());
