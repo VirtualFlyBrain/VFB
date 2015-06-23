@@ -3,6 +3,7 @@
 window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
+window.reloadInterval = 10;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 
 function updateStackCounter() {
@@ -132,6 +133,7 @@ function updateStackData(){
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
+    window.reloadInterval = 10;
   }
 }
 

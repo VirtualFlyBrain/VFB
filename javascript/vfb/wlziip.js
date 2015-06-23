@@ -68,7 +68,10 @@ function animateWlzDisplay(){
         }
       }
     }
-    requestAnimationFrame(step);
+    window.setTimeout(function(){
+      requestAnimationFrame(step);
+      window.reloadInterval += 100;
+    }, window.reloadInterval);
   }
   requestAnimationFrame(step);
 }
