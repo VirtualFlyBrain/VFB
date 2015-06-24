@@ -428,5 +428,5 @@ $('body').ready( function () {
 	initStackData(null);
   window.setInterval(function(){
     generateAddButtons();
-  }, 10000);
+  }, 2000);
 });

@@ -840,4 +840,7 @@ function addAvailableItems(ids) {
 loadColours();
 $('body').ready( function () {
   initWlzControls();
+  window.setInterval(function(){
+    updateMenuData();
+  }, 5000);
 });
