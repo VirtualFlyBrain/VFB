@@ -27,9 +27,8 @@
 window.addEvent('domready', createAutocomplete);
 
 </script>
-
-<div class="row">
-	<div class="col-xs-12">
+	
+	<div id="search_panel" style="padding: 0 5px 5px 5px;">
 		<h2 id="header">Search for the anatomy term/neuron here</h2>
 		<label>Search in:</label>
 		<select name="scope" id="scope" onchange="setScope()">
@@ -41,13 +40,12 @@ window.addEvent('domready', createAutocomplete);
 		<input id="id_container" type="hidden" />
 	</div>
 	
-	<div class="col-xs-12" >
+	<div id="annotation" style="margin:5px; overflow: hidden;">
 		<c:if test="${!empty param.id}" >
 			<jsp:include page="/do/ont_bean.html">
 				<jsp:param name="fbId" value="${param.id}" />
 			</jsp:include>
 		</c:if>	
-		
 		<c:if test="${empty param.id}" >
 			<h2 class="panel_header">Annotation for Selected Anatomy Term/Neuron</h2>
 				Annotation for currently selected anatomical term is displayed here.<br/><br/>
@@ -56,13 +54,12 @@ window.addEvent('domready', createAutocomplete);
 		</c:if>
 
 
-		<c:if test="${!empty errorMsg}" >
-			<script type="text/javascript">
-				alert("${errorMsg}");
-			</script>
-		</c:if>
+	<c:if test="${!empty errorMsg}" >
+		<script type="text/javascript">
+			alert("${errorMsg}");
+		</script>
+	</c:if>
 
 	</div> <!-- annotation -->
-</div>
 
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
