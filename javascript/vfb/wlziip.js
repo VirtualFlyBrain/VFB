@@ -371,6 +371,7 @@ function updateLabels() {
         case "VFBt":
           $(this).text(parent.$("body").data("meta").name);
           $(this).id = "Resolved" + $(this).id;
+          parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
