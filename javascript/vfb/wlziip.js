@@ -632,10 +632,10 @@ function loadRightMenuDisplayed() {
               $('#displayed').dataTable().fnUpdate(controls,i,1);
               $('#displayed').dataTable().fnUpdate(name,i,2);
               $('#displayed').dataTable().fnUpdate(type,i,3);
-              console.log('Updating ' + name + ' in the displayed layers');
+              console.log('Updating ' + index + ' in the displayed layers');
             }else{
               $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
-              console.log('Adding ' + name + ' to the displayed layers');
+              console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
             // Details:
@@ -649,7 +649,7 @@ function loadRightMenuDisplayed() {
               controls += createCloseButtonHTML(layer);
             }
             $('#displayed').dataTable().fnUpdate(controls,i,1);
-            console.log('Updating controls for ' + name + ' in the displayed layers');
+            console.log('Updating controls for ' + index + ' in the displayed layers');
           }
         }
       }
