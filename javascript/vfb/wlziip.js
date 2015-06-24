@@ -361,7 +361,7 @@ function updateLabels() {
       switch (content.substr(0,4)) {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-            if ($(this).text().indexOf("_") < 0) {
+            if ($(this).text().indexOf("VFB") < 0) {
               parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
               $(this).id = "Resolved" + $(this).id;
             }
@@ -370,10 +370,11 @@ function updateLabels() {
           break;
         case "VFBt":
           $(this).text(parent.$("body").data("meta").name);
+          $(this).id = "Resolved" + $(this).id;
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-            if ($(this).text().indexOf("_") < 0) {
+            if ($(this).text().indexOf("FBbt") < 0) {
               parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
               $(this).id = "Resolved" + $(this).id;
             }
