@@ -406,6 +406,8 @@ function updateLabels() {
           break;
         case "VFBt":
           $(this).html($('#backgroundStain').html());
+          parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+          $(this).id = "Resolved" + $(this).id;
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
