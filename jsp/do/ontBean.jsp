@@ -135,13 +135,11 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 							<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
 						</c:otherwise>
 					</c:choose>
-					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i">
-						<c:if test="${curr.value[2] == neuropil.fbbtId}">
+					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}">
 							<button type="button" class="btn btn-default btn-xs" aria-label="Add ${curr.value[1]} to the stack viewer" title="Add ${curr.value[1]} to the stack viewer"
 								onClick="addToStackData('${curr.value[2]}')"><span class="glyphicon glyphicon-paperclip"></span> Add ${curr.value[1]} to stack view
 							</buton>
-						</c:if>
-					</c:forEach>
+						</c:if></c:forEach>
 					</li>
 				</c:forEach>
 			</ul>
@@ -184,11 +182,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<br />
 			<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
 			<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
-			<c:forEach items="${refs}" var="curr" varStatus="status">
-				<c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
+			<c:forEach items="${refs}" var="curr" varStatus="status"><c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
 					<a href="${curr.webLink}" target="_new" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
-				</c:if>
-			</c:forEach>
+				</c:if></c:forEach>
 			<c:if test="${!isNeuron && !isClone}">
 				<br />
 				<c:set var="isNeuropil" value="true"/>
