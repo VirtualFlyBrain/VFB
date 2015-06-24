@@ -356,75 +356,71 @@ function updateLabels() {
 
   if (parent.$("body").data("meta")){
     $('[id^=nameFor]').each(function() {
-      if ($(this).text().indexOf("_") > -1) {
-        content = $(this).data('id');
-        content = cleanIdforExt(content);
-        switch (content.substr(0,4)) {
-          case "VFB_":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-              if ($(this).text().indexOf("_") < 0) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
-            break;
-          case "VFBt":
-            $(this).text(parent.$("body").data("meta").name);
-            break;
-          case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-              if ($(this).text().indexOf("_") < 0) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
-            break;
-          default:
-            alertMessage("unable to resolve name for id:" + content);
-        }
+      content = $(this).data('id');
+      content = cleanIdforExt(content);
+      switch (content.substr(0,4)) {
+        case "VFB_":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+            if ($(this).text().indexOf("_") < 0) {
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
+          break;
+        case "VFBt":
+          $(this).text(parent.$("body").data("meta").name);
+          break;
+        case "FBbt":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+            if ($(this).text().indexOf("_") < 0) {
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
+          break;
+        default:
+          alertMessage("unable to resolve name for id:" + content);
       }
     });
     $('[id^=typeFor]').each(function() {
-      if ($(this).text().indexOf("_") > -1) {
-        content = $(this).data('id');
-        content = cleanIdforExt(content);
-        switch (content.substr(0,4)) {
-          case "VFB_":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
-              if ($(this).text().indexOf("_") < 0){
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-              if ($(this).text().length > 5){
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            break;
-          case "VFBt":
-            $(this).html($('#backgroundStain').html());
-            break;
-          case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
-              if ($(this).text().indexOf("_") < 0){
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-              if ($(this).text().length > 5){
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
-                $(this).id = "Resolved" + $(this).id;
-              }
-            });
-            break;
-          default:
-            alertMessage("unable to resolve type for id:" + content);
-        }
+      content = $(this).data('id');
+      content = cleanIdforExt(content);
+      switch (content.substr(0,4)) {
+        case "VFB_":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+            if ($(this).text().indexOf("_") < 0){
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+            if ($(this).text().length > 5){
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          break;
+        case "VFBt":
+          $(this).html($('#backgroundStain').html());
+          break;
+        case "FBbt":
+          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+            if ($(this).text().indexOf("_") < 0){
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+            if ($(this).text().length > 5){
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              $(this).id = "Resolved" + $(this).id;
+            }
+          });
+          break;
+        default:
+          alertMessage("unable to resolve type for id:" + content);
       }
     });
   }
