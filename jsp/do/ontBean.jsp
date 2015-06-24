@@ -166,7 +166,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<c:if test="${isNeuron || isClone}">
 		<p>
 			<br/>
-			<b>Exemplar Images: </b>
+			<b>Images: </b>
 			<br/>
 			<jsp:include page="/do/individual_film_strip.html">
 				<jsp:param name="action" value="exemplar_neuron" />
