@@ -582,7 +582,7 @@ function loadRightMenuDisplayed() {
           rowD = $('#displayed').dataTable().fnGetData(i);
           // index:
           index = String(i);
-          if (rowD === null || rowD[0] !== index || rowD[2].indexOf('"nameFor') > -1 || rowD[3].indexOf('"typeFor') > -1){
+          if (rowD === null || rowD[0] !== index || (rowD[2].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
             // Details:
             controls = createInfoButtonHTML(layer);
             // visible:
