@@ -642,7 +642,10 @@ function loadRightMenuDisplayed() {
         }
       }
       $('#displayed').DataTable().draw();
-      updateLabels();
+      i++;
+      while ($('#displayed').dataTable().fnGetData(i)){
+        $('#displayed').dataTable().fnDeleteRow(i);
+      }
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
