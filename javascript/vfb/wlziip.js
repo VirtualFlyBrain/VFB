@@ -364,6 +364,7 @@ function updateLabels() {
             $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
               if ($(this).text().indexOf("_") < 0) {
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
@@ -375,6 +376,7 @@ function updateLabels() {
             $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
               if ($(this).text().indexOf("_") < 0) {
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
@@ -393,11 +395,13 @@ function updateLabels() {
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
               if ($(this).text().indexOf("_") < 0){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
               if ($(this).text().length > 5){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             break;
@@ -408,11 +412,13 @@ function updateLabels() {
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
               if ($(this).text().indexOf("_") < 0){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
               if ($(this).text().length > 5){
                 parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+                $(this).id = "Resolved" + $(this).id;
               }
             });
             break;
