@@ -655,7 +655,6 @@ function loadRightMenuDisplayed() {
           }
         }
       }
-      $('#displayed').DataTable().draw();
       i++;
       while ($('#displayed').dataTable().fnGetData(i)){
         $('#displayed').dataTable().fnDeleteRow(i);
