@@ -9,6 +9,7 @@ function updateWlzDisplay(){
 }
 
 function updateMenuData() {
+  console.log('Updating menu data...');
   loadRightMenuDisplayed();
   updateAnatomyTree();
   updateLabels();
@@ -340,6 +341,7 @@ function initWlzControls() {
 }
 
 function updateLabels() {
+  console.log('Updating the controls...');
   if (parent.$("body").data("current") && $('#slider-slice').data('live')){
     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
     var orient = parent.$("body").data("current").slice;
@@ -561,6 +563,7 @@ function createAddButtonHTML(id) {
 }
 
 function loadRightMenuDisplayed() {
+  console.log('Updating the displayed layers...');
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
@@ -629,8 +632,10 @@ function loadRightMenuDisplayed() {
               $('#displayed').dataTable().fnUpdate(controls,i,1);
               $('#displayed').dataTable().fnUpdate(name,i,2);
               $('#displayed').dataTable().fnUpdate(type,i,3);
+              console.log('Updating ' + name + ' in the displayed layers');
             }else{
               $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
+              console.log('Adding ' + name + ' to the displayed layers');
             }
           }else{
             // Details:
@@ -644,6 +649,7 @@ function loadRightMenuDisplayed() {
               controls += createCloseButtonHTML(layer);
             }
             $('#displayed').dataTable().fnUpdate(controls,i,1);
+            console.log('Updating controls for ' + name + ' in the displayed layers');
           }
         }
       }
@@ -748,6 +754,7 @@ function updateAnatomyTree() {
       layer = selected[l];
       $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
     }
+    generateAddButtons();
   }
 }
 
