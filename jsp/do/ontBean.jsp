@@ -108,7 +108,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<div id="partParents">
 					<ul>
 						<c:forEach items="${ontBean.types}" var="curr" varStatus="status"><c:set var="currParts" value="${fn:split(curr, '=')}" /><c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" /><c:choose>
-						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}"><li><a href="${fn:trim(currParts[0])}" title="External look up" target="_new">${currParts[1]}</a></li>
+						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}"><li><a href="${fn:trim(currParts[0])}" title="External look up" target="_new"><span id="partParent">${currParts[1]}</span></a></li>
 						</c:when>
 						<c:otherwise><li><span class="hide" id="partParentId">${fn:trim(currParts[0])}</span>
 								<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top"><span id="partParent">${currParts[1]}</span></a></li>
