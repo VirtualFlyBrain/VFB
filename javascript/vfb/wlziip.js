@@ -648,8 +648,10 @@ function loadRightMenuDisplayed() {
             if (i > 0) {
               controls += createCloseButtonHTML(layer);
             }
-            $('#displayed').dataTable().fnUpdate(controls,i,1);
-            console.log('Updating controls for ' + index + ' in the displayed layers');
+            if (rowD[1] === controls) {
+              $('#displayed').dataTable().fnUpdate(controls,i,1);
+              console.log('Updating controls for ' + index + ' in the displayed layers');
+            }
           }
         }
       }
