@@ -116,7 +116,9 @@ function drawCircle() {
 
 function updatePosition() {
   drawCircle();
-  $('#selecContent').html('<img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..."/>');
+  window.reloadInterval = 1000;
+  $('#selected').dataTable().fnClearTable();
+  $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
   $('.tab-pane').removeClass('active');
   $('#selec').addClass('active');
   $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
@@ -158,8 +160,9 @@ function updatePosition() {
           window.selPointZ = parseInt(json['Wlz-coordinate-3d'][2]);
 
           var newSel = json['Wlz-foreground-objects'];
+          var i;
           if ( newSel.toString() == window.lastSel.toString() ){
-            for (var i = 0, l=lastSel.length; i < l; i++) {
+            for (i = 0, l=lastSel.length; i < l; i++) {
 
               // if (lastSel[i] > 0){
               fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
@@ -173,6 +176,15 @@ function updatePosition() {
             }
           }
           window.lastSel = json['Wlz-foreground-objects'];
+          var temp = [];
+          for (i in window.lastSel) {
+            if (window.lastSel[i] === 0) {
+              temp[i]=$('body').data()[$('body').data().current.template].selected[0].id;
+            }else{
+              temp[i]=parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(window.lastSel[i]),5));
+            }
+          }
+          addAvailableItems(temp);
 
           $('.tab-pane').removeClass('active');
           $('#selec').addClass('active');
@@ -847,33 +859,34 @@ function addAvailableItems(ids) {
   }
   var i;
   var id;
+  var layers;
+  var temp;
   for (i in ids) {
     id = ids[i];
+    temp = parseInt(id.replace($("body").data().current.template,''));
+    for (layers in parent.$("body").data("domains")){
+      if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
+        temp = parent.$("body").data("domains")[layers];
+        break;
+      }
+    }
+    // Controls:
+    controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
+    controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
     // Name:
-    // name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + id + '" onclick="';
-    // name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
-    // name += '">';
-    // name += cleanIdforExt(layer.id);
-    //
-    // name += '</span></a>';
-    // // Type:
-    // if (layer.typeid) {
-    //   type = '<a href="#details"><span class="link" onclick="';
-    //   type += "openFullDetails('/do/ont_bean.html?id=" + layer.typeid + "')";
-    // }else{
-    //   type = '<span class="hide" id="parentIdFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
-    //   type += "openFullDetails('/do/ont_bean.html?id=' + $('#parentIdFor"+layer.id+"').text())";
-    // }
-    // if (layer.type) {
-    //   type += '" id="resolvedTypeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
-    //   type += layer.type;
-    // }else{
-    //   type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
-    //   type += cleanIdforExt(temp);
-    // }
-    // type += '</span></a>';
-    // $('#displayed').dataTable().fnAddData([ index, controls, name, type]);
+    name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" data-layer="' + i + '" onclick="';
+    name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
+    name += '">';
+    name += cleanIdforExt(id);
+    name += '</span></a>';
+    // Type:
+    type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
+    type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
+
+    $('#selected').dataTable().fnAddData([ i, controls, name, type], false);
+    $('#selected').dataTable().fnDeleteRow( 0, false );
   }
+  $('#selected').DataTable().draw(true);
 }
 
 loadColours();

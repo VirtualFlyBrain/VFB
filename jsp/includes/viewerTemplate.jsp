@@ -119,7 +119,37 @@
 			<div class="tab-content">
 			        <div class="tab-pane" id="selec">
 			            <h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
-									<div class="content-fluid" id="selecContent"></div>
+									<div class="content-fluid" id="selecContent">
+										<table id="selected" class="display compact" cellspacing="0" width="100%">
+											<thead>
+												<tr>
+													<th>#</th><th>Display</th><th>Name</th><th>Type</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+											</tbody>
+										</table>
+										<script>
+										  $(document).ready(function() {
+												$('#selected').DataTable( { retrieve: true,
+									        paging: true,
+									        searching: true,
+									        ordering: true,
+									        responsive: true,
+									        stateSave: true,
+									        order: [[ 0, 'desc' ]],
+									        columnDefs: [
+									            {
+									                targets: [ 0 ],
+									                visible: false,
+									                searchable: false
+									            }
+									          ]
+									      });
+											});
+										</script>
+									</div>
 			        </div>
 			        <div class="tab-pane active" id="disp" align="center">
 			            <h4>Currently Displayed</h4>
