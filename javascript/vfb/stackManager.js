@@ -212,10 +212,10 @@ function expandCookieDisplayed() {
   for (template in data) {
     if (data[template].selected){
       for (layer in data[template].selected) {
-        if (!data[template].selected[layer].colour) {
+        if (data[template].selected[layer].colour === undefined) {
           data[template].selected[layer].colour = "auto";
         }
-        if (!data[template].selected[layer].visible) {
+        if (data[template].selected[layer].visible === undefined) {
           data[template].selected[layer].visible = true;
         }
       }
