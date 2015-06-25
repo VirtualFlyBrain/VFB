@@ -394,7 +394,7 @@ function updateLabels() {
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-            if ($(this).text().indexOf("FBbt") < 0) {
+            if ($(this).text().indexOf("FBbt") < 0 && $(this).text().indexOf("VFB") < 0) {
               parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
               $(this).id = "Resolved" + $(this).id;
             }
