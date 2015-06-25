@@ -9,7 +9,7 @@ function updateWlzDisplay(){
 }
 
 function updateMenuData() {
-  console.log('Updating menu data...');
+  //console.log('Updating menu data...');
   loadRightMenuDisplayed();
   updateAnatomyTree();
   updateLabels();
