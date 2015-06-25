@@ -877,7 +877,7 @@ function addAvailableItems(ids) {
     name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" data-layer="' + i + '" onclick="';
     name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
     name += '">';
-    name += cleanIdforExt(id);
+    name += temp.name;
     name += '</span></a>';
     // Type:
     type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
