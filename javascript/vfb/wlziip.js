@@ -33,15 +33,15 @@ function animateWlzDisplay(){
         var count = 0;
         var image = [];
         var i;
+        var current = parent.$("body").data("current");
+        var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+        var orient = current.slice;
         for (i in selected) {
           if (selected[i].visible){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
               if (parent.$("body").data("disp") == "scale"){
-                var current = parent.$("body").data("current");
-                var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-                var orient = current.slice;
                 if (parent.$("body").data("meta")){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
@@ -63,9 +63,6 @@ function animateWlzDisplay(){
           }else{
             if (count===0 && (selected[0].visible === false || parent.$("body").data("disp") == "clear")){
               if (parent.$("body").data("disp") == "scale"){
-                var current = parent.$("body").data("current");
-                var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-                var orient = current.slice;
                 if (parent.$("body").data("meta")){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
@@ -76,7 +73,7 @@ function animateWlzDisplay(){
               ctx.globalCompositeOperation = 'source-over';
               ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
               parent.$("body").data("disp", "done");
-              if (!parent.$("body").data("current").inverted) {
+              if (!current.inverted) {
                 ctx.fillStyle="black";
                 ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
               }
