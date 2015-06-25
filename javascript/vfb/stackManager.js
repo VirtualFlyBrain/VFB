@@ -411,10 +411,12 @@ function removeFromStackData(ids) {
         }else{
           for (l in selected) {
             if (cleanIdforInt(selected[l].extid) == id) {
-              delete selected[l];
-              if ($.fn.dataTable.isDataTable('#displayed')){
-                $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
-                $('#displayed').DataTable().draw(false);
+              if (selected[l].id.indexOf('VFBt_') < 0){
+                delete selected[l];
+                if ($.fn.dataTable.isDataTable('#displayed')){
+                  $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
+                  $('#displayed').DataTable().draw(false);
+                }
               }
             }
           }
