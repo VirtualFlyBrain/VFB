@@ -908,6 +908,7 @@ function addAvailableItems(ids) {
   }
   $('#selected').dataTable().fnDeleteRow( 0, false );
   $('#selected').DataTable().draw(true);
+  updateLabels();
 }
 
 loadColours();
