@@ -669,7 +669,7 @@ function loadRightMenuDisplayed() {
             }else{
               if (layer.id.indexOf('VFBd_') > -1) {
                 for (j in parent.$("body").data("domains")) {
-                  if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == layer.extid) {
+                  if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(layer.extid)) {
                     name = '<a href="#details"><span id="LoadedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
                     name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
                     name += '">';
