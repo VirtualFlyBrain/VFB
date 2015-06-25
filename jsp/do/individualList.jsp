@@ -105,14 +105,14 @@
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
-				window.setInterval(function(){
+				window.setTimeout(function(){
 					$('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
 							$(this).addClass('btn-sm btn-default btn-primary');
 							$(this).children('div').each(function () {
 								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 							});
 					});
-				}, 200);
+				}, 1000);
 			} );
 		</script>
 	</div>

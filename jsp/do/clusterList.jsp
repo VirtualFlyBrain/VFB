@@ -8,91 +8,95 @@
 <c:set var="cleanTitle">${fileName}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<jsp:include page="/jsp/includes/1ColHead.jsp">
+<jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
-	<jsp:param name="helpURL" value="/site/vfb_site/tutorial.htm" />
+	<jsp:param name="css" value="
+		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
+		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
+		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+	" />
+	<jsp:param name="js" value="
+		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
+		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
+		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
+	" />
 </jsp:include>
 
 
-
-<script type="text/javascript">
-	function formSubmit() {
-		alert(document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value);
-		var value = document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value;
-		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
-	}
-</script>
-
-
-	<div id="help_wrapper">
-		<div id="help_head_wrapper">
-			<h1 id="help_header">Query: ${query}</h1>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="container-fluid" align="center">
+				<h2>Query: ${query}</h2>
+			</div>
 		</div>
-
-		<div id="help_content">
-
-			<span style="width: 100%;">
-				<form name="perPage" action="?${paramString}">
-					${nav} &nbsp; Records per page:
-					<c:forEach items="${paramItems}" var="curr">
-						<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}" />
-					</c:forEach>
-					<select id="perPage" name="perPage" onchange='this.form.submit()'>
-						<option value="10" ${(perPage==10)?"selected":""} >10</option>
-						<option value="20" ${(perPage==20)?"selected":""} >20</option>
-						<option value="50" ${(perPage==50)?"selected":""} >50</option>
-						<option value="100" ${(perPage ge 100 || perPage lt 10)?"selected":""} >100</option>
-					</select>
-					<a id="csv" style="float: right; margin-right: 10px" href="/do/csv_report.html?type=${type}&filename=${fileName}">Save
-						as CSV</a>
-				</form>
-
-				<c:if test="${perPage lt 10 || perPage gt 100}">
-					<script> document.getElementById('perPage').onchange(); </script>
-				</c:if>
-
-			</span>
-
-			<table>
-				<thead>
-					<th>Cluster</th>
-					<th>Exemplar name / Summary</th>
-					<th>Exemplar preview</th>
-					<th>Members of cluster</th>
-				</thead>
-				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-					<tr>
-						<td style="padding: 2px 0; text-align: center;">
+		<div class="container-fluid">
+			<table id="resultsTable" class="display" width="100%">
+	    	<thead>
+	        <tr>
+						<th>Cluster</th>
+						<th>Exemplar name</th>
+						<th>Summary</th>
+						<th>Exemplar Preview</th>
+						<th>Source</th>
+						<th>Members of cluster</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><tr>
+						<td>
 							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_new">
-								<img height="100" src="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" alt="${query}: ${ontBean.name}, ${ontBean.def}" />
+								<img class="lazy" height="100" data-original="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" alt="${query}: ${ontBean.name}, ${ontBean.def}" />
 							</a>
 						</td>
 						<td>
-							<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>${ontBean.name}</h3> <vfbUtil:trimToWhite
-								string="${ontBean.def}" size="210" />
-							<c:set var="tpb" value="${ontBean.thirdPartyBean}" /><br />
-							<b>Source:</b>
+							<h3>${ontBean.name}</h3>
+						</td>
+						<td>
+							${ontBean.def}<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
+						</td>
+						<td>
 							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
 						</td>
-						<c:if test="${!empty tpb}">
-							<td style="padding: 2px 0; text-align: center;"><a href="${tpb.baseUrl}${tpb.remoteId}"
-								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a> &nbsp;&nbsp;
-							</td>
-							<td style="padding: 2px">
-								<c:if test="${empty param.popup}">
-								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">Show
-										individual members&nbsp;>> </a>
-								</c:if>
-							</td>
-						</c:if>
-					</tr>
-				</c:forEach>
+						<td>
+							<c:if test="${!empty tpb}"><a href="${tpb.baseUrl}${tpb.remoteId}" title="View ${tpb.sourceName} entry" target="_new">
+								<img class="lazy" data-original="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" />
+							</a></c:if>
+						</td>
+						<td>
+							<c:if test="${!empty tpb}"><a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
+								Show individual members&nbsp;>>
+							</a></c:if>
+						</td>
+					</tr></c:forEach>
+				</tbody>
 			</table>
-
 		</div>
+		<script>
+			$(document).ready( function () {
+				var table = $('#resultsTable').DataTable( {
+					paging: true,
+					searching: true,
+					ordering: true,
+					responsive: true,
+					stateSave: true,
+					"order": [[ 0, "desc" ]]
+				} );
+				var tt = new $.fn.dataTable.TableTools( table );
+				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
+				window.setTimeout(function(){
+					$('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
+							$(this).addClass('btn-sm btn-default btn-primary');
+							$(this).children('div').each(function () {
+								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
+							});
+					});
+				}, 1000);
+			} );
+		</script>
 	</div>
-	<!-- help_wrapper -->
-
+</div>
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>
