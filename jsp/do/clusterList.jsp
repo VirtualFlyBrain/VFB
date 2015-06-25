@@ -67,9 +67,11 @@
 							</a></c:if>
 						</td>
 						<td>
-							<c:if test="${!empty tpb}"><a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
+							<c:if test="${!empty tpb}">
+								<span id="OpenAllButtonFor${tpb.vfbId}"></span><br/>
+								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
 								List individual members&nbsp;>>
-							</a></c:if>
+							</a><script>$(document).ready( function () {$('#OpenAllButtonFor${tpb.vfbId}').load('/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name} #OpenAllButton')});</script></c:if>
 						</td>
 					</tr></c:forEach>
 				</tbody>
