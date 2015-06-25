@@ -398,7 +398,7 @@ function removeFromStackData(ids) {
     for (i in ids) {
       id = cleanIdforInt(ids[i]);
       if (JSON.stringify(selected).indexOf(id) > -1) {
-        if (id.indexOf("VFB") > -1){
+        if (id.indexOf("VFB_") > -1){
           for (l in selected) {
             if (selected[l].id == id) {
               delete selected[l];
@@ -409,9 +409,21 @@ function removeFromStackData(ids) {
             }
           }
         }else{
-          for (l in selected) {
-            if (cleanIdforInt(selected[l].extid) == id) {
-              if (selected[l].id.indexOf('VFBt_') < 0){
+          if (id.indexOf("FBbt_") > -1) {
+            for (l in selected) {
+              if (cleanIdforInt(selected[l].extid) == id) {
+                if (selected[l].id.indexOf('VFBt_') < 0){
+                  delete selected[l];
+                  if ($.fn.dataTable.isDataTable('#displayed')){
+                    $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
+                    $('#displayed').DataTable().draw(false);
+                  }
+                }
+              }
+            }
+          }else if (id.indexOf("VFBd_") > -1){
+            for (l in selected) {
+              if (cleanIdforInt(selected[l].id) == id) {
                 delete selected[l];
                 if ($.fn.dataTable.isDataTable('#displayed')){
                   $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);

@@ -168,14 +168,16 @@ function updatePosition() {
 
           var json = JSON.parse(data);
 
+          var oldPos = window.selPointX + ',' + window.selPointY + ',' + window.selPointZ;
+
           // update 3d coordinates
           window.selPointX = parseInt(json['Wlz-coordinate-3d'][0]);
           window.selPointY = parseInt(json['Wlz-coordinate-3d'][1]);
           window.selPointZ = parseInt(json['Wlz-coordinate-3d'][2]);
 
-          var newSel = json['Wlz-foreground-objects'];
+          var newPos = window.selPointX + ',' + window.selPointY + ',' + window.selPointZ;
           var i;
-          if ( newSel.toString() == window.lastSel.toString() ){
+          if ( oldPos == newPos ){
             var displayed = JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected);
             for (i = 0, l=lastSel.length; i < l; i++) {
               if (lastSel[i] > 0){
