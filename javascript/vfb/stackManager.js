@@ -289,6 +289,8 @@ function addToStackData(ids){
       var text;
       var selected;
       var layers;
+      var temp;
+      var j;
       if (!Array.isArray(ids)) {
         ids = [ids];
       }
@@ -355,7 +357,16 @@ function addToStackData(ids){
                   if (parent.$("body").data("domains")[layers].id === ""){
                     alertMessage(id + ' not found in current stack');
                   }else{
-                    text += parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5)) + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                    temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5));
+                    if (JSON.stringify(selected).indexOf(temp) > -1){
+                      for (j in selected){
+                        if (cleanIdforInt(selected[j].id) == temp){
+                          selected[j].visible = true;
+                        }
+                      }
+                    }else{
+                      text += temp + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                    }
                   }
                 }
               }
