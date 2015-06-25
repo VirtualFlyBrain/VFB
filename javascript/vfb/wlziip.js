@@ -121,6 +121,10 @@ function updatePosition() {
   $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
   $('.tab-pane').removeClass('active');
   $('#selec').addClass('active');
+  $('#SelecMenuTab').addClass('active');
+  $('#DispMenuTab').removeClass('active');
+  $('#AnatoMenuTab').removeClass('active');
+  $('#SearchMenuTab').removeClass('active');
   $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
   $('#selecHead').addClass('active');
   $('#pointVal').text('*,*,*');
