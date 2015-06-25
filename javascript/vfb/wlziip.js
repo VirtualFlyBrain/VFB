@@ -634,10 +634,10 @@ function loadRightMenuDisplayed() {
       var i;
       var j;
       var rowD;
-      var index = "0";
-      var controls = "";
-      var name = "name";
-      var type = "type";
+      var index = "-";
+      var controls = "-";
+      var name = "?";
+      var type = "?";
       for (i in selected) {
         layer = selected[i];
         if (layer) {
