@@ -108,10 +108,17 @@ function loadColours(){
 function drawCircle() {
   var ctx = document.getElementById("canvas").getContext("2d");
   ctx.beginPath();
-  ctx.arc(PosX, window.PosY, 3, 0, 2 * Math.PI, false);
+  ctx.arc(window.PosX, window.PosY, 3, 0, 2 * Math.PI, false);
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
+}
+
+function drawText(message) {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  ctx.font = "12px Arial";
+  ctx.fillStyle = 'white';
+  ctx.fillText(message,window.PosX + 4, window.PosY);
 }
 
 function updatePosition() {
@@ -885,6 +892,9 @@ function addAvailableItems(ids) {
     for (layers in parent.$("body").data("domains")){
       if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
         temp = parent.$("body").data("domains")[layers];
+        if (i == 1) {
+          drawText(temp.name);
+        }
         break;
       }
     }
