@@ -356,7 +356,7 @@ function initWlzControls() {
 }
 
 function updateLabels() {
-  console.log('Updating the controls...');
+  //console.log('Updating the controls...');
   if (parent.$("body").data("current") && $('#slider-slice').data('live')){
     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
     var orient = parent.$("body").data("current").slice;
@@ -578,7 +578,7 @@ function createAddButtonHTML(id) {
 }
 
 function loadRightMenuDisplayed() {
-  console.log('Updating the displayed layers...');
+  //console.log('Updating the displayed layers...');
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
@@ -879,5 +879,5 @@ $('body').ready( function () {
   initWlzControls();
   window.setInterval(function(){
     updateMenuData();
-  }, 5000);
+  }, 10000);
 });
