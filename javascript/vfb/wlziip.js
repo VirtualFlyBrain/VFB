@@ -884,8 +884,8 @@ function addAvailableItems(ids) {
     type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
 
     $('#selected').dataTable().fnAddData([ i, controls, name, type], false);
-    $('#selected').dataTable().fnDeleteRow( 0, false );
   }
+  $('#selected').dataTable().fnDeleteRow( 0, false );
   $('#selected').DataTable().draw(true);
 }
 
