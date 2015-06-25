@@ -76,6 +76,8 @@ function animateWlzDisplay(){
               ctx.globalCompositeOperation = 'source-over';
               ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
               parent.$("body").data("disp", "done");
+              ctx.fillStyle="black";
+              ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
               count++;
             }
