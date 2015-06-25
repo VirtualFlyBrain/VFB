@@ -120,7 +120,7 @@ function drawText(message) {
   var ctx = document.getElementById("canvas").getContext("2d");
   ctx.font = "12px Arial";
   ctx.fillStyle = 'white';
-  ctx.fillText(message,window.PosX + 4, window.PosY + window.textOffset);
+  ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
   window.textOffset+= 12;
 }
 
@@ -895,7 +895,7 @@ function addAvailableItems(ids) {
     for (layers in parent.$("body").data("domains")){
       if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
         temp = parent.$("body").data("domains")[layers];
-        if (i == 1) {
+        if (i > 0) {
           drawText(temp.name);
         }
         break;
