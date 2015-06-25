@@ -410,7 +410,7 @@ function removeFromStackData(ids) {
           }
         }else{
           for (l in selected) {
-            if (selected[l].extid == id) {
+            if (cleanIdforInt(selected[l].extid) == id) {
               delete selected[l];
               if ($.fn.dataTable.isDataTable('#displayed')){
                 $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
