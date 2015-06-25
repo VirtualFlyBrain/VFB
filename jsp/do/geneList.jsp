@@ -96,7 +96,6 @@
 					$(".dataTables_paginate li").css("padding", 0);
 					$('#geneResultsTable').dataTable().fnAdjustColumnSizing();
 	      }, 1000);
-
 			}, 100);
 		} );
 	</script>
