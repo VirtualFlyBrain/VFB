@@ -41,6 +41,7 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
+              current.alpha = 100;
               if (parent.$("body").data("disp") == "scale"){
                 if (parent.$("body").data("meta")){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
@@ -78,6 +79,7 @@ function animateWlzDisplay(){
                 ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
               }
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+              current.alpha = 200;
               count++;
             }
           }
