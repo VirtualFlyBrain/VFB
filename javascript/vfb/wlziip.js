@@ -639,6 +639,10 @@ function loadRightMenuDisplayed() {
       var name = "?";
       var type = "?";
       for (i in selected) {
+        index = "-";
+        controls = "-";
+        name = "?";
+        type = "?";
         layer = selected[i];
         if (layer) {
           rowD = $('#displayed').dataTable().fnGetData(i);
