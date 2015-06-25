@@ -863,7 +863,7 @@ function addAvailableItems(ids) {
   var temp;
   for (i in ids) {
     id = ids[i];
-    temp = parseInt(id.replace($("body").data().current.template,''));
+    temp = parseInt(id.replace($("body").data().current.template,'').replace($("body").data().current.template.replace('VFBt_','VFBd_'),''));
     for (layers in parent.$("body").data("domains")){
       if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
         temp = parent.$("body").data("domains")[layers];
