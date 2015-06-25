@@ -183,7 +183,7 @@ function updatePosition() {
               if (lastSel[i] > 0){
                 fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
                 // if already added then remove
-                if ($.inArray(fullItem, displayed) > -1) {
+                if (displayed.indexOf(fullItem) > -1) {
                   console.log('Removing ' + fullItem + ' after double click');
                   removeFromStackData(fullItem);
                 }else{ // else add it

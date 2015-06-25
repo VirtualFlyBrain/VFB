@@ -398,7 +398,7 @@ function removeFromStackData(ids) {
     for (i in ids) {
       id = cleanIdforInt(ids[i]);
       if (JSON.stringify(selected).indexOf(id) > -1) {
-        if (id.indexOf("VFB_") > -1){
+        if (id.indexOf("VFBi_") > -1){
           for (l in selected) {
             if (selected[l].id == id) {
               delete selected[l];
