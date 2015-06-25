@@ -138,7 +138,7 @@
 									        ordering: true,
 									        responsive: true,
 									        stateSave: true,
-									        order: [[ 0, 'desc' ]],
+									        order: [[ 0, 'asc' ]],
 									        columnDefs: [
 									            {
 									                targets: [ 0 ],
