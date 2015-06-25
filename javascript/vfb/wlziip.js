@@ -632,6 +632,7 @@ function loadRightMenuDisplayed() {
       var layers = Object.keys(selected).length;
       var temp;
       var i;
+      var j;
       var rowD;
       var index = "0";
       var controls = "";
@@ -666,10 +667,22 @@ function loadRightMenuDisplayed() {
               name += '">';
               name += layer.name;
             }else{
-              name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-              name += '">';
-              name += cleanIdforExt(layer.id);
+              if (layer.id.indexOf('VFBd_') > -1) {
+                for (j in parent.$("body").data("domains")) {
+                  if (parent.$("body").data("domains")[j].extId[0] == layer.extid) {
+                    name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+                    name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+                    name += '">';
+                    name += parent.$("body").data("domains")[j].name;
+                    break;
+                  }
+                }
+              }else{
+                name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+                name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+                name += '">';
+                name += cleanIdforExt(layer.id);
+              }
             }
             name += '</span></a>';
             // Type:
