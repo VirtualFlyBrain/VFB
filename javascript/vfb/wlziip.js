@@ -628,13 +628,13 @@ function loadRightMenuDisplayed() {
             }
             type += '</span></a>';
             if (rowD !== null){
-              $('#displayed').dataTable().fnUpdate(index,i,0).draw( false );
-              $('#displayed').dataTable().fnUpdate(controls,i,1).draw( false );
-              $('#displayed').dataTable().fnUpdate(name,i,2).draw( false );
-              $('#displayed').dataTable().fnUpdate(type,i,3).draw( false );
+              $('#displayed').dataTable().fnUpdate(index,i,0, false );
+              $('#displayed').dataTable().fnUpdate(controls,i,1, false );
+              $('#displayed').dataTable().fnUpdate(name,i,2, false );
+              $('#displayed').dataTable().fnUpdate(type,i,3, false );
               console.log('Updating ' + index + ' in the displayed layers');
             }else{
-              $('#displayed').dataTable().fnAddData([ index, controls, name, type]).draw( false );
+              $('#displayed').dataTable().fnAddData([ index, controls, name, type], false);
               console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
@@ -649,7 +649,7 @@ function loadRightMenuDisplayed() {
               controls += createCloseButtonHTML(layer);
             }
             if (rowD[1] !== controls) {
-              $('#displayed').dataTable().fnUpdate(controls,i,1).draw( false );
+              $('#displayed').dataTable().fnUpdate(controls,i,1, false );
               console.log('Updating controls for ' + index + ' in the displayed layers');
             }
           }
@@ -657,8 +657,9 @@ function loadRightMenuDisplayed() {
       }
       i++;
       while ($('#displayed').dataTable().fnGetData(i)){
-        $('#displayed').dataTable().fnDeleteRow(i).draw( false );
+        $('#displayed').dataTable().fnDeleteRow(i, false );
       }
+      $('#displayed').DataTable().draw(false);
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
