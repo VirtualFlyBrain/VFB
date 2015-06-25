@@ -393,7 +393,9 @@ function updateLabels() {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
             if ($(this).text().indexOf("VFB") < 0) {
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
@@ -407,7 +409,9 @@ function updateLabels() {
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
             if ($(this).text().indexOf("FBbt") < 0 && $(this).text().indexOf("VFB") < 0) {
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
@@ -424,32 +428,42 @@ function updateLabels() {
         case "VFB_":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
             if ($(this).text().indexOf("_") < 0){
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
           $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
             if ($(this).text().length > 5){
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
           break;
         case "VFBt":
           $(this).html($('#backgroundStain').html());
-          parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+          if ($(this).data('layer')) {
+            parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+          }
           $(this).id = "Resolved" + $(this).id;
           break;
         case "FBbt":
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
             if ($(this).text().indexOf("_") < 0){
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
           $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
             if ($(this).text().length > 5){
-              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              if ($(this).data('layer')) {
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+              }
               $(this).id = "Resolved" + $(this).id;
             }
           });
@@ -874,15 +888,15 @@ function addAvailableItems(ids) {
     controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
     controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
     // Name:
-    name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" data-layer="' + i + '" onclick="';
+    name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
     name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
     name += '">';
     name += temp.name;
     name += '</span></a>';
     // Type:
-    type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
+    type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
     type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
-    type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+    type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
     type += cleanIdforExt(temp.extId[0]);
     type += '</span></a>';
 
