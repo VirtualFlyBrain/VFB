@@ -3,6 +3,7 @@
 window.PosX = 0;
 window.PosY = 0;
 window.lastSel = [""];
+window.textOffset = 0;
 
 function updateWlzDisplay(){
   updateStackData();
@@ -112,13 +113,15 @@ function drawCircle() {
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
+  window.textOffset = 0;
 }
 
 function drawText(message) {
   var ctx = document.getElementById("canvas").getContext("2d");
   ctx.font = "12px Arial";
   ctx.fillStyle = 'white';
-  ctx.fillText(message,window.PosX + 4, window.PosY);
+  ctx.fillText(message,window.PosX + 4, window.PosY + window.textOffset);
+  window.textOffset+= 12;
 }
 
 function updatePosition() {
@@ -179,9 +182,9 @@ function updatePosition() {
                 fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
                 // if already added then remove
                 if ($.inArray(fullItem, displayed) > -1) {
-                  remDomain(fullItem);
+                  removeFromStackData(fullItem);
                 }else{ // else add it
-                  addDomain(fullItem);
+                  addToStackData(fullItem);
                 }
               }
             }
