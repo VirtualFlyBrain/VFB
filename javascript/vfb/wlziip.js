@@ -223,7 +223,7 @@ function GetCoordinates(e){
   window.PosY = 0;
   var ImgPos;
   ImgPos = FindPosition(canvas);
-  if (!e) var e = window.event;
+  if (!e) e = window.event;
   if (e.pageX || e.pageY)
   {
     window.PosX = e.pageX;
@@ -669,8 +669,8 @@ function loadRightMenuDisplayed() {
             }else{
               if (layer.id.indexOf('VFBd_') > -1) {
                 for (j in parent.$("body").data("domains")) {
-                  if (parent.$("body").data("domains")[j].extId[0] == layer.extid) {
-                    name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+                  if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == layer.extid) {
+                    name = '<a href="#details"><span id="LoadedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
                     name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
                     name += '">';
                     name += parent.$("body").data("domains")[j].name;
