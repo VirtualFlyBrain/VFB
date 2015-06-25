@@ -166,17 +166,17 @@ function updatePosition() {
           var newSel = json['Wlz-foreground-objects'];
           var i;
           if ( newSel.toString() == window.lastSel.toString() ){
+            var displayed = JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected);
             for (i = 0, l=lastSel.length; i < l; i++) {
-
-              // if (lastSel[i] > 0){
-              fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
-              //   // if already added then remove
-                // if ($.inArray(fullItem, displayed) > -1) {
-                //   remDomain(fullItem);
-                // }else{ // else add it
-                //   addDomain(fullItem);
-                // }
-              //}
+              if (lastSel[i] > 0){
+                fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
+                // if already added then remove
+                if ($.inArray(fullItem, displayed) > -1) {
+                  remDomain(fullItem);
+                }else{ // else add it
+                  addDomain(fullItem);
+                }
+              }
             }
           }
           window.lastSel = json['Wlz-foreground-objects'];
