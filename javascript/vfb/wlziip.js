@@ -882,6 +882,9 @@ function addAvailableItems(ids) {
     // Type:
     type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" data-layer="' + i + '" ></span><a href="#details"><span class="link" onclick="';
     type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
+    type += '" id="typeFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '">';
+    type += cleanIdforExt(temp.extId[0]);
+    type += '</span></a>';
 
     $('#selected').dataTable().fnAddData([ i, controls, name, type], false);
   }
