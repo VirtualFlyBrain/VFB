@@ -59,7 +59,7 @@
 							${ontBean.def}<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 						</td>
 						<td>
-							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
+							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
 						</td>
 						<td>
 							<c:if test="${!empty tpb}"><a href="${tpb.baseUrl}${tpb.remoteId}" title="View ${tpb.sourceName} entry" target="_new">
@@ -68,7 +68,7 @@
 						</td>
 						<td>
 							<c:if test="${!empty tpb}"><a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
-								Show individual members&nbsp;>>
+								List individual members&nbsp;>>
 							</a></c:if>
 						</td>
 					</tr></c:forEach>
