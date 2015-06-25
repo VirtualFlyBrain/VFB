@@ -2,7 +2,7 @@
 	<div class="row" align="center">
 	  | <a href="/site/vfb_site/sitemap.htm">Sitemap</a> |
 	  <a href="/">Virtual Fly Brain</a> |
-	  <span id="Email"></span><script>mail3("support","virtualflybrain",1,"","Email us")</script> |
+	  <span id="EmailFooter1"></span><script>mail3("support","virtualflybrain",1,"","Email us","EmailFooter1")</script> |
 	  <a href="/site/vfb_site/privacy_cookies.htm">Privacy and Cookies</a> |
 	  <!--<a href="https://github.com/VirtualFlyBrain/VFB/issues/new" target="_blank">Site Feedback</a> |-->
 	</div>
