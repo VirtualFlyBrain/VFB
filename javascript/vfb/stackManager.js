@@ -403,7 +403,8 @@ function removeFromStackData(ids) {
             if (selected[l].id == id) {
               delete selected[l];
               if ($.fn.dataTable.isDataTable('#displayed')){
-                $('#displayed').dataTable().fnDeleteRow(parseInt(l));
+                $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
+                $('#displayed').DataTable().draw(false);
               }
             }
           }
@@ -412,7 +413,8 @@ function removeFromStackData(ids) {
             if (selected[l].extid == id) {
               delete selected[l];
               if ($.fn.dataTable.isDataTable('#displayed')){
-                $('#displayed').dataTable().fnDeleteRow(parseInt(l));
+                $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
+                $('#displayed').DataTable().draw(false);
               }
             }
           }
