@@ -659,6 +659,7 @@ function loadRightMenuDisplayed() {
       while ($('#displayed').dataTable().fnGetData(i)){
         $('#displayed').dataTable().fnDeleteRow(i);
       }
+      $('#displayed').DataTable().draw(false);
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
