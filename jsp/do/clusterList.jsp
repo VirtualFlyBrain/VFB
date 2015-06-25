@@ -40,8 +40,8 @@
 						<th>Cluster</th>
 						<th>Exemplar name</th>
 						<th>Summary</th>
-						<th>Exemplar Preview</th>
 						<th>Source</th>
+						<th>Exemplar Preview</th>
 						<th>Members of cluster</th>
 				</tr>
 			</thead>
