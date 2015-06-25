@@ -32,7 +32,7 @@
 			</div>
 			<div class="col-md-2" align="center"><c:set var="allIds" value="VFBt_00100000" />
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
-				<a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open all in viewer</a>
+				<span id="openAllButton"><a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open all in viewer</a></span>
 			</div>
 		</div>
 		<div class="container-fluid">

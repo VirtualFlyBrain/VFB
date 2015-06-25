@@ -283,7 +283,7 @@ function openFullDetails(id) {
 
 function addToStackData(ids){
   if (ids !== undefined && ids !== null) {
-    if (parent.$("body").data("current")) {
+    if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains")&& parent.$("body").data("colours")) {
       var id;
       var i;
       var text;
