@@ -291,6 +291,9 @@ function addToStackData(ids){
       var layers;
       var temp;
       var j;
+      if (ids.indexOf(',')>-1){
+        ids = ids.split(',');
+      }
       if (!Array.isArray(ids)) {
         ids = [ids];
       }
