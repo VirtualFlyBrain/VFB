@@ -334,7 +334,7 @@ function addToStackData(ids){
             text = '{"id":"' + id + '","colour":"auto","visible":true, "extid":"';
             for (layers in parent.$("body").data("domains")){
               if (parseInt(parent.$("body").data("domains")[layers].id) == parseInt(id.substr(8))) {
-                text += parent.$("body").data("domains")[layers].extId[0] + '" }';
+                text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '" }';
               }
             }
             layers = Object.keys(selected).length;
