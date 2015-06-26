@@ -299,7 +299,6 @@ function addToStackData(ids){
       }
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
-        openFullDetails(id);
         if (id.indexOf("VFBt_") > -1){
          id = id.replace("00000", "");
          if (id != parent.$("body").data("current").template){
@@ -378,6 +377,9 @@ function addToStackData(ids){
             selected[layers] = JSON.parse(text);
           }
         }
+      }
+      if (id.indexOf('VFBt_'<0)){
+        openFullDetails(id);
       }
       updateStackData();
     }else{
