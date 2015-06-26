@@ -74,8 +74,8 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/site/stacks/index.htm">adult brain - Janelia</a></li>
-	            <li><a href="/site/stacks/halfmain.htm">half brain - BrainName</a></li>
+	            <li><a href="/site/stacks/index.htm?add=VFBt_00100000">adult brain - Janelia</a></li>
+	            <li><a href="/site/stacks/index.htm?add=VFBt_00200000">half brain - BrainName</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
