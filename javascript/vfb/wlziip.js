@@ -70,7 +70,12 @@ function animateWlzDisplay(){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
-                $("#viewer-panel").css("min-width", canvas.width);
+                if (canvas.width < window.screen.width){
+                  $("#viewer-panel").css("min-width", canvas.width);
+                }else{
+                  $("#viewer-panel").css("min-width", window.screen.width);
+                  $("#viewer-panel").css("overflow-x", "scroll");
+                }
                 parent.$("body").data("disp", "done");
               }
               ctx.globalCompositeOperation = 'source-over';
