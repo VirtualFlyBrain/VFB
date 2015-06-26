@@ -61,7 +61,7 @@
 				  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
 				  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
 				  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
-	    				<li><span id="EmailHeader1"></span><script>mail3("support","virtualflybrain",1,"","Email us","EmailHeader1")</script></li>
+	    				<li id="EmailHeader1"><script>mail3("support","virtualflybrain",1,"","Email us","EmailHeader1")</script></li>
 	  					<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
 	          </ul>
 	        </li>
