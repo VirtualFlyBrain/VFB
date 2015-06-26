@@ -231,7 +231,7 @@
 			            	<h4>Your Query</h4>
 									</div>
 									<div id="queryText" class="col-xs-12 col-centered">
-										<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width=100%; height=100%" align="left" FRAMEBORDER="0"></iframe>
+										<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
 									</div>
 								</div>
 							</div>
