@@ -126,7 +126,7 @@ function drawText(message) {
 }
 
 function callForObjects(text, id) {
-  console.log('Calling:' + text);
+  //console.log('Calling:' + text);
   $.ajax({
       url: text,
       type: "GET",
