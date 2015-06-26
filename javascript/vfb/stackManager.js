@@ -308,6 +308,7 @@ function addToStackData(ids){
              text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
              parent.$("body").data(id,JSON.parse(text));
            }
+           updateStackData();
            loadTemplateMeta(id);
          }
         }else if (id.indexOf("VFBi_") > -1){
