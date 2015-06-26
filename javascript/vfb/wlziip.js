@@ -1005,7 +1005,12 @@ function addAvailableItems(ids) {
       for (layers in selected){
         if (cleanIdforInt(selected[layers].id) == id) {
           temp = selected[layers];
-          drawText(temp.name);
+          if (temp.name){
+            drawText(temp.name);
+          }else{
+            drawText(cleanIdforExt(temp.id));
+          }
+
           break;
         }
       }
