@@ -302,7 +302,7 @@ function addToStackData(ids){
         if (id.indexOf("VFBt_") > -1){
          id = id.replace("00000", "");
          if (id != parent.$("body").data("current").template){
-           text = '{ "template": "' + id + '","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+           text = '{ "template": "' + id + '","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
            parent.$("body").data("current",JSON.parse(text));
            if (!parent.$("body").data(id)){
              text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
@@ -311,6 +311,7 @@ function addToStackData(ids){
            updateStackData();
            loadTemplateMeta(id);
            parent.$("body").data("disp","scale");
+           location.reload();
          }
         }else if (id.indexOf("VFBi_") > -1){
           selected = parent.$("body").data(parent.$("body").data("current").template).selected;
