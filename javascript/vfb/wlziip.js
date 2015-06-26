@@ -1086,17 +1086,22 @@ function addAvailableItems(ids) {
       }
       name += '</span></a>';
       // Type:
-      if (temp.type) {
-        type = temp.type;
+      if (temp.typeid) {
+        type = '<a href="#details"><span class="link" onclick="';
+        type += "openFullDetails('" +temp.typeid + "')";
       }else{
-        type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + id + '" ></span><a href="#details"><span class="link" onclick="';
+        type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
         type += "openFullDetails($('#parentIdFor"+id+"').text())";
-        type += '" id="typeFor' + id + '" data-id="' + id + '">';
-        type += cleanIdforExt(id);
-        type += '</span></a>';
       }
-
+      if (temp.type) {
+        type += '" id="resolvedTypeFor' + id + '" data-id="' + cleanIdforExt(id) + '" >';
+        type += temp.type;
+      }else{
+        type += '" id="typeFor' + id + '" data-id="' + cleanIdforExt(id) + '" data-layer="' + i + '">';
+        type += cleanIdforExt(id);
+      }
       type += '</span></a>';
+      
     }
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
     SelectedIndex++;
