@@ -686,8 +686,17 @@ function createAddButtonHTML(id) {
   return content;
 }
 
-function updateItemName( data, layer ) {
-  layer.name = data.docs.label;
+function updateItemName( solrAPI, layer ) {
+  $.getJSON( solrAPI, {
+    q: "short_form:" + cleanIdforExt(layer.id),
+    fl: "label",
+    wt: "json",
+    sort: "score desc"
+  }).done(function(data){
+    if (data.docs.label) {
+      layer.name = data.docs.label;
+    }
+  });
 }
 
 function loadRightMenuDisplayed() {
@@ -710,12 +719,7 @@ function loadRightMenuDisplayed() {
         layer = selected[i];
         if (!layer.name) {
           if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0) {
-            $.getJSON( solrAPI, {
-              q: "short_form:" + cleanIdforExt(layer.id),
-              fl: "label",
-              wt: "json",
-              sort: "score desc"
-            }).done(updateItemName(data, selecte[i]));
+            updateItemName(solrAPI, layer);
           }
         }
       }
