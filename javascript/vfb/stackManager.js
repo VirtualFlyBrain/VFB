@@ -306,7 +306,7 @@ function addToStackData(ids){
            parent.$("body").data("current",JSON.parse(text));
            loadTemplateMeta(id);
            if (!parent.$("body").data(id)){
-             text = '{"' + id + '":{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}}';
+             text = '"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}}';
              parent.$("body").data(id,JSON.parse(text));
            }
          }
