@@ -459,6 +459,7 @@ function updateLabels() {
     $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
     $("#toggle-viewVal").text(parent.$("body").data("current").slice);
     $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
+    $('#slider-scale').bootstrapSlider('setValue', parseFloat(parent.$("body").data("current").scl).toFixed(1));
     $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
     var pos = parent.$("body").data("current").fxp.split(',');
     for (var i=0; i<3; i++){
