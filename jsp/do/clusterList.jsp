@@ -103,7 +103,7 @@
 				window.setInterval(function(){
 					$('[id^=OpenAllButtonFor]').each(function() {
 						if ($(this).html() == "") {
-							$(this).load('/do/individual_list.html?action=neuron_found&id=' + cleanIdforExt($(this).data("id")) + ' #OpenAllButton');
+							$(this).load('/do/individual_list.html?action=neuron_found&id=' + cleanIdforExt($(this).data("id")) + ' #openAllButton');
 						}else{
 							$(this).id = "Resolved" + $(this).id;
 						}
