@@ -68,10 +68,10 @@
 						</td>
 						<td>
 							<c:if test="${!empty tpb}">
-								<span id="OpenAllButtonFor${tpb.vfbId}"></span><br/>
+								<span id="OpenAllButtonFor${tpb.vfbId}" data-id="${tpb.vfbId}"></span><br/>
 								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
 								List individual members&nbsp;>>
-							</a><script>$(document).ready( function () {$('#OpenAllButtonFor${tpb.vfbId}').load('/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name} #OpenAllButton')});</script></c:if>
+							</a></c:if>
 						</td>
 					</tr></c:forEach>
 				</tbody>
@@ -100,6 +100,15 @@
 					$(".dataTables_paginate li").css("margin", 0);
 					$(".dataTables_paginate li").css("padding", 0);
 				}, 1000);
+				window.setInterval(function(){
+					$('[id^=nameFor]').each(function() {
+						if ($(this).html() == "") {
+							$(this).load('/do/individual_list.html?action=neuron_found&id=' + cleanIdforExt($(this).data("id")) + ' #OpenAllButton');
+						}else{
+							$(this).id = "Resolved"$(this).id
+						}
+					}
+				}, 5000);
 			} );
 		</script>
 	</div>
