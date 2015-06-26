@@ -310,6 +310,8 @@ function addToStackData(ids){
            }
            updateStackData();
            loadTemplateMeta(id);
+           parent.$("body").data("disp","scale");
+           updateLabels();
          }
         }else if (id.indexOf("VFBi_") > -1){
           selected = parent.$("body").data(parent.$("body").data("current").template).selected;
