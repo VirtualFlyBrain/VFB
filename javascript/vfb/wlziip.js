@@ -73,7 +73,7 @@ function animateWlzDisplay(){
                 if (canvas.width < window.screen.width){
                   $("#viewer-panel").css("min-width", canvas.width);
                 }else{
-                  $("#viewer-panel").css("min-width", window.screen.width);
+                  $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
                 parent.$("body").data("disp", "done");
@@ -336,8 +336,8 @@ function GetCoordinates(e){
       window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
       window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
-  window.PosX = window.PosX - ImgPos[0] - parseInt($('#canvas').css('padding').replace('px',''));
-  window.PosY = window.PosY - ImgPos[1] - parseInt($('#canvas').css('padding').replace('px',''));
+  window.PosX = window.PosX - $('#canvas').position().left;
+  window.PosY = window.PosY - $('#canvas').position().top;
 
   updatePosition();
 
