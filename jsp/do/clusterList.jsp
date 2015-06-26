@@ -107,7 +107,7 @@
 						}else{
 							$(this).id = "Resolved" + $(this).id;
 						}
-					}
+					});
 				}, 5000);
 			} );
 		</script>
