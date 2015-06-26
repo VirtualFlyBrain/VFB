@@ -185,6 +185,7 @@ function minimizeMenuTabs() {
   $('#SelecMenuTab').hide();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Maximize</a>');
   $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
+  $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
 }
 
 function maximizeMenuTabs() {
@@ -198,6 +199,7 @@ function maximizeMenuTabs() {
   $('#SelecMenuTab').show();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
+  $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
   $('#DispMenuTab').addClass('active');
   $('#disp').addClass('active');
 }
