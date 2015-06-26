@@ -183,7 +183,7 @@ function minimizeMenuTabs() {
   $('#AnatoMenuTab').hide();
   $('#SearchMenuTab').hide();
   $('#SelecMenuTab').hide();
-  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Maximize</a>');
+  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
   $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
   $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
 }
@@ -205,6 +205,7 @@ function maximizeMenuTabs() {
 }
 
 function updatePosition() {
+  maximizeMenuTabs();
   drawCircle();
   SelectedIndex = 0;
   window.reloadInterval = 1000;
