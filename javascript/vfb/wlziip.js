@@ -686,6 +686,10 @@ function createAddButtonHTML(id) {
   return content;
 }
 
+function updateItemName( data, layer ) {
+  layer.name = data.docs.label;
+}
+
 function loadRightMenuDisplayed() {
   //console.log('Updating the displayed layers...');
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
@@ -701,6 +705,20 @@ function loadRightMenuDisplayed() {
       var controls = "-";
       var name = "?";
       var type = "?";
+      var solrAPI = "/search/select?";
+      for (i in selected) {
+        layer = selected[i];
+        if (!layer.name) {
+          if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0) {
+            $.getJSON( solrAPI, {
+              q: "short_form:" + cleanIdforExt(layer.id),
+              fl: "label",
+              wt: "json",
+              sort: "score desc"
+            }).done(updateItemName(data, selecte[i]));
+          }
+        }
+      }
       for (i in selected) {
         index = "-";
         controls = "-";
