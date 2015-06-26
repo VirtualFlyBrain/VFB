@@ -164,6 +164,7 @@ function callForObjects(text, id) {
           $('#DispMenuTab').removeClass('active');
           $('#AnatoMenuTab').removeClass('active');
           $('#SearchMenuTab').removeClass('active');
+          $('#MinMenuTab').removeClass('active');
 
       },
       error: function(jqXHR, textStatus, ex) {
@@ -186,6 +187,7 @@ function updatePosition() {
   $('#DispMenuTab').removeClass('active');
   $('#AnatoMenuTab').removeClass('active');
   $('#SearchMenuTab').removeClass('active');
+  $('#MinMenuTab').removeClass('active');
   $('#pointVal').text('*,*,*');
 
   var current = parent.$("body").data("current");
@@ -262,6 +264,7 @@ function updatePosition() {
           $('#DispMenuTab').removeClass('active');
           $('#AnatoMenuTab').removeClass('active');
           $('#SearchMenuTab').removeClass('active');
+          $('#MinMenuTab').removeClass('active');
           $('#pointVal').text(String(window.selPointX) + ',' + String(window.selPointY) + ',' + String(window.selPointZ));
 
       },
