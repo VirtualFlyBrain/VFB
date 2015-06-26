@@ -529,7 +529,7 @@ function updateLabels() {
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
             if ($(this).text().indexOf("_") < 0){
               if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
               }
               $(this).id = "Resolved" + $(this).id;
             }
@@ -554,7 +554,7 @@ function updateLabels() {
           $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
             if ($(this).text().indexOf("_") < 0){
               if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).text();
+                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
               }
               $(this).id = "Resolved" + $(this).id;
             }
