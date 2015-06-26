@@ -190,7 +190,7 @@ function updatePosition() {
 
   var current = parent.$("body").data("current");
   var file = fileFromId(parent.$("body").data("current").template);
-  var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects&obj=Wlz-coordinate-3D";
+  var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects&obj=Wlz-coordinate-3D";
   var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
   var temp = [];
 
@@ -275,7 +275,7 @@ function updatePosition() {
   for (i in selected) {
     if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1 && selected[i].visible) {
       file = fileFromId(cleanIdforInt(selected[i].id));
-      text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects";
+      text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects";
       callForObjects(text, cleanIdforInt(selected[i].id));
     }
   }
@@ -339,19 +339,19 @@ function generateWlzURL(index){
    switch (layer.id.substr(0,4)){
      case "VFB_":
        file = fileFromId(layer.id);
-       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
        break;
      case "VFBi":
        file = fileFromId(layer.id);
-       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
        break;
      case "VFBt":
        file = fileFromId(layer.id);
-       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
        break;
      case "VFBd":
        file = fileFromId(current.template);
-       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(8))) + "," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(8))) + "," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
        break;
      default:
        alertMessage("unable to generate URL for id:" + layer.id);
