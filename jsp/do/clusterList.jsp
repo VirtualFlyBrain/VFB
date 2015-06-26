@@ -101,11 +101,11 @@
 					$(".dataTables_paginate li").css("padding", 0);
 				}, 1000);
 				window.setInterval(function(){
-					$('[id^=nameFor]').each(function() {
+					$('[id^=OpenAllButtonFor]').each(function() {
 						if ($(this).html() == "") {
 							$(this).load('/do/individual_list.html?action=neuron_found&id=' + cleanIdforExt($(this).data("id")) + ' #OpenAllButton');
 						}else{
-							$(this).id = "Resolved"$(this).id
+							$(this).id = "Resolved" + $(this).id;
 						}
 					}
 				}, 5000);
