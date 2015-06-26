@@ -1086,10 +1086,16 @@ function addAvailableItems(ids) {
       }
       name += '</span></a>';
       // Type:
-      type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + id + '" ></span><a href="#details"><span class="link" onclick="';
-      type += "openFullDetails($('#parentIdFor"+id+"').text())";
-      type += '" id="typeFor' + id + '" data-id="' + id + '">';
-      type += cleanIdforExt(id);
+      if (temp.type) {
+        type = temp.type;
+      }else{
+        type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + id + '" ></span><a href="#details"><span class="link" onclick="';
+        type += "openFullDetails($('#parentIdFor"+id+"').text())";
+        type += '" id="typeFor' + id + '" data-id="' + id + '">';
+        type += cleanIdforExt(id);
+        type += '</span></a>';
+      }
+
       type += '</span></a>';
     }
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
