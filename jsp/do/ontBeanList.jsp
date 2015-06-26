@@ -66,10 +66,10 @@
 								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 							});
 					});
+					$('#resultsTable').dataTable().fnAdjustColumnSizing();
 					$(".dataTables_paginate li").css("margin", 0);
 					$(".dataTables_paginate li").css("padding", 0);
-					$('#resultsTable').dataTable().fnAdjustColumnSizing()
-				}, 100);
+				}, 1000);
 			} );
 		</script>
 	</div>

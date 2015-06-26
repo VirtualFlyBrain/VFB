@@ -845,6 +845,10 @@ function loadRightMenuDisplayed() {
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
       } );
+      window.setTimeout(function(){
+				$(".dataTables_paginate li").css("margin", 0);
+				$(".dataTables_paginate li").css("padding", 0);
+			}, 1000);
     }
   }
 }

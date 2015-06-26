@@ -117,6 +117,8 @@
 							});
 					});
 					$('#resultsTable').dataTable().fnAdjustColumnSizing();
+					$(".dataTables_paginate li").css("margin", 0);
+					$(".dataTables_paginate li").css("padding", 0);
 				}, 1000);
 			} );
 		</script>
