@@ -812,6 +812,9 @@ function loadRightMenuDisplayed() {
             }
           ]
       });
+      $('#displayed').on( 'page.dt', function () {
+        updateLabels();
+      } );
     }
   }
 }
