@@ -1124,7 +1124,7 @@ function copyUrlToClipboard() {
     var displayed = selected[0].id;
     for (i in selected) {
       if (i>0){
-        displayed += "," + selected[0].id;
+        displayed += "," + selected[i].id;
       }
     }
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
