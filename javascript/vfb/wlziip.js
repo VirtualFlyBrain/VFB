@@ -1115,6 +1115,7 @@ function addAvailableItems(ids) {
   $(".dataTables_paginate li").css("margin", 0);
   $(".dataTables_paginate li").css("padding", 0);
   updateLabels();
+  openFullDetails(id);
 }
 
 function copyUrlToClipboard() {
