@@ -420,6 +420,7 @@ function initWlzControls() {
      parent.$("body").data("current").scl = 1.0;
      setOrientaion("Z");
      parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+     parent.$("body").data("current").dst = 0;
      parent.$("body").data("current").alpha = 100;
      parent.$("body").data("current").inverted = false;
      parent.$("body").data("current").blend = "screen";
