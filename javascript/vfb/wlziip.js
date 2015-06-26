@@ -826,6 +826,8 @@ function loadRightMenuDisplayed() {
       }
       $('#displayed').dataTable().fnAdjustColumnSizing(false);
       $('#displayed').DataTable().draw(false);
+      $(".dataTables_paginate li").css("margin", 0);
+      $(".dataTables_paginate li").css("padding", 0);
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
@@ -1076,6 +1078,8 @@ function addAvailableItems(ids) {
   }
   $('#selected').dataTable().fnAdjustColumnSizing(false);
   $('#selected').DataTable().draw(false);
+  $(".dataTables_paginate li").css("margin", 0);
+  $(".dataTables_paginate li").css("padding", 0);
   updateLabels();
 }
 
