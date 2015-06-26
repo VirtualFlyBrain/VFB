@@ -794,6 +794,7 @@ function loadRightMenuDisplayed() {
       while ($('#displayed').dataTable().fnGetData(i)){
         $('#displayed').dataTable().fnDeleteRow(i, false );
       }
+      $('#displayed').dataTable().fnAdjustColumnSizing(false);
       $('#displayed').DataTable().draw(false);
     }else{
       $('#displayed').DataTable( { retrieve: true,
