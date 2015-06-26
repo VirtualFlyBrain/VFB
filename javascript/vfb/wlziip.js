@@ -4,6 +4,7 @@ window.PosX = 0;
 window.PosY = 0;
 window.lastSel = [""];
 window.textOffset = 0;
+var SelectedIndex = 0;
 
 function updateWlzDisplay(){
   updateStackData();
@@ -162,6 +163,7 @@ function callForObjects(text, id) {
           $('#DispMenuTab').removeClass('active');
           $('#AnatoMenuTab').removeClass('active');
           $('#SearchMenuTab').removeClass('active');
+
       },
       error: function(jqXHR, textStatus, ex) {
           alert(textStatus + "," + ex + "," + jqXHR.responseText);
@@ -172,9 +174,11 @@ function callForObjects(text, id) {
 
 function updatePosition() {
   drawCircle();
+  SelectedIndex = 0;
   window.reloadInterval = 1000;
   $('#selected').dataTable().fnClearTable();
   $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
+  SelectedIndex++;
   $('.tab-pane').removeClass('active');
   $('#selec').addClass('active');
   $('#SelecMenuTab').addClass('active');
@@ -248,6 +252,7 @@ function updatePosition() {
               temp[i]=parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(window.lastSel[i]),5));
             }
           }
+          $('#selected').dataTable().fnDeleteRow( 0, false );
           addAvailableItems(temp);
 
           $('.tab-pane').removeClass('active');
@@ -1037,9 +1042,9 @@ function addAvailableItems(ids) {
       type += cleanIdforExt(id);
       type += '</span></a>';
     }
-    $('#selected').dataTable().fnAddData([ i, controls, name, type], false);
+    $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
+    SelectedIndex++;
   }
-  $('#selected').dataTable().fnDeleteRow( 0, false );
   $('#selected').DataTable().draw(true);
   updateLabels();
 }
