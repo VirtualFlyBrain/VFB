@@ -267,7 +267,7 @@ function updatePosition() {
   }
 
   for (i in selected) {
-    if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1) {
+    if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1 && selected[i].visible) {
       file = fileFromId(cleanIdforInt(selected[i].id));
       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects";
       callForObjects(text, cleanIdforInt(selected[i].id));
