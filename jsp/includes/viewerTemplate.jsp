@@ -149,6 +149,8 @@
 									      });
 												$('#selected').on( 'page.dt', function () {
 									        updateLabels();
+													$('#selected').dataTable().fnAdjustColumnSizing(false);
+													$('#selected').DataTable().draw(false);
 									      } );
 											});
 										</script>

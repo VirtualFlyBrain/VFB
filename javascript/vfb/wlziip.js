@@ -1046,7 +1046,8 @@ function addAvailableItems(ids) {
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
     SelectedIndex++;
   }
-  $('#selected').DataTable().draw(true);
+  $('#selected').dataTable().fnAdjustColumnSizing(false);
+  $('#selected').DataTable().draw(false);
   updateLabels();
 }
 
