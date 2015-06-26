@@ -13,8 +13,6 @@
 
 	<!-- Custom styles for this template -->
 	<link href="/css/offcanvas.css" rel="stylesheet">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
     <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
