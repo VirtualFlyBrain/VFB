@@ -27,13 +27,14 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="row-fluid">
-			<div class="col-md-10" align="center">
-				<h2>Query: ${query}</h2>
-			</div>
 			<div class="col-md-2" align="center"><c:set var="allIds" value="VFBt_00100000" />
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
 				<span id="openAllButton"><a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open all in viewer</a></span>
 			</div>
+			<div class="col-md-8" align="center">
+				<h2>Query: ${query}</h2>
+			</div>
+
 		</div>
 		<div class="container-fluid">
 			<table id="resultsTable" class="display" width="100%">
