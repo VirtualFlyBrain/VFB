@@ -115,7 +115,7 @@
 			  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
 			  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
 			  <li id="SearchMenuTab"><a href="#search" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-				<li id="QueryMenuTab"><a href="#query" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Build Query</a></li>
+				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Build Query</a></li>
 				<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
 			</ul>
 			<div class="tab-content">
@@ -225,7 +225,7 @@
 								$('#searchBar').load('/site/tools/anatomy_finder/index.htm #search-bar');
 								</script>
 			        </div>
-							<div class="tab-pane" id="query">
+							<div class="tab-pane" id="queryBuild">
 								<div class="row row-centered" >
 									<div class="col-xs-12 col-centered">
 			            	<h4>Your Query</h4>
