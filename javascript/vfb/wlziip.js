@@ -451,6 +451,22 @@ function initWlzControls() {
  }
 }
 
+function clearAllDisplayed() {
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
+  var i;
+  for (i in selected) {
+    if (i > 0){
+      $('#displayed').dataTable().fnDeleteRow(1, false );
+      delete selected[i];
+    }
+  }
+  $('#displayed').dataTable().fnAdjustColumnSizing(false);
+  $('#displayed').DataTable().draw(false);
+  $(".dataTables_paginate li").css("margin", 0);
+  $(".dataTables_paginate li").css("padding", 0);
+}
+
 function updateLabels() {
   //console.log('Updating the controls...');
   if (parent.$("body").data("current") && $('#slider-slice').data('live')){

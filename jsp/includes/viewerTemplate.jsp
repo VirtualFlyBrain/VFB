@@ -157,7 +157,8 @@
 									</div>
 			        </div>
 			        <div class="tab-pane active" id="disp" align="center">
-			            <h4>Currently Displayed</h4>
+			            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
+									<h4>Currently Displayed</h4>
 									<div class="content-fluid" id="dispContent">
 										<table id="displayed" class="display compact" cellspacing="0" width="100%">
 											<thead>
