@@ -95,7 +95,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<b>Parent classes: </b><br />
 				<div id="partParents">
 					<ul>
-					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status"><li><span class="hide" id="partParentId">${curr.key}</span><a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top"><span id="partParent">${curr.value}</span></a></li></c:forEach>
+					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status"><span class="hide" id="partParentId">${curr.key}</span><a href="/site/tools/anatomy_finder/index.htm?id=${curr.key}&name=${curr.value}" title="Look up" target="_top"><span id="partParent"><li>${curr.value}</li></span></a></c:forEach>
 					</ul>
 				</div>
 			</p>
