@@ -153,8 +153,9 @@ function callForObjects(text, id) {
           var json = JSON.parse(data);
 
           var temp = json['Wlz-foreground-objects'];
-          console.log('Returning:' + temp);
-          if (temp !== null && temp !== "") {
+
+          if (temp !== null && parseInt(temp) === 0) {
+            console.log('Adding:' + cleanIdforExt(id));
             addAvailableItems(cleanIdforInt(id));
           }
           $('.tab-pane').removeClass('active');
