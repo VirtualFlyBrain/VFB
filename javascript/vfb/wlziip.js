@@ -693,9 +693,10 @@ function updateItemName( solrAPI, layer ) {
     wt: "json",
     sort: "score desc"
   }).done(function(data){
-    //console.log(JSON.stringify(data));
-    if (data && data.response && data.response.docs && data.response.docs.label) {
+    if (data.response.docs.label) {
       layer.name = data.response.docs.label;
+    }else{
+      console.log(JSON.stringify(data));
     }
   });
 }
