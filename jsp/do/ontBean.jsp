@@ -56,10 +56,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 <div class="well-white">
 	<h2><a href="/site/tools/anatomy_finder/index.htm?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
-	<c:if test="${beanType=='ont'}"><c:if test="${fn:endsWith(pageContext.request.requestURI, '/site/stacks/index.htm')}">
-		<span id="addToQuery" title="Add to query" data-id="${ontBean.fbbtIdAsOWL}"><a href="#" class="btn btn-xs btn-success" onclick="parent.$('#query_builder').set('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=${ontBean.fbbtIdAsOWL});if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};">
-		<span class="glyphicon glyphicon-tasks"></span></a></span>
-	</c:if></c:if></h2>
+	<c:if test="${beanType=='ont'}"><span id="addToQuery" title="Add to query" data-id="${ontBean.fbbtIdAsOWL}"></span><script>if (window.location.pathname == "/site/stacks/index.htm") {
+		var text = '<a href="#" class="btn btn-xs btn-success" onclick="';
+		text += "parent.$('#query_builder').set('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=${ontBean.fbbtIdAsOWL});if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};";
+		text += '"><span class="glyphicon glyphicon-tasks"></span></a>';
+		$('#addToQuery').html(text);
+	}</script></c:if></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
 		<b>ID: </b><a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder" >${ontBean.fbbtIdAsOWL}</a>
