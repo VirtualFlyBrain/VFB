@@ -1117,6 +1117,22 @@ function addAvailableItems(ids) {
   updateLabels();
 }
 
+function copyUrlToClipboard() {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    var i;
+    var displayed = selected[0].id;
+    for (i in selected) {
+      if (i>0){
+        displayed += "," + selected[0].id;
+      }
+    }
+    $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
+    $("#temp").val("http://"+window.location.host+window.location.pathname+"?add="+displayed).select();
+    document.execCommand("copy");
+    $("#temp").remove();
+}
+
 loadColours();
 $('body').ready( function () {
   initWlzControls();
