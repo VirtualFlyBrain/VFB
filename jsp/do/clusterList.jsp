@@ -53,7 +53,7 @@
 							</a>
 						</td>
 						<td>
-							<h3>${ontBean.name}</h3>
+							<h5>${ontBean.name}</h5>
 						</td>
 						<td>
 							${ontBean.def}<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
