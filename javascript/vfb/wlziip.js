@@ -1003,7 +1003,7 @@ function addAvailableItems(ids) {
       type += '</span></a>';
     }else{
       for (layers in selected){
-        if (cleanIdforInt(current[layers].id) == id) {
+        if (cleanIdforInt(selected[layers].id) == id) {
           temp = selected[layers];
           drawText(temp.name);
           break;
