@@ -470,108 +470,112 @@ function clearAllDisplayed() {
 
 function updateLabels() {
   //console.log('Updating the controls...');
-  if (parent.$("body").data("current") && $('#slider-slice').data('live')){
-    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-    var orient = parent.$("body").data("current").slice;
-    $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
-    $("#toggle-viewVal").text(parent.$("body").data("current").slice);
-    $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
-    $('#slider-scale').bootstrapSlider('setValue', parseFloat(parseFloat(parent.$("body").data("current").scl).toFixed(1)));
-    $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
-    var pos = parent.$("body").data("current").fxp.split(',');
-    for (var i=0; i<3; i++){
-      pos[i] = String(parseInt(pos[i])+1);
+  try{
+    if (parent.$("body").data("current") && $('#slider-slice').data('live')){
+      var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+      var orient = parent.$("body").data("current").slice;
+      $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+      $("#toggle-viewVal").text(parent.$("body").data("current").slice);
+      $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
+      $('#slider-scale').bootstrapSlider('setValue', parseFloat(parseFloat(parent.$("body").data("current").scl).toFixed(1)));
+      $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+      var pos = parent.$("body").data("current").fxp.split(',');
+      for (var i=0; i<3; i++){
+        pos[i] = String(parseInt(pos[i])+1);
+      }
+      $('#positionVal').text(pos.join(','));
     }
-    $('#positionVal').text(pos.join(','));
-  }
 
-  if (parent.$("body").data("meta")){
-    $('[id^=nameFor]').each(function() {
-      content = $(this).data('id');
-      content = cleanIdforExt(content);
-      switch (content.substr(0,4)) {
-        case "VFB_":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-            if ($(this).text().indexOf("VFB") < 0) {
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+    if (parent.$("body").data("meta")){
+      $('[id^=nameFor]').each(function() {
+        content = $(this).data('id');
+        content = cleanIdforExt(content);
+        switch (content.substr(0,4)) {
+          case "VFB_":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+              if ($(this).text().indexOf("VFB") < 0) {
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
-            }
-          });
-          $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
-          break;
-        case "VFBt":
-          $(this).text(parent.$("body").data("meta").name);
-          $(this).id = "Resolved" + $(this).id;
-          parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
-          break;
-        case "FBbt":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
-            if ($(this).text().indexOf("FBbt") < 0 && $(this).text().indexOf("VFB") < 0) {
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+            });
+            $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
+            break;
+          case "VFBt":
+            $(this).text(parent.$("body").data("meta").name);
+            $(this).id = "Resolved" + $(this).id;
+            parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
+            break;
+          case "FBbt":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partName', function() {
+              if ($(this).text().indexOf("FBbt") < 0 && $(this).text().indexOf("VFB") < 0) {
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
-            }
-          });
-          $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
-          break;
-        default:
-          alertMessage("unable to resolve name for id:" + content);
-      }
-    });
-    $('[id^=typeFor]').each(function() {
-      content = $(this).data('id');
-      content = cleanIdforExt(content);
-      switch (content.substr(0,4)) {
-        case "VFB_":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
-            if ($(this).text().indexOf("_") < 0){
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+            });
+            $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
+            break;
+          default:
+            alertMessage("unable to resolve name for id:" + content);
+        }
+      });
+      $('[id^=typeFor]').each(function() {
+        content = $(this).data('id');
+        content = cleanIdforExt(content);
+        switch (content.substr(0,4)) {
+          case "VFB_":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+              if ($(this).text().indexOf("_") < 0){
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
-            }
-          });
-          $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-            if ($(this).text().length > 5){
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+            });
+            $("#parentIdFor"+$(this).data('id')).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+              if ($(this).text().length > 5){
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
+            });
+            break;
+          case "VFBt":
+            $(this).html($('#backgroundStain').html());
+            if ($(this).data('layer')) {
+              parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
             }
-          });
-          break;
-        case "VFBt":
-          $(this).html($('#backgroundStain').html());
-          if ($(this).data('layer')) {
-            parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
-          }
-          $(this).id = "Resolved" + $(this).id;
-          break;
-        case "FBbt":
-          $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
-            if ($(this).text().indexOf("_") < 0){
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+            $(this).id = "Resolved" + $(this).id;
+            break;
+          case "FBbt":
+            $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function() {
+              if ($(this).text().indexOf("_") < 0){
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
-            }
-          });
-          $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
-            if ($(this).text().length > 5){
-              if ($(this).data('layer')) {
-                parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+            });
+            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content + ' #partParentId', function() {
+              if ($(this).text().length > 5){
+                if ($(this).data('layer')) {
+                  parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
+                }
+                $(this).id = "Resolved" + $(this).id;
               }
-              $(this).id = "Resolved" + $(this).id;
-            }
-          });
-          break;
-        default:
-          alertMessage("unable to resolve type for id:" + content);
-      }
-    });
+            });
+            break;
+          default:
+            alertMessage("unable to resolve type for id:" + content);
+        }
+      });
+    }
+  }catch(e){
+    console.log("Skipping update");
   }
 }
 
@@ -1101,7 +1105,7 @@ function addAvailableItems(ids) {
         type += cleanIdforExt(id);
       }
       type += '</span></a>';
-      
+
     }
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
     SelectedIndex++;
