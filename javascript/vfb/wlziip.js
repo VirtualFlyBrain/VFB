@@ -465,6 +465,7 @@ function clearAllDisplayed() {
   $('#displayed').DataTable().draw(false);
   $(".dataTables_paginate li").css("margin", 0);
   $(".dataTables_paginate li").css("padding", 0);
+  updateStackData();
 }
 
 function updateLabels() {
