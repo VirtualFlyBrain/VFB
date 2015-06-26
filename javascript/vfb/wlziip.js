@@ -135,13 +135,13 @@ function updatePosition() {
   $('#DispMenuTab').removeClass('active');
   $('#AnatoMenuTab').removeClass('active');
   $('#SearchMenuTab').removeClass('active');
-  $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
-  $('#selecHead').addClass('active');
   $('#pointVal').text('*,*,*');
 
   var current = parent.$("body").data("current");
   var file = fileFromId(parent.$("body").data("current").template);
   var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects&obj=Wlz-coordinate-3D";
+  var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+  var temp = [];
 
   $.ajax({
       url: text,
@@ -178,7 +178,7 @@ function updatePosition() {
           var newPos = window.selPointX + ',' + window.selPointY + ',' + window.selPointZ;
           var i;
           if ( oldPos == newPos ){
-            var displayed = JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected);
+            var displayed = JSON.stringify(selected);
             for (i = 0, l=lastSel.length; i < l; i++) {
               if (lastSel[i] > 0){
                 fullItem = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(lastSel[i]),5));
@@ -194,7 +194,7 @@ function updatePosition() {
             }
           }
           window.lastSel = json['Wlz-foreground-objects'];
-          var temp = [];
+          temp = [];
           for (i in window.lastSel) {
             if (window.lastSel[i] === 0) {
               temp[i]=$('body').data()[$('body').data().current.template].selected[0].id;
@@ -206,8 +206,10 @@ function updatePosition() {
 
           $('.tab-pane').removeClass('active');
           $('#selec').addClass('active');
-          $('.nav.nav-tabs.nav-justified').find('a').removeClass('active');
-          $('#selecHead').addClass('active');
+          $('#SelecMenuTab').addClass('active');
+          $('#DispMenuTab').removeClass('active');
+          $('#AnatoMenuTab').removeClass('active');
+          $('#SearchMenuTab').removeClass('active');
           $('#pointVal').text(String(window.selPointX) + ',' + String(window.selPointY) + ',' + String(window.selPointZ));
 
       },
@@ -216,6 +218,61 @@ function updatePosition() {
       }
   });
 
+  var i;
+
+  function callForObjects(text, id) {
+    return function () {
+      $.ajax({
+          url: text,
+          type: "GET",
+          timeout: 99999999,
+          dataType: "text", // "xml", "json"
+          xhrFields: {
+            withCredentials: true
+          },
+          success: function(data) {
+              // format fcgi response for JSON
+              data = data.trim();
+              data = '{ ' + data.replace(/[\n\r]/g,'], ') + '] }';
+              data = data.replace('], ], ','], ');
+              data = data.replace('Wlz-foreground-objects:','"Wlz-foreground-objects": [');
+              data = data.replace('Wlz-coordinate-3d:','"Wlz-coordinate-3d": [');
+              data = data.replace('[ ','[');
+              data = data.replace(/\s/g,', ');
+              data = data.replace('{,','{');
+              data = data.replace(':,',':');
+              data = data.replace(':,',':');
+              data = data.replace(',,',',');
+              data = data.replace(', }',' }');
+
+              var json = JSON.parse(data);
+
+              var temp = json['Wlz-foreground-objects'];
+              console.log('Returning:' + temp);
+              if (temp !== null && temp !== "") {
+                addAvailableItems(cleanIdforInt(id));
+              }
+              $('.tab-pane').removeClass('active');
+              $('#selec').addClass('active');
+              $('#SelecMenuTab').addClass('active');
+              $('#DispMenuTab').removeClass('active');
+              $('#AnatoMenuTab').removeClass('active');
+              $('#SearchMenuTab').removeClass('active');
+          },
+          error: function(jqXHR, textStatus, ex) {
+              alert(textStatus + "," + ex + "," + jqXHR.responseText);
+          }
+      });
+    };
+  }
+
+  for (i in selected) {
+    if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1) {
+      file = fileFromId(cleanIdforInt(selected[i].id));
+      text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + current.dst + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(window.PosX) + "," + String(window.PosY) + "&obj=Wlz-foreground-objects";
+      callForObjects(text, cleanIdforInt(selected[i].id));
+    }
+  }
 }
 
 function GetCoordinates(e){
@@ -910,34 +967,67 @@ function addAvailableItems(ids) {
   var id;
   var layers;
   var temp;
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
   for (i in ids) {
-    id = ids[i];
-    temp = parseInt(id.replace($("body").data().current.template,'').replace($("body").data().current.template.replace('VFBt_','VFBd_'),''));
-    for (layers in parent.$("body").data("domains")){
-      if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
-        temp = parent.$("body").data("domains")[layers];
-        if (i > 0) {
-          drawText(temp.name);
+    id = cleanIdforInt(ids[i]);
+    if (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1){
+      temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
+      for (layers in parent.$("body").data("domains")){
+        if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
+          temp = parent.$("body").data("domains")[layers];
+          if (i > 0) {
+            drawText(temp.name);
+          }
+          break;
         }
-        break;
       }
+      // Controls:
+      controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
+      controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
+      // Name:
+      name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
+      name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
+      name += '">';
+      name += temp.name;
+      name += '</span></a>';
+      // Type:
+      type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
+      type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
+      type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
+      type += cleanIdforExt(temp.extId[0]);
+      type += '</span></a>';
+    }else{
+      for (layers in selected){
+        if (cleanIdforInt(current[layers].id) == id) {
+          temp = selected[layers];
+          drawText(temp.name);
+          break;
+        }
+      }
+      // Controls:
+      controls = createInfoButtonHTMLbyId(cleanIdforExt(id));
+      controls += createAddButtonHTML(cleanIdforExt(id));
+      // Name:
+      if (temp.name){
+        name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
+        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+        name += '">';
+        name += temp.name;
+      }else{
+        name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
+        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+        name += '">';
+        name += temp.id;
+      }
+      name += '</span></a>';
+      // Type:
+      type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + id + '" ></span><a href="#details"><span class="link" onclick="';
+      type += "openFullDetails($('#parentIdFor"+id+"').text())";
+      type += '" id="typeFor' + id + '" data-id="' + id + '">';
+      type += cleanIdforExt(id);
+      type += '</span></a>';
     }
-    // Controls:
-    controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
-    controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
-    // Name:
-    name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-    name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
-    name += '">';
-    name += temp.name;
-    name += '</span></a>';
-    // Type:
-    type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
-    type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
-    type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
-    type += cleanIdforExt(temp.extId[0]);
-    type += '</span></a>';
-
     $('#selected').dataTable().fnAddData([ i, controls, name, type], false);
   }
   $('#selected').dataTable().fnDeleteRow( 0, false );
