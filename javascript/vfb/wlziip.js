@@ -126,49 +126,48 @@ function drawText(message) {
 
 function callForObjects(text, id) {
   console.log('Calling:' + text);
-  return function () {
-    $.ajax({
-        url: text,
-        type: "GET",
-        timeout: 99999999,
-        dataType: "text", // "xml", "json"
-        xhrFields: {
-          withCredentials: true
-        },
-        success: function(data) {
-            // format fcgi response for JSON
-            data = data.trim();
-            data = '{ ' + data.replace(/[\n\r]/g,'], ') + '] }';
-            data = data.replace('], ], ','], ');
-            data = data.replace('Wlz-foreground-objects:','"Wlz-foreground-objects": [');
-            data = data.replace('Wlz-coordinate-3d:','"Wlz-coordinate-3d": [');
-            data = data.replace('[ ','[');
-            data = data.replace(/\s/g,', ');
-            data = data.replace('{,','{');
-            data = data.replace(':,',':');
-            data = data.replace(':,',':');
-            data = data.replace(',,',',');
-            data = data.replace(', }',' }');
+  $.ajax({
+      url: text,
+      type: "GET",
+      timeout: 99999999,
+      dataType: "text", // "xml", "json"
+      xhrFields: {
+        withCredentials: true
+      },
+      success: function(data) {
+          // format fcgi response for JSON
+          data = data.trim();
+          data = '{ ' + data.replace(/[\n\r]/g,'], ') + '] }';
+          data = data.replace('], ], ','], ');
+          data = data.replace('Wlz-foreground-objects:','"Wlz-foreground-objects": [');
+          data = data.replace('Wlz-coordinate-3d:','"Wlz-coordinate-3d": [');
+          data = data.replace('[ ','[');
+          data = data.replace(/\s/g,', ');
+          data = data.replace('{,','{');
+          data = data.replace(':,',':');
+          data = data.replace(':,',':');
+          data = data.replace(',,',',');
+          data = data.replace(', }',' }');
 
-            var json = JSON.parse(data);
+          var json = JSON.parse(data);
 
-            var temp = json['Wlz-foreground-objects'];
-            console.log('Returning:' + temp);
-            if (temp !== null && temp !== "") {
-              addAvailableItems(cleanIdforInt(id));
-            }
-            $('.tab-pane').removeClass('active');
-            $('#selec').addClass('active');
-            $('#SelecMenuTab').addClass('active');
-            $('#DispMenuTab').removeClass('active');
-            $('#AnatoMenuTab').removeClass('active');
-            $('#SearchMenuTab').removeClass('active');
-        },
-        error: function(jqXHR, textStatus, ex) {
-            alert(textStatus + "," + ex + "," + jqXHR.responseText);
-        }
-    });
-  };
+          var temp = json['Wlz-foreground-objects'];
+          console.log('Returning:' + temp);
+          if (temp !== null && temp !== "") {
+            addAvailableItems(cleanIdforInt(id));
+          }
+          $('.tab-pane').removeClass('active');
+          $('#selec').addClass('active');
+          $('#SelecMenuTab').addClass('active');
+          $('#DispMenuTab').removeClass('active');
+          $('#AnatoMenuTab').removeClass('active');
+          $('#SearchMenuTab').removeClass('active');
+      },
+      error: function(jqXHR, textStatus, ex) {
+          alert(textStatus + "," + ex + "," + jqXHR.responseText);
+      }
+  });
+  return true;
 }
 
 function updatePosition() {
