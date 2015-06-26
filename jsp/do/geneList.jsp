@@ -87,16 +87,8 @@
 							$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 						});
 				});
-				$("img.lazy").lazyload({
-					skip_invisible: false,
-					threshold: 2000
-				});
-				window.setTimeout(function(){
-					$(".dataTables_paginate li").css("margin", 0);
-					$(".dataTables_paginate li").css("padding", 0);
-					$('#geneResultsTable').dataTable().fnAdjustColumnSizing();
-	      }, 1000);
-			}, 100);
+				$('#resultsTable').dataTable().fnAdjustColumnSizing();
+			}, 1000);
 		} );
 	</script>
 </div>
