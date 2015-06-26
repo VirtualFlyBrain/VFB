@@ -189,10 +189,12 @@ function minimizeMenuTabs() {
   $('#AnatoMenuTab').removeClass('active');
   $('#SearchMenuTab').removeClass('active');
   $('#SelecMenuTab').removeClass('active');
+  $('#QueryMenuTab').removeClass('active');
   $('#DispMenuTab').hide();
   $('#AnatoMenuTab').hide();
   $('#SearchMenuTab').hide();
   $('#SelecMenuTab').hide();
+  $('#QueryMenuTab').hide();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
   $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
   $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
@@ -203,10 +205,12 @@ function maximizeMenuTabs() {
   $('#AnatoMenuTab').removeClass('active');
   $('#SearchMenuTab').removeClass('active');
   $('#SelecMenuTab').removeClass('active');
+  $('#QueryMenuTab').removeClass('active');
   $('#DispMenuTab').show();
   $('#AnatoMenuTab').show();
   $('#SearchMenuTab').show();
   $('#SelecMenuTab').show();
+  $('#QueryMenuTab').show();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
@@ -362,6 +366,23 @@ function FindPosition(oElement){
     {
       return [ oElement.x, oElement.y ];
     }
+}
+
+function openQueryTab() {
+  $('#DispMenuTab').removeClass('active');
+  $('#AnatoMenuTab').removeClass('active');
+  $('#SearchMenuTab').removeClass('active');
+  $('#SelecMenuTab').removeClass('active');
+  $('#DispMenuTab').removeClass('active');
+  $('#DispMenuTab').show();
+  $('#AnatoMenuTab').show();
+  $('#SearchMenuTab').show();
+  $('#SelecMenuTab').show();
+  $('#QueryMenuTab').show();
+  $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
+  $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
+  $('#QueryMenuTab').addClass('active');
+  $('#query').addClass('active');
 }
 
 function generateWlzURL(index){
