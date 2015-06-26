@@ -379,6 +379,7 @@ function openQueryTab() {
   $('#SearchMenuTab').show();
   $('#SelecMenuTab').show();
   $('#QueryMenuTab').show();
+  $('.tab-pane').removeClass('active');
   $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
   $('#QueryMenuTab').addClass('active');
