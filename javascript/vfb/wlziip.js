@@ -1069,7 +1069,7 @@ function createTreeHTML(treeStruct) {
     }else{
       temp = $("body").data("domains")[id].extId[0];
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
-      html += createInfoButtonHTMLbyId(temp) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + layer.extid + '"></span>' ;
+      html += createInfoButtonHTMLbyId(temp) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + temp + '"></span>' ;
       html += "</span>";
     }
     if (node.children) {

@@ -110,14 +110,14 @@ function generateAddButtons() {
     $('#pageLoading').hide();
     if (window.location.pathname == "/site/stacks/index.htm") {
       $("[id^=addToQuery]").each(function(){
-        if ($(this).data("id") !=="undefined"){
+        if ($(this).data("id") && $(this).data("id") !=="undefined"){
     		  var text = '<a href="#" class="btn btn-xs btn-success" onclick="';
     		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + $(this).data("id") + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};";
     		  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
     		  $(this).html(text);
-          $(this).id="Resolved"+$(this).id;
+          $(this).attr("id", "Resolved"+$(this).attr("id"));
         }else{
-          $(this).id="NA"+$(this).id;
+          $(this).attr("id", "NA"+$(this).attr("id"));
         }
       });
   	}
