@@ -108,6 +108,19 @@ function generateAddButtons() {
       }
     });
     $('#pageLoading').hide();
+  }else{
+    if ($('body').data("domains") && $('body').data("current") && $('body').data($('body').data("current").template).selected){
+      var selected = $('body').data($('body').data("current").template).selected;
+      var domains = $('body').data("domains");
+      var available = selected[0].id;
+      var i;
+      for (i in domains){
+          if (domains[i].domainData.domainId && domains[i].domainData.domainId !== ""){
+            available += ',' + domains[i].extId[0];
+          }
+      }
+      parent.$("body").data("available", available);
+    }
   }
 }
 
