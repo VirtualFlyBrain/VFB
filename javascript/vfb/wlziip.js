@@ -775,6 +775,10 @@ function createAddButtonHTML(id) {
   return content;
 }
 
+function createCentreButtonHTML(fxp) {
+  return '<button class="btn btn-xs" onClick="parent.$("body").data("current").fxp=' + fxp + '; parent.$("body").data("current").dst=0; updateStackData();"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
+}
+
 function updateItemName( solrAPI, layer ) {
   $.getJSON( solrAPI, {
     q: "short_form:" + cleanIdforExt(layer.id),
@@ -898,6 +902,21 @@ function loadRightMenuDisplayed() {
             controls += createVisibleButtonHTML(layer,i);
             // Colour:
             controls += createColourButtonHTML(layer,i);
+            // Centre:
+            if (layer.id.indexOf('VFBd_') > -1) {
+              for (j in parent.$("body").data("domains")) {
+                if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(layer.extid)) {
+                  if (parent.$("body").data("domains")[j].domainData.domainCentre){
+                    controls += createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(','));
+                  }
+                  break;
+                }
+              }
+            }
+            // add to query:
+            if (layer.extid) {
+              controls += createAddToQueryButtonHTML(layer.extid);
+            }
             // Remove:
             if (i > 0) {
               controls += createCloseButtonHTML(layer);
