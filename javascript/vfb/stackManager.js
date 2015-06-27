@@ -305,7 +305,9 @@ function alertMessage(message) {
 function openFullDetails(id) {
   if ($('#anatomyDetails')) {
     id = cleanIdforExt(id);
-    $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+    if (id.indexOf("VFBt_") < 0){
+      $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+    }
   }
 }
 
