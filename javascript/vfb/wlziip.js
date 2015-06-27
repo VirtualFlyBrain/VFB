@@ -1052,7 +1052,7 @@ function createTreeHTML(treeStruct) {
     html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[id].name +'</span> ';
     if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
-      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + $("body").data("domains")[id].extId[0] + "'>";
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + cleanIdforInt($("body").data("domains")[id].extId[0]) + "'>";
 
       if (JSON.stringify(selected).indexOf(temp) > -1) {
         for (l in selected) {
@@ -1060,20 +1060,20 @@ function createTreeHTML(treeStruct) {
             layer = selected[l];
             html += createInfoButtonHTML(layer) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="';
             if (layer.extid) {
-              html += layer.extid;
+              html += cleanIdforInt(layer.extid);
             }else{
-              html += $("body").data("domains")[id].extId[0];
+              html += cleanIdforInt($("body").data("domains")[id].extId[0]);
             }
             html += '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
             break;
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + $("body").data("domains")[id].extId[0] + '"></span>' + createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '"></span>' + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
-      temp = $("body").data("domains")[id].extId[0];
+      temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
       html += createInfoButtonHTMLbyId(temp) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + temp + '"></span>' ;
       html += "</span>";
