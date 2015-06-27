@@ -341,7 +341,7 @@ function addToStackData(ids){
             layers = Object.keys(selected).length;
             text = '{"id":"' + id + '","colour":"auto","visible":true, "extid":"';
             for (layers in parent.$("body").data("domains")){
-              if (parseInt(parent.$("body").data("domains")[layers].id) == parseInt(id.substr(8))) {
+              if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == parseInt(id.substr(8))) {
                 text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '" }';
               }
             }
@@ -362,10 +362,10 @@ function addToStackData(ids){
               text = '{"id":"';
               for (layers in parent.$("body").data("domains")){
                 if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
-                  if (parent.$("body").data("domains")[layers].id === ""){
+                  if (parent.$("body").data("domains")[layers].domainData.domainId === ""){
                     alertMessage(id + ' not found in current stack');
                   }else{
-                    temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].id),5));
+                    temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].domainData.domainId),5));
                     if (JSON.stringify(selected).indexOf(temp) > -1){
                       for (j in selected){
                         if (cleanIdforInt(selected[j].id) == temp){

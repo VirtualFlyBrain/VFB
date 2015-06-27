@@ -1042,7 +1042,7 @@ function createTreeHTML(treeStruct) {
     html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
 
     if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
-      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].id),5));
+      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].domainData.domainId),5));
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + $("body").data("domains")[node.nodeId].extId[0] + "'>";
       if (JSON.stringify(selected).indexOf(temp) > -1) {
         for (l in selected) {
@@ -1103,7 +1103,7 @@ function addAvailableItems(ids) {
     if (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1){
       temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
       for (layers in parent.$("body").data("domains")){
-        if (cleanIdforInt(parent.$("body").data("domains")[layers].id) == temp) {
+        if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
           temp = parent.$("body").data("domains")[layers];
           if (i > 0) {
             drawText(temp.name);
