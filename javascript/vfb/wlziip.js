@@ -1058,7 +1058,13 @@ function createTreeHTML(treeStruct) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
-            html += createInfoButtonHTML(layer) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + layer.extid + '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+            html += createInfoButtonHTML(layer) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="';
+            if (layer.extid) {
+              html += layer.extid;
+            }else{
+              html += $("body").data("domains")[id].extId[0];
+            }
+            html += '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
             break;
           }
         }
