@@ -1007,18 +1007,26 @@ function collapseTree() {
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
 }
 
+function createAddToQueryButtonHTML(id) {
+  return '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + cleanIdforInt(id) + '"></span>';
+}
+
 function updateAnatomyTree() {
   if (parent.$("body").data("current")) {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var l;
     $('[id^=buttonsForVFB]').each(function() {
-      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddButtonHTML($(this).data("id")));
+      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddToQueryButtonHTML($(this).data("extid")) + createAddButtonHTML($(this).data("id")));
     });
     var layer;
     for (l in selected) {
       layer = selected[l];
-      $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
+      if (layer.extid){
+        $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer) + createAddToQueryButtonHTML(layer.extid));
+      }else{
+        $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
+      }
     }
     generateAddButtons();
   }
