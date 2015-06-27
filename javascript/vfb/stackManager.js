@@ -129,7 +129,9 @@ function generateAddButtons() {
       var i;
       for (i in domains){
           if (domains[i].domainData.domainId && domains[i].domainData.domainId !== ""){
-            available += ',' + domains[i].extId[0];
+            if (domains[i].extId && domains[i].extId[0] && domains[i].extId[0] !== "undefined" && domains[i].extId[0] !== ""){
+              available += ',' + domains[i].extId[0];
+            }
           }
       }
       parent.$("body").data("available", available);
