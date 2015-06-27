@@ -1128,6 +1128,7 @@ function addAvailableItems(ids) {
         controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
       }else{
         controls = "";
+        console.log('Unable to resolve for:' + JSON.stringify(temp));
       }
       // Name:
       if (temp.extId) {
