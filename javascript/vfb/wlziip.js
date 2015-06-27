@@ -779,6 +779,21 @@ function createCentreButtonHTML(fxp) {
   return '<button class="btn btn-xs" onClick="parent.$("body").data("current").fxp=' + fxp + '; parent.$("body").data("current").dst=0; updateStackData();"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
 }
 
+function loadReferenceMeta(id){
+  if (id){
+    file = "/data/" + fileFromId(id).replace("composite.wlz","ref.json");
+    $.getJSON( file, function( data ) {
+      $.each( data, function( key, val ) {
+        parent.$("body").data(key,val);
+      });
+      if (parent.$("body").data("ref_txt")){
+        $("#imageAttributesText").html(parent.$("body").data("ref_txt"));
+      }
+      updateStackData();
+    });
+  }
+}
+
 function updateItemName( solrAPI, layer ) {
   $.getJSON( solrAPI, {
     q: "short_form:" + cleanIdforExt(layer.id),

@@ -173,6 +173,7 @@ function returnCleanData() {
   delete save.colours;
   delete save.tree;
   delete save.available;
+  delete save.ref_txt;
   var t;
   var l;
   for (t in save) {
