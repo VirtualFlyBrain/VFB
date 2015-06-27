@@ -1059,10 +1059,11 @@ function createTreeHTML(treeStruct) {
           if (selected[l].id == temp) {
             layer = selected[l];
             html += createInfoButtonHTML(layer) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + layer.extid + '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+            break;
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + layer.extid + '"></span>' + createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + $("body").data("domains")[id].extId[0] + '"></span>' + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
