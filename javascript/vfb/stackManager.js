@@ -116,6 +116,8 @@ function generateAddButtons() {
     		  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
     		  $(this).html(text);
           $(this).id="Resolved"+$(this).id;
+        }else{
+          $(this).id="NA"+$(this).id;
         }
       });
   	}
