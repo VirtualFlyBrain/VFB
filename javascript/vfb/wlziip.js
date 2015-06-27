@@ -1058,17 +1058,17 @@ function createTreeHTML(treeStruct) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
-            html += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+            html += createInfoButtonHTML(layer) + '<span id="addToQuery" title="Add to query" data-id="' + layer.extid + '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" title="Add to query" data-id="' + layer.extid + '"></span>' + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
       temp = $("body").data("domains")[id].extId[0];
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
-      html += createInfoButtonHTMLbyId(temp);
+      html += createInfoButtonHTMLbyId(temp) + '<span id="addToQuery" title="Add to query" data-id="' + layer.extid + '"></span>' ;
       html += "</span>";
     }
     if (node.children) {
