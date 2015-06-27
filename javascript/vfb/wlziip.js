@@ -1123,8 +1123,12 @@ function addAvailableItems(ids) {
         }
       }
       // Controls:
-      controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
-      controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
+      if (temp.extId) {
+        controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
+        controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
+      }else{
+        controls = "";
+      }
       // Name:
       name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
       name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
