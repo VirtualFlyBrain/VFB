@@ -1027,6 +1027,7 @@ function updateAnatomyTree() {
 function createTreeHTML(treeStruct) {
   var n;
   var l;
+  var id;
   var layer = '0';
   var node;
   var temp;
@@ -1039,11 +1040,20 @@ function createTreeHTML(treeStruct) {
       node = treeStruct[n].node;
     }
     html += "<li>";
-    html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[node.nodeId].name +'</span> ';
+    if (parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
+      for (l in parent.$("body").data("domains")) {
+        if (parseInt(parent.$("body").data("domains")[l].nodeId) == parseInt(id)) {
+          id = l;
+          break;
+        }
+      }
+    }
+    id = node.nodeId;
+    html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[id].name +'</span> ';
+    if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
+      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
+      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + $("body").data("domains")[id].extId[0] + "'>";
 
-    if ($("body").data("domains")[node.nodeId].id && $("body").data("domains")[node.nodeId].id !== ""){
-      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[node.nodeId].domainData.domainId),5));
-      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + $("body").data("domains")[node.nodeId].extId[0] + "'>";
       if (JSON.stringify(selected).indexOf(temp) > -1) {
         for (l in selected) {
           if (selected[l].id == temp) {
@@ -1052,11 +1062,11 @@ function createTreeHTML(treeStruct) {
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[node.nodeId].extId[0]) + createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
-      temp = $("body").data("domains")[node.nodeId].extId[0];
+      temp = $("body").data("domains")[id].extId[0];
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
       html += createInfoButtonHTMLbyId(temp);
       html += "</span>";
