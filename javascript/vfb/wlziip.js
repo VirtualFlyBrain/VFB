@@ -1114,7 +1114,7 @@ function addAvailableItems(ids) {
     if (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1){
       temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
       for (layers in parent.$("body").data("domains")){
-        if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
+        if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
           temp = parent.$("body").data("domains")[layers];
           if (i > 0) {
             drawText(temp.name);
