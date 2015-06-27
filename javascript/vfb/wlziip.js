@@ -1105,6 +1105,7 @@ function addAvailableItems(ids) {
   var i;
   var id;
   var layers;
+  var layer;
   var temp;
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
@@ -1145,13 +1146,17 @@ function addAvailableItems(ids) {
           }else{
             drawText(cleanIdforExt(temp.id));
           }
-
+          layer = selected[layers];
           break;
         }
       }
       // Controls:
       controls = createInfoButtonHTMLbyId(cleanIdforExt(id));
-      controls += createAddButtonHTML(cleanIdforExt(id));
+      if (JSON.stringify(selected).indexOf(temp) > -1) {
+        controls += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,layers) + createColourButtonHTML(layer,layers) + createCloseButtonHTML(layer);
+      }else{
+        controls += createAddButtonHTML(cleanIdforExt(id));
+      }
       // Name:
       if (temp.name){
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
