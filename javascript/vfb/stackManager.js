@@ -307,6 +307,8 @@ function openFullDetails(id) {
     id = cleanIdforExt(id);
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+    }else{
+      console.log("Can't directly open details for:" + id);
     }
   }
 }
