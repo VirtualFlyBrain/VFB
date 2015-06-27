@@ -1040,6 +1040,7 @@ function createTreeHTML(treeStruct) {
       node = treeStruct[n].node;
     }
     html += "<li>";
+    id = node.nodeId;
     if (parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
       for (l in parent.$("body").data("domains")) {
         if (parseInt(parent.$("body").data("domains")[l].nodeId) == parseInt(id)) {
@@ -1048,7 +1049,6 @@ function createTreeHTML(treeStruct) {
         }
       }
     }
-    id = node.nodeId;
     html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[id].name +'</span> ';
     if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
