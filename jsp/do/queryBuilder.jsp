@@ -46,7 +46,7 @@
 
 <body style="margin:2px">
 <jsp:include page="/jsp/includes/js/tag.jsp" />
-<div id="content">
+<div id="content" style="position:absolute;top:0">
 	<div style="width:100%;">
 		<form name="ontQuery" action="/do/query_builder.html">
 			<br/>
@@ -66,7 +66,7 @@
 					</c:forEach>
 				</select>
 				<!-- input type="image" value="Set query type" src="/images/utils/delete.png;" style="vertical-align: middle;height:20px; border:1px solid gray"/-->
-				<button name="del${stat.index}" title="Delete current term" style="vertical-align: middle" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></button>
+				<button class="btn btn-xs btn-warning" name="del${stat.index}" title="Delete current term" style="vertical-align: middle" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></button>
 				<br/>
 			</c:forEach>
 			<div id="query_text" style="margin: 10px 0 0 5px;"><br/></div>
