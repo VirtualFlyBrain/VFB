@@ -1130,17 +1130,26 @@ function addAvailableItems(ids) {
         controls = "";
       }
       // Name:
-      name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-      name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
-      name += '">';
-      name += temp.name;
-      name += '</span></a>';
+      if (temp.extId) {
+        name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
+        name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
+        name += '">';
+        name += temp.name;
+        name += '</span></a>';
+      }else{
+        name = temp.name;
+      }
+
       // Type:
-      type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
-      type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
-      type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
-      type += cleanIdforExt(temp.extId[0]);
-      type += '</span></a>';
+      if (temp.extId) {
+        type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
+        type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
+        type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
+        type += cleanIdforExt(temp.extId[0]);
+        type += '</span></a>';
+      }else{
+        type = "";
+      }
     }else{
       for (layers in selected){
         if (cleanIdforInt(selected[layers].id) == id) {
