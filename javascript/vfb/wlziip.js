@@ -1066,24 +1066,24 @@ function createTreeHTML(treeStruct) {
         for (l in selected) {
           if (selected[l].id == temp) {
             layer = selected[l];
-            html += createInfoButtonHTML(layer) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="';
+            html += createInfoButtonHTML(layer);
             if (layer.extid) {
-              html += cleanIdforInt(layer.extid);
+              html += createAddToQueryButtonHTML(layer.extid);
             }else{
-              html += cleanIdforInt($("body").data("domains")[id].extId[0]);
+              html += createAddToQueryButtonHTML($("body").data("domains")[id].extId[0]);
             }
-            html += '"></span>' + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
+            html += createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
             break;
           }
         }
       }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '"></span>' + createAddButtonHTML(temp);
+        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + createAddToQueryButtonHTML($("body").data("domains")[id].extId[0]) + createAddButtonHTML(temp);
       }
       html += "</span>";
     }else{
       temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
-      html += createInfoButtonHTMLbyId(temp) + '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + temp + '"></span>' ;
+      html += createInfoButtonHTMLbyId(temp) + createAddToQueryButtonHTML(temp);
       html += "</span>";
     }
     if (node.children) {
