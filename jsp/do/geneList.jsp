@@ -35,6 +35,7 @@
 						<c:forEach items="${transgeneColumns}" var="curr">
 							<th>${curr}</th>
 						</c:forEach>
+							<th>Source</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -50,14 +51,18 @@
 							<td>
 								<c:set var="tpb" value="${geneBean.thirdPartyBean}" />
 								<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
-									<b>Source: </b><a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName}</a> <br/>
 									<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
 										<a style="float: left; margin: 0 3px;" href="/site/stacks/index.htm?add=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
-										<img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}" height="50" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
+										<img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
 									</c:if>
 									<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
 										<span id="attach" data-id="${tpb.vfbId}"></span>
 									</c:if>
+								</c:if>
+							</td>
+							<td>
+								<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
+									<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName}</a>
 								</c:if>
 							</td>
 						</tr>
