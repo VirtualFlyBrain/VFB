@@ -130,7 +130,7 @@ function generateAddButtons() {
       for (i in domains){
           if (domains[i].domainData.domainId && domains[i].domainData.domainId !== ""){
             if (domains[i].extId && domains[i].extId[0] && domains[i].extId[0] !== "undefined" && domains[i].extId[0] !== ""){
-              available += ',' + domains[i].extId[0];
+              available += ',' + cleanIdforInt(domains[i].extId[0]);
             }
           }
       }
