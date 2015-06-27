@@ -1017,7 +1017,7 @@ function updateAnatomyTree() {
     var selected = parent.$("body").data(current.template).selected;
     var l;
     $('[id^=buttonsForVFB]').each(function() {
-      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddToQueryButtonHTML($(this).data("extid")) + createAddButtonHTML($(this).data("id")));
+      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddButtonHTML($(this).data("id")) + createAddToQueryButtonHTML($(this).data("extid")));
     });
     var layer;
     for (l in selected) {
