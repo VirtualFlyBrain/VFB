@@ -38,7 +38,7 @@
 			var queryText = "${queryText}";
 			if (queryText != "") {
 				$('#query_text').html(queryText);
-				$('#query_text').load(url+'?'+params);
+				$('#query_count').load(url+'?'+params);
 			}else{
 				$('#query_text').html(tip);
 			}
