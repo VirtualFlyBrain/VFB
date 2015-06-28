@@ -42,6 +42,25 @@
 
 </script>
 
+<script type="text/javascript">
+	window.addEvent('load', function() {
+		$(browser_interface).contentDocument.location.reload(true);
+	})
+	function execOntQuery()
+	{
+		window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
+	}
+	function execDBQuery()
+	{
+		fireLightBox("/do/gene_list.html?action=multiquery", 600, 800); return false;
+	}
+	function showPopup(url)
+	{
+		fireLightBox(url, 600, 800); return false;
+	}
+
+</script>
+
 </head>
 
 <body style="margin:2px">
@@ -81,7 +100,7 @@
 				<option value="geneex">Gene Expression</option>
 				<option value="phenotype">Phenotypes</option>
 			</select -->
-			<button class="btn btn-primary" onclick="parent.execOntQuery()" title="Query Ontology">Execute</button><br/>
+			<button class="btn btn-primary" onclick="execOntQuery()" title="Query Ontology">Execute</button><br/>
 			<!-- button onclick="parent.execDBQuery()" title="Query Expression DB"  style="vertical-align: middle">Query Expression DB</button -->
 		</c:if>
 	</div>
