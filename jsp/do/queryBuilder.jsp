@@ -14,52 +14,56 @@
 	<!-- Custom styles for this template -->
 	<link href="/css/offcanvas.css" rel="stylesheet">
 
-	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
-    <script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-    <script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
-    <script type="text/javascript" src="/javascript/vfb/utils.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-   <script type="text/javascript">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
     window.addEvent('domready', function() {
-      	var target = $('query_text');
+      var target = $('query_text');
     	var url = "/do/ont_query_result.html";
     	var params = 'action=count';
     	var tip = "This tool allows you to search for neurons that innervate two different brain regions, specify pre or post-synaptic terminals. <br/>"+
-		"To begin, please select a term from the anatomy tree and add it to the query using the 'Add to Query' icon on the top of the term info panel." +
-		"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
-		"Continue adding more terms as required.<br/>"+
-		"A query can be executed at any time by clicking the 'Execute' button.<br/><br/>" +
-		"Your query is currently empty.";
-		var queryText = "${queryText}";
-		if (queryText != "") {
-			tip = queryText;
-			loadURL(url, target, tip, params, true);
-		}
-		else {
-			loadURL(url, target, tip, params, false);
-		}
+				"To begin, please select a term from the anatomy tree and add it to the query using the 'Add to Query' icon on the top of the term info panel." +
+				"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
+				"Continue adding more terms as required.<br/>"+
+				"A query can be executed at any time by clicking the 'Execute' button.<br/><br/>" +
+				"Your query is currently empty.";
+			var queryText = "${queryText}";
+			if (queryText != "") {
+				$('#query_text').html(queryText);
+				$('#query_text').load(url+'?'+params);
+			}else{
+				$('#query_text').html(tip);
+			}
     });
 
-</script>
+	</script>
 
-<script type="text/javascript">
-	window.addEvent('load', function() {
-		$(browser_interface).contentDocument.location.reload(true);
-	})
-	function execOntQuery()
-	{
-		window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
-	}
-	function execDBQuery()
-	{
-		fireLightBox("/do/gene_list.html?action=multiquery", 600, 800); return false;
-	}
-	function showPopup(url)
-	{
-		fireLightBox(url, 600, 800); return false;
-	}
+	<script type="text/javascript">
+		window.addEvent('load', function() {
+			$(browser_interface).contentDocument.location.reload(true);
+		})
+		function execOntQuery()
+		{
+			window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
+		}
+		function execDBQuery()
+		{
+			fireLightBox("/do/gene_list.html?action=multiquery", 600, 800); return false;
+		}
+		function showPopup(url)
+		{
+			fireLightBox(url, 600, 800); return false;
+		}
 
-</script>
+	</script>
 
 </head>
 
@@ -88,10 +92,11 @@
 				</div></div>
 				<br/>
 			</c:forEach>
-			<div id="query_text" class="lead"><br/></div>
+			<div id="query_text" class="lead"></div>
+			<div id="query_count" class="lead"></div>
 			<br/>
 		</form>
-		<c:if test="${fn:length(arguments) >0 }" >
+		<c:if test="${fn:length(arguments) > 0 }" >
 			<!-- Show:
 			<select id="query_type" name="query_type">
 				<option value="neuron">Neurons</option>
