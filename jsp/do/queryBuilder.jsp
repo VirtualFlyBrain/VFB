@@ -55,7 +55,7 @@
 					<div class="form-group has-success"><span class="input-group-addon"><span class="glyphicon glyphicon-plus-sign"></span></span>
 				</c:if>
 				<c:if test="${curr.relation=='exclude'}">
-					<div class="form-group has-success"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
+					<div class="form-group has-error"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
 				</c:if>
 				<input type="text" name="name" value="${curr.ontBean.name}" readonly/>
 				<select name="type" onChange="ontQuery.submit();">
