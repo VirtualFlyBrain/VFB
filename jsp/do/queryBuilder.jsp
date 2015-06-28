@@ -33,7 +33,7 @@
 				"To begin, please select a term from the anatomy tree and add it to the query using the 'Add to Query' icon on the top of the term info panel." +
 				"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
 				"Continue adding more terms as required.<br/>"+
-				"A query can be executed at any time by clicking the 'Execute' button.<br/><br/>" +
+				"A query can be executed at any time by clicking the 'Show Results' button.<br/><br/>" +
 				"Your query is currently empty.";
 			var queryText = "${queryText}";
 			if (queryText != "") {
