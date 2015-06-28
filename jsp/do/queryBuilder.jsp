@@ -68,13 +68,12 @@
 <div id="content" style="position:absolute;top:0">
 	<div style="width:100%;">
 		<form name="ontQuery" action="/do/query_builder.html">
-			<br/>
 			<c:forEach items="${arguments}" var="curr" varStatus="stat">
 				<c:if test="${curr.relation=='include'}">
-					<div class="form-group has-success"><span class="input-group-addon"><span class="glyphicon glyphicon-plus-sign"></span></span>
+					<div class="form-group has-success"><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-plus-sign"></span></span>
 				</c:if>
 				<c:if test="${curr.relation=='exclude'}">
-					<div class="form-group has-error"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
+					<div class="form-group has-error"><div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
 				</c:if>
 				<input type="text" class="form-control" name="name" value="${curr.ontBean.name}" readonly/>
 				<select name="type" class="form-control" onChange="ontQuery.submit();">
@@ -86,7 +85,7 @@
 				</select>
 				<!-- input type="image" value="Set query type" src="/images/utils/delete.png;" style="vertical-align: middle;height:20px; border:1px solid gray"/-->
 				<span class="input-group-addon" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></span>
-				</div>
+				</div></div>
 				<br/>
 			</c:forEach>
 			<div id="query_text" style="margin: 10px 0 0 5px;"><br/></div>
