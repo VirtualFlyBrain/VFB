@@ -88,9 +88,11 @@ public class OntQueryListController extends AbstractController{
 		modelAndView.addObject("ontBeanList", results);
 		modelAndView.addObject("type", "oqm");
 		params = ontQuery.getUsefulParams(params);
-		String actionDesc = ontQuery.getQueryText().replaceAll("<br/>", " ");
+		String actionDesc = ontQuery.getQueryText();
 		if (actionDesc === null || actionDesc == ""){
 			actionDesc = "";
+		}else{
+			actionDesc = actionDesc.replaceAll("<br/>", " ");
 		}
 		modelAndView.addObject("query", actionDesc);
 		modelAndView.addObject("paramItems", params.split("&"));
