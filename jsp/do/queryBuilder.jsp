@@ -93,8 +93,17 @@
 				<br/>
 			</c:forEach>
 			<div id="query_text" class="lead"></div>
-			<div id="query_count" class="lead"></div>
-			<br/>
+			<div id="query_count" class="lead success"></div>
+
+			<script>
+			window.setInterval(function(){
+				if ($("#query_count").text() == "Records found: 0"){
+					$("#query_count").removeClass("success").addClass("danger");
+				}else{
+					$("#query_count").addClass("success").removeClass("danger");
+				}
+			},5000);
+
 		</form>
 		<c:if test="${fn:length(arguments) > 0 }" >
 			<!-- Show:
