@@ -57,7 +57,7 @@
 				<c:if test="${curr.relation=='exclude'}">
 					<span class="glyphicon glyphicon-minus-sign"></span>
 				</c:if>
-				<input type="text" size="24" name="name" value="${curr.ontBean.name}"/>
+				<input type="text" name="name" value="${curr.ontBean.name}"/>
 				<select name="type" onChange="ontQuery.submit();">
 					<c:forEach items="${typeDefs}" var="item">
 						<%=pageContext.getAttribute("curr") %>
