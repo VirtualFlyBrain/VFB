@@ -85,14 +85,14 @@
 				<br/>
 			</c:forEach>
 			<div id="query_text" class="lead"></div>
-			<div id="query_count" class="lead success"></div>
+			<div id="query_count" class="lead"></div>
 
 			<script>
 			window.setInterval(function(){
 				if ($("#query_count").text() == "Records found: 0"){
-					$("#query_count").removeClass("success").addClass("danger");
+					$("#query_count").removeClass("bg-success").addClass("bg-danger");
 				}else{
-					$("#query_count").addClass("success").removeClass("danger");
+					$("#query_count").addClass("bg-success").removeClass("bg-danger");
 				}
 			},5000);
 
