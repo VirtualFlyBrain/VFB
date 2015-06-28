@@ -94,6 +94,9 @@
 					}else{
 						$("#query_count").addClass("bg-success").removeClass("bg-danger");
 					}
+					if ($("#query_count").text().indexOf('Records found: ')>-1){
+						$("#query_count").html('Records found: <span class="badge">'+$("#query_count").text().replace('Records found: ', '')+'</span>')
+					}
 				},5000);
 			</script>
 		</form>
