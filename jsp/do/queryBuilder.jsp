@@ -99,7 +99,7 @@
 				<option value="geneex">Gene Expression</option>
 				<option value="phenotype">Phenotypes</option>
 			</select -->
-			<button class="btn btn-primary" onclick="execOntQuery()" title="Query Ontology">Execute</button><br/>
+			<button class="btn btn-primary" onclick="execOntQuery()" title="Query Ontology">Show Results</button><br/>
 			<!-- button onclick="parent.execDBQuery()" title="Query Expression DB"  style="vertical-align: middle">Query Expression DB</button -->
 		</c:if>
 	</div>

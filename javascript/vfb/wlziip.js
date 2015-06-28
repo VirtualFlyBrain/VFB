@@ -508,11 +508,12 @@ function initWlzControls() {
    parent.$("body").data("disp", "scale");
    loadTemplateAnatomyTree();
  }else{
+   if (parent.$("body").data("current")) {
+     loadTemplateMeta(parent.$("body").data("current").template);
+     loadReferenceMeta(parent.$("body").data("current").template);
+   }
    window.setTimeout(function(){
      initWlzControls();
-     if (parent.$("body").data("current")) {
-       loadTemplateMeta(parent.$("body").data("current").template);
-     }
    },5000);
  }
 }
