@@ -52,12 +52,12 @@
 			<br/>
 			<c:forEach items="${arguments}" var="curr" varStatus="stat">
 				<c:if test="${curr.relation=='include'}">
-					<span class="glyphicon glyphicon-plus-sign"></span>
+					<div class="form-group has-success"><span class="input-group-addon"><span class="glyphicon glyphicon-plus-sign"></span></span>
 				</c:if>
 				<c:if test="${curr.relation=='exclude'}">
-					<span class="glyphicon glyphicon-minus-sign"></span>
+					<div class="form-group has-success"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
 				</c:if>
-				<input type="text" name="name" value="${curr.ontBean.name}"/>
+				<input type="text" name="name" value="${curr.ontBean.name}" readonly/>
 				<select name="type" onChange="ontQuery.submit();">
 					<c:forEach items="${typeDefs}" var="item">
 						<%=pageContext.getAttribute("curr") %>
@@ -66,7 +66,8 @@
 					</c:forEach>
 				</select>
 				<!-- input type="image" value="Set query type" src="/images/utils/delete.png;" style="vertical-align: middle;height:20px; border:1px solid gray"/-->
-				<button class="btn btn-xs btn-warning" name="del${stat.index}" title="Delete current term" style="vertical-align: middle" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></button>
+				<span class="input-group-addon" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></span>
+				</div>
 				<br/>
 			</c:forEach>
 			<div id="query_text" style="margin: 10px 0 0 5px;"><br/></div>
