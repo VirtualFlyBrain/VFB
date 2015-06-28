@@ -25,7 +25,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
   <script type="text/javascript">
-    window.addEvent('domready', function() {
+    $('body').ready( function () {
       var target = $('query_text');
     	var url = "/do/ont_query_result.html";
     	var params = 'action=count';
