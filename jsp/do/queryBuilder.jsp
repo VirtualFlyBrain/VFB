@@ -88,14 +88,14 @@
 			<div id="query_count" class="lead"></div>
 
 			<script>
-			window.setInterval(function(){
-				if ($("#query_count").text() == "Records found: 0"){
-					$("#query_count").removeClass("bg-success").addClass("bg-danger");
-				}else{
-					$("#query_count").addClass("bg-success").removeClass("bg-danger");
-				}
-			},5000);
-
+				window.setInterval(function(){
+					if ($("#query_count").text() == "Records found: 0"){
+						$("#query_count").removeClass("bg-success").addClass("bg-danger");
+					}else{
+						$("#query_count").addClass("bg-success").removeClass("bg-danger");
+					}
+				},5000);
+			</script>
 		</form>
 		<c:if test="${fn:length(arguments) > 0 }" >
 			<!-- Show:
