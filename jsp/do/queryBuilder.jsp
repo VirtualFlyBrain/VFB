@@ -57,8 +57,8 @@
 				<c:if test="${curr.relation=='exclude'}">
 					<div class="form-group has-error"><span class="input-group-addon"><span class="glyphicon glyphicon-minus-sign"></span></span>
 				</c:if>
-				<input type="text" name="name" value="${curr.ontBean.name}" readonly/>
-				<select name="type" onChange="ontQuery.submit();">
+				<input type="text" class="form-control" name="name" value="${curr.ontBean.name}" readonly/>
+				<select name="type" class="form-control" onChange="ontQuery.submit();">
 					<c:forEach items="${typeDefs}" var="item">
 						<%=pageContext.getAttribute("curr") %>
 						|${curr.type}|${item.key}
@@ -81,7 +81,7 @@
 				<option value="geneex">Gene Expression</option>
 				<option value="phenotype">Phenotypes</option>
 			</select -->
-			<button onclick="parent.execOntQuery()" title="Query Ontology"  style="vertical-align: middle">Execute</button><br/>
+			<button class="btn btn-primary" onclick="parent.execOntQuery()" title="Query Ontology">Execute</button><br/>
 			<!-- button onclick="parent.execDBQuery()" title="Query Expression DB"  style="vertical-align: middle">Query Expression DB</button -->
 		</c:if>
 	</div>
