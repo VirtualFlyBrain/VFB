@@ -1022,7 +1022,10 @@ function loadTemplateAnatomyTree() {
 
 function addAllDomains() {
   var available = parent.$("body").data("available").split(",");
-  if (available[0].indexOf('VFBt_')>-1){
+  if (cleanIdforInt(available[0]).indexOf('VFBt_')>-1){
+    available.shift();
+  }
+  if (cleanIdforInt(available[0]).indexOf('FBbt_00003624')>-1){
     available.shift();
   }
   addToStackData(available);
