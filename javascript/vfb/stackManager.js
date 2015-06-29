@@ -112,7 +112,7 @@ function generateAddButtons() {
     if (window.location.pathname == "/site/stacks/index.htm") {
       $("[id^=addToQuery]").each(function(){
         if ($(this).data("id") && $(this).data("id") !=="undefined"){
-    		  var text = '<a href="#" class="btn btn-xs btn-success" onclick="';
+    		  var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
     		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + $(this).data("id") + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};";
     		  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
     		  $(this).html(text);
