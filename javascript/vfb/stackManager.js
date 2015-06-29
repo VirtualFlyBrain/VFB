@@ -100,7 +100,8 @@ function generateAddButtons() {
             $(this).html(content);
           }else{
             content += '<button type="button" class="btn btn-success btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onClick="';
-            content += "addToStackData('" + id + "');$('*[id=attach][data-id=" + $(this).data("id") + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+            // TBD Need to resolve correct template:
+            content += "addToStackData(['VFBt_00100000','" + id + "']);$('*[id=attach][data-id=" + $(this).data("id") + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
             content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
           }
         }
