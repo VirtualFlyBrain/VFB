@@ -405,12 +405,14 @@ function addToStackData(ids){
                         for (j in selected){
                           if (cleanIdforInt(selected[j].id) == temp){
                             selected[j].visible = true;
+                            break;
                           }
                         }
                       }else{
                         text += temp + '","colour":"auto","visible":true, "extid":"' + id + '" }';
                       }
                     }
+                    break;
                   }
                 }
               }
