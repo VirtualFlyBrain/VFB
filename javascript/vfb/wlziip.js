@@ -779,7 +779,7 @@ function createAddButtonHTML(id) {
 function createCentreButtonHTML(fxp) {
   var html;
   html = '<button class="btn btn-xs" title="center" onClick="';
-  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();";
+  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();";
   html += '"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
 }
