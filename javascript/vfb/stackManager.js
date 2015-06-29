@@ -417,7 +417,7 @@ function addToStackData(ids){
           }
         }
       }
-      if (id.indexOf('VFBt_'<0)){
+      if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_')<0){
         openFullDetails(id);
       }
       updateStackData();
