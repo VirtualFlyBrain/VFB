@@ -555,7 +555,7 @@ function createControlsBarHTML(id) {
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
   var domains = parent.$("body").data("domains");
-  var html = '<div class="btn-group btn-group-justified" role="group" aria-label="control buttons" >';
+  var html = '<div class="btn-group btn-group-justified" role="group" aria-label="control buttons" style="width:150px" >';
   var i;
   var j;
   var start = '<div class="btn-group" role="group">';
