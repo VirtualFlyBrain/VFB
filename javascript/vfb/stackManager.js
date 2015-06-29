@@ -333,89 +333,93 @@ function addToStackData(ids){
       }
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
-        if (id.indexOf("VFBt_") > -1){
-         id = id.replace("00000", "");
-         if (id != parent.$("body").data("current").template){
-           loadTemplateMeta(id);
-           text = '{ "template": "' + id + '","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
-           parent.$("body").data("current",JSON.parse(text));
-           updateStackData();
-           if (!parent.$("body").data(id)){
-             text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
-             parent.$("body").data(id,JSON.parse(text));
+        try{
+          if (id.indexOf("VFBt_") > -1){
+           id = id.replace("00000", "");
+           if (id != parent.$("body").data("current").template){
+             loadTemplateMeta(id);
+             text = '{ "template": "' + id + '","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
+             parent.$("body").data("current",JSON.parse(text));
+             updateStackData();
+             if (!parent.$("body").data(id)){
+               text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
+               parent.$("body").data(id,JSON.parse(text));
+             }
+             updateStackData();
+             parent.$("body").data("disp","scale");
+             if (window.location.pathname == "/site/stacks/index.htm"){
+               location.reload();
+             }
            }
-           updateStackData();
-           parent.$("body").data("disp","scale");
-           if (window.location.pathname == "/site/stacks/index.htm"){
-             location.reload();
-           }
-         }
-        }else if (id.indexOf("VFBi_") > -1){
-          selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-          if (JSON.stringify(selected).indexOf(id) > -1){
-            for (layers in selected){
-              if (cleanIdforInt(selected[layers].id) == id){
-                selected[layers].visible = true;
+          }else if (id.indexOf("VFBi_") > -1){
+            selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+            if (JSON.stringify(selected).indexOf(id) > -1){
+              for (layers in selected){
+                if (cleanIdforInt(selected[layers].id) == id){
+                  selected[layers].visible = true;
+                }
               }
+            }else{
+              text = '{"id":"' + id + '","colour":"auto","visible":true}';
+              layers = Object.keys(selected).length;
+              selected[layers] = JSON.parse(text);
             }
-          }else{
-            text = '{"id":"' + id + '","colour":"auto","visible":true}';
-            layers = Object.keys(selected).length;
-            selected[layers] = JSON.parse(text);
-          }
-        }else if (id.indexOf("VFBd_") > -1){
-          selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-          if (JSON.stringify(selected).indexOf(id) > -1){
-            for (layers in selected){
-              if (cleanIdforInt(selected[layers].id) == id){
-                selected[layers].visible = true;
+          }else if (id.indexOf("VFBd_") > -1){
+            selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+            if (JSON.stringify(selected).indexOf(id) > -1){
+              for (layers in selected){
+                if (cleanIdforInt(selected[layers].id) == id){
+                  selected[layers].visible = true;
+                }
               }
-            }
-          }else{
-            layers = Object.keys(selected).length;
-            text = '{"id":"' + id + '","colour":"auto","visible":true, "extid":"';
-            for (layers in parent.$("body").data("domains")){
-              if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == parseInt(id.substr(8))) {
-                text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '" }';
-              }
-            }
-            layers = Object.keys(selected).length;
-            selected[layers] = JSON.parse(text);
-          }
-        }else if (id.indexOf("FBbt_") > -1){
-          selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-          if (JSON.stringify(selected).indexOf(id) > -1){
-            for (layers in selected){
-              if (cleanIdforInt(selected[layers].extid) == id){
-                selected[layers].visible = true;
-              }
-            }
-          }else{
-            layers = Object.keys(selected).length;
-            if (parent.$("body").data("available").indexOf(id) > -1) {
-              text = '{"id":"';
+            }else{
+              layers = Object.keys(selected).length;
+              text = '{"id":"' + id + '","colour":"auto","visible":true, "extid":"';
               for (layers in parent.$("body").data("domains")){
-                if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
-                  if (parent.$("body").data("domains")[layers].domainData.domainId === ""){
-                    alertMessage(id + ' not found in current stack');
-                  }else{
-                    temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].domainData.domainId),5));
-                    if (JSON.stringify(selected).indexOf(temp) > -1){
-                      for (j in selected){
-                        if (cleanIdforInt(selected[j].id) == temp){
-                          selected[j].visible = true;
-                        }
-                      }
+                if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == parseInt(id.substr(8))) {
+                  text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '" }';
+                }
+              }
+              layers = Object.keys(selected).length;
+              selected[layers] = JSON.parse(text);
+            }
+          }else if (id.indexOf("FBbt_") > -1){
+            selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+            if (JSON.stringify(selected).indexOf(id) > -1){
+              for (layers in selected){
+                if (cleanIdforInt(selected[layers].extid) == id){
+                  selected[layers].visible = true;
+                }
+              }
+            }else{
+              layers = Object.keys(selected).length;
+              if (parent.$("body").data("available").indexOf(id) > -1) {
+                text = '{"id":"';
+                for (layers in parent.$("body").data("domains")){
+                  if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
+                    if (parent.$("body").data("domains")[layers].domainData.domainId === ""){
+                      alertMessage(id + ' not found in current stack');
                     }else{
-                      text += temp + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].domainData.domainId),5));
+                      if (JSON.stringify(selected).indexOf(temp) > -1){
+                        for (j in selected){
+                          if (cleanIdforInt(selected[j].id) == temp){
+                            selected[j].visible = true;
+                          }
+                        }
+                      }else{
+                        text += temp + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                      }
                     }
                   }
                 }
               }
+              layers = Object.keys(selected).length;
+              selected[layers] = JSON.parse(text);
             }
-            layers = Object.keys(selected).length;
-            selected[layers] = JSON.parse(text);
           }
+        }catch(e){
+          console.log('Issue adding id:' + id + String(e));
         }
       }
       if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_')<0){
