@@ -788,7 +788,7 @@ function loadReferenceMeta(id){
         parent.$("body").data(key,val);
       });
       if (parent.$("body").data("ref_txt")){
-        $("#imageAttributesText").html(parent.$("body").data("ref_txt").replace('&#34;','"'));
+        $("#imageAttributesText").html(decodeURIComponent(parent.$("body").data("ref_txt")));
         delete parent.$("body").data().ref_txt;
       }
       updateStackData();
