@@ -1118,16 +1118,12 @@ function updateAnatomyTree() {
     var selected = parent.$("body").data(current.template).selected;
     var l;
     $('[id^=buttonsForVFB]').each(function() {
-      $(this).html(createInfoButtonHTMLbyId($(this).data("extid")) + createAddButtonHTML($(this).data("id")) + createAddToQueryButtonHTML($(this).data("extid")));
+      $(this).html(createControlsBarHTML($(this).data("extid")));
     });
     var layer;
     for (l in selected) {
       layer = selected[l];
-      if (layer.extid){
-        $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer) + createAddToQueryButtonHTML(layer.extid));
-      }else{
-        $('#buttonsFor' + layer.id).html(createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer));
-      }
+      $('#buttonsFor' + layer.id).html(createControlsBarHTML(layer.id));
     }
     generateAddButtons();
   }
