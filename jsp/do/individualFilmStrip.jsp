@@ -42,7 +42,7 @@
 </c:if>
 </div>
 <c:if test="${fn:length(ontBeanList) > showMin || fn:length(ontBeanList) > (showMax - 1)}">
-<a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open <span class="badge">${fn:length(ontBeanList)}</span> in viewer</a><a id="queryLink" class="btn btn-success btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">List all <span class="badge">${fn:length(ontBeanList)}</span></a>
+<a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-xs btn-success" title="Open all in stack viewer">Open <span class="badge">${fn:length(ontBeanList)}</span></a><a id="queryLink" class="btn btn-xs btn-success" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></a>
 </c:if>
 </c:if>
 <c:if test="${empty ontBeanList}">
