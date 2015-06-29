@@ -138,7 +138,7 @@ function drawText(message) {
     var ctx = document.getElementById("canvas").getContext("2d");
     set_textRenderContext(ctx);
     if(check_textRenderContext(ctx)) {
-      ctx.font = "12px Arial";
+      ctx.font = "12px Sans-serif";
       ctx.strokeStyle = 'white';
       ctx.strokeText(message,window.PosX + 5, window.PosY + window.textOffset - 12, '12px', '100%', '40%');
       window.textOffset+= 12;
@@ -1288,6 +1288,9 @@ function addAvailableItems(ids) {
     }
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
     SelectedIndex++;
+    if (temp.extid){
+      id=temp.extid;
+    }
   }
   $('#selected').dataTable().fnAdjustColumnSizing(false);
   $('#selected').DataTable().draw(false);
