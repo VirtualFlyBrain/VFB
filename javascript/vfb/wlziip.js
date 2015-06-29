@@ -1023,7 +1023,11 @@ function loadTemplateAnatomyTree() {
 }
 
 function addAllDomains() {
-  addToStackData(parent.$("body").data("available").split(","));
+  var available = parent.$("body").data("available").split(",");
+  if (available[0].indexOf('VFBt_')>-1){
+    available.shift();
+  }
+  addToStackData(available);
   updateMenuData();
   updateWlzDisplay();
 }
