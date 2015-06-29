@@ -133,6 +133,7 @@ function drawText(message) {
   ctx.fillStyle = 'white';
   ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
   window.textOffset+= 12;
+  ga('send', 'event', 'viewer', 'selected', message);
 }
 
 function callForObjects(text, id) {
@@ -439,6 +440,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
+     ga('send', 'event', 'viewer', 'slice', String(ev.value));
    });
    var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl), step: 0.1, focus: true});
    slScale.on('slide', function(ev){
@@ -451,6 +453,7 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
      parent.$("body").data("disp", "scale");
+     ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
@@ -491,6 +494,7 @@ function initWlzControls() {
      updateWlzDisplay();
      updateLabels();
      parent.$("body").data("disp", "scale");
+     ga('send', 'event', 'viewer', 'reset_pos');
    });
    $("body").on('click', "#toggle-view", function(){
      hideAllSliders();
@@ -499,6 +503,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = 0;
      parent.$("body").data("disp", "scale");
      updateLabels();
+     ga('send', 'event', 'viewer', 'slice_in', parent.$("body").data("current").slice );
    });
    $('#slider-slice').data('live',true);
    updateLabels();
@@ -640,7 +645,7 @@ function updateLabels() {
       });
     }
   }catch(e){
-    console.log("Skipping update");
+    alertMessage("Skipping update");
   }
 }
 
@@ -732,11 +737,11 @@ function createVisibleButtonHTML(layer,i) {
     var selected = parent.$("body").data(current.template).selected;
     if (layer.visible) {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');";
       content += '"><span style="border:none;" class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();ga('send', 'event', 'viewer', 'show', '" + layer.name + "');";
       content += '"><span style="border:none;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
   }
@@ -777,7 +782,7 @@ function createAddButtonHTML(id) {
 function createCentreButtonHTML(fxp) {
   var html;
   html = '<button class="btn btn-xs" title="center" onClick="';
-  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();";
+  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
   html += '"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
 }
@@ -808,7 +813,7 @@ function updateItemName( solrAPI, layer ) {
     if (data.response.docs[0].label) {
       layer.name = data.response.docs[0].label;
     }else{
-      console.log(JSON.stringify(data));
+      alertMessage(JSON.stringify(data));
     }
   });
 }
@@ -1022,6 +1027,7 @@ function loadTemplateAnatomyTree() {
 
 function addAllDomains() {
   var available = parent.$("body").data("available").split(",");
+  ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);
   if (cleanIdforInt(available[0]).indexOf('VFBt_')>-1){
     available.shift();
   }
@@ -1034,7 +1040,9 @@ function addAllDomains() {
 }
 
 function removeAllDomains() {
-  removeFromStackData(parent.$("body").data("available").split(","));
+  var available = parent.$("body").data("available").split(",");
+  ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);
+  removeFromStackData(available);
   updateMenuData();
   updateWlzDisplay();
 }
@@ -1044,6 +1052,7 @@ function expandTree() {
   children.show('fast');
   $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Collapse this branch');
+  ga('send', 'event', 'viewer', 'tree_expand', parent.$("body").data("current").template);
 }
 
 function collapseTree() {
@@ -1051,6 +1060,7 @@ function collapseTree() {
   children.hide('fast');
   $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
+  ga('send', 'event', 'viewer', 'tree_collapse', parent.$("body").data("current").template);
 }
 
 function createAddToQueryButtonHTML(id) {
@@ -1157,6 +1167,7 @@ function clearSelectedTable() {
       order: [[ 0, 'desc' ]]
     });
   }
+  ga('send', 'event', 'viewer', 'clear_all');
 }
 
 function addAvailableItems(ids) {
@@ -1189,7 +1200,7 @@ function addAvailableItems(ids) {
         controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
       }else{
         controls = "";
-        console.log('Unable to resolve for:' + JSON.stringify(temp));
+        alertMessage('Unable to resolve for:' + JSON.stringify(temp));
       }
       // Name:
       if (temp.extId) {
@@ -1287,6 +1298,7 @@ function copyUrlToClipboard() {
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
     $("#temp").val("http://"+window.location.host+window.location.pathname+"?add="+displayed).select();
     document.execCommand("copy");
+    ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());
     $("#temp").remove();
 }
 

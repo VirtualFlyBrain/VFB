@@ -113,7 +113,7 @@ function generateAddButtons() {
       $("[id^=addToQuery]").each(function(){
         if ($(this).data("id") && $(this).data("id") !=="undefined"){
     		  var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
-    		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + $(this).data("id") + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};";
+    		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + $(this).data("id") + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};ga('send', 'event', 'query', 'add', '" + cleanIdforExt($(this).data("id")) + "');";
     		  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
     		  $(this).html(text);
           $(this).attr("id", "Resolved"+$(this).attr("id"));
@@ -294,6 +294,7 @@ function pad(num, size) {
 
 function alertMessage(message) {
   console.log(message);
+  ga('send', 'event', 'code', 'alert', message);
   // Needs Fixing:
   $('#alert-message-text').text(message);
   $('#alert_message').show();
@@ -311,9 +312,10 @@ function openFullDetails(id) {
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
     }else{
-      console.log("Can't directly open details for:" + id);
+      alertMessage("Can't directly open details for:" + id);
     }
   }
+  ga('send', 'event', 'load', 'details', id);
 }
 
 function addToStackData(ids){
@@ -335,6 +337,7 @@ function addToStackData(ids){
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
         try{
+          ga('send', 'event', 'viewer', 'add', cleanIdforExt(id));
           if (id.indexOf("VFBt_") > -1){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
@@ -422,7 +425,7 @@ function addToStackData(ids){
             }
           }
         }catch(e){
-          console.log('Issue adding id:' + id + String(e));
+          alertMessage('Issue adding id:' + id + String(e));
         }
       }
       if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_')<0){
@@ -449,6 +452,7 @@ function removeFromStackData(ids) {
     }
     for (i in ids) {
       id = cleanIdforInt(ids[i]);
+      ga('send', 'event', 'viewer', 'remove', cleanIdforExt(id));
       if (JSON.stringify(selected).indexOf(id) > -1) {
         if (id.indexOf("VFBi_") > -1){
           for (l in selected) {
