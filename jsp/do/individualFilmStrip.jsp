@@ -32,6 +32,7 @@
 </c:forEach>
 </div>
 <c:if test="${fn:length(ontBeanList) > 1}">
+  <c:set var="allIds" value="VFBt_00100000" /><c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
 <a class="left carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="prev">
 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 </a>
@@ -41,7 +42,7 @@
 </c:if>
 </div>
 <c:if test="${fn:length(ontBeanList) > showMin || fn:length(ontBeanList) > (showMax - 1)}">
-<a id="queryLink" class="btn btn-success btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">Found <span class="badge">${fn:length(ontBeanList)}</span></a>
+<a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open <span class="badge">${fn:length(ontBeanList)}</span> in viewer</a><a id="queryLink" class="btn btn-success btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">List all <span class="badge">${fn:length(ontBeanList)}</span></a>
 </c:if>
 </c:if>
 <c:if test="${empty ontBeanList}">
