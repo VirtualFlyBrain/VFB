@@ -42,11 +42,11 @@
 </c:if>
 </div>
 <c:if test="${fn:length(ontBeanList) > showMin || fn:length(ontBeanList) > (showMax - 1)}">
-<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="max-width:295px"><div class="btn-group" role="group"><button type="button" onClick="window.location.href='/site/stacks/index.htm?add=${allIds}';" class="btn btn-xs btn-success" title="Open all in stack viewer">Open <span class="badge">${fn:length(ontBeanList)}</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onClick="window.location.href='/do/individual_list.html?action=exemplar_neuron&id=${region}'" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></button></div></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:295px"><div class="btn-group" role="group"><button type="button" onClick="window.location.href='/site/stacks/index.htm?add=${allIds}';" class="btn btn-xs btn-success" title="Open all in stack viewer">Open <span class="badge">${fn:length(ontBeanList)}</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onClick="window.location.href='/do/individual_list.html?action=exemplar_neuron&id=${region}'" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></button></div></div>
 </c:if>
 </c:if>
 <c:if test="${empty ontBeanList}">
 <script>$("div[style]").removeAttr("style");</script>
-<a id="queryLink" class="btn btn-info btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}" style="margin-left:108px">Found <span class="badge">0</span></a>
+<a id="queryLink" class="btn btn-info btn-sm" href="/do/individual_list.html?action=exemplar_neuron&id=${region}">Found <span class="badge">0</span></a>
 </c:if>
 </div>
