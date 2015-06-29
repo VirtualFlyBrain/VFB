@@ -129,7 +129,7 @@ function drawCircle() {
 
 function drawText(message) {
   var ctx = document.getElementById("canvas").getContext("2d");
-  ctx.font = "12px Arial";
+  ctx.font = "12px Verdana";
   ctx.fillStyle = 'white';
   ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
   window.textOffset+= 12;
