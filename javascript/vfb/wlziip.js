@@ -5,6 +5,7 @@ window.PosY = 0;
 window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
+var drawingText = false;
 
 function updateWlzDisplay(){
   updateStackData();
@@ -128,12 +129,20 @@ function drawCircle() {
 }
 
 function drawText(message) {
-  var ctx = document.getElementById("canvas").getContext("2d");
-  ctx.font = "12px Verdana";
-  ctx.fillStyle = 'white';
-  ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
-  window.textOffset+= 12;
-  ga('send', 'event', 'viewer', 'selected', message);
+  if (drawingText){
+    window.setTimeout(function(){
+      drawText(message);
+    }, 500);
+  }else{
+    drawingText = true;
+    var ctx = document.getElementById("canvas").getContext("2d");
+    ctx.font = "12px Arial";
+    ctx.fillStyle = 'white';
+    ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
+    window.textOffset+= 12;
+    ga('send', 'event', 'viewer', 'selected', message);
+    drawingText = false;
+  }
 }
 
 function callForObjects(text, id) {
