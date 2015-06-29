@@ -1262,7 +1262,7 @@ function addAvailableItems(ids) {
         name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
         name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
         name += '">';
-        name += temp.id;
+        name += cleanIdforExt(temp.id);
       }
       name += '</span></a>';
       // Type:
