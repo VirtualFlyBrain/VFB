@@ -164,7 +164,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 	</c:if>
 
-	<c:if test="${isNeuron || isClone}">
+
 		<p>
 			<br/>
 			<b>Images: </b>
@@ -174,7 +174,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<jsp:param name="id" value="${ontBean.fbbtId}" />
 			</jsp:include>
 		</p>
-	</c:if>
+	
 
 	<c:if test="${beanType=='ont'}">
 		<p>
