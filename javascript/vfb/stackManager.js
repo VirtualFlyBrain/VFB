@@ -179,7 +179,7 @@ function returnCleanData() {
   var l;
   for (t in save) {
     if (t.indexOf('VFBt_')>-1) {
-      if (save[t].selected["20"]){
+      if (save[t].selected["5"]){
         for (l in save[t].selected) {
           delete save[t].selected[l].name;
           delete save[t].selected[l].type;
