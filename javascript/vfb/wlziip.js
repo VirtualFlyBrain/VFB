@@ -777,7 +777,7 @@ function createAddButtonHTML(id) {
 }
 
 function createCentreButtonHTML(fxp) {
-  return '<button class="btn btn-xs" onClick="parent.$("body").data("current").fxp=' + fxp + '; parent.$("body").data("current").dst=0; updateStackData();"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
+  return '<button class="btn btn-xs" title="center" onClick="parent.$("body").data("current").fxp="' + fxp + '"; parent.$("body").data("current").dst=0; updateStackData();"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
 }
 
 function loadReferenceMeta(id){
