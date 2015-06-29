@@ -39,7 +39,7 @@
 			if (queryText != "") {
 				$('#query_text').html(queryText);
 				$('#query_count').load(url+'?'+params, function() {
-					if ($("#query_count").text() == "Records found: 0"){
+					if ($("#query_count").text().indexOf(" 0 ") > -1){
 						$("#query_count").removeClass("bg-success").addClass("bg-danger");
 					}else{
 						$("#query_count").addClass("bg-success").removeClass("bg-danger");
