@@ -140,7 +140,7 @@ function drawText(message) {
     if(check_textRenderContext(ctx)) {
       ctx.font = "12px Arial";
       ctx.strokeStyle = 'white';
-      ctx.strokeText(message,window.PosX + 5, window.PosY + window.textOffset);
+      ctx.strokeText(message,window.PosX + 5, window.PosY + window.textOffset - 12, '12px', '100%', '40%');
       window.textOffset+= 12;
       ga('send', 'event', 'viewer', 'selected', message);
     }
