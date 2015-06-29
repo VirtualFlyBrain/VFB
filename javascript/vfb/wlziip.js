@@ -697,7 +697,7 @@ function createInfoButtonHTML(layer) {
     content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
     switch (layer.id.substr(0,4)) {
       case "VFBt":
-        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        content += "$('#anatomyDetails').html($(#imageAttributesText').html())";
         break;
       case "VFBd":
         content += "openFullDetails('" + layer.extid + "')";
