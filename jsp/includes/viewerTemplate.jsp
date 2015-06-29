@@ -35,6 +35,7 @@
 		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
 		//cdn.datatables.net/colreorder/1.1.3/js/dataTables.colReorder.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
+		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
 </jsp:include>
 
@@ -102,7 +103,7 @@
 			</script>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
-		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;"></canvas>
+		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;">Your browser does not support the HTML5 canvas tag.</canvas>
 		<script>
 			$(document).ready(function() {
 				animateWlzDisplay();

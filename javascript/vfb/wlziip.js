@@ -136,11 +136,14 @@ function drawText(message) {
   }else{
     drawingText = true;
     var ctx = document.getElementById("canvas").getContext("2d");
-    ctx.font = "12px Arial";
-    ctx.fillStyle = 'white';
-    ctx.fillText(message,window.PosX + 5, window.PosY + window.textOffset);
-    window.textOffset+= 12;
-    ga('send', 'event', 'viewer', 'selected', message);
+    set_textRenderContext(ctx);
+    if(check_textRenderContext(ctx)) {
+      ctx.font = "12px Arial";
+      ctx.strokeStyle = 'white';
+      ctx.strokeText(message,window.PosX + 5, window.PosY + window.textOffset);
+      window.textOffset+= 12;
+      ga('send', 'event', 'viewer', 'selected', message);
+    }
     drawingText = false;
   }
 }
