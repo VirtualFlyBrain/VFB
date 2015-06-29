@@ -250,10 +250,8 @@
 			<a name="details"></a>
 			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
-				Click anywhere on the stack viewer or on any node of the
-				tree to select a domain.<br/><br/>
-				Annotations for the selected anatomical term will be displayed here, with further query options visible after selection.<br/><br/>
-				<b>Tip: </b> To keep your current domain/tree selection, open links in a new tab. Right/control click and select "Open link in new tab".
+				Click anywhere on the stack viewer or use the menus to select any anatomy.<br/><br/>
+				Annotations for the selected anatomical term will be displayed here, with further query options visible after selection.
 			</div>
 		</div>
 	</div>
