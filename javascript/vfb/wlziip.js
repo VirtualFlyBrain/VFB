@@ -824,8 +824,8 @@ function loadRightMenuDisplayed() {
       var rowD;
       var index = "-";
       var controls = "-";
-      var name = "?";
-      var type = "?";
+      var name = "*";
+      var type = "*";
       var solrAPI = "/search/select?";
       for (i in selected) {
         layer = selected[i];
@@ -878,12 +878,13 @@ function loadRightMenuDisplayed() {
                     break;
                   }
                 }
-              }else{
-                name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-                name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
-                name += '">';
-                name += cleanIdforExt(layer.id);
               }
+            }
+            if (name == "?") {
+              name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
+              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+              name += '">';
+              name += cleanIdforExt(layer.id);
             }
             name += '</span></a>';
             // Type:
