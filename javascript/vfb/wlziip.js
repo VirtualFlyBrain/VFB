@@ -550,6 +550,70 @@ function clearAllDisplayed() {
   updateStackData();
 }
 
+function createControlsBarHTML(id) {
+  id = cleanIdforInt(id);
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
+  var domains = parent.$("body").data("domains");
+  var html = '<div class="btn-group btn-group-justified" role="group" aria-label="control buttons" >';
+  var i;
+  var j;
+  var start = '<div class="btn-group" role="group">';
+  var end = '</div>';
+  var temp;
+  if (JSON.stringify(selected).indexOf(id)>-1){
+    for (i in selected) {
+      if (id == selected[i].id || id == selected[i].extid){
+        html += start + createInfoButtonHTML(selected[i]) + end;
+        html += start + createVisibleButtonHTML(selected[i],i) + end;
+        html += start + createColourButtonHTML(selected[i],i) + end;
+        if (selected[i].id.indexOf('VFBd_') > -1) {
+          for (j in parent.$("body").data("domains")) {
+            if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(selected[i].extid)) {
+              if (parent.$("body").data("domains")[j].domainData.domainCentre){
+                html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+              }
+              break;
+            }
+          }
+        }
+        if (selected[i].extid) {
+          html += start + createAddToQueryButtonHTML(selected[i].extid) + end;
+        }
+        if (i > 0) {
+          html += start + createCloseButtonHTML(selected[i]) + end;
+        }
+        break;
+      }
+    }
+  }else if (id.indexOf('FBbt_')>-1){
+    html += start + createInfoButtonHTMLbyId(id) + end;
+    html += start + createAddButtonHTML(id) + end;
+    for (j in parent.$("body").data("domains")) {
+      if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == id) {
+        if (parent.$("body").data("domains")[j].domainData.domainCentre){
+          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+        }
+        break;
+      }
+    }
+    html += start + createAddToQueryButtonHTML(id) + end;
+  }else if (id.indexOf('VFBd_')>-1) {
+    temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
+    for (j in parent.$("body").data("domains")) {
+      if (parent.$("body").data("domains")[j].domainData.domainId && parseInt(parent.$("body").data("domains")[j].domainData.domainId) == temp) {
+        if (parent.$("body").data("domains")[j].extId) {
+          html += start + createInfoButtonHTMLbyId(cleanIdforInt(parent.$("body").data("domains")[j].extId[0])) + end;
+          html += start + createAddToQueryButtonHTML(cleanIdforInt(parent.$("body").data("domains")[j].extId[0])) + end;
+        }
+        break;
+      }
+    }
+  }
+  html += end;
+  return html;
+}
+
 function updateLabels() {
   //console.log('Updating the controls...');
   try{
@@ -865,16 +929,8 @@ function loadRightMenuDisplayed() {
           // index:
           index = String(i);
           if (rowD === null || rowD[0] !== index || (rowD[2].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
-            // Details:
-            controls = createInfoButtonHTML(layer);
-            // visible:
-            controls += createVisibleButtonHTML(layer,i);
-            // Colour:
-            controls += createColourButtonHTML(layer,i);
-            // Remove:
-            if (i > 0) {
-              controls += createCloseButtonHTML(layer);
-            }
+            // Controls:
+            controls = createControlsBarHTML(layer.id);
             // Name:
             if (layer.id.indexOf("VFBd_") > -1) {
               temp = layer.extid;
@@ -933,31 +989,8 @@ function loadRightMenuDisplayed() {
               //console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
-            // Details:
-            controls = createInfoButtonHTML(layer);
-            // visible:
-            controls += createVisibleButtonHTML(layer,i);
-            // Colour:
-            controls += createColourButtonHTML(layer,i);
-            // Centre:
-            if (layer.id.indexOf('VFBd_') > -1) {
-              for (j in parent.$("body").data("domains")) {
-                if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(layer.extid)) {
-                  if (parent.$("body").data("domains")[j].domainData.domainCentre){
-                    controls += createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(','));
-                  }
-                  break;
-                }
-              }
-            }
-            // add to query:
-            if (layer.extid) {
-              controls += createAddToQueryButtonHTML(layer.extid);
-            }
-            // Remove:
-            if (i > 0) {
-              controls += createCloseButtonHTML(layer);
-            }
+            // Controls:
+            controls = createControlsBarHTML(layer.id);
             if (rowD[1] !== controls) {
               $('#displayed').dataTable().fnUpdate(controls,i,1, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
@@ -1208,8 +1241,7 @@ function addAvailableItems(ids) {
       }
       // Controls:
       if (temp.extId) {
-        controls = createInfoButtonHTMLbyId(cleanIdforExt(temp.extId[0]));
-        controls += createAddButtonHTML(cleanIdforExt(temp.extId[0]));
+        controls = createControlsBarHTML(cleanIdforInt(temp.extId[0]));
       }else{
         controls = "";
         alertMessage('Unable to resolve for:' + JSON.stringify(temp));
@@ -1249,12 +1281,7 @@ function addAvailableItems(ids) {
         }
       }
       // Controls:
-      controls = createInfoButtonHTMLbyId(cleanIdforExt(id));
-      if (JSON.stringify(selected).indexOf(temp) > -1) {
-        controls += createInfoButtonHTML(layer) + createVisibleButtonHTML(layer,layers) + createColourButtonHTML(layer,layers) + createCloseButtonHTML(layer);
-      }else{
-        controls += createAddButtonHTML(cleanIdforExt(id));
-      }
+      controls = createControlsBarHTML(id);
       // Name:
       if (temp.name){
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
