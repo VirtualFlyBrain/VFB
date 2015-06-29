@@ -38,7 +38,16 @@
 			var queryText = "${queryText}";
 			if (queryText != "") {
 				$('#query_text').html(queryText);
-				$('#query_count').load(url+'?'+params);
+				$('#query_count').load(url+'?'+params, function() {
+					if ($("#query_count").text() == "Records found: 0"){
+						$("#query_count").removeClass("bg-success").addClass("bg-danger");
+					}else{
+						$("#query_count").addClass("bg-success").removeClass("bg-danger");
+					}
+					if ($("#query_count").text().indexOf('Records found: ')>-1){
+						$("#query_count").html('Records found: <span class="badge">'+$("#query_count").text().replace('Records found: ', '')+'</span>')
+					}
+				});
 			}else{
 				$('#query_text').html(tip);
 			}
@@ -87,18 +96,6 @@
 			<div id="query_text" class="lead"></div>
 			<div id="query_count" class="lead"></div>
 
-			<script>
-				window.setInterval(function(){
-					if ($("#query_count").text() == "Records found: 0"){
-						$("#query_count").removeClass("bg-success").addClass("bg-danger");
-					}else{
-						$("#query_count").addClass("bg-success").removeClass("bg-danger");
-					}
-					if ($("#query_count").text().indexOf('Records found: ')>-1){
-						$("#query_count").html('Records found: <span class="badge">'+$("#query_count").text().replace('Records found: ', '')+'</span>')
-					}
-				},5000);
-			</script>
 		</form>
 		<c:if test="${fn:length(arguments) > 0 }" >
 			<!-- Show:
