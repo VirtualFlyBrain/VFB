@@ -844,7 +844,11 @@ function createCloseButtonHTML(layer) {
   var content = "";
   if (layer) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
-    content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
+    if (layer.extid) {
+      content += "removeFromStackData('" + layer.extid + "');updateWlzDisplay();updateMenuData();";
+    }else{
+      content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
+    }
     content += '"><span style="border:none;" class="glyphicon glyphicon-trash"></span></button>';
   }
   return content;
