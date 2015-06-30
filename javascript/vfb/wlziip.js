@@ -7,6 +7,7 @@ window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
+var imageDist = 1;
 
 function updateWlzDisplay(){
   updateStackData();
@@ -33,6 +34,7 @@ function animateWlzDisplay(){
     var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
       var layers = Object.keys(selected).length;
+      var updated = false;
       if (layers > 0){
         var count = 0;
         var i;
@@ -43,8 +45,12 @@ function animateWlzDisplay(){
           if (selected[i].visible){
             if (!image[i]){
               image[i] = document.createElement('img');
+              updated = true;
             }
-            image[i].src = generateWlzURL(i);
+            if (image[i].src !== generateWlzURL(i);){
+              image[i].src = generateWlzURL(i);
+              updated = true;
+            }
             if (count===0){
               if (current.alpha==220 || current.alpha==100){
                 if (JSON.stringify(selected).indexOf('VFBi_')>-1){
@@ -103,6 +109,34 @@ function animateWlzDisplay(){
               current.alpha = 220;
               count++;
             }
+          }
+        }
+        if (window.reloadInterval > 1000) {
+          if (!updated && imageDist < 100) {
+            var dist = current.dst;
+            current.dst = dist + imageDist;
+            for (j in selected) {
+              i++;
+              if (!image[i]){
+                image[i] = document.createElement('img');
+              }
+              if (image[i].src !== generateWlzURL(i);){
+                image[i].src = generateWlzURL(i);
+              }
+            }
+            current.dst = dist - imageDist;
+            for (j in selected) {
+              i++;
+              if (!image[i]){
+                image[i] = document.createElement('img');
+              }
+              if (image[i].src !== generateWlzURL(i);){
+                image[i].src = generateWlzURL(i);
+              }
+            }
+            current.dst = dist;
+          }else{
+            imageDist = 1;
           }
         }
       }
