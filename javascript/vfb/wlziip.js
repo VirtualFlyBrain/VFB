@@ -504,6 +504,19 @@ function initWlzControls() {
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
+   $("body").on('click', "#slider-alphaCurrentSliderValLabel", function(){
+     if ($("#slider-alphaCurrentSlider").is(":visible")){
+       $("#slider-alphaCurrentSlider").hide();
+       $("#slider-alphaCurrentSliderValLabel .glyphicon").show();
+       $("#slider-alphaCurrentSliderValLabel").removeClass("active");
+     }else{
+       hideAllSliders();
+       $("#slider-alphaCurrentSlider").show();
+       $("#slider-alphaCurrentSliderValLabel .glyphicon").hide();
+       $("#slider-alphaCurrentSliderValLabel").addClass("active");
+       $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focus();
+     }
+   });
    $("body").on('click', "#resetPosition", function(){
      hideAllSliders();
      var text = '{ "scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
