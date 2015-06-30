@@ -578,7 +578,7 @@ function createControlsBarHTML(id) {
           }
         }
         if (selected[i].extid) {
-          html += start + createAddToQueryButtonHTML(selected[i].extid) + end;
+          html += start + createAddToQueryButtonHTMLfinal(selected[i].extid) + end;
         }
         if (i > 0) {
           html += start + createCloseButtonHTML(selected[i]) + end;
@@ -597,14 +597,14 @@ function createControlsBarHTML(id) {
         break;
       }
     }
-    html += start + createAddToQueryButtonHTML(id) + end;
+    html += start + createAddToQueryButtonHTMLfinal(id) + end;
   }else if (id.indexOf('VFBd_')>-1) {
     temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
     for (j in parent.$("body").data("domains")) {
       if (parent.$("body").data("domains")[j].domainData.domainId && parseInt(parent.$("body").data("domains")[j].domainData.domainId) == temp) {
         if (parent.$("body").data("domains")[j].extId) {
           html += start + createInfoButtonHTMLbyId(cleanIdforInt(parent.$("body").data("domains")[j].extId[0])) + end;
-          html += start + createAddToQueryButtonHTML(cleanIdforInt(parent.$("body").data("domains")[j].extId[0])) + end;
+          html += start + createAddToQueryButtonHTMLfinal(cleanIdforInt(parent.$("body").data("domains")[j].extId[0])) + end;
         }
         break;
       }
@@ -853,6 +853,13 @@ function createCloseButtonHTML(layer) {
 function createAddButtonHTML(id) {
   var content = '<span style="border:none;" id="attach" data-id="' + cleanIdforInt(id) + '"></span>';
   return content;
+}
+
+function createAddToQueryButtonHTMLfinal(id) {
+  var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
+  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');";
+  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
+  return text;
 }
 
 function createCentreButtonHTML(fxp) {
