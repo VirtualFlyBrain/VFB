@@ -241,7 +241,7 @@ function updatePosition() {
   maximizeMenuTabs();
   drawCircle();
   SelectedIndex = 0;
-  window.reloadInterval = 1000;
+  window.reloadInterval = 5000;
   $('#selected').dataTable().fnClearTable();
   $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
   SelectedIndex++;
