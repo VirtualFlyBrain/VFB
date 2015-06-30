@@ -468,7 +468,7 @@ function initWlzControls() {
      ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
    });
    var slAlpha = $("#slider-alpha").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 0, max: 100, step: 1, value: Math.round((1.0-(parseInt(parent.$("body").data("current").alpha)/255.0))*100.0), focus: true});
-   slalpha.on('slide', function(ev){
+   slAlpha.on('slide', function(ev){
      parent.$("body").data("current").alpha = Math.round(((100-parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
    });
