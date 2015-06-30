@@ -75,6 +75,7 @@ function loadTemplateMeta(id) {
 
 function createAddButtonHTMLfinal(id) {
   id = cleanIdforInt(id);
+  var content="";
   if (parent.$("body").data("available").indexOf(id) > -1 || id.indexOf('VFB') > -1) {
     if(JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected).indexOf(id) > -1) {
       content += '<button type="button" class="btn btn-success btn-xs" aria-label="Remove from stack viewer" title="Currently added to stack viewer; click to remove" onClick="';

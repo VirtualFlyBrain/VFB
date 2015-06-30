@@ -1194,11 +1194,11 @@ function createTreeHTML(treeStruct) {
     html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[id].name +'</span> ';
     if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
-      html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + cleanIdforInt($("body").data("domains")[id].extId[0]) + "'>";
+      //html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + cleanIdforInt($("body").data("domains")[id].extId[0]) + "'>";
 
       html += createControlsBarHTML(temp)
 
-      html += "</span>";
+      //html += "</span>";
     }else{
       temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
