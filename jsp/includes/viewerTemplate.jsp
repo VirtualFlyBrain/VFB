@@ -57,6 +57,9 @@
 			<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
 			<div id="slider-scaleCurrentSlider" style="display:initial;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
 			<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
+			<div class="btn btn-default btn-xs hidden-xs" title="Ajust then image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel">Alpha: <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
+			<div id="slider-alphaCurrentSlider" class="hidden-xs" style="display: initial;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
+			</div>
 			<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
 				data-placement="bottom"
 				title="Image Attribution"

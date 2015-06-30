@@ -467,6 +467,17 @@ function initWlzControls() {
      parent.$("body").data("disp", "scale");
      ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
    });
+   var slAlpha = $("#slider-alpha").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 0, max: 100, step: 1, value: Math.round((1.0-(parseInt(parent.$("body").data("current").alpha)/255.0))*100.0), focus: true});
+   slalpha.on('slide', function(ev){
+     parent.$("body").data("current").alpha = Math.round(((100-parseInt(ev.value))/100.0)*255.0);
+     $("#slider-alphaSliderVal").text(String(ev.value)+'%');
+   });
+   slAlpha.on('slideStop', function(ev){
+     parent.$("body").data("current").alpha = Math.round(((100-parseInt(ev.value))/100.0)*255.0);
+     $("#slider-alphaSliderVal").text(String(ev.value)+'%');
+     updateWlzDisplay();
+     ga('send', 'event', 'viewer', 'alpha', String(Math.round(((100-parseInt(ev.value))/100.0)*255.0)));
+   });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
        $("#slider-scaleCurrentSlider").hide();
@@ -625,6 +636,8 @@ function updateLabels() {
       $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
       $('#slider-scale').bootstrapSlider('setValue', parseFloat(parseFloat(parent.$("body").data("current").scl).toFixed(1)));
       $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+      $("#slider-alphaSliderVal").text(String(Math.round((1.0-(parseInt(parent.$("body").data("current").alpha)/255.0))*100.0))+'%');
+      $('#slider-alpha').bootstrapSlider('setValue', Math.round((1.0-(parseInt(parent.$("body").data("current").alpha)/255.0))*100.0));
       var pos = parent.$("body").data("current").fxp.split(',');
       for (var i=0; i<3; i++){
         pos[i] = String(parseInt(pos[i])+1);
