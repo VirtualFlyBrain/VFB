@@ -50,7 +50,7 @@ public class IndividualFlmStripController extends AbstractController{
 		try{
 			this.obm.getBeanListForQuery(actionStr);
 		}catch (Exception e){
-			LOG.error("Failed to load filmstrip bean list for query: " + actionStr + " with error " + String(e));
+			LOG.error("Failed to load filmstrip bean list for query: " + actionStr + " with error " + e.toString());
 		}
 		results = obm.getCompleteSet();
 
