@@ -550,12 +550,12 @@ function initWlzControls() {
    $("body").on('click', "#slider-alphaCurrentSliderValLabel", function(){
      if ($("#slider-alphaCurrentSlider").is(":visible")){
        $("#slider-alphaCurrentSlider").hide();
-       $("#slider-alphaCurrentSliderValLabel .glyphicon").show();
+       $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
        $("#slider-alphaCurrentSliderValLabel").removeClass("active");
      }else{
        hideAllSliders();
        $("#slider-alphaCurrentSlider").show();
-       $("#slider-alphaCurrentSliderValLabel .glyphicon").hide();
+       $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").hide();
        $("#slider-alphaCurrentSliderValLabel").addClass("active");
        $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focus();
      }
