@@ -102,7 +102,7 @@ function animateWlzDisplay(){
     window.setTimeout(function(){
       requestAnimationFrame(step);
       if (window.reloadInterval < 30000) {
-        window.reloadInterval = window.reloadInterval + 100;
+        window.reloadInterval = window.reloadInterval + 10;
       }
     }, window.reloadInterval);
   }

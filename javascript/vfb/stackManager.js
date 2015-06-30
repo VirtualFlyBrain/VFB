@@ -162,7 +162,7 @@ function updateStackData(){
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
-    window.reloadInterval = 500;
+    window.reloadInterval = 10;
   }
 }
 
