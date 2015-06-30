@@ -250,7 +250,7 @@ function minimizeMenuTabs() {
   $('#SearchMenuTab').hide();
   $('#SelecMenuTab').hide();
   $('#QueryMenuTab').hide();
-  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
+  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
   $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
   $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
 }
@@ -266,7 +266,7 @@ function maximizeMenuTabs() {
   $('#SearchMenuTab').show();
   $('#SelecMenuTab').show();
   $('#QueryMenuTab').show();
-  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
+  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
 }
@@ -717,7 +717,7 @@ function updateLabels() {
                 $(this).id = "Resolved" + $(this).id;
               }
             });
-            $(this).attr("onClick", $("#infoButtonFor" + content).attr("onClick"));
+            $(this).attr("onclick", $("#infoButtonFor" + content).attr("onclick"));
             break;
           case "VFBt":
             $(this).text(parent.$("body").data("meta").name);
@@ -733,7 +733,7 @@ function updateLabels() {
                 $(this).id = "Resolved" + $(this).id;
               }
             });
-            $(this).attr("onClick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onClick"));
+            $(this).attr("onclick", $("#" + $(this).attr("id").replace("nameFor","infoButtonFor")).attr("onclick"));
             break;
           default:
             alertMessage("unable to resolve name for id:" + content);
@@ -844,7 +844,7 @@ function setOrientaion(ori) {
 function createInfoButtonHTML(layer) {
   var content = "";
   if (layer) {
-    content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+    content += '<button type="button" id="infoButtonFor' + cleanIdforExt(layer.id) + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onclick="';
     switch (layer.id.substr(0,4)) {
       case "VFBt":
         content += "$('#anatomyDetails').html($('#imageAttributesText').html());";
@@ -864,7 +864,7 @@ function createInfoButtonHTMLbyId(id) {
   var content = "";
   if (id) {
     id = cleanIdforExt(id);
-    content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onClick="';
+    content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onclick="';
     switch (id.substr(0,4)) {
       case "VFBt":
         content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
@@ -883,11 +883,11 @@ function createVisibleButtonHTML(layer,i) {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     if (layer.visible) {
-      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onclick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');";
       content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
-      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
+      content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onclick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();ga('send', 'event', 'viewer', 'show', '" + layer.name + "');";
       content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
@@ -904,7 +904,7 @@ function createColourButtonHTML(layer,i) {
     }else{
       temp = layer.colour;
     }
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onclick="';
     content += "updateWlzDisplay();updateMenuData();";
     content += '" style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
   }
@@ -914,7 +914,7 @@ function createColourButtonHTML(layer,i) {
 function createCloseButtonHTML(layer) {
   var content = "";
   if (layer) {
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
+    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onclick="';
     content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
     content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-trash"></span></button>';
   }
@@ -935,7 +935,7 @@ function createAddToQueryButtonHTMLfinal(id) {
 
 function createCentreButtonHTML(fxp) {
   var html;
-  html = '<button class="btn btn-xs" title="center" onClick="';
+  html = '<button class="btn btn-xs" title="center" onclick="';
   html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
   html += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
