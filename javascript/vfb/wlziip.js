@@ -1158,14 +1158,9 @@ function updateAnatomyTree() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var l;
-    $('[id^=buttonsForVFB]').each(function() {
+    $('[id^=buttonsFor]').each(function() {
       $(this).html(createControlsBarHTML($(this).data("extid")));
     });
-    var layer;
-    for (l in selected) {
-      layer = selected[l];
-      $('#buttonsFor' + layer.id).html(createControlsBarHTML(layer.id));
-    }
     generateAddButtons();
   }
 }
@@ -1200,28 +1195,13 @@ function createTreeHTML(treeStruct) {
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + cleanIdforInt($("body").data("domains")[id].extId[0]) + "'>";
 
-      if (JSON.stringify(selected).indexOf(temp) > -1) {
-        for (l in selected) {
-          if (selected[l].id == temp) {
-            layer = selected[l];
-            html += createInfoButtonHTML(layer);
-            if (layer.extid) {
-              html += createAddToQueryButtonHTML(layer.extid);
-            }else{
-              html += createAddToQueryButtonHTML($("body").data("domains")[id].extId[0]);
-            }
-            html += createVisibleButtonHTML(layer,l) + createColourButtonHTML(layer,l) + createCloseButtonHTML(layer);
-            break;
-          }
-        }
-      }else{
-        html += createInfoButtonHTMLbyId($("body").data("domains")[id].extId[0]) + createAddToQueryButtonHTML($("body").data("domains")[id].extId[0]) + createAddButtonHTML(temp);
-      }
+      html += createControlsBarHTML(temp)
+
       html += "</span>";
     }else{
       temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
       html += "<span id='buttonsFor" + temp + "' data-id='" + temp + "' data-extid='" + temp + "'>";
-      html += createInfoButtonHTMLbyId(temp) + createAddToQueryButtonHTML(temp);
+      html += createControlsBarHTML(temp);
       html += "</span>";
     }
     if (node.children) {
