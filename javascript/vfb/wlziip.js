@@ -488,6 +488,7 @@ function initWlzControls() {
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
      $("#slider-sliceSliderVal").text(ev.value);
+     window.reloadInterval = 10;
    });
    slSlice.on('slideStop', function(ev){
      orient = parent.$("body").data("current").slice;
@@ -501,6 +502,7 @@ function initWlzControls() {
      parent.$("body").data("current").scl = ev.value.toFixed(1);
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      parent.$("body").data("disp", "scale");
+     window.reloadInterval = 10;
    });
    slScale.on('slideStop', function(ev){
      parent.$("body").data("current").scl = ev.value.toFixed(1);
