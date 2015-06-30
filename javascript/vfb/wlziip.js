@@ -6,6 +6,7 @@ window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
+var image = [];
 
 function updateWlzDisplay(){
   updateStackData();
@@ -34,14 +35,15 @@ function animateWlzDisplay(){
       var layers = Object.keys(selected).length;
       if (layers > 0){
         var count = 0;
-        var image = [];
         var i;
         var current = parent.$("body").data("current");
         var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
         var orient = current.slice;
         for (i in selected) {
           if (selected[i].visible){
-            image[i] = document.createElement('img');
+            if (!image[i]){
+              image[i] = document.createElement('img');
+            }
             image[i].src = generateWlzURL(i);
             if (count===0){
               if (current.alpha==220 || current.alpha==100){
@@ -50,7 +52,6 @@ function animateWlzDisplay(){
                 }else{
                   current.alpha = 220;
                 }
-
               }
               if (parent.$("body").data("disp") == "scale"){
                 if (parent.$("body").data("meta")){
