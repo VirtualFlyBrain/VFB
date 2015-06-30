@@ -87,10 +87,10 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="${helpURL}" target="_new">Help for the current page</a></li>
 	            <li><a href="/site/vfb_site/faq.htm">FAQ</a></li>
 	            <li><a href="/site/vfb_site/tutorial.htm">Tutorials</a></li>
 	            <li><a href="http://www.youtube.com/playlist?list=PL8E3BDD1BA565B4FD" target="_new">Tutorial Videos</a></li>
+							<li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_new">Support Forum</a></li>
 	          </ul>
 	        </li>
 	      </ul>
