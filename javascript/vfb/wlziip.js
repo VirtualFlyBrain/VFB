@@ -135,6 +135,7 @@ function animateWlzDisplay(){
               }
             }
             current.dst = dist;
+            imageDist ++;
           }else{
             imageDist = 1;
           }
