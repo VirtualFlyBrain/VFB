@@ -139,16 +139,6 @@
 	</c:if>
 
 	<div class="row" id="cookie-warning" style="display: none;">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="alert alert-info alert-dismissible" role="alert" id="info-char">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<center>
-						<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.
-						By continuing to use our website, you agree to the use of cookies. <br>
-						If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.
-					</center>
-				</div>
-			</div>
 	</div>
 
 	<%-- <div id="alert_message" class="alert alert-warning" style="display: none;">

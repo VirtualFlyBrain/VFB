@@ -7,6 +7,7 @@ window.reloadInterval = 10;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 
 function updateStackCounter() {
+  var html;
   if ($.cookie("displaying")) {
     var stack = expandCookieDisplayed();
     if (stack.current){
@@ -15,11 +16,23 @@ function updateStackCounter() {
       if ($.isFunction($.cookie)){
         if ($.cookie('cookie-box') === undefined){
   				$('#cookie-warning').show();
+          html = '<div class="col-md-8 col-md-offset-2">';
+    			html += '<div class="alert alert-info alert-dismissible" role="alert" id="info-char">';
+    			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    			html += '<center>';
+    			html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.';
+    			html += 'By continuing to use our website, you agree to the use of cookies. <br>';
+    			html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
+    			html += '</center>';
+    			html += '</div>';
+    			html += '</div>';
+          $('#cookie-warning').html(html);
   			}else{
   				$('#cookie-warning').hide();
   			}
         if( $.cookie('dev-box') === undefined ){
           $('#dev-warning').show();
+          
         }else{
           $('#dev-warning').hide();
         }
