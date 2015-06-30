@@ -120,7 +120,7 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src !== generateWlzURL(i);){
+              if (image[i].src !== generateWlzURL(i)){
                 image[i].src = generateWlzURL(i);
               }
             }
@@ -130,7 +130,7 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src !== generateWlzURL(i);){
+              if (image[i].src !== generateWlzURL(i)){
                 image[i].src = generateWlzURL(i);
               }
             }
