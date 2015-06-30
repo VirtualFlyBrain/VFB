@@ -853,7 +853,7 @@ function createInfoButtonHTML(layer) {
       default:
         content += "openFullDetails('" + cleanIdforExt(layer.id) + "')";
     }
-    content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
+    content += '"><span style="border:none;padding-left:0px;padding-right:0px;;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
   return content;
 }
@@ -870,7 +870,7 @@ function createInfoButtonHTMLbyId(id) {
       default:
         content += "openFullDetails('" + id + "')";
     }
-    content += '"><span style="border:none;" class="glyphicon glyphicon-info-sign"></span></button>';
+    content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
   return content;
 }
@@ -883,11 +883,11 @@ function createVisibleButtonHTML(layer,i) {
     if (layer.visible) {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onClick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');";
-      content += '"><span style="border:none;" class="glyphicon glyphicon-eye-open"></span></button>';
+      content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onClick="';
       content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();ga('send', 'event', 'viewer', 'show', '" + layer.name + "');";
-      content += '"><span style="border:none;" class="glyphicon glyphicon-eye-close"></span></button>';
+      content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
   }
   return content;
@@ -904,7 +904,7 @@ function createColourButtonHTML(layer,i) {
     }
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onClick="';
     content += "updateWlzDisplay();updateMenuData();";
-    content += '" style="background:rgb(' + temp + ');"><span style="border:none;" class="glyphicon glyphicon-tint"></span></button>';
+    content += '" style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
   }
   return content;
 }
@@ -914,20 +914,20 @@ function createCloseButtonHTML(layer) {
   if (layer) {
     content += '<button type="button" class="btn btn-default btn-xs" aria-label="Remove" title="Remove" onClick="';
     content += "removeFromStackData('" + layer.id + "');updateWlzDisplay();updateMenuData();";
-    content += '"><span style="border:none;" class="glyphicon glyphicon-trash"></span></button>';
+    content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-trash"></span></button>';
   }
   return content;
 }
 
 function createAddButtonHTML(id) {
-  var content = '<span style="border:none;" id="attach" data-id="' + cleanIdforInt(id) + '"></span>';
+  var content = '<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="' + cleanIdforInt(id) + '"></span>';
   return content;
 }
 
 function createAddToQueryButtonHTMLfinal(id) {
   var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
   text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');";
-  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
+  text += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span></a>';
   return text;
 }
 
@@ -935,7 +935,7 @@ function createCentreButtonHTML(fxp) {
   var html;
   html = '<button class="btn btn-xs" title="center" onClick="';
   html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
-  html += '"><span style="border:none;" class="glyphicon glyphicon-screenshot"></span></button>';
+  html += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
 }
 
@@ -1132,7 +1132,7 @@ function loadTemplateAnatomyTree() {
                     $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
                 } else {
                     children.show('fast');
-                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;"></span>');
+                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;padding-left:0px;padding-right:0px;"></span>');
                 }
                 e.stopPropagation();
             });
@@ -1171,7 +1171,7 @@ function removeAllDomains() {
 function expandTree() {
   var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
   children.show('fast');
-  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;"></span>');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Collapse this branch');
   ga('send', 'event', 'viewer', 'tree_expand', parent.$("body").data("current").template);
 }
@@ -1179,13 +1179,13 @@ function expandTree() {
 function collapseTree() {
   var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
   children.hide('fast');
-  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;"></span>');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
   ga('send', 'event', 'viewer', 'tree_collapse', parent.$("body").data("current").template);
 }
 
 function createAddToQueryButtonHTML(id) {
-  return '<span id="addToQuery" style="border:none;" title="Add to query" data-id="' + cleanIdforInt(id) + '"></span>';
+  return '<span id="addToQuery" style="border:none;padding-left:0px;padding-right:0px;" title="Add to query" data-id="' + cleanIdforInt(id) + '"></span>';
 }
 
 function updateAnatomyTree() {
@@ -1225,7 +1225,7 @@ function createTreeHTML(treeStruct) {
         }
       }
     }
-    html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;"></span></b>'+ $("body").data("domains")[id].name + ' ';
+    html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b>'+ $("body").data("domains")[id].name + ' ';
     if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
       temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
       html += createControlsBarHTML(temp);
