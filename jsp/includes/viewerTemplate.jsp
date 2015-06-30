@@ -101,7 +101,7 @@
 					});
 				});
 			</script>
-			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv">Centered on: <span id="positionVal" class="badge">X,Y,Z</span></div>
+			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv"><span class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" class="badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;">Your browser does not support the HTML5 canvas tag.</canvas>
 		<script>
