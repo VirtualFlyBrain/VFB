@@ -118,7 +118,7 @@
 			  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
 			  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
 			  <li id="SearchMenuTab"><a href="#search" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Build Query</a></li>
+				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query</a></li>
 				<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
 			</ul>
 			<div class="tab-content">
