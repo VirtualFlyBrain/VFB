@@ -282,6 +282,7 @@ function initStackData(ids) {
     alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
+    location.reload();
   }
   loadTemplateMeta(parent.$("body").data("current").template);
   updateStackData();
