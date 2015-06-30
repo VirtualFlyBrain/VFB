@@ -32,7 +32,15 @@ function updateStackCounter() {
   			}
         if( $.cookie('dev-box') === undefined ){
           $('#dev-warning').show();
-          
+          html = '<div class="col-md-8 col-md-offset-2">';
+					html += '<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">';
+					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+					html += '<center>';
+					html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
+					html += '</center>';
+					html += '</div>';
+					html += '</div>';
+          $('#dev-warning').html(html);
         }else{
           $('#dev-warning').hide();
         }
