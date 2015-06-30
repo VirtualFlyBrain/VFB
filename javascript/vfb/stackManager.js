@@ -362,6 +362,7 @@ function addToStackData(ids){
               text = '{"id":"' + id + '","colour":"auto","visible":true}';
               layers = Object.keys(selected).length;
               selected[layers] = JSON.parse(text);
+              parent.$("body").data("current").alpha = 100;
             }
           }else if (id.indexOf("VFBd_") > -1){
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;

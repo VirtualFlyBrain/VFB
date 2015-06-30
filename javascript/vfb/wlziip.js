@@ -44,11 +44,11 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (current.alpha==200 || current.alpha==100 || current.alpha==255){
+              if (current.alpha==220 || current.alpha==100){
                 if (JSON.stringify(selected).indexOf('VFBi_')>-1){
                   current.alpha = 100;
                 }else{
-                  current.alpha = 255;
+                  current.alpha = 220;
                 }
 
               }
@@ -99,7 +99,7 @@ function animateWlzDisplay(){
                 ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
               }
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-              current.alpha = 200;
+              current.alpha = 220;
               count++;
             }
           }
