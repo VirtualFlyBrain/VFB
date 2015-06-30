@@ -47,7 +47,7 @@ function animateWlzDisplay(){
               image[i] = document.createElement('img');
               updated = true;
             }
-            if (image[i].src !== generateWlzURL(i)){
+            if (image[i].src.indexOf(generateWlzURL(i))<0){
               image[i].src = generateWlzURL(i);
               updated = true;
             }
@@ -120,7 +120,7 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src !== generateWlzURL(i)){
+              if (image[i].src.indexOf(generateWlzURL(i)<0){
                 image[i].src = generateWlzURL(i);
               }
             }
@@ -130,7 +130,7 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src !== generateWlzURL(i)){
+              if (image[i].src.indexOf(generateWlzURL(i)<0){
                 image[i].src = generateWlzURL(i);
               }
             }
