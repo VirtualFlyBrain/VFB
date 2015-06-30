@@ -621,7 +621,7 @@ function createControlsBarHTML(id) {
     }
   }else if (id.indexOf('FBbt_')>-1){
     html += start + createInfoButtonHTMLbyId(id) + end;
-    html += start + createAddButtonHTML(id) + end;
+    html += start + createAddButtonHTMLfinal(id) + end;
     for (j in parent.$("body").data("domains")) {
       if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == id) {
         if (parent.$("body").data("domains")[j].domainData.domainCentre){
