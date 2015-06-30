@@ -120,8 +120,8 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src.indexOf(generateWlzURL(i))<0){
-                image[i].src = generateWlzURL(i);
+              if (image[i].src.indexOf(generateWlzURL(j))<0){
+                image[i].src = generateWlzURL(j);
               }
             }
             current.dst = dist - imageDist;
@@ -130,8 +130,8 @@ function animateWlzDisplay(){
               if (!image[i]){
                 image[i] = document.createElement('img');
               }
-              if (image[i].src.indexOf(generateWlzURL(i))<0){
-                image[i].src = generateWlzURL(i);
+              if (image[i].src.indexOf(generateWlzURL(j))<0){
+                image[i].src = generateWlzURL(j);
               }
             }
             current.dst = dist;
