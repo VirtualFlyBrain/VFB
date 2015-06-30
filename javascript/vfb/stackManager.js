@@ -340,9 +340,9 @@ function alertMessage(message) {
 
 function openFullDetails(id) {
   if ($('#anatomyDetails')) {
-    $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
     id = cleanIdforExt(id);
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
+      $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
       $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
     }else{
       alertMessage("Can't directly open details for:" + id);
