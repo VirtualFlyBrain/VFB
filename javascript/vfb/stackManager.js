@@ -295,14 +295,6 @@ function pad(num, size) {
 function alertMessage(message) {
   console.log(message);
   ga('send', 'event', 'code', 'alert', message);
-  // Needs Fixing:
-  $('#alert-message-text').text(message);
-  $('#alert_message').show();
-  window.setTimeout(function() {
-      $("#alert_message").fadeTo(500, 0).slideUp(500, function(){
-          $(this).remove();
-      });
-  }, 3000);
 }
 
 function openFullDetails(id) {

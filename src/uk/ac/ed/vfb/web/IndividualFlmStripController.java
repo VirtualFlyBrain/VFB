@@ -47,7 +47,11 @@ public class IndividualFlmStripController extends AbstractController{
 		// Initial request - here we initialise the bean and run the query
 		String actionStr;
 		actionStr = WebQueryUtils.getDefString(action, id);
-		this.obm.getBeanListForQuery(actionStr);
+		try{
+			this.obm.getBeanListForQuery(actionStr);
+		}catch (e){
+			alertMessage("Failed to load filmstrip for query: " + actionStr + " with error " + String(e));
+		}
 		results = obm.getCompleteSet();
 
 		modelAndView.addObject("ontBeanList", results);
