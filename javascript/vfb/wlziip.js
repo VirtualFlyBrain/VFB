@@ -44,8 +44,13 @@ function animateWlzDisplay(){
             image[i] = document.createElement('img');
             image[i].src = generateWlzURL(i);
             if (count===0){
-              if (current.alpha==200){
-                current.alpha = 100;
+              if (current.alpha==200 || current.alpha==100 || current.alpha==255){
+                if (JSON.stringify(selected).indexOf('VFBi_')>-1){
+                  current.alpha = 100;
+                }else{
+                  current.alpha = 255;
+                }
+
               }
               if (parent.$("body").data("disp") == "scale"){
                 if (parent.$("body").data("meta")){
