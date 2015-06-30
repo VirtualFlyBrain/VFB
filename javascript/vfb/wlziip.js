@@ -477,6 +477,7 @@ function initWlzControls() {
    slAlpha.on('slideStop', function(ev){
      parent.$("body").data("current").alpha = Math.round(((100-parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
+     parent.$("body").data("disp") == "clear";
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'alpha', String(Math.round(((100-parseInt(ev.value))/100.0)*255.0)));
    });
