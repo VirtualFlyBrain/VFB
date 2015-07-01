@@ -353,6 +353,7 @@ function openFullDetails(id) {
 
 function addToStackData(ids){
   if (ids !== undefined && ids !== null) {
+    window.reloadInterval = 10;
     if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains")&& parent.$("body").data("colours")) {
       var id;
       var i;
@@ -476,6 +477,7 @@ function addToStackData(ids){
 
 function removeFromStackData(ids) {
   if (ids !== undefined && ids !== null) {
+    window.reloadInterval = 10;
     var i;
     var l;
     var id;
