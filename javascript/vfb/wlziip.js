@@ -1370,16 +1370,18 @@ function addAvailableItems(ids) {
     }
     $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
     SelectedIndex++;
-    if (temp.extid){
-      id=temp.extid;
-    }
   }
   $('#selected').dataTable().fnAdjustColumnSizing(false);
   $('#selected').DataTable().draw(false);
   $(".dataTables_paginate li").css("margin", 0);
   $(".dataTables_paginate li").css("padding", 0);
   updateLabels();
-  openFullDetails(id);
+  if (temp.extid){
+    id=temp.extid;
+  }
+  if (id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
+    openFullDetails(id);
+  }
 }
 
 function copyUrlToClipboard() {
