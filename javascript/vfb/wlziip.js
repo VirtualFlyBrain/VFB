@@ -111,7 +111,7 @@ function animateWlzDisplay(){
             }
           }
         }
-        if (window.reloadInterval > 1000) {
+        if (window.reloadInterval > 2000) {
           if (!updated && imageDist < 100) {
             var dist = current.dst;
             current.dst = dist + imageDist;
