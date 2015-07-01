@@ -135,10 +135,12 @@ function animateWlzDisplay(){
               }
             }
             current.dst = dist;
-            imageDist ++;
+            imageDist++;
           }else{
             imageDist = 1;
           }
+        }else{
+          imageDist = 1;
         }
       }
     }
