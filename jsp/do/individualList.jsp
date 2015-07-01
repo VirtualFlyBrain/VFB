@@ -60,7 +60,7 @@
 									<c:choose>
 										<c:when test="${!empty tpb}">
 											<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
-											<button type="button" class="btn btn-default btn-xs" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
+											<button type="button" class="btn btn-xs btn-success" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
 												onClick="addToStackData('${tpb.vfbId}')"><span class="glyphicon glyphicon-paperclip"></span></buton>
 										</c:when>
 										<c:otherwise>
