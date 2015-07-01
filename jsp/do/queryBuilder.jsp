@@ -58,11 +58,11 @@
 	<script type="text/javascript">
 		function execOntQuery()
 		{
-			window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
+			window.open('/do/ont_query_result.html?action=multiquery','_top'); return false;
 		}
 		function execDBQuery()
 		{
-			window.open('/do/gene_list.html?action=multiquery','_blank'); return false;
+			window.open('/do/gene_list.html?action=multiquery','_top'); return false;
 		}
 	</script>
 
