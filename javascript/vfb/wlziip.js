@@ -137,7 +137,9 @@ function animateWlzDisplay(){
             current.dst = dist;
             imageDist++;
           }else{
-            imageDist = 1;
+            if (updated){
+              imageDist = 1;
+            }
           }
         }else{
           imageDist = 1;
