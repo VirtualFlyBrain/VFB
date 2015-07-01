@@ -294,10 +294,21 @@ function expandCookieDisplayed() {
   return data;
 }
 
+function defaultScaleByScreen() {
+  var scale = 1.0;
+  if (window.screenX < 1950) {
+    scale = 0.9;
+  }
+  if (window.screenX < 1000) {
+    scale = 0.5;
+  }
+  return scale;
+}
+
 function loadDefaultData(ids) {
   loadTemplateMeta("VFBt_001");
   var count = 0;
-  var text = '{ "template": "VFBt_001","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+  var text = '{ "template": "VFBt_001","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
   parent.$("body").data("current", JSON.parse(text));
   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
   if (ids !== undefined && ids !== null && ids !== "") {
@@ -376,7 +387,7 @@ function addToStackData(ids){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
              loadTemplateMeta(id);
-             text = '{ "template": "' + id + '","scl":1.0,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
+             text = '{ "template": "' + id + '","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
              parent.$("body").data("current",JSON.parse(text));
              updateStackData();
              if (!parent.$("body").data(id)){

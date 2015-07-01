@@ -113,7 +113,7 @@
 		</script>
 	</div>
 
-	<div class="col-md-5 col-lg-6" id="right-panel">
+	<div class="col-md-5 col-lg-6" id="right-panel" style="min-width:640px;">
 		<div class="well">
 			<ul class="nav nav-tabs nav-justified">
 			  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-screenshot"></span> Selected</a></li>
