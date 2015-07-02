@@ -5,7 +5,11 @@ window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
-var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',C:'VFBt_002!2S!20!2i!6VFBt_00200000!4N!6Ito Half Brain'};
+var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
+  B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
+  C:'VFBt_002!2S!20!2i!6VFBt_00200000!4N!6Ito Half Brain',
+  D:'"}}!8'
+};
 
 function updateStackCounter() {
   var html;
