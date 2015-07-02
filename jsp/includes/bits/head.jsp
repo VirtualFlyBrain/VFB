@@ -101,7 +101,7 @@
 						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>
 					</li>
 					<li>
-						<a class="bg-success" href="/site/stacks/index.htm"><span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="badge">*</span></a>
+						<a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span> <span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 							updateStackCounter();
 						</script>
