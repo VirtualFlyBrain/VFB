@@ -11,7 +11,12 @@ function updateStackCounter() {
   if ($.cookie("displaying")) {
     var stack = expandCookieDisplayed();
     if (stack.current){
-      $("#viewer2DVal").text(Object.keys(stack[stack.current.template].selected).length-1);
+      $("#viewer2DVal").each(function(){
+        $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
+      });
+      $("#stackName").each(function(){
+        $(this).text(stack.current.name);
+      });
       generateAddButtons();
       if ($.isFunction($.cookie)){
         if ($.cookie('cookie-box') === undefined){
@@ -292,6 +297,18 @@ function expandCookieDisplayed() {
     }
   }
   return data;
+}
+
+function clearAllData() {
+  var current = parent.$("body").data("current");
+  var selected = parent.$("body").data(current.template).selected;
+  var i;
+  for (i in selected) {
+    if (i > 0){
+      delete selected[i];
+    }
+  }
+  updateStackData();
 }
 
 function defaultScaleByScreen() {

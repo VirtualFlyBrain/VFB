@@ -74,10 +74,11 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-							<li><a href="#" onClick="window.location.replace('/site/stacks/index.htm');">Open the Stack Viewer</a></li>
-	            <li><a href="#" onClick="addToStackData('VFBt_001');window.location.replace('/site/stacks/index.htm?add=VFBt_00100000');">Select the Adult Brain Template</a></li>
-	            <li><a href="#" onClick="addToStackData('VFBt_002');window.location.replace('/site/stacks/index.htm?add=VFBt_00200000');">Select the Tricolour Half Brain Template</a></li>
-	          </ul>
+							<li><a href="#" onClick="window.location.replace('/site/stacks/index.htm');">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
+	            <li><a href="#" onClick="addToStackData('VFBt_001');window.location.replace('/site/stacks/index.htm?add=VFBt_00100000');">Select the Janelia Adult Brain</a></li>
+	            <li><a href="#" onClick="addToStackData('VFBt_002');window.location.replace('/site/stacks/index.htm?add=VFBt_00200000');">Select the Ito Half Brain</a></li>
+	          	<li><a href="#" onClick="clearAllData();">Clear <span id="viewer2DVal" class="badge">*</span> items</a></li>
+						</ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
@@ -100,7 +101,7 @@
 						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>
 					</li>
 					<li>
-						<a class="bg-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
+						<a class="bg-success" href="/site/stacks/index.htm"><span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 							updateStackCounter();
 						</script>
