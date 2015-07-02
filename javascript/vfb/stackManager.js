@@ -11,10 +11,10 @@ function updateStackCounter() {
   if ($.cookie("displaying")) {
     var stack = expandCookieDisplayed();
     if (stack.current){
-      $("#viewer2DVal").each(function(){
+      $("[id=viewer2DVal]").each(function(){
         $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
       });
-      $("#stackName").each(function(){
+      $("[id=stackName]").each(function(){
         $(this).text(stack.current.name);
       });
       generateAddButtons();
