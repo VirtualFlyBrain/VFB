@@ -59,8 +59,8 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 997px) {
-   .collapse {
-       display: none !important;
+   .navbar-right {
+       display: none;
    }
 }
 
