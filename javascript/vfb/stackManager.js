@@ -14,9 +14,11 @@ function updateStackCounter() {
       $("[id=viewer2DVal]").each(function(){
         $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
       });
-      $("[id=stackName]").each(function(){
-        $(this).text(stack.current.name);
-      });
+      if (parent.$("body").data("meta")){
+        $("[id=stackName]").each(function(){
+          $(this).text(parent.$("body").data("meta").name);
+        });
+      }
       generateAddButtons();
       if ($.isFunction($.cookie)){
         if ($.cookie('cookie-box') === undefined){
