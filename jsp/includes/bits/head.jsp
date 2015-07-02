@@ -99,7 +99,7 @@
 						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>
 					</li>
 					<li>
-						<a class="alert alert-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
+						<a class="bg-success" href="/site/stacks/index.htm">Stack Viewer <span id="viewer2DVal" class="badge">*</span></a>
 						<script>
 							updateStackCounter();
 						</script>
