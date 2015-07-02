@@ -64,6 +64,12 @@ footer {
    }
 }
 
+@media screen and (min-width: 997px) and (max-width: 1060px) {
+   #reportAnIssue {
+       display: none;
+   }
+}
+
 /****************
  Outline button
 *************/
