@@ -57,6 +57,13 @@ footer {
     width: 50%; /* 6 columns */
   }
 }
+
+@media (min-width: 768px) and (max-width: 997px) {
+   .collapse {
+       display: none !important;
+   }
+}
+
 /****************
  Outline button
 *************/
