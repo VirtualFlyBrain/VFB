@@ -330,6 +330,8 @@ function loadDefaultData(ids) {
   var text = '{ "template": "VFBt_001","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
   parent.$("body").data("current", JSON.parse(text));
   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
+  parent.$("body").data("VFBt_002", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
+  parent.$("body").data("VFBt_003", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
