@@ -31,9 +31,8 @@
 </c:if>
 </c:forEach>
 </div>
-<c:if test="${fn:length(ontBeanList) > 1}">
-  <c:set var="allIds" value="VFBt_00100000" /><c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
-<a class="left carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="prev">
+<c:if test="${fn:length(ontBeanList) > 0}"><c:set var="allIds" value="VFBt_00100000" /><c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach></c:if>
+<c:if test="${fn:length(ontBeanList) > 1}"><a class="left carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="prev">
 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 </a>
 <a class="right carousel-control" href="#exampleImages${fn:replace(region, ":", "_")}" role="button" data-slide="next">
