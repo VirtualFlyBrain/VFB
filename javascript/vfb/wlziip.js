@@ -391,12 +391,12 @@ function updatePosition() {
 }
 
 function GetCoordinates(e){
-  window.PosX = 0;
-  window.PosY = 0;
-  var ImgPos;
-  ImgPos = FindPosition(canvas);
   if (!e) e = window.event;
   if (e.which == 1){
+    window.PosX = 0;
+    window.PosY = 0;
+    var ImgPos;
+    ImgPos = FindPosition(canvas);
     if (e.pageX || e.pageY)
     {
       window.PosX = e.pageX;
