@@ -38,6 +38,7 @@ function animateWlzDisplay(){
       if (layers > 0){
         var count = 0;
         var i;
+        var j;
         var current = parent.$("body").data("current");
         var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
         var orient = current.slice;
@@ -395,21 +396,22 @@ function GetCoordinates(e){
   var ImgPos;
   ImgPos = FindPosition(canvas);
   if (!e) e = window.event;
-  if (e.pageX || e.pageY)
-  {
-    window.PosX = e.pageX;
-    window.PosY = e.pageY;
-  }
-  else if (e.clientX || e.clientY)
+  if (e.which == 1){
+    if (e.pageX || e.pageY)
     {
-      window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-      window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+      window.PosX = e.pageX;
+      window.PosY = e.pageY;
     }
-  window.PosX = window.PosX - $('#canvas').position().left - parseInt($('#canvas').css('padding').replace('px',''));
-  window.PosY = window.PosY - ImgPos[1] - parseInt($('#canvas').css('padding').replace('px',''));
+    else if (e.clientX || e.clientY)
+      {
+        window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+      }
+    window.PosX = window.PosX - $('#canvas').position().left - parseInt($('#canvas').css('padding').replace('px',''));
+    window.PosY = window.PosY - ImgPos[1] - parseInt($('#canvas').css('padding').replace('px',''));
 
-  updatePosition();
-
+    updatePosition();
+  }
 }
 
 function FindPosition(oElement){
