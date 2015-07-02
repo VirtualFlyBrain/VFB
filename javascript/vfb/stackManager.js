@@ -5,6 +5,7 @@ window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
+var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',C:'VFBt_002!2S!20!2i!6VFBt_00200000!4N!6Ito Half Brain'};
 
 function updateStackCounter() {
   var html;
@@ -330,8 +331,8 @@ function loadDefaultData(ids) {
   var text = '{ "template": "VFBt_001","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
   parent.$("body").data("current", JSON.parse(text));
   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
-  parent.$("body").data("VFBt_002", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
-  parent.$("body").data("VFBt_003", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
+  parent.$("body").data("VFBt_002", { selected: { 0: { id: "VFBt_00200000", colour: "auto", visible: true }}});
+  parent.$("body").data("VFBt_003", { selected: { 0: { id: "VFBt_00300000", colour: "auto", visible: true }}});
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
