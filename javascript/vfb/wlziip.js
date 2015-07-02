@@ -518,18 +518,21 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
      parent.$("body").data("disp", "scale");
+     window.reloadInterval = 10;
      ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
    });
    var slAlpha = $("#slider-alpha").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 0, max: 100, step: 1, value: Math.round((parseInt(parent.$("body").data("current").alpha)/255.0)*100.0), focus: true});
    slAlpha.on('slide', function(ev){
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
+     window.reloadInterval = 10;
    });
    slAlpha.on('slideStop', function(ev){
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
      parent.$("body").data("disp","clear");
      updateWlzDisplay();
+     window.reloadInterval = 10;
      ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
@@ -604,6 +607,7 @@ function initWlzControls() {
      parent.$("body").data("current").blend = "screen";
      updateWlzDisplay();
      updateLabels();
+     window.reloadInterval = 10;
      parent.$("body").data("disp", "scale");
      ga('send', 'event', 'viewer', 'reset_pos');
    });
@@ -614,6 +618,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = 0;
      parent.$("body").data("disp", "scale");
      updateLabels();
+     window.reloadInterval = 10;
      ga('send', 'event', 'viewer', 'slice_in', parent.$("body").data("current").slice );
    });
    $('#slider-slice').data('live',true);
