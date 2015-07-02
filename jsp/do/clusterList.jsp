@@ -69,8 +69,8 @@
 						<td>
 							<c:if test="${!empty tpb}">
 								<span id="OpenAllButtonFor${tpb.vfbId}" data-id="${tpb.vfbId}"></span><br/>
-								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
-								List individual members&nbsp;>>
+								<a class="btn btn-sm btn-success" href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
+								List individual members
 							</a></c:if>
 						</td>
 					</tr></c:forEach>
