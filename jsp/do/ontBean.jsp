@@ -137,9 +137,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						</c:otherwise>
 					</c:choose>
 					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}">
-							<button type="button" class="btn btn-default btn-xs" aria-label="Add ${curr.value[1]} to the stack viewer" title="Add ${curr.value[1]} to the stack viewer"
-								onClick="addToStackData('${curr.value[2]}')"><span class="glyphicon glyphicon-paperclip"></span> Add ${curr.value[1]} to stack view
-							</buton>
+							<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${curr.value[2]}"></span>
 						</c:if></c:forEach>
 					</li>
 				</c:forEach>
@@ -157,9 +155,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<img class="thumb"src="${tpb.thumbUrl}" />
 		</a>
 		<br/>
-		<button type="button" class="btn btn-default btn-xs" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
-			onClick="addToStackData('${tpb.vfbId}')"><span class="glyphicon glyphicon-paperclip"></span> Add ${ontBean.name} to stack view
-		</buton>
+		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
 		<br/>
 
 	</c:if>
@@ -189,9 +185,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:if test="${!isNeuron && !isClone}">
 				<br />
 				<c:set var="isNeuropil" value="true"/>
-				<button type="button" class="btn btn-default btn-xs" aria-label="Add ${ontBean.name} to the stack viewer" title="Add ${ontBean.name} to the stack viewer"
-					onClick="addToStackData('${ontBean.fbbtId}')"><span class="glyphicon glyphicon-paperclip"></span> Add ${ontBean.name} to stack viewer
-				</buton>
+				<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${ontBean.fbbtId}"></span>
 			</c:if>
 		</p>
 	</c:if>
