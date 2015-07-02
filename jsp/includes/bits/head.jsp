@@ -106,7 +106,7 @@
 							updateStackCounter();
 						</script>
 	        </li>
-					<li>
+					<li id="reportAnIssue">
 			  		<script>
 			  			var theURL = encodeURIComponent(window.location);
 			  		</script>
