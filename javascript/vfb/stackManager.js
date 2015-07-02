@@ -296,10 +296,10 @@ function expandCookieDisplayed() {
 
 function defaultScaleByScreen() {
   var scale = 1.0;
-  if (window.screenX < 1950) {
+  if ($(window).width() < 1950) {
     scale = 0.9;
   }
-  if (window.screenX < 1000) {
+  if ($(window).width() < 1000) {
     scale = 0.5;
   }
   return scale;
