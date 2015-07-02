@@ -75,8 +75,8 @@
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 							<li><a href="#" onClick="window.location.replace('/site/stacks/index.htm');">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
-	            <li><a href="#" onClick="addToStackData('VFBt_001');window.location.replace('/site/stacks/index.htm?add=VFBt_00100000');">Select the Janelia Adult Brain</a></li>
-	            <li><a href="#" onClick="addToStackData('VFBt_002');window.location.replace('/site/stacks/index.htm?add=VFBt_00200000');">Select the Ito Half Brain</a></li>
+	            <li><a href="#" onClick="addToStackData('VFBt_001');">Select the Janelia Adult Brain</a></li>
+	            <li><a href="#" onClick="addToStackData('VFBt_002');">Select the Ito Half Brain</a></li>
 	          	<li><a href="#" onClick="clearAllData();">Clear <span id="viewer2DVal" class="badge">*</span> items</a></li>
 						</ul>
 	        </li>
