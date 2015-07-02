@@ -259,12 +259,24 @@ function compressJSONdata(data) {
       data = data.replace(CompKey[i],'!' + String(i));
     }
   }
+  for (i in CompMax) {
+    count = 1000;
+    while (data.indexOf(CompMax[i]) > -1 && count>0) {
+      data = data.replace(CompMax[i],'!' + String(i));
+    }
+  }
   return data;
 }
 
 function decompressJSONdata(data) {
   var i;
   var count = 0;
+  for (i in CompMax) {
+    count = 1000;
+    while (data.indexOf('!' + String(i)) > -1 && count>0) {
+      data = data.replace('!' + String(i), CompMax[i]);
+    }
+  }
   for (i in CompKey) {
     count = 1000;
     while (data.indexOf('!' + String(i)) > -1 && count>0) {
