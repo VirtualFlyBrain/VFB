@@ -62,7 +62,7 @@
 							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
 						</td>
 						<td>
-							<c:if test="${!empty tpb}"><a href="${tpb.baseUrl}${tpb.remoteId}" title="View ${tpb.sourceName} entry" target="_new">
+							<c:if test="${!empty tpb}"><a href="/site/stacks/index.htm?add=${tpb.vfbId}" title="open exemplar (${ontBean.name}) in stack viewer" target="_top">
 								<img class="lazy" data-original="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" />
 							</a></c:if>
 						</td>
