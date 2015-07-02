@@ -526,7 +526,7 @@ function initWlzControls() {
    slAlpha.on('slideStop', function(ev){
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
-     parent.$("body").data("disp") == "clear";
+     parent.$("body").data("disp","clear");
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));
    });
@@ -543,6 +543,13 @@ function initWlzControls() {
        $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
+   $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
+     if ($("#slider-scaleCurrentSlider").is(":visible")){
+       $("#slider-scaleCurrentSlider").hide();
+       $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
+       $("#slider-scaleCurrentSliderValLabel").removeClass("active");
+     }
+   });
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
      if ($("#slider-sliceCurrentSlider").is(":visible")){
        $("#slider-sliceCurrentSlider").hide();
@@ -556,6 +563,13 @@ function initWlzControls() {
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
      }
    });
+   $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
+     if ($("#slider-sliceCurrentSlider").is(":visible")){
+       $("#slider-sliceCurrentSlider").hide();
+       $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
+       $("#slider-sliceCurrentSliderValLabel").removeClass("active");
+     }
+   });
    $("body").on('click', "#slider-alphaCurrentSliderValLabel", function(){
      if ($("#slider-alphaCurrentSlider").is(":visible")){
        $("#slider-alphaCurrentSlider").hide();
@@ -567,6 +581,13 @@ function initWlzControls() {
        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").hide();
        $("#slider-alphaCurrentSliderValLabel").addClass("active");
        $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focus();
+     }
+   });
+   $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
+     if ($("#slider-alphaCurrentSlider").is(":visible")){
+       $("#slider-alphaCurrentSlider").hide();
+       $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
+       $("#slider-alphaCurrentSliderValLabel").removeClass("active");
      }
    });
    $("body").on('click', "#resetPosition", function(){
