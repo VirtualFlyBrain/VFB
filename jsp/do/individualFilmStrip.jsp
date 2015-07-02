@@ -22,7 +22,7 @@
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
 <a href="/site/stacks/index.htm?add=${tpb.vfbId}" title="open ${ontBean.name} in viewer" target="_top">
-<img class="lazy" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})"></a>
+<img class="lazy" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})" style="width:295px;"></a>
 <div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ${ontBean.name} in viewer" onclick="window.location.href='/site/stacks/index.htm?add=${tpb.vfbId}';">
   <b>${ontBean.name}</b><br>
   <span class="small">${tpb.vfbId}</span>
