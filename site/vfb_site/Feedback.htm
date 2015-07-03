@@ -25,6 +25,7 @@
 			var fullVersion  = ''+parseFloat(navigator.appVersion);
 			var majorVersion = parseInt(navigator.appVersion,10);
 			var nameOffset,verOffset,ix;
+			var browserSize = String($(window).width()) + ',' + String($(window).height());
 
 			// In Opera, the true version is after "Opera" or after "Version"
 			if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
@@ -76,7 +77,7 @@
 			 fullVersion  = ''+parseFloat(navigator.appVersion);
 			 majorVersion = parseInt(navigator.appVersion,10);
 			}
-			SupDetail.sysDetail = navigator.userAgent;
+			SupDetail.sysDetail = navigator.userAgent + ' Size:[' + browserSize + ']';
 			SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
 			SupDetail.cleanURL = encodeURIComponent('${param.url}')
 			mail2("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + navigator.userAgent,"email us")
