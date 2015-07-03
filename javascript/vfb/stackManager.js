@@ -151,7 +151,7 @@ function generateAddButtons() {
               $(this).html(content);
             }else{
               content += '<button type="button" class="btn btn-success btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onclick="';
-              content += "addToStackData('" + id + "');$('*[id=attach][data-id=" + cleanIdforExt($(this).data("id")) + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+              content += "addToStackData('" + id + "',false);$('*[id=attach][data-id=" + cleanIdforExt($(this).data("id")) + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
               content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
             }
           }
@@ -164,7 +164,7 @@ function generateAddButtons() {
           }else{
             content += '<button type="button" class="btn btn-success btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onclick="';
             // TBD Need to resolve correct template:
-            content += "addToStackData(['VFBt_00100000','" + id + "']);$('*[id=attach][data-id=" + cleanIdforExt($(this).data("id")) + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
+            content += "addToStackData(['VFBt_00100000','" + id + "'],false);$('*[id=attach][data-id=" + cleanIdforExt($(this).data("id")) + "]').html('');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
             content += '"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span></button>';
           }
         }
@@ -437,8 +437,9 @@ function openFullDetails(id) {
   ga('send', 'event', 'load', 'details', id);
 }
 
-function addToStackData(ids){
+function addToStackData(ids, showDetails){
   if (ids !== undefined && ids !== null) {
+    showDetails = typeof showDetails !== 'undefined' ? showDetails : true;
     window.reloadInterval = 10;
     if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains")) {
       var id;
@@ -549,7 +550,7 @@ function addToStackData(ids){
           alertMessage('Issue adding id:' + id + String(e));
         }
       }
-      if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_' && window.location.pathname == "/site/stacks/index.htm")>-1){
+      if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_' && window.location.pathname == "/site/stacks/index.htm")>-1 && showDetails){
         openFullDetails(id);
       }
       updateStackData();
