@@ -940,6 +940,9 @@ function createColourButtonHTML(layer,i) {
   if (layer && parent.$("body").data("colours")) {
     var temp;
     if (layer.colour == "auto") {
+      while (i>200){
+        i = i-200;
+      }
       temp = parent.$("body").data("colours")[i];
     }else{
       temp = layer.colour;
