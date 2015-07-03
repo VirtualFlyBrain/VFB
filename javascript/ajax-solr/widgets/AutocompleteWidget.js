@@ -79,7 +79,7 @@
         });
       }; // end callback
 
-      var params = [ 'df=short_form&rows=0&sort=score+desc&facet=true&facet.limit=-1&facet.mincount=1&json.nl=map' ];
+      var params = [ 'df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&facet.sort=score+desc&json.nl=map' ];
       for (var i = 0; i < this.fields.length; i++) {
         params.push('facet.field=' + this.fields[i]);
       }
