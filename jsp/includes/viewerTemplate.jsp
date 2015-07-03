@@ -43,6 +43,9 @@
 	<script>
 		$('body').ready( function () {
 			addToStackData("${param.add}");
+			if (location.href.indexOf('?')){
+				post(window.location.pathname, {"add":"${param.add}"})
+			}
 		});
 	</script>
 </c:if>
