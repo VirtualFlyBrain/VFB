@@ -122,13 +122,6 @@
 		<c:if test="${!fn:contains(currDomain, 'vfb-bocian')}">
 			<div class="row" id="dev-warning" style="display: none;">
 			</div>
-			<script>
-				$(document).ready( function () {
-					$('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
-						$.cookie('dev-box', 'closed', { expires: 7, path: '/' });
-					});
-				});
-			</script>
 		</c:if>
 	</c:if>
 
@@ -142,10 +135,6 @@
 
 	<script>
 		$(document).ready( function () {
-			// $('#alert_message').hide();
-			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
-				$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
-			});
 			$('.nav .dropdown-menu li a').css('cursor','pointer');
 		});
 	</script>
