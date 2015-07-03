@@ -56,7 +56,7 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
-					"order": [[ 4, "asc" ]]
+					"order": [[ 4, "desc" ]]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
