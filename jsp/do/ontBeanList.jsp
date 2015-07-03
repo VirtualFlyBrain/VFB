@@ -58,8 +58,8 @@
 					responsive: true,
 					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
-        		[25, 50, 100, 200, -1],
-        		[25, 50, 100, 200, "All"]
+        		[-1, 10, 25, 50, 100],
+        		["All", 10, 25, 50, 100]
     			],
     			iDisplayLength: -1
 				} );
