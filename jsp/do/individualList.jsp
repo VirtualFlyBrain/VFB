@@ -104,7 +104,6 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
-					stateSave: true,
 					"order": [[ 0, "desc" ]]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
