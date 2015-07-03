@@ -99,6 +99,7 @@
 				$('.carousel').css("width","350px");
 				$('#geneResultsTable').dataTable().fnAdjustColumnSizing(false);
 				$('#geneResultsTable').DataTable().draw();
+				$('#geneResultsTable_length').html($('#geneResultsTable_length').html().replace(' entries', $('#geneResultsTable_info').text().substring($('#geneResultsTable_info').text().indexOf(' of'))));
 				$(".dataTables_paginate li").css("margin", 0);
 				$(".dataTables_paginate li").css("padding", 0);
 				window.setInterval(function(){
