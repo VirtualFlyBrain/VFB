@@ -125,7 +125,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<div id="partRel">
 				<ul>
 				<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]}<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]}<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
+					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]} <a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]} <a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
 					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}"><span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span></c:if></c:forEach></li>
 				</c:forEach>
 			</ul>
