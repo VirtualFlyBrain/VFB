@@ -19,7 +19,7 @@
 
 	<!-- Single Ont entity by fbbtId -->
 	<bean name="/do/ont_bean.html" class="uk.ac.ed.vfb.web.OntBeanController"
-		scope="request">
+		scope="session">
 		<property name="obm" ref="ontBeanManager" />
 		<property name="pbm" ref="pubBeanManager" />
 	</bean>
@@ -34,13 +34,13 @@
 
 	<!-- List of beans as result of an OWL query -->
 	<bean name="/do/ont_bean_list.html" class="uk.ac.ed.vfb.web.OntBeanListController"
-		scope="request">
+		scope="session">
 		<property name="obm" ref="ontBeanManager" />
 	</bean>
 
 	<!-- List of gene beans as result to chado query -->
 	<bean name="/do/gene_list.html" class="uk.ac.ed.vfb.web.GeneListController"
-		scope="request">
+		scope="session">
 		<property name="obm" ref="ontBeanManager" />
 		<property name="gbm" ref="geneBeanManager" />
 	</bean>

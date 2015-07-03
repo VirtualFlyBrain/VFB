@@ -45,9 +45,7 @@
 	        </tr>
 	    	</thead>
 		    <tbody><c:set var="count" value="-1" scope="page"/>
-					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><tr><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-success">${ontBean.name}</a></td><td class="text-muted">${ontBean.def}</td><td><a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">More info</a><span class="sr-only"> - http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</span></td><td style="padding:0px;width:350px;">
-					<c:import url="/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}"></c:import>
-					</td><td><a class="btn btn-info btn-sm" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">FlyBase Report</a><span class="sr-only"> - http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</span></td></tr></c:forEach>
+					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="count" value="${count + 1}" scope="page"/><tr><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-success">${ontBean.name}</a></td><td class="text-muted">${ontBean.def}</td><td><a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">More info</a><span class="sr-only"> - http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</span></td><td id="exemplar${status.index}" data-id="${ontBean.fbbtId}" data-index="${status.index}" style="padding:0px;width:350px;"><span id="resoveImages" data-id="${ontBean.fbbtId}" data-index="${status.index}" class="sr-only">http://www.virtualflybrain.org/do/individual_list.html?action=exemplar_neuron&id=${ontBean.fbbtIdAsOWL}</span></td><td><a class="btn btn-info btn-sm" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">FlyBase Report</a><span class="sr-only"> - http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</span></td></tr></c:forEach>
 		    </tbody>
 			</table>
 		</div>
@@ -69,6 +67,11 @@
 							$(this).children('div').each(function () {
 								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 							});
+					});
+					$('[id=resoveImages]').each(function(){
+						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
+							$('#resultsTable').dataTable().fnUpdate(data,parseInt($(this).data('index')),4,false);
+						});
 					});
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
