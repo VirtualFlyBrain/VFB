@@ -46,6 +46,7 @@ function animateWlzDisplay(){
           if (selected[i].visible){
             if (!image[i]){
               image[i] = document.createElement('img');
+              image[i].onerror = "this.onerror=null;this.src='/img/blank.png';";
               updated = true;
             }
             if (image[i].src.indexOf(generateWlzURL(i))<0){
