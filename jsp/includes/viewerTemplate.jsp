@@ -43,7 +43,7 @@
 	<script>
 		$('body').ready( function () {
 			addToStackData("${param.add}");
-			if (location.href.indexOf('?')){
+			if (location.href.indexOf('?')>-1){
 				post(window.location.pathname, {"add":"${param.add}"})
 			}
 		});
