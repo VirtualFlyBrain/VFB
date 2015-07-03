@@ -56,7 +56,7 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
-					"order": [[ 4, "asc" ]],
+					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
         		[25, 50, 100, 200, -1],
         		[25, 50, 100, 200, "All"]
