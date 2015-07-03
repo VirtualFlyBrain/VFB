@@ -33,7 +33,7 @@
 	</div>
 	<div class="col-xs-12" style="padding:0;">
 		<div class="container-fluid" style="padding:0;">
-			<table id="resultsTable" class="display" width="100%">
+			<table id="resultsTable" class="display">
 	    	<thead>
 	        <tr>
 							<th>ID</th>

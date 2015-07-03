@@ -31,7 +31,7 @@
 		</div>
 		<div class="col-xs-12" style="padding:0;">
 			<div class="container-fluid" style="padding:0;">
-				<table id="geneResultsTable" class="display" width="100%">
+				<table id="geneResultsTable" class="display">
 					<thead>
 						<tr>
 						<c:forEach items="${transgeneColumns}" var="curr">
