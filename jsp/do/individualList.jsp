@@ -120,7 +120,7 @@
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
 					$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
-					$('#resultsTable').DataTable().draw(false);
+					$('#resultsTable').DataTable().draw();
 					$(".dataTables_paginate li").css("margin", 0);
 					$(".dataTables_paginate li").css("padding", 0);
 					window.setInterval(function(){
@@ -130,6 +130,8 @@
 						$('#resultsTable').DataTable().draw(false);
 						$(".dataTables_paginate li").css("margin", 0);
 						$(".dataTables_paginate li").css("padding", 0);
+						$('.btn-primary').css('height','32px');
+						$('.btn-primary').css('width','48px');
 					}, 10000);
 				}, 1000);
 			} );

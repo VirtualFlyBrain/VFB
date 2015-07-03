@@ -56,7 +56,6 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
-					stateSave: true,
 					"order": [[ 4, "asc" ]]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
@@ -82,6 +81,8 @@
 						$('#resultsTable').DataTable().draw(false);
 						$(".dataTables_paginate li").css("margin", 0);
 						$(".dataTables_paginate li").css("padding", 0);
+						$('.btn-primary').css('height','32px');
+						$('.btn-primary').css('width','48px');
 					}, 10000);
 				}, 1000);
 			} );
