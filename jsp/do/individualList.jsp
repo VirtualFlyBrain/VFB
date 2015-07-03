@@ -34,8 +34,9 @@
 			<div class="col-md-8" align="center">
 				<h2>Query: ${query}</h2>
 			</div>
-
 		</div>
+	</div>
+	<div class="col-xs-12">
 		<div class="container-fluid">
 			<div class="table-responsive">
 				<table id="resultsTable" class="display">
