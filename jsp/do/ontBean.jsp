@@ -137,7 +137,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						</c:otherwise>
 					</c:choose>
 					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}">
-							<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${curr.value[2]}"></span>
+							<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span>
 						</c:if></c:forEach>
 					</li>
 				</c:forEach>
@@ -155,7 +155,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<img class="lazy" data-original="${tpb.thumbUrl}" />
 		</a>
 		<br/>
-		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
+		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(tpb.vfbId, ':', '_')}"></span>
 		<br/>
 
 	</c:if>
@@ -185,7 +185,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:if test="${!isNeuron && !isClone}">
 				<br />
 				<c:set var="isNeuropil" value="true"/>
-				<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${ontBean.fbbtId}"></span>
+				<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
 			</c:if>
 		</p>
 	</c:if>
