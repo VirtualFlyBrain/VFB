@@ -37,13 +37,13 @@ var Manager;
       target: '#search',
       limit: 10,
       minLength: 2,
-      fields: [ 'label', 'label_suggest' ]
+      fields: [ 'label_suggest']
     }));
     Manager.init();
     Manager.store.addByValue('q', '*:*');
     var params = {
       facet: true,
-      'facet.field': [ 'label', 'label_suggest', 'short_form' ],
+      'facet.field': [ 'label_suggest','label', 'short_form' ],
       'facet.limit': -1,
       'facet.sort' : 'score',
       'facet.mincount': 1,
