@@ -29,7 +29,7 @@
 		<div class="row-fluid">
 			<div class="col-md-2" align="center"><c:set var="allIds" value="VFBt_00100000" />
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
-				<span id="openAllButton"><a href="/site/stacks/index.htm?add=${allIds}" class="btn btn-sm btn-success">Open <span class="badge">${fn:length(ontBeanList)}</span> in viewer</a></span>
+				<span id="openAllButton"><button onclick="post('/site/stacks/index.htm',{'add':'${allIds}'});" class="btn btn-sm btn-success">Open <span class="badge">${fn:length(ontBeanList)}</span> in viewer</button></span>
 			</div>
 			<div class="col-md-8" align="center">
 				<h2>Query: ${query}</h2>
@@ -70,9 +70,7 @@
 							<td class="text-muted">${ontBean.def}</td>
 							<td>
 								<c:if test="${!empty tpb}">
-									<a href="/site/stacks/index.htm?add=${tpb.vfbId}" title="See in viewer">
-										<img class="lazy" data-original="${tpb.thumbUrl}" alt="http://www.virtualflybrain.org/owl/${tpb.vfbId}" />
-									</a>
+										<img class="lazy" data-original="${tpb.thumbUrl}" alt="See in viewer" onclick="post('/site/stacks/index.htm',{'add':'${tpb.vfbId}'});" style="cursor: pointer;" />
 								</c:if>
 							</td>
 							<td>
