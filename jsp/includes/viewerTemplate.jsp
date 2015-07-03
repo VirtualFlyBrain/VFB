@@ -259,8 +259,8 @@
 			<a name="details"></a>
 			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
-				Click anywhere on the stack viewer or use the menus to select any anatomy.<br/><br/>
-				Annotations for the selected anatomical term will be displayed here, with further query options visible after selection.
+				Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>
+				Information for the selected anatomical term will be displayed here, with further query options visible after selection.
 			</div>
 		</div>
 	</div>
