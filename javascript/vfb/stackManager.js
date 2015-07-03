@@ -549,7 +549,7 @@ function addToStackData(ids){
           alertMessage('Issue adding id:' + id + String(e));
         }
       }
-      if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_' && window.location.pathname == "/site/stacks/index.htm")<0){
+      if (id.indexOf('VFBt_')<0 && id.indexOf('VFBd_' && window.location.pathname == "/site/stacks/index.htm")>-1){
         openFullDetails(id);
       }
       updateStackData();
