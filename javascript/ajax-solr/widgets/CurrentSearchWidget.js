@@ -14,7 +14,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
         if (q.indexOf('vfb_') > -1 || q.indexOf('fbbt_') > -1){
           q = 'short_form:' + q.replace('vfb','VFB').replace('fbbt','FBbt') + '*';
         }else{
-          q = 'label:' + q;
+          q = 'label_suggest:' + q;
         }
         self.manager.store.get('q').val(q);
         self.doRequest();
