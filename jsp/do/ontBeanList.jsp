@@ -68,6 +68,11 @@
 								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 							});
 					});
+					$('[id=resoveImages]').each(function(){
+						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
+							$('#resultsTable').dataTable().fnUpdate(data,parseInt($(this).data('index')),4,false);
+						});
+					});
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
 					$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
@@ -75,6 +80,11 @@
 					$(".dataTables_paginate li").css("margin", 0);
 					$(".dataTables_paginate li").css("padding", 0);
 					window.setInterval(function(){
+						$('[id=resoveImages]').each(function(){
+							$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
+  							$('#resultsTable').dataTable().fnUpdate(data,parseInt($(this).data('index')),4,false);
+							});
+						});
 						$('.btn-group-justified').css("width","350px");
 						$('.carousel').css("width","350px");
 						$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
