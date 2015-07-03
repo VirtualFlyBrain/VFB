@@ -71,6 +71,7 @@
 					$('[id=resoveImages]').each(function(){
 						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
 							$('#resultsTable').dataTable().fnUpdate(data,parseInt($(this).data('index')),4,false);
+							$('#resultsTable').DataTable().draw(false);
 						});
 						$(this).attr('id','loadingImages');
 					});
