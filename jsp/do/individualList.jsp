@@ -120,14 +120,14 @@
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
 					$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
-					$('#displayed').DataTable().draw(false);
+					$('#resultsTable').DataTable().draw(false);
 					$(".dataTables_paginate li").css("margin", 0);
 					$(".dataTables_paginate li").css("padding", 0);
 					window.setInterval(function(){
 						$('.btn-group-justified').css("width","350px");
 						$('.carousel').css("width","350px");
 						$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
-						$('#displayed').DataTable().draw(false);
+						$('#resultsTable').DataTable().draw(false);
 						$(".dataTables_paginate li").css("margin", 0);
 						$(".dataTables_paginate li").css("padding", 0);
 					}, 10000);
