@@ -152,7 +152,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
 		<br clear="all"/>
 		<a href="site/stacks/index.htm?add=${tpb.vfbId}" target="_top" >
-			<img class="thumb"src="${tpb.thumbUrl}" />
+			<img class="lazy" data-original="${tpb.thumbUrl}" />
 		</a>
 		<br/>
 		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
