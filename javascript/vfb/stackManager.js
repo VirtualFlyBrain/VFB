@@ -144,9 +144,9 @@ function generateAddButtons() {
   if (parent.$("body").data("available")) {
     $("[id^=imageViewerOpen]").each(function(){
       var html = '<button class="btn btn-sm btn-success" onclick="';
-      html += "post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});";
+      html += "post('/site/stacks/index.htm',{'add':'" + cleanIdforInt($(this).data('id')) + "'});";
       if ($('body').data("available") && $('body').data("available").indexOf(cleanIdforInt($(this).data('id')))>-1) {
-        html += '" title="Open ${ontBean.name} in stack viewer">Open ' + $(this).data('name') + ' in stack viewer</button>';
+        html += '" title="Open ' + $(this).data('name') + ' in stack viewer">Open ' + $(this).data('name') + ' in stack viewer</button>';
         $(this).html(html);
         $(this).attr('id','ResolvedImageViewerOpen');
       }else{
