@@ -58,7 +58,7 @@
 							<tr>
 								<td>
 									<a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
-								<td>
+								<td align="center">
 										<c:choose>
 											<c:when test="${!empty tpb}">
 												<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a><br />
