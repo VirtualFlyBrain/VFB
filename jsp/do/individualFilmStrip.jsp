@@ -2,6 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;">
 <c:if test="${!empty ontBeanList}">
+<span class="sr-only">${fn:length(ontBeanList)} Images Found.<br /></span>
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
