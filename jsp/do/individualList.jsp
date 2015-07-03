@@ -37,63 +37,65 @@
 
 		</div>
 		<div class="container-fluid">
-			<table id="resultsTable" class="display" width="100%">
-	    	<thead>
-	        <tr>
-							<th>ID</th>
-	            <th>Name</th>
-	            <th>Definition</th>
-							<th>Preview</th>
-							<th>Source</th>
-							<th>Type</th>
-							<th>Driver</th>
-	        </tr>
-	    	</thead>
-		    <tbody>
-					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-						<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
-						<c:set var="types" value="${ontBean.types}" />
-						<tr>
-							<td>
-								<a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
-							<td>
-									<c:choose>
-										<c:when test="${!empty tpb}">
-											<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
-											<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
-										</c:when>
-										<c:otherwise>
-											<a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
-										</c:otherwise>
-									</c:choose>
-							</td>
-							<td class="text-muted">${ontBean.def}</td>
-							<td>
-								<c:if test="${!empty tpb}">
-										<img class="lazy" data-original="${tpb.thumbUrl}" alt="See in viewer" onclick="post('/site/stacks/index.htm',{'add':'${tpb.vfbId}'});" style="cursor: pointer;" />
-								</c:if>
-							</td>
-							<td>
-								<c:if test="${!empty tpb}">
-									<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
-								</c:if>
-							</td>
-							<td>
-								<c:if test="${!empty types}">
-									<c:forEach items="${types}" var="item" varStatus="stat">
-										<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn btn-sm btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
-										<br/>
-									</c:forEach>
-								</c:if>
-							</td>
-							<td>
-									<c:set var="driverDetails" value='${drivers[ontBean.fbbtIdAsOWL]}'/>
-									<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new" class="btn btn-sm btn-info">${driverDetails[1]}</a>
-							</td>
-						</tr>
-					</c:forEach>
-		    </tbody>
-			</table>
+			<div class="table-responsive">
+				<table id="resultsTable" class="display">
+		    	<thead>
+		        <tr>
+								<th>ID</th>
+		            <th>Name</th>
+		            <th>Definition</th>
+								<th>Preview</th>
+								<th>Source</th>
+								<th>Type</th>
+								<th>Driver</th>
+		        </tr>
+		    	</thead>
+			    <tbody>
+						<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
+							<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
+							<c:set var="types" value="${ontBean.types}" />
+							<tr>
+								<td>
+									<a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
+								<td>
+										<c:choose>
+											<c:when test="${!empty tpb}">
+												<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
+												<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
+											</c:when>
+											<c:otherwise>
+												<a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
+											</c:otherwise>
+										</c:choose>
+								</td>
+								<td class="text-muted">${ontBean.def}</td>
+								<td>
+									<c:if test="${!empty tpb}">
+											<img class="lazy" data-original="${tpb.thumbUrl}" alt="See in viewer" onclick="post('/site/stacks/index.htm',{'add':'${tpb.vfbId}'});" style="cursor: pointer;" />
+									</c:if>
+								</td>
+								<td>
+									<c:if test="${!empty tpb}">
+										<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
+									</c:if>
+								</td>
+								<td>
+									<c:if test="${!empty types}">
+										<c:forEach items="${types}" var="item" varStatus="stat">
+											<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn btn-sm btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
+											<br/>
+										</c:forEach>
+									</c:if>
+								</td>
+								<td>
+										<c:set var="driverDetails" value='${drivers[ontBean.fbbtIdAsOWL]}'/>
+										<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new" class="btn btn-sm btn-info">${driverDetails[1]}</a>
+								</td>
+							</tr>
+						</c:forEach>
+			    </tbody>
+				</table>
+			</div>
 		</div>
 		<script>
 			$(document).ready( function () {
