@@ -16,8 +16,8 @@
 			      <div id="newsection">
 			         <ul>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=809">Work with us</a>
-						<br/>Job opportunity at VFB
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=824">Updated data</a>
+						<br/>Flybase and Ontology Update
 			               </p>
 			            </li>
 			            <li>
