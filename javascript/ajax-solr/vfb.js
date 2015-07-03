@@ -35,6 +35,7 @@ var Manager;
     Manager.addWidget(new AjaxSolr.AutocompleteWidget({
       id: 'text',
       target: '#search',
+      sort: 'score desc',
       limit: 10,
       minLength: 2,
       fields: [ 'label_suggest']
