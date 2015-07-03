@@ -151,7 +151,7 @@ function generateAddButtons() {
         $(this).attr('id','ResolvedImageViewerOpen');
       }else{
         html += '" title="Open ' + $(this).data('name') + ' in stack viewer" disabled="disabled">' + $(this).data('name') + ' is not specifically labeled in the current stack</button>';
-        html = html.replace('btn-success','btn-warning');
+        html = html.replace('btn-success','btn-default');
         $(this).html(html);
         $(this).attr('id','ResolvedImageViewerOpen');
       }
