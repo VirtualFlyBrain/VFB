@@ -56,7 +56,7 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
-					"order": [[ 4, "desc" ]]
+					"order": [[ 4, "asc" ]]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
@@ -98,7 +98,7 @@
 							$(this).id = 'loadingImages';
 						});
 						$('#resultsTable').DataTable().draw(false);
-					}, 900);
+					}, 5000);
 				}, 1000);
 			} );
 		</script>
