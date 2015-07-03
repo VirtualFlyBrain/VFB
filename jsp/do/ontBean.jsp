@@ -125,29 +125,15 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<div id="partRel">
 				<ul>
 				<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-					<li>
-					<c:choose>
-						<c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">
-							${curr.value[0]}
-							<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a>
-						</c:when>
-						<c:otherwise>
-							${curr.value[0]}
-							<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a>
-						</c:otherwise>
-					</c:choose>
-					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}">
-							<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span>
-						</c:if></c:forEach>
-					</li>
+					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]}<a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]}<a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
+					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}"><span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span></c:if></c:forEach></li>
 				</c:forEach>
 			</ul>
 		</div>
 		</p>
 	</c:if>
 
-	<c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
-	<c:if test="${!empty tpb}">
+	<c:set var="tpb" value="${ontBean.thirdPartyBean}"/><c:if test="${!empty tpb}">
 		<b>Source:</b>
 		<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
 		<br clear="all"/>
@@ -157,7 +143,6 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<br/>
 		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(tpb.vfbId, ':', '_')}"></span>
 		<br/>
-
 	</c:if>
 
 	<c:if test="${isNeuron || isClone}">
@@ -173,6 +158,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</c:if>
 
 	<c:if test="${beanType=='ont'}">
+		<c:if test="${!isNeuron && !isClone}"><c:set var="isNeuropil" value="true"/><p>
+			<br />
+			<b>Images: </b><br />
+			<button class="btn btn-sm btn-success" onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});" title="Open ${ontBean.name} in stack viewer">Open ${ontBean.name} in stack viewer</button>
+			<br />
+		</p></c:if>
 		<p>
 			<br />
 			<b>External Links: </b><br />
@@ -182,15 +173,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<c:forEach items="${refs}" var="curr" varStatus="status"><c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
 					<a href="${curr.webLink}" target="_new" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
 				</c:if></c:forEach>
-			<c:if test="${!isNeuron && !isClone}">
-				<br />
-				<c:set var="isNeuropil" value="true"/>
-			</p>
-			<p>
-				<b>Images: </b><br />
-				<button class="btn btn-sm btn-success" onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});" title="Open ${ontBean.name} in stack viewer">Open ${ontBean.name} in stack viewer</button>
-				<br />
-			</c:if>
+
 		</p>
 	</c:if>
 </div>
