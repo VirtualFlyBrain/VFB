@@ -19,7 +19,8 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   D7:'VFBi_0000000', D6:'VFBi_000000', D5:'VFBi_00000', D4:'VFBi_0000', D3:'VFBi_000', D2:'VFBi_00', D1:'VFBi_0', D0:'VFBi_',
   E:'!4alpha!7220!9blend!6screen!4inverted!7false!8',
   F8:'00000000', F7:'0000000', F6:'000000', F5:'00000', F4:'0000', F3:'000',
-  G:'"}}!8'
+  G:'"}}!8',
+  H:'VFBt_00'
 };
 
 function updateStackCounter() {
