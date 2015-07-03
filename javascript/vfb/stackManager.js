@@ -20,7 +20,8 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   E:'!4alpha!7220!9blend!6screen!4inverted!7false!8',
   F8:'00000000', F7:'0000000', F6:'000000', F5:'00000', F4:'0000', F3:'000',
   G:'"}}!8',
-  H:'VFBt_00'
+  H:'VFBt_00',
+  I8:'!2i!6!D8',I7:'!2i!6!D7',I6:'!2i!6!D6',I5:'!2i!6!D5',I4:'!2i!6!D4',I3:'!2i!6!D3',I2:'!2i!6!D2',I1:'!2i!6!D1'
 };
 
 function updateStackCounter() {
