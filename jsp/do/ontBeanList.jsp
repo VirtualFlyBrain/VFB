@@ -46,7 +46,7 @@
 	    	</thead>
 		    <tbody><c:set var="count" value="-1" scope="page"/>
 					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><tr><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td><td><a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-success">${ontBean.name}</a></td><td class="text-muted">${ontBean.def}</td><td><a class="btn btn-success btn-sm" href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}">More info</a><span class="sr-only"> - http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}</span></td><td style="padding:0px;width:350px;">
-					<c:import url="/do/individual_film_strip.html?action=exemplar_neuron&id=" + ontBean.fbbtId></c:import>
+					<c:import url="/do/individual_film_strip.html?action=exemplar_neuron&id=${ontBean.fbbtId}"></c:import>
 					</td><td><a class="btn btn-info btn-sm" href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">FlyBase Report</a><span class="sr-only"> - http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</span></td></tr></c:forEach>
 		    </tbody>
 			</table>
