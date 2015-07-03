@@ -580,7 +580,7 @@ function removeFromStackData(ids) {
           for (l in selected) {
             if (selected[l].id == id) {
               delete selected[l];
-              if ($.fn.dataTable.isDataTable('#displayed')){
+              if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed')){
                 $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
                 $('#displayed').DataTable().draw(false);
               }
@@ -592,7 +592,7 @@ function removeFromStackData(ids) {
               if (cleanIdforInt(selected[l].extid) == id) {
                 if (selected[l].id.indexOf('VFBt_') < 0){
                   delete selected[l];
-                  if ($.fn.dataTable.isDataTable('#displayed')){
+                  if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed')){
                     $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
                     $('#displayed').DataTable().draw(false);
                   }
@@ -603,7 +603,7 @@ function removeFromStackData(ids) {
             for (l in selected) {
               if (cleanIdforInt(selected[l].id) == id) {
                 delete selected[l];
-                if ($.fn.dataTable.isDataTable('#displayed')){
+                if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed')){
                   $('#displayed').dataTable().fnDeleteRow(parseInt(l),false);
                   $('#displayed').DataTable().draw(false);
                 }
