@@ -461,6 +461,9 @@ function generateWlzURL(index){
      if (!parent.$("body").data("colours")){
        loadColours();
      }else{
+       while (index>200){
+         index = index-200;
+       }
        colour = parent.$("body").data("colours")[index];
      }
    }
