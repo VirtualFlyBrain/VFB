@@ -72,6 +72,7 @@
 						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
 							$('#resultsTable').dataTable().fnUpdate(data,parseInt($(this).data('index')),4,false);
 						});
+						$(this).id = 'loadingImages';
 					});
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
