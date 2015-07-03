@@ -61,7 +61,7 @@
 								<td>
 										<c:choose>
 											<c:when test="${!empty tpb}">
-												<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a>
+												<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a><br />
 												<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
 											</c:when>
 											<c:otherwise>
