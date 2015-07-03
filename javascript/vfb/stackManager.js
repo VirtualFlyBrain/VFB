@@ -142,6 +142,20 @@ function createAddButtonHTMLfinal(id) {
 
 function generateAddButtons() {
   if (parent.$("body").data("available")) {
+    $("[id^=imageViewerOpen]").each(function(){
+      var html = '<button class="btn btn-sm btn-success" onclick="';
+      html += "post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});";
+      if ($('body').data("available") && $('body').data("available").indexOf(cleanIdforInt($(this).data('id')))>-1) {
+        html += '" title="Open ${ontBean.name} in stack viewer">Open ' + $(this).data('name') + ' in stack viewer</button>';
+        $(this).html(html);
+        $(this).attr('id','ResolvedImageViewerOpen');
+      }else{
+        html += '" title="Open ' + $(this).data('name') + ' in stack viewer" disabled="disabled">' + $(this).data('name') + ' is not available in current stack</button>';
+        html = html.replace('btn-success','btn-danger');
+        $(this).html(html);
+        $(this).attr('id','ResolvedImageViewerOpen');
+      }
+    });
     $("[id^=attach]").each(function(){
       var id = cleanIdforInt($(this).data("id"));
       var content = "";

@@ -162,21 +162,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<br />
 			<b>Images: </b><br />
 			<br />
-			<span id="imageViewerOpen"></span>
+			<span id="imageViewerOpen" data-id="${ontBean.fbbtIdAsOWL}" data-name="${ontBean.name}"></span>
 			<br />
-			<script>
-				var html = '<button class="btn btn-sm btn-success" onclick="';
-				html += "post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});";
-				if ($('body').data("available") && $('body').data("available").indexOf('${ontBean.fbbtIdAsOWL}')>-1) {
-					html += '" title="Open ${ontBean.name} in stack viewer">Open ${ontBean.name} in stack viewer</button>';
-					$('#imageViewerOpen').html(html);
-				}else{
-					html += '" title="Open ${ontBean.name} in stack viewer" disabled="disabled">${ontBean.name} is not available in current stack</button>';
-					html = html.replace('btn-success','btn-danger');
-					$('#imageViewerOpen').html(html);
-				}
-			</script>
-		</p></c:if>
+			</p></c:if>
 		<p>
 			<br />
 			<b>External Links: </b><br />
