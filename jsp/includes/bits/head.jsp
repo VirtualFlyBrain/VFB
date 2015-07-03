@@ -146,6 +146,7 @@
 			$('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
 				$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
 			});
+			$('.nav .dropdown-menu li a').css('cursor','pointer');
 		});
 	</script>
 	<!-- END Notices -->
