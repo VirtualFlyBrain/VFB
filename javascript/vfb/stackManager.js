@@ -52,6 +52,7 @@ function updateStackCounter() {
     			html += '</div>';
     			html += '</div>';
           $('#cookie-warning').html(html);
+          $('.alert.alert-info.alert-dismissible span').first().attr("onclick", "$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });");
   			}else{
   				$('#cookie-warning').hide();
   			}
@@ -66,18 +67,9 @@ function updateStackCounter() {
 					html += '</div>';
 					html += '</div>';
           $('#dev-warning').html(html);
+          $('.alert.alert-warning.alert-dismissible span').first().attr("onclick", "$.cookie('dev-box', 'closed', { expires: 7, path: '/' });");
         }else{
           $('#dev-warning').hide();
-        }
-        if ($('.alert.alert-info.alert-dismissible')) {
-          $('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
-            $.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
-          });
-        }
-        if ($('.alert.alert-warning.alert-dismissible')) {
-          $('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
-            $.cookie('dev-box', 'closed', { expires: 7, path: '/' });
-          });
         }
       }
     }
