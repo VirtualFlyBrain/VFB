@@ -61,8 +61,7 @@
 					aLengthMenu: [
         		[-1, 10, 25, 50, 100],
         		["All", 10, 25, 50, 100]
-    			],
-    			iDisplayLength: -1
+    			]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
