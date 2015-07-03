@@ -40,6 +40,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     var self = this;
     $(self.target).empty();
     var doc;
+    var url = window.location.href;
     for (var i = 0, l = self.manager.response.response.docs.length; i < l; i++) {
       doc = self.manager.response.response.docs[i];
       $(self.target).append(self.template(doc));
@@ -51,7 +52,6 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       $('#result-section').hide();
       $('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
       self.doRequest();
-      var url = window.location.href;
       if (url.indexOf('anatomy_finder') < 0 && url.indexOf('stacks') < 0){
         window.location = '/site/tools/anatomy_finder/?id=' + doc.short_form[0].replace(':','_');
       }
@@ -61,6 +61,9 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     }else if (self.manager.response.response.numFound < 3000){ // if a resonable number of results then reshow.
       $('#details-section').addClass('col-lg-8').removeClass('col-lg-12');
       $('#result-section').show();
+      if (url.indexOf('anatomy_finder') < 0 && url.indexOf('stacks') < 0){
+        window.location = '/site/tools/anatomy_finder/?id=' + doc.short_form[0].replace(':','_');
+      }
     }
   },
 
