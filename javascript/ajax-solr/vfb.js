@@ -45,7 +45,7 @@ var Manager;
       facet: true,
       'facet.field': [ 'label_suggest','label', 'short_form' ],
       'facet.limit': -1,
-      'facet.sort' : 'score',
+      'facet.sort' : 'score desc',
       'facet.mincount': 1,
       'json.nl': 'map',
       'fq' : 'VFB_* FBbt_*',
