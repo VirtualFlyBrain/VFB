@@ -25,8 +25,8 @@
 </jsp:include>
 
 <div class="row">
-	<div class="col-xs-12">
-		<div class="row-fluid">
+	<div class="col-xs-12" style="padding:0;">
+		<div class="row-fluid" style="padding:0;">
 			<div class="col-md-2" align="center"><c:set var="allIds" value="VFBt_00100000" />
 				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><c:set var="allIds" value="${allIds},${ontBean.fbbtIdAsOWL}" /></c:forEach>
 				<span id="openAllButton"><button onclick="post('/site/stacks/index.htm',{'add':'${allIds}'});" class="btn btn-sm btn-success">Open <span class="badge">${fn:length(ontBeanList)}</span> in viewer</button></span>
