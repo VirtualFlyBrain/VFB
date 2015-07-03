@@ -43,7 +43,9 @@ function updateStackCounter() {
   				$('#cookie-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
     			html += '<div class="alert alert-info alert-dismissible" role="alert" id="info-char">';
-    			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" onclick="';
+          html += "$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });";
+          html += '" >&times;</span></button>';
     			html += '<center>';
     			html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.';
     			html += 'By continuing to use our website, you agree to the use of cookies. <br>';
@@ -52,7 +54,6 @@ function updateStackCounter() {
     			html += '</div>';
     			html += '</div>';
           $('#cookie-warning').html(html);
-          $('.alert.alert-info.alert-dismissible span').first().attr("onclick", "$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });");
   			}else{
   				$('#cookie-warning').hide();
   			}
@@ -60,14 +61,15 @@ function updateStackCounter() {
           $('#dev-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
 					html += '<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">';
-					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true" onclick="';
+          html += "$.cookie('dev-box', 'closed', { expires: 7, path: '/' });";
+          html += '" >&times;</span></button>';
 					html += '<center>';
 					html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
 					html += '</center>';
 					html += '</div>';
 					html += '</div>';
           $('#dev-warning').html(html);
-          $('.alert.alert-warning.alert-dismissible span').first().attr("onclick", "$.cookie('dev-box', 'closed', { expires: 7, path: '/' });");
         }else{
           $('#dev-warning').hide();
         }
