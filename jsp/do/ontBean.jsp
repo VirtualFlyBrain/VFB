@@ -161,6 +161,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<c:if test="${!isNeuron && !isClone}"><c:set var="isNeuropil" value="true"/><p>
 			<br />
 			<b>Images: </b><br />
+			<br />
 			<button class="btn btn-sm btn-success" onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});" title="Open ${ontBean.name} in stack viewer">Open ${ontBean.name} in stack viewer</button>
 			<br />
 		</p></c:if>
