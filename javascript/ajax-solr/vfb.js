@@ -35,7 +35,7 @@ var Manager;
     Manager.addWidget(new AjaxSolr.AutocompleteWidget({
       id: 'text',
       target: '#search',
-      sort: 'score desc',
+      sort: 'score+desc',
       limit: 10,
       minLength: 2,
       fields: [ 'label_suggest']
@@ -46,7 +46,7 @@ var Manager;
       facet: true,
       'facet.field': [ 'label_suggest','label', 'short_form' ],
       'facet.limit': -1,
-      'facet.sort' : 'score desc',
+      'facet.sort' : 'score+desc',
       'facet.mincount': 1,
       'json.nl': 'map',
       'fq' : 'VFB_* FBbt_*',
