@@ -69,12 +69,16 @@ function updateStackCounter() {
         }else{
           $('#dev-warning').hide();
         }
-        $('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
-          $.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
-        });
-        $('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
-          $.cookie('dev-box', 'closed', { expires: 7, path: '/' });
-        });
+        if ($('.alert.alert-info.alert-dismissible')) {
+          $('.alert.alert-info.alert-dismissible').bind('closed.bs.alert', function () {
+            $.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });
+          });
+        }
+        if ($('.alert.alert-warning.alert-dismissible')) {
+          $('.alert.alert-warning.alert-dismissible').bind('closed.bs.alert', function () {
+            $.cookie('dev-box', 'closed', { expires: 7, path: '/' });
+          });
+        }
       }
     }
   }
