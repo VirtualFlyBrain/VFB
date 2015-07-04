@@ -135,7 +135,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 	<c:set var="tpb" value="${ontBean.thirdPartyBean}"/><c:if test="${!empty tpb}">
 	<p>
-		<b>Image:</b>
+		<b>Image:</b><br/>
 		<img class="lazy" data-original="${tpb.thumbUrl}" onclick="post('site/stacks/index.htm',{'add':'${tpb.vfbId}'})" alt="Open in stack viewer"/>
 		<br/>
 		<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
