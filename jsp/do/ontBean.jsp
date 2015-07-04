@@ -134,15 +134,16 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</c:if>
 
 	<c:set var="tpb" value="${ontBean.thirdPartyBean}"/><c:if test="${!empty tpb}">
-		<b>Source:</b>
-		<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
-		<br clear="all"/>
-		<a href="site/stacks/index.htm?add=${tpb.vfbId}" target="_top" >
-			<img class="lazy" data-original="${tpb.thumbUrl}" />
-		</a>
+	<p>
+		<b>Image:</b>
+		<img class="lazy" data-original="${tpb.thumbUrl}" onclick="post('site/stacks/index.htm',{'add':'${tpb.vfbId}'})" alt="Open in stack viewer"/>
 		<br/>
-		<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(tpb.vfbId, ':', '_')}"></span>
+		<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
+		<br />
+		<br />
+		<span id="imageViewerOpen" data-id="${fn:replace(tpb.vfbId, ':', '_')}" data-name="${ontBean.name}"></span>
 		<br/>
+	</p>
 	</c:if>
 
 	<c:if test="${isNeuron || isClone}">
