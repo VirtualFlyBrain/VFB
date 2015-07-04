@@ -80,9 +80,9 @@
 					 majorVersion = parseInt(navigator.appVersion,10);
 					}
 					SupDetail.sysDetail = navigator.userAgent + ' Size:[' + browserSize + ']';
-					SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
+					SupDetail.sysDetailURL = encodeURIComponent(SupDetail.sysDetail);
 					SupDetail.cleanURL = encodeURIComponent('${param.url}');
-					mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + navigator.userAgent,"email us", "emailUs");
+					mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail,"email us", "emailUs");
 				</script></b> with details.</p>
 
 				<p>Alternatively, as VFB is an opensource project,
