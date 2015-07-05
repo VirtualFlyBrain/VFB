@@ -1165,7 +1165,7 @@ function loadTemplateAnatomyTree() {
        parent.$("body").data("tree",data);
        if (parent.$("body").data("tree")) {
          var content = "";
-         content += '<div class="tree well">';
+         content += '<div class="tree well" style="overflow:scroll;">';
          content += createTreeHTML(parent.$("body").data("tree"));
          content += "</div>";
          $("#anatoContent").html(content);

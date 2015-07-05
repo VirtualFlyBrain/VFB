@@ -117,7 +117,7 @@
 		</script>
 	</div>
 
-	<div class="col-md-5 col-lg-6" id="right-panel" style="min-width:640px;">
+	<div class="col-md-5 col-lg-6" id="right-panel">
 		<div class="content-fluid">
 			<ul class="nav nav-pills nav-justified">
 			  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-screenshot"></span> Selected</a></li>
@@ -215,7 +215,7 @@
 									<div class="col-xs-9">
 			            	<h4>Neuroanatomy Tree</h4>
 									</div>
-									<div id="openCloseAll" class="col-xs-3">
+									<div id="openCloseAll" class="col-xs-3" style="min-width:180px;">
 										<div class="btn-group">
 											<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack"><span class="glyphicon glyphicon-plus"></span></button>
 											<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack"><span class="glyphicon glyphicon-minus"></span></button>
