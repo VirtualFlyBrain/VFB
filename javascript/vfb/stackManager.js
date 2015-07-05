@@ -572,6 +572,7 @@ function addToStackData(ids, showDetails){
         openFullDetails(id);
       }
       updateStackData();
+      history.replaceState(null, document.title, location.href);
     }else{
       window.setTimeout(function(){
 				addToStackData(ids);

@@ -656,6 +656,7 @@ function clearAllDisplayed() {
   $(".dataTables_paginate li").css("margin", 0);
   $(".dataTables_paginate li").css("padding", 0);
   updateStackData();
+  history.replaceState(null, document.title, location.href);
 }
 
 function createControlsBarHTML(id) {
