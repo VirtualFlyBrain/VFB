@@ -617,8 +617,8 @@ function initWlzControls() {
      }
    });
    $("#canvas").click(function(e) {
-     window.PosX = e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2);
-     window.PosY = e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2);
+     window.PosX = Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2));
+     window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2));
      updatePosition();
    });
    $("body").on('click', "#resetPosition", function(){
