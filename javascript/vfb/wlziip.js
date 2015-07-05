@@ -66,8 +66,8 @@ function animateWlzDisplay(){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
-                if (canvas.width < window.screen.width){
-                  $("#viewer-panel").css("min-width", canvas.width);
+                if ((canvas.width + 50) < window.screen.width){
+                  $("#viewer-panel").css("min-width", (canvas.width + 50));
                 }else{
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
@@ -92,8 +92,8 @@ function animateWlzDisplay(){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
-                if (canvas.width < window.screen.width){
-                  $("#viewer-panel").css("min-width", canvas.width);
+                if ((canvas.width + 50) < window.screen.width){
+                  $("#viewer-panel").css("min-width", (canvas.width + 50));
                 }else{
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
@@ -260,7 +260,6 @@ function minimizeMenuTabs() {
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
   $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
   $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
-  $('#right-panel').css("min-width",80);
 }
 
 function maximizeMenuTabs() {
@@ -277,7 +276,6 @@ function maximizeMenuTabs() {
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
-  $('#right-panel').css("min-width",640);
 }
 
 function updatePosition() {
