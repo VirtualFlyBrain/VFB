@@ -72,6 +72,25 @@ function animateWlzDisplay(){
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
+                if ((canvas.width + 50 + $('#right-panel').width()+30) > $(window).width()) {
+                  $('#DispMenuTab').show();
+                  $('#AnatoMenuTab').show();
+                  $('#SearchMenuTab').show();
+                  $('#SelecMenuTab').show();
+                  $('#QueryMenuTab').show();
+                  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
+                  $('#right-panel').removeClass('col-lg-6').removeClass('col-md-1').removeClass('col-md-5').addClass('col-xs-12');
+                  $('#viewer-panel').removeClass('col-lg-6').removeClass('col-md-11').removeClass('col-md-7').addClass('col-xs-12');
+                }else{
+                  $('#DispMenuTab').show();
+                  $('#AnatoMenuTab').show();
+                  $('#SearchMenuTab').show();
+                  $('#SelecMenuTab').show();
+                  $('#QueryMenuTab').show();
+                  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
+                  $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
+                  $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
+                }
                 parent.$("body").data("disp", "done");
               }
               if (selected[0].visible === false || parent.$("body").data("disp") == "clear"){
@@ -97,6 +116,25 @@ function animateWlzDisplay(){
                 }else{
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
+                }
+                if ((canvas.width + 50 + $('#right-panel').width()+30) > $(window).width()) {
+                  $('#DispMenuTab').show();
+                  $('#AnatoMenuTab').show();
+                  $('#SearchMenuTab').show();
+                  $('#SelecMenuTab').show();
+                  $('#QueryMenuTab').show();
+                  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
+                  $('#right-panel').removeClass('col-lg-6').removeClass('col-md-1').removeClass('col-md-5').addClass('col-xs-12');
+                  $('#viewer-panel').removeClass('col-lg-6').removeClass('col-md-11').removeClass('col-md-7').addClass('col-xs-12');
+                }else{
+                  $('#DispMenuTab').show();
+                  $('#AnatoMenuTab').show();
+                  $('#SearchMenuTab').show();
+                  $('#SelecMenuTab').show();
+                  $('#QueryMenuTab').show();
+                  $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
+                  $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
+                  $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
                 }
                 parent.$("body").data("disp", "done");
               }
@@ -258,8 +296,8 @@ function minimizeMenuTabs() {
   $('#SelecMenuTab').hide();
   $('#QueryMenuTab').hide();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
-  $('#right-panel').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
-  $('#viewer-panel').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
+  $('#right-panel').removeClass('col-xs-12').removeClass('col-md-5').removeClass('col-lg-6').addClass('col-md-1');
+  $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-7').removeClass('col-lg-6').addClass('col-md-11');
 }
 
 function maximizeMenuTabs() {
@@ -274,8 +312,8 @@ function maximizeMenuTabs() {
   $('#SelecMenuTab').show();
   $('#QueryMenuTab').show();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-  $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
-  $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
+  $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
+  $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
 }
 
 function updatePosition() {
