@@ -96,6 +96,11 @@ function animateWlzDisplay(){
                   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
                   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
                 }
+                $('table').each(function(){
+                  if ($(this).width() > $('#right-panel').width()){
+                    $(this).css('width', $('#right-panel').width());
+                  }
+                });
                 parent.$("body").data("disp", "done");
               }
               if (selected[0].visible === false || parent.$("body").data("disp") == "clear"){
@@ -146,6 +151,11 @@ function animateWlzDisplay(){
                   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
                   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
                 }
+                $('table').each(function(){
+                  if ($(this).width() > $('#right-panel').width()){
+                    $(this).css('width', $('#right-panel').width());
+                  }
+                });
                 parent.$("body").data("disp", "done");
               }
               ctx.globalCompositeOperation = 'source-over';
