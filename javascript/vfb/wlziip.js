@@ -72,7 +72,12 @@ function animateWlzDisplay(){
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
-                if ((canvas.width + 50 + $('#right-panel').width()+30) > $(window).width()) {
+                if (($('#right-panel').width()+30) < 640) {
+                  j = $('#right-panel').width()+30;
+                }else{
+                  j = 640;
+                }
+                if ((canvas.width + 50 + j) > $(window).width()) {
                   $('#DispMenuTab').show();
                   $('#AnatoMenuTab').show();
                   $('#SearchMenuTab').show();
@@ -117,7 +122,12 @@ function animateWlzDisplay(){
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
-                if ((canvas.width + 50 + $('#right-panel').width()+30) > $(window).width()) {
+                if (($('#right-panel').width()+30) < 640) {
+                  j = $('#right-panel').width()+30;
+                }else{
+                  j = 640;
+                }
+                if ((canvas.width + 50 + j) > $(window).width()) {
                   $('#DispMenuTab').show();
                   $('#AnatoMenuTab').show();
                   $('#SearchMenuTab').show();
