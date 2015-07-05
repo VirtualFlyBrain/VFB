@@ -266,7 +266,7 @@
 
 </div>
 
-	<div id="footer">
+	<div id="details">
 		<div id="annotation" class="well">
 			<a name="details"></a>
 			<div id="anatomyDetails">
@@ -276,5 +276,5 @@
 			</div>
 		</div>
 	</div>
-
+<div class="content-fluid" id="footer">
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
