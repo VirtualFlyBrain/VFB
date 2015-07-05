@@ -617,8 +617,8 @@ function initWlzControls() {
      }
    });
    $("#canvas").click(function(e) {
-     window.PosX = $(this).offset().left;
-     window.PosY = $(this).offset().right;
+     window.PosX = e.pageX - $(this).offset().left;
+     window.PosY = e.pageY - $(this).offset().right;
      updatePosition();
    });
    $("body").on('click', "#resetPosition", function(){
