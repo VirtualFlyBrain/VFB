@@ -1061,7 +1061,7 @@ function loadRightMenuDisplayed() {
     var selected = parent.$("body").data(current.template).selected;
     if (selected && $.fn.dataTable.isDataTable('#displayed')) {
       $('table').each(function(){
-        if ($(this).width() > $('#right-panel').width()){
+        if ($(this).width() > $('#right-panel').width() || $(this).width() < $('#right-panel').width()){
           $(this).css('width', $('#right-panel').width());
         }
       });
