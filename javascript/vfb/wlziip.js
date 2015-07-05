@@ -316,6 +316,7 @@ function maximizeMenuTabs() {
   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
   $('#right-panel').css("min-width",640);
+  parent.$("body").data("disp", "scale");
 }
 
 function updatePosition() {
@@ -470,19 +471,7 @@ function FindPosition(oElement){
 }
 
 function openQueryTab() {
-  $('#DispMenuTab').removeClass('active');
-  $('#AnatoMenuTab').removeClass('active');
-  $('#SearchMenuTab').removeClass('active');
-  $('#SelecMenuTab').removeClass('active');
-  $('#DispMenuTab').removeClass('active');
-  $('#DispMenuTab').show();
-  $('#AnatoMenuTab').show();
-  $('#SearchMenuTab').show();
-  $('#SelecMenuTab').show();
-  $('#QueryMenuTab').show();
-  $('.tab-pane').removeClass('active');
-  $('#right-panel').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
-  $('#viewer-panel').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
+  maximizeMenuTabs();
   $('#QueryMenuTab').addClass('active');
   $('#queryBuild').addClass('active');
 }
