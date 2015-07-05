@@ -29,7 +29,6 @@ function animateWlzDisplay(){
   var ctx = canvas.getContext('2d');
   canvas.width = 637;
   canvas.height = 319;
-  canvas.onmousedown = GetCoordinates;
   function step() {
     var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
@@ -440,30 +439,6 @@ function updatePosition() {
   }
 }
 
-function GetCoordinates(e){
-  if (!e) e = window.event;
-  if (e.which == 1){
-    window.PosX = 0;
-    window.PosY = 0;
-    var ImgPos;
-    ImgPos = FindPosition(canvas);
-    if (e.pageX || e.pageY)
-    {
-      window.PosX = e.pageX;
-      window.PosY = e.pageY;
-    }
-    else if (e.clientX || e.clientY)
-      {
-        window.PosX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-        window.PosY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-      }
-    window.PosX = window.PosX - $('#canvas').position().left - parseInt($('#canvas').css('padding').replace('px',''));
-    window.PosY = window.PosY - ImgPos[1] - parseInt($('#canvas').css('padding').replace('px',''));
-
-    updatePosition();
-  }
-}
-
 function FindPosition(oElement){
   if(typeof( oElement.offsetParent ) != "undefined")
   {
@@ -635,6 +610,11 @@ function initWlzControls() {
        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
        $("#slider-alphaCurrentSliderValLabel").removeClass("active");
      }
+   });
+   $("#canvas").click(function(e) {
+     window.PosX = $(this).offset().left;
+     window.PosY = $(this).offset().right;
+     updatePosition();
    });
    $("body").on('click', "#resetPosition", function(){
      hideAllSliders();
