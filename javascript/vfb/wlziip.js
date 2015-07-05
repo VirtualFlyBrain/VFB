@@ -1060,6 +1060,11 @@ function loadRightMenuDisplayed() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     if (selected && $.fn.dataTable.isDataTable('#displayed')) {
+      $('table').each(function(){
+        if ($(this).width() > $('#right-panel').width()){
+          $(this).css('width', $('#right-panel').width());
+        }
+      });
       var layers = Object.keys(selected).length;
       var temp;
       var i;
