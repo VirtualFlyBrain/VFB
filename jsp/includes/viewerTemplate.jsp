@@ -129,77 +129,89 @@
 			</ul>
 			<div class="tab-content">
 			        <div class="tab-pane" id="selec">
-			            <h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
-									<div class="content-fluid" id="selecContent">
-										<table id="selected" class="display compact" cellspacing="0" width="100%">
-											<thead>
-												<tr>
-													<th>#</th><th>Display</th><th>Name</th><th>Type</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr><th>-</th><th>Click somewhere on the image</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
-											</tbody>
-										</table>
-										<script>
-										  $(document).ready(function() {
-												$('#selected').DataTable( { retrieve: true,
-									        paging: true,
-									        searching: true,
-									        ordering: true,
-									        responsive: true,
-									        stateSave: true,
-									        order: [[ 0, 'desc' ]],
-									        columnDefs: [
-									            {
-									                targets: [ 0 ],
-									                visible: false,
-									                searchable: false
-									            }
-									          ]
-									      });
-												$('#selected').on( 'page.dt', function () {
-									        updateLabels();
-													$('#selected').dataTable().fnAdjustColumnSizing(false);
-													$('#selected').DataTable().draw(false);
-									      } );
-											});
-										</script>
+								<div class="row-fluid" style="padding:0;">
+									<div class="col-xs-12" style="padding:0;">
+										<h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
 									</div>
+									<div class="col-xs-12" style="padding:0;">
+										<div class="table-responsive" id="selecContent">
+											<table id="selected" class="display compact" cellspacing="0">
+												<thead>
+													<tr>
+														<th>#</th><th>Display</th><th>Name</th><th>Type</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr><th>-</th><th>Click somewhere on the image</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+												</tbody>
+											</table>
+											<script>
+											  $(document).ready(function() {
+													$('#selected').DataTable( { retrieve: true,
+										        paging: true,
+										        searching: true,
+										        ordering: true,
+										        responsive: true,
+										        stateSave: true,
+										        order: [[ 0, 'desc' ]],
+										        columnDefs: [
+										            {
+										                targets: [ 0 ],
+										                visible: false,
+										                searchable: false
+										            }
+										          ]
+										      });
+													$('#selected').on( 'page.dt', function () {
+										        updateLabels();
+														$('#selected').dataTable().fnAdjustColumnSizing(false);
+														$('#selected').DataTable().draw(false);
+										      } );
+												});
+											</script>
+										</div>
+									</div>
+								</div>
 			        </div>
 			        <div class="tab-pane active" id="disp" align="center">
-			            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
-									<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
-									<h4 style="float:center">Currently Displayed</h4>
-									<div class="content-fluid" id="dispContent">
-										<table id="displayed" class="display compact" cellspacing="0" width="100%">
-											<thead>
-												<tr>
-													<th>#</th><th>Display</th><th>Name</th><th>Type</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
-											</tbody>
-										</table>
-										<script>
-										  $(document).ready(function() {
-												loadRightMenuDisplayed();
-												updateLabels();
-										    window.setInterval(function(){
-													if ($.fn.dataTable.isDataTable('#displayed')) {
-														loadRightMenuDisplayed();
-														// $('#displayed').DataTable().column( 0 ).visible( false );
-											      // $('#displayed').dataTable().fnAdjustColumnSizing();
-													}
-										    }, 10000);
-												loadRightMenuDisplayed();
-										  });
-										</script>
+								<div class="row-fluid" style="padding:0;">
+									<div class="col-xs-12" style="padding:0;">
+				            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
+										<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
+										<h4 style="float:center">Currently Displayed</h4>
 									</div>
+									<div class="col-xs-12" style="padding:0;">
+										<div class="table-responsive" id="dispContent">
+											<table id="displayed" class="display compact" cellspacing="0">
+												<thead>
+													<tr>
+														<th>#</th><th>Display</th><th>Name</th><th>Type</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+												</tbody>
+											</table>
+											<script>
+											  $(document).ready(function() {
+													loadRightMenuDisplayed();
+													updateLabels();
+											    window.setInterval(function(){
+														if ($.fn.dataTable.isDataTable('#displayed')) {
+															loadRightMenuDisplayed();
+															// $('#displayed').DataTable().column( 0 ).visible( false );
+												      // $('#displayed').dataTable().fnAdjustColumnSizing();
+														}
+											    }, 10000);
+													loadRightMenuDisplayed();
+											  });
+											</script>
+										</div>
+									</div>
+								</div>
 			        </div>
 			        <div class="tab-pane" id="anato">
-								<div class="row" >
+								<div class="row-fluid" style="padding:0;">
 									<div class="col-xs-9">
 			            	<h4>Neuroanatomy Tree</h4>
 									</div>
@@ -212,7 +224,7 @@
 										</div>
 									</div>
 									<div class="clearfix visible-xs-block"></div>
-									<div class="col-xs-12" id="anatoContent"></div>
+									<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
 								</div>
 			        </div>
 			        <div class="tab-pane" id="search">
@@ -235,11 +247,11 @@
 								</script>
 			        </div>
 							<div class="tab-pane" id="queryBuild">
-								<div class="row row-centered" >
+								<div class="row-fluid row-centered" style="padding:0;">
 									<div class="col-xs-12 col-centered">
 			            	<h4>Your Query</h4>
 									</div>
-									<div id="queryText" class="col-xs-12 col-centered">
+									<div id="queryText" class="col-xs-12 col-centered" style="padding:0;">
 										<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
 									</div>
 								</div>

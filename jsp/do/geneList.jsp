@@ -31,47 +31,48 @@
 		</div>
 		<div class="col-xs-12" style="padding:0;">
 			<div class="container-fluid" style="padding:0;">
-				<table id="resultsTable" class="display">
-					<thead>
-						<tr>
-						<c:forEach items="${transgeneColumns}" var="curr">
-							<th>${curr}</th>
+				<div class="table-responsive">
+					<table id="resultsTable" class="display">
+						<thead>
+							<tr>
+							<c:forEach items="${transgeneColumns}" var="curr">
+								<th>${curr}</th>
+							</c:forEach>
+								<th>Source</th>
+							</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${geneList}" var="geneBean" varStatus="status">
+							<tr>
+								<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" target="_new">${geneBean.driver}</a></td>
+								<td><a href="/site/tools/anatomy_finder/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
+								<c:if test="${geneBean.flag}">
+									<a href="" class="warn" title="${queryDesc} expression in this cell may be localised to regions of the cell that do not overlap the queried structure">(*)</a>
+								</c:if>
+								</td>
+								<td><a href="${transgeneLinks[0]}${geneBean.reference}.html" target="_new">${geneBean.referenceRef}</a></td>
+								<td>
+									<c:set var="tpb" value="${geneBean.thirdPartyBean}" />
+									<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
+										<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
+											<a style="float: left; margin: 0 3px;" href="/site/stacks/index.htm?add=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
+											<img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
+										</c:if>
+										<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
+											<span id="attach" data-id="${tpb.vfbId}"></span>
+										</c:if>
+									</c:if>
+								</td>
+								<td>
+									<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
+										<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName}</a>
+									</c:if>
+								</td>
+							</tr>
 						</c:forEach>
-							<th>Source</th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${geneList}" var="geneBean" varStatus="status">
-						<tr>
-							<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" target="_new">${geneBean.driver}</a></td>
-							<td><a href="/site/tools/anatomy_finder/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
-							<c:if test="${geneBean.flag}">
-								<a href="" class="warn" title="${queryDesc} expression in this cell may be localised to regions of the cell that do not overlap the queried structure">(*)</a>
-							</c:if>
-							</td>
-							<td><a href="${transgeneLinks[0]}${geneBean.reference}.html" target="_new">${geneBean.referenceRef}</a></td>
-							<td>
-								<c:set var="tpb" value="${geneBean.thirdPartyBean}" />
-								<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
-									<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
-										<a style="float: left; margin: 0 3px;" href="/site/stacks/index.htm?add=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
-										<img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
-									</c:if>
-									<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
-										<span id="attach" data-id="${tpb.vfbId}"></span>
-									</c:if>
-								</c:if>
-							</td>
-							<td>
-								<c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
-									<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original source page" target="_new">${tpb.sourceName}</a>
-								</c:if>
-							</td>
-						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
-
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
