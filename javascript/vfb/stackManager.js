@@ -576,7 +576,7 @@ function addToStackData(ids, showDetails){
     }else{
       window.setTimeout(function(){
 				addToStackData(ids);
-			}, 5000);
+			}, 1000);
     }
   }
 }
