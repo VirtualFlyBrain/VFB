@@ -462,6 +462,7 @@ function FindPosition(oElement){
 
 function openQueryTab() {
   maximizeMenuTabs();
+  $('.tab-pane').removeClass('active');
   $('#QueryMenuTab').addClass('active');
   $('#queryBuild').addClass('active');
 }
