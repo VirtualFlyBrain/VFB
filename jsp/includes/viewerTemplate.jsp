@@ -51,9 +51,9 @@
 	</script>
 </c:if>
 
-<div class="row">
+<div class="row" style="overflow:scroll;">
 
-	<div class="col-md-7 col-lg-6" id="viewer-panel" style="overflow:scroll;">
+	<div class="col-md-7 col-lg-6" id="viewer-panel">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -116,7 +116,7 @@
 			});
 		</script>
 	</div>
-
+	
 	<div class="col-md-5 col-lg-6" id="right-panel">
 		<div class="content-fluid">
 			<ul class="nav nav-pills nav-justified">
