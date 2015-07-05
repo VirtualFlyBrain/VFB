@@ -53,7 +53,7 @@
 
 <div class="row">
 
-	<div class="col-md-7 col-lg-6" id="viewer-panel">
+	<div class="col-md-7 col-lg-6" id="viewer-panel" style="overflow:scroll;">
 		<form class="form-inline">
 			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
