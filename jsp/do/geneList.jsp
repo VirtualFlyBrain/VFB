@@ -10,6 +10,7 @@
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+	<jsp:param name="helpURL" value="/site/vfb_site/tutorial.htm" />
 </jsp:include>
 
 
@@ -67,7 +68,7 @@
 					<c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
 						<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
 						<img src="${geneBean.thirdPartyBean.thumbUrl}" height="50" alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
-						<br clear="all"/>					
+						<br clear="all"/>
 					</c:if>
 					<c:if test="${!empty geneBean.thirdPartyBean.stackName}">
 						<a style="float: left; margin: 0 3px;" href="/site/tools/view_stack/3rdPartyStack.htm?tpbid=${tpb.vfbId}" title="View registered stack in 3D Viewer"  target="_blank">
