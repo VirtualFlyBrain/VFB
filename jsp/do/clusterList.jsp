@@ -12,6 +12,7 @@
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+	<jsp:param name="helpURL" value="/site/vfb_site/tutorial.htm" />
 </jsp:include>
 
 
@@ -77,7 +78,7 @@
 						</td>
 						<c:if test="${!empty tpb}">
 							<td style="padding: 2px 0; text-align: center;"><a href="${tpb.baseUrl}${tpb.remoteId}"
-								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a> &nbsp;&nbsp; 
+								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a> &nbsp;&nbsp;
 							</td>
 							<td style="padding: 2px">
 								<c:if test="${empty param.popup}">
