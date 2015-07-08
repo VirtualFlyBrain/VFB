@@ -64,8 +64,8 @@
 					responsive: true,
 					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
-        		[50, 10, 25, 100, 200],
-        		[50, 10, 25, 100, 200]
+        		[10, 25, 50, 100, 200],
+        		[10, 25, 50, 100, 200]
     			]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
