@@ -355,3 +355,9 @@ div.icon-right {
   height: 32px !important;
   width: 48px !important;
 }
+#imagesCaro .btn-group-justified {
+  width: 350px !important;
+}
+#imagesCaro .carousel {
+  width: 350px !important;
+}

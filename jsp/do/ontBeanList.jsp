@@ -83,8 +83,6 @@
 						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
 							$('#resultsTable').dataTable().fnUpdate(data,i,4,false);
 							$('#resultsTable').DataTable().draw(false);
-							$('.btn-group-justified').css("width","350px");
-							$('.carousel').css("width","350px");
 						});
 						$(this).attr('id','loadingImages');
 					});
@@ -100,7 +98,7 @@
 							});
 							$(this).attr('id','loadingImages');
 						});
-						if ($('.lazy').parent().parent().width() > 300){
+						if ($('.lazy').parent().parent().width() > 360){
 							$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 							$('#resultsTable').DataTable().draw(false);
 						}
