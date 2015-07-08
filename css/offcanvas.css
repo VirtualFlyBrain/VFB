@@ -347,7 +347,7 @@ div.icon-right {
     color:#000
 }
 /*tighten page buttons on datatables*/
-.paginate>li {
+.pagination>li {
   margin: 0px;
   padding: 0px;
 }
