@@ -107,9 +107,11 @@
 				window.setInterval(function(){
 					$('.btn-group-justified').css("width","350px");
 					$('.carousel').css("width","350px");
-					if ($('.previous').css('padding') !== '0px'){
+					if ($('.lazy').parent().parent().width() > 500){
 						$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 						$('#resultsTable').DataTable().draw(false);
+					}
+					if ($('.previous').css('padding') !== '0px'){
 						$(".dataTables_paginate li").css("margin", 0);
 						$(".dataTables_paginate li").css("padding", 0);
 						$('.btn-primary').css('height','32px');
