@@ -64,8 +64,8 @@
 					responsive: true,
 					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
-        		[-1, 10, 25, 50, 100],
-        		["All", 10, 25, 50, 100]
+        		[100, 10, 25, 50, 200],
+        		[100, 10, 25, 50, 200]
     			]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
@@ -88,32 +88,22 @@
 						});
 						$(this).attr('id','loadingImages');
 					});
-					$('.btn-group-justified').css("width","350px");
-					$('.carousel').css("width","350px");
 					$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 					$('#resultsTable').DataTable().draw();
 					$('#resultsTable_length label').after($('#resultsTable_info').text().substring($('#resultsTable_info').text().indexOf(' of')).replace(' entries', ''));
-					$(".dataTables_paginate li").css("margin", 0);
-					$(".dataTables_paginate li").css("padding", 0);
 					window.setInterval(function(){
 						$('[id=resoveImages]').each(function(){
 							var i = parseInt($(this).data('index'));
 							$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
 								$('#resultsTable').dataTable().fnUpdate(data,i,4,false);
 								$('#resultsTable').DataTable().draw(false);
-								$('.btn-group-justified').css("width","350px");
-								$('.carousel').css("width","350px");
 							});
 							$(this).attr('id','loadingImages');
 						});
-						$('.btn-group-justified').css("width","350px");
-						$('.carousel').css("width","350px");
-						$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
-						$('#resultsTable').DataTable().draw(false);
-						$(".dataTables_paginate li").css("margin", 0);
-						$(".dataTables_paginate li").css("padding", 0);
-						$('.btn-primary').css('height','32px');
-						$('.btn-primary').css('width','48px');
+						if ($('.lazy').parent().width() > 300){
+							$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
+							$('#resultsTable').DataTable().draw(false);
+						}
 					}, 10000);
 				}, 1000);
 			} );
