@@ -64,8 +64,8 @@
 					responsive: true,
 					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
-        		[100, 10, 25, 50, 200],
-        		[100, 10, 25, 50, 200]
+        		[50, 10, 25, 100, 200],
+        		[50, 10, 25, 100, 200]
     			]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
@@ -100,7 +100,7 @@
 							});
 							$(this).attr('id','loadingImages');
 						});
-						if ($('.lazy').parent().width() > 300){
+						if ($('.lazy').parent().parent().width() > 300){
 							$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 							$('#resultsTable').DataTable().draw(false);
 						}
