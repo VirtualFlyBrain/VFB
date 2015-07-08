@@ -351,3 +351,7 @@ div.icon-right {
   margin: 0px !important;
   padding: 0px !important;
 }
+.btn.btn-default.DTTT_button_copy.btn-sm.btn-primary, .btn.btn-default.DTTT_button_csv.btn-sm.btn-primary, .btn.btn-default.DTTT_button_xls.btn-sm.btn-primary, .btn.btn-default.DTTT_button_pdf.btn-sm.btn-primary, .btn.btn-default.DTTT_button_print.btn-sm.btn-primary {
+  height: 32px !important;
+  width: 48px !important;
+}

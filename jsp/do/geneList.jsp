@@ -97,25 +97,13 @@
 							$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
 						});
 				});
-				$('.btn-group-justified').css("width","350px");
-				$('.carousel').css("width","350px");
 				$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 				$('#resultsTable').DataTable().draw();
 				$('#resultsTable_length label').after($('#resultsTable_info').text().substring($('#resultsTable_info').text().indexOf(' of')).replace(' entries', ''));
-				$(".dataTables_paginate li").css("margin", 0);
-				$(".dataTables_paginate li").css("padding", 0);
 				window.setInterval(function(){
-					$('.btn-group-justified').css("width","350px");
-					$('.carousel').css("width","350px");
 					if ($('.lazy').parent().parent().width() > 500){
 						$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
 						$('#resultsTable').DataTable().draw(false);
-					}
-					if ($('.previous').css('padding') !== '0px'){
-						$(".dataTables_paginate li").css("margin", 0);
-						$(".dataTables_paginate li").css("padding", 0);
-						$('.btn-primary').css('height','32px');
-						$('.btn-primary').css('width','48px');
 					}
 				}, 10000);
 			}, 1000);
