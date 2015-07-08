@@ -84,6 +84,7 @@
 				ordering: true,
 				responsive: true,
 				stateSave: true,
+				autoWidth: false,
 				"order": [[ 3, "desc" ]]
 			} );
 			var tt = new $.fn.dataTable.TableTools( table );
