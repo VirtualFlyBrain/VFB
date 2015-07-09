@@ -45,8 +45,8 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       doc = self.manager.response.response.docs[i];
       $(self.target).append(self.template(doc));
     }
-    if (self.manager.response.response.numFound < 50){
-      $('#anatomyDetails').load('/do/ont_bean.html?id=' + self.manager.response.response.docs[0].short_form[0].replace(':','_'));
+    if (self.manager.response.response.numFound > 0 && self.manager.response.response.numFound < 50){
+      openFullDetails(self.manager.response.response.docs[0].short_form[0].replace(':','_'));
     }
     if (self.manager.response.response.numFound == 1) { // only show results list if multiple results
       self.manager.store.get('q').val('*:*');
