@@ -446,8 +446,15 @@ function openFullDetails(id) {
   if ($('#anatomyDetails')) {
     id = cleanIdforExt(id);
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
-      $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
-      $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+      if (id.indexOf("FBbt_") > -1){
+        $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
+        $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+      }else if (id.indexOf("FB") > -1) {
+        $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
+        $('#anatomyDetails').load("http://flybase.org/reports/" + id.replace('_',''));
+      }else{
+        alertMessage("Can't open details for:" + id);
+      }
     }else{
       alertMessage("Can't directly open details for:" + id);
     }
