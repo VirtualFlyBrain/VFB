@@ -127,6 +127,12 @@ function animateWlzDisplay(){
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
+                if (window.screen.width < 640 && $('#right-panel').width() > window.screen.width){
+                  $('#right-panel').css("min-width", window.screen.width);
+                }
+                if (window.screen.width > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
+                  $('#right-panel').css("min-width", 640);
+                }
                 if (($('#right-panel').width()+30) < 640) {
                   j = $('#right-panel').width()+30;
                 }else{
