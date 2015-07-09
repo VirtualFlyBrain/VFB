@@ -67,6 +67,6 @@ var Manager;
     else {
       return this.hide();
     }
-  }
+  };
 
 })(jQuery);
