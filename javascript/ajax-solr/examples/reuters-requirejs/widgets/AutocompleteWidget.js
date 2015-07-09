@@ -35,7 +35,6 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
           if (ui.item) {
             self.requestSent = true;
             if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
-              console.log('AC1');
               self.doRequest();
             }
           }
@@ -62,7 +61,6 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
       params.push('fq=' + encodeURIComponent(values[i]));
     }
     params.push('q=' + this.manager.store.get('q').val());
-    console.log('AC2');
     $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
   }
 });

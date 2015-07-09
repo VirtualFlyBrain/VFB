@@ -15,7 +15,6 @@ AjaxSolr.TextWidget = AjaxSolr.AbstractTextWidget.extend({
 					</div>');
         }
         if (value && self.set(value)) {
-          console.log('TW1');
           self.doRequest();
         }
       }
