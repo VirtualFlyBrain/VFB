@@ -81,7 +81,7 @@ function updateStackCounter() {
 function cleanIdforExt(id) {
   if (id) {
     id = id.replace(":","_");
-    id = id.toLowerCase().replace("vfb","VFB").replace('fb','FB');
+    id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
     id = id.replace('VFBi_','VFB_');
     return id;
   }
@@ -451,7 +451,7 @@ function openFullDetails(id) {
         $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
       }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
-        $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_new">FlyBase report for '+ id.replace('_','') + '</a>');
+        $('#anatomyDetails').load("http://flybase.org/reports/" + id.replace('_',''));
       }else{
         alertMessage("Can't open details for:" + id);
       }
@@ -654,39 +654,6 @@ function removeFromStackData(ids) {
     }
     updateStackData();
   }
-}
-
-function htmlEscape(str) {
-    return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/{/g,'%5C&#123;')
-            .replace(/}/g,'%5C&#125;')
-            .replace(/:/g,'%5C&#58;')
-            .replace(/%7B/g,'%5C%7B')
-            .replace(/%7D/g,'%5C%7D')
-            .replace(/%3A/g,'%5C%3A')
-            .replace(/>/g, '&gt;');
-}
-
-function htmlUnescape(value){
-    return String(value)
-        .replace(/&quot;/g, '"')
-        .replace(/&#39;/g, "'")
-        .replace(/%5C&#123;/g,'{')
-        .replace(/%5C&#125;/g,'}')
-        .replace(/%5C&#58;/g, ":")
-        .replace(/&#123;/g,'{')
-        .replace(/&#125;/g,'}')
-        .replace(/&#58;/g,':')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/%5C%7B/g,'%7B')
-        .replace(/%5C%7D/g,'%7D')
-        .replace(/%5C%3A/g,'%3A')
-        .replace(/&amp;/g, '&');
 }
 
 $('body').ready( function () {
