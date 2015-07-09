@@ -81,7 +81,7 @@ function updateStackCounter() {
 function cleanIdforExt(id) {
   if (id) {
     id = id.replace(":","_");
-    id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+    id = id.toLowerCase().replace("vfb","VFB").replace('fb','FB');
     id = id.replace('VFBi_','VFB_');
     return id;
   }
@@ -449,7 +449,7 @@ function openFullDetails(id) {
       if (id.indexOf("FBbt_") > -1){
         $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
         $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
-      }else if (id.indexOf("fb") > -1) {
+      }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
         $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_new">FlyBase report for '+ id.replace('_','') + '</a>');
       }else{
