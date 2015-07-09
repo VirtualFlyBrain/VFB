@@ -60,6 +60,7 @@
             if (ui.item) {
               self.requestSent = true;
               if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
+                console.log('AC01');
                 self.doRequest();
               }
             }
@@ -85,7 +86,8 @@
       }
       var values = this.manager.store.values('fq');
       for (var i = 0; i < values.length; i++) {
-        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]).replace(/["]/g,''));
+        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i].replace('{','\\{').replace('}','\\}')).replace(/["]/g,''));
+        console.log('AC02:' + values[i]);
       }
       params.push('q=' + this.manager.store.get('q').val());
       $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
