@@ -451,7 +451,7 @@ function openFullDetails(id) {
         $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
       }else if (id.indexOf("fb") > -1) {
         $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
-        $('#anatomyDetails').load("http://flybase.org/reports/" + id.replace('_',''));
+        $('#anatomyDetails').html('<a href="http://flybase.org/reports/' + id.replace('_','') + '" target="_new">FlyBase report for '+ id.replace('_','') + '</a>');
       }else{
         alertMessage("Can't open details for:" + id);
       }
