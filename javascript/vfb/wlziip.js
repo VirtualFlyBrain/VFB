@@ -65,16 +65,16 @@ function animateWlzDisplay(){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
-                if ((canvas.width + 50) < window.screen.width){
+                if ((canvas.width + 50) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 50));
                 }else{
-                  $("#viewer-panel").css("min-width", window.screen.width - 10);
+                  $("#viewer-panel").css("min-width", $(window).width() - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
-                if (window.screen.width < 640 && $('#right-panel').width() > window.screen.width){
-                  $('#right-panel').css("min-width", window.screen.width);
+                if ($(window).width() < 640 && $('#right-panel').width() > $(window).width()){
+                  $('#right-panel').css("min-width", $(window).width());
                 }
-                if (window.screen.width > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
+                if ($(window).width() > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
                   $('#right-panel').css("min-width", 640);
                 }
                 if (($('#right-panel').width()+30) < 640) {
@@ -121,16 +121,16 @@ function animateWlzDisplay(){
                   canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
                   canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
                 }
-                if ((canvas.width + 50) < window.screen.width){
+                if ((canvas.width + 50) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 50));
                 }else{
-                  $("#viewer-panel").css("min-width", window.screen.width - 10);
+                  $("#viewer-panel").css("min-width", $(window).width() - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
-                if (window.screen.width < 640 && $('#right-panel').width() > window.screen.width){
-                  $('#right-panel').css("min-width", window.screen.width);
+                if ($(window).width() < 640 && $('#right-panel').width() > $(window).width()){
+                  $('#right-panel').css("min-width", $(window).width());
                 }
-                if (window.screen.width > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
+                if ($(window).width() > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
                   $('#right-panel').css("min-width", 640);
                 }
                 if (($('#right-panel').width()+30) < 640) {
@@ -339,8 +339,8 @@ function maximizeMenuTabs(scale) {
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
-  if (window.screen.width < 640){
-    $('#right-panel').css("min-width", window.screen.width);
+  if ($(window).width() < 640){
+    $('#right-panel').css("min-width", $(window).width());
   }else{
     $('#right-panel').css("min-width",640);
   }
