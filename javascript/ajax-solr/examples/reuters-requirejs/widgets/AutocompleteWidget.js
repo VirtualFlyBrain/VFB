@@ -59,7 +59,7 @@ AjaxSolr.AutocompleteWidget = AjaxSolr.AbstractTextWidget.extend({
     var values = this.manager.store.values('fq');
     for (var i = 0; i < values.length; i++) {
       params.push('fq=' + encodeURIComponent(values[i].replace('{','\\{').replace('}','\\}')));
-      console.log(values[i]);
+      console.log('Orig: ' + values[i]);
     }
     params.push('q=' + this.manager.store.get('q').val());
     $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
