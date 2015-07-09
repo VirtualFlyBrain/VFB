@@ -223,7 +223,7 @@ AjaxSolr.PagerWidget = AjaxSolr.AbstractWidget.extend(
    * @returns {Number} The number of results to display per page.
    */
   perPage: function () {
-    return parseInt(this.manager.response.responseHeader && this.manager.response.responseHeader.params && this.manager.response.responseHeader.params.rows || this.manager.store.get('rows').val() || 20);
+    return parseInt(this.manager.response.responseHeader && this.manager.response.responseHeader.params && this.manager.response.responseHeader.params.rows || this.manager.store.get('rows').val() || 10);
   },
 
   /**
