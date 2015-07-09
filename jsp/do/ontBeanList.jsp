@@ -62,6 +62,7 @@
 					searching: true,
 					ordering: true,
 					responsive: true,
+					autoWidth: false,
 					"order": [[ 4, "desc" ]],
 					aLengthMenu: [
         		[10, 25, 50, 100, 200],
