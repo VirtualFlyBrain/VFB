@@ -71,6 +71,12 @@ function animateWlzDisplay(){
                   $("#viewer-panel").css("min-width", window.screen.width - 10);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
+                if (window.screen.width < 640 && $('#right-panel').width() > window.screen.width){
+                  $('#right-panel').css("min-width", window.screen.width);
+                }
+                if (window.screen.width > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
+                  $('#right-panel').css("min-width", 640);
+                }
                 if (($('#right-panel').width()+30) < 640) {
                   j = $('#right-panel').width()+30;
                 }else{
@@ -327,7 +333,11 @@ function maximizeMenuTabs(scale) {
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-6');
   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-6');
-  $('#right-panel').css("min-width",640);
+  if (window.screen.width < 640){
+    $('#right-panel').css("min-width", window.screen.width);
+  }else{
+    $('#right-panel').css("min-width",640);
+  }
   if (scale){
     parent.$("body").data("disp", "scale");
   }
