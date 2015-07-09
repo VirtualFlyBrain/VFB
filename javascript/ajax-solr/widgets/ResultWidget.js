@@ -45,7 +45,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       doc = self.manager.response.response.docs[i];
       $(self.target).append(self.template(doc));
     }
-    if (self.manager.response.response.numFound < 50){
+    if (self.manager.response.response.numFound > 0 && self.manager.response.response.numFound < 50){
       $('#anatomyDetails').load('/do/ont_bean.html?id=' + self.manager.response.response.docs[0].short_form[0].replace(':','_'));
     }
     if (self.manager.response.response.numFound == 1) { // only show results list if multiple results
@@ -80,7 +80,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_') + '\');" >';
+    var output = '<div><a href="#anatomyDetails" onclick="openFullDetails(' + "'" + doc.short_form[0].replace(':','_') + "'" + ');" >';
     // if (doc.short_form[0].indexOf('VFB') > -1) {
     //   output += '<img class="lazy" align="right" data-original="/owl/' + doc.short_form[0].replace(':','_').replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height: 37px; padding: 0px" data-holder-rendered="false" onerror="this.style.display = \'none\';">';
     // }
