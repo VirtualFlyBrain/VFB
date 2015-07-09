@@ -1382,7 +1382,7 @@ function addAvailableItems(ids) {
       // Name:
       if (temp.extId) {
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-        name += "$('#infoButtonFor" + cleanIdforExt(temp.extId[0]) + "').click();";
+        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
         name += '">';
         name += temp.name;
         name += '</span></a>';
