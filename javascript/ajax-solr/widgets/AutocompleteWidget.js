@@ -85,9 +85,9 @@
       }
       var values = this.manager.store.values('fq');
       for (var i = 0; i < values.length; i++) {
-        params.push('fq=' + AjaxSolr.Parameter.escapeValue(values[i]).replace(/["]/g,''));
+        params.push('fq=' + htmlEscape(AjaxSolr.Parameter.escapeValue(values[i]).replace(/["]/g,'')));
       }
-      params.push('q=' + this.manager.store.get('q').val());
+      params.push('q=' + htmlEscape(this.manager.store.get('q').val()));
       $.getJSON(this.manager.solrUrl + 'select?' + params.join('&') + '&wt=json&json.wrf=?', {}, callback);
     }
   });
