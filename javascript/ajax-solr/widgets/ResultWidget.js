@@ -30,7 +30,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
     var self = this;
     return function () {
       self.manager.store.remove('fq');
-      self.manager.store.addByValue('fq', facet_field + ':' + AjaxSolr.Parameter.escapeValue(facet_value));
+      self.manager.store.addByValue('fq', facet_field + ':' + htmlEscape(AjaxSolr.Parameter.escapeValue(facet_value)));
       self.doRequest(0);
       return false;
     };
@@ -80,7 +80,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
       snippet += doc.description;
     }
 
-    var output = '<div><a href="#anatomyDetails" onclick="$(\'#anatomyDetails\').load(\'/do/ont_bean.html?id=' + doc.short_form[0].replace(':','_') + '\');" >';
+    var output = '<div><a href="#anatomyDetails" onclick="openFullDetails(' + "'" + doc.short_form[0].replace(':','_') + "'" + ');" >';
     // if (doc.short_form[0].indexOf('VFB') > -1) {
     //   output += '<img class="lazy" align="right" data-original="/owl/' + doc.short_form[0].replace(':','_').replace('VFB_', 'VFBi_') + '/thumbnail.png" class="img-thumbnail" style="height: 37px; padding: 0px" data-holder-rendered="false" onerror="this.style.display = \'none\';">';
     // }
