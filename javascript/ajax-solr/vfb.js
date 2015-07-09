@@ -51,7 +51,8 @@ var Manager;
       'json.nl': 'map',
       'fq' : 'VFB_* FBbt_*',
       'df' : 'short_form',
-      'fl' : 'label,id,short_form,label_suggest,description'
+      'fl' : 'label,id,short_form,label_suggest,description',
+      'rows' : 10
     };
     for (var name in params) {
       Manager.store.addByValue(name, params[name]);
