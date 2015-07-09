@@ -662,9 +662,9 @@ function htmlEscape(str) {
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;')
             .replace(/</g, '&lt;')
-            .replace(/{/g,'&#123;')
-            .replace(/}/g,'&#125;')
-            .replace(/:/g,'&#58;')
+            .replace(/{/g,'%5C&#123;')
+            .replace(/}/g,'%5C&#125;')
+            .replace(/:/g,'%5C&#58;')
             .replace(/>/g, '&gt;');
 }
 
@@ -672,6 +672,9 @@ function htmlUnescape(value){
     return String(value)
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'")
+        .replace(/%5C&#123;/g,'{')
+        .replace(/%5C&#125;/g,'}')
+        .replace(/%5C&#58;/g, ":")
         .replace(/&#123;/g,'{')
         .replace(/&#125;/g,'}')
         .replace(/&#58;/g,':')
