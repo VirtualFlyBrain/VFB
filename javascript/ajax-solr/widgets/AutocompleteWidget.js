@@ -59,8 +59,8 @@
           select: function(event, ui) {
             if (ui.item) {
               self.requestSent = true;
-              if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value))) {
-                console.log('AC01');
+              if (self.manager.store.addByValue('fq', ui.item.field + ':' + AjaxSolr.Parameter.escapeValue(ui.item.value.replace('{','\\{').replace('}','\\}')))) {
+                console.log('AC01:' + ui.item.value);
                 self.doRequest();
               }
             }
