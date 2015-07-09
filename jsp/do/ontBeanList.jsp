@@ -63,11 +63,7 @@
 					ordering: true,
 					responsive: true,
 					autoWidth: false,
-					"order": [[ 4, "desc" ]],
-					aLengthMenu: [
-        		[10, 25, 50, 100, 200],
-        		[10, 25, 50, 100, 200]
-    			]
+					"order": [[ 4, "desc" ]]
 				} );
 				var tt = new $.fn.dataTable.TableTools( table );
 				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
