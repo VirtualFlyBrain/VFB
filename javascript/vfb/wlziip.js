@@ -934,6 +934,7 @@ function createInfoButtonHTML(layer) {
         content += "openFullDetails('" + layer.extid + "')";
         break;
       default:
+        alertMessage('unresolved info button for ' + layer.id);
         content += "openFullDetails('" + cleanIdforExt(layer.id) + "')";
     }
     content += '"><span style="border:none;padding-left:0px;padding-right:0px;;" class="glyphicon glyphicon-info-sign"></span></button>';
@@ -1388,7 +1389,7 @@ function addAvailableItems(ids) {
       // Name:
       if (temp.extId) {
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-        name += "openFullDetails('" + cleanIdforExt(id) + "');";
+        name += "openFullDetails('" + cleanIdforExt(temp.extId[0]) + "');";
         name += '">';
         name += temp.name;
         name += '</span></a>';
