@@ -456,7 +456,22 @@ function openFullDetails(id) {
         alertMessage("Can't open details for:" + id);
       }
     }else{
-      alertMessage("Can't directly open details for:" + id);
+      if (parent.$("body").data("domains") && (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1)){
+        var current = parent.$("body").data("current");
+        var selected = parent.$("body").data(current.template).selected;
+        var temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
+        var layers;
+        for (layers in parent.$("body").data("domains")){
+          if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
+            temp = parent.$("body").data("domains")[layers];
+            $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
+            $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]));
+            break;
+          }
+        }
+      }else{
+        alertMessage("Can't directly open details for:" + id);
+      }
     }
   }
   ga('send', 'event', 'load', 'details', id);
