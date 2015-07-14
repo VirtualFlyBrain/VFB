@@ -1106,7 +1106,7 @@ function loadRightMenuDisplayed() {
             }
             if (layer.name) {
               name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+              name += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
               name += '">';
               name += layer.name;
             }else{
@@ -1114,7 +1114,7 @@ function loadRightMenuDisplayed() {
                 for (j in parent.$("body").data("domains")) {
                   if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(layer.extid)) {
                     name = '<a href="#details"><span id="LoadedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-                    name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+                    name += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
                     name += '">';
                     name += parent.$("body").data("domains")[j].name;
                     break;
@@ -1124,7 +1124,7 @@ function loadRightMenuDisplayed() {
             }
             if (name == "?") {
               name = '<a href="#details"><span id="nameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-              name += "$('#infoButtonFor" + cleanIdforExt(layer.id) + "').click();";
+              name += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
               name += '">';
               name += cleanIdforExt(layer.id);
             }
@@ -1388,7 +1388,7 @@ function addAvailableItems(ids) {
       // Name:
       if (temp.extId) {
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+        name += "openFullDetails('" + cleanIdforExt(id) + "');";
         name += '">';
         name += temp.name;
         name += '</span></a>';
@@ -1424,12 +1424,12 @@ function addAvailableItems(ids) {
       // Name:
       if (temp.name){
         name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
-        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+        name += "openFullDetails('" + cleanIdforExt(id) + "');";
         name += '">';
         name += temp.name;
       }else{
         name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
-        name += "$('#infoButtonFor" + cleanIdforExt(id) + "').click();";
+        name += "openFullDetails('" + cleanIdforExt(id) + "');";
         name += '">';
         name += cleanIdforExt(temp.id);
       }
