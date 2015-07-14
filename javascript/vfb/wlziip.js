@@ -1107,7 +1107,11 @@ function loadRightMenuDisplayed() {
             }
             if (layer.name) {
               name = '<a href="#details"><span id="ResolvedNameFor' + layer.id + '" data-id="' + temp + '" data-layer="' + i + '" onclick="';
-              name += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
+              if (layer.id.indexOf("VFBt_") > -1) {
+                name += "$('#anatomyDetails').html($('#imageAttributesText').html());";
+              }else{
+                name += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
+              }
               name += '">';
               name += layer.name;
             }else{
