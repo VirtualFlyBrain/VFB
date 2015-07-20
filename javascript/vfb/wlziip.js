@@ -1246,7 +1246,13 @@ function loadTemplateAnatomyTree() {
          });
        }
        // collapse all at start:
-       collapseTree();
+       if (selected[1]) {
+         collapseTree();
+       }else{
+         maximizeMenuTabs(false);
+         $('#anato').addClass('active');
+         $('#AnatoMenuTab').addClass('active');
+       }
        updateMenuData();
      });
    }
