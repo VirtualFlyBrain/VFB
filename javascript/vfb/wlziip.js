@@ -109,13 +109,15 @@ function animateWlzDisplay(){
               }
               ctx.globalCompositeOperation = 'source-over';
             }
-            if (image[i].width == 0){
-              alertMessage('Failed to load ' + generateWlzURL(i));
-            }else{
-              try{
-                ctx.drawImage(image[i], 0, 0);
-              }catch (e){
-                alertMessage("Problem loading image (" + image[i].src + "); error " + e);
+            if (image[i].complete){
+              if (image[i].width == 0){
+                alertMessage('Failed to load ' + generateWlzURL(i));
+              }else{
+                try{
+                  ctx.drawImage(image[i], 0, 0);
+                }catch (e){
+                  alertMessage("Problem loading image (" + image[i].src + "); error " + e);
+                }
               }
             }
             if (count===0){
