@@ -877,6 +877,9 @@ function updateLabels() {
               }
             });
             break;
+          case "FBgn":
+            $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_new"><li>gene</li>');
+            break;
           default:
             alertMessage("unable to resolve type for id:" + content);
         }
