@@ -34,6 +34,7 @@ function updateStackCounter() {
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
+          updateStackData();
         }
       });
       if (parent.$("body").data("meta")){
