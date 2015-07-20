@@ -1329,8 +1329,8 @@ function createTreeHTML(treeStruct) {
         }
       }
     }
-    if ($parent.("body").data("domains")[id]){
-      html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ $parent.("body").data("domains")[id].name;
+    if (parent.$('body').data('domains')[id]){
+      html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ parent.$("body").data("domains")[id].name;
       html += "</span>";
       if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
         temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
