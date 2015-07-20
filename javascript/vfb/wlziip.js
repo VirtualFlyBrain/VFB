@@ -1317,7 +1317,7 @@ function createTreeHTML(treeStruct) {
     }
     html += "<li>";
     id = node.nodeId;
-    if (parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
+    if (parent.$("body").data("domains")[id] == undefined || parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
       for (l in parent.$("body").data("domains")) {
         if (parseInt(parent.$("body").data("domains")[l].nodeId) == parseInt(id)) {
           id = l;
@@ -1325,18 +1325,22 @@ function createTreeHTML(treeStruct) {
         }
       }
     }
-    html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ $("body").data("domains")[id].name;
-    html += "</span>";
-    if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
-      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
+    if ($parent.("body").data("domains")[id]){
+      html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ $parent.("body").data("domains")[id].name;
+      html += "</span>";
+      if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
+        temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
+      }else{
+        temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
+      }
+      html += '<span id="buttonsFor' + temp + '" data-id="' + temp + '" data-extid="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '" style="position:absolute;border:none;padding-left:0px;padding-right:0px;">';
+      html += createControlsBarHTML(temp);
+      html += "</span>";
+      if (node.children) {
+        html += createTreeHTML(node.children);
+      }
     }else{
-      temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
-    }
-    html += '<span id="buttonsFor' + temp + '" data-id="' + temp + '" data-extid="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '" style="position:absolute;border:none;padding-left:0px;padding-right:0px;">';
-    html += createControlsBarHTML(temp);
-    html += "</span>";
-    if (node.children) {
-      html += createTreeHTML(node.children);
+      alertMessage("Error finding nodeId:" + id);
     }
     html += "</li>";
   }
