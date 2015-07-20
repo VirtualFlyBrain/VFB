@@ -30,7 +30,11 @@ function updateStackCounter() {
     var stack = expandCookieDisplayed();
     if (stack.current){
       $("[id=viewer2DVal]").each(function(){
-        $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
+        if (stack[stack.current.template]){
+          $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
+        }else{
+          parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
+        }
       });
       if (parent.$("body").data("meta")){
         $("[id=stackName]").each(function(){
@@ -385,6 +389,7 @@ function loadDefaultData(ids) {
   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
   parent.$("body").data("VFBt_002", { selected: { 0: { id: "VFBt_00200000", colour: "auto", visible: true }}});
   parent.$("body").data("VFBt_003", { selected: { 0: { id: "VFBt_00300000", colour: "auto", visible: true }}});
+  parent.$("body").data("VFBt_004", { selected: { 0: { id: "VFBt_00400000", colour: "auto", visible: true }}});
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
