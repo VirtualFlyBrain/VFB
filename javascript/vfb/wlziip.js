@@ -112,7 +112,11 @@ function animateWlzDisplay(){
             if (image[i].src=='/img/blank.png'){
               alertMessage('Failed to load ' + generateWlzURL(i));
             }else{
-              ctx.drawImage(image[i], 0, 0);
+              try{
+                ctx.drawImage(image[i], 0, 0);
+              }catch (e){
+                alertMessage("Problem loading image (" + image[i].src + "); error " + e);
+              }
             }
             if (count===0){
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
