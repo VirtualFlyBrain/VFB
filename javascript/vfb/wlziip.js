@@ -109,7 +109,7 @@ function animateWlzDisplay(){
               }
               ctx.globalCompositeOperation = 'source-over';
             }
-            if (image[i].src()=='/img/blank.png'){
+            if (image[i].src=='/img/blank.png'){
               alertMessage('Failed to load ' + generateWlzURL(i));
             }else{
               ctx.drawImage(image[i], 0, 0);
