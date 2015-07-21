@@ -25,7 +25,7 @@ public class OntBeanController implements Controller {
 	private OntBeanManager obm;
 	private PubBeanManager pbm;
 	private static final Log LOG = LogFactory.getLog(OntBeanController.class);
-	List<String> dels = Arrays.asList("(", "[", " ");
+	List<String> dels = Arrays.asList("(", "[", " ", ",");
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
