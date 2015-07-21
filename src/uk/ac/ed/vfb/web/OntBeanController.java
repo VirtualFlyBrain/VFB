@@ -120,8 +120,8 @@ public class OntBeanController implements Controller {
 					//Could always resolve via PubBean
 					while (def.contains(del+"GO:")){
 						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
-						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term [" + goRef + "]\" target=\"_new\" >" + goRef + "</a>");
-						//LOG.debug("Resolving GO in definition: " + def);
+						//LOG.debug("Resolving " + goRef + " in definition: " + def);
+						def = def.replace(del+goRef, del+"<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term -" + goRef + "\" target=\"_new\" >" + goRef + "</a>");
 					}
 				}
 			}
