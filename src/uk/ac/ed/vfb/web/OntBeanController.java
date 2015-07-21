@@ -25,7 +25,7 @@ public class OntBeanController implements Controller {
 	private OntBeanManager obm;
 	private PubBeanManager pbm;
 	private static final Log LOG = LogFactory.getLog(OntBeanController.class);
-	List<String> dels = Arrays.asList("(", "[", " ", ",");
+	List<String> dels = Arrays.asList("(", "[", " ");
 
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBean");
@@ -94,34 +94,34 @@ public class OntBeanController implements Controller {
 		if (def != null && (def.contains("(") || def.contains("doi:")) && !def.contains("<")){
 			//LOG.debug("Starting with definition: " + def);
 			c=0;
-			while (def.contains("[FLP]") && c < 50){
+			while (def.contains("[FLP]") && c < 10){
 				c++;
 				def = def.replace("[FLP]","<sup>FLP</sup>");
 				//LOG.debug("Resolving [FLP] definition: " + def);
 			}
 			c=0;
-			while (def.contains("at al.") && c < 50){
+			while (def.contains("at al.") && c < 10){
 				c++;
 				def = def.replace("at al.","et al.");
 				LOG.error("Correcting (a)t al. typo in " + ob.getId() + " in the text definition");
 				//LOG.debug("Resolving (at al) definition: " + def);
 			}
 			c=0;
-			while (def.contains("et al,") && c < 50){
+			while (def.contains("et al,") && c < 10){
 				c++;
 				def = def.replace("et al,","et al.,");
 				LOG.error("Correcting et al(.) typo in " + ob.getId() + " in the text definition");
 				//LOG.debug("Resolving (et al[.]) definition: " + def);
 			}
 			c=0;
-			while (def.contains(",20") && c < 50){
+			while (def.contains(",20") && c < 10){
 				c++;
 				def = def.replace(",20",", 20");
 				LOG.error("Correcting spacing between author and year (20XX) typo in " + ob.getId() + " in the text definition");
 				//LOG.debug("Resolving (year spacing 20xx) definition: " + def);
 			}
 			c=0;
-			while (def.contains(",19") && c < 50){
+			while (def.contains(",19") && c < 10){
 				c++;
 				def = def.replace(",19",", 19");
 				LOG.error("Correcting spacing between author and year (19XX) typo in " + ob.getId() + " in the text definition");
@@ -131,7 +131,7 @@ public class OntBeanController implements Controller {
 				for (String del:dels){
 					//Could always resolve via PubBean
 					c=0;
-					while (def.contains(del+"GO:") && c < 50){
+					while (def.contains(del+"GO:") && c < 10){
 						c++;
 						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
 						//LOG.debug("Resolving " + goRef + " in definition: " + def);
@@ -145,13 +145,13 @@ public class OntBeanController implements Controller {
 				for (String del:dels){
 					//flybase reference links handled differently to others.
 					c=0;
-					while (def.contains(del+"FBrf") && c < 50){
+					while (def.contains(del+"FBrf") && c < 10){
 						def = def.replace(del+"FBrf",del+"FlyBase:FBrf").replace("FlyBase:FlyBase:","FlyBase:");
 						//LOG.debug("Resolving (FlyBase:FBrf) definition: " + def);
 						c++;
 					}
 					c=0;
-					while (def.contains(del+"FB") && (f < def.length()) && c < 50){
+					while (def.contains(del+"FB") && (f < def.length()) && c < 10){
 						c++;
 						f = def.indexOf(del+"FB", f);
 						if (f == -1){
@@ -193,7 +193,7 @@ public class OntBeanController implements Controller {
 				String del = "(";
 				//Catches if PubMed ID is in description but not references
 				c=0;
-				while (def.contains(del+"PMID:") && c < 50){
+				while (def.contains(del+"PMID:") && c < 10){
 					c++;
 					String pmRef = def.substring(def.indexOf(del+"PMID:"), def.indexOf(del+"PMID:")+14).replace(del,"");
 					LOG.error("Resolving PMID in definition but not in refernces: " + ob.getId() + "-" + pmRef + " in text: " + def);
