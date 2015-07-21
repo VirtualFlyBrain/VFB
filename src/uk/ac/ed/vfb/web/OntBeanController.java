@@ -151,14 +151,15 @@ public class OntBeanController implements Controller {
 						c++;
 					}
 					c=0;
-					while (def.contains(del+"FB") && (f < def.length()) && c < 10){
+					while (def.contains(del+"FB") && (f < def.length()) && c < 50){
 						c++;
 						f = def.indexOf(del+"FB", f);
 						if (f == -1){
 							f = def.length();
 						}else{
 							l = 11;
-							while (def.substring(f+8,f+l+1).matches("[0-9]+")){
+							while (def.substring(f+8,f+l+1).matches("[0-9]+") && c < 50){
+								c++;
 								l = l + 1;
 								//LOG.debug("Length of ref resolved to: " + l.toString());
 							}
