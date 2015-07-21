@@ -1253,6 +1253,7 @@ function loadTemplateAnatomyTree() {
          collapseTree();
        }else{
          maximizeMenuTabs(false);
+         $('.tab-pane').removeClass('active');
          $('#anato').addClass('active');
          $('#AnatoMenuTab').addClass('active');
        }
