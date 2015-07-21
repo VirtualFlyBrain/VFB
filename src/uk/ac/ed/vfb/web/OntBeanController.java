@@ -133,8 +133,8 @@ public class OntBeanController implements Controller {
 					c=0;
 					while (def.contains(del+"GO:") && c < 50){
 						c++;
-						LOG.debug("Resolving " + goRef + " in definition: " + def);
 						String goRef = def.substring(def.indexOf(del+"GO:"), def.indexOf(del+"GO:")+11).replace(del,"");
+						LOG.debug("Resolving " + goRef + " in definition: " + def);
 						def = def.replace(goRef, "<a href=\"http://gowiki.tamu.edu/wiki/index.php/Category:" + goRef + "\" title=\"Gene Ontology Term [" + goRef + "]\" target=\"_new\" >" + goRef + "</a>");
 					}
 				}
