@@ -44,12 +44,19 @@ public class OntBeanController implements Controller {
 		if (id.contains("VFB")){
 			id = OntBean.idAsOWL(id);
 			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+			if (ob == null){
+				this.obm.getBeanForId("VFB_00000001");
+			}
 			modelAndView.addObject("beanType", "ind");
 		}else{
 			id = OntBean.idAsOBO(id);
 			ob = this.obm.getBeanForId(id);
+			if (ob == null){
+				this.obm.getBeanForId("FBbt:00007060");
+			}
 			modelAndView.addObject("beanType", "ont");
 		}
+		
 		//LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
 		//LOG.debug("Found publications:" + pbList.size());
