@@ -51,6 +51,7 @@ public class OntBeanController implements Controller {
 		}else{
 			id = OntBean.idAsOBO(id);
 			ob = this.obm.getBeanForId(id);
+			LOG.debug(ob);
 			if (ob == null){
 				this.obm.getBeanForId("FBbt:00007060");
 			}
