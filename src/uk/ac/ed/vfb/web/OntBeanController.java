@@ -56,7 +56,6 @@ public class OntBeanController implements Controller {
 			}
 			modelAndView.addObject("beanType", "ont");
 		}
-		
 		//LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
 		//LOG.debug("Found publications:" + pbList.size());
