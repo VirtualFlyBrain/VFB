@@ -173,11 +173,8 @@ public class Server {
 			} catch (NullPointerException ex) {
 				LOG.error("Ontology server NullPointerException:");
         ex.printStackTrace();
-				try {
-					out.writeObject(null);
-				} catch (IOException exp) {
-					exp.printStackTrace();
-				}
+				this.results.add(new OntBean());
+				sendObjectToClient(this.results);
       }
 		}
 	}
