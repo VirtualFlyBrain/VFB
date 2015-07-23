@@ -124,6 +124,7 @@ public class Server {
 			try {
 				out.writeObject(results);
 			} catch (IOException ex) {
+				LOG.error("IOException writing OntServer result(s): " + results);
 				ex.printStackTrace();
 			}
 		}
