@@ -14,7 +14,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String fbbtId;
 	protected String name;
 	protected String def;
-	protected String comment;	
+	protected String comment;
 	protected List<String> synonyms;
 	protected List<String> refs;
 	/** List of key:value[] pairs describing relationships, eg "FBbt:00000020 :[part_of, abdomen]" */
@@ -103,8 +103,8 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public void setRelationships(Hashtable<String, String[]> relationships) {
 		this.relationships = relationships;
-		LOG.debug("Id:" + fbbtId);
-		LOG.debug("Relationships:" + relationships);
+		//LOG.debug("Id:" + fbbtId);
+		//LOG.debug("Relationships:" + relationships);
 	}
 
 	public HashMap<String, String> getIsa() {
@@ -115,7 +115,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		this.isa = isa;
 	}
 
-	
+
 	public ThirdPartyBean getThirdPartyBean() {
 		return thirdPartyBean;
 	}
@@ -139,27 +139,27 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public String getFbbtIdAsOBO() {
 		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
-	
+
 	/**
 	 * A quick-fixs method so as to not bother with bean creation
-	 * Converts ":" id to "_" 
+	 * Converts ":" id to "_"
 	 * @param fbbtId
 	 * @return
 	 */
 	public static String idAsOWL(String fbbtId) {
 		return fbbtId.replace(":", "_").replace("fbbt","FBbt");
 	}
-	
+
 	/**
 	 * A quick-fixs method so as to not bother with bean creation
-	 * Converts "_" id to ":"  
+	 * Converts "_" id to ":"
 	 * @param fbbtId
 	 * @return
 	 */
 	public static String idAsOBO(String fbbtId) {
 		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
-	
+
 	public static String correctIdFormat(String fbbtId) {
 		if (fbbtId.contains("VFB")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
@@ -168,7 +168,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		}
 		return fbbtId;
 	}
-	
+
 	public String correctIdFormat() {
 		return correctIdFormat(fbbtId);
 	}
@@ -185,7 +185,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	@Override
 	public int compareTo(Object o) {
-		OntBean typeO = (OntBean)o; 
+		OntBean typeO = (OntBean)o;
 		return (this.name).compareToIgnoreCase(typeO.name);
 	}
 

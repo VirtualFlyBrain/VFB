@@ -50,22 +50,22 @@ public class OntBeanController implements Controller {
 			modelAndView.addObject("beanType", "ind");
 		}else{
 			id = OntBean.idAsOBO(id);
-			LOG.debug("Calling for: " + id);
+			//LOG.debug("Calling for: " + id);
 			try{
 				ob = this.obm.getBeanForId(id);
 			} catch (Exception e) {
 				LOG.error(e);
 			}
-			LOG.debug("Returned: " + ob);
+			//LOG.debug("Returned: " + ob);
 			if (ob == null){
 				this.obm.getBeanForId("FBbt:00007060");
 			}
 			modelAndView.addObject("beanType", "ont");
 		}
-		LOG.debug(ob);
-		LOG.debug("For Id: " + ob.getId());
+		//LOG.debug(ob);
+		//LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		LOG.debug("Found publications:" + pbList.size());
+		//LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
