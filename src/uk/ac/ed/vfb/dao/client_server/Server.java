@@ -156,18 +156,15 @@ public class Server {
 			} catch (IOException ex) {
 				LOG.error("Ontology server IOException:");
 				ex.printStackTrace();
-				OntBean result = null;
-				this.result.add(result);
+				sendObjectToClient(null);
 			} catch (ClassNotFoundException ex) {
 				LOG.error("Ontology server ClassNotFoundException:");
 				ex.printStackTrace();
-				OntBean result = null;
-				this.result.add(result);
+				sendObjectToClient(null);
 			} catch (NullPointerException ex) {
 				LOG.error("Ontology server NullPointerException:");
         ex.printStackTrace();
-				OntBean result = null;
-				this.result.add(result);
+				sendObjectToClient(null);
       }
 		}
 	}
