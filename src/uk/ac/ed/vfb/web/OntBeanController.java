@@ -50,9 +50,9 @@ public class OntBeanController implements Controller {
 			modelAndView.addObject("beanType", "ind");
 		}else{
 			id = OntBean.idAsOBO(id);
-			LOG.debug('Calling for: ' + id);
+			LOG.debug("Calling for: " + id);
 			ob = this.obm.getBeanForId(id);
-			LOG.debug('Returned: ' + ob);
+			LOG.debug("Returned: " + ob);
 			if (ob == null){
 				this.obm.getBeanForId("FBbt:00007060");
 			}
