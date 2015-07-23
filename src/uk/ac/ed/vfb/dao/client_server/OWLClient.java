@@ -20,7 +20,7 @@ import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
  * Receives a query from application component (eg., OntBeanManager) and passes it on to the ont server.
  * Uses sockets, supports multi-threading
  * Returns a set of OntBeans
- * 
+ *
  */
 
 public class OWLClient {
@@ -30,14 +30,14 @@ public class OWLClient {
 
 	public OWLClient() {
 		super();
-		//LOG.debug("Creating a client: " + this);	
+		LOG.debug("Creating a client: " + this);
 	}
 
 
 	public static void main (String[] argv) {
 		OWLClient client = new OWLClient();
 		if (argv != null && argv.length > 0) {
-			try {				
+			try {
 				Set<OntBean> results = client.askQuery(argv[0]);
 				//LOG.info("Asking query: " + argv[0] + " \nResults found: " + results.size());
 			} catch (Exception e) {
@@ -65,10 +65,10 @@ public class OWLClient {
 	 * @return Set<OntBean>
 	 */
 	public Set<OntBean> askQuery(String query){
-		//LOG.debug("Asking query: " + query);
+		LOG.debug("Asking query: " + query);
 		try {
 			Set<OntBean> results = this.askServer(query);
-			//LOG.debug("Query results: " + results);
+			LOG.debug("Query results: " + results);
 			return results;
 		}catch (Exception e){
 			LOG.error("Ask ontology server exception: " + e.getMessage());
@@ -84,16 +84,16 @@ public class OWLClient {
 	 */
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
-		//LOG.debug("getBeanForId: " + fbbtId);
+		LOG.debug("getBeanForId: " + fbbtId);
 		fbbtId = OntBean.correctIdFormat(fbbtId);
 		Set<OntBean> results =  this.askQuery(fbbtId);
-		//LOG.debug("askQuery results: " + results);
+		LOG.debug("askQuery results: " + results);
 		if (results!=null) {
 			Iterator<OntBean> it = results.iterator();
 			if (it.hasNext()){
 				result =  it.next();
 			}
-			//LOG.debug("result: " + result);
+			LOG.debug("result: " + result);
 		}else{
 			LOG.error("null result for OWLClient.getBeanForId(" + fbbtId + ")");
 		}
@@ -127,7 +127,7 @@ public class OWLClient {
 
 
 	/**
-	 * Worker Thread - the classthat does all the job in the tread 
+	 * Worker Thread - the classthat does all the job in the tread
 	 * @author nmilyaev
 	 *
 	 */
@@ -148,16 +148,16 @@ public class OWLClient {
 
 		public void run() {
 			try {
-				//LOG.debug("Connectiong on : " + Server.host + " / " + Server.port);
+				LOG.debug("Connectiong on : " + Server.host + " / " + Server.port);
 				socket = new Socket(Server.host, Server.port);
-				//LOG.debug("created socket:  " + socket.getInetAddress());
+				LOG.debug("created socket:  " + socket.getInetAddress());
 				//sending Objects to server(connection)
 				out = new ObjectOutputStream(socket.getOutputStream());
 				//Reading Object from socket
 				in = new ObjectInputStream(socket.getInputStream());
 				//Starting Thread
 				out.writeObject(this.query);
-				//LOG.debug("sent query:  " + this.query);
+				LOG.debug("sent query:  " + this.query);
 				out.flush();
 				this.results = (Set<OntBean>) in.readObject();
 			} catch (IOException ex) {
