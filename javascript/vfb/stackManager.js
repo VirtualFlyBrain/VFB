@@ -591,6 +591,42 @@ function addToStackData(ids, showDetails){
               layers = Object.keys(selected).length;
               selected[layers] = JSON.parse(text);
             }
+          }else if (id.indexOf("FBgn") > -1){
+            selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+            if (JSON.stringify(selected).indexOf(id) > -1){
+              for (layers in selected){
+                if (cleanIdforInt(selected[layers].extid) == id){
+                  selected[layers].visible = true;
+                }
+              }
+            }else{
+              layers = Object.keys(selected).length;
+              if (parent.$("body").data("available").indexOf(id) > -1) {
+                text = '{"id":"';
+                for (layers in parent.$("body").data("domains")){
+                  if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
+                    if (parent.$("body").data("domains")[layers].domainData.domainId === ""){
+                      alertMessage(id + ' not found in current stack');
+                    }else{
+                      temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[layers].domainData.domainId),5));
+                      if (JSON.stringify(selected).indexOf(temp) > -1){
+                        for (j in selected){
+                          if (cleanIdforInt(selected[j].id) == temp){
+                            selected[j].visible = true;
+                            break;
+                          }
+                        }
+                      }else{
+                        text += temp + '","colour":"auto","visible":true, "extid":"' + id + '" }';
+                      }
+                    }
+                    break;
+                  }
+                }
+              }
+              layers = Object.keys(selected).length;
+              selected[layers] = JSON.parse(text);
+            }
           }
         }catch(e){
           alertMessage('Issue adding id:' + id + String(e));
