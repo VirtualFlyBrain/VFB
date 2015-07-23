@@ -820,7 +820,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -830,7 +830,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
@@ -838,7 +838,7 @@ function updateLabels() {
             break;
           case "VFBt":
             $(this).text(parent.$("body").data("meta").name);
-            $(this).id = "Resolved" + $(this).id;
+            $(this).attr('id', "Resolved" + $(this).attr('id'));
             parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
             break;
           case "FBbt":
@@ -847,7 +847,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -857,7 +857,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
@@ -877,7 +877,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -887,7 +887,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
@@ -896,7 +896,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -906,7 +906,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
@@ -916,7 +916,7 @@ function updateLabels() {
             if ($(this).data('layer')) {
               parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
             }
-            $(this).id = "Resolved" + $(this).id;
+            $(this).attr('id', "Resolved" + $(this).attr('id'));
             break;
           case "FBbt":
             $(this).load('/do/ont_bean.html?id=' + content + ' #partParent', function(response, status, xhr) {
@@ -924,7 +924,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -934,7 +934,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
@@ -943,7 +943,7 @@ function updateLabels() {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
                   if ($(this).data('retrys') > 10){
-                    $(this).id = "Failed" + $(this).id;
+                    $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
                   $(this).data('retrys', 1);
@@ -953,7 +953,7 @@ function updateLabels() {
                   if ($(this).data('layer')) {
                     parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
                   }
-                  $(this).id = "Resolved" + $(this).id;
+                  $(this).attr('id', "Resolved" + $(this).attr('id'));
                 }
               }
             });
