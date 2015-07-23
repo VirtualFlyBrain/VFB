@@ -169,6 +169,7 @@ public class Server {
       } finally {
 				try {
 					out.close();
+					LOG.debug("Output stream closed.");
 				} catch (IOException ex) {
 					LOG.error("IOException closing OntServer request: " + results);
 					ex.printStackTrace();
