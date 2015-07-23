@@ -156,15 +156,15 @@ public class Server {
 			} catch (IOException ex) {
 				LOG.error("Ontology server IOException:");
 				ex.printStackTrace();
-				sendObjectToClient(null);
+				sendObjectToClient(this.results);
 			} catch (ClassNotFoundException ex) {
 				LOG.error("Ontology server ClassNotFoundException:");
 				ex.printStackTrace();
-				sendObjectToClient(null);
+				sendObjectToClient(this.results);
 			} catch (NullPointerException ex) {
 				LOG.error("Ontology server NullPointerException:");
         ex.printStackTrace();
-				sendObjectToClient(null);
+				sendObjectToClient(this.results);
       }
 		}
 	}
