@@ -175,7 +175,9 @@ public class Server {
         ex.printStackTrace();
 				this.results.add(new OntBean());
 				sendObjectToClient(this.results);
-      }
+      } finally {
+				out.close();
+			}
 		}
 	}
 
