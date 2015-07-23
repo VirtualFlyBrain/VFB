@@ -62,9 +62,10 @@ public class OntBeanController implements Controller {
 			}
 			modelAndView.addObject("beanType", "ont");
 		}
-		//LOG.debug("For Id: " + ob.getId());
+		LOG.debug(ob);
+		LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
-		//LOG.debug("Found publications:" + pbList.size());
+		LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
 		List<String> cleanedSyn = new ArrayList<String>();
 		if (synonyms != null && synonyms.size() > 0){
