@@ -77,6 +77,7 @@
 							<li><a href="/site/stacks/index.htm">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
 	            <li><a onClick="addToStackData('VFBt_001');">Select the Janelia Adult Brain</a></li>
 	            <li><a onClick="addToStackData('VFBt_002');">Select the Ito Half Brain</a></li>
+							<li><a onClick="addToStackData('VFBt_004');">Select the Ventral Nervous System</a></li>
 	          	<li><a onClick="clearAllData();">Clear <span id="viewer2DVal" class="badge">*</span> items</a></li>
 						</ul>
 	        </li>
