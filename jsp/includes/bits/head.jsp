@@ -70,6 +70,7 @@
 	          	<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="/site/stacks/index.htm">Query Builder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_new">NBLAST</a></li>
+							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
