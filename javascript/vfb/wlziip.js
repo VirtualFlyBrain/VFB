@@ -770,6 +770,20 @@ function createControlsBarHTML(id) {
         break;
       }
     }
+  }else if (id.indexOf('FBgn')>-1){
+    html += start + createInfoButtonHTMLbyId(id) + end;
+    if (parent.$("body").data("available").indexOf(id)>-1) {
+      html += start + createAddButtonHTMLfinal(id) + end;
+    }
+    for (j in parent.$("body").data("domains")) {
+      if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == id) {
+        if (parent.$("body").data("domains")[j].domainData.domainCentre){
+          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+        }
+        break;
+      }
+    }
+    html += start + createAddToQueryButtonHTMLfinal(id) + end;
   }
   html += end;
   return html;
