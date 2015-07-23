@@ -96,7 +96,7 @@ function cleanIdforExt(id) {
 function cleanIdforInt(id) {
   if (id) {
     id = id.replace(":","_");
-    id = id.toLowerCase().replace("vfb","VFB").replace("fbbt","FBbt");
+    id = id.toLowerCase().replace("vfb","VFB").replace('fb','FB');
     id = id.replace('VFB_','VFBi_');
     return id;
   }
