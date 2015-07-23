@@ -112,6 +112,7 @@ function animateWlzDisplay(){
             if (image[i].complete){
               if (image[i].width == 0){
                 alertMessage('Failed to load ' + generateWlzURL(i));
+                selected[i].visible = false;
               }else{
                 try{
                   ctx.drawImage(image[i], 0, 0);
