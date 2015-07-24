@@ -47,7 +47,7 @@
 		  <a name="#datasets"></a>
 			<h2>Integrated Datasets</h2>
 			<p>These are the current image datasets that are available on the site. We currently only provide adult image data.<br/>
-			Any image stack on the site can be displayed in the <a href="../../site/stacks/index.htm">3D Viewer</a>. If an image is available, it will be shown as a thumbnail on the information page for that entity. For all except BrainTrap, the images displayed are registered to the JFRC2 brain template. For more information see <a href="../../site/vfb_site/template_files_downloads.htm">here</a> and <a href="../../site/vfb_site/image_data_downloads.htm">here</a>.
+			Any image stack on the site can be displayed in the <a href="../../site/stacks/index.htm">3D Viewer</a>. Any number of images can be displayed at the same time. If an image is available, it will be shown as a thumbnail on the information page for that entity. For all except BrainTrap, the images displayed are registered to the JFRC2 brain template. For more information see <a href="../../site/vfb_site/template_files_downloads.htm">here</a> and <a href="../../site/vfb_site/image_data_downloads.htm">here</a>.
 				<ul>
 					<li>FlyCircuit neurons <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_new">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a></li>
 				 	<li>Lineage clone datasets by Tzumin Lee <a href="http://dx.doi.org/doi:10.1016/j.cub.2013.02.057" target="_new">(Yu et al., 2013, Curr. Biol. 23(8): 633-43)</a> and Kei Ito <a href="http://dx.doi.org/10.1016/j.cub.2013.03.015" target="_new">(Ito et al., 2013, Curr. Biol. 23(8): 644--655)</a></li>
@@ -113,7 +113,7 @@
 		  	Once a search for a term has been done, the query menu will appear on the top : look for the 'Query for' menu bar. To see all options available click on the dropdown queries, to the right of 'Query for'.
 			<p/>
 
-			<img class="img-responsive center-block" src="/images/vfb/project/protocerebral_bridge_queryfor.png" alt="Query menu in term info window" style="border: 1px solid gray;" width="800">
+			<img class="img-responsive center-block" src="/images/vfb/project/protocerebral_bridge_queryfor.png" alt="Query menu in term info window" style="align:center;" width="800">
 
 			<p>
 				Below are a few examples of possible queries:
@@ -126,50 +126,49 @@
 
 
 			    <p>
-			    	Search for antennal mechanosensory and motor center or one of its synonyms, AMMC. Hover on 'Neuron classes with:' and click on the option 'synaptic terminals here'.
+			    	Search for antennal mechanosensory and motor center or one of its synonyms, AMMC. Choose 'Neurons with:' and click on the option 'synaptic terminals here'.
 			    </p>
-					<img class="img-responsive center-block" src="/images/vfb/project/query1_menu.png" alt="Query menu for neurons by location: AMMC" style="border: 1px solid gray;" width="200">
+					<img class="img-responsive center-block" src="/images/vfb/project/query1_menu.png" alt="Query menu for neurons by location: AMMC" style="align:center;" width="200">
 
 					<p>
-						The results window lists all the neurons that innervate the AMMC. Clicking on 'More info' will display an information window for that term, displaying the same information as in the term info window or in the <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> for that term.
+						The results window lists all the neurons that innervate the AMMC (default view is 10 items). The name and definition for each neuron type are shown. Clicking on More info will display the full information page, the same as shown in the <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a>. If images of that neuron type are available, they will be shown. Buttons allow display of all images from a neuron type in the Viewer, or listing these in a new page.
 				  </p>
 
-					<img class="img-responsive center-block" src="/images/vfb/project/query1.png" alt="Result of query for neurons by location: AMMC" style="border: 1px solid gray;" width="600">
+					<img class="img-responsive center-block" src="/images/vfb/project/query1.png" alt="Result of query for neurons by location: AMMC" style="align:center;" width="800">
 
 					<a name="clusterbylocation"></a>
 				<li><h4> Search for individual neurons and neuron images with some part in the antennal lobe:</h4></li>
 
 			    <p>
-			    	Search for antennal lobe or one of its synonyms, AL. Choose the query: 'Individual neurons with:' and click on the option 'some part here'.
+			    	Search for adult antennal lobe or one of its synonyms, AL. Choose the query: 'Images of neurons with:' and click on the option 'some part here (clustered by shape)'.
 			    </p>
 
-					<img class="img-responsive center-block" src="/images/vfb/project/cluster_menu.png" alt="Query menu for single neurons by location: AL" style="border: 1px solid gray;" width="200">
+					<img class="img-responsive center-block" src="/images/vfb/project/cluster_menu.png" alt="Query menu for single neurons by location: AL" style="align:center;" width="200">
 
 			    <p>
-						The results window lists groups of morphologically similar neurons or clusters. A thumbnail of the cluster allows a visualisation of the neuron morphology, making it easy to scan the clusters and select the ones of interest. This approach allows not only to find a neuron of interest, but also to quickly find related neurons.
+						The results window lists groups of morphologically similar neurons or clusters. A thumbnail of the cluster allows a visualisation of the neuron morphology, making it easy to scan the clusters and select the ones of interest. This approach allows not only to find a neuron of interest, but also to quickly find related neurons. Images of the neurons in each cluster are shown on the right. Buttons allow display of all neuron images in a cluster in the Viewer, or listing these in a new page.
 			    </p>
 
-			    <img class="img-responsive center-block" src="/images/vfb/project/cluster.png" alt="Result of query for single neurons by location: AL" style="border: 1px solid gray;" width="600">
+			    <img class="img-responsive center-block" src="/images/vfb/project/cluster.png" alt="Result of query for single neurons by location: AL" style="align:center;" width="800">
 
 			    <p>
 						An interactive 3D representation (WebGL) of each cluster, together with some more cluster information is available by clicking on the cluster thumbnail, or <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusters/DvGlutMARCM-F003135_seg001/" target="_new">here</a>.
 		  		</p>
 
-		  		<img class="img-responsive center-block" src="/images/vfb/project/cluster_eg.png" alt="3D representation of neuron cluster" style="border: 1px solid gray;" width="600">
+		  		<img class="img-responsive center-block" src="/images/vfb/project/cluster_eg.png" alt="3D representation of neuron cluster" style="align:center;" width="600">
 
 		  		<p>
 						These neuron clusters were obtained using NBLAST, a tool developed by Gregory Jefferis (Division of Neurobiology, MRC Laboratory of Molecular Biology). For more information on how you can use NBLAST see <a href="http://jefferislab.org/si/nblast/">here</a>. This tool was applied to 16129 registered images of single neurons derived from the publicly available FlyCircuit raw image dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_new">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a>, resulting in 1052 clusters of similar neurons. We thank the group of A.S. Chiang for taking the lead in making their raw image data available.
 			    </p>
 
 		  		<p>
-		    		To show all neurons in a cluster, click on 'Show individual members'. The results window provides links to the original data, and displays the annotation and driver for each neuron.<br />
-						To look at the image stack for a neuron in the <a href="../../site/stacks/index.htm">Viewer</a>, click on the link "See in Viewer". For help on how to overlay images see <a href=#composite>here</a>.
+		    		To see all information related to each neuron image, click on List individual members. The results window the summary information about each neuron image, including neuron type (if assigned) and driver. To see the full information, click on the neuron name. To display a neuron in the <a href="../../site/stacks/index.htm">Viewer</a>, click on the green paperclip.
 			    </p>
 
-					<img class="img-responsive center-block" src="/images/vfb/project/cluster_showAll.png" alt="All neurons in a cluster with annotations" style="border: 1px solid gray;" width="600">
+					<img class="img-responsive center-block" src="/images/vfb/project/cluster_showAll.png" alt="All neurons in a cluster with annotations" style="align:center;" width="800">
 
 			    <p>
-						Matching the neuron clusters to previously defined neurons classes is part of our ongoing work.
+						Matching the neurons in each cluster to previously defined neurons classes is part of our ongoing work.
 					</p>
 
 					<a name="expquery"></a>
