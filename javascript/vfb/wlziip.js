@@ -283,11 +283,11 @@ function drawCircle(X, Y) {
 }
 
 function setCircle() {
-  window.features.add([-10,window.PosX,window.PosY, 'CIRCLE']);
+  window.features[window.features.length]=[-5,window.PosX,window.PosY, 'CIRCLE'];
 }
 
 function setText(message) {
-  window.features.add([0,window.PosX + 5,window.PosY + window.textOffset - 12, message]);
+  window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
   window.textOffset+= 12;
   ga('send', 'event', 'viewer', 'selected', message);
 }
@@ -304,7 +304,7 @@ function drawText(X,Y,message) {
 
 function drawFeatures() {
   var i;
-  var time = 100;
+  var time = 20;
   for (i in window.features) {
     window.features[i][0]++;
     if (window.features[i][0] > time){
