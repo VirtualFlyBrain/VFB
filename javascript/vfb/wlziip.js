@@ -283,7 +283,7 @@ function drawCircle(X, Y) {
 }
 
 function setCircle() {
-  window.features.add([0,window.PosX,window.PosY, 'CIRCLE']);
+  window.features.add([-10,window.PosX,window.PosY, 'CIRCLE']);
 }
 
 function setText(message) {
