@@ -282,9 +282,13 @@ function setCircle() {
 }
 
 function setText(message) {
-  window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
-  window.textOffset+= 12;
-  ga('send', 'event', 'viewer', 'selected', message);
+  if (window.features.length > 0 && window.features[window.features.length-1][3]==message){
+    console.log('double click');
+  }else{
+    window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
+    window.textOffset+= 12;
+    ga('send', 'event', 'viewer', 'selected', message);
+  }
 }
 
 function drawText(X,Y,message) {
