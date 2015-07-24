@@ -268,7 +268,7 @@ function addScale(scale) {
         message = String(scale);
       }
     }
-    ctx.strokeText(message,7, 5,12,100,50);
+    ctx.strokeText(message,5,7,12,100,50);
   }
 }
 
@@ -304,7 +304,7 @@ function drawText(X,Y,message) {
 
 function drawFeatures() {
   var i;
-  var time = 20;
+  var time = 30;
   for (i in window.features) {
     window.features[i][0]++;
     if (window.features[i][0] > time){
