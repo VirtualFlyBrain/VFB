@@ -397,7 +397,11 @@ function clearAllData() {
 function defaultScaleByScreen() {
   var scale = 1.0;
   if ($('body').data('meta') && $('#viewer-panel')) {
-    scale = parseFloat((($('#viewer-panel').width())/(parseInt($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
+    if (640*2<$(window).width()){
+    scale = parseFloat((640.0/(parsefloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
+  }else{
+    scale = parseFloat(($(window).width()/(parsefloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
+  }
   }
   return scale;
 }
