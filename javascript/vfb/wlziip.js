@@ -279,6 +279,7 @@ function drawCircle(X, Y) {
 
 function setCircle() {
   window.features[window.features.length]=[-5,window.PosX,window.PosY, 'CIRCLE'];
+  $('#canvas').css('cursor', 'wait');
 }
 
 function setText(message) {
@@ -317,6 +318,7 @@ function drawFeatures() {
         drawCircle(window.features[i][1],window.features[i][2]);
       }else{
         drawText(window.features[i][1],window.features[i][2],window.features[i][3]);
+        $('#canvas').css('cursor', 'crosshair');
       }
     }
   }
