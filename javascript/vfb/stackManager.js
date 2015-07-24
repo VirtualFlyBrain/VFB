@@ -398,7 +398,7 @@ function defaultScaleByScreen() {
   var scale = 1.0;
   if ($('body').data('meta') && $('#viewer-panel')) {
     if (640*2<$(window).width()){
-    scale = parseFloat((640.0/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
+    scale = parseFloat((parseFloat($(window).width()-$('#right-panel').width()-60)/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
   }else{
     scale = parseFloat(($(window).width()/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
   }
