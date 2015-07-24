@@ -305,6 +305,7 @@ function drawText(X,Y,message) {
     ctx.font = String(point) + "px Sans-serif";
     ctx.strokeStyle = 'white';
     ctx.strokeText(message,X, Y,point,100,50);
+    window.reloadInterval = 10;
   }
 }
 
