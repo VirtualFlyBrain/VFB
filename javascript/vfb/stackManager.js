@@ -396,11 +396,8 @@ function clearAllData() {
 
 function defaultScaleByScreen() {
   var scale = 1.0;
-  if ($(window).width() < 1370) {
-    scale = 0.9;
-  }
-  if ($(window).width() < 630) {
-    scale = 0.5;
+  if ($('body').data('meta') && $('#viewer-panel')) {
+    scale = parseFloat((($('#viewer-panel').width())/(parseInt($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40)).toFixed(1));
   }
   return scale;
 }
