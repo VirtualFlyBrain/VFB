@@ -183,6 +183,7 @@ function animateWlzDisplay(){
             }
           }
         }
+        addScale(50);
         if (window.reloadInterval > 10000) {
           if (!updated && imageDist < 100) {
             var dist = current.dst;
@@ -235,6 +236,38 @@ function loadColours(){
     parent.$("body").data("colours", lines);
     updateWlzDisplay();
   });
+}
+
+function addScale(scale) {
+  if (!scale){
+    scale = 50;
+  }
+  if ($('body').data('current')){
+    scl = $('body').data('current').scl;
+  }else{
+    scl = 1;
+  }
+  var ctx = document.getElementById("canvas").getContext("2d");
+  ctx.beginPath();
+  ctx.moveTo(5,5);
+  ctx.lineTo(Math.round(scale*scl)+5,5);
+  ctx.strokeStyle = '#ffffff';
+  ctx.stroke();
+  set_textRenderContext(ctx);
+  if(check_textRenderContext(ctx)) {
+    ctx.font = "12px Sans-serif";
+    ctx.strokeStyle = 'white';
+    if ($('body').data('meta') && $('body').data('meta').units == 'microns'){
+      message = String(scale) + '\u00B5m';
+    }else{
+      if ($('body').data('meta') && $('body').data('meta').units){
+        message = String(scale) + $('body').data('meta').units;
+      }else{
+        message = String(scale);
+      }
+    }
+    ctx.strokeText(message,5, 5,12,100,50);
+  }
 }
 
 function drawCircle() {
