@@ -255,21 +255,16 @@ function addScale(scale) {
   ctx.lineTo(Math.round(scale*scl)+5,5);
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
-  set_textRenderContext(ctx);
-  if(check_textRenderContext(ctx)) {
-    ctx.font = "12px Sans-serif";
-    ctx.strokeStyle = 'white';
-    if ($('body').data('meta') && $('body').data('meta').units == 'microns'){
-      message = String(scale) + '\u00B5m';
+  if ($('body').data('meta') && $('body').data('meta').units == 'microns'){
+    message = String(scale) + '\u00B5m';
+  }else{
+    if ($('body').data('meta') && $('body').data('meta').units){
+      message = String(scale) + $('body').data('meta').units;
     }else{
-      if ($('body').data('meta') && $('body').data('meta').units){
-        message = String(scale) + $('body').data('meta').units;
-      }else{
-        message = String(scale);
-      }
+      message = String(scale);
     }
-    ctx.strokeText(message,5,7,12,100,50);
   }
+  drawText(5,7,message);
 }
 
 function drawCircle(X, Y) {
@@ -296,9 +291,13 @@ function drawText(X,Y,message) {
   var ctx = document.getElementById("canvas").getContext("2d");
   set_textRenderContext(ctx);
   if(check_textRenderContext(ctx)) {
-    ctx.font = "12px Sans-serif";
+    var point = 12;
+    if (scl < 1){
+      point = Math.ceil(point * scl);
+    }
+    ctx.font = String(point) + "px Sans-serif";
     ctx.strokeStyle = 'white';
-    ctx.strokeText(message,X, Y,12,100,50);
+    ctx.strokeText(message,X, Y,point,100,50);
   }
 }
 
