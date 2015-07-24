@@ -52,6 +52,7 @@ function animateWlzDisplay(){
             if (image[i].src.indexOf(generateWlzURL(i))<0){
               image[i].src = generateWlzURL(i);
               updated = true;
+              $('#canvas').css('cursor', 'wait');
             }
             if (count===0){
               if (current.alpha==220 || current.alpha==100){
@@ -117,6 +118,7 @@ function animateWlzDisplay(){
               }else{
                 try{
                   ctx.drawImage(image[i], 0, 0);
+                  $('#canvas').css('cursor', 'crosshair');
                 }catch (e){
                   alertMessage("Problem loading image (" + image[i].src + "); error " + e);
                 }
