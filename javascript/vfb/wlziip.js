@@ -486,6 +486,7 @@ function updatePosition() {
                 }else{ // else add it
                   //console.log('Adding ' + fullItem + ' after double click');
                   addToStackData(fullItem);
+                  $('#canvas').css('cursor', 'wait');
                 }
               }
             }
@@ -1410,6 +1411,7 @@ function addAllDomains() {
     available.shift();
   }
   addToStackData(available);
+  $('#canvas').css('cursor', 'wait');
   updateMenuData();
   updateWlzDisplay();
 }

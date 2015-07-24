@@ -511,6 +511,7 @@ function addToStackData(ids, showDetails){
     showDetails = typeof showDetails !== 'undefined' ? showDetails : true;
     window.reloadInterval = 10;
     if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains")) {
+      $('#canvas').css('cursor', 'wait');
       var id;
       var i;
       var text;
@@ -660,6 +661,7 @@ function addToStackData(ids, showDetails){
       }
       updateStackData();
       history.replaceState(null, document.title, location.href);
+      $('#canvas').css('cursor', 'crosshair');
     }else{
       window.setTimeout(function(){
 				addToStackData(ids);
