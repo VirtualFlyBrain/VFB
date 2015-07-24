@@ -661,7 +661,6 @@ function addToStackData(ids, showDetails){
       }
       updateStackData();
       history.replaceState(null, document.title, location.href);
-      $('#canvas').css('cursor', 'crosshair');
     }else{
       window.setTimeout(function(){
 				addToStackData(ids);

@@ -1399,6 +1399,7 @@ function loadTemplateAnatomyTree() {
          $('#AnatoMenuTab').addClass('active');
        }
        updateMenuData();
+       $('body').css('cursor', '');
      });
    }
 }
@@ -1658,6 +1659,7 @@ function copyUrlToClipboard() {
 
 loadColours();
 $('body').ready( function () {
+  $('body').css('cursor', 'wait');
   initWlzControls();
   window.setInterval(function(){
     updateMenuData();
