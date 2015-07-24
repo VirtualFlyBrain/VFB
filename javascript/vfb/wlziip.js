@@ -8,6 +8,7 @@ var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
 var imageDist = 1;
+window.features = [];
 
 function updateWlzDisplay(){
   updateStackData();
@@ -184,6 +185,7 @@ function animateWlzDisplay(){
           }
         }
         addScale(50);
+        drawFeatures();
         if (window.reloadInterval > 10000) {
           if (!updated && imageDist < 100) {
             var dist = current.dst;
@@ -266,37 +268,54 @@ function addScale(scale) {
         message = String(scale);
       }
     }
-    ctx.strokeText(message,5, 5,12,100,50);
+    ctx.strokeText(message,7, 5,12,100,50);
   }
 }
 
-function drawCircle() {
+function drawCircle(X, Y) {
   var ctx = document.getElementById("canvas").getContext("2d");
   ctx.beginPath();
-  ctx.arc(window.PosX, window.PosY, 3, 0, 2 * Math.PI, false);
+  ctx.arc(X, Y, 3, 0, 2 * Math.PI, false);
   ctx.lineWidth = 1;
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
   window.textOffset = 0;
 }
 
-function drawText(message) {
-  if (drawingText){
-    window.setTimeout(function(){
-      drawText(message);
-    }, 500);
-  }else{
-    drawingText = true;
-    var ctx = document.getElementById("canvas").getContext("2d");
-    set_textRenderContext(ctx);
-    if(check_textRenderContext(ctx)) {
-      ctx.font = "12px Sans-serif";
-      ctx.strokeStyle = 'white';
-      ctx.strokeText(message,window.PosX + 5, window.PosY + window.textOffset - 12,12,100,50);
-      window.textOffset+= 12;
-      ga('send', 'event', 'viewer', 'selected', message);
+function setCircle() {
+  window.features.add([0,window.PosX,window.PosY, 'CIRCLE']);
+}
+
+function setText(message) {
+  window.features.add([0,window.PosX + 5,window.PosY + window.textOffset - 12, message]);
+  window.textOffset+= 12;
+  ga('send', 'event', 'viewer', 'selected', message);
+}
+
+function drawText(X,Y,message) {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  set_textRenderContext(ctx);
+  if(check_textRenderContext(ctx)) {
+    ctx.font = "12px Sans-serif";
+    ctx.strokeStyle = 'white';
+    ctx.strokeText(message,X, Y,12,100,50);
+  }
+}
+
+function drawFeatures() {
+  var i;
+  var time = 100;
+  for (i in window.features) {
+    window.features[i][0]++;
+    if (window.features[i][0] > time){
+      delete window.features[i];
+    }else{
+      if (window.features[i][3] == 'CIRCLE'){
+        drawCircle(window.features[i][1],window.features[i][2]);
+      }else{
+        drawText(window.features[i][1],window.features[i][2],window.features[i][3]);
+      }
     }
-    drawingText = false;
   }
 }
 
@@ -395,9 +414,9 @@ function maximizeMenuTabs(scale) {
 
 function updatePosition() {
   maximizeMenuTabs(false);
-  drawCircle();
+  setCircle();
   SelectedIndex = 0;
-  window.reloadInterval = 5000;
+  window.reloadInterval = 10;
   $('#selected').dataTable().fnClearTable();
   $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
   SelectedIndex++;
@@ -1516,7 +1535,7 @@ function addAvailableItems(ids) {
         if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
           temp = parent.$("body").data("domains")[layers];
           if (i > 0) {
-            drawText(temp.name);
+            setText(temp.name);
           }
           break;
         }
@@ -1554,9 +1573,9 @@ function addAvailableItems(ids) {
         if (cleanIdforInt(selected[layers].id) == id) {
           temp = selected[layers];
           if (temp.name){
-            drawText(temp.name);
+            setText(temp.name);
           }else{
-            drawText(cleanIdforExt(temp.id));
+            setText(cleanIdforExt(temp.id));
           }
           layer = selected[layers];
           break;

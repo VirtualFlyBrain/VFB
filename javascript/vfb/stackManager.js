@@ -273,9 +273,7 @@ function updateStackData(){
   if (data.length > 10){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
-    if (window.reloadInterval < 5000 || window.reloadInterval > 5050 ){
-      window.reloadInterval = 10;
-    }
+    window.reloadInterval = 10;
   }
 }
 
