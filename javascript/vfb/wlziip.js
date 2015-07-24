@@ -115,6 +115,7 @@ function animateWlzDisplay(){
               if (image[i].width === 0){
                 alertMessage('Failed to load ' + generateWlzURL(i));
                 selected[i].visible = false;
+                $('#canvas').css('cursor', 'crosshair');
               }else{
                 try{
                   ctx.drawImage(image[i], 0, 0);
@@ -123,6 +124,8 @@ function animateWlzDisplay(){
                   alertMessage("Problem loading image (" + image[i].src + "); error " + e);
                 }
               }
+            }else{
+              $('#canvas').css('cursor', 'wait');
             }
             if (count===0){
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
