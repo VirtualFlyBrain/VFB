@@ -294,6 +294,7 @@ function setText(message) {
     window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
     window.textOffset+= 12;
     ga('send', 'event', 'viewer', 'selected', message);
+    window.reloadInterval = 10;
   }
 }
 
@@ -308,13 +309,12 @@ function drawText(X,Y,message) {
     ctx.font = String(point) + "px Sans-serif";
     ctx.strokeStyle = 'white';
     ctx.strokeText(message,X, Y,point,100,50);
-    window.reloadInterval = 10;
   }
 }
 
 function drawFeatures() {
   var i;
-  var time = 30;
+  var time = 100;
   for (i in window.features) {
     window.features[i][0]++;
     if (window.features[i][0] > time){
