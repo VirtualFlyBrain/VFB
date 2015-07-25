@@ -44,8 +44,9 @@
 		$('body').ready( function () {
 			addToStackData("${param.add}");
 			updateStackData();
+			openTab("${param.tab}");
 			if (location.href.indexOf('?')>-1){
-				post(window.location.pathname, {"add":"${param.add}"})
+				post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
 			}
 		});
 	</script>

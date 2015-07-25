@@ -250,6 +250,38 @@ function animateWlzDisplay(){
   requestAnimationFrame(step);
 }
 
+function openTab(Id) {
+  maximizeMenuTabs();
+  $('.nav.nav-pills.nav-justified > li').removeClass('active');
+  $('.tab-pane').removeClass('active');
+  switch (Id) {
+    case "selec":
+      $('#SelecMenuTab').addClass('active');
+      $('#selec').addClass('active');
+      break;
+    case "anato":
+      $('#AnatoMenuTab').addClass('active');
+      $('#anato').addClass('active');
+      break;
+    case "query":
+      $('#QueryMenuTab').addClass('active');
+      $('#queryBuild').addClass('active');
+      break;
+    case "disp":
+      $('#DispMenuTab').addClass('active');
+      $('#disp').addClass('active');
+      break;
+    default:
+      if (image.length > 1){
+        $('#DispMenuTab').addClass('active');
+        $('#disp').addClass('active');
+      }else{
+        $('#AnatoMenuTab').addClass('active');
+        $('#anato').addClass('active');
+      }
+  }
+}
+
 function loadColours(){
   file = "/data/VFB/colours200.csv";
   $.get(file, function(data) {
@@ -563,13 +595,6 @@ function FindPosition(oElement){
     {
       return [ oElement.x, oElement.y ];
     }
-}
-
-function openQueryTab() {
-  maximizeMenuTabs();
-  $('.tab-pane').removeClass('active');
-  $('#QueryMenuTab').addClass('active');
-  $('#queryBuild').addClass('active');
 }
 
 function generateWlzURL(index){
@@ -1192,7 +1217,7 @@ function createAddButtonHTML(id) {
 
 function createAddToQueryButtonHTMLfinal(id) {
   var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
-  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');";
+  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openTab('query');};ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');";
   text += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span></a>';
   return text;
 }
@@ -1418,11 +1443,6 @@ function loadTemplateAnatomyTree() {
        // collapse all at start:
        if (selected[1]) {
          collapseTree();
-       }else{
-         maximizeMenuTabs(false);
-         $('.tab-pane').removeClass('active');
-         $('#anato').addClass('active');
-         $('#AnatoMenuTab').addClass('active');
        }
        updateMenuData();
      });
