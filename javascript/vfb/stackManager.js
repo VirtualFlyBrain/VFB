@@ -546,6 +546,9 @@ function addToStackData(ids, showDetails){
              if (window.location.pathname == "/site/stacks/index.htm"){
                location.href=location.href.replace(location.hash,"").replace('#','');
              }
+             window.setTimeout(function(){
+        		     $('#resetPosition').click();
+        		 }, 1000);
            }
           }else if (id.indexOf("VFBi_") > -1){
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
