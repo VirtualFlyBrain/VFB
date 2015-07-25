@@ -93,7 +93,7 @@
 	$('body').ready( function () {
 		window.setTimeout(function(){
 			openTab("${param.tab}");
-		}, 10000);
+		}, 5000);
 	});
 </script>
 
