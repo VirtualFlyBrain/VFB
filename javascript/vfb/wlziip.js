@@ -197,21 +197,25 @@ function animateWlzDisplay(){
             current.dst = dist + imageDist;
             for (j in selected) {
               i++;
-              if (!image[i]){
-                image[i] = document.createElement('img');
-              }
-              if (image[i].src.indexOf(generateWlzURL(j))<0){
-                image[i].src = generateWlzURL(j);
+              if (!image[i] || image[i].complete) {
+                if (!image[i]){
+                  image[i] = document.createElement('img');
+                }
+                if (image[i].src.indexOf(generateWlzURL(j))<0){
+                  image[i].src = generateWlzURL(j);
+                }
               }
             }
             current.dst = dist - imageDist;
             for (j in selected) {
               i++;
-              if (!image[i]){
-                image[i] = document.createElement('img');
-              }
-              if (image[i].src.indexOf(generateWlzURL(j))<0){
-                image[i].src = generateWlzURL(j);
+              if (!image[i] || image[i].complete) {
+                if (!image[i]){
+                  image[i] = document.createElement('img');
+                }
+                if (image[i].src.indexOf(generateWlzURL(j))<0){
+                  image[i].src = generateWlzURL(j);
+                }
               }
             }
             current.dst = dist;
