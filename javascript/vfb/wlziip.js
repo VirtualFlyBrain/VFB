@@ -8,6 +8,7 @@ var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
 var imageDist = 1;
+var retries = 4;
 window.features = [];
 
 function updateWlzDisplay(){
@@ -891,7 +892,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
@@ -918,7 +919,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
@@ -948,7 +949,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
@@ -967,7 +968,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
@@ -995,7 +996,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
@@ -1014,7 +1015,7 @@ function updateLabels() {
               if ( status == "error" ) {
                 if ($(this).data('retrys')) {
                   $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > 10){
+                  if ($(this).data('retrys') > retries){
                     $(this).attr('id', "Failed" + $(this).attr('id'));
                   }
                 }else{
