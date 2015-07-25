@@ -71,9 +71,6 @@
 		<c:when test="${!empty param.add}">
 			<script>
 				$('body').ready( function () {
-					window.setTimeout(function(){
-						openTab("${param.tab}");
-				  }, 10000);
 					if (location.href.indexOf('?')>-1){
 						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
 					}
@@ -83,9 +80,6 @@
 	  <c:otherwise>
 			<script>
 				$('body').ready( function () {
-					window.setTimeout(function(){
-						openTab("${param.tab}");
-					}, 10000);
 					if (location.href.indexOf('?')>-1){
 						post(window.location.pathname, {"tab":"${param.tab}"});
 					}
@@ -94,6 +88,14 @@
 		</c:otherwise>
 	</c:choose>
 </c:if>
+
+<script>
+	$('body').ready( function () {
+		window.setTimeout(function(){
+			openTab("${param.tab}");
+		}, 10000);
+	});
+</script>
 
 <div class="row" style="overflow:scroll;">
 
