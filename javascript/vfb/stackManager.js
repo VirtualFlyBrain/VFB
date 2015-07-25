@@ -138,7 +138,8 @@ function loadTemplateMeta(id) {
        }
        parent.$("body").data("available", list);
        updateStackData();
-       parent.$("body").data('current').scl = defaultScaleByScreen();
+       var current = parent.$("body").data("current");
+       current.scl = defaultScaleByScreen();
        if ($('#canvas')){
          var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
          var orient = current.slice;
