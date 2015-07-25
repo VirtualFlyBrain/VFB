@@ -139,6 +139,12 @@ function loadTemplateMeta(id) {
        parent.$("body").data("available", list);
        updateStackData();
        parent.$("body").data('current').scl = defaultScaleByScreen();
+       if ($('#canvas')){
+         var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+         var orient = current.slice;
+         $('#canvas').width = Math.round((Math.round((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
+         $('#canvas').height = Math.round((Math.round((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
+       }
      });
    }
 }
