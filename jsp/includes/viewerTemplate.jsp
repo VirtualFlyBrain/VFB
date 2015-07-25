@@ -40,18 +40,59 @@
 </jsp:include>
 
 <c:if test="${!empty param.add}">
-	<script>
-		$('body').ready( function () {
-			addToStackData("${param.add}");
-			updateStackData();
-			window.setTimeout(function(){
-				openTab("${param.tab}");
-		  }, 10000);
-			if (location.href.indexOf('?')>-1){
-				post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
-			}
-		});
-	</script>
+	<c:choose>
+		<c:when test="${!empty param.tab}">
+			<script>
+				$('body').ready( function () {
+					addToStackData("${param.add}");
+					updateStackData();
+					if (location.href.indexOf('?')>-1){
+						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
+					}
+				});
+			</script>
+		</c:when>
+		<c:otherwise>
+			<script>
+				$('body').ready( function () {
+					addToStackData("${param.add}");
+					updateStackData();
+					if (location.href.indexOf('?')>-1){
+						post(window.location.pathname, {"add":"${param.add}"});
+					}
+				});
+			</script>
+		</c:otherwise>
+	</c:choose>
+</c:if>
+
+<c:if test="${!empty param.tab}">
+	<c:choose>
+		<c:when test="${!empty param.add}">
+			<script>
+				$('body').ready( function () {
+					window.setTimeout(function(){
+						openTab("${param.tab}");
+				  }, 10000);
+					if (location.href.indexOf('?')>-1){
+						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
+					}
+				});
+			</script>
+		</c:when>
+	  <c:otherwise>
+			<script>
+				$('body').ready( function () {
+					window.setTimeout(function(){
+						openTab("${param.tab}");
+					}, 10000);
+					if (location.href.indexOf('?')>-1){
+						post(window.location.pathname, {"tab":"${param.tab}"});
+					}
+				});
+			</script>
+		</c:otherwise>
+	</c:choose>
 </c:if>
 
 <div class="row" style="overflow:scroll;">
