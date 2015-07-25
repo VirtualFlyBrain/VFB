@@ -671,6 +671,7 @@ function initWlzControls() {
        $("#slider-scaleCurrentSliderValLabel .glyphicon").hide();
        $("#slider-scaleCurrentSliderValLabel").addClass("active");
        $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
+       window.reloadInterval = 10;
      }
    });
    $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
@@ -691,6 +692,7 @@ function initWlzControls() {
        $("#slider-sliceCurrentSliderValLabel .glyphicon").hide();
        $("#slider-sliceCurrentSliderValLabel").addClass("active");
        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
+       window.reloadInterval = 10;
      }
    });
    $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
@@ -711,6 +713,7 @@ function initWlzControls() {
        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").hide();
        $("#slider-alphaCurrentSliderValLabel").addClass("active");
        $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focus();
+       window.reloadInterval = 10;
      }
    });
    $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focusout(function() {
