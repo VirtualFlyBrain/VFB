@@ -192,7 +192,7 @@ function animateWlzDisplay(){
         addScale(50);
         drawFeatures();
         if (window.reloadInterval > 999) {
-          if (!updated && imageDist < 100 && (imageDist = 1 || image[i+1].complete)) {
+          if (!updated && imageDist < 100 && (imageDist == 1 || image[i+1].complete)) {
             var dist = current.dst;
             current.dst = dist + imageDist;
             for (j in selected) {
