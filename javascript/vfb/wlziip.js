@@ -1644,6 +1644,8 @@ function addAvailableItems(ids) {
           break;
         }
       }
+      // open details
+      openFullDetails(cleanIdforExt(id));
       // Controls:
       controls = createControlsBarHTML(id);
       // Name:
