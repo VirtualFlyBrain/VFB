@@ -1139,12 +1139,13 @@ function createInfoButtonHTML(layer) {
         content += "$('#anatomyDetails').html($('#imageAttributesText').html());";
         break;
       case "VFBd":
-        content += "openFullDetails('" + layer.extid + "')";
+        content += "openFullDetails('" + layer.extid + "');";
         break;
       default:
         alertMessage('unresolved info button for ' + layer.id);
-        content += "openFullDetails('" + cleanIdforExt(layer.id) + "')";
+        content += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
     }
+    content += "jump('details');";
     content += '"><span style="border:none;padding-left:0px;padding-right:0px;;" class="glyphicon glyphicon-info-sign"></span></button>';
   }
   return content;

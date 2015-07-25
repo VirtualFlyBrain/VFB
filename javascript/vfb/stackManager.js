@@ -143,6 +143,11 @@ function loadTemplateMeta(id) {
    }
 }
 
+function jump(h){
+  var top = document.getElementById(h).offsetTop;
+  window.scrollTo(0, top);
+}
+
 function createAddButtonHTMLfinal(id) {
   id = cleanIdforInt(id);
   var content="";
