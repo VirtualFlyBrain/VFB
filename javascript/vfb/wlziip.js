@@ -615,6 +615,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
      $("#slider-sliceSliderVal").text(ev.value);
      window.reloadInterval = 10;
+     window.features = [];
    });
    slSlice.on('slideStop', function(ev){
      orient = parent.$("body").data("current").slice;
@@ -629,6 +630,7 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      parent.$("body").data("disp", "scale");
      window.reloadInterval = 10;
+     window.features = [];
    });
    slScale.on('slideStop', function(ev){
      parent.$("body").data("current").scl = ev.value.toFixed(1);
@@ -729,6 +731,7 @@ function initWlzControls() {
      parent.$("body").data("current").blend = "screen";
      updateWlzDisplay();
      updateLabels();
+     window.features = [];
      window.reloadInterval = 10;
      parent.$("body").data("disp", "scale");
      ga('send', 'event', 'viewer', 'reset_pos');
@@ -740,6 +743,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = 0;
      parent.$("body").data("disp", "scale");
      updateLabels();
+     window.features = [];
      window.reloadInterval = 10;
      ga('send', 'event', 'viewer', 'slice_in', parent.$("body").data("current").slice );
    });
