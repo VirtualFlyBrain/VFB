@@ -191,8 +191,8 @@ function animateWlzDisplay(){
         }
         addScale(50);
         drawFeatures();
-        if (window.reloadInterval > 10000) {
-          if (!updated && imageDist < 100) {
+        if (window.reloadInterval > 999) {
+          if (!updated && imageDist < 100 && image[i].complete) {
             var dist = current.dst;
             current.dst = dist + imageDist;
             for (j in selected) {
@@ -228,7 +228,7 @@ function animateWlzDisplay(){
     }
     window.setTimeout(function(){
       requestAnimationFrame(step);
-      if (window.reloadInterval < 30000) {
+      if (window.reloadInterval < 1000) {
         window.reloadInterval = window.reloadInterval + 10;
       }
     }, window.reloadInterval);
