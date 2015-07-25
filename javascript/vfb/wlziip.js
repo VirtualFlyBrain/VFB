@@ -120,6 +120,10 @@ function animateWlzDisplay(){
               }else{
                 try{
                   ctx.drawImage(image[i], 0, 0);
+                  if (i === 0){
+                    canvas.width = image[0].width();
+                    canvas.height = image[0].height();
+                  }
                   $('#canvas').css('cursor', 'crosshair');
                 }catch (e){
                   alertMessage("Problem loading image (" + image[i].src + "); error " + e);
