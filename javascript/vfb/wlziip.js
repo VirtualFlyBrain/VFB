@@ -193,7 +193,7 @@ function animateWlzDisplay(){
         addScale(50);
         drawFeatures();
         if (window.reloadInterval > 999) {
-          console.log('loading surrounding slices in background...');
+          console.log('loading surrounding slices in background...' + String(i));
           if (!updated && imageDist < 100 && (imageDist == 1 || (image[i+1] && image[i+1].complete))) {
             console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())+imageDist));
             var dist = current.dst;
