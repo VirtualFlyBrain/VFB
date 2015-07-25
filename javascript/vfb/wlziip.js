@@ -193,7 +193,9 @@ function animateWlzDisplay(){
         addScale(50);
         drawFeatures();
         if (window.reloadInterval > 999) {
+          console.log('loading surrounding slices in background...');
           if (!updated && imageDist < 100 && (imageDist == 1 || (image[i+1] && image[i+1].complete))) {
+            console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())+imageDist));
             var dist = current.dst;
             current.dst = dist + imageDist;
             for (j in selected) {
@@ -207,6 +209,7 @@ function animateWlzDisplay(){
                 }
               }
             }
+            console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())-imageDist));
             current.dst = dist - imageDist;
             for (j in selected) {
               i++;
