@@ -1615,10 +1615,12 @@ function addAvailableItems(ids) {
         name += '">';
         name += temp.name;
         name += '</span></a>';
+        if (id.indexOf('00000')<0) {
+          openFullDetails(cleanIdforExt(temp.extId[0]));
+        }
       }else{
         name = temp.name;
       }
-
       // Type:
       if (temp.extId) {
         type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
