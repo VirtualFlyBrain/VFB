@@ -282,6 +282,7 @@ function openTab(Id) {
       }else{
         $('#AnatoMenuTab').addClass('active');
         $('#anato').addClass('active');
+        expandTree();
       }
   }
 }
