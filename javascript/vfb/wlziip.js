@@ -234,7 +234,9 @@ function animateWlzDisplay(){
             }
           }
         }else{
-          imageDist = 1;
+          if (updated){
+            imageDist = 1;
+          }
         }
       }
     }
