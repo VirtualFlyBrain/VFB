@@ -111,7 +111,7 @@ function animateWlzDisplay(){
               }
               ctx.globalCompositeOperation = 'source-over';
             }
-            if (image[i].complete){
+            if ((image[i] && image[i].complete)){
               if (image[i].width === 0){
                 alertMessage('Failed to load ' + generateWlzURL(i));
                 selected[i].visible = false;
@@ -192,12 +192,12 @@ function animateWlzDisplay(){
         addScale(50);
         drawFeatures();
         if (window.reloadInterval > 999) {
-          if (!updated && imageDist < 100 && (imageDist == 1 || image[i+1].complete)) {
+          if (!updated && imageDist < 100 && (imageDist == 1 || (image[i+1] && image[i+1].complete))) {
             var dist = current.dst;
             current.dst = dist + imageDist;
             for (j in selected) {
               i++;
-              if (!image[i] || image[i].complete) {
+              if (!image[i] || (image[i] && image[i].complete)) {
                 if (!image[i]){
                   image[i] = document.createElement('img');
                 }
@@ -209,7 +209,7 @@ function animateWlzDisplay(){
             current.dst = dist - imageDist;
             for (j in selected) {
               i++;
-              if (!image[i] || image[i].complete) {
+              if (!image[i] || (image[i] && image[i].complete)) {
                 if (!image[i]){
                   image[i] = document.createElement('img');
                 }
