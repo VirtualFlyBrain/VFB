@@ -212,10 +212,10 @@
 			        </div>
 			        <div class="tab-pane" id="anato">
 								<div class="row-fluid" style="padding:0;">
-									<div class="col-xs-9">
+									<div class="col-sm-9">
 			            	<h4>Neuroanatomy Tree</h4>
 									</div>
-									<div id="openCloseAll" class="col-xs-3" style="min-width:180px;">
+									<div id="openCloseAll" class="col-sm-3" style="min-width:180px;">
 										<div class="btn-group">
 											<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack"><span class="glyphicon glyphicon-plus"></span></button>
 											<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack"><span class="glyphicon glyphicon-minus"></span></button>
@@ -223,7 +223,7 @@
 											<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree"><span class="glyphicon glyphicon-resize-small"></span></button>
 										</div>
 									</div>
-									<div class="clearfix visible-xs-block"></div>
+									<div class="clearfix visible-sm-block"></div>
 									<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
 								</div>
 			        </div>
