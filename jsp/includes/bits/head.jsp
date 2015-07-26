@@ -111,7 +111,7 @@
 			  		<script>
 							$('body').ready( function () {
 								var theURL = encodeURIComponent(window.location);
-								if (theURL.indexOf('site/stacks/index.htm')>-1){
+								if (theURL.indexOf('site%2Fstacks%2Findex.htm')>-1){
 									theURL = returnFullUrl();
 									window.setInterval(function(){
 								    theURL = returnFullUrl();
