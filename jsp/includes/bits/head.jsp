@@ -109,12 +109,19 @@
 	        </li>
 					<li id="reportAnIssue">
 			  		<script>
-			  			var theURL = encodeURIComponent(window.location);
-							if (theURL.indexOf('site/stacks/index.htm')>-1){
-								theURL = returnFullUrl();
-							}
+							$('body').ready( function () {
+								var theURL = encodeURIComponent(window.location);
+								if (theURL.indexOf('site/stacks/index.htm')>-1){
+									theURL = returnFullUrl();
+									window.setInterval(function(){
+								    theURL = returnFullUrl();
+										$('#issueLink').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
+								  }, 30000);
+								}
+								$('#issueLink').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
+							});
 			  		</script>
-	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;ga('send', 'event', 'click', 'issue', theURL);return false;" target="_blank">Report an issue</a>
+	        	<a id="issueLink" href="/site/vfb_site/Feedback.htm" onclick="ga('send', 'event', 'click', 'issue', theURL);" target="_blank">Report an issue</a>
 	        </li>
 	      </ul>
 	    </div><!--/.nav-collapse -->
