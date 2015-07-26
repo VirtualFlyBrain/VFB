@@ -69,7 +69,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	          	<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
 	            <li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
-	            <li><a href="http://jefferislab.org/si/nblast/" target="_new">NBLAST</a></li>
+	            <li><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a></li>
 							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
 	          </ul>
 	        </li>
@@ -93,7 +93,7 @@
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="/site/vfb_site/faq.htm">FAQ</a></li>
 	            <li><a href="/site/vfb_site/tutorial.htm">Tutorial Videos</a></li>
-	            <li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_new">Support Forum</a></li>
+	            <li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_blank">Support Forum</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -110,8 +110,11 @@
 					<li id="reportAnIssue">
 			  		<script>
 			  			var theURL = encodeURIComponent(window.location);
+							if (theURL.indexOf('site/stacks/index.htm')>-1){
+								theURL = returnFullUrl();
+							}
 			  		</script>
-	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;return false;">Report an issue</a>
+	        	<a href="/site/vfb_site/Feedback.htm" onclick="location.href=this.href+'?url='+theURL;ga('send', 'event', 'click', 'issue', theURL);return false;" target="_blank">Report an issue</a>
 	        </li>
 	      </ul>
 	    </div><!--/.nav-collapse -->

@@ -1074,7 +1074,7 @@ function updateLabels() {
             });
             break;
           case "FBgn":
-            $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_new"><li>gene</li>');
+            $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_blank"><li>gene</li>');
             break;
           default:
             alertMessage("unable to resolve type for id:" + content);
@@ -1710,6 +1710,19 @@ function copyUrlToClipboard() {
     document.execCommand("copy");
     ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());
     $("#temp").remove();
+}
+
+function returnFullUrl() {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    var i;
+    var displayed = selected[0].id;
+    for (i in selected) {
+      if (i>0){
+        displayed += "," + selected[i].id;
+      }
+    }
+    return "http://"+window.location.host+window.location.pathname+"?add="+displayed;
 }
 
 loadColours();

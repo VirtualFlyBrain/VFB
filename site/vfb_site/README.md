@@ -142,4 +142,4 @@ If you want to add it as a new menu item on it's own then you can simple add the
 			</li>
 ```
 
-Any problems feel free to raise an <a href="https://github.com/VirtualFlyBrain/VFB/issues" target="_new">issue</a> with a question.
+Any problems feel free to raise an <a href="https://github.com/VirtualFlyBrain/VFB/issues" target="_blank">issue</a> with a question.

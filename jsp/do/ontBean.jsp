@@ -85,7 +85,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<b>References: </b><br />
 			<div id="partRefs">
 				<ul>
-				<c:forEach items="${refs}" var="curr" varStatus="status"><li><a href="${curr.webLink}" title="${curr.miniref}" target="_new">${curr.miniref}</script></a></li></c:forEach>
+				<c:forEach items="${refs}" var="curr" varStatus="status"><li><a href="${curr.webLink}" title="${curr.miniref}" target="_blank">${curr.miniref}</script></a></li></c:forEach>
 				</ul>
 		</div>
 		</p>
@@ -109,7 +109,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<div id="partParents">
 					<ul>
 						<c:forEach items="${ontBean.types}" var="curr" varStatus="status"><c:set var="currParts" value="${fn:split(curr, '=')}" /><c:set var="url" value="${fn:split(currParts[0], ' ')[1]}" /><c:choose>
-						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}"><a href="${fn:trim(currParts[0])}" title="External look up" target="_new"><span id="partParent"><li>${currParts[1]}</li></span></a>
+						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}"><a href="${fn:trim(currParts[0])}" title="External look up" target="_blank"><span id="partParent"><li>${currParts[1]}</li></span></a>
 						</c:when>
 						<c:otherwise><span class="hide" id="partParentId">${fn:trim(currParts[0])}</span>
 								<a href="/site/tools/anatomy_finder/index.htm?id=${fn:trim(currParts[0])}&name=${currParts[1]}" title="Look up" target="_top"><span id="partParent"><li>${currParts[1]}</li></span></a>
@@ -125,7 +125,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<div id="partRel">
 				<ul>
 				<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]} <a href="${curr.value[2]}" title="External look up" target="_new">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]} <a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
+					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]} <a href="${curr.value[2]}" title="External look up" target="_blank">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]} <a href="/site/tools/anatomy_finder/index.htm?id=${curr.value[2]}&name=${curr.value[1]}" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
 					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}"><span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span></c:if></c:forEach></li>
 				</c:forEach>
 			</ul>
@@ -138,7 +138,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<b>Image:</b><br/>
 		<img class="lazy" data-original="${tpb.thumbUrl}" onclick="post('site/stacks/index.htm',{'add':'${tpb.vfbId}'})" alt="Open in stack viewer"/>
 		<br/>
-		<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" target="_new" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
+		<b>Source:</b> <a href="${tpb.baseUrl}${tpb.remoteId}" target="_blank" title="Open in ${tpb.sourceName}" >${tpb.sourceName}</a>
 		<br />
 		<br />
 		<span id="imageViewerOpen" data-id="${fn:replace(tpb.vfbId, ':', '_')}" data-name="${ontBean.name}"></span>
@@ -170,10 +170,10 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<br />
 			<b>External Links: </b><br />
 			<br />
-			<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_new" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
-			<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_new" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
+			<a href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}" target="_blank" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
+			<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_blank" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
 			<c:forEach items="${refs}" var="curr" varStatus="status"><c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
-					<a href="${curr.webLink}" target="_new" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
+					<a href="${curr.webLink}" target="_blank" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
 				</c:if></c:forEach>
 
 		</p>

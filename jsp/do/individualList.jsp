@@ -77,7 +77,7 @@
 								</td>
 								<td>
 									<c:if test="${!empty tpb}">
-										<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_new" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
+										<a href="${tpb.baseUrl}${tpb.remoteId}" title="View original ${tpb.sourceName} entry" target="_blank" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
 									</c:if>
 								</td>
 								<td>
@@ -90,7 +90,7 @@
 								</td>
 								<td>
 										<c:set var="driverDetails" value='${drivers[ontBean.fbbtIdAsOWL]}'/>
-										<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_new" class="btn btn-sm btn-info">${driverDetails[1]}</a>
+										<a href="http://flybase.org/reports/${driverDetails[0]}.html" target="_blank" class="btn btn-sm btn-info">${driverDetails[1]}</a>
 								</td>
 							</tr>
 						</c:forEach>
