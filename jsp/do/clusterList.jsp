@@ -25,6 +25,8 @@
 	" />
 </jsp:include>
 
+<script>$('body').css('cursor', 'wait');</script>
+
 
 <div class="row-fluid" style="padding:0;">
 	<div class="col-xs-12">
@@ -108,6 +110,7 @@
 							$('#resultsTable').DataTable().draw(false);
 						}
 					}, 10000);
+					$('body').css('cursor', 'default');
 				}, 1000);
 				window.setInterval(function(){
 					$('[id^=OpenAllButtonFor]').each(function() {

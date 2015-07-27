@@ -22,6 +22,8 @@
 	" />
 </jsp:include>
 
+<script>$('body').css('cursor', 'wait');</script>
+
 <div class="row-fluid" style="padding:0;">
 	<div class="col-xs-12">
 		<div class="row">
@@ -106,6 +108,7 @@
 						$('#resultsTable').DataTable().draw(false);
 					}
 				}, 10000);
+				$('body').css('cursor', 'default');
 			}, 1000);
 		} );
 	</script>
