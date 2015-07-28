@@ -1540,6 +1540,9 @@ function createTreeHTML(treeStruct) {
       html += "</span>";
       if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
         temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
+        if (!$("body").data("domains")[id].extId || !$("body").data("domains")[id].extId[0]){
+          $("body").data("domains")[id].extId = ["FBbt_00007009"];
+        }
       }else{
         if ($("body").data("domains")[id].extId && $("body").data("domains")[id].extId[0]){
           temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
