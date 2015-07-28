@@ -132,6 +132,9 @@ function loadTemplateMeta(id) {
        var l;
        var list = "";
        for (l in $('body').data("domains")) {
+         if (!$('body').data("domains")[l].extId || !$('body').data("domains")[l].extId[0] || $('body').data("domains")[l].extId[0] === ""){
+           $('body').data("domains")[l].extId = ["TBA_" + pad(l,8)];
+         }
          if ($('body').data("domains")[l].id > "") {
            list += cleanIdforInt($('body').data("domains")[l].extId[0]) + ",";
          }
