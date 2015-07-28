@@ -559,6 +559,7 @@ function addToStackData(ids, showDetails){
               for (layers in selected){
                 if (cleanIdforInt(selected[layers].id) == id){
                   selected[layers].visible = true;
+                  openFullDetails(cleanIdforExt(id));
                 }
               }
             }else{
@@ -573,6 +574,7 @@ function addToStackData(ids, showDetails){
               for (layers in selected){
                 if (cleanIdforInt(selected[layers].id) == id){
                   selected[layers].visible = true;
+                  openFullDetails(cleanIdforInt(selected[layers].extid));
                 }
               }
             }else{
@@ -581,12 +583,14 @@ function addToStackData(ids, showDetails){
               for (layers in parent.$("body").data("domains")){
                 if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == parseInt(id.substr(8))) {
                   text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '" }';
+                  openFullDetails(cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]));
                 }
               }
               layers = Object.keys(selected).length;
               selected[layers] = JSON.parse(text);
             }
           }else if (id.indexOf("FBbt_") > -1){
+            openFullDetails(id);
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
             if (JSON.stringify(selected).indexOf(id) > -1){
               for (layers in selected){
@@ -662,9 +666,6 @@ function addToStackData(ids, showDetails){
         }catch(e){
           alertMessage('Issue adding id:' + id + String(e));
         }
-      }
-      if (id.indexOf('VFBt_')<0 && window.location.pathname == "/site/stacks/index.htm"){
-        openFullDetails(id);
       }
       updateStackData();
       history.replaceState(null, document.title, location.href);
