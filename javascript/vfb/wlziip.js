@@ -1541,7 +1541,11 @@ function createTreeHTML(treeStruct) {
       if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
         temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
       }else{
-        temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
+        if ($("body").data("domains")[id].extId && $("body").data("domains")[id].extId[0]){
+          temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
+        }else{
+          temp = "FBbt_00007009";
+        }
       }
       html += '<span id="buttonsFor' + temp + '" data-id="' + temp + '" data-extid="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '" style="position:absolute;border:none;padding-left:0px;padding-right:0px;">';
       html += createControlsBarHTML(temp);
