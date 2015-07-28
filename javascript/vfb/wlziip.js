@@ -1545,6 +1545,7 @@ function createTreeHTML(treeStruct) {
           temp = cleanIdforInt($("body").data("domains")[id].extId[0]);
         }else{
           temp = "FBbt_00007009";
+          $("body").data("domains")[id].extId = [temp];
         }
       }
       html += '<span id="buttonsFor' + temp + '" data-id="' + temp + '" data-extid="' + cleanIdforInt($("body").data("domains")[id].extId[0]) + '" style="position:absolute;border:none;padding-left:0px;padding-right:0px;">';
