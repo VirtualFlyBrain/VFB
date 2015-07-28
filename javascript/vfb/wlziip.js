@@ -649,17 +649,17 @@ function initWlzControls() {
   if (parent.$("body").data("meta")){
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    var orient = parent.$("body").data("current").slice;
-   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1, step: 1, value: parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1, focus: true});
+   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])), step: 1, value: Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])), focus: true});
    slSlice.on('slide', function(ev){
      orient = parent.$("body").data("current").slice;
-     parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
+     parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-1-(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
      window.reloadInterval = 10;
      window.features = [];
    });
    slSlice.on('slideStop', function(ev){
      orient = parent.$("body").data("current").slice;
-     parent.$("body").data("current").dst = parseInt(ev.value)-1-parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]);
+     parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-1-(parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'slice', String(ev.value));
