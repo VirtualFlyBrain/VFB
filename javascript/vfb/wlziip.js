@@ -1114,20 +1114,18 @@ function setOrientaion(ori) {
       parent.$("body").data("current").pit=90.0;
       parent.$("body").data("current").yaw=90.0;
       parent.$("body").data("current").rol=90.0;
-      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
       break;
     case "X":
       parent.$("body").data("current").pit=90.0;
       parent.$("body").data("current").yaw=0.0;
       parent.$("body").data("current").rol=90.0;
-      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
       break;
     default:
       parent.$("body").data("current").pit=0.0;
       parent.$("body").data("current").yaw=0.0;
       parent.$("body").data("current").rol=0.0;
-      $('#slider-slice').data('bootstrapSlider').options.max = parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1;
    }
+   $('#slider-slice').data('bootstrapSlider').options.max = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
    updateWlzDisplay();
  }
 
