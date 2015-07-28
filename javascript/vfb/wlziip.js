@@ -910,11 +910,11 @@ function updateLabels() {
     if (parent.$("body").data("current") && $('#slider-slice').data('live')){
       var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
       var orient = parent.$("body").data("current").slice;
-      $("#slider-sliceSliderVal").text(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+      $("#slider-sliceSliderVal").text(Math.round(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]))+parseInt(parent.$("body").data("current").dst)+1);
       $("#toggle-viewVal").text(parent.$("body").data("current").slice);
       $("#slider-scaleSliderVal").text(String(parseFloat(parent.$("body").data("current").scl).toFixed(1))+'x');
       $('#slider-scale').bootstrapSlider('setValue', parseFloat(parseFloat(parent.$("body").data("current").scl).toFixed(1)));
-      $('#slider-slice').bootstrapSlider('setValue', parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])+parseInt(parent.$("body").data("current").dst)+1);
+      $('#slider-slice').bootstrapSlider('setValue', Math.round(parseInt(parent.$("body").data("current").fxp.split(',')[orientation[orient].D])*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]))+parseInt(parent.$("body").data("current").dst)+1);
       $("#slider-alphaSliderVal").text(String(Math.round((parseInt(parent.$("body").data("current").alpha)/255.0)*100.0))+'%');
       $('#slider-alpha').bootstrapSlider('setValue', Math.round((parseInt(parent.$("body").data("current").alpha)/255.0)*100.0));
       var pos = parent.$("body").data("current").fxp.split(',');
