@@ -921,7 +921,7 @@ function updateLabels() {
       for (var i=0; i<3; i++){
         pos[i] = String(parseInt(pos[i])+1);
       }
-      $('#positionVal').text(pos.join(','));
+      $('#positionVal').html('<small>' + pos.join(',') + '</small>');
     }
 
     if (parent.$("body").data("meta")){
