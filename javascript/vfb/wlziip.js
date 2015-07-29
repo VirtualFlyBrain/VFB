@@ -68,10 +68,10 @@ function animateWlzDisplay(){
                   canvas.width = image[0].width;
                   canvas.height = image[0].height;
                 }
-                if ((canvas.width + 50) < $(window).width()){
-                  $("#viewer-panel").css("min-width", (canvas.width + 50));
+                if ((canvas.width + 40) < $(window).width()){
+                  $("#viewer-panel").css("min-width", (canvas.width + 40));
                 }else{
-                  $("#viewer-panel").css("min-width", $(window).width() - 10);
+                  $("#viewer-panel").css("min-width", $(window).width() - 30);
                   $("#viewer-panel").css("overflow-x", "scroll");
                 }
                 if ($(window).width() < 640 && $('#right-panel').width() > $(window).width()){
