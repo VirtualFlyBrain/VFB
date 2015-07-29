@@ -223,7 +223,7 @@ function animateWlzDisplay(){
               }
               i++;
             }
-          
+
             if (parseInt($('#slider-sliceSliderVal').text())-imageDist >-1){
               console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())-imageDist));
               current.dst = dist - imageDist;
@@ -344,20 +344,25 @@ function addOrientation() {
     var ctx = document.getElementById("canvas").getContext("2d");
     // width orientation X
     var i = orientation[orient].W;
+    if (parent.$('body').data('current')){
+      scl = parent.$('body').data('current').scl;
+    }else{
+      scl = 1;
+    }
     ctx.beginPath();
     ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
-    ctx.lineTo($('#canvas').width()-20,$('#canvas').height()-5);
+    ctx.lineTo($('#canvas').width()-20*scl,$('#canvas').height()-5);
     ctx.strokeStyle = orienCol[i];
     ctx.stroke();
-    drawText($('#canvas').width()-25,$('#canvas').height()-5,opposite[space.substr(i,i+1)],orienCol[i]);
+    drawText(($('#canvas').width()-20*scl)-10,$('#canvas').height()-10,opposite[space.substr(i,i+1)],orienCol[i]);
     // height orientation Y
     i = orientation[orient].H;
     ctx.beginPath();
     ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
-    ctx.lineTo($('#canvas').width()-5,$('#canvas').height()-20);
+    ctx.lineTo($('#canvas').width()-5,$('#canvas').height()-20*scl);
     ctx.strokeStyle = orienCol[i];
     ctx.stroke();
-    drawText($('#canvas').width()-25,$('#canvas').height()-5,opposite[space.substr(i,i+1)],orienCol[i]);
+    drawText(($('#canvas').width()-20*scl)-10,$('#canvas').height()-10,opposite[space.substr(i,i+1)],orienCol[i]);
   }
 }
 
