@@ -54,6 +54,9 @@ function updateStackCounter() {
           $(this).text(parent.$("body").data("meta").name);
         });
       }
+      if ($('#displayed_filter > label').html().indexOf('Search:')>-1) {
+        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+      }
       generateAddButtons();
       if ($.isFunction($.cookie)){
         if ($.cookie('cookie-box') === undefined){

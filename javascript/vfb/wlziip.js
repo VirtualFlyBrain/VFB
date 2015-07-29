@@ -64,9 +64,14 @@ function animateWlzDisplay(){
                 }
               }
               if (parent.$("body").data("disp") == "scale"){
-                if (parent.$("body").data("meta")){
-                  canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
-                  canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
+                if (selected[0].visible && image[0].complete && image[0].height){
+                  canvas.width = image[0].width;
+                  canvas.height = image[0].height;
+                }else{
+                  if (parent.$("body").data("meta")){
+                    canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
+                    canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
+                  }
                 }
                 if ((canvas.width + 50) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 50));
@@ -139,9 +144,14 @@ function animateWlzDisplay(){
           }else{
             if (count===0 && (selected[0].visible === false || parent.$("body").data("disp") == "clear")){
               if (parent.$("body").data("disp") == "scale"){
-                if (parent.$("body").data("meta")){
-                  canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
-                  canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
+                if (selected[0].visible && image[0].complete && image[0].height){
+                  canvas.width = image[0].width;
+                  canvas.height = image[0].height;
+                }else{
+                  if (parent.$("body").data("meta")){
+                    canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
+                    canvas.height = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].H])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].H]));
+                  }
                 }
                 if ((canvas.width + 50) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 50));
