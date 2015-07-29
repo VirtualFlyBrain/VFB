@@ -110,6 +110,9 @@ function cleanIdforExt(id) {
     id = id.replace(":","_");
     id = id.toLowerCase().replace("vfb","VFB").replace('fb','FB');
     id = id.replace('VFBi_','VFB_');
+    if (id.indexOf('fbbt')>-1){
+      id = id.substr(0,id.indexOf('fbbt'));
+    }
     return id;
   }
   return "";
@@ -120,6 +123,9 @@ function cleanIdforInt(id) {
     id = id.replace(":","_");
     id = id.toLowerCase().replace("vfb","VFB").replace('fb','FB');
     id = id.replace('VFB_','VFBi_');
+    if (id.indexOf('fbbt')>-1){
+      id = id.substr(0,id.indexOf('fbbt'));
+    }
     return id;
   }
   return "";
