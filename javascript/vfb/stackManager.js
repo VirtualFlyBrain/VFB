@@ -49,6 +49,13 @@ function updateStackCounter() {
           updateStackData();
         }
       });
+      $("[id^=Count]").each(function(){
+        if (stack[$(this).id.replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).id.replace("CountVFBt","VFBt")].selected).length-1 > 0){
+          $(this).text(Object.keys(stack[$(this).id.replace("CountVFBt","VFBt")].selected).length-1);
+        }else{
+          $(this).text('-');
+        }
+      });
       if (parent.$("body").data("meta")){
         $("[id=stackName]").each(function(){
           $(this).text(parent.$("body").data("meta").name);
