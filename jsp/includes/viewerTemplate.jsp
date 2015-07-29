@@ -184,11 +184,11 @@
 											<table id="selected" class="display compact" cellspacing="0">
 												<thead>
 													<tr>
-														<th>#</th><th>Display</th><th>Name</th><th>Type</th>
+														<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr><th>-</th><th>Click somewhere on the image</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+													<tr>Click somewhere on the image<th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
 												</tbody>
 											</table>
 											<script>
@@ -231,7 +231,7 @@
 											<table id="displayed" class="display compact" cellspacing="0">
 												<thead>
 													<tr>
-														<th>#</th><th>Display</th><th>Name</th><th>Type</th>
+														<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
 													</tr>
 												</thead>
 												<tbody>

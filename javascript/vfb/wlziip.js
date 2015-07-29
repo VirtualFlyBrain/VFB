@@ -485,7 +485,7 @@ function updatePosition() {
   SelectedIndex = 0;
   window.reloadInterval = 10;
   $('#selected').dataTable().fnClearTable();
-  $('#selected').dataTable().fnAddData(['-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
+  $('#selected').dataTable().fnAddData(['<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','-','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />','<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." />']);
   SelectedIndex++;
   $('.tab-pane').removeClass('active');
   $('#selec').addClass('active');
@@ -1309,7 +1309,7 @@ function loadRightMenuDisplayed() {
           rowD = $('#displayed').dataTable().fnGetData(i);
           // index:
           index = String(i);
-          if (rowD === null || rowD[0] !== index || (rowD[2].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
+          if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
             // Controls:
             controls = createControlsBarHTML(layer.id);
             // Name:
@@ -1364,19 +1364,20 @@ function loadRightMenuDisplayed() {
             }
             type += '</span></a>';
             if (rowD !== null){
-              $('#displayed').dataTable().fnUpdate(index,i,0, false );
-              $('#displayed').dataTable().fnUpdate(controls,i,1, false );
-              $('#displayed').dataTable().fnUpdate(name,i,2, false );
+              $('#displayed').dataTable().fnUpdate(index,i,1, false );
+              $('#displayed').dataTable().fnUpdate(controls,i,2, false );
+              $('#displayed').dataTable().fnUpdate(name,i,0, false );
               $('#displayed').dataTable().fnUpdate(type,i,3, false );
+              $('#displayed').dataTable().fnUpdate(thumbnailHTMLForId(layer.id),i,4, false );
               //console.log('Updating ' + index + ' in the displayed layers');
             }else{
-              $('#displayed').dataTable().fnAddData([ index, controls, name, type], false);
+              $('#displayed').dataTable().fnAddData([ name, index, controls, type, thumbnailHTMLForId(layer.id)], false);
               //console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
             // Controls:
             controls = createControlsBarHTML(layer.id);
-            if (rowD[1] !== controls) {
+            if (rowD[2] !== controls) {
               $('#displayed').dataTable().fnUpdate(controls,i,1, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
             }
@@ -1399,10 +1400,10 @@ function loadRightMenuDisplayed() {
         ordering: true,
         responsive: true,
         stateSave: true,
-        order: [[ 0, 'desc' ]],
+        order: [[ 1, 'desc' ]],
         "columnDefs": [
             {
-                "targets": [ 0 ],
+                "targets": [ 1 ],
                 "visible": false,
                 "searchable": false
             }
@@ -1582,7 +1583,7 @@ function clearSelectedTable() {
       ordering: true,
       responsive: true,
       stateSave: true,
-      order: [[ 0, 'desc' ]]
+      order: [[ 1, 'desc' ]]
     });
   }
   ga('send', 'event', 'viewer', 'clear_all');
@@ -1690,7 +1691,8 @@ function addAvailableItems(ids) {
       type += '</span></a>';
 
     }
-    $('#selected').dataTable().fnAddData([ SelectedIndex, controls, name, type], false);
+    var thumb = thumbnailHTMLForId(id);
+    $('#selected').dataTable().fnAddData([ name, SelectedIndex, controls, type, thumb], false);
     SelectedIndex++;
   }
   $('#selected').dataTable().fnAdjustColumnSizing(false);
