@@ -305,8 +305,8 @@ function addScale(scale) {
   if (!scale){
     scale = 50;
   }
-  if ($('body').data('current')){
-    scl = $('body').data('current').scl;
+  if (parent.$('body').data('current')){
+    scl = parent.$('body').data('current').scl;
   }else{
     scl = 1;
   }
@@ -316,16 +316,44 @@ function addScale(scale) {
   ctx.lineTo(Math.round(scale*scl)+5,5);
   ctx.strokeStyle = '#ffffff';
   ctx.stroke();
-  if ($('body').data('meta') && $('body').data('meta').units == 'microns'){
+  if (parent.$('body').data('meta') && parent.$('body').data('meta').units == 'microns'){
     message = String(scale) + '\u00B5m';
   }else{
-    if ($('body').data('meta') && $('body').data('meta').units){
-      message = String(scale) + $('body').data('meta').units;
+    if (parent.$('body').data('meta') && parent.$('body').data('meta').units){
+      message = String(scale) + parent.$('body').data('meta').units;
     }else{
       message = String(scale);
     }
   }
   drawText(5,7,message);
+}
+
+function addOrientation() {
+  if (parent.$('body').data('meta') && parent.$('body').data('meta').orientation) {
+    var current = parent.$("body").data("current");
+    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+    var orient = current.slice;
+    var opposite = {L:'R',R:'L',P:'A',A:'P',S:'I',I:'S'};
+    var orienCol = {0:'#ff0000',1:'#00ff00',2:'#0000ff'};
+    var space = parent.$('body').data('meta').orientation;
+    var ctx = document.getElementById("canvas").getContext("2d");
+    // width orientation X
+    var i = orientation[orient][W];
+    ctx.beginPath();
+    ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
+    ctx.lineTo($('#canvas').width()-20,$('#canvas').height()-5);
+    ctx.strokeStyle = orienCol[i];
+    ctx.stroke();
+    drawText($('#canvas').width()-25,$('#canvas').height()-5,opposite[space.substr(i,i+1)],orienCol[i]);
+    // height orientation Y
+    i = orientation[orient][H];
+    ctx.beginPath();
+    ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
+    ctx.lineTo($('#canvas').width()-5,$('#canvas').height()-20);
+    ctx.strokeStyle = orienCol[i];
+    ctx.stroke();
+    drawText($('#canvas').width()-25,$('#canvas').height()-5,opposite[space.substr(i,i+1)],orienCol[i]);
+  }
 }
 
 function drawCircle(X, Y) {
@@ -354,7 +382,7 @@ function setText(message) {
   }
 }
 
-function drawText(X,Y,message) {
+function drawText(X,Y,message,color) {
   var ctx = document.getElementById("canvas").getContext("2d");
   set_textRenderContext(ctx);
   if(check_textRenderContext(ctx)) {
@@ -363,7 +391,11 @@ function drawText(X,Y,message) {
       point = Math.ceil(point * scl);
     }
     ctx.font = String(point) + "px Sans-serif";
-    ctx.strokeStyle = 'white';
+    if (color){
+      ctx.strokeStyle = color;
+    }else{
+      ctx.strokeStyle = 'white';
+    }
     ctx.strokeText(message,X, Y,point,100,50);
   }
 }
