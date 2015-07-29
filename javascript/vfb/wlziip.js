@@ -200,6 +200,7 @@ function animateWlzDisplay(){
           }
         }
         addScale(50);
+        addOrientation();
         drawFeatures();
         if (window.reloadInterval > 999) {
           i++;
