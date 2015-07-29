@@ -65,8 +65,8 @@ function animateWlzDisplay(){
               }
               if (parent.$("body").data("disp") == "scale"){
                 if (selected[0].visible && image[0].complete && image[0].height){
-                  canvas.width = image[0].width;
-                  canvas.height = image[0].height;
+                  $('#canvas').attr('width', image[0].width);
+                  $('#canvas').attr('height', image[0].height);
                 }
                 if ((canvas.width + 40) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 40));
@@ -121,8 +121,8 @@ function animateWlzDisplay(){
                 try{
                   ctx.drawImage(image[i], 0, 0);
                   if (i === 0){
-                    canvas.width = image[0].width;
-                    canvas.height = image[0].height;
+                    $('#canvas').attr('width', image[0].width);
+                    $('#canvas').attr('height', image[0].height);
                   }
                   $('#canvas').css('cursor', 'crosshair');
                 }catch (e){
@@ -140,8 +140,9 @@ function animateWlzDisplay(){
             if (count===0 && (selected[0].visible === false || parent.$("body").data("disp") == "clear")){
               if (parent.$("body").data("disp") == "scale"){
                 if (selected[0].visible && image[0].complete && image[0].height){
-                  canvas.width = image[0].width;
-                  canvas.height = image[0].height;
+                  $('#canvas').attr('width', image[0].width);
+                  $('#canvas').attr('height', image[0].height);
+                  parent.$('body').data('disp', 'scale');
                 }else{
                   if (parent.$("body").data("meta")){
                     canvas.width = parseInt((parseInt((parseFloat(parent.$("body").data("meta").extent.split(',')[orientation[orient].W])+1)*parseFloat(current.scl))+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]));
