@@ -339,7 +339,7 @@ function addOrientation() {
     var space = parent.$('body').data('meta').orientation;
     var ctx = document.getElementById("canvas").getContext("2d");
     // width orientation X
-    var i = orientation[orient][W];
+    var i = orientation[orient].W;
     ctx.beginPath();
     ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
     ctx.lineTo($('#canvas').width()-20,$('#canvas').height()-5);
@@ -347,7 +347,7 @@ function addOrientation() {
     ctx.stroke();
     drawText($('#canvas').width()-25,$('#canvas').height()-5,opposite[space.substr(i,i+1)],orienCol[i]);
     // height orientation Y
-    i = orientation[orient][H];
+    i = orientation[orient].H;
     ctx.beginPath();
     ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
     ctx.lineTo($('#canvas').width()-5,$('#canvas').height()-20);
