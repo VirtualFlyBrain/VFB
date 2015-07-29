@@ -338,7 +338,7 @@ function addOrientation() {
     var current = parent.$("body").data("current");
     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
     var orient = current.slice;
-    var opposite = {L:'R',R:'L',P:'A',A:'P',S:'I',I:'S'};
+    var opposite = {L:'R',R:'L',P:'A',A:'P',S:'V',I:'D'};
     var orienCol = {0:'#ff0000',1:'#00ff00',2:'#0000ff'};
     var space = parent.$('body').data('meta').orientation;
     var ctx = document.getElementById("canvas").getContext("2d");
