@@ -126,8 +126,8 @@ function animateWlzDisplay(){
                 try{
                   ctx.drawImage(image[i], 0, 0);
                   if (i === 0){
-                    $('#canvas').attr('width',image[i].width);
-                    $('#canvas').attr('height',image[i].height);
+                    canvas.width = image[0].width;
+                    canvas.height = image[0].height;
                   }
                   $('#canvas').css('cursor', 'crosshair');
                 }catch (e){
