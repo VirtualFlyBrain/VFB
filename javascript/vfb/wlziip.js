@@ -67,6 +67,9 @@ function animateWlzDisplay(){
                 if (selected[0].visible && image[0].complete && image[0].height){
                   $('#canvas').attr('width', image[0].width);
                   $('#canvas').attr('height', image[0].height);
+                  parent.$("body").data("disp", "done");
+                }else{
+                  parent.$("body").data("disp", "scale");
                 }
                 if ((canvas.width + 40) < $(window).width()){
                   $("#viewer-panel").css("min-width", (canvas.width + 40));
@@ -104,7 +107,7 @@ function animateWlzDisplay(){
                   $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-7');
                   $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-5');
                 }
-                parent.$("body").data("disp", "done");
+
               }
               if (selected[0].visible === false || parent.$("body").data("disp") == "clear"){
                 ctx.clearRect (0,0,ctx.canvas.width,ctx.canvas.height);
@@ -121,8 +124,8 @@ function animateWlzDisplay(){
                 try{
                   ctx.drawImage(image[i], 0, 0);
                   if (i === 0){
-                    $('#canvas').attr('width', image[0].width);
-                    $('#canvas').attr('height', image[0].height);
+                    $('#canvas').attr('width', image[i].width);
+                    $('#canvas').attr('height', image[i].height);
                   }
                   $('#canvas').css('cursor', 'crosshair');
                 }catch (e){
