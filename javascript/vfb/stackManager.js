@@ -54,7 +54,7 @@ function updateStackCounter() {
           $(this).text(parent.$("body").data("meta").name);
         });
       }
-      if ($('#displayed_filter > label').html().indexOf('Search:')>-1) {
+      if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
         $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
       }
       generateAddButtons();
