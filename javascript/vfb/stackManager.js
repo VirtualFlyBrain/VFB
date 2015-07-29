@@ -513,6 +513,7 @@ function openFullDetails(id) {
       }
     }
   }
+  jump('details');
   ga('send', 'event', 'load', 'details', id);
 }
 
