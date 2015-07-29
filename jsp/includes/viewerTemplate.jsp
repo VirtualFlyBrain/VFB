@@ -247,9 +247,18 @@
 															loadRightMenuDisplayed();
 															// $('#displayed').DataTable().column( 0 ).visible( false );
 												      // $('#displayed').dataTable().fnAdjustColumnSizing();
+															if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+												        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+												      }
+															if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
+																$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
+															}
 														}
 											    }, 10000);
 													loadRightMenuDisplayed();
+													if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+														$('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+													}
 											  });
 											</script>
 										</div>
