@@ -275,7 +275,7 @@
 			        </div>
 			        <div class="tab-pane" id="search">
 								<div class="content-fluid" id="searchBar"></div>
-								<div class="content-fluid" id="result-section">
+								<div class="content-fluid" id="result-section" style="display: none;">
 									<div class="well">
 										<div class="contence-fluid" id="result">
 											<div class="row" id="navigation">
