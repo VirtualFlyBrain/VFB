@@ -1145,6 +1145,9 @@ function createInfoButtonHTML(layer) {
       case "VFBd":
         content += "openFullDetails('" + layer.extid + "');";
         break;
+      case "VFBi":
+        content += "openFullDetails('" + cleanIdforExt(layer.id) + "');";
+        break;
       default:
         alertMessage('unresolved info button for ' + layer.id);
         content += "openFullDetails('" + cleanIdforExt(layer.id) + "');";

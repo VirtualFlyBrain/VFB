@@ -753,7 +753,7 @@ function removeFromStackData(ids) {
 }
 
 function thumbnailHTMLForId(id) {
-  return ""
+  return "";
 }
 
 $('body').ready( function () {
