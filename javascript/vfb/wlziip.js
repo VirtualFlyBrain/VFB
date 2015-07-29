@@ -1427,7 +1427,7 @@ function loadRightMenuDisplayed() {
             // Controls:
             controls = createControlsBarHTML(layer.id);
             if (rowD[2] !== controls) {
-              $('#displayed').dataTable().fnUpdate(controls,i,1, false );
+              $('#displayed').dataTable().fnUpdate(controls,i,2, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
             }
           }
