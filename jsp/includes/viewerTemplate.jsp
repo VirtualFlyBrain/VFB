@@ -199,10 +199,10 @@
 										        ordering: true,
 										        responsive: true,
 										        stateSave: true,
-										        order: [[ 0, 'desc' ]],
+										        order: [[ 1, 'desc' ]],
 										        columnDefs: [
 										            {
-										                targets: [ 0 ],
+										                targets: [ 1 ],
 										                visible: false,
 										                searchable: false
 										            }
