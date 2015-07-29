@@ -29,8 +29,8 @@ function animateWlzDisplay(){
 
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  canvas.width = 637;
-  canvas.height = 319;
+  canvas.width = 10;
+  canvas.height = 10;
   function step() {
     var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
     if (selected){
