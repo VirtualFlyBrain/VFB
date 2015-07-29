@@ -406,8 +406,8 @@ function clearAllData() {
 function defaultScaleByScreen() {
   var scale = 1.0;
   if ($('body').data('meta') && $('#viewer-panel')) {
-    if (640*2<$(window).width()){
-      scale = parseFloat(Math.floor((parseFloat($(window).width()-$('#right-panel').width()-60)/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40))*10.0)/10.0);
+    if (1277<$(window).width()){
+      scale = parseFloat(Math.floor((parseFloat($(window).width()-$('#right-panel').width()-70)/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])))*10.0)/10.0);
     }else{
       scale = parseFloat(Math.floor(($(window).width()/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40))*10.0)/10.0);
     }

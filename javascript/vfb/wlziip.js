@@ -85,7 +85,7 @@ function animateWlzDisplay(){
                 }else{
                   j = 640;
                 }
-                if ((canvas.width + 50 + j) > $(window).width()) {
+                if ((canvas.width + 40 + j) > $(window).width()) {
                   $('#DispMenuTab').show();
                   $('#AnatoMenuTab').show();
                   $('#SearchMenuTab').show();
