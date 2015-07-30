@@ -360,7 +360,11 @@ function addOrientation() {
     ctx.lineTo($('#canvas').width()-20*scl,$('#canvas').height()-5);
     ctx.strokeStyle = orienCol[i];
     ctx.stroke();
-    drawText(($('#canvas').width()-20*scl)-10,$('#canvas').height()-15,opposite[space.substr(i,1)],orienCol[i]);
+    if (scl > 0.7 ){
+      drawText(($('#canvas').width()-20*scl)-10,$('#canvas').height()-15,opposite[space.substr(i,1)],orienCol[i]);
+    }else{
+      drawText(($('#canvas').width()-20*scl)-10,$('#canvas').height()-11,opposite[space.substr(i,1)],orienCol[i]);
+    }
     // height orientation Y
     i = orientation[orient].H;
     ctx.beginPath();
@@ -368,7 +372,11 @@ function addOrientation() {
     ctx.lineTo($('#canvas').width()-5,$('#canvas').height()-20*scl);
     ctx.strokeStyle = orienCol[i];
     ctx.stroke();
-    drawText($('#canvas').width()-8,($('#canvas').height()-20*scl)-15,opposite[space.substr(i,1)],orienCol[i]);
+    if (scl > 0.7 ){
+      drawText($('#canvas').width()-8,($('#canvas').height()-20*scl)-15,opposite[space.substr(i,1)],orienCol[i]);
+    }else{
+      drawText($('#canvas').width()-6,($('#canvas').height()-20*scl)-13,opposite[space.substr(i,1)],orienCol[i]);
+    }
     }
   }
 }
