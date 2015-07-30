@@ -1276,7 +1276,7 @@ function createColourButtonHTML(layer,i) {
     }else{
       temp = layer.colour;
     }
-    content += '<button type="button" data-index="' + String(i) + '" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" ';
+    content += '<button type="button" data-index="' + String(i) + '" data-status="created" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" ';
     content += 'style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
   }
   return content;
@@ -1468,11 +1468,21 @@ function loadRightMenuDisplayed() {
       $('.glyphicon.glyphicon-tint').parent().each( function() {
         var col = rgbColToHex($(this).css('background-color'));
         if (!$(this).data('colorpicker')) {
-          $(this).colorpicker({format:'rgb'}).on('changeColor.colorpicker',function(event){
-            $(this).css('background-color', event.color.toHex());
-            $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
-            updateStackData();
+          $(this).colorpicker({format:'rgb'}).on('showPicker.colorpicker',function(event){
+            $(this).data('status', 'open');
+          }).on('hidePicker.colorpicker',function(event){
+            $(this).data('status', 'closed');
+          }).on('changeColor.colorpicker',function(event){
+            if ($(this).data('status') && $(this).data('status') == 'open') {
+              $(this).css('background-color', event.color.toHex());
+              if (hexColToRGB(event.color.toHex()) != parent.$('body').data('colour')[$(this).data('index')]) {
+                $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
+                updateStackData();
+              }
+            }
           });
+          $(this).colorpicker('setValue', col);
+        }else{
           $(this).colorpicker('setValue', col);
         }
       });
