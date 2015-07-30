@@ -1462,6 +1462,17 @@ function loadRightMenuDisplayed() {
       $('#displayed').DataTable().draw(false);
       $(".dataTables_paginate li").css("margin", 0);
       $(".dataTables_paginate li").css("padding", 0);
+      $('.glyphicon.glyphicon-tint').parent().each( function() {
+        var col = rgbColToHex($(this).css('background-color'));
+        if (!$(this).data('colorpicker')) {
+          $(this).colorpicker({format:'rgb'}).on('showPicker.colorpicker',function(event){
+            event.color.setColor(col);
+            console.log("changing colour: " + col);
+          }).on('changeColor.colorpicker',function(event){
+            $(this).css('background-color', event.color.toHex());
+          });
+        }
+      });
       $('body').css('cursor', 'default');
     }else{
       $('#displayed').DataTable( { retrieve: true,

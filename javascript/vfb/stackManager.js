@@ -290,6 +290,21 @@ function fileFromId(id) {
    return file;
 }
 
+function rgbColToHex(rgb) {
+  var hex = "#";
+  var s = 0;
+  var e = rgb.length;
+  if (rgb.indexOf('(')>-1) {
+    s = rgb.indexOf('(')+1;
+    e = rgb.indexOf(')');
+  }
+  var col = rgb.substr(s,e-s).split(',');
+  for (s in col) {
+    hex += pad(parseInt(col[s]).toString(16),2);
+  }
+  return hex;
+}
+
 function updateStackData(){
   var data = returnCleanData();
   if (data.length > 10){
