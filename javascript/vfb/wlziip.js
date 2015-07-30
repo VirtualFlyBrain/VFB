@@ -1272,9 +1272,8 @@ function createColourButtonHTML(layer,i) {
     }else{
       temp = layer.colour;
     }
-    content += '<button type="button" data-index="' + String(i) + '" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onclick="';
-    content += "updateWlzDisplay();updateMenuData();";
-    content += '" style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
+    content += '<button type="button" data-index="' + String(i) + '" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" ';
+    content += 'style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
   }
   return content;
 }
