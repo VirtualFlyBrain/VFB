@@ -53,9 +53,21 @@ function updateStackCounter() {
         if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
           $(this).text(Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
           $(this).show();
+          if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
+            $(this).removeClass('label-warning').addClass('label-success');
+          }else{
+            $(this).addClass('label-warning').removeClass('label-success');
+          }
         }else{
-          $(this).text('-');
-          $(this).hide();
+          if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
+            $(this).text('0');
+            $(this).removeClass('label-warning').addClass('label-success');
+            $(this).show();
+          }else{
+            $(this).text('-');
+            $(this).addClass('label-warning').removeClass('label-success');
+            $(this).hide();
+          }
         }
       });
       if (parent.$("body").data("meta")){

@@ -76,11 +76,11 @@
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 							<li><a href="/site/stacks/index.htm">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
-	            <li><a onClick="addToStackData('VFBt_001');post('/site/stacks/index.htm',{'add':'VFBt_00100000'});">Open the Janelia Adult Brain <span id="CountVFBt_001" class="badge"></span></a></li>
-	            <li><a onClick="addToStackData('VFBt_002');post('/site/stacks/index.htm',{'add':'VFBt_00200000'});">Open the Ito Half Brain <span id="CountVFBt_002" class="badge"></span></a></li>
-							<li><a onClick="addToStackData('VFBt_004');post('/site/stacks/index.htm',{'add':'VFBt_00400000'});">Open the Ventral Nervous System <span id="CountVFBt_004" class="badge"></span></a></li>
-							<li><a onClick="addToStackData('VFBt_003');post('/site/stacks/index.htm',{'add':'VFBt_00300000'});">Open the Larval Brain <span id="CountVFBt_003" class="badge"></span></a></li>
-	          	<li><a onClick="clearAllData();">Clear <span id="viewer2DVal" class="badge">*</span> items</a></li>
+	            <li><a onClick="addToStackData('VFBt_001');post('/site/stacks/index.htm',{'add':'VFBt_00100000'});">Open the Janelia Adult Brain <span id="CountVFBt_001" class="label label-warning label-as-badge"></span></a></li>
+	            <li><a onClick="addToStackData('VFBt_002');post('/site/stacks/index.htm',{'add':'VFBt_00200000'});">Open the Ito Half Brain <span id="CountVFBt_002" class="label label-warning label-as-badge"></span></a></li>
+							<li><a onClick="addToStackData('VFBt_004');post('/site/stacks/index.htm',{'add':'VFBt_00400000'});">Open the Ventral Nervous System <span id="CountVFBt_004" class="label label-warning label-as-badge"></span></a></li>
+							<li><a onClick="addToStackData('VFBt_003');post('/site/stacks/index.htm',{'add':'VFBt_00300000'});">Open the Larval Brain <span id="CountVFBt_003" class="label label-warning label-as-badge"></span></a></li>
+	          	<li><a onClick="clearAllData();">Clear <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items</a></li>
 						</ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
@@ -103,7 +103,7 @@
 						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>
 					</li>
 					<li>
-						<a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span> <span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="badge">*</span></a>
+						<a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span> <span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="label label-success label-as-badge">*</span></a>
 						<script>
 							updateStackCounter();
 						</script>

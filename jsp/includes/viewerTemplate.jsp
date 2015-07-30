@@ -177,7 +177,7 @@
 			        <div class="tab-pane" id="selec">
 								<div class="row-fluid" style="padding:0;">
 									<div class="col-xs-12" style="padding:0;">
-										<h4>Available at the selected point <span id="pointVal" class="badge">X,Y,Z</span></h4>
+										<h4>Available at the selected point <span id="pointVal" class="label label-default label-as-badge">X,Y,Z</span></h4>
 									</div>
 									<div class="col-xs-12" style="padding:0;">
 										<div class="table-responsive" id="selecContent">

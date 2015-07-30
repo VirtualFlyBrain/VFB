@@ -361,3 +361,6 @@ div.icon-right {
 #imagesCaro .carousel {
   width: 350px !important;
 }
+.label-as-badge {
+    border-radius: 1em;
+}
