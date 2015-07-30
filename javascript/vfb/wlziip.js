@@ -1272,7 +1272,7 @@ function createColourButtonHTML(layer,i) {
     }else{
       temp = layer.colour;
     }
-    content += '<button type="button" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onclick="';
+    content += '<button type="button" data-index="' + String(i) + '" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" onclick="';
     content += "updateWlzDisplay();updateMenuData();";
     content += '" style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
   }
@@ -1470,7 +1470,10 @@ function loadRightMenuDisplayed() {
             console.log("changing colour: " + col);
           }).on('changeColor.colorpicker',function(event){
             $(this).css('background-color', event.color.toHex());
+            $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
+            updateStackData();
           });
+          $(this).colorpicker('setValue', col);
         }
       });
       $('body').css('cursor', 'default');
