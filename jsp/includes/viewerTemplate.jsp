@@ -335,8 +335,18 @@
 						var topLayer = Object.keys(selected).length-1;
 						var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
 						openFullDetails(id);
+					}else{
+						window.setTimeout(function(){
+							if (parent.$('body').data('current')) {
+								var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+								var topLayer = Object.keys(selected).length-1;
+								var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+								openFullDetails(id);
+							}
+					  }, 5000);
 					}
 				});
+				</script>
 			</div>
 		</div>
 	</div>
