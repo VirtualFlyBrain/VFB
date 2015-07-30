@@ -353,6 +353,7 @@ function addOrientation() {
     }else{
       scl = 1;
     }
+    if (scl > 0.4){
     ctx.beginPath();
     ctx.moveTo($('#canvas').width()-5,$('#canvas').height()-5);
     ctx.lineTo($('#canvas').width()-20*scl,$('#canvas').height()-5);
@@ -367,6 +368,7 @@ function addOrientation() {
     ctx.strokeStyle = orienCol[i];
     ctx.stroke();
     drawText($('#canvas').width()-8,($('#canvas').height()-20*scl)-15,opposite[space.substr(i,1)],orienCol[i]);
+    }
   }
 }
 
@@ -397,20 +399,22 @@ function setText(message) {
 }
 
 function drawText(X,Y,message,color) {
-  var ctx = document.getElementById("canvas").getContext("2d");
-  set_textRenderContext(ctx);
-  if(check_textRenderContext(ctx)) {
-    var point = 12;
-    if (scl < 1){
-      point = Math.ceil(point * scl);
+  if (parent.$('body').data('current').scl > 0.4){
+    var ctx = document.getElementById("canvas").getContext("2d");
+    set_textRenderContext(ctx);
+    if(check_textRenderContext(ctx)) {
+      var point = 12;
+      if (scl < 1){
+        point = Math.ceil(point * scl);
+      }
+      ctx.font = String(point) + "px Sans-serif";
+      if (color){
+        ctx.strokeStyle = color;
+      }else{
+        ctx.strokeStyle = 'white';
+      }
+      ctx.strokeText(message,X, Y,point,100,50);
     }
-    ctx.font = String(point) + "px Sans-serif";
-    if (color){
-      ctx.strokeStyle = color;
-    }else{
-      ctx.strokeStyle = 'white';
-    }
-    ctx.strokeText(message,X, Y,point,100,50);
   }
 }
 
