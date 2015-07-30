@@ -52,8 +52,10 @@ function updateStackCounter() {
       $("[id^=Count]").each(function(){
         if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
           $(this).text(Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
+          $(this).show();
         }else{
           $(this).text('-');
+          $(this).hide();
         }
       });
       if (parent.$("body").data("meta")){
