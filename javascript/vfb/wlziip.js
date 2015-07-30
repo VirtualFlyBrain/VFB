@@ -1475,7 +1475,7 @@ function loadRightMenuDisplayed() {
           }).on('changeColor.colorpicker',function(event){
             if ($(this).data('status') && $(this).data('status') == 'open') {
               $(this).css('background-color', event.color.toHex());
-              if (hexColToRGB(event.color.toHex()) != parent.$('body').data('colour')[$(this).data('index')]) {
+              if (hexColToRGB(event.color.toHex()) != parent.$('body').data('colours')[$(this).data('index')]) {
                 $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
                 updateStackData();
               }
