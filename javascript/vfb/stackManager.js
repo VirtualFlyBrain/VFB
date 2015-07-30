@@ -422,7 +422,7 @@ function defaultScaleByScreen() {
     if (1277<$(window).width()){
       scale = parseFloat(Math.floor((parseFloat($(window).width()-($('#right-panel').width()+30))/parseFloat(Math.ceil($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+30))*10.0)/10.0);
     }else{
-      scale = parseFloat(Math.floor(($(window).width()/(parseFloat($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+40))*10.0)/10.0);
+      scale = parseFloat(Math.floor(($(window).width()/parseFloat(Math.ceil($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+50))*10.0)/10.0);
     }
   }
   return scale;
