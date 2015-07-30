@@ -772,7 +772,7 @@ function thumbnailHTMLForId(id) {
   var html = '<img class="lazy" data-original="URL" onclick="';
   html += "openFullDetails('" + id + "');";
   html += '" alt="click to see full details" style="display: inline;" style="width:80px;" />';
-  if (id.indexOf("VFBi_")){
+  if (id.indexOf("VFBi_")>-1){
     url = "/owl/" + id + "/thumbnail.png";
     return html.replace('"URL"', '"' + url + '"');
   }
