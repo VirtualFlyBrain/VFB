@@ -886,6 +886,10 @@ function clearAllDisplayed() {
     if (i > 0){
       $('#displayed').dataTable().fnDeleteRow(1, false );
       delete selected[i];
+    }else{
+      if (i === 0){
+        selected[i].colour = "auto";
+      }
     }
   }
   $('#displayed').dataTable().fnAdjustColumnSizing(false);
