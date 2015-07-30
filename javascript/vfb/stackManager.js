@@ -44,11 +44,19 @@ function updateStackCounter() {
       $("[id=viewer2DVal]").each(function(){
         if (stack[stack.current.template]){
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
+          if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt($(this).text()) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal()))-1) {
+            $(this).removeClass(label-success).addClass(label-danger);
+            $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
+          }else{
+            $(this).addClass(label-success).removeClass(label-danger);
+            $(this).attr('title', 'Number of items currently saved');
+          }
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
           updateStackData();
         }
       });
+      $("#viewerTotalItems").text(totalItemCount());
       $("[id^=Count]").each(function(){
         if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
           $(this).text(Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
@@ -440,6 +448,37 @@ function expandCookieDisplayed() {
     }
   }
   return data;
+}
+
+function totalItemCount() {
+  var selected;
+  var i=0;
+  var j;
+  for (j in parent.$("body").data()){
+    if ((j.indexOf('VFBt_') > -1) && parent.$("body").data(j).selected){
+      i += Object.keys(parent.$("body").data(j).selected).length-1;
+    }
+  }
+  return i;
+}
+
+function clearAbsolutlyAllData() {
+  var selected;
+  var i;
+  var j;
+  for (j in parent.$("body").data()){
+    if ((j.indexOf('VFBt_') > -1) && parent.$("body").data(j).selected){
+      selected = parent.$("body").data(j).selected;
+      for (i in selected) {
+        if (i > 0){
+          delete selected[i];
+        }else{
+          selected[i].colour = "auto";
+        }
+      }
+    }
+  }
+  updateStackData();
 }
 
 function clearAllData() {
