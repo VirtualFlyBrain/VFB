@@ -305,6 +305,15 @@ function rgbColToHex(rgb) {
   return hex;
 }
 
+function hexColToRGB(hex) {
+  var rgb = "";
+  hex = hex.replace('#','');
+  rgb += String(parseInt(hex.substr(0,2), 16)) + ',';
+  rgb += String(parseInt(hex.substr(2,2), 16)) + ',';
+  rgb += String(parseInt(hex.substr(4,2), 16));
+  return rgb;
+}
+
 function updateStackData(){
   var data = returnCleanData();
   if (data.length > 10){
