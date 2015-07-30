@@ -9,6 +9,7 @@ var drawingText = false;
 var image = [];
 var imageDist = 1;
 var retries = 4;
+var maxSlice = 1;
 window.features = [];
 
 function updateWlzDisplay(){
@@ -213,21 +214,21 @@ function animateWlzDisplay(){
           }
           if (!updated && imageDist < 100 && (imageDist === 1 || (image[i] && image[i].complete))) {
             var dist = current.dst;
-
-            console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())+imageDist));
-            current.dst = dist + imageDist;
-            for (j in selected) {
-              if (!image[i] || (image[i] && image[i].complete)) {
-                if (!image[i]){
-                  image[i] = document.createElement('img');
+            if ((parseInt($('#slider-sliceSliderVal').text())+imageDist) <= maxSlice) {
+              console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())+imageDist));
+              current.dst = dist + imageDist;
+              for (j in selected) {
+                if (!image[i] || (image[i] && image[i].complete)) {
+                  if (!image[i]){
+                    image[i] = document.createElement('img');
+                  }
+                  if (image[i].src.indexOf(generateWlzURL(j))<0){
+                    image[i].src = generateWlzURL(j);
+                  }
                 }
-                if (image[i].src.indexOf(generateWlzURL(j))<0){
-                  image[i].src = generateWlzURL(j);
-                }
+                i++;
               }
-              i++;
             }
-
             if (parseInt($('#slider-sliceSliderVal').text())-imageDist >-1){
               console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text())-imageDist));
               current.dst = dist - imageDist;
@@ -704,7 +705,8 @@ function initWlzControls() {
   if (parent.$("body").data("meta")){
    var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
    var orient = parent.$("body").data("current").slice;
-   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])), step: 1, value: Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])), focus: true});
+   maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+   var slSlice = $("#slider-slice").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 1, max: maxSlice, step: 1, value: Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])), focus: true});
    slSlice.on('slide', function(ev){
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
