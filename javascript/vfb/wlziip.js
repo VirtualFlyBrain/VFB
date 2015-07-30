@@ -835,9 +835,7 @@ function initWlzControls() {
    $("body").on('click', "#resetPosition", function(){
      hideAllSliders();
      var text = '{ "scl":' + String(defaultScaleByScreen()) + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
-     parent.$("body").data("current").scl = defaultScaleByScreen();
-     $("#slider-scaleSliderVal").text(String(defaultScaleByScreen())+'x');
-     $('#slider-scale').bootstrapSlider('setValue', defaultScaleByScreen());
+     parent.$("body").data("current").scl = String(defaultScaleByScreen());
      setOrientaion("Z");
      parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
      parent.$("body").data("current").dst = 0;
