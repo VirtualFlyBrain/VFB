@@ -1464,10 +1464,7 @@ function loadRightMenuDisplayed() {
       $('.glyphicon.glyphicon-tint').parent().each( function() {
         var col = rgbColToHex($(this).css('background-color'));
         if (!$(this).data('colorpicker')) {
-          $(this).colorpicker({format:'rgb'}).on('showPicker.colorpicker',function(event){
-            event.color.setColor(col);
-            console.log("changing colour: " + col);
-          }).on('changeColor.colorpicker',function(event){
+          $(this).colorpicker({format:'rgb'}).on('changeColor.colorpicker',function(event){
             $(this).css('background-color', event.color.toHex());
             $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
             updateStackData();
