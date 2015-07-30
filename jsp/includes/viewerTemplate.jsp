@@ -328,6 +328,15 @@
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
 				Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>
 				Information for the selected anatomical term will be displayed here, with further query options visible after selection.
+				<script>
+				$(document).ready(function() {
+					if (parent.$('body').data('current')) {
+						var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+						var topLayer = Object.keys(selected).length-1;
+						var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+						openFullDetails(id);
+					}
+				});
 			</div>
 		</div>
 	</div>
