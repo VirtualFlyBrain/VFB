@@ -1541,7 +1541,7 @@ function loadTemplateAnatomyTree() {
            var children = $(this).parent('li.parent_li').find(' > ul > li');
            if (children.is(":visible")) {
              children.hide('fast');
-             $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;"></span>');
+             $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;padding-left:0px;padding-right:0px;"></span>');
            } else {
              children.show('fast');
              $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0px;padding-right:0px;"></span>');
