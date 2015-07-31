@@ -51,7 +51,7 @@ function updateStackCounter() {
         if (stack[stack.current.template]){
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
           if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
-            if (checkCount > 2){
+            if (checkCount > 5){
               alertMessage('Only ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' out of ' + String(Object.keys(stack[stack.current.template].selected).length-1) + 'were saved!');
               $(this).removeClass('label-success').addClass('label-danger');
               $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
