@@ -125,6 +125,7 @@ function updateStackCounter() {
     			html += '</div>';
     			html += '</div>';
           $('#cookie-warning').html(html);
+          $.removeCookie('cookie-box', { path: '/' });
   			}else{
   				$('#cookie-warning').hide();
   			}
@@ -141,6 +142,7 @@ function updateStackCounter() {
 					html += '</div>';
 					html += '</div>';
           $('#dev-warning').html(html);
+          $.removeCookie('dev-box', { path: '/' });
         }else{
           $('#dev-warning').hide();
         }
