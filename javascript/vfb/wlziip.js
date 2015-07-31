@@ -1760,7 +1760,9 @@ function addAvailableItems(ids) {
         }
       }
       // open details
-      openFullDetails(cleanIdforExt(id));
+      if (id.indexOf('00000')<0) {
+        openFullDetails(cleanIdforExt(id));
+      }
       // Controls:
       controls = createControlsBarHTML(id);
       // Name:
