@@ -80,8 +80,8 @@
 	            <li><a onClick="addToStackData('VFBt_002');post('/site/stacks/index.htm',{'add':'VFBt_00200000'});">Open the Ito Half Brain <span id="CountVFBt_002" class="label label-warning label-as-badge"></span></a></li>
 							<li><a onClick="addToStackData('VFBt_004');post('/site/stacks/index.htm',{'add':'VFBt_00400000'});">Open the Ventral Nervous System <span id="CountVFBt_004" class="label label-warning label-as-badge"></span></a></li>
 							<li><a onClick="addToStackData('VFBt_003');post('/site/stacks/index.htm',{'add':'VFBt_00300000'});">Open the Larval Brain <span id="CountVFBt_003" class="label label-warning label-as-badge"></span></a></li>
-	          	<li><a onClick="clearAllData();">Clear <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items</a></li>
-							<li><a onClick="clearAbsolutlyAllData();">Clear All <span id="viewerTotalItems" class="label label-warning label-as-badge">*</span> items</a></li>
+	          	<li id="clearAllOption"><a onClick="clearAllData();">Clear <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items</a></li>
+							<li id="clearEverythingOption"><a onClick="clearAbsolutlyAllData();">Clear All <span id="viewerTotalItems" class="label label-warning label-as-badge">*</span> items</a></li>
 						</ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>

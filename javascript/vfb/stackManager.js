@@ -44,7 +44,7 @@ function updateStackCounter() {
       $("[id=viewer2DVal]").each(function(){
         if (stack[stack.current.template]){
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
-          if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt($(this).text()) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal()))-1) {
+          if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
             $(this).removeClass('label-success').addClass('label-danger');
             $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
           }else{
@@ -56,6 +56,16 @@ function updateStackCounter() {
           updateStackData();
         }
       });
+      if (0<parseInt(Object.keys(stack[stack.current.template].selected).length-1)){
+        ("#clearAllOption").show();
+      }else{
+        $("#clearAllOption").hide();
+      }
+      if (totalItemCount()>(Object.keys(stack[stack.current.template].selected).length-1)){
+        ("#clearEverythingOption").show();
+      }else{
+        $("#clearEverythingOption").hide();
+      }
       $("#viewerTotalItems").text(totalItemCount());
       $("[id^=Count]").each(function(){
         if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
