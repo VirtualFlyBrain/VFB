@@ -154,7 +154,7 @@
 		</init-param>
 		<init-param>
 			<param-name>expirationTime</param-name>
-			<param-value>216000</param-value>
+			<param-value>2592000</param-value>
 		</init-param>
 	</filter>
 	
