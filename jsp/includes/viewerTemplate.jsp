@@ -1,7 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="meta_root">${(empty param.meta_root)?"/data/flybrain/":param.meta_root}</c:set>
-<jsp:include page="/jsp/includes/homeHead.jsp">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><c:set var="meta_root">${(empty param.meta_root)?"/data/flybrain/":param.meta_root}</c:set><jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
