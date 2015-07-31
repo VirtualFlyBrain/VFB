@@ -552,9 +552,9 @@ function initStackData(ids) {
   }
   parent.$("body").data(expandCookieDisplayed());
   if (parent.$("body").data("current") === undefined){
-    alert($.cookie("displaying"));
-    alert(returnCleanData());
     alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
+    alertMessage($.cookie("displaying"));
+    alertMessage(returnCleanData());
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
     location.reload();
