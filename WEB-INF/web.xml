@@ -162,7 +162,6 @@
 		<filter-name>cssCache</filter-name>
 		<url-pattern>*.css</url-pattern>
 		<url-pattern>*.htm</url-pattern>
-		<url-pattern>select</url-pattern>
 	</filter-mapping>
  
 	<filter-mapping>
