@@ -111,8 +111,9 @@
 	        </li>
 					<li id="reportAnIssue">
 			  		<script>
+							var theURL = "";
 							$('body').ready( function () {
-								var theURL = encodeURIComponent(window.location);
+								theURL = encodeURIComponent(window.location);
 								if (theURL.indexOf('site%2Fstacks%2Findex.htm')>-1 && theURL.indexOf('Feedback.htm')<0){
 									theURL = returnFullUrl();
 									window.setInterval(function(){
