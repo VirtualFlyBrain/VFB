@@ -33,7 +33,8 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   I8:'!2i!6!D8',I7:'!2i!6!D7',I6:'!2i!6!D6',I5:'!2i!6!D5',I4:'!2i!6!D4',I3:'!2i!6!D3',I2:'!2i!6!D2',I1:'!2i!6!D1',
   J1:'!2i!6VFBd_00100',J2:'!2i!6VFBd_00200',J3:'!2i!6VFBd_00300',J4:'!2i!6VFBd_00400',J5:'!2i!6VFBd_00500',
   j1:'!2i!6VFBd_001',j2:'!2i!6VFBd_002',j3:'!2i!6VFBd_003',j4:'!2i!6VFBd_004',j5:'!2i!6VFBd_005',
-  K6:'!6FBbt_000000',K5:'!6FBbt_00000',K4:'!6FBbt_0000',K3:'!6FBbt_000',K2:'!6FBbt_00',K1:'!6FBbt_0'
+  K6:'!6FBbt_000000',K5:'!6FBbt_00000',K4:'!6FBbt_0000',K3:'!6FBbt_000',K2:'!6FBbt_00',K1:'!6FBbt_0',
+  L3:'!4I!6FBbt_!F45106!',L2:'!4I!6FBbt_!F34!F37!',L1:'!4I!6FBbt_!F',L0:'!6FBbt_!F'
 };
 
 function updateStackCounter() {
@@ -60,7 +61,7 @@ function updateStackCounter() {
         $("#openStackViewerOption").show();
       }else{
         $("#openStackViewerOption").hide();
-      }  
+      }
       if (0<parseInt(Object.keys(stack[stack.current.template].selected).length-1)){
         $("#clearAllOption").show();
       }else{
