@@ -28,6 +28,7 @@
 					var majorVersion = parseInt(navigator.appVersion,10);
 					var nameOffset,verOffset,ix;
 					var browserSize = String($(window).width()) + ',' + String($(window).height());
+					SupDetail.cookies = "";
 
 					// In Opera, the true version is after "Opera" or after "Version"
 					if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
@@ -82,7 +83,13 @@
 					SupDetail.sysDetail = navigator.userAgent + ' Size:[' + browserSize + ']';
 					SupDetail.sysDetailURL = encodeURIComponent(SupDetail.sysDetail);
 					SupDetail.cleanURL = encodeURIComponent('${param.url}');
-					mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail,"email us", "emailUs");
+					mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " Cookies:" + SupDetail.cookies,"email us", "emailUs");
+
+					if ($.cookie) {
+						SupDetail.cookies = encodeURIComponent(JSON.stringify($.cookie()));
+					}
+					$('#systemDetails').text(SupDetail.sysDetail);
+					$('#cookieDetails').text(SupDetail.cookies);
 				</script></b> with details.</p>
 
 				<p>Alternatively, as VFB is an opensource project,
@@ -90,7 +97,7 @@
 				[<a href="https://github.com/VirtualFlyBrain/VFB" target="_blank">VirtualFlyBrain/VFB</a>].</p>
 				<p>If you have a GitHub account you can easily raise a new issue:
 				<a class="btn btn-xs btn-warning" href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A"
-				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;" title="Report an issue via GitHub" target="_blank">
+				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL+'%0A'+SupDetail.cookies;return false;" title="Report an issue via GitHub" target="_blank">
 				Create GitHub Issue</a>
 				</p>
 				<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in
@@ -99,7 +106,8 @@
 
 				<div style="border: 1px solid green;">
 					<b>Referring page:</b> <small>${param.url}</small><br />
-					<b>System details:</b> <small><script>document.write(SupDetail.sysDetail);</script></small>
+					<b>System details:</b> <small id="systemDetails"></small><br />
+					<b>Cookies:</b> <small id="cookieDetails"></small><br />
 				</div>
 				<p>Thank you for your help.</p>
 			</div>
