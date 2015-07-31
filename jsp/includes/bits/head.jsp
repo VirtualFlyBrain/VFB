@@ -75,7 +75,7 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-							<li><a href="/site/stacks/index.htm">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
+							<li id="openStackViewerOption"><a href="/site/stacks/index.htm">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
 	            <li><a onClick="addToStackData('VFBt_001');post('/site/stacks/index.htm',{'add':'VFBt_00100000'});">Open the Janelia Adult Brain <span id="CountVFBt_001" class="label label-warning label-as-badge"></span></a></li>
 	            <li><a onClick="addToStackData('VFBt_002');post('/site/stacks/index.htm',{'add':'VFBt_00200000'});">Open the Ito Half Brain <span id="CountVFBt_002" class="label label-warning label-as-badge"></span></a></li>
 							<li><a onClick="addToStackData('VFBt_004');post('/site/stacks/index.htm',{'add':'VFBt_00400000'});">Open the Ventral Nervous System <span id="CountVFBt_004" class="label label-warning label-as-badge"></span></a></li>

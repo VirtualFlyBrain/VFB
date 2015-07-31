@@ -56,13 +56,18 @@ function updateStackCounter() {
           updateStackData();
         }
       });
+      if (window.location.pathname != "/site/stacks/index.htm"){
+        $("#openStackViewerOption").show();
+      }else{
+        $("#openStackViewerOption").hide();
+      }  
       if (0<parseInt(Object.keys(stack[stack.current.template].selected).length-1)){
-        ("#clearAllOption").show();
+        $("#clearAllOption").show();
       }else{
         $("#clearAllOption").hide();
       }
       if (totalItemCount()>(Object.keys(stack[stack.current.template].selected).length-1)){
-        ("#clearEverythingOption").show();
+        $("#clearEverythingOption").show();
       }else{
         $("#clearEverythingOption").hide();
       }
