@@ -334,7 +334,9 @@
 								var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
 								var topLayer = Object.keys(selected).length-1;
 								var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
-								openFullDetails(id);
+								if (id.indexOf('00000')<0) {
+									openFullDetails(id);
+								}
 							}
 					  }, 5000);
 					}
