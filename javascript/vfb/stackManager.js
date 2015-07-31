@@ -35,7 +35,8 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   j1:'!2i!6VFBd_001',j2:'!2i!6VFBd_002',j3:'!2i!6VFBd_003',j4:'!2i!6VFBd_004',j5:'!2i!6VFBd_005',
   K6:'!6FBbt_000000',K5:'!6FBbt_00000',K4:'!6FBbt_0000',K3:'!6FBbt_000',K2:'!6FBbt_00',K1:'!6FBbt_0',
   L3:'!4I!6FBbt_!F45106!',L2:'!4I!6FBbt_!F34!F37!',L1:'!4I!6FBbt_!F',L0:'!6FBbt_!F',
-  M1:'!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',M2:'!9pit!790!9yaw!790!9rol!790!9qlt!780!9cvt!6png!4fxp!6',M3:'!9pit!790!9yaw!70!9rol!790!9qlt!780!9cvt!6png!4fxp!6',M4:'!9mod!6zeta!4slice',M5:'!3C!2T!6!H1!4scl!'
+  M1:'!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',M2:'!9pit!790!9yaw!790!9rol!790!9qlt!780!9cvt!6png!4fxp!6',M3:'!9pit!790!9yaw!70!9rol!790!9qlt!780!9cvt!6png!4fxp!6',M4:'!9mod!6zeta!4slice',M5:'!3C!2T!6!H1!4scl!',
+  N1:'!c1c2!c2c3!c3c4!c4c5!c5c6!c6c7!c7c8!c8c9!c9c10!c10c11!c11c12!c12c13!c13c14!c14c15!c15c16!c16c17!c17c18!c18c19!c19c20!c20c21!c21c22!c22c23!c23c24!c24c25!c25c26!c26c27!c27c28!c28c29!c29c30!c30c31!c31c32'
 };
 
 function updateStackCounter() {

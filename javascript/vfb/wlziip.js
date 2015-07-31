@@ -1578,7 +1578,7 @@ function removeAllDomains() {
 function expandTree() {
   var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
   children.show('fast');
-  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-collapse-down" style="border:none;padding-left:0px;padding-right:0px;"></span>');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Collapse this branch');
   ga('send', 'event', 'viewer', 'tree_expand', parent.$("body").data("current").template);
 }
@@ -1586,7 +1586,7 @@ function expandTree() {
 function collapseTree() {
   var children = $('.tree li.parent_li > span').parent('li.parent_li').find(' > ul > li');
   children.hide('fast');
-  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-expand" style="border:none;padding-left:0px;padding-right:0px;"></span>');
+  $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
   ga('send', 'event', 'viewer', 'tree_collapse', parent.$("body").data("current").template);
 }
@@ -1633,7 +1633,7 @@ function createTreeHTML(treeStruct) {
       }
     }
     if (parent.$('body').data('domains')[id]){
-      html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-unchecked" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ parent.$("body").data("domains")[id].name;
+      html += '<span id="treeLabel"><b><span class="glyphicon glyphicon-menu-right" style="border:none;padding-left:0px;padding-right:0px;"></span></b> '+ parent.$("body").data("domains")[id].name;
       html += "</span>";
       if ($("body").data("domains")[id].domainData.domainId && $("body").data("domains")[id].domainData.domainId !== ""){
         temp = parent.$("body").data("current").template.replace("VFBt_","VFBd_") + String(pad(parseInt(parent.$("body").data("domains")[id].domainData.domainId),5));
