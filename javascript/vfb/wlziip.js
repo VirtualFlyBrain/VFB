@@ -14,6 +14,15 @@ window.features = [];
 
 function updateWlzDisplay(){
   updateStackData();
+  if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider').is(":focus")){
+    $('#slider-sliceCurrentSlider').hide();
+  }
+  if ($('#slider-scaleCurrentSlider') && $('#slider-scaleCurrentSlider').is(":visible") && !$('#slider-scaleCurrentSlider').is(":focus")){
+    $('#slider-scaleCurrentSlider').hide();
+  }
+  if ($('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider').is(":focus")){
+    $('#slider-alphaCurrentSlider').hide();
+  }
 }
 
 function updateMenuData() {

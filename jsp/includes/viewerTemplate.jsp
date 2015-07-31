@@ -133,31 +133,27 @@
 				</c:if>
 				</span>
 			</div>
-			<script>
-				$(function(){
-					$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-							var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-							return clone;
-						}
-					}).click(function(e) {
-						if ($(this).is(":focus")) {
-							if ($(this).data("open")) {
-								$(this).blur();
-								$(this).data("open", false);
-								return true;
-							}else{
-								$(this).data("open", true);
-								e.preventDefault();
-							}
-						}
-					});
-				});
-			</script>
 			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 		<script>
 			$(document).ready(function() {
+				$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+						var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+						return clone;
+					}
+				}).click(function(e) {
+					if ($(this).is(":focus")) {
+						if ($(this).data("open")) {
+							$(this).blur();
+							$(this).data("open", false);
+							return true;
+						}else{
+							$(this).data("open", true);
+							e.preventDefault();
+						}
+					}
+				});
 				animateWlzDisplay();
 			});
 		</script>
