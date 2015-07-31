@@ -120,7 +120,7 @@ function updateStackCounter() {
   			}else{
   				$('#cookie-warning').hide();
   			}
-        if( $.cookie('dev-box') === undefined ){
+        if ($.cookie('dev-box') === undefined){
           $('#dev-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
 					html += '<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">';
