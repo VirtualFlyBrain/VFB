@@ -4,6 +4,7 @@ window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
+var checkCount = 0;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
@@ -50,10 +51,15 @@ function updateStackCounter() {
         if (stack[stack.current.template]){
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
           if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
-            alertMessage('Only ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' out of ' + String(Object.keys(stack[stack.current.template].selected).length-1) + 'were saved!');
-            $(this).removeClass('label-success').addClass('label-danger');
-            $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
+            if (checkCount > 2){
+              alertMessage('Only ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' out of ' + String(Object.keys(stack[stack.current.template].selected).length-1) + 'were saved!');
+              $(this).removeClass('label-success').addClass('label-danger');
+              $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
+            }else{
+              checkCount++;
+            }
           }else{
+            checkCount = 0;
             $(this).addClass('label-success').removeClass('label-danger');
             $(this).attr('title', 'Number of items currently saved');
           }
@@ -361,8 +367,8 @@ function updateStackData(){
   var data = returnCleanData();
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
-    updateStackCounter();
     window.reloadInterval = 10;
+    updateStackCounter();
   }
 }
 
