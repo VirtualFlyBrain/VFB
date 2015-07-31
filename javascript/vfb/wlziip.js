@@ -1536,21 +1536,19 @@ function loadTemplateAnatomyTree() {
          content += "</div>";
          $("#anatoContent").html(content);
          updateWlzDisplay();
-         $(function () {
-            $('.tree li:has(ul)').addClass('parent_li').find(' > span').has('b').attr('title', 'Expand this branch');
-            $('.tree li.parent_li > span').has('b').on('click', function (e) {
-                var children = $(this).parent('li.parent_li').find(' > ul > li');
-                if (children.is(":visible")) {
-                    children.hide('fast');
-                    $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;"></span>');
-                } else {
-                    children.show('fast');
-                    $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0px;padding-right:0px;"></span>');
-                }
-                e.stopPropagation();
-            });
-            $('.tree ul').first().css("padding", 0);
+         $('.tree li:has(ul)').addClass('parent_li').find(' > span').has('b').attr('title', 'Expand this branch');
+         $('.tree li.parent_li > span').has('b').on('click', function (e) {
+           var children = $(this).parent('li.parent_li').find(' > ul > li');
+           if (children.is(":visible")) {
+             children.hide('fast');
+             $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;"></span>');
+           } else {
+             children.show('fast');
+             $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0px;padding-right:0px;"></span>');
+           }
+           e.stopPropagation();
          });
+         $('.tree ul').first().css("padding", 0);
        }
        // collapse all at start:
        if (selected[1]) {
