@@ -1555,6 +1555,9 @@ function loadTemplateAnatomyTree() {
        // collapse all at start:
        if (selected[1]) {
          collapseTree();
+       }else{
+         collapseTree();
+         expandTree();
        }
        updateMenuData();
      });
