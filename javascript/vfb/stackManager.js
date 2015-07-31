@@ -355,7 +355,7 @@ function hexColToRGB(hex) {
 
 function updateStackData(){
   var data = returnCleanData();
-  if (data.length > 1){
+  if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     updateStackCounter();
     window.reloadInterval = 10;
