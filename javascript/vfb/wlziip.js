@@ -14,13 +14,13 @@ window.features = [];
 
 function updateWlzDisplay(){
   updateStackData();
-  if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider').is(":focus")){
+  if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('##slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")){
     $('#slider-sliceCurrentSlider').hide();
   }
-  if ($('#slider-scaleCurrentSlider') && $('#slider-scaleCurrentSlider').is(":visible") && !$('#slider-scaleCurrentSlider').is(":focus")){
+  if ($('#slider-scaleCurrentSlider') && $('#slider-scaleCurrentSlider').is(":visible") && !$('#slider-scaleCurrentSlider .slider-handle.min-slider-handle').is(":focus")){
     $('#slider-scaleCurrentSlider').hide();
   }
-  if ($('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider').is(":focus")){
+  if ($('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider .slider-handle.min-slider-handle').is(":focus")){
     $('#slider-alphaCurrentSlider').hide();
   }
 }
