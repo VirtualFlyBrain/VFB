@@ -89,8 +89,8 @@
 							SupDetail.cookies = JSON.stringify($.cookie());
 							SupDetail.cookiesURL = encodeURIComponent(SupDetail.cookies);
 						}
-						
-						mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " Cookies:" + SupDetail.cookies,"email us", "emailUs");
+
+						mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " Cookies:" + SupDetail.cookiesURL,"email us", "emailUs");
 
 						$('#systemDetails').text(SupDetail.sysDetail);
 						$('#cookieDetails').text(SupDetail.cookies);
