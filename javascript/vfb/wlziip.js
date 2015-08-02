@@ -736,7 +736,6 @@ function initWlzControls() {
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
-     updateStackData();
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'slice', String(ev.value));
    });
@@ -754,7 +753,6 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
      parent.$("body").data("disp", "scale");
-     updateStackData();
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
    });
@@ -769,7 +767,6 @@ function initWlzControls() {
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
      parent.$("body").data("disp","clear");
-     updateStackData();
      updateWlzDisplay();
      ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));
    });
@@ -852,7 +849,6 @@ function initWlzControls() {
      parent.$("body").data("current").alpha = 100;
      parent.$("body").data("current").inverted = false;
      parent.$("body").data("current").blend = "screen";
-     updateStackData();
      updateWlzDisplay();
      updateLabels();
      window.features = [];
@@ -903,9 +899,9 @@ function clearAllDisplayed() {
   $('#displayed').DataTable().draw(false);
   $(".dataTables_paginate li").css("margin", 0);
   $(".dataTables_paginate li").css("padding", 0);
-  updateStackData();
-  history.replaceState(null, document.title, location.href);
   updateWlzDisplay();
+  history.replaceState(null, document.title, location.href);
+
 }
 
 function createControlsBarHTML(id) {
@@ -1315,7 +1311,7 @@ function createAddToQueryButtonHTMLfinal(id) {
 function createCentreButtonHTML(fxp) {
   var html;
   html = '<button class="btn btn-xs" title="center" onclick="';
-  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateStackData();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
+  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateWlzDisplay();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
   html += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
 }
@@ -1331,7 +1327,7 @@ function loadReferenceMeta(id){
         $("#imageAttributesText").html(decodeURIComponent(parent.$("body").data("ref_txt")));
         delete parent.$("body").data().ref_txt;
       }
-      updateStackData();
+      updateWlzDisplay();
     });
   }
 }
@@ -1485,7 +1481,7 @@ function loadRightMenuDisplayed() {
               $(this).css('background-color', event.color.toHex());
               if (hexColToRGB(event.color.toHex()) != parent.$('body').data('colours')[$(this).data('index')]) {
                 $('body').data($('body').data('current').template).selected[$(this).data('index')].colour = hexColToRGB(event.color.toHex());
-                updateStackData();
+                updateWlzDisplay();
               }
             }
           });
