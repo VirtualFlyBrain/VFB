@@ -22,7 +22,7 @@ var currBeanId = "${param.fbbtId}";
 		<!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-				<li><a href="/do/ont_bean_list.html?action=subclass&id=${param.fbbtId}" target="_top">SubClasses</a></li>
+				<li><a href="/do/ont_bean_list.html?action=subclass&id=${param.fbbtId}" target="_top">Subclasses</a></li>
         <li><a href="/do/ont_bean_list.html?action=component_neuron&id=${param.fbbtId}" target="_top">Component of</a></li>
 				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Expression/Phenotypes found here: <span class="caret"></span></a>
