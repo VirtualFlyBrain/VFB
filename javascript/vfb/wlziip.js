@@ -994,11 +994,11 @@ function createInvertButtonHTML() {
   var html = "";
   if (parent.$('body').data('current').inverted){
     html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Revert image intensity to normal" title="Revert image intensity to normal" onclick="';
-    html += "parent.$('body').data('current').inverted = false;";
+    html += "parent.$('body').data('current').inverted = false;parent.$('body').data('current').blend='screen'";
     html += '" style="background-color:black;"><span title="Revert image intensity to normal" class="label label-default label-as-badge">I</span></button>';
   }else{
     html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Invert image intensity" title="Invert image intensity" onclick="';
-    html += "parent.$('body').data('current').inverted = true;";
+    html += "parent.$('body').data('current').inverted = true;parent.$('body').data('current').blend='multiply'";
     html += '" style="background-color:white;"><span title="Invert image intensity" class="label label-default label-as-badge">I</span></button>';
   }
   return html;
