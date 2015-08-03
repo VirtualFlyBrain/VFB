@@ -1363,6 +1363,7 @@ function loadRightMenuDisplayed() {
         }
       });
       var layers = Object.keys(selected).length;
+      var layer;
       var temp;
       var i;
       var j;
