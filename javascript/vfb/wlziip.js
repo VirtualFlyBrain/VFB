@@ -333,7 +333,11 @@ function addScale(scale) {
   ctx.beginPath();
   ctx.moveTo(5,5);
   ctx.lineTo(Math.round(scale*scl)+5,5);
-  ctx.strokeStyle = '#ffffff';
+  if (parent.$('body').data('current').inverted){
+    ctx.strokeStyle = '#000000';
+  }else{
+    ctx.strokeStyle = '#ffffff';
+  }
   ctx.stroke();
   if (parent.$('body').data('meta') && parent.$('body').data('meta').units == 'microns'){
     message = String(scale) + '\u00B5m';
@@ -395,7 +399,11 @@ function drawCircle(X, Y) {
   ctx.beginPath();
   ctx.arc(X, Y, 3, 0, 2 * Math.PI, false);
   ctx.lineWidth = 1;
-  ctx.strokeStyle = '#ffffff';
+  if (parent.$('body').data('current').inverted){
+    ctx.strokeStyle = '#000000';
+  }else{
+    ctx.strokeStyle = '#ffffff';
+  }
   ctx.stroke();
   window.textOffset = 0;
 }
@@ -429,7 +437,11 @@ function drawText(X,Y,message,color) {
       if (color){
         ctx.strokeStyle = color;
       }else{
-        ctx.strokeStyle = 'white';
+        if (parent.$('body').data('current').inverted){
+          ctx.strokeStyle = 'black';
+        }else{
+          ctx.strokeStyle = 'white';
+        }
       }
       ctx.strokeText(message,X, Y,point,100,50);
     }
