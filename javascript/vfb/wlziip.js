@@ -1486,10 +1486,10 @@ function loadRightMenuDisplayed() {
               //console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
-            console.log('Update controls for row ' + String(i));
             // Controls:
             controls = createControlsBarHTML(layer.id);
             if (rowD[2] !== controls) {
+              console.log('Update controls for row ' + String(i));
               $('#displayed').dataTable().fnUpdate(controls,i,2, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
             }
