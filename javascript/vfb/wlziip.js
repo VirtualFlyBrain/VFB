@@ -940,6 +940,8 @@ function createControlsBarHTML(id) {
         }
         if (i > 0) {
           html += start + createCloseButtonHTML(selected[i]) + end;
+        }else{
+          html += start + createInvertButtonHTML() + end;
         }
         break;
       }
@@ -985,6 +987,20 @@ function createControlsBarHTML(id) {
     html += start + createAddToQueryButtonHTMLfinal(id) + end;
   }
   html += end;
+  return html;
+}
+
+function createInvertButtonHTML() {
+  var html = "";
+  if (parent.$('body').data('current').inverted){
+    html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Revert image intensity to normal" title="Revert image intensity to normal" onclick="';
+    html += "parent.$('body').data('current').inverted = false;";
+    html += '" style="background-color:black;"><span title="Revert image intensity to normal" class="label label-default label-as-badge">I</span></button>';
+  }else{
+    html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Invert image intensity" title="Invert image intensity" onclick="';
+    html += "parent.$('body').data('current').inverted = true;";
+    html += '" style="background-color:white;"><span title="Invert image intensity" class="label label-default label-as-badge">I</span></button>';
+  }
   return html;
 }
 

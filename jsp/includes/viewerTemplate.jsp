@@ -130,7 +130,7 @@
 				</c:if>
 				</span>
 			</div>
-			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="badge">X,Y,Z</span></div>
+			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 		<script>
