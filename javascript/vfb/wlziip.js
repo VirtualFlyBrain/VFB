@@ -705,7 +705,11 @@ function generateWlzURL(index){
        break;
      case "VFBt":
        file = fileFromId(layer.id);
-       text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       if (current.inverted) {
+         text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&MAP=LINEAR,0,255,255,0,LINEAR,0,255,255,0,LINEAR,0,255,255,0&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       }else{
+         text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+       }
        break;
      case "VFBd":
        file = fileFromId(current.template);
@@ -1387,6 +1391,7 @@ function loadRightMenuDisplayed() {
           // index:
           index = String(i);
           if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
+            console.log('Update for row ' + String(i) + ' - ' + rowD);
             // Controls:
             controls = createControlsBarHTML(layer.id);
             // Name:
@@ -1452,6 +1457,7 @@ function loadRightMenuDisplayed() {
               //console.log('Adding ' + index + ' to the displayed layers');
             }
           }else{
+            console.log('Update controls for row ' + String(i));
             // Controls:
             controls = createControlsBarHTML(layer.id);
             if (rowD[2] !== controls) {
