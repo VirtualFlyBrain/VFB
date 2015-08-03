@@ -636,7 +636,9 @@ function openFullDetails(id) {
       }
     }
   }
-  jump('details');
+  if (document.getElementById('details')){
+    jump('details');
+  }
   ga('send', 'event', 'load', 'details', id);
 }
 
