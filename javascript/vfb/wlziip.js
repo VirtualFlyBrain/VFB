@@ -1420,7 +1420,7 @@ function loadRightMenuDisplayed() {
           // index:
           index = String(i);
           if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
-            console.log('Update for row ' + String(i) + ' - ' + rowD);
+            //console.log('Update for row ' + String(i) + ' - ' + rowD);
             // Controls:
             controls = createControlsBarHTML(layer.id);
             // Name:
@@ -1489,7 +1489,7 @@ function loadRightMenuDisplayed() {
             // Controls:
             controls = createControlsBarHTML(layer.id);
             if (rowD[2] !== controls) {
-              console.log('Update controls for row ' + String(i));
+              //console.log('Update controls for row ' + String(i));
               $('#displayed').dataTable().fnUpdate(controls,i,2, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
             }
