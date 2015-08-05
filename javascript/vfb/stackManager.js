@@ -881,7 +881,7 @@ function thumbnailHTMLForId(id) {
   html += "openFullDetails('" + id + "');";
   html += '" alt="click to see full details" style="display: inline;" width="' + (($(window).width()/12.0)*7.0)*0.1 + 'px" />';
   if (id.indexOf("VFBi_")>-1){
-    url = "/data/VFB/i" + id.substr(5,4) + "/" + id.substr(9,4) + "/thumbnail.png";
+    url = "/data/VFB/i/" + id.substr(5,4) + "/" + id.substr(9,4) + "/thumbnail.png";
     return html.replace('"URL"', '"' + url + '"');
   }
   return "";
