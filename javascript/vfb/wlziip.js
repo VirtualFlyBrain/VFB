@@ -1013,11 +1013,11 @@ function createInvertButtonHTML() {
   var html = "";
   if (parent.$('body').data('current').inverted){
     html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Revert image intensity to normal" title="Revert image intensity to normal" onclick="';
-    html += "parent.$('body').data('current').inverted = false;parent.$('body').data('current').blend='screen';parent.$('body').data('current').alpha=100;";
+    html += "parent.$('body').data('current').inverted = false;parent.$('body').data('current').blend='screen';parent.$('body').data('current').alpha=100;updateWlzDisplay;";
     html += '" style="background:rgb(255,255,255);"><span title="Revert image intensity to normal" class="label label-default label-as-badge">Inv</span></button>';
   }else{
     html += '<button type="button" id="invertButton" class="btn btn-default btn-xs" aria-label="Invert image intensity" title="Invert image intensity" onclick="';
-    html += "parent.$('body').data('current').inverted = true;parent.$('body').data('current').blend='multiply';parent.$('body').data('current').alpha=255;";
+    html += "parent.$('body').data('current').inverted = true;parent.$('body').data('current').blend='multiply';parent.$('body').data('current').alpha=255;updateWlzDisplay;";
     html += '" style="background:rgb(0,0,0);"><span title="Invert image intensity" class="label label-default label-as-badge">Inv</span></button>';
   }
   return html;
