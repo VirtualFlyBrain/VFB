@@ -206,6 +206,9 @@ function animateWlzDisplay(){
               if (!current.inverted) {
                 ctx.fillStyle="black";
                 ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+              }else{
+                ctx.fillStyle="white";
+                ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
               }
               ctx.globalCompositeOperation = parent.$("body").data("current").blend;
               current.alpha = 220;
