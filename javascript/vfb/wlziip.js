@@ -1793,7 +1793,7 @@ function addAvailableItems(ids) {
         }
       }
       // open details
-      if (id.indexOf('00000')<0) {
+      if (id.indexOf('00000')<0 && id.indexOf('_a0')<0) {
         openFullDetails(cleanIdforExt(id));
       }
       // Controls:
@@ -1805,10 +1805,14 @@ function addAvailableItems(ids) {
         name += '">';
         name += temp.name;
       }else{
-        name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
-        name += "openFullDetails('" + cleanIdforExt(id) + "');";
-        name += '">';
-        name += cleanIdforExt(temp.id);
+        if (id.indexOf('_a0')<0){
+          name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
+          name += "openFullDetails('" + cleanIdforExt(id) + "');";
+          name += '">';
+          name += cleanIdforExt(temp.id);
+        }else{
+          name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank">' + cleanIdforExt(id) + '</a>';
+        }
       }
       name += '</span></a>';
       // Type:
@@ -1816,8 +1820,12 @@ function addAvailableItems(ids) {
         type = '<a href="#details"><span class="link" onclick="';
         type += "openFullDetails('" +temp.typeid + "')";
       }else{
-        type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
-        type += "openFullDetails($('#parentIdFor"+id+"').text())";
+        if (id.indexOf('_a0')<0){
+          type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
+          type += "openFullDetails($('#parentIdFor"+id+"').text())";
+        }else{
+          type = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank">Private Aligned Data</a>';
+        }
       }
       if (temp.type) {
         type += '" id="resolvedTypeFor' + id + '" data-id="' + cleanIdforExt(id) + '" >';
