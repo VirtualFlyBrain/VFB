@@ -379,12 +379,13 @@ function updateStackData(){
   var data = returnCleanData(dropItems);
   if (data.length > cookieMax){
       dropItems+=1;
+      data = returnCleanData(dropItems);
   }else{
     if (dropItems > 0 && (data.length+100) < cookieMax){
       dropItems = 0;
+      data = returnCleanData(dropItems);
     }
   }
-  data = returnCleanData(dropItems);
   if (data.length > cookieMax){
     window.setTimeout(function(){
       updateStackData();
