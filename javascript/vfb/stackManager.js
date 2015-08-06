@@ -416,15 +416,11 @@ function returnCleanData(loose) {
     if (t.indexOf('VFBt_')>-1) {
       if (save[t].selected["5"]){
         for (l in save[t].selected) {
-          if (!save[t].selected[l].visible && c > 200){
+          if (parseInt(l) > (c-loose)){
             delete save[t].selected[l];
           }else{
-            if (parseInt(l) > (c-loose)){
-              delete save[t].selected[l];
-            }else{
-              delete save[t].selected[l].name;
-              delete save[t].selected[l].type;
-            }
+            delete save[t].selected[l].name;
+            delete save[t].selected[l].type;
           }
         }
       }
