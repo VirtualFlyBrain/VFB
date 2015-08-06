@@ -64,6 +64,9 @@ function updateStackCounter() {
               $(this).attr('title', 'Too many items selected to save! Note: you can still work but new items will not be saved; you can try clearing items in other templates to free space.');
             }else{
               $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
+              window.setTimeout(function(){
+        				updateStackCounter();
+        			}, 30000);
             }
           }else{
             checkCount = performance.now();
