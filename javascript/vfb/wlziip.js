@@ -1424,7 +1424,7 @@ function loadRightMenuDisplayed() {
       for (i in selected) {
         layer = selected[i];
         if (!layer.name) {
-          if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0) {
+          if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0 && layer.id.indexOf("_a") < 0) {
             updateItemName(solrAPI, layer);
           }
         }
