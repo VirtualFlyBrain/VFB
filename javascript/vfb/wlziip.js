@@ -328,9 +328,9 @@ function loadColours(){
     window.setTimeout(function(){
       if (coloursLoading){
         coloursLoading = false;
-        if (!parent.$("body").data("colours")){
-          loadColours();
-        }
+      }
+      if (!parent.$("body").data("colours")){
+        loadColours();
       }
     }, 30000);
   }
