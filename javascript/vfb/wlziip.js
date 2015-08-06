@@ -1538,7 +1538,7 @@ function loadRightMenuDisplayed() {
         paging: true,
         searching: true,
         ordering: true,
-        responsive: false,
+        responsive: true,
         stateSave: true,
         order: [[ 1, 'desc' ]],
         "columnDefs": [
