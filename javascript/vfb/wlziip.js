@@ -512,7 +512,7 @@ function callForObjects(text, id) {
 
       },
       error: function(jqXHR, textStatus, ex) {
-          alert(textStatus + "," + ex + "," + jqXHR.responseText);
+          alertMessage(textStatus + "," + ex + "," + jqXHR.responseText);
       }
   });
   return true;
@@ -659,7 +659,7 @@ function updatePosition() {
 
       },
       error: function(jqXHR, textStatus, ex) {
-          alert(textStatus + "," + ex + "," + jqXHR.responseText);
+          alertMessage(textStatus + "," + ex + "," + jqXHR.responseText);
       }
   });
 

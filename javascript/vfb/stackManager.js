@@ -416,9 +416,8 @@ function returnCleanData(loose) {
           if (!save[t].selected[l].visible && c > 200){
             delete save[t].selected[l];
           }else{
-            if (loose > 0){
+            if (parseInt(l) > (c-loose)){
               delete save[t].selected[l];
-              loose--;
             }else{
               delete save[t].selected[l].name;
               delete save[t].selected[l].type;
