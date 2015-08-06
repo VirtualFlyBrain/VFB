@@ -421,6 +421,9 @@ function returnCleanData(loose) {
           }else{
             delete save[t].selected[l].name;
             delete save[t].selected[l].type;
+            if (c>100){
+              delete save[t].selected[l].visible;
+            }
           }
         }
       }
