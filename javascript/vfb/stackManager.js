@@ -6,6 +6,7 @@ window.selPointZ = 0;
 window.reloadInterval = 10;
 var checkCount = performance.now();
 var cookieMax = 4000;
+var dropItems = 0;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
@@ -373,11 +374,16 @@ function hexColToRGB(hex) {
 }
 
 function updateStackData(){
-  var drop = 0;
-  var data = returnCleanData(drop);
-  while (data.length > cookieMax){
-    drop++;
-    data = returnCleanData(drop);
+  var data = returnCleanData(Items);
+  if (data.length > cookieMax){
+    while (data.length > cookieMax){
+      dropItems++;
+      data = returnCleanData(dropItems);
+    }
+  }else{
+    if (dropItems > 0 && (data.length+500) < cookieMax){
+      dropItems = 0;
+    }
   }
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
@@ -408,7 +414,7 @@ function returnCleanData(loose) {
           if (!save[t].selected[l].visible && c > 200){
             delete save[t].selected[l];
           }else{
-            if (loose >0){
+            if (loose > 0){
               delete save[t].selected[l];
               loose--;
             }else{
@@ -591,7 +597,7 @@ function initStackData(ids) {
   if (parent.$("body").data("current") === undefined){
     alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
     alertMessage($.cookie("displaying"));
-    alertMessage(returnCleanData());
+    alertMessage(returnCleanData(0));
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
     location.reload();
