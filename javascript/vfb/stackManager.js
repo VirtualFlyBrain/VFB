@@ -427,23 +427,23 @@ function returnCleanData(loose) {
     }
   }
   save = JSON.stringify(save);
-  var count = 1000;
-  while (save.indexOf('auto')>-1 && count>0){
-    save = save.replace(',"visible":true','').replace(',"colour":"auto"','');
-    count--;
-  }
-  count = 1000;
-  while (save.indexOf('"id"')>-1 && count>0){
-    save = save.replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"').replace('"current"','"C"').replace('"selected"','"S"');
-    save = save.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"id"','"i"');
-  }
   save = compressJSONdata(save);
   return save;
 }
 
 function compressJSONdata(data) {
   var i;
-  var count = 0;
+  var count = 1000;
+  while (data.indexOf('auto')>-1 && count>0){
+    data = data.replace(',"visible":true','').replace(',"colour":"auto"','');
+    count--;
+  }
+  count = 1000;
+  while (data.indexOf('"id"')>-1 && count>0){
+    data = data.replace('"name"','"N"').replace('"type"','"t"').replace('"typeid"','"I"').replace('"extid"','"e"').replace('"current"','"C"').replace('"selected"','"S"');
+    data = data.replace('"template"','"T"').replace('"visible"','"v"').replace('"selected"','"S"').replace('"colour"','"c"').replace('"id"','"i"');
+  }
+  count = 0;
   for (i in CompKey) {
     count = 1000;
     while (data.indexOf(CompKey[i]) > -1 && count>0) {
@@ -479,19 +479,19 @@ function decompressJSONdata(data) {
       data = data.replace('!' + String(i), CompKey[i]);
     }
   }
-  return data;
-}
-
-function expandCookieDisplayed() {
-  var data = $.cookie("displaying");
   var patt = new RegExp('"[A-z]":');
-  var count = 1000;
-  data = decompressJSONdata(data);
+  count = 1000;
   while (patt.test(data) && count>0){
     data = data.replace('"C"','"current"').replace('"N"','"name"').replace('"t"','"type"').replace('"I"','"typeid"').replace('"T"','"template"').replace('"c"','"colour"').replace('"v"','"visible"').replace('"S"','"selected"').replace('"e"','"extid"');
     data = data.replace('"i"','"id"');
     count--;
   }
+  return data;
+}
+
+function expandCookieDisplayed() {
+  var data = $.cookie("displaying");
+  data = decompressJSONdata(data);
   data = JSON.parse(data);
   var layer;
   var template;
