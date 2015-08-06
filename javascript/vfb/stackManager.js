@@ -64,9 +64,6 @@ function updateStackCounter() {
               $(this).attr('title', 'Too many items selected to save! Note: you can still work but new items will not be saved; you can try clearing items in other templates to free space.');
             }else{
               $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
-              window.setTimeout(function(){
-        				updateStackCounter();
-        			}, 30000);
             }
           }else{
             checkCount = performance.now();
@@ -394,9 +391,6 @@ function updateStackData(){
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     window.reloadInterval = 10;
-    window.setTimeout(function(){
-      updateStackCounter();
-    }, 20000);
   }
 }
 
@@ -954,6 +948,6 @@ function thumbnailHTMLForId(id) {
 $('body').ready( function () {
 	initStackData(null);
   window.setInterval(function(){
-    generateAddButtons();
+    updateStackCounter();
   }, 2000);
 });
