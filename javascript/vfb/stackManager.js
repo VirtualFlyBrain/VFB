@@ -62,14 +62,13 @@ function updateStackCounter() {
               alertMessage('Only ' + String(Object.keys(stack[stack.current.template].selected).length-1) + ' out of ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' were saved!');
               $(this).removeClass('label-success').addClass('label-danger');
               $(this).attr('title', 'Too many items selected to save! Note: you can still work but older items will not be saved; you can try clearing items in other templates to free space.');
+            }else{
+              $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
             }
           }else{
             checkCount = performance.now();
             $(this).addClass('label-success').removeClass('label-danger');
             $(this).attr('title', 'Number of items currently saved');
-            if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed')){
-              $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
-            }
           }
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
