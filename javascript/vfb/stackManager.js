@@ -641,8 +641,7 @@ function openFullDetails(id) {
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){
-          $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
-          $('#anatomyDetails').load('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/');
+          window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank');
         }else{
           $('#anatomyDetails').html('<img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading...">');
           $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
