@@ -394,7 +394,9 @@ function updateStackData(){
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     window.reloadInterval = 10;
-    updateStackCounter();
+    window.setTimeout(function(){
+      updateStackCounter();
+    }, 20000);
   }
 }
 
