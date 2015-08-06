@@ -11,6 +11,7 @@ var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
 window.features = [];
+var coloursLoading = false;
 
 function updateWlzDisplay(){
   updateStackData();
@@ -315,12 +316,16 @@ function openTab(Id) {
 }
 
 function loadColours(){
-  file = "/data/VFB/colours200.csv";
-  $.get(file, function(data) {
-    var lines = data.split("\n");
-    parent.$("body").data("colours", lines);
-    updateWlzDisplay();
-  });
+  if (!coloursLoading){
+    coloursLoading = true;
+    file = "/data/VFB/colours200.csv";
+    $.get(file, function(data) {
+      var lines = data.split("\n");
+      parent.$("body").data("colours", lines);
+      updateWlzDisplay();
+      coloursLoading = false;
+    });
+  }
 }
 
 function addScale(scale) {

@@ -61,7 +61,7 @@ function updateStackCounter() {
               $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
               alertMessage('Only ' + String(Object.keys(stack[stack.current.template].selected).length-1) + ' out of ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' were saved!');
               $(this).removeClass('label-success').addClass('label-danger');
-              $(this).attr('title', 'Too many items selected to save! Note: you can still work but older items will not be saved; you can try clearing items in other templates to free space.');
+              $(this).attr('title', 'Too many items selected to save! Note: you can still work but new items will not be saved; you can try clearing items in other templates to free space.');
             }else{
               $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
             }
