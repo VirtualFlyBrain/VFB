@@ -325,6 +325,14 @@ function loadColours(){
       updateWlzDisplay();
       coloursLoading = false;
     });
+    window.setTimeout(function(){
+      if (coloursLoading){
+        coloursLoading = false;
+        if (!parent.$("body").data("colours")){
+          loadColours();
+        }
+      }
+    }, 30000);
   }
 }
 
