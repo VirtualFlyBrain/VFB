@@ -1846,7 +1846,8 @@ function addAvailableItems(ids) {
           type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
           type += "openFullDetails($('#parentIdFor"+id+"').text())";
         }else{
-          type = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank"><span>Private Aligned Data';
+          type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
+          type += "openFullDetails('"+cleanIdforExt(id)+"');";
         }
       }
       if (temp.type) {
