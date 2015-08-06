@@ -387,12 +387,17 @@ function returnCleanData() {
   delete save.ref_txt;
   var t;
   var l;
+  var c = totalItemCount();
   for (t in save) {
     if (t.indexOf('VFBt_')>-1) {
       if (save[t].selected["5"]){
         for (l in save[t].selected) {
-          delete save[t].selected[l].name;
-          delete save[t].selected[l].type;
+          if (!save[t].selected[l].visible && c > 200){
+            delete save[t].selected[l];
+          }else{
+            delete save[t].selected[l].name;
+            delete save[t].selected[l].type;
+          }
         }
       }
     }
