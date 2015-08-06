@@ -383,6 +383,11 @@ function updateStackData(){
     }
   }
   data = returnCleanData(dropItems);
+  if (data.length > cookieMax){
+    window.setTimeout(function(){
+      updateStackData();
+    }, 5000);
+  }
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     window.reloadInterval = 10;
