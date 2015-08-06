@@ -682,7 +682,25 @@ function addToStackData(ids, showDetails){
                location.href=location.href.replace(location.hash,"").replace('#','');
              }
            }
-          }else if (id.indexOf("VFBi_") > -1){
+         }else if (id.indexOf("VFBi_a") > -1){
+            selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+            if (JSON.stringify(selected).indexOf(id) > -1){
+              for (layers in selected){
+                if (cleanIdforInt(selected[layers].id) == id){
+                  selected[layers].visible = true;
+                }
+              }
+            }else{
+              text = '{"id":"' + id + '","name":"' + id + '","type":"user aligned data","colour":"auto","visible":true}';
+              layers = Object.keys(selected).length;
+              selected[layers] = JSON.parse(text);
+              if (parent.$("body").data("current").inverted){
+                parent.$("body").data("current").alpha = 255;
+              }else{
+                parent.$("body").data("current").alpha = 100;
+              }
+            }
+         }else if (id.indexOf("VFBi_") > -1){
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
             if (JSON.stringify(selected).indexOf(id) > -1){
               for (layers in selected){
