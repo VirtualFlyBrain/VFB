@@ -1433,6 +1433,10 @@ function loadRightMenuDisplayed() {
           index = String(i);
           if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type)){
             //console.log('Update for row ' + String(i) + ' - ' + rowD);
+            if (layer.id.indexOf('_a')>-1){
+              layer.name = cleanIdforExt(layer.id);
+              layer.type = "Private User Data";
+            }
             // Controls:
             controls = createControlsBarHTML(layer.id);
             // Name:
@@ -1815,13 +1819,13 @@ function addAvailableItems(ids) {
         name += '">';
         name += temp.name;
       }else{
-        if (id.indexOf('_a0')<0){
+        if (id.indexOf('_a')<0){
           name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
           name += "openFullDetails('" + cleanIdforExt(id) + "');";
           name += '">';
           name += cleanIdforExt(temp.id);
         }else{
-          name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank">' + cleanIdforExt(id) + '</a>';
+          name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
         }
       }
       name += '</span></a>';
@@ -1830,11 +1834,11 @@ function addAvailableItems(ids) {
         type = '<a href="#details"><span class="link" onclick="';
         type += "openFullDetails('" +temp.typeid + "')";
       }else{
-        if (id.indexOf('_a0')<0){
+        if (id.indexOf('_a')<0){
           type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
           type += "openFullDetails($('#parentIdFor"+id+"').text())";
         }else{
-          type = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank">Private Aligned Data</a>';
+          type = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank"><span>Private Aligned Data';
         }
       }
       if (temp.type) {
