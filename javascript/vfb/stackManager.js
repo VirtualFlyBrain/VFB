@@ -66,7 +66,9 @@ function updateStackCounter() {
             checkCount = performance.now();
             $(this).addClass('label-success').removeClass('label-danger');
             $(this).attr('title', 'Number of items currently saved');
-            $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
+            if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed')){
+              $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
+            }
           }
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
