@@ -5,7 +5,7 @@ window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
 var checkCount = performance.now();
-var cookieMax = 3500;
+var cookieMax = 4000;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
@@ -57,14 +57,16 @@ function updateStackCounter() {
           $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
           if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
             if (checkCount + 10000 < performance.now()){
+              $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
               alertMessage('Only ' + String(Object.keys(stack[stack.current.template].selected).length-1) + ' out of ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' were saved!');
               $(this).removeClass('label-success').addClass('label-danger');
-              $(this).attr('title', 'Too many items selected to save! Note: you can still work but items will not be saved; you can try clearing items in other templates to free space.');
+              $(this).attr('title', 'Too many items selected to save! Note: you can still work but older items will not be saved; you can try clearing items in other templates to free space.');
             }
           }else{
             checkCount = performance.now();
             $(this).addClass('label-success').removeClass('label-danger');
             $(this).attr('title', 'Number of items currently saved');
+            $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
           }
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
