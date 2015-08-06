@@ -1871,7 +1871,7 @@ function addAvailableItems(ids) {
   if (temp && temp.extid){
     id=temp.extid;
   }
-  if (id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
+  if (id && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
     openFullDetails(id);
   }
 }
