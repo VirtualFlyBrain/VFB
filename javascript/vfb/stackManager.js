@@ -5,6 +5,7 @@ window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
 var checkCount = performance.now();
+var cookieMax = 3500;
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
@@ -368,7 +369,12 @@ function hexColToRGB(hex) {
 }
 
 function updateStackData(){
-  var data = returnCleanData();
+  var drop = 0;
+  var data = returnCleanData(drop);
+  while (data.length > cookieMax){
+    drop++;
+    data = returnCleanData(drop);
+  }
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     window.reloadInterval = 10;
@@ -376,7 +382,10 @@ function updateStackData(){
   }
 }
 
-function returnCleanData() {
+function returnCleanData(loose) {
+  if (!loose) {
+    loose = 0;
+  }
   var save = JSON.parse(JSON.stringify(parent.$("body").data()));
   delete save.domains;
   delete save.disp;
@@ -395,8 +404,13 @@ function returnCleanData() {
           if (!save[t].selected[l].visible && c > 200){
             delete save[t].selected[l];
           }else{
-            delete save[t].selected[l].name;
-            delete save[t].selected[l].type;
+            if (loose >0){
+              delete save[t].selected[l];
+              loose--;
+            }else{
+              delete save[t].selected[l].name;
+              delete save[t].selected[l].type;
+            }
           }
         }
       }
