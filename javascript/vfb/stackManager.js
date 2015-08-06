@@ -43,7 +43,7 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   N5:'XXXXXXXXXX',
   O1:'!6<span id=\\"partParent\\"><li>neuron</li></span>!',O3:'!6<span id=\\"partParent\\"><li>adult fruitless ',O4:' (male) neuron</li></span>!',O5:' (female) neuron</li></span>!',O6:'!6<span id=\\"partParent\\"><li>adult ',O7:' lineage clone</li></span>!',O8:'!6<span id=\\"partParent\\"><li>',O9:'</li></span>',
   o1:'!6fru-F-',o2:'!6fru-M-',o3:' clone of ',o4:'VGlut-F-',o5:'VGlut-M-',o9:' 201',
-  P1:'!4v!7false!8',P2:'!2i!6!D0a!F',P3:'!H4!2S!20!2i!6!H4!F5',P8:'false',P9:'true'
+  P1:'!4v!7false!8',P2:'!2i!6!D0a!F',P3:'!H4!2S!20!2i!6!H4!F5',P4:'!2i!6!e4',P5:'!2i!6!e3',P6:'!2i!6!e2',P7:'!2i!6!e',P8:'false',P9:'true'
 };
 
 function updateStackCounter() {
