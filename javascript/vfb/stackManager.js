@@ -376,12 +376,13 @@ function hexColToRGB(hex) {
 function updateStackData(){
   var data = returnCleanData(dropItems);
   if (data.length > cookieMax){
-      dropItems++;
+      dropItems+=10;
   }else{
     if (dropItems > 0 && (data.length+100) < cookieMax){
       dropItems = 0;
     }
   }
+  data = returnCleanData(dropItems);
   if (data.length > 3){
     $.cookie("displaying", data, { expires: 5*365, path: '/' });
     window.reloadInterval = 10;
