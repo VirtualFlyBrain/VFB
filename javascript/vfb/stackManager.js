@@ -374,9 +374,9 @@ function hexColToRGB(hex) {
 }
 
 function updateStackData(){
-  var data = returnCleanData(Items);
+  var data = returnCleanData(dropItems);
   if (data.length > cookieMax){
-    while (data.length > cookieMax){
+    while (data.length > cookieMax && dropItems < 5000){
       dropItems++;
       data = returnCleanData(dropItems);
     }
