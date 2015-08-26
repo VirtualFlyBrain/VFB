@@ -7,7 +7,6 @@
 		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
 		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
 		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
-		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.css;
 		/css/bootstrap-colorpicker.min.css;
 		" />
 	<jsp:param name="js" value="
@@ -28,6 +27,7 @@
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
 		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
@@ -35,7 +35,6 @@
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.jqueryui.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.print.min.js;
-		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
