@@ -48,24 +48,6 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   P1:'!4v!7false!8',P2:'!2i!6!D0a!F',P3:'!H4!2S!20!2i!6!H4!F5',P4:'!2i!6!e4',P5:'!2i!6!e3',P6:'!2i!6!e2',P7:'!2i!6!e',P8:'false',P9:'true'
 };
 
-<<<<<<< HEAD
-=======
-var availableItems = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label_suggest'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '/search/select?df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&facet.sort=score+desc&json.nl=map&facet.field=label_suggest&fq=VFB_*%20FBbt_*&q=*:*&wt=json',
-  remote: {
-    url: 'http://www.virtualflybrain.org/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
-    wildcard: '%QUERY'
-  }
-});
-
-$('#remote .typeahead').typeahead(null, {
-  name: 'available-items',
-  display: 'label_suggest',
-  source: availableItems
-});
->>>>>>> origin/Dev-Server
 
 function updateStackCounter() {
   var html;
