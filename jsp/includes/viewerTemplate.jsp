@@ -7,6 +7,7 @@
 		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.min.css;
 		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
 		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
+		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.css;
 		/css/bootstrap-colorpicker.min.css;
 		" />
 	<jsp:param name="js" value="
@@ -31,6 +32,7 @@
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
+		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
