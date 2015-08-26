@@ -27,7 +27,7 @@
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.js;
