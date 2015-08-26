@@ -1740,6 +1740,8 @@ function clearSelectedTable() {
       searching: true,
       ordering: true,
       responsive: true,
+      dom: 'Bfrtip',
+      buttons: [ 'copy', 'csv', 'excel', 'pdf' ],
       stateSave: true,
       order: [[ 1, 'desc' ]]
     });
