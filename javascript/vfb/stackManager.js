@@ -61,8 +61,6 @@ loadingBar = loadingBar || (function () {
     };
 })();
 
-loadingBar.showPleaseWait();
-
 function updateStackCounter() {
   var html;
   if ($.cookie("displaying")) {
@@ -961,6 +959,7 @@ function thumbnailHTMLForId(id) {
 }
 
 $('body').ready( function () {
+  loadingBar.showPleaseWait();
 	initStackData(null);
   window.setInterval(function(){
     updateStackCounter();
