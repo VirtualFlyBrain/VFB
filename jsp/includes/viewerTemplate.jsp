@@ -5,6 +5,7 @@
 		//cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css;
 		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
 		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
 		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
 		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.css;
 		/css/bootstrap-colorpicker.min.css;
@@ -29,6 +30,7 @@
 		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
 		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
