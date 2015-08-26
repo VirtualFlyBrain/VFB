@@ -2,12 +2,11 @@
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
-		//cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css;
-		//cdn.datatables.net/responsive/1.0.7/css/dataTables.responsive.css;
-		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
-		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.css;
-		//cdn.datatables.net/colreorder/1.2.0/css/dataTables.colReorder.css;
-		//cdn.datatables.net/buttons/1.0.1/css/dataTables.buttons.min.css;
+		//cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css;
+		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
+		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.min.css;
+		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
 		/css/bootstrap-colorpicker.min.css;
 		" />
 	<jsp:param name="js" value="
@@ -27,12 +26,11 @@
 		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
-		//cdn.datatables.net/plug-ins/1.10.8/integration/bootstrap/3/dataTables.bootstrap.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
