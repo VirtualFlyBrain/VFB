@@ -1732,7 +1732,7 @@ function clearSelectedTable() {
   if ($.fn.dataTable.isDataTable('#selected')) {
     $('#selected').dataTable().distroy();
   }
-  var text = '<table id="selected" class="display compact" cellspacing="0" width="100%"><thead><tr><th>ID</th><th>Display</th><th>Name</th><th>Type</th></tr></thead><tbody><tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr></tbody></table>';
+  var text = '<table id="selected" class="display" cellspacing="0" width="100%"><thead><tr><th>ID</th><th>Display</th><th>Name</th><th>Type</th></tr></thead><tbody><tr><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr></tbody></table>';
   $('#selecContent').html(text);
   if (!$.fn.dataTable.isDataTable('#selected')) {
     $('#selected').DataTable( { retrieve: true,
