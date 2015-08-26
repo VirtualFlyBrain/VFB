@@ -31,6 +31,7 @@
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
 		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
 		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
