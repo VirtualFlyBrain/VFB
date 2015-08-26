@@ -1740,7 +1740,7 @@ function clearSelectedTable() {
       searching: true,
       ordering: true,
       responsive: true,
-      dom: 'Brtfip',
+      dom: 'B<"clear">lfrtip',
       buttons: [ 'copy', 'csv', 'excel', 'pdf' ],
       stateSave: true,
       order: [[ 1, 'desc' ]]
