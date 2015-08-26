@@ -134,6 +134,7 @@ function updateStackCounter() {
       generateAddButtons();
       if ($.isFunction($.cookie)){
         if ($.cookie('cookie-box') === undefined){
+          $.removeCookie('cookie-box', { path: '/' });
   				$('#cookie-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
     			html += '<div class="alert alert-info alert-dismissible" role="alert" id="info-char">';
@@ -154,6 +155,7 @@ function updateStackCounter() {
   			}
         if ($.cookie('dev-box') === undefined){
           $('#dev-warning').show();
+          $.removeCookie('#dev-warning', { path: '/' });
           html = '<div class="col-md-8 col-md-offset-2">';
 					html += '<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">';
 					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true" onclick="';
