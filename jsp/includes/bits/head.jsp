@@ -13,6 +13,7 @@
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" ></script>
 
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -99,6 +100,11 @@
 	          </ul>
 	        </li>
 	      </ul>
+				<form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input id="remote" type="text" class="typeahead form-control" placeholder="Search">
+	        </div>
+      	</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li id="pageLoading" >
 						<a class="navbar-brand" href="#"><img class="" src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." style="max-height: 100%;"/></a>

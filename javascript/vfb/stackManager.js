@@ -48,18 +48,21 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
   P1:'!4v!7false!8',P2:'!2i!6!D0a!F',P3:'!H4!2S!20!2i!6!H4!F5',P4:'!2i!6!e4',P5:'!2i!6!e3',P6:'!2i!6!e2',P7:'!2i!6!e',P8:'false',P9:'true'
 };
 
-var loadingBar;
-loadingBar = loadingBar || (function () {
-    var pleaseWaitDiv = $('<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>');
-    return {
-        showPleaseWait: function() {
-            pleaseWaitDiv.modal();
-        },
-        hidePleaseWait: function () {
-            pleaseWaitDiv.modal('hide');
-        },
-    };
-})();
+var availableItems = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label_suggest'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: '/search/select?df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&facet.sort=score+desc&json.nl=map&facet.field=label_suggest&fq=VFB_*%20FBbt_*&q=*:*&wt=json',
+  remote: {
+    url: 'http://vfbdev.inf.ed.ac.uk/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
+    wildcard: '%QUERY'
+  }
+});
+
+$('#remote .typeahead').typeahead(null, {
+  name: 'available-items',
+  display: 'label_suggest',
+  source: availableItems
+});
 
 function updateStackCounter() {
   var html;
@@ -83,7 +86,6 @@ function updateStackCounter() {
             $(this).addClass('label-success').removeClass('label-danger');
             $(this).attr('title', 'Number of items currently saved');
           }
-          loadingBar.hidePleaseWait();
         }else{
           parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
           updateStackData();
@@ -961,7 +963,6 @@ function thumbnailHTMLForId(id) {
 }
 
 $('body').ready( function () {
-  loadingBar.showPleaseWait();
 	initStackData(null);
   window.setInterval(function(){
     updateStackCounter();
