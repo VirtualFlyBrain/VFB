@@ -17,9 +17,9 @@
 		<!-- END Google Snippit code -->
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 		<!-- Code to manage stacks -->
