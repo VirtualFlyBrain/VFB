@@ -971,7 +971,7 @@ $('body').ready( function () {
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     prefetch: '/search/select?df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&facet.sort=score+desc&json.nl=map&facet.field=label_suggest&fq=VFB_*%20FBbt_*&q=*:*&wt=json',
     remote: {
-      url: 'http://vfbdev.inf.ed.ac.uk/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
+      url: 'http://www.virtualflybrain.org/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
       wildcard: '%QUERY'
     }
   });
