@@ -972,14 +972,17 @@ $('body').ready( function () {
         filter: function(data) {
             resl = "";
             var i;
+            var j;
             var str = "";
             var opt;
             var dataList = $("#searchresults");
             dataList.empty();
             for (i in data.response.docs){
-              str = data.response.docs[i].label + ' (' + String(data.response.docs[i].label_suggest) + ')';
-              opt = $("<option></option>").attr("value", str);
-              dataList.append(opt);
+              for (j in data.response.docs[i].label_suggest){
+                str = data.response.docs[i].label_suggest[j];
+                opt = $("<option></option>").attr("value", str);
+                dataList.append(opt);
+              }
             }
             if (data.response.docs[0].label){
               if (data.response.docs[0].short_form[0].indexOf('_')>-1){
