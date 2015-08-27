@@ -957,7 +957,7 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
-      url: '/search/select?q=%QUERY&sort=score+desc&fl=label_suggest',
+      url: '/search/select?sort=score+desc&fl=label_suggest&q=%QUERY',
         ajax: {
             dataType: 'jsonp',
 
