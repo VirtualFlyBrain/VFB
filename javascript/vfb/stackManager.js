@@ -957,7 +957,7 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
-      url: '/search/ontologySuggest?sort=score+desc&fl=label+label_suggest+short_form&q=%QUERY',
+      url: '/search/ontologySuggest?sort=score+desc&fl=label+label_suggest+short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
         ajax: {
             dataType: 'jsonp',
 
