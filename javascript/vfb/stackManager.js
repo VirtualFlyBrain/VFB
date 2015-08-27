@@ -953,7 +953,7 @@ $('body').ready( function () {
         return Bloodhound.tokenizers.whitespace(d.value);
     },
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    limit: 10,
+    limit: 50,
     minLength: 1,
 
     remote: {
@@ -963,7 +963,7 @@ $('body').ready( function () {
 
             data: {
                 'wt': 'json',
-                'rows': 10
+                'rows': 50
             },
 
             jsonp: 'json.wrf'
