@@ -970,12 +970,12 @@ $('body').ready( function () {
         },
         wildcard: '%QUERY',
         filter: function(data) {
-            console.log(data.response.docs[0].label);
             values = [];
             var i;
             for (i in data.response.docs){
               str = data.response.docs[i].label + ' (' + String(data.response.docs[i].label_suggest) + ')';
               values = values.concat([str]);
+              console.log(data.response.docs[i].label);
             }
             return {
                 value: values
