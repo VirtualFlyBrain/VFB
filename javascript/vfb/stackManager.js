@@ -971,18 +971,23 @@ $('body').ready( function () {
         wildcard: '%QUERY',
         filter: function(data) {
             resl = "";
+            var top;
             var i;
             var j;
             var str = "";
             var opt;
             var dataList = $("#searchresults");
-            dataList.empty();
+
             for (i in data.response.docs){
               if (data.response.docs[i].label){
                 if (data.response.docs[i].short_form[0].indexOf('_')>-1){
                   resl = data.response.docs[i].short_form[0];
                 }else{
                   resl = data.response.docs[i].short_form[1];
+                }
+                if (i === 0){
+                  dataList.empty();
+                  top = resl;
                 }
               }
               for (j in data.response.docs[i].label_suggest){
