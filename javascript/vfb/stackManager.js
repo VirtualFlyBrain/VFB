@@ -561,7 +561,7 @@ function defaultScaleByScreen() {
   if ($('body').data('meta') && $('#viewer-panel')) {
     if (1277<$(window).width()){
       if ($('#right-panel').width()+30 < $(window).width()){
-        scale = parseFloat(Math.floor((parseFloat($(window).width()-($('#right-panel').width()+30))/parseFloat(Math.ceil($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+30))*10.0)/10.0);
+        scale = parseFloat(Math.floor((parseFloat($(window).width()-($('#right-panel').width()+31))/parseFloat(Math.ceil($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+31))*10.0)/10.0);
       }else{
         scale = parseFloat(Math.floor((parseFloat(($(window).width()/12.0)*5.0)/parseFloat(Math.ceil($('body').data('meta').extent.split(',')[0]*$('body').data('meta').voxel.split(',')[0])+30))*10.0)/10.0);
       }
@@ -957,7 +957,6 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
-<<<<<<< HEAD
       url: '/search/select?q=%QUERY&sort=score+desc&fl=label_suggest',
         ajax: {
             dataType: 'jsonp',
@@ -978,10 +977,6 @@ $('body').ready( function () {
                 };
             });
         }
-=======
-      url: 'http://www.virtualflybrain.org/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
-      wildcard: '%QUERY'
->>>>>>> origin/Dev-Server
     }
   });
 
