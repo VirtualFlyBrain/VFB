@@ -970,9 +970,8 @@ $('body').ready( function () {
         },
         wildcard: '%QUERY',
         filter: function(data) {
-            console.log(data.spellcheck.suggestions[1]);
             console.log(data.response.docs[1]);
-            return $.map(data.spellcheck.suggestions[1].suggestion, function(data) {
+            return $.map(data..response.docs[1].label_suggest, function(data) {
                 return {
                     value: data
                 };
