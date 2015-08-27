@@ -970,15 +970,16 @@ $('body').ready( function () {
         },
         wildcard: '%QUERY',
         filter: function(data) {
-            values = [];
+            resl = [];
             var i;
+            var str = "";
             for (i in data.response.docs){
               str = data.response.docs[i].label + ' (' + String(data.response.docs[i].label_suggest) + ')';
-              values = values.concat([str]);
+              resl = resl.concat([str]);
               console.log(data.response.docs[i].label);
             }
             return {
-                value: values
+                value: resl
             };
         }
     }
