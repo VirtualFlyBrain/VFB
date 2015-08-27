@@ -957,6 +957,7 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
+<<<<<<< HEAD
       url: '/search/select?q=%QUERY&sort=score+desc&fl=label_suggest',
         ajax: {
             dataType: 'jsonp',
@@ -977,6 +978,10 @@ $('body').ready( function () {
                 };
             });
         }
+=======
+      url: 'http://www.virtualflybrain.org/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
+      wildcard: '%QUERY'
+>>>>>>> origin/Dev-Server
     }
   });
 
