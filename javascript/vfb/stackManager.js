@@ -992,7 +992,7 @@ $('body').ready( function () {
               }
               for (j in data.response.docs[i].label_suggest){
                 str = data.response.docs[i].label_suggest[j];
-                opt = $("<option>" + String(resl) + "</option>").attr("value", str);
+                opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("id", resl);
                 dataList.append(opt);
               }
             }
