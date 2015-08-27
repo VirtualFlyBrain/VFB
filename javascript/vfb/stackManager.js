@@ -957,7 +957,7 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
-      url: '/search/select?sort=score+desc&fl=label+label_suggest+short_form&q=%QUERY',
+      url: '/search/ontologySuggest?sort=score+desc&fl=label+label_suggest+short_form&q=%QUERY',
         ajax: {
             dataType: 'jsonp',
 
