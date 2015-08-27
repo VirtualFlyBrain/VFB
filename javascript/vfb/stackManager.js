@@ -957,7 +957,7 @@ $('body').ready( function () {
     minLength: 3,
 
     remote: {
-      url: '/search/select?sort=score+desc&fl=label_suggest+short_form&q=%QUERY',
+      url: '/search/select?sort=score+desc&fl=label+label_suggest+short_form&q=%QUERY',
         ajax: {
             dataType: 'jsonp',
 
@@ -971,7 +971,14 @@ $('body').ready( function () {
         wildcard: '%QUERY',
         filter: function(data) {
             console.log(data.response.docs[0]);
-            return $.map(data.response.docs[0].label_suggest, function(data) {
+            return $.map(data.response.docs, function(data) {
+                values = [];
+                var i;
+                for (i in data){
+                  str = data[i].label + ' (' + String(data[i].label_suggest) + ')';
+                  values = values.concat([str]);
+                }
+                data = values;
                 return {
                     value: data
                 };
