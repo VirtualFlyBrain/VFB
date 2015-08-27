@@ -948,21 +948,50 @@ function thumbnailHTMLForId(id) {
 }
 
 $('body').ready( function () {
-  var availableItems = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label_suggest'),
+  var dsrc = new Bloodhound({
+    datumTokenizer: function(d) {
+        return Bloodhound.tokenizers.whitespace(d.value);
+    },
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '/search/select?df=short_form&rows=0&facet=true&facet.limit=-1&facet.mincount=1&facet.sort=score+desc&json.nl=map&facet.field=label_suggest&fq=VFB_*%20FBbt_*&q=*:*&wt=json',
+    limit: 10,
+    minLength: 3,
+
     remote: {
-      url: 'http://vfbdev.inf.ed.ac.uk/search/select?q=%QUERY&sort=score+desc&fl=label_suggest&wt=json',
-      wildcard: '%QUERY'
+      url: '/search/select?q=%QUERY&sort=score+desc&fl=label_suggest',
+        ajax: {
+            dataType: 'jsonp',
+
+            data: {
+                'wt': 'json',
+                'rows': 5
+            },
+
+            jsonp: 'json.wrf'
+        },
+        filter: function(data) {
+            console.log(data.spellcheck.suggestions[1]);
+            console.log(data.response.docs[1]);
+            return $.map(data.spellcheck.suggestions[1].suggestion, function(data) {
+                return {
+                    value: data
+                };
+            });
+        }
     }
   });
 
-  $('#remote .typeahead').typeahead(null, {
-    name: 'available-items',
-    display: 'label_suggest',
-    source: availableItems
+  dsrc.initialize();
+
+  $('.typeahead').typeahead({
+      hint: true,
+      highlight: true,
+      minLength: 1
+  }, {
+      displayKey: 'value',
+      source: dsrc.ttAdapter()
   });
+
+
 	initStackData(null);
   window.setInterval(function(){
     updateStackCounter();
