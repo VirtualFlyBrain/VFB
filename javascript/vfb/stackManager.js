@@ -973,11 +973,13 @@ $('body').ready( function () {
             resl = "";
             var i;
             var str = "";
+            var opt;
             var dataList = $("#searchresults");
             dataList.empty();
             for (i in data.response.docs){
               str = data.response.docs[i].label + ' (' + String(data.response.docs[i].label_suggest) + ')';
-              dataList.append(str);
+              opt = $("<option></option>").attr("value", str);
+              dataList.append(opt);
             }
             if (data.response.docs[0].label){
               if (data.response.docs[0].short_form[0].indexOf('_')>-1){
