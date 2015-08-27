@@ -954,7 +954,7 @@ $('body').ready( function () {
     },
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     limit: 10,
-    minLength: 3,
+    minLength: 1,
 
     remote: {
       url: '/search/ontologySuggest?sort=score+desc&fl=label+label_suggest+short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
@@ -963,7 +963,7 @@ $('body').ready( function () {
 
             data: {
                 'wt': 'json',
-                'rows': 5
+                'rows': 10
             },
 
             jsonp: 'json.wrf'
