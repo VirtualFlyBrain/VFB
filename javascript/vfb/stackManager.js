@@ -968,6 +968,7 @@ $('body').ready( function () {
 
             jsonp: 'json.wrf'
         },
+        wildcard: '%QUERY',
         filter: function(data) {
             console.log(data.spellcheck.suggestions[1]);
             console.log(data.response.docs[1]);
