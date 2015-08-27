@@ -987,7 +987,7 @@ $('body').ready( function () {
               }
               for (j in data.response.docs[i].label_suggest){
                 str = data.response.docs[i].label_suggest[j];
-                opt = $("<option>" + String(str) + "</option>").attr("value", resl);
+                opt = $("<option>" + String(resl) + "</option>").attr("value", str);
                 dataList.append(opt);
               }
             }
