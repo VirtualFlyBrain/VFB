@@ -970,13 +970,21 @@ $('body').ready( function () {
         },
         wildcard: '%QUERY',
         filter: function(data) {
-            resl = [];
+            resl = "";
             var i;
             var str = "";
+            var dataList = $("#searchresults");
+            dataList.empty();
             for (i in data.response.docs){
               str = data.response.docs[i].label + ' (' + String(data.response.docs[i].label_suggest) + ')';
-              resl = resl.concat([str]);
-              console.log(data.response.docs[i].label);
+              dataList.append(str);
+            }
+            if (data.response.docs[0].label){
+              if (data.response.docs[0].short_form[0].indexOf('_')>-1){
+                resl = data.response.docs[0].short_form[0];
+              }else{
+                resl = data.response.docs[0].short_form[1];
+              }
             }
             return {
                 value: resl

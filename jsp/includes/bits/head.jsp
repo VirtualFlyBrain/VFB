@@ -102,7 +102,13 @@
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
-	          <input id="remote" type="text" class="typeahead form-control" placeholder="Search">
+	          <input id="remote" type="text" class="typeahead form-control" placeholder="Search" list="searchresults">
+							<datalist id="searchresults">
+								<option>optic lobe</option>
+								<option>A1 neuron</option>
+								<option>AL2 clone</option>
+								<option>C1 tract</option>
+							</datalist>
 	        </div>
       	</form>
 	      <ul class="nav navbar-nav navbar-right">
