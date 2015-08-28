@@ -110,6 +110,7 @@
 								<option>C1 tract</option>
 							</datalist>
 	        </div>
+					<span class="input-group-addon" id="searchid"></span>
       	</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li id="pageLoading" >

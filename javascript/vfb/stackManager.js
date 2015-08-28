@@ -988,6 +988,7 @@ $('body').ready( function () {
                 if (i === 0){
                   dataList.empty();
                   top = resl;
+                  $('#searchid').text(resl);
                 }
               }
               for (j in data.response.docs[i].label_suggest){
