@@ -967,9 +967,9 @@ $('body').ready( function () {
         openFullDetails($('#searchid').text());
         $('#searchtext').val('');
         $('#searchgroup').removeClass('has-success');
+      }else{
+        $('#searchtext').val($('#searchresults').find('option').first().val());
       }
-    }else{
-      $('#searchtext').val($('#searchresults').find('option').first().val());
     }
   });
   $("#searchtext").on('input', function () {
