@@ -170,7 +170,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr><th>Click somewhere on the image</th><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+													<tr><th>Click somewhere on the image</th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
 												</tbody>
 											</table>
 											<script>
@@ -217,7 +217,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th>-</th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th><th><img src="/javascript/ajax-solr/images/ajax-loader.gif" alt="loading..." /></th></tr>
+													<tr><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
 												</tbody>
 											</table>
 											<script>
