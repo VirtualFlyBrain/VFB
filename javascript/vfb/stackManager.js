@@ -972,7 +972,13 @@ $('body').ready( function () {
         alertMessage('Opening details for ' + $('#searchid').text());
         openFullDetails($('#searchid').text());
         $('#searchtext').val('');
-        $('#searchgroup').removeClass('has-success');
+        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+    }else{
+      if (val.length > 0){
+        $('#searchgroup').addClass('has-warning');
+      }else{
+        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+      }
     }
     if (val.length > 0){
       $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
