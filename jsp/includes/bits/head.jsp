@@ -104,8 +104,8 @@
 							<datalist id="searchresults">
 								<option value="optic lobe" data-id="FBbt_00003701">optic lobe</option>
 								<option value="A1 neuron" data-id="FBbt_00001988">A1 neuron</option>
-								<option value="AL2 clone (adult fruitless aDT-c lineage clone)" data-id="FBbt_00110418">AL2 clone</option>
-								<option value="C1 tract (C1 fascicle)" data-id="FBbt_00005905">C1 tract</option>
+								<option value="AL2 clone" data-id="FBbt_00110418">adult fruitless aDT-c lineage clone</option>
+								<option value="C1 tract" data-id="FBbt_00005905">C1 fascicle</option>
 							</datalist>
 	        </div>
       	</form>
