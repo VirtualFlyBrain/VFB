@@ -957,6 +957,9 @@ function thumbnailHTMLForId(id) {
 
 $('body').ready( function () {
 
+  $("#searchtext").keypress(function(e){
+    if ( e.which == 13 ) e.preventDefault();
+  });
   $("#searchtext").on('input', function () {
     var val = this.value;
     if (val.length > 0){
