@@ -111,7 +111,6 @@
 								<option value="C1 tract (C1 fascicle)" ref="FBbt_00005905">C1 tract</option>
 							</datalist>
 	        </div>
-
       	</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li id="pageLoading" >
