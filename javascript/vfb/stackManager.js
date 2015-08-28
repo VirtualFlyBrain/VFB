@@ -1002,11 +1002,7 @@ $('body').ready( function () {
           }).length) {
             for (j in data.response.docs[i].label_suggest){
               str = data.response.docs[i].label_suggest[j];
-              if (str != data.response.docs[i].label) {
-                str = str + ' (' + data.response.docs[i].label + ')';
-              }
-              //str = replaceAll(str, val, '['+val+']');
-              opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
+              opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("ref", resl);
               dataList.append(opt);
             }
           }
