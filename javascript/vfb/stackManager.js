@@ -957,6 +957,65 @@ function thumbnailHTMLForId(id) {
   return "";
 }
 
+function checkSearchValue() {
+  var val = $('#searchtext').val();
+  var exists = false;
+  var endVal = $('#searchresults').find('option[value="' + val + '"]');
+  if (endVal.length < 1){
+    endVal = $('#searchresults option').first();
+  }
+  if (endVal.val().toUpperCase() == val.toUpperCase()) {
+      exists = true;
+      $('#searchid').text(endVal.attr('id'));
+      $('#searchgroup').removeClass('has-warning').addClass('has-success');
+  }
+  if (!exists){
+    if (val.length > 0){
+      $('#searchgroup').addClass('has-warning').removeClass('has-success');
+    }else{
+      $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+    }
+  }
+}
+
+function updateSearchResults() {
+  var val = $('#searchtext').val();
+  if (val.length > 0){
+    $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+      resl = "";
+      var top;
+      var i;
+      var j;
+      var str = "";
+      var opt;
+      var dataList = $("#searchresults");
+      var val = $('#searchtext').val();
+
+      for (i in data.response.docs){
+        if (data.response.docs[i].label){
+          if (data.response.docs[i].short_form[0].indexOf('_')>-1){
+            resl = data.response.docs[i].short_form[0];
+          }else{
+            resl = data.response.docs[i].short_form[1];
+          }
+          if (i == '0'){
+            dataList.empty();
+            top = resl;
+            $('#searchid').text(resl);
+          }
+        }
+        for (j in data.response.docs[i].label_suggest){
+          str = data.response.docs[i].label_suggest[j];
+          opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("id", resl);
+          dataList.append(opt);
+        }
+      }
+      checkSearchValue();
+    });
+  }
+
+}
+
 $('body').ready( function () {
 
   $("#searchtext").keypress(function(e){
@@ -970,78 +1029,14 @@ $('body').ready( function () {
       }else{
         if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
           $('#searchtext').val($('#searchresults').find('option').first().val());
+          updateSearchResults();
         }
       }
     }
   });
   $("#searchtext").on('input', function () {
-    var val = $('#searchtext').val();
-    var exists = false;
-    var endVal = $('#searchresults').find('option[value="' + val + '"]');
-    if (endVal.length < 1){
-      endVal = $('#searchresults option').first();
-    }
-    if (endVal.val().toUpperCase() == val.toUpperCase()) {
-        exists = true;
-        $('#searchid').text(endVal.attr('id'));
-        $('#searchgroup').removeClass('has-warning').addClass('has-success');
-    }
-    if (!exists){
-      if (val.length > 0){
-        $('#searchgroup').addClass('has-warning').removeClass('has-success');
-      }else{
-        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
-      }
-    }
-    if (val.length > 0){
-      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
-        resl = "";
-        var top;
-        var i;
-        var j;
-        var str = "";
-        var opt;
-        var dataList = $("#searchresults");
-        var val = $('#searchtext').val();
-
-        for (i in data.response.docs){
-          if (data.response.docs[i].label){
-            if (data.response.docs[i].short_form[0].indexOf('_')>-1){
-              resl = data.response.docs[i].short_form[0];
-            }else{
-              resl = data.response.docs[i].short_form[1];
-            }
-            if (i == '0'){
-              dataList.empty();
-              top = resl;
-              $('#searchid').text(resl);
-            }
-          }
-          for (j in data.response.docs[i].label_suggest){
-            str = data.response.docs[i].label_suggest[j];
-            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("id", resl);
-            dataList.append(opt);
-          }
-        }
-        var exists = false;
-        var endVal = $('#searchresults').find('option[value="' + val + '"]');
-        if (endVal.length < 1){
-          endVal = $('#searchresults option').first();
-        }
-        if (endVal.val().toUpperCase() == val.toUpperCase()) {
-            exists = true;
-            $('#searchid').text(endVal.attr('id'));
-            $('#searchgroup').removeClass('has-warning').addClass('has-success');
-        }
-        if (!exists){
-          if (val.length > 0){
-            $('#searchgroup').addClass('has-warning').removeClass('has-success');
-          }else{
-            $('#searchgroup').removeClass('has-success').removeClass('has-warning');
-          }
-        }
-      });
-    }
+    checkSearchValue();
+    updateSearchResults();
 });
 
 	initStackData(null);
