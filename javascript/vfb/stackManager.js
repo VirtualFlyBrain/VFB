@@ -948,84 +948,52 @@ function thumbnailHTMLForId(id) {
 }
 
 $('body').ready( function () {
-  var dsrc = new Bloodhound({
-    datumTokenizer: function(d) {
-        return Bloodhound.tokenizers.whitespace(d.value);
-    },
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    limit: 50,
-    minLength: 1,
-
-    remote: {
-      url: '/search/ontologySelect?sort=score+desc&wt=json&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
-        ajax: {
-            dataType: 'jsonp',
-
-            data: {
-                'wt': 'json',
-                'rows': 50
-            },
-
-            jsonp: 'json.wrf'
-        },
-        wildcard: '%QUERY',
-        filter: function(data) {
-            resl = "";
-            var top;
-            var i;
-            var j;
-            var str = "";
-            var opt;
-            var dataList = $("#searchresults");
-
-            for (i in data.response.docs){
-              if (data.response.docs[i].label){
-                if (data.response.docs[i].short_form[0].indexOf('_')>-1){
-                  resl = data.response.docs[i].short_form[0];
-                }else{
-                  resl = data.response.docs[i].short_form[1];
-                }
-                if (i === 0){
-                  dataList.empty();
-                  top = resl;
-                  $('#searchid').text(resl);
-                }
-              }
-              for (j in data.response.docs[i].label_suggest){
-                str = data.response.docs[i].label_suggest[j];
-                if (str != data.response.docs[i].label) {
-                  str = str + ' (' + data.response.docs[i].label + ')';
-                }
-                opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
-                dataList.append(opt);
-              }
-            }
-            return {
-                value: resl
-            };
-        }
-    }
-  });
-
-  dsrc.initialize();
-
-  $('.typeahead').typeahead({
-      hint: true,
-      highlight: true,
-      minLength: 1
-  }, {
-      displayKey: 'value',
-      source: dsrc.ttAdapter()
-  });
 
   $("#remote").on('input', function () {
     var val = this.value;
     alert(this.value);
+    if (val.length > 0){
+      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=50&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+        resl = "";
+        var top;
+        var i;
+        var j;
+        var str = "";
+        var opt;
+        var dataList = $("#searchresults");
+
+        for (i in data.response.docs){
+          if (data.response.docs[i].label){
+            if (data.response.docs[i].short_form[0].indexOf('_')>-1){
+              resl = data.response.docs[i].short_form[0];
+            }else{
+              resl = data.response.docs[i].short_form[1];
+            }
+            if (i === 0){
+              dataList.empty();
+              top = resl;
+              $('#searchid').text(resl);
+            }
+          }
+          for (j in data.response.docs[i].label_suggest){
+            str = data.response.docs[i].label_suggest[j];
+            if (str != data.response.docs[i].label) {
+              str = str + ' (' + data.response.docs[i].label + ')';
+            }
+            opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
+            dataList.append(opt);
+          }
+        }
+      });
+    }
     if($('#searchresults').find('option').filter(function(){
+        if (this.value.toUpperCase() === val.toUpperCase()){
+          $('#searchid').text(this.ref);
+        }
         return this.value.toUpperCase() === val.toUpperCase();
     }).length) {
-        //send ajax request
-        alert('match');
+        openFullDetails($('#searchid').text());
+        $('#remote').val('');
     }
 });
 

@@ -102,7 +102,7 @@
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
-	          <input id="remote" type="text" class="form-control typeahead" placeholder="Search" list="searchresults">
+	          <input id="remote" type="text" class="form-control" placeholder="Search" list="searchresults">
 						<span class="input-group-addon" id="searchid"></span>
 							<datalist id="searchresults">
 								<option value="optic lobe" ref="FBbt_00003701">optic lobe</option>
