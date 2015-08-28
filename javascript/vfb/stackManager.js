@@ -987,7 +987,7 @@ $('body').ready( function () {
             if (str != data.response.docs[i].label) {
               str = str + ' (' + data.response.docs[i].label + ')';
             }
-            str = replaceAll(str, val, '<b>'+val+'</b>');
+            //str = replaceAll(str, val, '['+val+']');
             opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
             dataList.append(opt);
           }
