@@ -962,6 +962,18 @@ $('body').ready( function () {
   });
   $("#searchtext").on('input', function () {
     var val = this.value;
+    if($('#searchresults').find('option').filter(function(){
+        if (this.value.toUpperCase() === val.toUpperCase()){
+          $('#searchid').text(this.ref);
+          $('#searchgroup').addClass('has-success');
+        }
+        return this.value.toUpperCase() === val.toUpperCase();
+    }).length) {
+        alertMessage('Opening details for ' + $('#searchid').text());
+        openFullDetails($('#searchid').text());
+        $('#searchtext').val('');
+        $('#searchgroup').removeClass('has-success');
+    }
     if (val.length > 0){
       $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=50&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
         resl = "";
@@ -980,34 +992,28 @@ $('body').ready( function () {
               resl = data.response.docs[i].short_form[1];
             }
             if (i == '0'){
-              dataList.empty();
+              if (val.length < 2){
+                dataList.empty();
+              }
               top = resl;
               $('#searchid').text(resl);
             }
           }
-          for (j in data.response.docs[i].label_suggest){
-            str = data.response.docs[i].label_suggest[j];
-            if (str != data.response.docs[i].label) {
-              str = str + ' (' + data.response.docs[i].label + ')';
+          if (!$('#searchresults').find('option').filter(function(){
+            return this.value.toUpperCase() === data.response.docs[i].label.toUpperCase();
+          }).length) {
+            for (j in data.response.docs[i].label_suggest){
+              str = data.response.docs[i].label_suggest[j];
+              if (str != data.response.docs[i].label) {
+                str = str + ' (' + data.response.docs[i].label + ')';
+              }
+              //str = replaceAll(str, val, '['+val+']');
+              opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
+              dataList.append(opt);
             }
-            //str = replaceAll(str, val, '['+val+']');
-            opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
-            dataList.append(opt);
           }
         }
       });
-    }
-    if($('#searchresults').find('option').filter(function(){
-        if (this.value.toUpperCase() === val.toUpperCase()){
-          $('#searchid').text(this.ref);
-          $('#searchgroup').addClass('has-success');
-        }
-        return this.value.toUpperCase() === val.toUpperCase();
-    }).length) {
-        alertMessage('Opening details for ' + $('#searchid').text());
-        openFullDetails($('#searchid').text());
-        $('#searchtext').val('');
-        $('#searchgroup').removeClass('has-success');
     }
 });
 
