@@ -977,12 +977,15 @@ function checkSearchValue() {
       exists = true;
       $('#searchid').text(endVal.attr('id'));
       $('#searchgroup').removeClass('has-warning').addClass('has-success');
+      $('#searchtext').css('color', 'lightgreen');
   }
   if (!exists){
     if (val.length > 0){
       $('#searchgroup').addClass('has-warning').removeClass('has-success');
+      $('#searchtext').css('color', 'olive');
     }else{
       $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+      $('#searchtext').css('color', 'black');
     }
   }
 }
