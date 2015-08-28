@@ -96,21 +96,19 @@
 	            <li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_blank">Support Forum</a></li>
 	          </ul>
 	        </li>
-					<li>
-						<form class="navbar-form" role="search">
-			        <div id="searchgroup" class="form-group">
-			          <input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="left" title="Search for neuropil, neuron, lineage clone or tract">
-								<datalist id="searchresults">
-									<option value="optic lobe" id="FBbt_00003701">optic lobe</option>
-									<option value="A1 neuron" id="FBbt_00001988">A1 neuron</option>
-									<option value="AL2 clone" id="FBbt_00110418">adult fruitless aDT-c lineage clone</option>
-									<option value="C1 tract" id="FBbt_00005905">C1 fascicle</option>
-								</datalist>
-								<span class="input-group-addon" id="searchid" style="display: none;"></span>
-			        </div>
-		      	</form>
-					</li>
 	      </ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div id="searchgroup" class="form-group">
+						<input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="left" title="Search for neuropil, neuron, lineage clone or tract">
+						<datalist id="searchresults">
+							<option value="optic lobe" id="FBbt_00003701">optic lobe</option>
+							<option value="A1 neuron" id="FBbt_00001988">A1 neuron</option>
+							<option value="AL2 clone" id="FBbt_00110418">adult fruitless aDT-c lineage clone</option>
+							<option value="C1 tract" id="FBbt_00005905">C1 fascicle</option>
+						</datalist>
+						<span class="input-group-addon" id="searchid" style="display: none;"></span>
+					</div>
+				</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li>
 						<a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span> <span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="label label-success label-as-badge">*</span></a>
