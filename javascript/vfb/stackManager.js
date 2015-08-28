@@ -968,7 +968,9 @@ $('body').ready( function () {
         $('#searchtext').val('');
         $('#searchgroup').removeClass('has-success');
       }else{
-        $('#searchtext').val($('#searchresults').find('option').first().val());
+        if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
+          $('#searchtext').val($('#searchresults').find('option').first().val());
+        }
       }
     }
   });
