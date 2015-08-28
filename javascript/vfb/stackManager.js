@@ -973,7 +973,7 @@ $('body').ready( function () {
     }
   });
   $("#searchtext").on('input', function () {
-    var val = this.value;
+    var val = $('#searchtext').val();
     if($('#searchresults').find('option').filter(function(){
         if (this.value.toUpperCase() === val.toUpperCase()){
           $('#searchid').text(this.ref);
@@ -981,10 +981,7 @@ $('body').ready( function () {
         }
         return this.value.toUpperCase() === val.toUpperCase();
     }).length) {
-        alertMessage('Opening details for ' + $('#searchid').text());
-        openFullDetails($('#searchid').text());
-        $('#searchtext').val('');
-        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+        $('#searchgroup').addClass('has-success');
     }else{
       if (val.length > 0){
         $('#searchgroup').addClass('has-warning');
@@ -1001,6 +998,7 @@ $('body').ready( function () {
         var str = "";
         var opt;
         var dataList = $("#searchresults");
+        var val = $('#searchtext').val();
 
         for (i in data.response.docs){
           if (data.response.docs[i].label){
@@ -1015,14 +1013,10 @@ $('body').ready( function () {
               $('#searchid').text(resl);
             }
           }
-          if (!$('#searchresults').find('option').filter(function(){
-            return this.value.toUpperCase() === data.response.docs[i].label.toUpperCase();
-          }).length) {
-            for (j in data.response.docs[i].label_suggest){
-              str = data.response.docs[i].label_suggest[j];
-              opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("ref", resl);
-              dataList.append(opt);
-            }
+          for (j in data.response.docs[i].label_suggest){
+            str = data.response.docs[i].label_suggest[j];
+            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("ref", resl);
+            dataList.append(opt);
           }
         }
         if($('#searchresults').find('option').filter(function(){
