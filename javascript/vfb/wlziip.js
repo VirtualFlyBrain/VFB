@@ -435,7 +435,7 @@ function setText(message) {
   }else{
     window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
     window.textOffset+= 12;
-    ga('send', 'event', 'viewer', 'selected', message);
+    try{ga('send', 'event', 'viewer', 'selected', message);}catch(ignore){}
     window.reloadInterval = 10;
   }
 }
@@ -773,7 +773,7 @@ function initWlzControls() {
      parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
      updateWlzDisplay();
-     ga('send', 'event', 'viewer', 'slice', String(ev.value));
+     try{ga('send', 'event', 'viewer', 'slice', String(ev.value));}catch(ignore){}
    });
    var slScale = $("#slider-scale").bootstrapSlider({precision: 1, tooltip: 'always', handle: 'triangle', scale: 'logarithmic', min: 0.1, max: 5, value: parseFloat(parent.$("body").data("current").scl), step: 0.1, focus: true});
    slScale.on('slide', function(ev){
@@ -790,7 +790,7 @@ function initWlzControls() {
      updateWlzDisplay();
      parent.$("body").data("disp", "scale");
      updateWlzDisplay();
-     ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');
+     try{ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');}catch(ignore){}
    });
    var slAlpha = $("#slider-alpha").bootstrapSlider({precision: 0, tooltip: 'always', handle: 'triangle', min: 0, max: 100, step: 1, value: Math.round((parseInt(parent.$("body").data("current").alpha)/255.0)*100.0), focus: true});
    slAlpha.on('slide', function(ev){
@@ -804,7 +804,7 @@ function initWlzControls() {
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
      parent.$("body").data("disp","clear");
      updateWlzDisplay();
-     ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));
+     try{ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));}catch(ignore){}
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
      if ($("#slider-scaleCurrentSlider").is(":visible")){
@@ -890,7 +890,7 @@ function initWlzControls() {
      window.features = [];
      window.reloadInterval = 10;
      parent.$("body").data("disp", "scale");
-     ga('send', 'event', 'viewer', 'reset_pos');
+     try{ga('send', 'event', 'viewer', 'reset_pos');}catch(ignore){}
    });
    $("body").on('click', "#toggle-view", function(){
      hideAllSliders();
@@ -901,7 +901,7 @@ function initWlzControls() {
      updateLabels();
      window.features = [];
      window.reloadInterval = 10;
-     ga('send', 'event', 'viewer', 'slice_in', parent.$("body").data("current").slice );
+     try{ga('send', 'event', 'viewer', 'slice_in', parent.$("body").data("current").slice );}catch(ignore){}
    });
    $('#slider-slice').data('live',true);
    updateLabels();
@@ -1309,11 +1309,11 @@ function createVisibleButtonHTML(layer,i) {
     var selected = parent.$("body").data(current.template).selected;
     if (layer.visible) {
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onclick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();try{ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');}catch(ignore){}";
       content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-open"></span></button>';
     }else{
       content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onclick="';
-      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();ga('send', 'event', 'viewer', 'show', '" + layer.name + "');";
+      content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();try{ga('send', 'event', 'viewer', 'show', '" + layer.name + "');}catch(ignore){}";
       content += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-eye-close"></span></button>';
     }
   }
@@ -1355,7 +1355,7 @@ function createAddButtonHTML(id) {
 
 function createAddToQueryButtonHTMLfinal(id) {
   var text = '<a href="#" class="btn btn-xs btn-info" title="add to query" onclick="';
-  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openTab !== 'undefined' && $.isFunction(openTab)) {openTab('query');};ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');";
+  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "');if (typeof openTab !== 'undefined' && $.isFunction(openTab)) {openTab('query');};try{ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');}catch(ignore){}";
   text += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span></a>';
   return text;
 }
@@ -1619,7 +1619,7 @@ function loadTemplateAnatomyTree() {
 
 function addAllDomains() {
   var available = parent.$("body").data("available").split(",");
-  ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);
+  try{ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);}catch(ignore){}
   if (cleanIdforInt(available[0]).indexOf('VFBt_')>-1){
     available.shift();
   }
@@ -1634,7 +1634,7 @@ function addAllDomains() {
 
 function removeAllDomains() {
   var available = parent.$("body").data("available").split(",");
-  ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);
+  try{ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);}catch(ignore){}
   removeFromStackData(available);
   updateMenuData();
   updateWlzDisplay();
@@ -1645,7 +1645,7 @@ function expandTree() {
   children.show('fast');
   $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Collapse this branch');
-  ga('send', 'event', 'viewer', 'tree_expand', parent.$("body").data("current").template);
+  try{ga('send', 'event', 'viewer', 'tree_expand', parent.$("body").data("current").template);}catch(ignore){}
 }
 
 function collapseTree() {
@@ -1653,7 +1653,7 @@ function collapseTree() {
   children.hide('fast');
   $('.parent_li').find(' > span').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;padding-left:0px;padding-right:0px;"></span>');
   $('.tree li:has(ul)').find(' > span').has('b').attr('title', 'Expand this branch');
-  ga('send', 'event', 'viewer', 'tree_collapse', parent.$("body").data("current").template);
+  try{ga('send', 'event', 'viewer', 'tree_collapse', parent.$("body").data("current").template);}catch(ignore){}
 }
 
 function createAddToQueryButtonHTML(id) {
@@ -1746,7 +1746,7 @@ function clearSelectedTable() {
       order: [[ 1, 'desc' ]]
     });
   }
-  ga('send', 'event', 'viewer', 'clear_all');
+  try{ga('send', 'event', 'viewer', 'clear_all');}catch(ignore){}
 }
 
 function addAvailableItems(ids) {
@@ -1892,7 +1892,7 @@ function copyUrlToClipboard() {
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
     $("#temp").val("http://"+window.location.host+window.location.pathname+"?add="+displayed).select();
     document.execCommand("copy");
-    ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());
+    try{ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());}catch(ignore){}
     $("#temp").remove();
 }
 

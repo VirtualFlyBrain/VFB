@@ -307,7 +307,7 @@ function generateAddButtons() {
       $("[id^=addToQuery]").each(function(){
         if ($(this).data("id") && $(this).data("id") !=="undefined"){
     		  var text = '<a href="#" class="btn btn-xs btn-info" onclick="';
-    		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt($(this).data("id")) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};ga('send', 'event', 'query', 'add', '" + cleanIdforExt($(this).data("id")) + "');";
+    		  text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt($(this).data("id")) + "');if (typeof openQueryTab !== 'undefined' && $.isFunction(openQueryTab)) {openQueryTab();};try{ga('send', 'event', 'query', 'add', '" + cleanIdforExt($(this).data("id")) + "');} catch (ignore) {}";
     		  text += '"><span style="border:none;" class="glyphicon glyphicon-tasks"></span></a>';
     		  $(this).html(text);
           $(this).attr("id", "Resolved"+$(this).attr("id"));
@@ -643,7 +643,11 @@ function post(path, params, method) {
 
 function alertMessage(message) {
   console.log(message);
-  ga('send', 'event', 'code', 'alert', message);
+  try{
+    ga('send', 'event', 'code', 'alert', message);
+  } catch (ignore){
+
+  }
 }
 
 function openFullDetails(id) {
@@ -684,7 +688,9 @@ function openFullDetails(id) {
     if (document.getElementById('details')){
       jump('details');
     }
-    ga('send', 'event', 'load', 'details', id);
+    try{
+      ga('send', 'event', 'load', 'details', id);
+    }catch(ignore){}
   }else{
     post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
   }
@@ -712,7 +718,9 @@ function addToStackData(ids, showDetails){
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
         try{
-          ga('send', 'event', 'viewer', 'add', cleanIdforExt(id));
+          try{
+            ga('send', 'event', 'viewer', 'add', cleanIdforExt(id));
+          }catch (ignore){}
           if (id.indexOf("VFBt_") > -1){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
@@ -889,7 +897,9 @@ function removeFromStackData(ids) {
     }
     for (i in ids) {
       id = cleanIdforInt(ids[i]);
-      ga('send', 'event', 'viewer', 'remove', cleanIdforExt(id));
+      try{
+        ga('send', 'event', 'viewer', 'remove', cleanIdforExt(id));
+      }catch(ignore){}
       if (JSON.stringify(selected).indexOf(id) > -1) {
         if (id.indexOf("VFBi_") > -1){
           for (l in selected) {
