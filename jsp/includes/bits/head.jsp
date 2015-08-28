@@ -53,10 +53,10 @@
 	    </div>
 	    <div id="navbar-collapse-1" class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
-	      <li><a href="/site/vfb_site/home.htm">Home</a></li>
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false"> About <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false"> Site <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
+							<li><a href="/site/vfb_site/home.htm">Home</a></li>
 				  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
 				  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
 				  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
