@@ -1050,7 +1050,7 @@ $('body').ready( function () {
         $('#searchgroup').removeClass('has-success').removeClass('has-warning');
         $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
       }else{
-        if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
+        if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
           $('#searchtext').val($('#searchresults').find('option').first().val());
           updateSearchResults();
         }
