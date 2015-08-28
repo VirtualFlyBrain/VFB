@@ -975,7 +975,7 @@ $('body').ready( function () {
         $('#searchgroup').removeClass('has-success');
     }
     if (val.length > 0){
-      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=50&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
         resl = "";
         var top;
         var i;
