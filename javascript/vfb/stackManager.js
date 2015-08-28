@@ -992,9 +992,7 @@ $('body').ready( function () {
               resl = data.response.docs[i].short_form[1];
             }
             if (i == '0'){
-              if (val.length < 2){
-                dataList.empty();
-              }
+              dataList.empty();
               top = resl;
               $('#searchid').text(resl);
             }
@@ -1012,6 +1010,18 @@ $('body').ready( function () {
               dataList.append(opt);
             }
           }
+        }
+        if($('#searchresults').find('option').filter(function(){
+            if (this.value.toUpperCase() === val.toUpperCase()){
+              $('#searchid').text(this.ref);
+              $('#searchgroup').addClass('has-success');
+            }
+            return this.value.toUpperCase() === val.toUpperCase();
+        }).length) {
+            alertMessage('Opening details for ' + $('#searchid').text());
+            openFullDetails($('#searchid').text());
+            $('#searchtext').val('');
+            $('#searchgroup').removeClass('has-success');
         }
       });
     }
