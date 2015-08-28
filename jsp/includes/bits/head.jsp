@@ -103,7 +103,7 @@
 				<form class="navbar-form navbar-left" role="search">
 	        <div id="searchgroup" class="form-group">
 	          <input id="searchtext" type="text" class="form-control" placeholder="Search" list="searchresults" aria-describedby="searchid">
-						<span class="input-group-addon" id="searchid"></span>
+						<span class="input-group-addon" id="searchid" style="display: none;"></span>
 							<datalist id="searchresults">
 								<option value="optic lobe" ref="FBbt_00003701">optic lobe</option>
 								<option value="A1 neuron" ref="FBbt_00001988">A1 neuron</option>
