@@ -960,7 +960,17 @@ function thumbnailHTMLForId(id) {
 $('body').ready( function () {
 
   $("#searchtext").keypress(function(e){
-    if ( e.which == 13 ) e.preventDefault();
+    if ( e.which == 13 ) {
+      e.preventDefault();
+      if ($('#searchgroup').hasClass('has-success')) {
+        alertMessage('Opening details for ' + $('#searchid').text());
+        openFullDetails($('#searchid').text());
+        $('#searchtext').val('');
+        $('#searchgroup').removeClass('has-success');
+      }
+    }else{
+      $('#searchtext').val($('#searchresults').find('option').first().val());
+    }
   });
   $("#searchtext").on('input', function () {
     var val = this.value;
@@ -1022,10 +1032,7 @@ $('body').ready( function () {
             }
             return this.value.toUpperCase() === val.toUpperCase();
         }).length) {
-            alertMessage('Opening details for ' + $('#searchid').text());
-            openFullDetails($('#searchid').text());
-            $('#searchtext').val('');
-            $('#searchgroup').removeClass('has-success');
+            $('#searchgroup').addClass('has-success');
         }
       });
     }
