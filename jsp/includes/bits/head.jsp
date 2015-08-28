@@ -102,7 +102,8 @@
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">
-	          <input id="remote" type="text" class="typeahead form-control" placeholder="Search" list="searchresults">
+	          <input id="remote" type="text" class="form-control typeahead" placeholder="Search" list="searchresults">
+						<span class="input-group-addon" id="searchid"></span>
 							<datalist id="searchresults">
 								<option>optic lobe</option>
 								<option>A1 neuron</option>
@@ -110,7 +111,7 @@
 								<option>C1 tract</option>
 							</datalist>
 	        </div>
-					<span class="input-group-addon" id="searchid"></span>
+
       	</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li id="pageLoading" >
