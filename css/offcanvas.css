@@ -364,3 +364,8 @@ div.icon-right {
 .label-as-badge {
     border-radius: 1em;
 }
+
+.navbar-form .input-group-btn,
+.navbar-form .input-group-addon {
+  width: auto;
+}
