@@ -99,7 +99,7 @@
 					<li>
 						<form class="navbar-form" role="search">
 			        <div id="searchgroup" class="form-group">
-			          <input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="right" title="Search for neuropil, neuron, lineage clone or tract">
+			          <input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="left" title="Search for neuropil, neuron, lineage clone or tract">
 								<datalist id="searchresults">
 									<option value="optic lobe" id="FBbt_00003701">optic lobe</option>
 									<option value="A1 neuron" id="FBbt_00001988">A1 neuron</option>

@@ -1039,14 +1039,6 @@ function updateSearchResults() {
 
 $('body').ready( function () {
 
-  var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
-
-  if (searchwidth > 100) {
-    $("#searchtext").css('width', searchwidth);
-  }else{
-
-  }
-
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
@@ -1072,6 +1064,12 @@ $('body').ready( function () {
   $("#searchtext").on('input', function () {
     checkSearchValue();
     updateSearchResults();
+    var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
+    if (searchwidth > 100) {
+      $("#searchtext").css('width', searchwidth);
+    }else{
+      $("#searchtext").css('width', '100%');
+    }
   });
 
 	initStackData(null);
