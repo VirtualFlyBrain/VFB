@@ -978,7 +978,7 @@ $('body').ready( function () {
     $('#searchresults option').each(function(){
         if (this.value.toUpperCase() == val.toUpperCase()) {
             exists = true;
-            $('#searchid').text(this.data('id'));
+            $('#searchid').text(this.attr('id'));
             $('#searchgroup').removeClass('has-warning').addClass('has-success');
             return false;
         }
@@ -1016,7 +1016,7 @@ $('body').ready( function () {
           }
           for (j in data.response.docs[i].label_suggest){
             str = data.response.docs[i].label_suggest[j];
-            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).data("id", resl);
+            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("id", resl);
             dataList.append(opt);
           }
         }
@@ -1024,7 +1024,7 @@ $('body').ready( function () {
         $('#searchresults option').each(function(){
             if (this.value.toUpperCase() == val.toUpperCase()) {
                 exists = true;
-                $('#searchid').text(this.data('id'));
+                $('#searchid').text(this.attr('id'));
                 $('#searchgroup').removeClass('has-warning').addClass('has-success');
                 return false;
             }
