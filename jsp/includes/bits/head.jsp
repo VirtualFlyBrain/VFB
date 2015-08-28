@@ -105,10 +105,10 @@
 	          <input id="remote" type="text" class="form-control typeahead" placeholder="Search" list="searchresults">
 						<span class="input-group-addon" id="searchid"></span>
 							<datalist id="searchresults">
-								<option>optic lobe</option>
-								<option>A1 neuron</option>
-								<option>AL2 clone</option>
-								<option>C1 tract</option>
+								<option value="optic lobe" ref="FBbt_00003701">optic lobe</option>
+								<option value="A1 neuron" ref="FBbt_00001988">A1 neuron</option>
+								<option value="AL2 clone (adult fruitless aDT-c lineage clone)" ref="FBbt_00110418">AL2 clone</option>
+								<option value="C1 tract (C1 fascicle)" ref="FBbt_00005905">C1 tract</option>
 							</datalist>
 	        </div>
 

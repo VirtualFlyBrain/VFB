@@ -996,7 +996,7 @@ $('body').ready( function () {
                 if (str != data.response.docs[i].label) {
                   str = str + ' (' + data.response.docs[i].label + ')';
                 }
-                opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("id", resl);
+                opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
                 dataList.append(opt);
               }
             }
