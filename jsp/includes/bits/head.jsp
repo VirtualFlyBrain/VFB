@@ -96,13 +96,15 @@
 	            <li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_blank">Support Forum</a></li>
 	          </ul>
 	        </li>
+					<li>
+						<form class="navbar-form" role="search">
+			        <div id="searchgroup" class="form-group">
+			          <input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="right" title="Search for neuropil, neuron, lineage clone or tract">
+								<span class="input-group-addon" id="searchid" style="display: none;"></span>
+			        </div>
+		      	</form>
+					</li>
 	      </ul>
-				<form class="navbar-form navbar-left" role="search">
-	        <div id="searchgroup" class="form-group">
-	          <input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="right" title="Search for neuropil, neuron, lineage clone or tract">
-						<span class="input-group-addon" id="searchid" style="display: none;"></span>
-	        </div>
-      	</form>
 	      <ul class="nav navbar-nav navbar-right">
 					<li>
 						<a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span> <span id="stackName">Stack Viewer</span> <span id="viewer2DVal" class="label label-success label-as-badge">*</span></a>

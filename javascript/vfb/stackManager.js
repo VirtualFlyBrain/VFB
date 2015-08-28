@@ -1038,6 +1038,15 @@ function updateSearchResults() {
 }
 
 $('body').ready( function () {
+
+  var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
+
+  if (searchwidth > 100) {
+    $("#searchtext").css('width', searchwidth);
+  }else{
+
+  }
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
