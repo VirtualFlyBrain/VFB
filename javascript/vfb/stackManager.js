@@ -979,13 +979,13 @@ $('body').ready( function () {
         if (this.value.toUpperCase() == val.toUpperCase()) {
             exists = true;
             $('#searchid').text(this.data('id'));
-            $('#searchgroup').addClass('has-success');
+            $('#searchgroup').removeClass('has-warning').addClass('has-success');
             return false;
         }
     });
     if (!exists){
       if (val.length > 0){
-        $('#searchgroup').addClass('has-warning');
+        $('#searchgroup').addClass('has-warning').removeClass('has-success');
       }else{
         $('#searchgroup').removeClass('has-success').removeClass('has-warning');
       }
@@ -1025,13 +1025,13 @@ $('body').ready( function () {
             if (this.value.toUpperCase() == val.toUpperCase()) {
                 exists = true;
                 $('#searchid').text(this.data('id'));
-                $('#searchgroup').addClass('has-success');
+                $('#searchgroup').removeClass('has-warning').addClass('has-success');
                 return false;
             }
         });
         if (!exists){
           if (val.length > 0){
-            $('#searchgroup').addClass('has-warning');
+            $('#searchgroup').addClass('has-warning').removeClass('has-success');
           }else{
             $('#searchgroup').removeClass('has-success').removeClass('has-warning');
           }
