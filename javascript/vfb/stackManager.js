@@ -957,7 +957,7 @@ function thumbnailHTMLForId(id) {
 
 $('body').ready( function () {
 
-  $("#remote").on('input', function () {
+  $("#searchtext").on('input', function () {
     var val = this.value;
     if (val.length > 0){
       $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=50&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
@@ -997,12 +997,14 @@ $('body').ready( function () {
     if($('#searchresults').find('option').filter(function(){
         if (this.value.toUpperCase() === val.toUpperCase()){
           $('#searchid').text(this.ref);
+          $('#searchgroup').addClass('has-success');
         }
         return this.value.toUpperCase() === val.toUpperCase();
     }).length) {
         alertMessage('Opening details for ' + $('#searchid').text());
         openFullDetails($('#searchid').text());
-        $('#remote').val('');
+        $('#searchtext').val('');
+        $('#searchgroup').removeClass('has-success');
     }
 });
 

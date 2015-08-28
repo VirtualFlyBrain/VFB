@@ -101,8 +101,8 @@
 	        </li>
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input id="remote" type="text" class="form-control" placeholder="Search" list="searchresults" aria-describedby="searchid">
+	        <div id="searchgroup" class="form-group">
+	          <input id="searchtext" type="text" class="form-control" placeholder="Search" list="searchresults" aria-describedby="searchid">
 						<span class="input-group-addon" id="searchid"></span>
 							<datalist id="searchresults">
 								<option value="optic lobe" ref="FBbt_00003701">optic lobe</option>
