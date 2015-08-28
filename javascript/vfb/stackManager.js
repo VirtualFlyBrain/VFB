@@ -976,7 +976,7 @@ $('body').ready( function () {
     var val = $('#searchtext').val();
     if($('#searchresults').find('option').filter(function(){
         if (this.value.toUpperCase() === val.toUpperCase()){
-          $('#searchid').text(this.ref);
+          $('#searchid').text(this.data('id'));
           $('#searchgroup').addClass('has-success');
         }
         return this.value.toUpperCase() === val.toUpperCase();
@@ -1015,13 +1015,13 @@ $('body').ready( function () {
           }
           for (j in data.response.docs[i].label_suggest){
             str = data.response.docs[i].label_suggest[j];
-            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("ref", resl);
+            opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).data("id", resl);
             dataList.append(opt);
           }
         }
         if($('#searchresults').find('option').filter(function(){
             if (this.value.toUpperCase() === val.toUpperCase()){
-              $('#searchid').text(this.ref);
+              $('#searchid').text(this.data('id'));
               $('#searchgroup').addClass('has-success');
             }
             return this.value.toUpperCase() === val.toUpperCase();
