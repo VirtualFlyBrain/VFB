@@ -525,6 +525,10 @@ function totalItemCount() {
   return i;
 }
 
+function replaceAll(string, find, replace) {
+  return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
 function clearAbsolutlyAllData() {
   var selected;
   var i;
@@ -979,6 +983,7 @@ $('body').ready( function () {
             if (str != data.response.docs[i].label) {
               str = str + ' (' + data.response.docs[i].label + ')';
             }
+            str = str.replaceAll(val, '<b>'+val+'</b>');
             opt = $("<option>" + String(resl) + "</option>").attr("value", str).attr("ref", resl);
             dataList.append(opt);
           }
