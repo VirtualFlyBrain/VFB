@@ -978,7 +978,7 @@ function checkSearchValue() {
       $('#searchid').text(endVal.attr('id'));
       $('#searchgroup').removeClass('has-warning').addClass('has-success');
       $('#searchtext').css('color', 'lightgreen');
-      $('#searchtext').attr('data-original-title', 'press return/enter to get details').tooltip('fixTitle').tooltip('show');
+      $('#searchtext').attr('data-original-title', 'MATCH: press return/enter to get details').tooltip('fixTitle').tooltip('show');
   }
   if (!exists){
     if (val.length > 0){
@@ -1047,7 +1047,8 @@ $('body').ready( function () {
         alertMessage('Opening details for ' + $('#searchid').text());
         openFullDetails($('#searchid').text());
         $('#searchtext').val('');
-        $('#searchgroup').removeClass('has-success');
+        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+        $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
       }else{
         if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
           $('#searchtext').val($('#searchresults').find('option').first().val());
