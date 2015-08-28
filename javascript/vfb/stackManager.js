@@ -647,7 +647,7 @@ function alertMessage(message) {
 }
 
 function openFullDetails(id) {
-  if ($('#anatomyDetails')) {
+  if ($('#anatomyDetails').length) {
     id = cleanIdforExt(id);
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
