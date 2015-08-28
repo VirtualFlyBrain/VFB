@@ -978,21 +978,21 @@ function checkSearchValue() {
       $('#searchid').text(endVal.attr('id'));
       $('#searchgroup').removeClass('has-warning').addClass('has-success');
       $('#searchtext').css('color', 'lightgreen');
-      $('#searchtext').attr('data-original-title', 'press return/enter to get details');
+      $('#searchtext').attr('data-original-title', 'press return/enter to get details').tooltip('fixTitle').tooltip('show');
   }
   if (!exists){
     if (val.length > 0){
       $('#searchgroup').addClass('has-warning').removeClass('has-success');
       $('#searchtext').css('color', 'olive');
       if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
-        $('#searchtext').attr('data-original-title', 'press return/enter accept default ['+ $('#searchresults').find('option').first().val() + ']');
+        $('#searchtext').attr('data-original-title', 'press return/enter accept default ['+ $('#searchresults').find('option').first().val() + ']').tooltip('fixTitle').tooltip('show');
       }else{
-        $('#searchtext').attr('data-original-title', 'continue typing or select from list');
+        $('#searchtext').attr('data-original-title', 'continue typing or select from list').tooltip('fixTitle').tooltip('show');
       }
     }else{
       $('#searchgroup').removeClass('has-success').removeClass('has-warning');
       $('#searchtext').css('color', 'black');
-      $('#searchtext').attr('data-original-title', $('#searchtext').attr('title'));
+      $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
     }
   }
 }

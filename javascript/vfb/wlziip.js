@@ -1606,12 +1606,7 @@ function loadTemplateAnatomyTree() {
          $('.tree ul').first().css("padding", 0);
        }
        // collapse all at start:
-       if (selected[1]) {
-         collapseTree();
-       }else{
-         collapseTree();
-         expandTree();
-       }
+       collapseTree();
        updateMenuData();
      });
    }
