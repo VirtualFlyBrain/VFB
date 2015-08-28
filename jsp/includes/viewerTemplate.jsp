@@ -10,20 +10,6 @@
 		/css/bootstrap-colorpicker.min.css;
 		" />
 	<jsp:param name="js" value="
-		/javascript/ajax-solr/vfb.js;
-		/javascript/ajax-solr/core/Core.js;
-		/javascript/ajax-solr/core/AbstractManager.js;
-		/javascript/ajax-solr/managers/Manager.jquery.js;
-		/javascript/ajax-solr/core/Parameter.js;
-		/javascript/ajax-solr/core/ParameterStore.js;
-		/javascript/ajax-solr/core/AbstractWidget.js;
-		/javascript/ajax-solr/widgets/ResultWidget.js;
-		/javascript/ajax-solr/widgets/jquery/PagerWidget.js;
-		/javascript/ajax-solr/core/AbstractFacetWidget.js;
-		/javascript/ajax-solr/widgets/TagcloudWidget.js;
-		/javascript/ajax-solr/widgets/CurrentSearchWidget.js;
-		/javascript/ajax-solr/core/AbstractTextWidget.js;
-		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
 		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
@@ -166,7 +152,6 @@
 			  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
 			  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
 			  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
-			  <li id="SearchMenuTab"><a href="#search" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Search</a></li>
 				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query</a></li>
 				<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
 			</ul>
@@ -278,25 +263,6 @@
 									<div class="clearfix visible-sm-block"></div>
 									<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
 								</div>
-			        </div>
-			        <div class="tab-pane" id="search">
-								<div class="content-fluid" id="searchBar"></div>
-								<div class="content-fluid" id="result-section" style="display: none;">
-									<div class="well">
-										<div class="contence-fluid" id="result">
-											<div class="row" id="navigation">
-												<div class="col-xs-6" id="pager-header"></div>
-												<div class="col-xs-6"><ul class="list-inline" id="pager"></ul></div>
-											</div>
-											<dl>
-												<div class="contence-fluid" id="docs"></div>
-											</dl>
-										</div>
-									</div>
-								</div>
-								<script>
-								$('#searchBar').load('/site/tools/anatomy_finder/index.htm #search-bar');
-								</script>
 			        </div>
 							<div class="tab-pane" id="queryBuild">
 								<div class="row-fluid row-centered" style="padding:0;">

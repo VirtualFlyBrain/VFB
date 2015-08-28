@@ -681,11 +681,13 @@ function openFullDetails(id) {
         alertMessage("Can't directly open details for:" + id);
       }
     }
+    if (document.getElementById('details')){
+      jump('details');
+    }
+    ga('send', 'event', 'load', 'details', id);
+  }else{
+    post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
   }
-  if (document.getElementById('details')){
-    jump('details');
-  }
-  ga('send', 'event', 'load', 'details', id);
 }
 
 function addToStackData(ids, showDetails){

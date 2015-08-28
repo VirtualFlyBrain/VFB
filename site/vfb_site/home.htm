@@ -2,23 +2,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="VFB Home" />
-	<jsp:param name="css" value="/css/tree/autocomplete.css;" />
-	<jsp:param name="js" value="
-		/javascript/ajax-solr/vfb.js;
-		/javascript/ajax-solr/core/Core.js;
-		/javascript/ajax-solr/core/AbstractManager.js;
-		/javascript/ajax-solr/managers/Manager.jquery.js;
-		/javascript/ajax-solr/core/Parameter.js;
-		/javascript/ajax-solr/core/ParameterStore.js;
-		/javascript/ajax-solr/core/AbstractWidget.js;
-		/javascript/ajax-solr/widgets/ResultWidget.js;
-		/javascript/ajax-solr/widgets/jquery/PagerWidget.js;
-		/javascript/ajax-solr/core/AbstractFacetWidget.js;
-		/javascript/ajax-solr/widgets/TagcloudWidget.js;
-		/javascript/ajax-solr/widgets/CurrentSearchWidget.js;
-		/javascript/ajax-solr/core/AbstractTextWidget.js;
-		/javascript/ajax-solr/widgets/AutocompleteWidget.js;
-	" />
 </jsp:include>
 
 <div class="row row-centered">
@@ -26,13 +9,6 @@
 	<div class="col-md-9 col-centered">
 
 		<div class="row-fluid">
-
-			<div class="col-md-12" id="search-box">
-				<script>
-					$('#search-box').load('/site/tools/anatomy_finder/index.htm #search-vfb');
-				</script>
-			</div>
-
 
 			<div class="col-md-12">
 				<!--<div class="well" align="left">-->

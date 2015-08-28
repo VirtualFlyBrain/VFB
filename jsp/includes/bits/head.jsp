@@ -13,8 +13,6 @@
 <link href="/css/vfb/utils/utils.css" rel="stylesheet">
 <script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>
 <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" ></script>
-
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,8 +66,7 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	          	<li><a href="/site/tools/anatomy_finder/">Anatomy/Neuron Finder</a></li>
-	            <li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
+	          	<li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a></li>
 							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
 	          </ul>
