@@ -1000,7 +1000,7 @@ function checkSearchValue() {
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+    $.getJSON( "/search/ontologySelect?sort=score+asc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
       resl = "";
       var top;
       var i;
@@ -1018,7 +1018,9 @@ function updateSearchResults() {
             resl = data.response.docs[i].short_form[1];
           }
           if (i == '0'){
-            dataList.empty();
+            if (val.length < 2){
+              dataList.empty();
+            }
             top = resl;
             $('#searchid').text(resl);
           }
@@ -1026,7 +1028,7 @@ function updateSearchResults() {
         for (j in data.response.docs[i].label_suggest){
           str = data.response.docs[i].label_suggest[j];
           opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("id", resl);
-          dataList.append(opt);
+          dataList.insertBefore(opt);
         }
       }
       checkSearchValue();
