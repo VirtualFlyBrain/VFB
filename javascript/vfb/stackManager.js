@@ -1018,6 +1018,16 @@ $('body').ready( function () {
       source: dsrc.ttAdapter()
   });
 
+  $("#remote").on('input', function () {
+    var val = this.value;
+    alert(this.value);
+    if($('#searchresults').find('option').filter(function(){
+        return this.value.toUpperCase() === val.toUpperCase();
+    }).length) {
+        //send ajax request
+        alert('match');
+    }
+});
 
 	initStackData(null);
   window.setInterval(function(){
