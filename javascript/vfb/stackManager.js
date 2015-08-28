@@ -975,14 +975,15 @@ $('body').ready( function () {
   $("#searchtext").on('input', function () {
     var val = $('#searchtext').val();
     var exists = false;
-    $('#searchresults option').each(function(){
-        if (this.value.toUpperCase() == val.toUpperCase()) {
-            exists = true;
-            $('#searchid').text(this.attr('id'));
-            $('#searchgroup').removeClass('has-warning').addClass('has-success');
-            return false;
-        }
-    });
+    var endVal = $('#searchresults').find('option[value="' + val + '"]');
+    if (endVal.length < 1){
+      endVal = $('#searchresults option').first();
+    }
+    if (endVal.val().toUpperCase() == val.toUpperCase()) {
+        exists = true;
+        $('#searchid').text(endVal.attr('id'));
+        $('#searchgroup').removeClass('has-warning').addClass('has-success');
+    }
     if (!exists){
       if (val.length > 0){
         $('#searchgroup').addClass('has-warning').removeClass('has-success');
@@ -1021,14 +1022,15 @@ $('body').ready( function () {
           }
         }
         var exists = false;
-        $('#searchresults option').each(function(){
-            if (this.value.toUpperCase() == val.toUpperCase()) {
-                exists = true;
-                $('#searchid').text(this.attr('id'));
-                $('#searchgroup').removeClass('has-warning').addClass('has-success');
-                return false;
-            }
-        });
+        var endVal = $('#searchresults').find('option[value="' + val + '"]');
+        if (endVal.length < 1){
+          endVal = $('#searchresults option').first();
+        }
+        if (endVal.val().toUpperCase() == val.toUpperCase()) {
+            exists = true;
+            $('#searchid').text(endVal.attr('id'));
+            $('#searchgroup').removeClass('has-warning').addClass('has-success');
+        }
         if (!exists){
           if (val.length > 0){
             $('#searchgroup').addClass('has-warning').removeClass('has-success');
