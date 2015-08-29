@@ -150,7 +150,7 @@ function updateStackCounter() {
       }
       generateAddButtons();
       if ($.isFunction($.cookie)){
-        if ($.cookie('cookie-box') === undefined){
+        if ($.cookie('cookie-box') != 'c'){
           $.removeCookie('cookie-box', { path: '/' });
   				$('#cookie-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
@@ -170,7 +170,7 @@ function updateStackCounter() {
   			}else{
   				$('#cookie-warning').hide();
   			}
-        if ($.cookie('dev-box') === undefined){
+        if ($.cookie('dev-box') != 'c'){
           $('#dev-warning').show();
           $.removeCookie('#dev-warning', { path: '/' });
           html = '<div class="col-md-8 col-md-offset-2">';
