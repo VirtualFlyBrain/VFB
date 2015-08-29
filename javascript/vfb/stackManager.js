@@ -149,7 +149,7 @@ function updateStackCounter() {
         });
       }
       generateAddButtons();
-      if ($.isFunction($.cookie)){
+      if ($.isFunction($.cookie) && navigator.userAgent.toLowerCase().indexOf('firefox')<0){
         if ($.cookie('cookie-box') != 'c'){
           $.removeCookie('cookie-box', { path: '/' });
   				$('#cookie-warning').show();
