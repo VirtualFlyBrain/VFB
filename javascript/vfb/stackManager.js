@@ -1095,23 +1095,23 @@ $('body').ready( function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  // $("#searchtext").keypress(function(e){
-  //   if ( e.which == 13 ) {
-  //     e.preventDefault();
-  //     if ($('#searchgroup').hasClass('has-success')) {
-  //       alertMessage('Opening details for ' + $('#searchid').text());
-  //       openFullDetails($('#searchid').text());
-  //       $('#searchtext').val('');
-  //       $('#searchgroup').removeClass('has-success').removeClass('has-warning');
-  //       $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
-  //     }else{
-  //       if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
-  //         $('#searchtext').val($('#searchresults').find('option').first().val());
-  //         updateSearchResults();
-  //       }
-  //     }
-  //   }
-  // });
+  $("#searchtext").keypress(function(e){
+    if ( e.which == 13 ) {
+      e.preventDefault();
+      if ($('#searchgroup').hasClass('has-success')) {
+        alertMessage('Opening details for ' + $('#searchid').text());
+        openFullDetails($('#searchid').text());
+        $('#searchtext').val('');
+        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+        $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
+      }else{
+        if (searchresults[0].syn.indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
+          $('#searchtext').val(searchresults[0].syn);
+          updateSearchResults();
+        }
+      }
+    }
+  });
 
   $("#searchtext").on('input', function () {
     checkSearchValue();
