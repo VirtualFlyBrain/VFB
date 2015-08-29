@@ -1002,15 +1002,20 @@ function checkSearchValue() {
   }
 }
 
+function hasValue(obj, key, value) {
+    return obj.hasOwnProperty(key) && obj[key] === value;
+}
+
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( "/search/ontologySelect?sort=score+asc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+    $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
       resl = "";
       var top;
       var i;
       var j;
       var opt;
+      var newresults = [];
       var val = $('#searchtext').val();
       for (i in data.response.docs){
         if (data.response.docs[i].label){
@@ -1026,9 +1031,16 @@ function updateSearchResults() {
         }
         for (j in data.response.docs[i].label_suggest){
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label_suggest[j],id:resl};
-          searchresults.push(opt);
+          newresults.push(opt);
         }
       }
+      while (searchresults.length > 0){
+        resl = searchresults.pop();
+        if (!hasValue(newresults, 'id', resl.id)){
+            newresults.push(resl);
+        }
+      }
+      searchresults=newresults;
       checkSearchValue();
     });
   }
@@ -1089,16 +1101,16 @@ $('body').ready( function () {
   //   }
   // });
 
-  // $("#searchtext").on('input', function () {
-  //   checkSearchValue();
-  //   updateSearchResults();
-  //   var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
-  //   if (searchwidth > 100) {
-  //     $("#searchtext").css('width', searchwidth);
-  //   }else{
-  //     $("#searchtext").css('width', '100%');
-  //   }
-  // });
+  $("#searchtext").on('input', function () {
+    checkSearchValue();
+    updateSearchResults();
+    var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
+    if (searchwidth > 100) {
+      $("#searchtext").css('width', searchwidth);
+    }else{
+      $("#searchtext").css('width', '100%');
+    }
+  });
 
 	initStackData(null);
   window.setInterval(function(){
