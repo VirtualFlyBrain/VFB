@@ -1049,20 +1049,25 @@ function updateSearchResults() {
 
 $('body').ready( function () {
 
-  var resultitems = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.whitespace('syn'),
+  var engine = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: searchresults
+    local:searchresults
   });
 
+
   $('#searchtext').typeahead({
-    minLength: 1,
-    highlight: true
-  },{
-    name: 'items',
-    local: resultitems,
-    template: '<p>{{syn}} ({{name}})</p>',
-    limit: 10
+    hint: true,
+    minLength: 1
+  }, {
+    display: 'syn',
+    source: engine.ttAdapter(),
+    templates: {
+        empty: 'No results found',
+        suggestion: function ( data ) {
+            return '<p>' +  data.syn+" - "+data.name + " - " + data.id + '</p>';
+        }
+    }
   });
 
   $(function () {
