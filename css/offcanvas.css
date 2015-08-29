@@ -369,3 +369,9 @@ div.icon-right {
 .navbar-form .input-group-addon {
   width: auto;
 }
+
+.tt-menu {
+  width: 500px;
+  padding-left: 10px;
+  background-color: rgb(170, 170, 170);
+}
