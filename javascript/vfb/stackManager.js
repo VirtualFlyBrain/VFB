@@ -1087,7 +1087,7 @@ $('body').ready( function () {
     templates: {
         empty: 'No results found',
         suggestion: function ( data ) {
-            return '<p>' +  data.syn+" - "+data.name + " - " + data.id + '</p>';
+            return '<p><b>' +  data.syn+"</b> <small>("+data.name + ") [<i>" + data.id + '</i>]</small></p>';
         }
     }
   });
