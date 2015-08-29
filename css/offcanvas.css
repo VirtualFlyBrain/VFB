@@ -371,8 +371,11 @@ div.icon-right {
 }
 
 .tt-menu {
+  border-radius: 25px;
+  border: 2px solid #000000;
   width: 500px;
   padding-left: 10px;
   padding-top: 5px;
-  background-color: rgb(170, 170, 170);
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
 }
