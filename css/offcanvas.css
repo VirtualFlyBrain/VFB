@@ -373,5 +373,6 @@ div.icon-right {
 .tt-menu {
   width: 500px;
   padding-left: 10px;
+  padding-top: 5px;
   background-color: rgb(170, 170, 170);
 }
