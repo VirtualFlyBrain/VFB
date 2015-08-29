@@ -14,7 +14,28 @@ var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
 var engine = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local:searchresults
+  local:searchresults,
+  remote: {
+        url: '/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
+        wildcard:'%QUERY',
+        filter: function (resultlist) {
+            // Map the remote source JSON array to a JavaScript object array
+            return $.map(resultlist.response.docs, function (result) {
+                var ref;
+                if (result.short_form[0].indexOf('_')){
+                  ref = result.short_form[0];
+                }else{
+                  ref = result.short_form[1];
+                }
+                var i;
+                var results = [];
+                for (i in result.label_suggest) {
+                  results.push({syn:result.label_suggest[i],name:result.label,id:ref});
+                }
+                return results;
+            });
+        }
+      }
 });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
