@@ -1088,9 +1088,9 @@ $('body').ready( function () {
         empty: 'No results found',
         suggestion: function ( data ) {
             if (data.syn == data.name){
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<mark>' + $('#searchtext').val() + '</mark>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<mark>' + $('#searchtext').val() + '</mark>') + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
             }else{
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<mark>' + $('#searchtext').val() + '</mark>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<mark>' + $('#searchtext').val() + '</mark>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<mark>' + $('#searchtext').val() + '</mark>') + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
             }
         }
     }
