@@ -1044,16 +1044,6 @@ function updateSearchResults() {
       checkSearchValue();
     });
   }
-  $('#searchtext').typeahead('destroy').typeahead({
-    minLength: 1,
-    highlight: true,
-    hint: true
-  },{
-    name: 'items',
-    local: searchresults,
-    template: '<p>{{syn}} ({{name}})</p>',
-    limit: 10
-  });
 }
 
 $('body').ready( function () {
