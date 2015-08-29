@@ -22,7 +22,7 @@ var engine = new Bloodhound({
             // Map the remote source JSON array to a JavaScript object array
             return $.map(resultlist.response.docs, function (result) {
                 var ref;
-                if (result.short_form[0].indexOf('_')){
+                if (result.short_form[0].indexOf('_')>-1){
                   ref = result.short_form[0];
                 }else{
                   ref = result.short_form[1];
