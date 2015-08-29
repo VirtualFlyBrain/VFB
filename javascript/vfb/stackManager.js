@@ -973,22 +973,23 @@ function thumbnailHTMLForId(id) {
 function checkSearchValue() {
   var val = $('#searchtext').val();
   var exists = false;
-  var endVal = $('#searchresults').find('option[value="' + val + '"]');
-  if (endVal.length < 1){
-    endVal = $('#searchresults option').first();
-  }
-  if (endVal.val().toUpperCase() == val.toUpperCase()) {
+  var k;
+  for (k = searchresults.length - 1; k >= 0; --k) {
+    if (searchresults[k].syn.toUpperCase() == val.toUpperCase()) {
       exists = true;
-      $('#searchid').text(endVal.attr('id'));
+      endVal = k;
+    }
+  }
+  if (exists) {
+      $('#searchid').text(searchresults[endVal].id);
       $('#searchgroup').removeClass('has-warning').addClass('has-success');
       $('#searchtext').css('color', 'lightgreen');
       $('#searchtext').attr('data-original-title', 'MATCH: press return/enter to get details').tooltip('fixTitle').tooltip('show');
-  }
-  if (!exists){
+  }else{
     if (val.length > 0){
       $('#searchgroup').addClass('has-warning').removeClass('has-success');
       $('#searchtext').css('color', 'olive');
-      if ($('#searchresults').find('option').first().val().indexOf($('#searchtext').val())>-1){
+      if (searchresults[0].syn.indexOf($('#searchtext').val())>-1){
         $('#searchtext').attr('data-original-title', 'press return/enter accept default ['+ $('#searchresults').find('option').first().val() + ']').tooltip('fixTitle').tooltip('show');
       }else{
         $('#searchtext').attr('data-original-title', 'continue typing or select from list').tooltip('fixTitle').tooltip('show');
@@ -1027,7 +1028,7 @@ function updateSearchResults() {
           }
         }
         for (j in data.response.docs[i].label_suggest){
-          opt = {name:data.response.docs[i].label,label:data.response.docs[i].label_suggest[j],id:resl};
+          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label_suggest[j],id:resl};
           searchresults.insertBefore(opt);
         }
       }
@@ -1035,20 +1036,31 @@ function updateSearchResults() {
     });
   }
   $('#searchtext').typeahead('destroy').typeahead({
+    minLength: 1,
+    highlight: true
+  },{
     name: 'items',
-    local: searchresults
+    local: searchresults,
+    template: '<p>{{syn}} ({{name}})</p>',
+    limit: 10
   });
 }
 
 $('body').ready( function () {
 
+  $('#searchtext').typeahead({
+    minLength: 1,
+    highlight: true
+  },{
+    name: 'items',
+    local: searchresults,
+    template: '<p>{{syn}} ({{name}})</p>',
+    limit: 10
+  });
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
-
-
-
-
 
   $("#searchtext").keypress(function(e){
     if ( e.which == 13 ) {
