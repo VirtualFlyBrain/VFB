@@ -99,13 +99,7 @@
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
 					<div id="searchgroup" class="form-group">
-						<input id="searchtext" type="text" class="form-control" autocomplete="off" placeholder="Search" list="searchresults" aria-describedby="searchid" data-toggle="tooltip" data-placement="left" title="Search for neuropil, neuron, lineage clone or tract">
-						<datalist id="searchresults">
-							<option value="optic lobe" id="FBbt_00003701">optic lobe</option>
-							<option value="A1 neuron" id="FBbt_00001988">A1 neuron</option>
-							<option value="AL2 clone" id="FBbt_00110418">adult fruitless aDT-c lineage clone</option>
-							<option value="C1 tract" id="FBbt_00005905">C1 fascicle</option>
-						</datalist>
+						<input id="searchtext" type="text" class="typeahead form-control" autocomplete="off" placeholder="Search" aria-describedby="searchid" data-toggle="tooltip" data-placement="left" title="Search for neuropil, neuron, lineage clone or tract">
 						<span class="input-group-addon" id="searchid" style="display: none;"></span>
 					</div>
 				</form>

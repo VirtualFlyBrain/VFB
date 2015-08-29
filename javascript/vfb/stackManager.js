@@ -7,6 +7,10 @@ window.reloadInterval = 10;
 var checkCount = performance.now();
 var cookieMax = 4000;
 var dropItems = 0;
+var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
+      {syn:'A1 neuron',id:'FBbt_00001988',name:'A1 neuron'},
+      {syn:'AL2 clone',id:'FBbt_00110418',name:'adult fruitless aDT-c lineage clone'},
+      {syn:'C1 tract',id:'FBbt_00005905',name:'C1 fascicle'}];
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
@@ -1005,11 +1009,8 @@ function updateSearchResults() {
       var top;
       var i;
       var j;
-      var str = "";
       var opt;
-      var dataList = $("#searchresults");
       var val = $('#searchtext').val();
-
       for (i in data.response.docs){
         if (data.response.docs[i].label){
           if (data.response.docs[i].short_form[0].indexOf('_')>-1){
@@ -1019,22 +1020,24 @@ function updateSearchResults() {
           }
           if (i == '0'){
             if (val.length < 2){
-              dataList.empty();
+              searchresults.empty();
             }
             top = resl;
             $('#searchid').text(resl);
           }
         }
         for (j in data.response.docs[i].label_suggest){
-          str = data.response.docs[i].label_suggest[j];
-          opt = $("<option>" + String(data.response.docs[i].label) + "</option>").attr("value", str).attr("id", resl);
-          dataList.insertBefore(opt);
+          opt = {name:data.response.docs[i].label,label:data.response.docs[i].label_suggest[j],id:resl};
+          searchresults.insertBefore(opt);
         }
       }
       checkSearchValue();
     });
   }
-
+  $('#searchtext').typeahead('destroy').typeahead({
+    name: 'items',
+    local: searchresults
+  });
 }
 
 $('body').ready( function () {
@@ -1042,6 +1045,10 @@ $('body').ready( function () {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
+
+
+
+
 
   $("#searchtext").keypress(function(e){
     if ( e.which == 13 ) {
