@@ -1088,9 +1088,9 @@ $('body').ready( function () {
         empty: 'No results found',
         suggestion: function ( data ) {
             if (data.syn == data.name){
-              return '<p><b>' +  data.syn+"</b> <small>[<i>" + data.id + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('searchtext').val(),'<mark>' + $('searchtext').val() + '</mark>') + "</b> <small>[<i>" + data.id + '</i>]</small></p>';
             }else{
-              return '<p><b>' +  data.syn+"</b> <small>("+data.name + ") [<i>" + data.id + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('searchtext').val(),'<mark>' + $('searchtext').val() + '</mark>') + "</b> <small>("+data.name.replace($('searchtext').val(),'<mark>' + $('searchtext').val() + '</mark>') + ") [<i>" + data.id + '</i>]</small></p>';
             }
         }
     }
