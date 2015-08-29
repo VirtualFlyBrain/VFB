@@ -1037,7 +1037,8 @@ function updateSearchResults() {
   }
   $('#searchtext').typeahead('destroy').typeahead({
     minLength: 1,
-    highlight: true
+    highlight: true,
+    hint: true
   },{
     name: 'items',
     local: searchresults,
@@ -1048,12 +1049,18 @@ function updateSearchResults() {
 
 $('body').ready( function () {
 
+  var resultitems = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.whitespace('syn'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: searchresults
+  });
+
   $('#searchtext').typeahead({
     minLength: 1,
     highlight: true
   },{
     name: 'items',
-    local: searchresults,
+    local: resultitems,
     template: '<p>{{syn}} ({{name}})</p>',
     limit: 10
   });
