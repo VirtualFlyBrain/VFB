@@ -1107,6 +1107,7 @@ $('body').ready( function () {
         alertMessage('Opening details for ' + $('#searchid').text());
         openFullDetails($('#searchid').text());
         $('#searchtext').val('');
+        $('.typeahead').typeahead('close');
         $('#searchgroup').removeClass('has-success').removeClass('has-warning');
         $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
       }else{
