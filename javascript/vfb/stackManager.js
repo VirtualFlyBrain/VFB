@@ -997,7 +997,7 @@ function thumbnailHTMLForId(id) {
 }
 
 function checkSearchValue() {
-  var val = $('#searchtext').val();
+  var val = $('.typeahead').typeahead('val');
   var exists = false;
   var k;
   for (k = searchresults.length - 1; k >= 0; --k) {
@@ -1015,7 +1015,7 @@ function checkSearchValue() {
     if (val.length > 0){
       $('#searchgroup').addClass('has-warning').removeClass('has-success');
       $('#searchtext').css('color', 'olive');
-      if (searchresults[0].syn.indexOf($('#searchtext').val())>-1){
+      if (searchresults[0].syn.indexOf($('.typeahead').typeahead('val'))>-1){
         $('#searchtext').attr('data-original-title', 'press return/enter accept default ['+ $('#searchresults').find('option').first().val() + ']').tooltip('fixTitle').tooltip('show');
       }else{
         $('#searchtext').attr('data-original-title', 'continue typing or select from list').tooltip('fixTitle').tooltip('show');
@@ -1033,7 +1033,7 @@ function hasValue(obj, key, value) {
 }
 
 function updateSearchResults() {
-  var val = $('#searchtext').val();
+  var val = $('.typeahead').typeahead('val');
   if (val.length > 0){
     $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
       resl = "";
@@ -1042,7 +1042,7 @@ function updateSearchResults() {
       var j;
       var opt;
       var newresults = [];
-      var val = $('#searchtext').val();
+      var val = $('.typeahead').typeahead('val');
       for (i in data.response.docs){
         if (data.response.docs[i].label){
           if (data.response.docs[i].short_form[0].indexOf('_')>-1){
@@ -1088,9 +1088,9 @@ $('body').ready( function () {
         empty: 'No results found',
         suggestion: function ( data ) {
             if (data.syn == data.name){
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('.typeahead').typeahead('val'),'<u>' + $('.typeahead').typeahead('val') + '</u>') + "</b> <small>[<i>" + data.id.replace($('.typeahead').typeahead('val'),'<u>' + $('.typeahead').typeahead('val') + '</u>') + '</i>]</small></p>';
             }else{
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+              return '<p><b>' +  data.syn.replace($('.typeahead').typeahead('val'),'<u>' + $('.typeahead').typeahead('val') + '</u>') + "</b> <small>("+data.name.replace($('.typeahead').typeahead('val'),'<u>' + $('.typeahead').typeahead('val') + '</u>') + ") [<i>" + data.id.replace($('.typeahead').typeahead('val'),'<u>' + $('.typeahead').typeahead('val') + '</u>') + '</i>]</small></p>';
             }
         }
     }
@@ -1106,14 +1106,13 @@ $('body').ready( function () {
       if ($('#searchgroup').hasClass('has-success')) {
         alertMessage('Opening details for ' + $('#searchid').text());
         openFullDetails($('#searchid').text());
-        $('#searchtext').val('');
         $('.typeahead').typeahead('close');
         $('#searchgroup').removeClass('has-success').removeClass('has-warning');
         $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
-        $('#searchtext').val('');
+        $('.typeahead').typeahead('val','');
       }else{
-        if (searchresults[0].syn.indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
-          $('#searchtext').val(searchresults[0].syn);
+        if (searchresults[0].syn.indexOf($('.typeahead').typeahead('val'))>-1 || $('.typeahead').typeahead('val').toUpperCase().indexOf('VFB')>-1 || $('.typeahead').typeahead('val').toUpperCase().indexOf('FBBT')>-1){
+          $('.typeahead').typeahead('val',searchresults[0].syn);
           updateSearchResults();
         }
       }
