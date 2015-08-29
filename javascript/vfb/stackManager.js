@@ -154,9 +154,9 @@ function updateStackCounter() {
           $.removeCookie('cookie-box', { path: '/' });
   				$('#cookie-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
-    			html += '<div class="alert alert-info alert-dismissible" role="alert" id="info-char">';
+    			html += '<div class="alert alert-info" role="alert" id="info-char">';
     			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" onclick="';
-          html += "$.cookie('cookie-box', 'closed', { expires: 5*365, path: '/' });";
+          html += "$.cookie('cookie-box', 'c', { expires: 5*365, path: '/' });";
           html += '" >&times;</span></button>';
     			html += '<center>';
     			html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.';
@@ -174,9 +174,9 @@ function updateStackCounter() {
           $('#dev-warning').show();
           $.removeCookie('#dev-warning', { path: '/' });
           html = '<div class="col-md-8 col-md-offset-2">';
-					html += '<div class="alert alert-warning alert-dismissible" role="alert" id="warning-char">';
+					html += '<div class="alert alert-warning" role="alert" id="warning-char">';
 					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true" onclick="';
-          html += "$.cookie('dev-box', 'closed', { expires: 7, path: '/' });";
+          html += "$.cookie('dev-box', 'c', { expires: 7, path: '/' });";
           html += '" >&times;</span></button>';
 					html += '<center>';
 					html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
