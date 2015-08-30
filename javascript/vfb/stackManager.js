@@ -1121,6 +1121,7 @@ $('body').ready( function () {
       e.preventDefault();
       executeSearch();
     }
+    checkSearchValue();
   });
 
   $("#searchtext").on('input', function () {
