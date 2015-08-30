@@ -729,7 +729,7 @@ function addToStackData(ids, showDetails){
   if (ids !== undefined && ids !== null) {
     showDetails = typeof showDetails !== 'undefined' ? showDetails : true;
     window.reloadInterval = 10;
-    if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains")) {
+    if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains") && parent.$("body").data("available")) {
       $('#canvas').css('cursor', 'wait');
       var id;
       var i;
