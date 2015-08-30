@@ -33,8 +33,9 @@
 				$('body').ready( function () {
 					addToStackData("${param.add}");
 					updateStackData();
+					openFullDetails("${param.id}");
 					if (location.href.indexOf('?')>-1){
-						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
+						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}","id":"${param.id}"});
 					}
 				});
 			</script>
