@@ -1117,7 +1117,7 @@ $('body').ready( function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  $("#searchtext").keypress(function(e){
+  $("#searchtext").keydown(function(e){
     if ( e.which == 13 ) {
       e.preventDefault();
       executeSearch();
