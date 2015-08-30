@@ -1032,6 +1032,22 @@ function hasValue(obj, key, value) {
     return obj.hasOwnProperty(key) && obj[key] === value;
 }
 
+function executeSearch() {
+  if ($('#searchgroup').hasClass('has-success')) {
+    alertMessage('Opening details for ' + $('#searchid').text());
+    openFullDetails($('#searchid').text());
+    $('.typeahead').typeahead('close');
+    $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+    $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
+    $('.typeahead').typeahead('val','');
+  }else{
+    if (searchresults[0].syn.indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
+      $('.typeahead').typeahead('val',searchresults[0].syn);
+      updateSearchResults();
+    }
+  }
+}
+
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
@@ -1103,19 +1119,7 @@ $('body').ready( function () {
   $("#searchtext").keypress(function(e){
     if ( e.which == 13 ) {
       e.preventDefault();
-      if ($('#searchgroup').hasClass('has-success')) {
-        alertMessage('Opening details for ' + $('#searchid').text());
-        openFullDetails($('#searchid').text());
-        $('.typeahead').typeahead('close');
-        $('#searchgroup').removeClass('has-success').removeClass('has-warning');
-        $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
-        $('.typeahead').typeahead('val','');
-      }else{
-        if (searchresults[0].syn.indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
-          $('.typeahead').typeahead('val',searchresults[0].syn);
-          updateSearchResults();
-        }
-      }
+      executeSearch();
     }
   });
 
@@ -1128,6 +1132,11 @@ $('body').ready( function () {
     }else{
       $("#searchtext").css('width', '100%');
     }
+  });
+
+  $('.tt-menu').on('click', function(){
+    checkSearchValue();
+    executeSearch();
   });
 
 	initStackData(null);
