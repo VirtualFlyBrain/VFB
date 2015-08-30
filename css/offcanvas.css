@@ -378,4 +378,5 @@ div.icon-right {
   padding-top: 5px;
   background-color: rgb(255, 255, 255);
   overflow-y: auto;
+  position: absolute;
 }
