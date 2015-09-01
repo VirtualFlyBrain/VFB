@@ -45,7 +45,7 @@ if (!window.jQuery) {
       }else if (QueryString.name) {
         query =  "label:" + QueryString.name;
       }
-      window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q="+query, function( data ) {
+      window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=1&fl=label+label_suggest+short_form+description+logical_description&q="+query, function( data ) {
           var items = data.response.docs;
           var i;
           var j;
