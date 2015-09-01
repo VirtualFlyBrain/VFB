@@ -63,7 +63,7 @@ if (!window.jQuery) {
             $('#attach').data('id',$('#short_form').text());
             $('#partName').text(item.label);
             $('#description').text(item.description);
-            rels = item.logical_description.split(',');
+            rels = String(item.logical_description).split(',');
             temp = "";
             for (j in rels){
                 rel = rels[j];
