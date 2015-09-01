@@ -40,7 +40,7 @@ if (!window.jQuery) {
 
     <script type="text/javascript">
       var currBeanId = QueryString.id;
-      $.getJSON( "http://vfbdev.inf.ed.ac.uk/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
+      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
         var items = data.response.docs;
         var i;
         var item;
