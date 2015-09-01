@@ -48,7 +48,11 @@ if (!window.jQuery) {
       window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q="+query, function( data ) {
           var items = data.response.docs;
           var i;
+          var j;
           var item;
+          var rel;
+          var rels;
+          var temp;
           for (i in items) {
             item = items[i];
             if (item.short_form[0].indexOf('_')>-1){
@@ -59,15 +63,21 @@ if (!window.jQuery) {
             $('#attach').data('id',$('#short_form').text());
             $('#partName').text(item.label);
             $('#description').text(item.description);
-            $('#logical_description').html(item.logical_description.replace(/,/g,"<br />"));
+            rels = item.logical_description.split(',');
+            temp = "";
+            for (j in rels){
+                rel = rels[j];
+                temp = temp + '<li>' + rel + '</a></li>';
+                temp = temp.replace(' some ', ' <a onclick="frame.document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(temp.substr(temp.indexOf(' some ') + 6)) + "'" + '">');
+            }
+            $('#logical_description').html(temp);
           }
         });
       };
     </script>
 
-<ul>
-  <li><h2><span id="partName"></span></h2> <span id="attach"></span></li>
-  <li><h3>ID:</h3> <span id="short_form"></span></li>
-  <li><h3>Definition:</h3> <span id="description"></span></li>
-  <li><h3>Relationships:</h3> <span id="logical_description"></span></li>
-</ul>
+
+  <h2><span id="partName"></span></h2> <span id="attach"></span>
+  <h3>ID:</h3> <span id="short_form"></span>
+  <h3>Definition:</h3> <span id="description"></span>
+  <h3>Relationships:</h3> <ul><span id="logical_description"></span></ul>
