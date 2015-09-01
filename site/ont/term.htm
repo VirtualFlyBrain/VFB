@@ -68,7 +68,7 @@ if (!window.jQuery) {
             for (j in rels){
                 rel = rels[j];
                 temp = temp + '<li>' + rel + '</a></li>';
-                temp = temp.replace(' some ', ' <a onclick="frame.document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(temp.substr(temp.indexOf(' some ') + 6)) + "'" + '">');
+                temp = temp.replace(' some ', ' <a href="#" onclick="document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(rel.substr(rel.indexOf(' some ') + 6)) + "'" + '">');
             }
             $('#logical_description').html(temp);
           }
