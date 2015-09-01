@@ -1,4 +1,12 @@
 
+if (!window.jQuery) {
+  var jq = document.createElement('script'); jq.type = 'text/javascript';
+  // Path to jquery.js file, eg. Google hosted version
+  jq.src = '//code.jquery.com/jquery-2.1.4.min.js';
+  document.getElementsByTagName('head')[0].appendChild(jq);
+}
+
+
     <!-- Google Analytics -->
 			<script>
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=FBbt:00004050'});
@@ -32,7 +40,7 @@
 
     <script type="text/javascript">
       var currBeanId = QueryString.id;
-      $.getJSON( "http://vfbdev.inf.ed.ac.uk/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description&q=short_form:"+String(currBeanId), function( data ) {
+      $.getJSON( "http://vfbdev.inf.ed.ac.uk/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
         var items = data.response.docs;
         var i;
         var item;
@@ -46,6 +54,7 @@
           $('#attach').data('id')=$('#short_form').text();
           $('#partName').text(item.label);
           $('#description').text(item.description);
+          $('#logical_description').text(item.logical_description);
         }
       });
     </script>
