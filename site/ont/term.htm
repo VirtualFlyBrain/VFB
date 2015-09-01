@@ -32,7 +32,7 @@
 
     <script type="text/javascript">
       var currBeanId = QueryString.id;
-      $.getJSON( "http://vfbdev.inf.ed.ac.uk/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description&q=short_form:"+String(currBeanId), function( data ) {
+      $.getJSON( "http://www.virtualflybrain.org/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description&q=short_form:"+String(currBeanId), function( data ) {
         var items = data.response.docs;
         var i;
         var item;
