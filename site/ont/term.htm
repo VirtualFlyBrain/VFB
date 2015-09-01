@@ -55,29 +55,26 @@ if (!window.jQuery) {
           var temp;
           for (i in items) {
             item = items[i];
-            if (item.short_form[0].indexOf('_')>-1){
-              $('#short_form').text(item.short_form[0]);
-            }else{
-              $('#short_form').text(item.short_form[1]);
-            }
-            $('#attach').data('id',$('#short_form').text());
-            $('#partName').text(item.label);
-            $('#description').text(item.description);
-            rels = String(item.logical_description).split(',');
             temp = "";
+            if (item.short_form[0].indexOf('_')>-1){
+              $('#attach').data('id',item.short_form[0]);
+            }else{
+              $('#attach').data('id',item.short_form[1]);
+            }
+            $('#partName').text(item.label);
+            temp = temp + '<dt>ID</dt><dd>' + $('#attach').data('id') + '</dd>';
+            temp = temp + '<dt>Definition</dt><dd>' + item.description + '</dd>';
+            temp = temp + '<dt>Relationships</dt>'
+            rels = String(item.logical_description).split(',');
             for (j in rels){
                 rel = rels[j];
-                temp = temp + '<li>' + rel + '</a></li>';
+                temp = temp + '<dd>' + rel + '</a></dd>';
                 temp = temp.replace(' some ', ' <a href="#" onclick="document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(rel.substr(rel.indexOf(' some ') + 6)) + "'" + '">');
             }
-            $('#logical_description').html(temp);
+            $('#availableDetails').html(temp);
           }
         });
       };
     </script>
-
-
-  <h2><span id="partName"></span></h2> <span id="attach"></span>
-  <h3>ID:</h3> <span id="short_form"></span>
-  <h3>Definition:</h3> <span id="description"></span>
-  <h3>Relationships:</h3> <ul><span id="logical_description"></span></ul>
+  <h2><span id="partName"></span> <span id="attach"></span></h2>
+  <dl class="dl-horizontal" id="availableDetails"></dl>
