@@ -40,23 +40,24 @@ if (!window.jQuery) {
 
     <script type="text/javascript">
       var currBeanId = QueryString.id;
-      $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
-        var items = data.response.docs;
-        var i;
-        var item;
-        for (i in items) {
-          item = items[i];
-          if (item.short_form[0].indexOf('_')>-1){
-            $('#short_form').text(item.short_form[0]);
-          }else{
-            $('#short_form').text(item.short_form[1]);
+      window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
+          var items = data.response.docs;
+          var i;
+          var item;
+          for (i in items) {
+            item = items[i];
+            if (item.short_form[0].indexOf('_')>-1){
+              $('#short_form').text(item.short_form[0]);
+            }else{
+              $('#short_form').text(item.short_form[1]);
+            }
+            $('#attach').data('id')=$('#short_form').text();
+            $('#partName').text(item.label);
+            $('#description').text(item.description);
+            $('#logical_description').text(item.logical_description);
           }
-          $('#attach').data('id')=$('#short_form').text();
-          $('#partName').text(item.label);
-          $('#description').text(item.description);
-          $('#logical_description').text(item.logical_description);
-        }
-      });
+        });
+      };
     </script>
 
 <ul>
