@@ -1,0 +1,57 @@
+
+    <!-- Google Analytics -->
+			<script>
+				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=FBbt:00004050'});
+			</script>
+		<!-- End Google Analytics -->
+
+    <script type="text/javascript">
+    var QueryString = function () {
+      // This function is anonymous, is executed immediately and
+      // the return value is assigned to QueryString!
+      var query_string = {};
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+            // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+          query_string[pair[0]] = decodeURIComponent(pair[1]);
+            // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+          var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+          query_string[pair[0]] = arr;
+            // If third or later entry with this name
+        } else {
+          query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+      }
+        return query_string;
+      }();
+    </script>
+
+    <script type="text/javascript">
+      var currBeanId = QueryString.id;
+      $.getJSON( "http://vfbdev.inf.ed.ac.uk/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description&q=short_form:"+String(currBeanId), function( data ) {
+        var items = data.response.docs;
+        var i;
+        var item;
+        for (i in items) {
+          item = items[i];
+          if (item.short_form[0].indexOf('_')>-1){
+            $('#short_form').text(item.short_form[0]);
+          }else{
+            $('#short_form').text(item.short_form[1]);
+          }
+          $('#attach').data('id')=$('#short_form').text();
+          $('#partName').text(item.label);
+          $('#description').text(item.description);
+        }
+      });
+    </script>
+
+<ul>
+  <li><h2><span id="partName"></span></h2> <span id="attach"></span></li>
+  <li><h3>ID:</h3> <span id="short_form"></span></li>
+  <li><h3>Definition:</h3> <span id="description"></span></li>
+</ul>
