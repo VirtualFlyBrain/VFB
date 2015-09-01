@@ -39,8 +39,13 @@ if (!window.jQuery) {
     </script>
 
     <script type="text/javascript">
-      var currBeanId = QueryString.id;
-      window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q=short_form:"+String(currBeanId), function( data ) {
+      var query = "*:*";
+      if (QueryString.id) {
+        var query = "short_form:" + QueryString.id;
+      }else if (QueryString.name) {
+        query =  "label:" + QueryString.name;
+      }
+      window.onload = function () { $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=2&fl=label+label_suggest+short_form+description+logical_description&q="+query, function( data ) {
           var items = data.response.docs;
           var i;
           var item;
