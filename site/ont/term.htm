@@ -63,10 +63,10 @@ if (!window.jQuery) {
             }
             $('#partName').text(item.label);
             temp = temp + '<dt>ID</dt><dd>' + $('#attach').data('id') + '</dd>';
-            if (item.description){
+            if (item.description !== undefined){
               temp = temp + '<dt>Definition</dt><dd>' + item.description + '</dd>';
             }
-            if (item.logical_description) {
+            if (item.logical_description !== undefined) {
               temp = temp + '<dt>Relationships</dt>'
               rels = String(item.logical_description).split(',');
               for (j in rels){
