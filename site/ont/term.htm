@@ -54,7 +54,7 @@ if (!window.jQuery) {
             $('#attach').data('id',$('#short_form').text());
             $('#partName').text(item.label);
             $('#description').text(item.description);
-            $('#logical_description').text(item.logical_description);
+            $('#logical_description').html(item.logical_description.replace(/,/g,"<br />"));
           }
         });
       };
