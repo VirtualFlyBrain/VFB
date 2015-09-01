@@ -63,13 +63,17 @@ if (!window.jQuery) {
             }
             $('#partName').text(item.label);
             temp = temp + '<dt>ID</dt><dd>' + $('#attach').data('id') + '</dd>';
-            temp = temp + '<dt>Definition</dt><dd>' + item.description + '</dd>';
-            temp = temp + '<dt>Relationships</dt>'
-            rels = String(item.logical_description).split(',');
-            for (j in rels){
-                rel = rels[j];
-                temp = temp + '<dd>' + rel + '</a></dd>';
-                temp = temp.replace(' some ', ' <a href="#" onclick="document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(rel.substr(rel.indexOf(' some ') + 6)) + "'" + '">');
+            if (item.description){
+              temp = temp + '<dt>Definition</dt><dd>' + item.description + '</dd>';
+            }
+            if (item.logical_description) {
+              temp = temp + '<dt>Relationships</dt>'
+              rels = String(item.logical_description).split(',');
+              for (j in rels){
+                  rel = rels[j];
+                  temp = temp + '<dd>' + rel + '</a></dd>';
+                  temp = temp.replace(' some ', ' <a href="#" onclick="document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(rel.substr(rel.indexOf(' some ') + 6)) + "'" + '">');
+              }
             }
             $('#availableDetails').html(temp);
           }
