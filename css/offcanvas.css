@@ -382,5 +382,5 @@ div.icon-right {
 }
 
 .ui-button-text {
-  padding:0;
+  padding:0 !important;
 }
