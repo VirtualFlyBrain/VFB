@@ -1146,7 +1146,7 @@ $('body').ready( function () {
     updateStackCounter();
   }, 2000);
   window.setTimeout(function(){
-    if ($('#viewer2DVal').text() == '*') {
+    if ($('#viewer2DVal').text()>-1) {
       loadDefaultData();
     }
   }, 30000);
