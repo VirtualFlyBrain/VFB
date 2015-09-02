@@ -1145,4 +1145,9 @@ $('body').ready( function () {
   window.setInterval(function(){
     updateStackCounter();
   }, 2000);
+  window.setTimeout(function(){
+    if ($('#viewer2DVal').text() == '*') {
+      loadDefaultData();
+    }
+  }, 30000);
 });
