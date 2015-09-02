@@ -1567,6 +1567,8 @@ function loadRightMenuDisplayed() {
       } );
       // TEMP hiding type till can be resolved via solr
       $('#displayed').DataTable().column(3).visible(false);
+      $('#displayed').dataTable().fnAdjustColumnSizing(false);
+      $('#displayed').DataTable().draw(false);
     }
   }
 }
