@@ -193,6 +193,7 @@
 										      });
 													$('#selected').on( 'page.dt', function () {
 										        updateLabels();
+														$('#selected').DataTable().column(3).visible(false);
 														$('#selected').dataTable().fnAdjustColumnSizing(false);
 														$('#selected').DataTable().draw(false);
 										      } );
