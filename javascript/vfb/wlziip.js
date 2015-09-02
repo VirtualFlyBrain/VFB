@@ -1554,7 +1554,7 @@ function loadRightMenuDisplayed() {
         responsive: true,
         stateSave: true,
         order: [[ 1, 'desc' ]],
-        dom: 'Bfrtlip',
+        dom: 'lfrtBip',
         buttons: [
             'copy',
             'csv',
