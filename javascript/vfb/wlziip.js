@@ -933,8 +933,6 @@ function clearAllDisplayed() {
   }
   $('#displayed').dataTable().fnAdjustColumnSizing(false);
   $('#displayed').DataTable().draw(false);
-  $(".dataTables_paginate li").css("margin", 0);
-  $(".dataTables_paginate li").css("padding", 0);
   updateWlzDisplay();
   history.replaceState(null, document.title, location.href);
 
@@ -1526,8 +1524,6 @@ function loadRightMenuDisplayed() {
       }
       $('#displayed').dataTable().fnAdjustColumnSizing(false);
       $('#displayed').DataTable().draw(false);
-      $(".dataTables_paginate li").css("margin", 0);
-      $(".dataTables_paginate li").css("padding", 0);
       $('.glyphicon.glyphicon-tint').parent().each( function() {
         var col = rgbColToHex($(this).css('background-color'));
         if (!$(this).data('colorpicker')) {
@@ -1571,10 +1567,6 @@ function loadRightMenuDisplayed() {
       } );
       // TEMP hiding type till can be resolved via solr
       $('#displayed').DataTable().column(3).visible(false);
-      window.setTimeout(function(){
-				$(".dataTables_paginate li").css("margin", 0);
-				$(".dataTables_paginate li").css("padding", 0);
-			}, 1000);
     }
   }
 }
@@ -1865,8 +1857,6 @@ function addAvailableItems(ids) {
   }
   $('#selected').dataTable().fnAdjustColumnSizing(false);
   $('#selected').DataTable().draw(false);
-  $(".dataTables_paginate li").css("margin", 0);
-  $(".dataTables_paginate li").css("padding", 0);
   updateLabels();
   if (temp && temp.extid){
     id=temp.extid;
