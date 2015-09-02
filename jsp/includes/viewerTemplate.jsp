@@ -182,14 +182,7 @@
 										        ordering: true,
 										        responsive: true,
 										        stateSave: true,
-										        order: [[ 1, 'desc' ]],
-										        columnDefs: [
-										            {
-										                targets: [ 1 ],
-										                visible: false,
-										                searchable: false
-										            }
-										          ]
+										        order: [[ 1, 'desc' ]]
 										      });
 													$('#selected').on( 'page.dt', function () {
 										        updateLabels();
