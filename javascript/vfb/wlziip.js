@@ -1904,9 +1904,10 @@ function returnFullUrl() {
     return "http://"+window.location.host+window.location.pathname+"?add="+displayed;
 }
 
-loadColours();
+
 $('body').ready( function () {
   $('body').css('cursor', 'wait');
+  loadColours();
   initWlzControls();
   window.setInterval(function(){
     updateMenuData();
