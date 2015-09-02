@@ -1553,14 +1553,7 @@ function loadRightMenuDisplayed() {
         ordering: true,
         responsive: true,
         stateSave: true,
-        order: [[ 1, 'desc' ]],
-        "columnDefs": [
-            {
-                "targets": [ 1 ],
-                "visible": false,
-                "searchable": false
-            }
-          ]
+        order: [[ 1, 'desc' ]]
       });
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
