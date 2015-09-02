@@ -1569,6 +1569,8 @@ function loadRightMenuDisplayed() {
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
       } );
+      // TEMP hiding type till can be resolved via solr
+      $('#displayed').DataTable().column(3).visible(false);
       window.setTimeout(function(){
 				$(".dataTables_paginate li").css("margin", 0);
 				$(".dataTables_paginate li").css("padding", 0);
