@@ -1911,11 +1911,4 @@ $('body').ready( function () {
   window.setInterval(function(){
     updateMenuData();
   }, 10000);
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-    var target = $(e.target).attr("href"); // activated tab
-    if (target == "#disp"){
-      $('#displayed').dataTable().fnAdjustColumnSizing(false);
-      $('#displayed').DataTable().draw(true);
-    }
-  });
 });
