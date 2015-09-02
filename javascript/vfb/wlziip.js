@@ -1553,7 +1553,13 @@ function loadRightMenuDisplayed() {
         ordering: true,
         responsive: true,
         stateSave: true,
-        order: [[ 1, 'desc' ]]
+        order: [[ 1, 'desc' ]],
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+            'csv',
+            'print'
+        ]
       });
       $('#displayed').on( 'page.dt', function () {
         updateLabels();

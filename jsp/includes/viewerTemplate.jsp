@@ -182,7 +182,13 @@
 										        ordering: true,
 										        responsive: true,
 										        stateSave: true,
-										        order: [[ 1, 'desc' ]]
+										        order: [[ 1, 'desc' ]],
+														dom: 'Bfrtip',
+										        buttons: [
+										            'copy',
+										            'csv',
+										            'print'
+										        ]
 										      });
 													$('#selected').DataTable().column(3).visible(false);
 													$('#selected').on( 'page.dt', function () {
