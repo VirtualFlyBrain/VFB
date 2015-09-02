@@ -380,3 +380,7 @@ div.icon-right {
   overflow-y: auto;
   position: absolute;
 }
+
+.ui-button-text {
+  padding:0;
+}
