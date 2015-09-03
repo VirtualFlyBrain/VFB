@@ -997,7 +997,7 @@ function thumbnailHTMLForId(id) {
   var fxp = String(current.fxp);
   if (id.indexOf("VFBd_")>-1){
     url = fileFromId(id.substr(0,8).replace('VFBd','VFBt'));
-    if ($('#centreFor'+id)) {
+    if ($('#centreFor'+id).data()) {
       fxp = $('#centreFor'+id).data('centre');
     }
     url = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + url + "&sel=0,255,0,255&sel=" + String(parseInt(id.substr(8))) + ",0,255,0,150&fxp=" + fxp + "&scl=0.2&dst=0&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
