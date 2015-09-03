@@ -59,7 +59,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	<c:if test="${beanType=='ont'}"><span id="addToQuery" title="Add to query" data-id="${ontBean.fbbtIdAsOWL}"></span></c:if></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
-		<b>ID: </b><a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" target="_top" title="View details and run queries in anatomy finder" >${ontBean.fbbtIdAsOWL}</a>
+		<b>ID: </b><a href=#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}');" target="_top" title="View details and run queries" >${ontBean.fbbtIdAsOWL}</a>
 	</p>
 	</c:if>
 	<p id="partDef">
