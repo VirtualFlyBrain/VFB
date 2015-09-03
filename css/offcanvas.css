@@ -384,3 +384,8 @@ div.icon-right {
 .ui-button-text {
   padding:0 !important;
 }
+
+div.DTTT_container {
+  float:none;
+  text-align:center;
+}

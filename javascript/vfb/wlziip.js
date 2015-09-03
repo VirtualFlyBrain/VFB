@@ -1554,7 +1554,7 @@ function loadRightMenuDisplayed() {
         responsive: true,
         stateSave: true,
         order: [[ 1, 'desc' ]],
-        dom: 'l<"clear">frtBip',
+        dom: "<'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-5'i><'col-sm-7'p>>",
         buttons: [
             'copy',
             'csv',
