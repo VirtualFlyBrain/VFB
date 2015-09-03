@@ -994,7 +994,7 @@ function thumbnailHTMLForId(id) {
     return html.replace('"URL"', '"' + url + '"');
   }
   if (id.indexOf("VFBd_")>-1){
-    url = fileFromId(id);
+    url = fileFromId(id.substr(0,8).replace('VFBd','VFBt'));
     var current = parent.$('body').data("current");
     var fxp = current.fxp;
     if (parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre) {
