@@ -202,7 +202,7 @@
 									</div>
 								</div>
 			        </div>
-			        <div class="tab-pane active" id="disp" align="center">
+			        <div class="tab-pane active" id="disp">
 								<div class="row-fluid" style="padding:0;">
 									<div class="col-xs-12" style="padding:0;">
 				            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
