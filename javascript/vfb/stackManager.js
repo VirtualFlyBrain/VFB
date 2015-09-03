@@ -688,7 +688,7 @@ function openFullDetails(id) {
           window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank');
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-          $('#anatomyDetails').load("/do/ont_bean.html?id=" + id);
+          $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
         }
       }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
@@ -706,7 +706,7 @@ function openFullDetails(id) {
           if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
             temp = parent.$("body").data("domains")[layers];
             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-            $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]));
+            $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
             break;
           }
         }
