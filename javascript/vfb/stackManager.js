@@ -1146,8 +1146,9 @@ $('body').ready( function () {
     updateStackCounter();
   }, 2000);
   window.setTimeout(function(){
-    if ($('#viewer2DVal').text()>-1) {
+    if ($('#viewer2DVal').text()=="*") {
       loadDefaultData();
+      alertMessage('Watchdog detected a problem - reset data');
     }
   }, 30000);
 });
