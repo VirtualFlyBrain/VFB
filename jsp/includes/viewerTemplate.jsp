@@ -2,7 +2,8 @@
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
-		//cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css;
+		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css
+		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
 		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
 		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
 		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
