@@ -993,6 +993,16 @@ function thumbnailHTMLForId(id) {
     url = "/data/VFB/i/" + id.substr(5,4) + "/" + id.substr(9,4) + "/thumbnail.png";
     return html.replace('"URL"', '"' + url + '"');
   }
+  if (id.indexOf("VFBd_")>-1){
+    url = fileFromId(id);
+    var current = parent.$('body').data("current");
+    var fxp = current.fxp;
+    if (parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre) {
+      fxp = parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre.join(',');
+    }
+    url = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + url + "&sel=0,255,0,255&sel=" + String(parseInt(id.substr(8))) + ",0,255,0,150&fxp=" + fxp + "&scl=0.2&dst=0&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+    return html.replace('"URL"', '"' + url + '"');
+  }
   return "";
 }
 
