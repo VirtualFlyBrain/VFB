@@ -55,7 +55,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 </c:if>
 
 <div class="well-white">
-	<h2><a href="#details" onclick="openFullDetails(${ontBean.fbbtIdAsOWL})" title="View details and run queries"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
+	<h2><a href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}')" title="View details and run queries"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
 	<c:if test="${beanType=='ont'}"><span id="addToQuery" title="Add to query" data-id="${ontBean.fbbtIdAsOWL}"></span></c:if></h2>
 	<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 	<p>
@@ -96,7 +96,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				<b>Parent classes: </b><br />
 				<div id="partParents">
 					<ul>
-					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status"><span class="hide" id="partParentId">${curr.key}</span><a href="#details" onclick="openFullDetails(${curr.key})" title="Look up" target="_top"><span id="partParent"><li>${curr.value}</li></span></a></c:forEach>
+					<c:forEach items="${ontBean.isa}" var="curr" varStatus="status"><span class="hide" id="partParentId">${curr.key}</span><a href="#details" onclick="openFullDetails('${curr.key}')" title="Look up" target="_top"><span id="partParent"><li>${curr.value}</li></span></a></c:forEach>
 					</ul>
 				</div>
 			</p>
@@ -112,7 +112,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						<c:when test="${fn:containsIgnoreCase(currParts[0], 'http')}"><a href="${fn:trim(currParts[0])}" title="External look up" target="_blank"><span id="partParent"><li>${currParts[1]}</li></span></a>
 						</c:when>
 						<c:otherwise><span class="hide" id="partParentId">${fn:trim(currParts[0])}</span>
-								<a href="#details" onclick="openFullDetails(${fn:trim(currParts[0])});" title="Look up" target="_top"><span id="partParent"><li>${currParts[1]}</li></span></a>
+								<a href="#details" onclick="openFullDetails('${fn:trim(currParts[0])}');" title="Look up" target="_top"><span id="partParent"><li>${currParts[1]}</li></span></a>
 						</c:otherwise></c:choose></c:forEach>
 					</ul>
 				</div>
@@ -125,7 +125,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<div id="partRel">
 				<ul>
 				<c:forEach items="${ontBean.relationships}" var="curr" varStatus="status">
-					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]} <a href="${curr.value[2]}" title="External look up" target="_blank">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]} <a href="#details" onclick="openFullDetails(${curr.value[2]});" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
+					<li><c:choose><c:when test="${fn:containsIgnoreCase(curr.value[2], 'http')}">${curr.value[0]} <a href="${curr.value[2]}" title="External look up" target="_blank">${curr.value[1]}</a></c:when><c:otherwise>${curr.value[0]} <a href="#details" onclick="openFullDetails('${curr.value[2]}');" title="Look up" target="_top">${curr.value[1]}</a></c:otherwise></c:choose>
 					<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${curr.value[2] == neuropil.fbbtId}"><span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${fn:replace(curr.value[2], ':', '_')}"></span></c:if></c:forEach></li>
 				</c:forEach>
 			</ul>
