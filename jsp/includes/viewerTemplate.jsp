@@ -207,7 +207,7 @@
 									<div class="col-xs-12" style="padding:0;">
 				            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
 										<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
-										<h4 style="float:center">Currently Displayed</h4>
+										<h4><center>Currently Displayed</center></h4>
 									</div>
 									<div class="col-xs-12" style="padding:0;">
 										<div class="table-responsive" id="dispContent">
