@@ -389,3 +389,11 @@ div.DTTT_container {
   float:none;
   text-align:center;
 }
+
+.displayed_filter {
+  float:right;
+}
+
+.dataTables_paginate {
+  float:right;
+}
