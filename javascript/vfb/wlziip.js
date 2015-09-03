@@ -31,6 +31,7 @@ function updateMenuData() {
   loadRightMenuDisplayed();
   updateAnatomyTree();
   updateLabels();
+  updateWlzDisplay();
 }
 
 function animateWlzDisplay(){
@@ -304,14 +305,8 @@ function openTab(Id) {
       $('#disp').addClass('active');
       break;
     default:
-      if (image.length > 1){
-        $('#DispMenuTab').addClass('active');
-        $('#disp').addClass('active');
-      }else{
-        $('#AnatoMenuTab').addClass('active');
-        $('#anato').addClass('active');
-        expandTree();
-      }
+      $('#DispMenuTab').addClass('active');
+      $('#disp').addClass('active');
   }
 }
 
