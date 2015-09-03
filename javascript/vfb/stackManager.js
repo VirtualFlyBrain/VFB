@@ -994,11 +994,11 @@ function thumbnailHTMLForId(id) {
     return html.replace('"URL"', '"' + url + '"');
   }
   var current = parent.$('body').data("current");
-  var fxp = current.fxp;
+  var fxp = String(current.fxp);
   if (id.indexOf("VFBd_")>-1){
     url = fileFromId(id.substr(0,8).replace('VFBd','VFBt'));
-    if (parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre && parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre.length == 3) {
-      fxp = parent.$('body').data('domains')[String(parseInt(id.substr(8)))].domainData.domainCentre.join(',');
+    if ($('#centreFor'+id)) {
+      fxp = $('#centreFor'+id).data('centre');
     }
     url = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + url + "&sel=0,255,0,255&sel=" + String(parseInt(id.substr(8))) + ",0,255,0,150&fxp=" + fxp + "&scl=0.2&dst=0&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
     return html.replace('"URL"', '"' + url + '"');

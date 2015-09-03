@@ -954,7 +954,7 @@ function createControlsBarHTML(id) {
           for (j in parent.$("body").data("domains")) {
             if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == cleanIdforInt(selected[i].extid)) {
               if (parent.$("body").data("domains")[j].domainData.domainCentre){
-                html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+                html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')).replace('<button', '<button id="centreFor'+id+'" data-centre="' + parent.$("body").data("domains")[j].domainData.domainCentre.join(',') +'"' ) + end;
               }
               break;
             }
