@@ -3,7 +3,7 @@
 <!--  Fake page/placeholder for linking out to the 3rd party DBs.
  	Redirect to the default anatomy search page passing the FBbt id as a parameter
  -->
- <c:set var="id">${fn:replace(param.id,"_", ":")}</c:set>
+ <c:set var="id">${fn:replace(param.id,":", "_")}</c:set>
 <html>
 <head>
 <meta HTTP-EQUIV="REFRESH" content="0; url=/site/stacks/index.htm?add=${id}">
