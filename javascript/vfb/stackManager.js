@@ -563,6 +563,7 @@ function replaceAll(string, find, replace) {
 }
 
 function clearAbsolutlyAllData() {
+  loadDefaultData();
   var selected;
   var i;
   var j;
