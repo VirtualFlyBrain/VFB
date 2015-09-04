@@ -745,7 +745,7 @@ function addToStackData(ids, showDetails){
       if (!Array.isArray(ids)) {
         ids = [ids];
       }
-      if ($.isFunction(openTab)) {
+      if (typeof openTab !== 'undefined' &&$.isFunction(openTab)) {
         openTab('disp');
       }
       for (i in ids) {
