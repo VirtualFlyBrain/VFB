@@ -731,7 +731,11 @@ function initStackData(ids) {
     loadDefaultData(ids);
     location.reload();
   }
-  loadTemplateMeta(parent.$("body").data("current").template);
+  if (!store.enabled) {
+    loadTemplateMeta(parent.$("body").data("current").template);
+  }else if (parent.$("body").data(parent.$("body").data("current").template) === undefined || parent.$("body").data(parent.$("body").data("current").template).selected[0].id.indexOf(parent.$("body").data("current").template)<0){
+    loadTemplateMeta(parent.$("body").data("current").template);
+  }
   updateStackData();
 }
 

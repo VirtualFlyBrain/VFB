@@ -311,23 +311,26 @@ function openTab(Id) {
 }
 
 function loadColours(){
-  if (!coloursLoading){
-    coloursLoading = true;
-    file = "/data/VFB/colours200.csv";
-    $.get(file, function(data) {
-      var lines = data.split("\n");
-      parent.$("body").data("colours", lines);
-      updateWlzDisplay();
-      coloursLoading = false;
-    });
-    window.setTimeout(function(){
-      if (coloursLoading){
+  var d = new Date();
+  if (!parent.$("body").data("colours") || parent.$("body").data("colours").length < 200){
+    if (!coloursLoading){
+      coloursLoading = true;
+      file = "/data/VFB/colours200.csv";
+      $.get(file, function(data) {
+        var lines = data.split("\n");
+        parent.$("body").data("colours", lines);
+        updateWlzDisplay();
         coloursLoading = false;
-      }
-      if (!parent.$("body").data("colours")){
-        loadColours();
-      }
-    }, 30000);
+      });
+      window.setTimeout(function(){
+        if (coloursLoading){
+          coloursLoading = false;
+        }
+        if (!parent.$("body").data("colours")){
+          loadColours();
+        }
+      }, 30000);
+    }
   }
 }
 
