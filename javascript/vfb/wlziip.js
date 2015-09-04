@@ -935,6 +935,7 @@ function clearAllDisplayed() {
 
 function createControlsBarHTML(id) {
   id = cleanIdforInt(id);
+  var intId = id;
   var current = parent.$("body").data("current");
   var selected = parent.$("body").data(current.template).selected;
   var domains = parent.$("body").data("domains");
@@ -979,7 +980,10 @@ function createControlsBarHTML(id) {
     for (j in parent.$("body").data("domains")) {
       if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == id) {
         if (parent.$("body").data("domains")[j].domainData.domainCentre){
-          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+          if (parent.$("body").data("domains")[j].domainData.domainId) {
+            intId = parent.$("body").data("current").template + pad(parseInt(parent.$("body").data("domains")[j].domainData.domainId), 5);
+          }
+          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')).replace('<button', '<button id="centreFor'+intId+'" data-centre="' + parent.$("body").data("domains")[j].domainData.domainCentre.join(',') +'"' ) + end;
         }
         break;
       }
@@ -1004,7 +1008,10 @@ function createControlsBarHTML(id) {
     for (j in parent.$("body").data("domains")) {
       if (cleanIdforInt(parent.$("body").data("domains")[j].extId[0]) == id) {
         if (parent.$("body").data("domains")[j].domainData.domainCentre){
-          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')) + end;
+          if (parent.$("body").data("domains")[j].domainData.domainId) {
+            intId = parent.$("body").data("current").template + pad(parseInt(parent.$("body").data("domains")[j].domainData.domainId), 5);
+          }
+          html += start + createCentreButtonHTML(parent.$("body").data("domains")[j].domainData.domainCentre.join(',')).replace('<button', '<button id="centreFor'+intId+'" data-centre="' + parent.$("body").data("domains")[j].domainData.domainCentre.join(',') +'"' ) + end;
         }
         break;
       }
