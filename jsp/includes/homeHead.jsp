@@ -29,7 +29,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
 
 		<!-- Code to manage stacks -->
-		<script type="text/javascript" src="/javascript/thirdParty/json2.js" ></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/store.js/1.3.17/store+json2.min.js"></script>
 		<script type="text/javascript" src="/javascript/vfb/stackManager.js" ></script>
 
 		<!-- https://github.com/CWSpear/bootstrap-hover-dropdown -->
