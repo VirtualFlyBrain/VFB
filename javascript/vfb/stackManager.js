@@ -88,8 +88,8 @@ function updateStackCounter() {
   }
   if (store.enabled) {
     var data = store.get('data');
-    var count = Object.keys(data[data.current.template].selected).length-1;
     if (data !== undefined && data.current !== undefined){
+      var count = Object.keys(data[data.current.template].selected).length-1;
       $("[id=viewer2DVal]").each(function(){
         $(this).text(count);
       });
