@@ -744,6 +744,9 @@ function addToStackData(ids, showDetails){
       if (!Array.isArray(ids)) {
         ids = [ids];
       }
+      if ($.isFunction(openTab)) {
+        openTab('disp');
+      }
       for (i in ids) {
         id = cleanIdforInt(ids[i]);
         try{
