@@ -775,6 +775,12 @@ function alertMessage(message) {
 function openFullDetails(id) {
   if ($('#anatomyDetails').length) {
     id = cleanIdforExt(id);
+    // watchdog for failed loading:
+    window.setTimeout(function(){
+      if ($('#anatomyDetails').html()=='<img src="/images/tools/ajax-loader.gif" alt="loading...">') {
+        $('#anatomyDetails').html('Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>Information for the selected anatomical term will be displayed here, with further query options visible after selection.');
+      }
+    }, 10000);
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){

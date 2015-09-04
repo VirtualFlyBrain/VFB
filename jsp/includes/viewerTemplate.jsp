@@ -306,7 +306,7 @@
 								var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
 								var topLayer = Object.keys(selected).length-1;
 								var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
-								if (id.indexOf('00000')<0) {
+								if (id.indexOf('00000')<0 && id.indexOf('VFBd_')<0) {
 									openFullDetails(id);
 								}
 							}
