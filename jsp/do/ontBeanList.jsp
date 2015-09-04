@@ -72,18 +72,16 @@
 					ordering: true,
 					responsive: true,
 					autoWidth: false,
-					"order": [[ 4, "desc" ]]
+					"order": [[ 4, "desc" ]],
+					dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
+					buttons: [
+							'copy',
+							'csv',
+							'print'
+					]
 				} );
-				var tt = new $.fn.dataTable.TableTools( table );
-				$( tt.fnContainer() ).insertBefore('div.dataTables_wrapper');
 				window.setTimeout(function(){
 					updateStackCounter();
-					$('div.DTTT.btn-group').addClass('table_tools_group').children('a.btn').each(function () {
-							$(this).addClass('btn-sm btn-default btn-primary');
-							$(this).children('div').each(function () {
-								$(this).attr('style', 'position: absolute; left: 0px; top: 0px; width: 48px; height: 32px; z-index: 99;');
-							});
-					});
 					$('[id=resoveImages]').each(function(){
 						var i = parseInt($(this).data('index'));
 						$.get( "/do/individual_film_strip.html?action=exemplar_neuron&id=" + $(this).data('id'), function( data ) {
