@@ -9,16 +9,23 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="css" value="
-		//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css;
-		//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css;
-		//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css;
-		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css;
+		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
+		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
+		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
+		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
 	" />
 	<jsp:param name="js" value="
-		//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js;
-		//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js;
-		//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js;
-		//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js;
+		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
+		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
+		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.jqueryui.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.print.min.js;
 	" />
 </jsp:include>
 
