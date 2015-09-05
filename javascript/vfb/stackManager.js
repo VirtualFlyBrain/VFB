@@ -125,9 +125,9 @@ function updateStackCounter() {
         $('#cookie-warning').show();
         html = '<div class="col-md-8 col-md-offset-2">';
         html += '<div class="alert alert-info" role="alert" id="info-char">';
-        html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" onclick="';
+        html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
         html += "store.set('cookie-box', 'c');";
-        html += '" >&times;</span></button>';
+        html += '"><span aria-hidden="true">&times;</span></button>';
         html += '<center>';
         html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and browser local data storage to store your preferences.';
         html += 'By continuing to use our website, you agree to the use of local data storage and cookies. <br>';
