@@ -85,9 +85,14 @@
 						SupDetail.sysDetailURL = encodeURIComponent(SupDetail.sysDetail);
 						SupDetail.cleanURL = encodeURIComponent('${param.url}');
 
-						if ($.cookie) {
-							SupDetail.cookies = JSON.stringify($.cookie());
+						if (store.enabled){
+							SupDetail.cookies = JSON.stringify(store.get('data'));
 							SupDetail.cookiesURL = encodeURIComponent(SupDetail.cookies);
+						}else{
+							if ($.cookie) {
+								SupDetail.cookies = JSON.stringify($.cookie());
+								SupDetail.cookiesURL = encodeURIComponent(SupDetail.cookies);
+							}
 						}
 
 						mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " Cookies:" + SupDetail.cookiesURL,"email us", "emailUs");
