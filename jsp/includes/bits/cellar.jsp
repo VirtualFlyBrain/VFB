@@ -16,7 +16,8 @@
 		<div id="VFBversion" style="position:relative; left: 0; bottom: 0; font-size: xx-small;">
 			<a href="https://github.com/VirtualFlyBrain/VFB/tree/<jsp:include page="/branch" />" target="_blank" title="Current GitHub code repository branch and revision" >
 				<jsp:include page="/branch" />- <jsp:include page="/revision" /></a>
-				<script>if (store.enabled) { var flybase = String('<jsp:include page="/flybase" />').split(' ')[0]; store.set('currentFlybaseVersion', flybase);}</script>
+				<span id="flybase" style="display:none;visibility:hidden;"><jsp:include page="/flybase" /></span>
+				<script>if (store.enabled) { var flybase = String($('#flybase').text()).split(' ')[0]; store.set('currentFlybaseVersion', flybase);}</script>
 			[<a href="ftp://ftp.flybase.net/releases/" + flybase title="Current FlyBase DataBase in use" > <jsp:include page="/flybase" /></a>]
 			[<a href="<jsp:include page="/owldate" />" target="_blank" title="Current VFB OWL ontology in use" > <jsp:include page="/owldate" /></a>]
 			[<a href="<jsp:include page="/owlIndRev" />" target="_blank" title="Current VFB OWL individuals in use" > <jsp:include page="/owlIndRev" /></a>]
