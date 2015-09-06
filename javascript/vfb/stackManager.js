@@ -1091,9 +1091,9 @@ function removeFromStackData(ids) {
 function thumbnailHTMLForId(id) {
   id = cleanIdforInt(id);
   var url = "";
-  var html = '<img class="lazy" data-original="URL" onclick="';
+  var html = '<img class="lazy thumbnail" data-original="URL" onclick="';
   html += "openFullDetails('" + id + "');";
-  html += '" alt="click to see full details" style="display: inline;max-width:' + Math.round((($(window).width()/12.0)*7.0)*0.2) + ';max-height:' + Math.round((($(window).width()/12.0)*7.0)*0.1) + ';" />';
+  html += '" alt="click to see full details" style="max-width:' + Math.round((($(window).width()/12.0)*7.0)*0.2) + ';max-height:' + Math.round((($(window).width()/12.0)*7.0)*0.1) + ';display: inline;" />';
   if (id.indexOf("VFBi_")>-1){
     url = "/data/VFB/i/" + id.substr(5,4) + "/" + id.substr(9,4) + "/thumbnail.png";
     return html.replace('"URL"', '"' + url + '"');
