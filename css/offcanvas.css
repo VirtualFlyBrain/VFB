@@ -397,3 +397,8 @@ div.DTTT_container {
 .dataTables_paginate {
   float:right;
 }
+
+.thumb_sm {
+  max-width: 180;
+  max-height: 180;
+}
