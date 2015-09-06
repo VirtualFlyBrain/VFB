@@ -221,7 +221,7 @@ function updateStackCounter() {
           }
         });
         generateAddButtons();
-        
+
         if ($.cookie('cookie-box') != 'c'){
           $.removeCookie('cookie-box', { path: '/' });
   				$('#cookie-warning').show();
@@ -600,6 +600,9 @@ function decompressJSONdata(data) {
 
 function expandCookieDisplayed() {
   if (store.enabled) {
+    if ($.removeCookie('displaying', {path: '/'}) || $.removeCookie('cookie-box', {path: '/'}) || $.removeCookie('dev-box', {path: '/'}) ){
+      alertMessage('removing old unused cookies');
+    }
     return store.get('data');
   }else{
     var data = $.cookie("displaying");
