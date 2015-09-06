@@ -92,6 +92,9 @@
 
 						$('#systemDetails').text(SupDetail.sysDetail);
 						$('#cookieDetails').text(SupDetail.cookies);
+						if (store.enabled){
+							$('#dataStore').text('LocalData:');
+						}
 					});
 				</script></b> with details.</p>
 
@@ -110,7 +113,7 @@
 				<div style="border: 1px solid green;">
 					<b>Referring page:</b> <small>${param.url}</small><br />
 					<b>System details:</b> <small id="systemDetails"></small><br />
-					<b>Cookies:</b> <small id="cookieDetails"></small><br />
+					<b id="dataStore">Cookies:</b> <small id="cookieDetails"></small><br />
 				</div>
 				<p>Thank you for your help.</p>
 			</div>
