@@ -18,9 +18,9 @@
 					if (store.enabled) {
 						var flybase = String($('#flybase').text()).split(' ')[0];
 						store.set('currentFlybaseVersion', flybase);
-						$('#flybaseLink').attr('html', 'ftp://ftp.flybase.net/releases/' + flybase);
+						$('#flybaseLink').attr('href', 'ftp://ftp.flybase.net/releases/' + flybase);
 						$('#flybaseLink').text(flybase);
-						$('#flybaseLinkRelease').attr('html', 'ftp://ftp.flybase.net/releases/' + flybase);
+						$('#flybaseLinkRelease').attr('href', 'ftp://ftp.flybase.net/releases/' + flybase);
 						$('#flybaseLinkRelease').text(flybase);
 						$('#flybaseRelesedOn').text($('#flybase').text().replace(flybase + ' released on','Released by FlyBase on'));
 					}
