@@ -64,7 +64,7 @@ footer {
    }
 }
 
-@media screen and (min-width: 997px) and (max-width: 1070px) {
+@media screen and (min-width: 997px) and (max-width: 1125px) {
    #reportAnIssue {
        display: none;
    }
