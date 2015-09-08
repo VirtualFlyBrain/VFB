@@ -184,12 +184,7 @@
 										        responsive: true,
 										        stateSave: true,
 										        order: [[ 1, 'desc' ]],
-														dom: "<'row'<'col-xs-4'l><'col-xs-8'i>>R<'row'<'col-xs-12'tr>><'row'<'col-xs-12'p>>",
-										        buttons: [
-										            'copy',
-										            'csv',
-										            'print'
-										        ]
+														dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
 										      });
 													$('#selected').DataTable().column(3).visible(false);
 													$('#selected').on( 'page.dt', function () {

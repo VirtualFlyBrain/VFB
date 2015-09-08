@@ -1551,6 +1551,8 @@ function loadRightMenuDisplayed() {
         }
       });
       $('body').css('cursor', 'default');
+      $('#displayed').DataTable().column(3).visible(false);
+      $('#displayed').DataTable().column(1).visible(false);
     }else{
       $('#displayed').DataTable( { retrieve: true,
         paging: true,
@@ -1559,18 +1561,14 @@ function loadRightMenuDisplayed() {
         responsive: true,
         stateSave: true,
         order: [[ 1, 'desc' ]],
-        dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-md-3'l><'col-md-3'B><'col-md-6'p>>",
-        buttons: [
-            'copy',
-            'csv',
-            'print'
-        ]
+        dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
       });
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
       } );
       // TEMP hiding type till can be resolved via solr
       $('#displayed').DataTable().column(3).visible(false);
+      $('#displayed').DataTable().column(1).visible(false);
       $('#displayed').dataTable().fnAdjustColumnSizing(false);
       $('#displayed').DataTable().draw(false);
     }
@@ -1735,8 +1733,7 @@ function clearSelectedTable() {
       searching: true,
       ordering: true,
       responsive: true,
-      dom: 'B<"clear">lfrtip',
-      buttons: [ 'copy', 'csv', 'excel', 'pdf' ],
+      dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>",
       stateSave: true,
       order: [[ 1, 'desc' ]]
     });
