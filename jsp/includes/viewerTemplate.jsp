@@ -184,7 +184,7 @@
 										        responsive: true,
 										        stateSave: true,
 										        order: [[ 1, 'desc' ]],
-														dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
+														dom: "<'row'<'col-xs-4'l><'col-xs-8'i>>R<'row'<'col-xs-12'tr>><'row'<'col-xs-12'p>>",
 										        buttons: [
 										            'copy',
 										            'csv',
