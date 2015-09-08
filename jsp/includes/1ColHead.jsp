@@ -15,26 +15,23 @@
 		<!-- END Google Snippit code -->
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.3.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
-		<!-- START solr autocomplete components -->
-		<script src="/javascript/ajax-solr/vfb.js"></script>
-		<script src="/javascript/ajax-solr/core/Core.js"></script>
-		<script src="/javascript/ajax-solr/core/AbstractManager.js"></script>
-		<script src="/javascript/ajax-solr/managers/Manager.jquery.js"></script>
-		<script src="/javascript/ajax-solr/core/Parameter.js"></script>
-		<script src="/javascript/ajax-solr/core/ParameterStore.js"></script>
-		<script src="/javascript/ajax-solr/core/AbstractWidget.js"></script>
-		<script src="/javascript/ajax-solr/widgets/ResultWidget.js"></script>
-		<script src="/javascript/ajax-solr/widgets/jquery/PagerWidget.js"></script>
-		<script src="/javascript/ajax-solr/core/AbstractFacetWidget.js"></script>
-		<script src="/javascript/ajax-solr/widgets/TagcloudWidget.js"></script>
-		<script src="/javascript/ajax-solr/widgets/CurrentSearchWidget.js"></script>
-		<script src="/javascript/ajax-solr/core/AbstractTextWidget.js"></script>
-		<script src="/javascript/ajax-solr/widgets/AutocompleteWidget.js"></script>
-		<!-- END solr autocomplete components -->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/bloodhound.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+
+		<!-- Code to manage stacks -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/store.js/1.3.17/store+json2.min.js"></script>
+		<script type="text/javascript" src="/javascript/vfb/stackManager.js" ></script>
+
+		<!-- https://github.com/CWSpear/bootstrap-hover-dropdown -->
+		<script src="/javascript/thirdParty/bootstrap-hover-dropdown.min.js"></script>
 
   	<c:forEach items="${fn:split(param.css, ';')}" var="item">
   		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
