@@ -1558,7 +1558,7 @@ function loadRightMenuDisplayed() {
         paging: true,
         searching: true,
         ordering: true,
-        responsive: true,
+        responsive: false,
         stateSave: true,
         order: [[ 1, 'desc' ]],
         dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
@@ -1732,7 +1732,7 @@ function clearSelectedTable() {
       paging: true,
       searching: true,
       ordering: true,
-      responsive: true,
+      responsive: false,
       dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>",
       stateSave: true,
       order: [[ 1, 'desc' ]]

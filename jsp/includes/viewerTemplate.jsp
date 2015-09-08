@@ -181,12 +181,13 @@
 										        paging: true,
 										        searching: true,
 										        ordering: true,
-										        responsive: true,
+										        responsive: false,
 										        stateSave: true,
 										        order: [[ 1, 'desc' ]],
 														dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
 										      });
 													$('#selected').DataTable().column(3).visible(false);
+													$('#selected').DataTable().column(1).visible(false);
 													$('#selected').on( 'page.dt', function () {
 										        updateLabels();
 														$('#selected').dataTable().fnAdjustColumnSizing(false);
