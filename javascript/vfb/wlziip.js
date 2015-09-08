@@ -1868,7 +1868,9 @@ function addAvailableItems(ids) {
     id=temp.extid;
   }
   if (id && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
-    openFullDetails(id);
+    window.setTimeout(function(){
+				openFullDetails(id);
+		}, 5000);
   }
 }
 
