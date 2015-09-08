@@ -859,13 +859,9 @@ function addToStackData(ids, showDetails){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
              loadTemplateMeta(id);
-             text = '{ "template": "' + id + '","scl":0.5,"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
+             text = '{ "template": "' + id + '","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
              parent.$("body").data("current",JSON.parse(text));
              updateStackData();
-             window.setTimeout(function(){
-       			     parent.$("body").data("current").scl=defaultScaleByScreen();
-                 parent.$('body').data('disp', 'scale');
-       			 }, 5000);
              if (!parent.$("body").data(id)){
                text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
                parent.$("body").data(id,JSON.parse(text));
