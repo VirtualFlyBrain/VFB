@@ -122,7 +122,7 @@
 				</c:if>
 				</span>
 			</div>
-			<div class="text-muted hidden-xs" style="display:initial;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
+			<div class="text-muted visible-lg" style="display:initial;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
 		</form>
 		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 		<script>
@@ -154,7 +154,7 @@
 			  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
 			  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
 			  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
-				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query</a></li>
+				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query Builder</a></li>
 				<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
 			</ul>
 			<div class="tab-content">
