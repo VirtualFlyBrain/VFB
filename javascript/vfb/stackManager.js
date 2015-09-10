@@ -16,7 +16,7 @@ var engine = new Bloodhound({
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local:searchresults,
   remote: {
-        url: '/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
+        url: '/search/select?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=%QUERY',
         wildcard:'%QUERY',
         filter: function (resultlist) {
             // Map the remote source JSON array to a JavaScript object array
@@ -1172,7 +1172,7 @@ function executeSearch() {
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( "/search/ontologySelect?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
+    $.getJSON( "/search/select?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q="+val, function( data ) {
       resl = "";
       var top;
       var i;
