@@ -16,7 +16,7 @@ var engine = new Bloodhound({
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local:searchresults,
   remote: {
-        url: '/search/select?sort=score+desc&wt=json&rows=30&fl=label+synonym+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest:%QUERY OR synonym_autosuggest:%QUERY OR shortform_autosuggest:%QUERY',
+        url: '/search/select?sort=score+desc&wt=json&rows=30&fl=label+synonym+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest%3A%QUERY OR synonym_autosuggest%3A%QUERY OR shortform_autosuggest%3A%QUERY',
         wildcard:'%QUERY',
         filter: function (resultlist) {
             // Map the remote source JSON array to a JavaScript object array
@@ -1167,7 +1167,7 @@ function executeSearch() {
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( "/search/select?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest:"+ val + ' OR synonym_autosuggest:'+val +' OR shortform_autosuggest:'+val, function( data ) {
+    $.getJSON( "/search/select?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest%3A"+ val + ' OR synonym_autosuggest%3A'+val +' OR shortform_autosuggest%3A'+val, function( data ) {
       resl = "";
       var top;
       var i;
