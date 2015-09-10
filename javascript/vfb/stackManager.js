@@ -1183,8 +1183,10 @@ function updateSearchResults() {
             $('#searchid').text(resl);
           }
         }
+        opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
+        newresults.push(opt);
         for (j in data.response.docs[i].synonym){
-          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label_suggest[j],id:resl};
+          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
           newresults.push(opt);
         }
       }
