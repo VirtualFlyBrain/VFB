@@ -1157,8 +1157,8 @@ function executeSearch() {
     $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
     $('.typeahead').typeahead('val','');
   }else{
-    if (searchresults[0].syn.indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
-      $('.typeahead').typeahead('val',searchresults[0].syn);
+    if ($('.tt-hint').text().indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
+      $('.typeahead').typeahead('val',$('.tt-hint').text());
       updateSearchResults();
     }
   }
