@@ -16,7 +16,7 @@ var engine = new Bloodhound({
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local:searchresults,
   remote: {
-        url: '/search/select?rows=100&hl=true&fl=iri,short_form,label,synonym,id,type,score&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=VFB_*%20FBbt_*&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20in_subset_annotation:BRAINNAME^3&q=%QUERY&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true',
+        url: '/search/select?rows=100&hl=true&fl=iri,short_form,label,synonym,id,type,score&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=VFB_*%20FBbt_*&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=%QUERY&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true',
         wildcard:'%QUERY',
         filter: function (resultlist) {
             // Map the remote source JSON array to a JavaScript object array
@@ -1167,7 +1167,7 @@ function executeSearch() {
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( '/search/select?rows=100&hl=true&fl=short_form,label,synonym,id,type&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=VFB_*%20FBbt_*&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"'+ val + '"^2%20synonym_s:"'+ val + '"&q='+ val + '%20in_subset_annotation:BRAINNAME^3&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function( data ) {
+    $.getJSON( '/search/select?rows=100&hl=true&fl=short_form,label,synonym,id,type&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=VFB_*%20FBbt_*&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"'+ val + '"^2%20synonym_s:"'+ val + '"&q='+ val + '%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function( data ) {
       resl = "";
       var top;
       var i;
