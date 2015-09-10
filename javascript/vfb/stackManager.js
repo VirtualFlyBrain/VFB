@@ -28,6 +28,7 @@ var engine = new Bloodhound({
                 for (i in result.synonym) {
                   results.push({syn:result.synonym[i],name:result.label,id:ref});
                 }
+
                 return results;
             });
         }
@@ -1154,13 +1155,25 @@ function executeSearch() {
     openFullDetails($('#searchid').text());
     addToStackData($('#searchid').text());
     $('.typeahead').typeahead('close');
-    $('#searchgroup').removeClass('has-success').removeClass('has-warning');
+    $('#searchgroup').removeClass('has-success').removeClass('has-warning').removeClass('has-info');
     $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
     $('.typeahead').typeahead('val','');
   }else{
-    if ($('.tt-hint').val().indexOf($('#searchtext').val())>-1 || $('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1){
+    if ($('.tt-hint').val().indexOf($('#searchtext').val())>-1){
       $('.typeahead').typeahead('val',$('.tt-hint').val());
       updateSearchResults();
+    }
+    if ($('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1) {
+      if (searchresults[0].id == $('#searchtext').val().replace(':','_')) {
+        openFullDetails(searchresults[0].id);
+        addToStackData(searchresults[0].id);
+        $('.typeahead').typeahead('close');
+        $('#searchgroup').removeClass('has-success').removeClass('has-warning').removeClass('has-info');
+        $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
+        $('.typeahead').typeahead('val','');
+      }else{
+        $('#searchgroup').addClass('has-info');
+      }
     }
   }
 }
