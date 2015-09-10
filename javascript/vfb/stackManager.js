@@ -24,6 +24,7 @@ var engine = new Bloodhound({
                 var ref = result.short_form;
                 var i;
                 var results = [];
+                results.push({syn:result.label,name:result.label,id:ref});
                 for (i in result.synonym) {
                   results.push({syn:result.synonym[i],name:result.label,id:ref});
                 }
