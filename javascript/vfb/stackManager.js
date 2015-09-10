@@ -16,7 +16,7 @@ var engine = new Bloodhound({
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local:searchresults,
   remote: {
-        url: '/search/select?sort=score+desc&wt=json&rows=30&fl=label+synonym+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest%3A%QUERY OR synonym_autosuggest%3A%QUERY OR shortform_autosuggest%3A%QUERY',
+        url: '/search/select?hl=true&fl=iri,short_form,label,synonym,id,type,score&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0&q=%QUERY&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true',
         wildcard:'%QUERY',
         filter: function (resultlist) {
             // Map the remote source JSON array to a JavaScript object array
@@ -1167,7 +1167,7 @@ function executeSearch() {
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
-    $.getJSON( "/search/select?sort=score+desc&wt=json&rows=30&fl=label+label_suggest+short_form&df=short_form&fq=VFB_*%20FBbt_*&q=label_autosuggest%3A"+ val + ' OR synonym_autosuggest%3A'+val +' OR shortform_autosuggest%3A'+val, function( data ) {
+    $.getJSON( '/search/select?hl=true&fl=short_form,label,synonym,id,type&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&rows=10&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"'+ val + '"^2%20synonym_s:"'+ val + '"&q='+ val + '&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function( data ) {
       resl = "";
       var top;
       var i;
@@ -1177,17 +1177,13 @@ function updateSearchResults() {
       var val = $('#searchtext').val();
       for (i in data.response.docs){
         if (data.response.docs[i].label){
-          if (data.response.docs[i].short_form[0].indexOf('_')>-1){
-            resl = data.response.docs[i].short_form[0];
-          }else{
-            resl = data.response.docs[i].short_form[1];
-          }
+          resl = data.response.docs[i].short_form;
           if (i == '0'){
             top = resl;
             $('#searchid').text(resl);
           }
         }
-        for (j in data.response.docs[i].label_suggest){
+        for (j in data.response.docs[i].synonym){
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label_suggest[j],id:resl};
           newresults.push(opt);
         }
