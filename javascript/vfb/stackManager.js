@@ -708,7 +708,7 @@ function loadDefaultData(ids) {
 
 function initStackData(ids) {
   if (store.enabled) {
-    if (store.get('data') === undefined) {
+    if (store.get('data') === undefined || JSON.stringify(store.get('data')) == '{}' ) {
       loadDefaultData(ids);
     }
     parent.$("body").data(store.get('data'));
