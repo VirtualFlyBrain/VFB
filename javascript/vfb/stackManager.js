@@ -291,32 +291,41 @@ function cleanIdforInt(id) {
 
 function loadTemplateMeta(id) {
    if (id){
-     file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
-     $.getJSON( file, function( data ) {
-       $.each( data, function( key, val ) {
-         parent.$("body").data(key,val);
+     if (parent.$("body").data(id.substr(0,8)).meta) {
+       parent.$("body").data('meta',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).meta)));
+       parent.$("body").data('current',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).current)));
+       parent.$("body").data('domains',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).domains)));
+     }else{
+       file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
+       $.getJSON( file, function( data ) {
+         $.each( data, function( key, val ) {
+           parent.$("body").data(key,val);
+         });
+         if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
+           parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+           var temp = parent.$("body").data("meta").center.split(',');
+           window.selPointX = temp[0];
+           window.selPointY = temp[1];
+           window.selPointZ = temp[2];
+         }
+         var l;
+         var list = "";
+         for (l in $('body').data("domains")) {
+           if (!$('body').data("domains")[l].extId || !$('body').data("domains")[l].extId[0] || $('body').data("domains")[l].extId[0] === ""){
+             $('body').data("domains")[l].extId = ["TBA_" + pad(l,8)];
+           }
+           if ($('body').data("domains")[l].id > "") {
+             list += cleanIdforInt($('body').data("domains")[l].extId[0]) + ",";
+           }
+         }
+         parent.$("body").data("available", list);
+         updateStackData();
+         parent.$("body").data("current").scl = defaultScaleByScreen();
+         parent.$("body").data(id.substr(0,8)).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
+         parent.$("body").data(id.substr(0,8)).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
+         parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
        });
-       if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
-         parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
-         var temp = parent.$("body").data("meta").center.split(',');
-         window.selPointX = temp[0];
-         window.selPointY = temp[1];
-         window.selPointZ = temp[2];
-       }
-       var l;
-       var list = "";
-       for (l in $('body').data("domains")) {
-         if (!$('body').data("domains")[l].extId || !$('body').data("domains")[l].extId[0] || $('body').data("domains")[l].extId[0] === ""){
-           $('body').data("domains")[l].extId = ["TBA_" + pad(l,8)];
-         }
-         if ($('body').data("domains")[l].id > "") {
-           list += cleanIdforInt($('body').data("domains")[l].extId[0]) + ",";
-         }
-       }
-       parent.$("body").data("available", list);
-       updateStackData();
-       parent.$("body").data("current").scl = defaultScaleByScreen();
-     });
+     }
    }
 }
 
@@ -476,6 +485,9 @@ function hexColToRGB(hex) {
 
 function updateStackData(){
   if (store.enabled) {
+    parent.$("body").data(parent.$("body").data('current').template).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
+    parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
+    parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
     store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
   }else{
     var data = returnCleanData(dropItems);
@@ -731,11 +743,7 @@ function initStackData(ids) {
     loadDefaultData(ids);
     location.reload();
   }
-  if (!store.enabled) {
-    loadTemplateMeta(parent.$("body").data("current").template);
-  }else if (parent.$("body").data(parent.$("body").data("current").template) === undefined || parent.$("body").data(parent.$("body").data("current").template).selected[0].id.indexOf(parent.$("body").data("current").template)<0){
-    loadTemplateMeta(parent.$("body").data("current").template);
-  }
+  loadTemplateMeta(parent.$("body").data("current").template);
   updateStackData();
 }
 
