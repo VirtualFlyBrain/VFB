@@ -295,13 +295,21 @@ function loadTemplateMeta(id) {
        parent.$("body").data('meta',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).meta)));
        parent.$("body").data('current',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).current)));
        parent.$("body").data('domains',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).domains)));
+       parent.$("body").data('available',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).available)));
+       if (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined"){
+         parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+         var temp = parent.$("body").data("meta").center.split(',');
+         window.selPointX = temp[0];
+         window.selPointY = temp[1];
+         window.selPointZ = temp[2];
+       }
      }else{
        file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
        $.getJSON( file, function( data ) {
          $.each( data, function( key, val ) {
            parent.$("body").data(key,val);
          });
-         if (parent.$("body").data("meta").center !== undefined && (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined")){
+         if (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined"){
            parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
            var temp = parent.$("body").data("meta").center.split(',');
            window.selPointX = temp[0];
@@ -324,6 +332,7 @@ function loadTemplateMeta(id) {
          parent.$("body").data(id.substr(0,8)).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
          parent.$("body").data(id.substr(0,8)).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
          parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
+         parent.$("body").data(id.substr(0,8)).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
        });
      }
    }
@@ -488,6 +497,7 @@ function updateStackData(){
     parent.$("body").data(parent.$("body").data('current').template).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
     parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
     parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
+    parent.$("body").data(parent.$("body").data('current').template).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
     store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
   }else{
     var data = returnCleanData(dropItems);
