@@ -328,7 +328,6 @@ function loadTemplateMeta(id) {
          }
          parent.$("body").data("available", list);
          updateStackData();
-         parent.$("body").data("current").scl = defaultScaleByScreen();
          parent.$("body").data(id.substr(0,8)).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
          parent.$("body").data(id.substr(0,8)).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
          parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
