@@ -332,6 +332,9 @@ function loadTemplateMeta(id) {
          parent.$("body").data(id.substr(0,8)).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
          parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
          parent.$("body").data(id.substr(0,8)).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
+         if (parent.$("body").data("current").scl === undefined || parent.$("body").data("current").scl < 0.1) {
+           parent.$("body").data("current").scl = defaultScaleByScreen();
+         }
        });
      }
    }
