@@ -503,7 +503,9 @@ function updateStackData(){
       parent.$("body").data(parent.$("body").data('current').template).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
       store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
     }else{
-      loadTemplateMeta(parent.$("body").data('current').template);
+      if (parent.$("body").data('current') && parent.$("body").data('current').template) {
+        loadTemplateMeta(parent.$("body").data('current').template);
+      }
     }
   }else{
     var data = returnCleanData(dropItems);
