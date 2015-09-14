@@ -32,7 +32,7 @@
          "treeDataFile": "/data/flybrain/larval/tree/treeContent.jso"   
         }
    ],
-   "initialState": {"scale":"1.1", "distance":"-10", "pitch":"3", "yaw":"353", "roll":"0","x":"463","y":"369","z":"-10"},
+   "initialState": {"scale":"1.1", "distance":"-10", "pitch":"0", "yaw":"0", "roll":"0","x":"463","y":"369","z":"-10"},
    "pixelResolution": {"x":"1.0", "y":"1.0", "z":"1.0", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
    "menuStructureFile": "/data/flybrain/larval/menu/menuStructure.jso",
    "menuContentFile": "/data/flybrain/larval/menu/menuContent.jso",
