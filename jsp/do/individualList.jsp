@@ -66,15 +66,15 @@
 							<c:set var="types" value="${ontBean.types}" />
 							<tr>
 								<td>
-									<a href="http://www.virtualflybrain.org/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
+									<a href="http://www.virtualflybrain.org/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}" class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
 								<td align="center">
 										<c:choose>
 											<c:when test="${!empty tpb}">
-												<a href="/site/tools/anatomy_finder/?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a><br />
+												<a href="/site/stacks/index.htm?id=${tpb.vfbId}" class="text-success">${ontBean.name}</a><br />
 												<span style="border:none;padding-left:0px;padding-right:0px;" id="attach" data-id="${tpb.vfbId}"></span>
 											</c:when>
 											<c:otherwise>
-												<a href="/site/tools/anatomy_finder/?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
+												<a href="/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}" class="text-info">${ontBean.name}</a>
 											</c:otherwise>
 										</c:choose>
 								</td>
