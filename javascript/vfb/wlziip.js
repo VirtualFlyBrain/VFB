@@ -41,8 +41,8 @@ function animateWlzDisplay(){
 
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  canvas.width = $(window).width()/3;
-  canvas.height = $(window).height();
+  canvas.width = Math.round($(window).width()/3);
+  canvas.height = Math.round($(window).height()/2);
   function step() {
     if (parent.$("body").data("current") && parent.$("body").data(parent.$("body").data("current").template)) {
       var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
