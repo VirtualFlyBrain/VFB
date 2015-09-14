@@ -291,7 +291,7 @@ function cleanIdforInt(id) {
 
 function loadTemplateMeta(id) {
    if (id){
-     if (parent.$("body").data(id.substr(0,8)).meta) {
+     if (parent.$("body").data(id.substr(0,8)) && parent.$("body").data(id.substr(0,8)).meta) {
        parent.$("body").data('meta',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).meta)));
        parent.$("body").data('current',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).current)));
        parent.$("body").data('domains',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).domains)));
