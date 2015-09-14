@@ -1069,7 +1069,7 @@ function updateLabels() {
       $('#positionVal').html('<small>' + pos.join(',') + '</small>');
     }
 
-    if (parent.$("body").data("meta")){
+    if (parent.$("body").data("meta") && false){
       $('[id^=nameFor]').each(function() {
         content = $(this).data('id');
         content = cleanIdforExt(content);
