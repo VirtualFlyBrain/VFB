@@ -885,16 +885,16 @@ function addToStackData(ids, showDetails){
           if (id.indexOf("VFBt_") > -1){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
-             loadTemplateMeta(id);
+             parent.$("body").data("current").template = id;
              text = '{ "template": "' + id + '","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
              parent.$("body").data("current",JSON.parse(text));
-             updateStackData();
+             loadTemplateMeta(id);
              if (!parent.$("body").data(id)){
                text = '{"selected":{"0":{"id":"' + id + "00000" + '","colour":"auto","visible":true}}}';
                parent.$("body").data(id,JSON.parse(text));
              }
-             updateStackData();
              parent.$("body").data("disp","scale");
+             updateStackData();
              if (window.location.pathname == "/site/stacks/index.htm"){
                location.href=location.href.replace(location.hash,"").replace('#','');
              }
