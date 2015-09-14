@@ -291,7 +291,7 @@ function cleanIdforInt(id) {
 
 function loadTemplateMeta(id) {
    if (id){
-     if (parent.$("body").data(id.substr(0,8)) && parent.$("body").data(id.substr(0,8)).meta) {
+     if (parent.$("body").data(id.substr(0,8)) && parent.$("body").data(id.substr(0,8)).meta && parent.$("body").data(id.substr(0,8)).meta.template == id.substr(0,8)) {
        parent.$("body").data('meta',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).meta)));
        parent.$("body").data('current',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).current)));
        parent.$("body").data('domains',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).domains)));
@@ -327,6 +327,8 @@ function loadTemplateMeta(id) {
          parent.$("body").data("available", list);
          updateStackData();
          parent.$("body").data(id.substr(0,8)).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
+         parent.$("body").data("meta").template = id.substr(0,8);
+         parent.$("body").data("meta").loaded = Date.now();
          parent.$("body").data(id.substr(0,8)).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
          parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
          parent.$("body").data(id.substr(0,8)).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
@@ -494,11 +496,15 @@ function hexColToRGB(hex) {
 
 function updateStackData(){
   if (store.enabled) {
-    parent.$("body").data(parent.$("body").data('current').template).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
-    parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
-    parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
-    parent.$("body").data(parent.$("body").data('current').template).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
-    store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+    if (parent.$("body").data("meta").template == parent.$("body").data('current').template) {
+      parent.$("body").data(parent.$("body").data('current').template).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
+      parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
+      parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
+      parent.$("body").data(parent.$("body").data('current').template).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
+      store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+    }else{
+      loadTemplateMeta(parent.$("body").data('current').template);
+    }
   }else{
     var data = returnCleanData(dropItems);
     if (data.length > cookieMax){
