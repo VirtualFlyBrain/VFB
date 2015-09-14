@@ -784,8 +784,8 @@ function post(path, params, method) {
 }
 
 function alertMessage(message) {
-  console.log(message);
   try{
+    console.log(message);
     ga('send', 'event', 'code', 'alert', message);
   } catch (ignore){
 
