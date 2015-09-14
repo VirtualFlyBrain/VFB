@@ -309,13 +309,11 @@ function loadTemplateMeta(id) {
          $.each( data, function( key, val ) {
            parent.$("body").data(key,val);
          });
-         if (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined"){
-           parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
-           var temp = parent.$("body").data("meta").center.split(',');
-           window.selPointX = temp[0];
-           window.selPointY = temp[1];
-           window.selPointZ = temp[2];
-         }
+         parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
+         var temp = parent.$("body").data("meta").center.split(',');
+         window.selPointX = temp[0];
+         window.selPointY = temp[1];
+         window.selPointZ = temp[2];
          var l;
          var list = "";
          for (l in $('body').data("domains")) {
