@@ -501,12 +501,12 @@ function updateStackData(){
       parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
       parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
       parent.$("body").data(parent.$("body").data('current').template).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
-      store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
     }else{
       if (parent.$("body").data('current') && parent.$("body").data('current').template) {
         loadTemplateMeta(parent.$("body").data('current').template);
       }
     }
+    store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
   }else{
     var data = returnCleanData(dropItems);
     if (data.length > cookieMax){
