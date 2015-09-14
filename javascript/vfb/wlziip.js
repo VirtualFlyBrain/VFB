@@ -1305,7 +1305,7 @@ function createInfoButtonHTMLbyId(id) {
     content += '<button type="button" id="infoButtonFor' + id + '" class="btn btn-default btn-xs" aria-label="Open Details" title="Full Details" onclick="';
     switch (id.substr(0,4)) {
       case "VFBt":
-        content += "$('#anatomyDetails').load('/site/stacks/index.htm #imageAttributesText')";
+        content += "$('#anatomyDetails').html($('#imageAttributesText').html());";
         break;
       default:
         content += "openFullDetails('" + id + "')";
