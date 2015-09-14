@@ -496,7 +496,7 @@ function hexColToRGB(hex) {
 
 function updateStackData(){
   if (store.enabled) {
-    if (parent.$("body").data("meta").template == parent.$("body").data('current').template) {
+    if (parent.$("body").data("meta") && parent.$("body").data("meta").template && parent.$("body").data("meta").template == parent.$("body").data('current').template) {
       parent.$("body").data(parent.$("body").data('current').template).current = JSON.parse(JSON.stringify(parent.$("body").data("current")));
       parent.$("body").data(parent.$("body").data('current').template).meta = JSON.parse(JSON.stringify(parent.$("body").data("meta")));
       parent.$("body").data(parent.$("body").data('current').template).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
