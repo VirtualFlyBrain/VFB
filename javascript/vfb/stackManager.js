@@ -541,6 +541,10 @@ function returnCleanData(loose) {
   var c = totalItemCount();
   for (t in save) {
     if (t.indexOf('VFBt_')>-1) {
+      delete save[t].current;
+      delete save[t].meta;
+      delete save[t].domains;
+      delete save[t].available;
       if (save[t].selected["5"]){
         for (l in save[t].selected) {
           if (parseInt(l) > (c-loose)){
