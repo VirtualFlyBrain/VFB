@@ -26,64 +26,14 @@
 		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
 </jsp:include>
-
-<c:if test="${!empty param.add}">
-	<c:choose>
-		<c:when test="${!empty param.tab}">
-			<script>
-				$('body').ready( function () {
-					addToStackData("${param.add}");
-					updateStackData();
-					openFullDetails("${param.id}");
-					if (location.href.indexOf('?')>-1){
-						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}","id":"${param.id}"});
-					}
-				});
-			</script>
-		</c:when>
-		<c:otherwise>
-			<script>
-				$('body').ready( function () {
-					addToStackData("${param.add}");
-					updateStackData();
-					if (location.href.indexOf('?')>-1){
-						post(window.location.pathname, {"add":"${param.add}"});
-					}
-				});
-			</script>
-		</c:otherwise>
-	</c:choose>
-</c:if>
-
-<c:if test="${!empty param.tab}">
-	<c:choose>
-		<c:when test="${!empty param.add}">
-			<script>
-				$('body').ready( function () {
-					if (location.href.indexOf('?')>-1){
-						post(window.location.pathname, {"add":"${param.add}","tab":"${param.tab}"});
-					}
-				});
-			</script>
-		</c:when>
-	  <c:otherwise>
-			<script>
-				$('body').ready( function () {
-					if (location.href.indexOf('?')>-1){
-						post(window.location.pathname, {"tab":"${param.tab}"});
-					}
-				});
-			</script>
-		</c:otherwise>
-	</c:choose>
-</c:if>
-
+<script>paramInc = {};</script>
+<c:if test="${!empty param.add}"><script>addToStackData("${param.add}"); updateStackData(); paramInc.add = '${param.add}'; </script></c:if>
+<c:if test="${!empty param.tab}"><script>$('body').ready( function () { window.setTimeout(function(){ openTab("${param.tab}"); }, 5000);}); paramInc.tab = '${param.tab}'; </script></c:if>
+<c:if test="${!empty param.id}"><script>openFullDetails("${param.id}"); paramInc.id = '${param.id}'; </script></c:if>
 <script>
-	$('body').ready( function () {
-		window.setTimeout(function(){
-			openTab("${param.tab}");
-		}, 5000);
-	});
+	if (location.href.indexOf('?')>-1){
+		post(window.location.pathname, paramInc);
+	}
 </script>
 
 <div class="row" style="overflow:scroll;">
