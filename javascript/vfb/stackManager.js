@@ -754,6 +754,7 @@ function initStackData(ids) {
       console.log(JSON.stringify(store.get('data')));
       parent.$("body").data(expandCookieDisplayed());
     }else{
+      console.log('delayed load');
       window.setTimeout(function(){
         initStackData(ids);
       }, 100);
