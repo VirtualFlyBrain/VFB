@@ -296,6 +296,8 @@ function loadTemplateMeta(id) {
        parent.$("body").data('current',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).current)));
        parent.$("body").data('domains',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).domains)));
        parent.$("body").data('available',JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0,8)).available)));
+       parent.$("body").data(id.substr(0,8)).selected[0].name = parent.$("body").data('meta').name + ' Template';
+       parent.$("body").data(id.substr(0,8)).selected[0].type = $('#backgroundStain').html();
        if (parent.$("body").data("current") === undefined || parent.$("body").data("current").fxp == "0.0,0.0,0.0" || parent.$("body").data("current").fxp == "0,0,0" || parent.$("body").data("current").fxp == "undefined"){
          parent.$("body").data("current").fxp = parent.$("body").data("meta").center;
          var temp = parent.$("body").data("meta").center.split(',');
