@@ -911,9 +911,9 @@ function addToStackData(ids, showDetails){
              }
              parent.$("body").data("disp","scale");
              updateStackData();
-             if (window.location.pathname == "/site/stacks/index.htm"){
-               location.href=location.href.replace(location.hash,"").replace('#','');
-             }
+            //  if (window.location.pathname == "/site/stacks/index.htm"){
+            //    location.href=location.href.replace(location.hash,"").replace('#','');
+            //  }
            }
          }else if (id.indexOf("VFBi_a") > -1){
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
