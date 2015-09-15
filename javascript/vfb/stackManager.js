@@ -749,7 +749,9 @@ function initStackData(ids) {
       loadDefaultData(ids);
     }
     if (store.has('data') && JSON.stringify(store.get('data')) != '{}') {
-      parent.$("body").data(store.get('data'));
+      console.log('loading stored data:');
+      console.log(JSON.stringify(store.get('data')));
+      parent.$("body").data(expandCookieDisplayed());
     }else{
       window.setTimeout(function(){
         initStackData(ids);
