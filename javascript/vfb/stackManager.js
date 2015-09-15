@@ -757,6 +757,7 @@ function initStackData(ids) {
       return;
     }
   }else{
+    console.log('falling back to cookies!');
     if (!$.cookie('displaying')) {
       console.log('no cookie');
       loadDefaultData(ids);
