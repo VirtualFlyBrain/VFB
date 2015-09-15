@@ -678,6 +678,7 @@ function replaceAll(string, find, replace) {
 }
 
 function clearAbsolutlyAllData() {
+  console.log('User requested clearance:');
   loadDefaultData();
   var selected;
   var i;
@@ -744,11 +745,13 @@ function loadDefaultData(ids) {
 function initStackData(ids) {
   if (store.enabled) {
     if (store.get('data') === undefined || JSON.stringify(store.get('data')) == '{}' ) {
+      console.log('data store is empty');
       loadDefaultData(ids);
     }
     parent.$("body").data(store.get('data'));
   }else{
     if (!$.cookie('displaying')) {
+      console.log('no cookie');
       loadDefaultData(ids);
     }else{
       if (ids) {
@@ -1307,6 +1310,7 @@ $('body').ready( function () {
   }, 2000);
   window.setTimeout(function(){
     if ($('#viewer2DVal').text()=="*") {
+      console.log('watchdog triggered!');
       loadDefaultData();
       alertMessage('Watchdog detected a problem - reset data');
     }
