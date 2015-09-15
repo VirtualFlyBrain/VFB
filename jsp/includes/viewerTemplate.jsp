@@ -63,12 +63,12 @@
 				  <p><b>Created by: </b>${credits[1]}</p>
 				  <p><b>Background Staining: </b>${credits[2]} <span id="backgroundStain"><a href="${credits[3]}" target="_blank">${credits[4]}</a></span</p>
 					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
-					<h3><span class="glyphicon glyphicon-info-sign"></span> See individual details sheet for any images overlayed for attributation information.</h3>
+					<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
 				</c:if>
 				<c:if test="${empty param.stackInfo}">
 					<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
 					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
-					<h3><span class="glyphicon glyphicon-info-sign"></span> See individual details sheet for any images overlayed for attributation information.</h3>
+					<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
 				</c:if>
 				</span>
 			</div>
@@ -237,7 +237,7 @@
 			<a name="details"></a>
 			<div id="anatomyDetails">
 				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
-				Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>
+				Click anywhere on the stack viewer or use the search in the header or the Anatomy menu tab to select an anatomy term.<br/><br/>
 				Information for the selected anatomical term will be displayed here, with further query options visible after selection.
 				<script>
 				$(document).ready(function() {
