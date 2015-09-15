@@ -748,7 +748,13 @@ function initStackData(ids) {
       console.log('initialising data store');
       loadDefaultData(ids);
     }
-    parent.$("body").data(store.get('data'));
+    if (store.has('data') && JSON.stringify(store.get('data')) != '{}') {
+      parent.$("body").data(store.get('data'));
+    }else{
+      window.setTimeout(function(){
+        initStackData(ids);
+      }, 100);
+    }
   }else{
     if (!$.cookie('displaying')) {
       console.log('no cookie');
