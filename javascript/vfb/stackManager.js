@@ -736,6 +736,7 @@ function loadDefaultData(ids) {
   parent.$("body").data("VFBt_002", { selected: { 0: { id: "VFBt_00200000", colour: "auto", visible: true }}});
   parent.$("body").data("VFBt_003", { selected: { 0: { id: "VFBt_00300000", colour: "auto", visible: true }}});
   parent.$("body").data("VFBt_004", { selected: { 0: { id: "VFBt_00400000", colour: "auto", visible: true }}});
+  updateStackData();
   if (ids !== undefined && ids !== null && ids !== "") {
     addToStackData(ids);
   }
