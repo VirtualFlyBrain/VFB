@@ -1911,15 +1911,19 @@ function copyUrlToClipboard() {
 
 function returnFullUrl() {
     var current = parent.$("body").data("current");
-    var selected = parent.$("body").data(current.template).selected;
-    var i;
-    var displayed = selected[0].id;
-    for (i in selected) {
-      if (i>0){
-        displayed += "," + selected[i].id;
+    if (current){
+      var selected = parent.$("body").data(current.template).selected;
+      var i;
+      var displayed = selected[0].id;
+      for (i in selected) {
+        if (i>0){
+          displayed += "," + selected[i].id;
+        }
       }
+      return "http://"+window.location.host+window.location.pathname+"?add="+displayed;
+    }else{
+      return "http://"+window.location.host+window.location.pathname;
     }
-    return "http://"+window.location.host+window.location.pathname+"?add="+displayed;
 }
 
 
