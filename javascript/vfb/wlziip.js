@@ -1630,24 +1630,28 @@ function loadTemplateAnatomyTree() {
 function addAllDomains() {
   var available = parent.$("body").data("available").split(",");
   try{ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);}catch(ignore){}
-  if (cleanIdforInt(available[0]).indexOf('VFBt_')>-1){
-    available.shift();
-  }
-  if (cleanIdforInt(available[0]).indexOf('FBbt_00003624')>-1){
-    available.shift();
-  }
-  addToStackData(available);
-  $('#canvas').css('cursor', 'wait');
-  updateMenuData();
-  updateWlzDisplay();
+  try{
+    if (cleanIdforInt(available[0]).indexOf('VFBt_')>-1){
+      available.shift();
+    }
+    if (cleanIdforInt(available[0]).indexOf('FBbt_00003624')>-1){
+      available.shift();
+    }
+    addToStackData(available);
+    $('#canvas').css('cursor', 'wait');
+    updateMenuData();
+    updateWlzDisplay();
+  }catch(ignore){}
 }
 
 function removeAllDomains() {
   var available = parent.$("body").data("available").split(",");
   try{ga('send', 'event', 'viewer', 'Opening all anatomy', parent.$("body").data("current").template);}catch(ignore){}
-  removeFromStackData(available);
-  updateMenuData();
-  updateWlzDisplay();
+  try{
+    removeFromStackData(available);
+    updateMenuData();
+    updateWlzDisplay();
+  }catch(ignore){}
 }
 
 function expandTree() {
