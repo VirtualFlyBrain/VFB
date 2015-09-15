@@ -754,6 +754,7 @@ function initStackData(ids) {
       window.setTimeout(function(){
         initStackData(ids);
       }, 100);
+      return;
     }
   }else{
     if (!$.cookie('displaying')) {
