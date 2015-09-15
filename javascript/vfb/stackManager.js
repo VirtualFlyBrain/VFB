@@ -506,7 +506,9 @@ function updateStackData(){
         loadTemplateMeta(parent.$("body").data('current').template);
       }
     }
-    store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+    if (JSON.stringify(parent.$("body").data()).length > 10){
+      store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+    }
   }else{
     var data = returnCleanData(dropItems);
     if (data.length > cookieMax){
