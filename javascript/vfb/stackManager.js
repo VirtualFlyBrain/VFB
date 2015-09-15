@@ -744,9 +744,8 @@ function loadDefaultData(ids) {
 
 function initStackData(ids) {
   if (store.enabled) {
-    if (store.get('data') === undefined || JSON.stringify(store.get('data')) == '{}' ) {
-      console.log('data store is empty');
-      console.log(JSON.stringify(store.get('data')));
+    if (!store.has('data')) {
+      console.log('initialising data store');
       loadDefaultData(ids);
     }
     parent.$("body").data(store.get('data'));
