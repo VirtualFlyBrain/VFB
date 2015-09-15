@@ -757,7 +757,7 @@ function initStackData(ids) {
       console.log('delayed load');
       window.setTimeout(function(){
         initStackData(ids);
-      }, 100);
+      }, 10);
       return;
     }
   }else{

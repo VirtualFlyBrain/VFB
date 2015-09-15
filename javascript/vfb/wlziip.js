@@ -1929,7 +1929,6 @@ function returnFullUrl() {
 
 $('body').ready( function () {
   $('body').css('cursor', 'wait');
-  loadColours();
   initWlzControls();
   window.setInterval(function(){
     updateMenuData();
