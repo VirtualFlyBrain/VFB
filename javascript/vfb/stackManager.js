@@ -335,7 +335,9 @@ function loadTemplateMeta(id) {
          parent.$("body").data(id.substr(0,8)).domains = JSON.parse(JSON.stringify(parent.$("body").data("domains")));
          parent.$("body").data(id.substr(0,8)).available = JSON.parse(JSON.stringify(parent.$("body").data("available")));
          if (parent.$("body").data("current").scl === undefined || parent.$("body").data("current").scl < 0.1) {
-           parent.$("body").data("current").scl = defaultScaleByScreen();
+           var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+           var orient = parent.$("body").data("current").slice;
+           parent.$("body").data("current").scl = Math.round((($('#viewer-panel').width()-50)/(parent.$("body").data("meta").extent.split(',')[orientation[orient].W]*parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]))*10)/10;
          }
        });
      }
