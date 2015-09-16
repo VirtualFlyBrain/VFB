@@ -30,7 +30,7 @@
     	var url = "/do/ont_query_result.html";
     	var params = 'action=count';
     	var tip = "This tool allows you to search for neurons that innervate two different brain regions, specifying pre- or post-synaptic terminals. <br/>"+
-				"To begin, please search and select a neuropil using the Selected, Displayed or Anatomy tabs. Add it to the query using the 'Add to Query' <span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span> icon on the term info panel or anatomy tree." +
+				"To begin, please search and select a neuropil using the Selected, Displayed or Anatomy tabs. Add it to the query using the 'Add to Query' <span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span> icon next to your required anatomy term." +
 				"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
 				"Continue adding more terms as required.<br/>"+
 				"A query can be executed at any time by clicking the 'Show Results' button.<br/><br/>" +
