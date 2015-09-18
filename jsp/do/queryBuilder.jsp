@@ -33,7 +33,7 @@
     $('body').ready( function () {
       var target = $('query_text');
     	var url = "/do/ont_query_result.html";
-    	var params = 'action=count&time='+Date.now();
+    	var params = 'action=count';
     	var tip = "This tool allows you to search for neurons that innervate two different brain regions, specifying pre- or post-synaptic terminals. <br/>"+
 				"To begin, please search and select a neuropil using the Selected, Displayed or Anatomy tabs. Add it to the query using the 'Add to Query' <a href='#' class='btn btn-xs btn-info' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-tasks'></span></a> icon next to your required anatomy term. <br />" +
 				"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
@@ -43,7 +43,7 @@
 			var queryText = "${queryText}";
 			if (queryText != "") {
 				$('#query_text').html(queryText);
-				$('#query_count').load(url+'?'+params, function() {
+				$('#query_count').load(url+'?'+params + '&time='+Date.now(), function() {
 					if ($("#query_count").text().indexOf(" 0 ") > -1){
 						$("#query_count").removeClass("bg-success").addClass("bg-danger");
 					}else{
@@ -78,6 +78,10 @@
 <div id="content" style="position:absolute;top:0">
 	<div style="width:100%;">
 		<form name="ontQuery" action="/do/query_builder.html">
+			<input id="hidden_field" type="hidden" class="form-control" name="sequence" value=""/>
+			<script type="text/javascript">
+				$('#hidden_field').value = Date.now();
+			</script>
 			<c:forEach items="${arguments}" var="curr" varStatus="stat">
 				<c:if test="${curr.relation=='include'}">
 					<div class="form-group has-success"><div class="input-group"><span class="input-group-addon" title="The query includes anything matching this item"><span class="glyphicon glyphicon-plus-sign"></span></span>
@@ -94,7 +98,7 @@
 					</c:forEach>
 				</select>
 				<!-- input type="image" value="Set query type" src="/images/utils/delete.png;" style="vertical-align: middle;height:20px; border:1px solid gray"/-->
-				<span class="input-group-addon" title="Remove this item from the query" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}';return false"><span class="glyphicon glyphicon-remove-sign"></span></span>
+				<span class="input-group-addon" title="Remove this item from the query" onclick="window.location='/do/query_builder.html?action=delete&index=${stat.index}'+'&time='+Date.now();return false"><span class="glyphicon glyphicon-remove-sign"></span></span>
 				</div></div>
 				<br/>
 			</c:forEach>
