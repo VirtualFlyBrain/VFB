@@ -34,7 +34,7 @@
 				"Then choose the type of terminals using the drop-down menu to the right of the term. <br/>" +
 				"Continue adding more terms as required.<br/>"+
 				"A query can be executed at any time by clicking the 'Show Results' button.<br/><br/>" +
-				"<div class='lead bg-warning'>Your query is currently empty.</div> <br/><br/>Click <a href='#' class='btn btn-xs btn-info' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-tasks'></span></a> icon next to anatomy terms to query against them. ";
+				"<div class='lead bg-warning'>Your query is currently empty.</div> Click <a href='#' class='btn btn-xs btn-info' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-tasks'></span></a> icon next to anatomy terms to query against them. ";
 			var queryText = "${queryText}";
 			if (queryText != "") {
 				$('#query_text').html(queryText);
