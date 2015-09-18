@@ -9,6 +9,7 @@
 
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
+	<jsp:param name="cache" value="no" />
 	<jsp:param name="css" value="
 		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
 		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;

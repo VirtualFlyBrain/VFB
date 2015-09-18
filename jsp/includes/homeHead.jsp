@@ -16,6 +16,14 @@
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
 		<!-- END Google Snippit code -->
 
+	  <c:if test="${!empty param.cache}">
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		</c:if>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
