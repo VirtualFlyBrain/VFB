@@ -831,6 +831,7 @@ function openFullDetails(id) {
         $('#anatomyDetails').html('Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>Information for the selected anatomical term will be displayed here, with further query options visible after selection.');
       }
     }, 60000);
+    try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), '/site/stacks/index.htmid=' + cleanIdforExt(id) );}catch (ignore){}
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){
@@ -838,6 +839,7 @@ function openFullDetails(id) {
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
           $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
+          try {history.pushState( {}, id, '/site/stacks/index.htm?id='+id );}catch (ignore){}
         }
       }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
@@ -915,6 +917,7 @@ function addToStackData(ids, showDetails){
              }
              parent.$("body").data("disp","scale");
              updateStackData();
+             try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm?add='+id );}catch (ignore){}
             //  if (window.location.pathname == "/site/stacks/index.htm"){
             //    location.href=location.href.replace(location.hash,"").replace('#','');
             //  }

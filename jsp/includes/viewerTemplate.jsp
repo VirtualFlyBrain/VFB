@@ -30,11 +30,11 @@
 <c:if test="${!empty param.add}"><script>addToStackData("${param.add}"); updateStackData(); paramInc.add = '${param.add}'; </script></c:if>
 <c:if test="${!empty param.tab}"><script>$('body').ready( function () { window.setTimeout(function(){ openTab("${param.tab}"); }, 5000);}); paramInc.tab = '${param.tab}'; </script></c:if>
 <c:if test="${!empty param.id}"><script>$('body').ready( function () { window.setTimeout(function(){ openFullDetails("${param.id}"); }, 5000);}); paramInc.id = '${param.id}'; </script></c:if>
-<script>
+<%-- <script>
 	if (location.href.indexOf('?')>-1){
 		post(window.location.pathname, paramInc);
 	}
-</script>
+</script> --%>
 
 <div class="row" style="overflow:scroll;">
 
