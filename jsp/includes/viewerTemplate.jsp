@@ -36,232 +36,238 @@
 	}
 </script> --%>
 
-<div class="row" style="overflow:scroll;">
-
-	<div class="col-md-7 col-lg-5" id="viewer-panel">
-		<form class="form-inline">
-			<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
-			<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
-			<div id="slider-sliceCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
-			<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
-			<div id="slider-scaleCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
-			<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
-			<div class="btn btn-default btn-xs hidden-xs" title="Adjust the image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
-			<div id="slider-alphaCurrentSlider" class="hidden-xs" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
-			<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
-				data-placement="bottom"
-				title="Image Attribution"
-				data-popover-content="#imageAttributes">
-					<span class="glyphicon glyphicon-info-sign"></span>
-			</a>
-			<div id="imageAttributes" class="hide">
-				<span id="imageAttributesText" >
-				<c:if test="${!empty param.stackInfo}">
-					<c:set var="credits" value="${fn:split(param.stackInfo,'|')}" />
-					<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
-					<p>${credits[0]}</p>
-				  <p><b>Created by: </b>${credits[1]}</p>
-				  <p><b>Background Staining: </b>${credits[2]} <span id="backgroundStain"><a href="${credits[3]}" target="_blank">${credits[4]}</a></span</p>
-					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
-					<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
-				</c:if>
-				<c:if test="${empty param.stackInfo}">
-					<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
-					<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
-					<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
-				</c:if>
-				</span>
-			</div>
-			<div class="text-muted" style="display:none;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
-		</form>
-		<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
-		<script>
-			$(document).ready(function() {
-				$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
-						var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-						return clone;
-					}
-				}).click(function(e) {
-					if ($(this).is(":focus")) {
-						if ($(this).data("open")) {
-							$(this).blur();
-							$(this).data("open", false);
-							return true;
-						}else{
-							$(this).data("open", true);
-							e.preventDefault();
-						}
-					}
-				});
-				animateWlzDisplay();
-			});
-		</script>
-	</div>
-
-	<div class="col-md-5 col-lg-7" id="right-panel" style="min-width:640px">
-		<div class="content-fluid">
-			<ul class="nav nav-tabs">
-			  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
-			  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
-			  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
-				<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query Builder</a></li>
-				<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
-			</ul>
-			<div class="tab-content">
-			        <div class="tab-pane" id="selec">
-								<div class="row-fluid" style="padding:0;">
-									<div class="col-xs-12" style="padding:0;">
-										<h4>Available at the selected point <span id="pointVal" class="label label-default label-as-badge">X,Y,Z</span></h4>
-									</div>
-									<div class="col-xs-12" style="padding:0;">
-										<div class="table-responsive" id="selecContent">
-											<table id="selected" class="display compact" cellspacing="0">
-												<thead>
-													<tr>
-														<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr><th>Click somewhere on the image</th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
-												</tbody>
-											</table>
-											<script>
-											  $(document).ready(function() {
-													$('#selected').DataTable( { retrieve: true,
-										        paging: true,
-										        searching: true,
-										        ordering: true,
-										        responsive: false,
-										        stateSave: true,
-										        order: [[ 1, 'desc' ]],
-														dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
-										      });
-													$('#selected').DataTable().column(3).visible(false);
-													$('#selected').DataTable().column(1).visible(false);
-													$('#selected').on( 'page.dt', function () {
-										        updateLabels();
-														$('#selected').dataTable().fnAdjustColumnSizing(false);
-														$('#selected').DataTable().draw(false);
-										      } );
-												});
-											</script>
-										</div>
-									</div>
-								</div>
-			        </div>
-			        <div class="tab-pane active" id="disp">
-								<div class="row-fluid" style="padding:0;">
-									<div class="col-xs-12" style="padding:0;">
-				            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
-										<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
-										<h4><center>Currently Displayed</center></h4>
-									</div>
-									<div class="col-xs-12" style="padding:0;">
-										<div class="table-responsive" id="dispContent">
-											<table id="displayed" class="display compact" cellspacing="0">
-												<thead>
-													<tr>
-														<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
-												</tbody>
-											</table>
-											<script>
-											  $(document).ready(function() {
-													loadRightMenuDisplayed();
-													updateLabels();
-											    window.setInterval(function(){
-														if ($.fn.dataTable.isDataTable('#displayed')) {
-															loadRightMenuDisplayed();
-															// $('#displayed').DataTable().column( 0 ).visible( false );
-												      // $('#displayed').dataTable().fnAdjustColumnSizing();
-															if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
-												        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
-												      }
-															if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
-																$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
-															}
-														}
-											    }, 10000);
-													loadRightMenuDisplayed();
-													if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
-														$('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
-													}
-											  });
-											</script>
-										</div>
-									</div>
-								</div>
-			        </div>
-			        <div class="tab-pane" id="anato">
-								<div class="row-fluid" style="padding:0;">
-									<div class="col-sm-9">
-			            	<h4>Neuroanatomy Tree</h4>
-									</div>
-									<div id="openCloseAll" class="col-sm-3" style="min-width:180px;">
-										<div class="btn-group">
-											<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span></button>
-											<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span></button>
-											<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-full"></span></button>
-											<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-small"></span></button>
-										</div>
-									</div>
-									<div class="clearfix visible-sm-block"></div>
-									<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
-								</div>
-			        </div>
-							<div class="tab-pane" id="queryBuild">
-								<div class="row-fluid row-centered" style="padding:0;">
-									<div class="col-xs-12 col-centered">
-			            	<h4>Your Query</h4>
-									</div>
-									<div id="queryText" class="col-xs-12 col-centered" style="padding:0;">
-										<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane" id="min">
-							</div>
-			</div><!-- tab content -->
-		</div><!-- end of container -->
-	</div>
+<div class="row">
+	<div class="col-md-6">
 
 
+		<div class="row" style="overflow:scroll;">
 
-</div>
-
-	<div id="details">
-		<div id="annotation" class="well">
-			<a name="details"></a>
-			<div id="anatomyDetails">
-				<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
-				Click anywhere on the stack viewer or use the search in the header or the Anatomy menu tab to select an anatomy term.<br/><br/>
-				Information for the selected anatomical term will be displayed here, with further query options visible after selection.
+			<div class="col-md-7 col-lg-5" id="viewer-panel">
+				<form class="form-inline">
+					<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
+					<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-sliceCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
+					<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-scaleCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
+					<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
+					<div class="btn btn-default btn-xs hidden-xs" title="Adjust the image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-alphaCurrentSlider" class="hidden-xs" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
+					<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
+						data-placement="bottom"
+						title="Image Attribution"
+						data-popover-content="#imageAttributes">
+							<span class="glyphicon glyphicon-info-sign"></span>
+					</a>
+					<div id="imageAttributes" class="hide">
+						<span id="imageAttributesText" >
+						<c:if test="${!empty param.stackInfo}">
+							<c:set var="credits" value="${fn:split(param.stackInfo,'|')}" />
+							<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
+							<p>${credits[0]}</p>
+						  <p><b>Created by: </b>${credits[1]}</p>
+						  <p><b>Background Staining: </b>${credits[2]} <span id="backgroundStain"><a href="${credits[3]}" target="_blank">${credits[4]}</a></span</p>
+							<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
+							<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
+						</c:if>
+						<c:if test="${empty param.stackInfo}">
+							<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
+							<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
+							<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
+						</c:if>
+						</span>
+					</div>
+					<div class="text-muted" style="display:none;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
+				</form>
+				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 				<script>
-				$(document).ready(function() {
-					if (parent.$('body').data('current')) {
-						var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-						var topLayer = Object.keys(selected).length-1;
-						var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
-						openFullDetails(id);
-					}else{
-						window.setTimeout(function(){
-							if (parent.$('body').data('current')) {
-								var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-								var topLayer = Object.keys(selected).length-1;
-								var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
-								if (id.indexOf('00000')<0 && id.indexOf('VFBd_')<0) {
-									openFullDetails(id);
+					$(document).ready(function() {
+						$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+								var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+								return clone;
+							}
+						}).click(function(e) {
+							if ($(this).is(":focus")) {
+								if ($(this).data("open")) {
+									$(this).blur();
+									$(this).data("open", false);
+									return true;
+								}else{
+									$(this).data("open", true);
+									e.preventDefault();
 								}
 							}
-					  }, 5000);
-					}
-				});
+						});
+						animateWlzDisplay();
+					});
 				</script>
+			</div>
+
+			<div class="col-md-5 col-lg-7" id="right-panel" style="min-width:640px">
+				<div class="content-fluid">
+					<ul class="nav nav-tabs">
+					  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
+					  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
+					  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
+						<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query Builder</a></li>
+						<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
+					</ul>
+					<div class="tab-content">
+					        <div class="tab-pane" id="selec">
+										<div class="row-fluid" style="padding:0;">
+											<div class="col-xs-12" style="padding:0;">
+												<h4>Available at the selected point <span id="pointVal" class="label label-default label-as-badge">X,Y,Z</span></h4>
+											</div>
+											<div class="col-xs-12" style="padding:0;">
+												<div class="table-responsive" id="selecContent">
+													<table id="selected" class="display compact" cellspacing="0">
+														<thead>
+															<tr>
+																<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr><th>Click somewhere on the image</th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
+														</tbody>
+													</table>
+													<script>
+													  $(document).ready(function() {
+															$('#selected').DataTable( { retrieve: true,
+												        paging: true,
+												        searching: true,
+												        ordering: true,
+												        responsive: false,
+												        stateSave: true,
+												        order: [[ 1, 'desc' ]],
+																dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
+												      });
+															$('#selected').DataTable().column(3).visible(false);
+															$('#selected').DataTable().column(1).visible(false);
+															$('#selected').on( 'page.dt', function () {
+												        updateLabels();
+																$('#selected').dataTable().fnAdjustColumnSizing(false);
+																$('#selected').DataTable().draw(false);
+												      } );
+														});
+													</script>
+												</div>
+											</div>
+										</div>
+					        </div>
+					        <div class="tab-pane active" id="disp">
+										<div class="row-fluid" style="padding:0;">
+											<div class="col-xs-12" style="padding:0;">
+						            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
+												<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
+												<h4><center>Currently Displayed</center></h4>
+											</div>
+											<div class="col-xs-12" style="padding:0;">
+												<div class="table-responsive" id="dispContent">
+													<table id="displayed" class="display compact" cellspacing="0">
+														<thead>
+															<tr>
+																<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
+														</tbody>
+													</table>
+													<script>
+													  $(document).ready(function() {
+															loadRightMenuDisplayed();
+															updateLabels();
+													    window.setInterval(function(){
+																if ($.fn.dataTable.isDataTable('#displayed')) {
+																	loadRightMenuDisplayed();
+																	// $('#displayed').DataTable().column( 0 ).visible( false );
+														      // $('#displayed').dataTable().fnAdjustColumnSizing();
+																	if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+														        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+														      }
+																	if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
+																		$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
+																	}
+																}
+													    }, 10000);
+															loadRightMenuDisplayed();
+															if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+																$('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+															}
+													  });
+													</script>
+												</div>
+											</div>
+										</div>
+					        </div>
+					        <div class="tab-pane" id="anato">
+										<div class="row-fluid" style="padding:0;">
+											<div class="col-sm-9">
+					            	<h4>Neuroanatomy Tree</h4>
+											</div>
+											<div id="openCloseAll" class="col-sm-3" style="min-width:180px;">
+												<div class="btn-group">
+													<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span></button>
+													<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span></button>
+													<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-full"></span></button>
+													<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-small"></span></button>
+												</div>
+											</div>
+											<div class="clearfix visible-sm-block"></div>
+											<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
+										</div>
+					        </div>
+									<div class="tab-pane" id="queryBuild">
+										<div class="row-fluid row-centered" style="padding:0;">
+											<div class="col-xs-12 col-centered">
+					            	<h4>Your Query</h4>
+											</div>
+											<div id="queryText" class="col-xs-12 col-centered" style="padding:0;">
+												<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="min">
+									</div>
+					</div><!-- tab content -->
+				</div><!-- end of container -->
 			</div>
 		</div>
 	</div>
+
+	<div class="col-md-6">
+
+		<div id="details">
+			<div id="annotation" class="well">
+				<a name="details"></a>
+				<div id="anatomyDetails">
+					<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
+					Click anywhere on the stack viewer or use the search in the header or the Anatomy menu tab to select an anatomy term.<br/><br/>
+					Information for the selected anatomical term will be displayed here, with further query options visible after selection.
+					<script>
+					$(document).ready(function() {
+						if (parent.$('body').data('current')) {
+							var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+							var topLayer = Object.keys(selected).length-1;
+							var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+							openFullDetails(id);
+						}else{
+							window.setTimeout(function(){
+								if (parent.$('body').data('current')) {
+									var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+									var topLayer = Object.keys(selected).length-1;
+									var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+									if (id.indexOf('00000')<0 && id.indexOf('VFBd_')<0) {
+										openFullDetails(id);
+									}
+								}
+						  }, 5000);
+						}
+					});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="content-fluid" id="footer">
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
