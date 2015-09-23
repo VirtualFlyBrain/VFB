@@ -42,7 +42,7 @@
 
 		<div class="row" style="overflow:scroll;">
 
-			<div class="col-md-7 col-lg-5" id="viewer-panel">
+			<div class="col-xs-12" id="viewer-panel">
 				<form class="form-inline">
 					<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 					<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -101,8 +101,11 @@
 					});
 				</script>
 			</div>
+		</div>
+	</div>
 
-			<div class="col-md-5 col-lg-7" id="right-panel" style="min-width:640px">
+	<div class="row">
+			<div class="col-xs-12" id="right-panel" style="min-width:640px">
 				<div class="content-fluid">
 					<ul class="nav nav-tabs">
 					  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
