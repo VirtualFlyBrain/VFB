@@ -37,7 +37,7 @@
 </script> --%>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-7">
 
 
 		<div class="row" style="overflow:scroll;">
@@ -237,7 +237,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-5">
 
 		<div id="details">
 			<div id="annotation" class="well">
