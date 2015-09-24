@@ -942,7 +942,7 @@ function clearAllDisplayed() {
   $('#displayed').dataTable().fnAdjustColumnSizing(false);
   $('#displayed').DataTable().draw(false);
   updateWlzDisplay();
-  window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnFullUrl() );}catch (ignore){}}, 50);
+  window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnFullUrl() );}catch (ignore){}}, 500);
 }
 
 function createControlsBarHTML(id) {
