@@ -1922,4 +1922,5 @@ $('body').ready( function () {
   window.setInterval(function(){
     updateMenuData();
   }, 10000);
+  $(window).on("popstate", function () { console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; });
 });
