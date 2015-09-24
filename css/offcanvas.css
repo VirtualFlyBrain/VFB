@@ -402,3 +402,10 @@ div.DTTT_container {
   max-width:128px !important;
   max-height:128px !important;
 }
+
+/* collapse query menu if compcated*/
+@media (min-width: 768px) and (max-width: 1400px) {
+   #bs-example-navbar-collapse-1 {
+       display: none !important;
+   }
+}
