@@ -822,6 +822,14 @@ function alertMessage(message) {
   }
 }
 
+function returnCurrentUrl() {
+  if (typeof returnFullUrl !== 'undefined' &&$.isFunction(returnFullUrl)) {
+    return returnFullUrl();
+  }else{
+    return window.location.pathname;
+  }
+}
+
 function openFullDetails(id) {
   if ($('#anatomyDetails').length) {
     id = cleanIdforExt(id);
@@ -835,7 +843,7 @@ function openFullDetails(id) {
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){
           window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank');
-          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), '/site/stacks/index.htm?id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
           $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
