@@ -412,6 +412,6 @@ div.DTTT_container {
   padding: 0px !important;
 }
 
-.navbar-condensed>a{
+#bs-example-navbar-collapse-1>ul>li>a{
   padding: 2px !important;
 }
