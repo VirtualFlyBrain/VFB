@@ -1570,7 +1570,7 @@ function loadRightMenuDisplayed() {
         }
       });
       $('body').css('cursor', 'default');
-      //$('#displayed').DataTable().column(3).visible(false);
+      $('#displayed').DataTable().column(3).visible(true);
       $('#displayed').DataTable().column(1).visible(false);
     }else{
       $('#displayed').DataTable( { retrieve: true,
@@ -1586,7 +1586,7 @@ function loadRightMenuDisplayed() {
         updateLabels();
       } );
       // TEMP hiding type till can be resolved via solr
-      //$('#displayed').DataTable().column(3).visible(false);
+      $('#displayed').DataTable().column(3).visible(true);
       $('#displayed').DataTable().column(1).visible(false);
       $('#displayed').dataTable().fnAdjustColumnSizing(false);
       $('#displayed').DataTable().draw(false);
