@@ -1532,7 +1532,7 @@ function loadRightMenuDisplayed() {
           }else{
             // Controls:
             controls = createControlsBarHTML(layer.id);
-            if (rowD[2] !== controls) {
+            if (rowD[2].replace(/time=[0-9]*/g,'') !== controls.replace(/time=[0-9]*/g,'')) {
               console.log('Update controls for row ' + String(i));
               $('#displayed').dataTable().fnUpdate(controls,i,2, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
