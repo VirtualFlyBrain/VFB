@@ -847,12 +847,12 @@ function openFullDetails(id) {
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
           $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
-          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), '/site/stacks/index.htm?id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }
       }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
         $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_blank">FlyBase report for '+ id.replace('_','') + '</a>');
-        window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), '/site/stacks/index.htm?id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+        window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
       }else{
         alertMessage("Can't open details for:" + id);
       }
@@ -867,7 +867,7 @@ function openFullDetails(id) {
             temp = parent.$("body").data("domains")[layers];
             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
             $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
-            window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), '/site/stacks/index.htm?id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
+            window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
             break;
           }
         }
