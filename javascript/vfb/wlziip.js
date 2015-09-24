@@ -942,8 +942,7 @@ function clearAllDisplayed() {
   $('#displayed').dataTable().fnAdjustColumnSizing(false);
   $('#displayed').DataTable().draw(false);
   updateWlzDisplay();
-  history.replaceState(null, document.title, location.href);
-
+  window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnFullUrl() );}catch (ignore){}}, 50);
 }
 
 function createControlsBarHTML(id) {
