@@ -404,6 +404,9 @@ div.DTTT_container {
 }
 
 /*compacted query menu*/
+.navbar-condensed{
+  margin-bottom: 2px !important;
+}
 .navbar-condensed .container-fluid{
   padding: 0px !important;
 }

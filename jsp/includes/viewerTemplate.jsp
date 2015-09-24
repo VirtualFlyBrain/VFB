@@ -239,7 +239,7 @@
 	<div class="col-md-6">
 
 		<div id="details">
-			<div id="annotation" class="well">
+			<div id="annotation" class="well" style="padding-top: 2px;">
 				<a name="details"></a>
 				<div id="anatomyDetails">
 					<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->

@@ -54,7 +54,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 	</jsp:include>
 </c:if>
 
-<div class="well-white">
+<div class="well-white" style="padding-top: 0px;">
 	<div class="row">
 		<div class="col-xs-12" style="min-width:450px">
 			<h2><a href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}')" title="View details and run queries"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
