@@ -37,12 +37,12 @@
 </script> --%>
 
 <div class="row">
-	<div class="col-md-6" style="min-width:640px">
+	<div class="col-md-6" style="min-width:640px;padding: 2px;">
 
 
 		<div class="row" style="overflow:scroll;">
 
-			<div class="col-xs-12" id="viewer-panel">
+			<div class="col-xs-12" id="viewer-menu">
 				<form class="form-inline">
 					<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 					<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -78,6 +78,8 @@
 					</div>
 					<div class="text-muted" style="display:none;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
 				</form>
+			</div>
+			<div class="col-xs-12" id="viewer-panel">
 				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 				<script>
 					$(document).ready(function() {
