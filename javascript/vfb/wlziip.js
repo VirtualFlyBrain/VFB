@@ -1580,7 +1580,7 @@ function loadRightMenuDisplayed() {
         responsive: false,
         stateSave: true,
         order: [[ 1, 'desc' ]],
-        dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>><'row'<'col-md-4'l><'col-md-8'f>>"
+        dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>><'row'<'col-md-4'l>>"
       });
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
@@ -1756,7 +1756,7 @@ function clearSelectedTable() {
       searching: true,
       ordering: true,
       responsive: false,
-      dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>",
+      dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>><'row'<'col-md-4'l>>",
       stateSave: true,
       order: [[ 1, 'desc' ]]
     });
