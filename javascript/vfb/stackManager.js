@@ -347,13 +347,39 @@ function jump(h){
   window.scrollTo(0, top);
 }
 
+function createColButHTML(i) {
+  var content = "";
+  if (layer && parent.$("body").data("colours")) {
+    var temp;
+    if (layer.colour == "auto") {
+      while (i>200){
+        i = i-200;
+      }
+      temp = parent.$("body").data("colours")[i];
+    }else{
+      temp = layer.colour;
+    }
+    content += '<button type="button" data-index="' + String(i) + '" data-status="created" class="btn btn-default btn-xs" aria-label="Adjust Colour" title="Adjust Colour" ';
+    content += 'style="background:rgb(' + temp + ');"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tint"></span></button>';
+  }
+  return content;
+}
+
 function createAddButtonHTMLfinal(id) {
   id = cleanIdforInt(id);
   var content="";
-  if (JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected).indexOf(id) > -1) {
+  var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+  if (JSON.stringify(selected).indexOf(id) > -1) {
     content += '<button type="button" class="btn btn-success btn-xs" aria-label="Remove from stack viewer" title="Currently added to stack viewer; click to remove" onclick="';
     content += "removeFromStackData('" + id + "');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
     content += '"><span style="border:none;" class="glyphicon glyphicon-ok-circle"></span></button>';
+    var i;
+    for (i in selected){
+      if (JSON.stringify(selected[i]).indexOf(id) > -1){
+        content += createColButHTML(i);
+        break;
+      }
+    }
   }else{
     content += '<button type="button" class="btn btn-success btn-xs" aria-label="Add to stack viewer" title="Add to stack viewer" onclick="';
     content += "addToStackData('" + id + "');updateStackData();if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};if (typeof updateWlzDisplay !== 'undefined' && $.isFunction(updateWlzDisplay)) {updateWlzDisplay();};";
