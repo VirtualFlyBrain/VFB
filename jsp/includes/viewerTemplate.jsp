@@ -124,7 +124,7 @@
 														<table id="selected" class="display compact" cellspacing="0">
 															<thead>
 																<tr>
-																	<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
+																	<th>Name</th><th>#</th><th>Controls</th><th>Type</th><th>Image</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -167,7 +167,7 @@
 														<table id="displayed" class="display compact" cellspacing="0">
 															<thead>
 																<tr>
-																	<th>Name</th><th>#</th><th>Display</th><th>Type</th><th>Image</th>
+																	<th>Name</th><th>#</th><th>Controls</th><th>Type</th><th>Image</th>
 																</tr>
 															</thead>
 															<tbody>
