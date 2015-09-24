@@ -109,8 +109,6 @@ function animateWlzDisplay(){
                     $('#SelecMenuTab').show();
                     $('#QueryMenuTab').show();
                     $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-                    $('#right-panel').removeClass('col-lg-7').removeClass('col-md-1').removeClass('col-md-5').addClass('col-xs-12');
-                    $('#viewer-panel').removeClass('col-lg-5').removeClass('col-md-11').removeClass('col-md-7').addClass('col-xs-12');
                   }else{
                     $('#DispMenuTab').show();
                     $('#AnatoMenuTab').show();
@@ -118,8 +116,6 @@ function animateWlzDisplay(){
                     $('#SelecMenuTab').show();
                     $('#QueryMenuTab').show();
                     $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-                    $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-7');
-                    $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-5');
                   }
 
                 }
@@ -190,8 +186,6 @@ function animateWlzDisplay(){
                     $('#SelecMenuTab').show();
                     $('#QueryMenuTab').show();
                     $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-                    $('#right-panel').removeClass('col-lg-7').removeClass('col-md-1').removeClass('col-md-5').addClass('col-xs-12');
-                    $('#viewer-panel').removeClass('col-lg-5').removeClass('col-md-11').removeClass('col-md-7').addClass('col-xs-12');
                   }else{
                     $('#DispMenuTab').show();
                     $('#AnatoMenuTab').show();
@@ -199,8 +193,6 @@ function animateWlzDisplay(){
                     $('#SelecMenuTab').show();
                     $('#QueryMenuTab').show();
                     $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-                    $('#right-panel').removeClass('col-xs-12').removeClass('col-md-1').addClass('col-md-5').addClass('col-lg-7');
-                    $('#viewer-panel').removeClass('col-xs-12').removeClass('col-md-11').addClass('col-md-7').addClass('col-lg-5');
                   }
                   parent.$("body").data("disp", "done");
                 }
