@@ -12,6 +12,7 @@ var retries = 4;
 var maxSlice = 1;
 window.features = [];
 var coloursLoading = false;
+var change = Date.now()-(60*60000);
 
 function updateWlzDisplay(){
   updateStackData();
@@ -1922,5 +1923,14 @@ $('body').ready( function () {
   window.setInterval(function(){
     updateMenuData();
   }, 10000);
-  $(window).on("popstate", function () { console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; });
+  $(window).on("navigate", function (event, data) {
+    var direction = data.state.direction;
+    if (direction == 'back') {
+      change = Date.now();
+    }
+    if (direction == 'forward') {
+      change = Date.now();
+    }
+  });
+  $(window).on("popstate", function () { if (newDateObj > Date.now()-(30*60000)) {console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; }});
 });
