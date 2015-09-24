@@ -79,6 +79,8 @@
 					<div class="text-muted" style="display:none;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
 				</form>
 			</div>
+		</div>
+		<div class="row" style="overflow:scroll;">
 			<div class="col-xs-12" id="viewer-panel">
 				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 				<script>
