@@ -16,7 +16,7 @@ var currBeanId = "${param.fbbtId}";
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Query for</a>
+      <a class="navbar-brand" href="#">Query for:</a>
     </div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
