@@ -1932,5 +1932,5 @@ $('body').ready( function () {
       change = Date.now();
     }
   });
-  $(window).on("popstate", function () { if (newDateObj > Date.now()-(30*60000)) {console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; }});
+  $(window).on("popstate", function () { if (change > Date.now()-(30*60000)) {console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; }});
 });
