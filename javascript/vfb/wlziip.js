@@ -1529,6 +1529,8 @@ function loadRightMenuDisplayed() {
               $('#displayed').dataTable().fnAddData([ name, index, controls, type, thumbnailHTMLForId(layer.id)], false);
               //console.log('Adding ' + index + ' to the displayed layers');
             }
+            $('#displayed').dataTable().fnAdjustColumnSizing(false);
+            $('#displayed').DataTable().draw(false);
           }else{
             // Controls:
             controls = createControlsBarHTML(layer.id);
@@ -1536,6 +1538,8 @@ function loadRightMenuDisplayed() {
               console.log('Update controls for row ' + String(i));
               $('#displayed').dataTable().fnUpdate(controls,i,2, false );
               //console.log('Updating controls for ' + index + ' in the displayed layers');
+              $('#displayed').dataTable().fnAdjustColumnSizing(false);
+              $('#displayed').DataTable().draw(false);
             }
           }
         }
@@ -1544,8 +1548,6 @@ function loadRightMenuDisplayed() {
       while ($('#displayed').dataTable().fnGetData(i)){
         $('#displayed').dataTable().fnDeleteRow(i, false );
       }
-      $('#displayed').dataTable().fnAdjustColumnSizing(false);
-      $('#displayed').DataTable().draw(false);
       $('.glyphicon.glyphicon-tint').parent().each( function() {
         var col = rgbColToHex($(this).css('background-color'));
         if (!$(this).data('colorpicker')) {
