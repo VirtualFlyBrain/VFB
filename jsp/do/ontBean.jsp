@@ -56,7 +56,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 
 <div class="well-white">
 	<div class="row">
-		<div class="col-md-8" style="min-width:450px">
+		<div class="col-xs-12" style="min-width:450px">
 			<h2><a href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}')" title="View details and run queries"><span id="partName">${ontBean.name}</span></a> <span id="attach" data-id="${ontBean.fbbtIdAsOWL}"></span>
 			<c:if test="${beanType=='ont'}"><span id="addToQuery" title="Add to query" data-id="${ontBean.fbbtIdAsOWL}"></span></c:if></h2>
 			<c:if test="${!empty ontBean.fbbtIdAsOWL}">
@@ -135,7 +135,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</p>
 			</c:if>
 		</div>
-		<div class="col-md-4" style="min-width:300px;">
+		<div class="col-xs-12" style="min-width:300px;">
 			<c:set var="tpb" value="${ontBean.thirdPartyBean}"/><c:if test="${!empty tpb}">
 			<p>
 				<b>Image:</b><br/>
