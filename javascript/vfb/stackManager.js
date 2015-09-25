@@ -534,7 +534,7 @@ function updateStackData(){
         loadTemplateMeta(parent.$("body").data('current').template);
       }
     }
-    if (JSON.stringify(parent.$("body").data()).length > 10){
+    if (JSON.stringify(parent.$("body").data('meta')).length > 10){
       store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
     }
   }else{
