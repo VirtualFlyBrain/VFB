@@ -1247,6 +1247,8 @@ function executeSearch() {
     $('#searchgroup').removeClass('has-success').removeClass('has-warning').removeClass('has-info');
     $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
     $('.typeahead').typeahead('val','');
+    $("#searchtext").css('width', 146);
+    $('.tt-hint').css('width', 146);
   }else{
     if ($('.tt-hint').val().indexOf($('#searchtext').val())>-1){
       $('.typeahead').typeahead('val',$('.tt-hint').val());
@@ -1260,6 +1262,8 @@ function executeSearch() {
         $('#searchgroup').removeClass('has-success').removeClass('has-warning').removeClass('has-info');
         $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
         $('.typeahead').typeahead('val','');
+        $("#searchtext").css('width', 146);
+        $('.tt-hint').css('width', 146);
       }else{
         $('#searchgroup').addClass('has-info');
       }
