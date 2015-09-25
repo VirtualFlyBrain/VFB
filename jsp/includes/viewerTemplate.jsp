@@ -2,6 +2,7 @@
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
+		//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css;
 		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
 		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
 		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
@@ -13,6 +14,7 @@
 	<jsp:param name="js" value="
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
+		//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js;
 		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
 		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
