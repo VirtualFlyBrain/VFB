@@ -1927,9 +1927,11 @@ $('body').ready( function () {
     var direction = data.state.direction;
     if (direction == 'back') {
       change = Date.now();
+      console.log('previous page requested by user...'); clearAllDisplayed(); window.location = location.href;
     }
     if (direction == 'forward') {
       change = Date.now();
+      console.log('next page requested by user...'); clearAllDisplayed(); window.location = location.href;
     }
   });
   $(window).on("popstate", function () { if (change > Date.now()-(30*60000)) {console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; }});
