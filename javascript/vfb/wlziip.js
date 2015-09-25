@@ -1924,6 +1924,7 @@ $('body').ready( function () {
     updateMenuData();
   }, 10000);
   $(window).on("navigate", function (event, data) {
+    console.log(data.state);
     var direction = data.state.direction;
     if (direction == 'back') {
       change = Date.now();
@@ -1934,5 +1935,4 @@ $('body').ready( function () {
       console.log('next page requested by user...'); clearAllDisplayed(); window.location = location.href;
     }
   });
-  $(window).on("popstate", function () { if (change > Date.now()-(30*60000)) {console.log('page change requested by user...'); clearAllDisplayed(); window.location = location.href; }});
 });
