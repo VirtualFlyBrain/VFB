@@ -42,7 +42,7 @@
 
 		<div class="row" style="overflow:scroll;">
 
-			<div class="col-xs-12" id="viewer-menu">
+			<div class="col-md-12" id="viewer-menu">
 				<form class="form-inline">
 					<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
 					<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 		<div class="row" style="overflow:scroll;">
-			<div class="col-xs-12" id="viewer-panel">
+			<div class="col-md-12" id="viewer-panel">
 				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
 				<script>
 					$(document).ready(function() {
@@ -108,7 +108,7 @@
 		</div>
 
 		<div class="row">
-				<div class="col-xs-12" id="right-panel" style="min-width:640px">
+				<div class="col-md-12" id="right-panel" style="min-width:640px">
 					<div class="content-fluid">
 						<ul class="nav nav-tabs">
 						  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
@@ -120,10 +120,10 @@
 						<div class="tab-content">
 						        <div class="tab-pane" id="selec">
 											<div class="row-fluid" style="padding:0;">
-												<div class="col-xs-12" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
 													<h4>Available at the selected point <span id="pointVal" class="label label-default label-as-badge">X,Y,Z</span></h4>
 												</div>
-												<div class="col-xs-12" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
 													<div class="table-responsive" id="selecContent">
 														<table id="selected" class="display compact" cellspacing="0">
 															<thead>
@@ -161,12 +161,12 @@
 						        </div>
 						        <div class="tab-pane active" id="disp">
 											<div class="row-fluid" style="padding:0;">
-												<div class="col-xs-12" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
 							            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
 													<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
 													<h4><center>Currently Displayed</center></h4>
 												</div>
-												<div class="col-xs-12" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
 													<div class="table-responsive" id="dispContent">
 														<table id="displayed" class="display compact" cellspacing="0">
 															<thead>
@@ -219,15 +219,15 @@
 													</div>
 												</div>
 												<div class="clearfix visible-sm-block"></div>
-												<div class="col-xs-12" id="anatoContent" style="padding:0;"></div>
+												<div class="col-md-12" id="anatoContent" style="padding:0;"></div>
 											</div>
 						        </div>
 										<div class="tab-pane" id="queryBuild">
 											<div class="row-fluid row-centered" style="padding:0;">
-												<div class="col-xs-12 col-centered">
+												<div class="col-md-12 col-centered">
 						            	<h4>Your Query</h4>
 												</div>
-												<div id="queryText" class="col-xs-12 col-centered" style="padding:0;">
+												<div id="queryText" class="col-md-12 col-centered" style="padding:0;">
 													<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
 												</div>
 											</div>
