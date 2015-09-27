@@ -4,6 +4,7 @@ window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
 window.reloadInterval = 10;
+window.guid = '0-0-0-0';
 var checkCount = 0;
 var cookieMax = 4000;
 var dropItems = 0;
@@ -522,6 +523,16 @@ function hexColToRGB(hex) {
   return rgb;
 }
 
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
 function updateStackData(){
   if (store.enabled) {
     if (parent.$("body").data("meta") && parent.$("body").data("meta").template && parent.$("body").data("meta").template == parent.$("body").data("current").template) {
@@ -536,22 +547,22 @@ function updateStackData(){
     }
     if (JSON.stringify(parent.$("body").data()).length > 10){
       if (store.has('updated')){
-        if (store.get('updated').session == $.cookie('JSESSIONID')) {
+        if (store.get('updated').session == window.guid) {
           store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
         }else{
           if (store.get('updated').time > Date.now()-20*60*60000){
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
-            store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+            store.set('updated', JSON.parse('{"session":"' + window.guid + '","time":' + Date.now() + '}'));
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
           }else{
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-            store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+            store.set('updated', JSON.parse('{"session":"' + window.guid + '","time":' + Date.now() + '}'));
           }
         }
       }else{
         store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-        store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+        store.set('updated', JSON.parse('{"session":"' + window.guid + '","time":' + Date.now() + '}'));
       }
     }
   }else{
@@ -1328,6 +1339,8 @@ function updateSearchResults() {
 }
 
 $('body').ready( function () {
+
+  window.guid = guid();
 
   engine.initialize();
 
