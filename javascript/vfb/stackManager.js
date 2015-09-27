@@ -555,7 +555,7 @@ function updateStackData(){
             console.log('overridden by another session');
             store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-            try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm' );}catch (ignore){}
+            try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
           }else{
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
             store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
