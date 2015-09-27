@@ -535,7 +535,24 @@ function updateStackData(){
       }
     }
     if (JSON.stringify(parent.$("body").data()).length > 10){
-      store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+      if (store.has('updated')){
+        if (store.get('updated').session == $.cookie('JSESSIONID')) {
+          store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+        }else{
+          if (store.get('updated').time > Date.now()-20*60*60000){
+            parent.$("body").data(expandCookieDisplayed());
+            console.log('overridden by another session');
+            store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+            store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+          }else{
+            store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+            store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+          }
+        }
+      }else{
+        store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+        store.set('updated', JSON.parse('{"session":"' + $.cookie('JSESSIONID') + '","time":' + Date.now() + '}'));
+      }
     }
   }else{
     var data = returnCleanData(dropItems);
