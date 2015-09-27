@@ -556,6 +556,7 @@ function updateStackData(){
             store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
             try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
+            window.reloadInterval = 10;
           }else{
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
             store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
