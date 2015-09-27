@@ -550,7 +550,7 @@ function updateStackData(){
         if (store.get('updated').session == window.id) {
           store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
         }else{
-          if (store.get('updated').time > Date.now()-20*60*60000){
+          if (store.get('updated').time > Date.now()-10*60000){
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
             store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
