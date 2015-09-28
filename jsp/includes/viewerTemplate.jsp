@@ -108,7 +108,7 @@
 		</div>
 
 		<div class="row">
-				<div class="col-md-12" id="right-panel" style="min-width:640px">
+				<div class="col-md-12" id="right-panel">
 					<div class="content-fluid">
 						<ul class="nav nav-tabs">
 						  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
