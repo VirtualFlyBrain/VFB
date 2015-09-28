@@ -421,6 +421,7 @@ div.DTTT_container {
   .navbar-condensed .navbar-nav>li{
     list-style-position:inside !important;
     border: 1px solid grey !important;
+    border-radius: 4px !important;
   }
   .navbar-condensed .navbar-brand{
     padding-top: 0px !important;
