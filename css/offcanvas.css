@@ -419,8 +419,8 @@ div.DTTT_container {
     padding: 2px !important;
   }
   .navbar-condensed .navbar-nav>li{
-    list-style-position:inside;
-    border: 1px solid grey;
+    list-style-position:inside !important;
+    border: 1px solid grey !important;
   }
   .navbar-condensed .navbar-brand{
     padding-top: 0px !important;
@@ -435,10 +435,4 @@ div.DTTT_container {
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
-}
-.navbar-condensed .navbar-toggle{
-  border-color:#ddd
-}
-.navbar-condensed .navbar-toggle .icon-bar{
-  background-color:#888
 }
