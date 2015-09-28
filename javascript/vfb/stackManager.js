@@ -948,6 +948,7 @@ function addToStackData(ids, showDetails){
     window.reloadInterval = 10;
     if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains") && parent.$("body").data("available")) {
       $('#canvas').css('cursor', 'wait');
+      store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
       var id;
       var i;
       var text;
@@ -1142,6 +1143,7 @@ function removeFromStackData(ids) {
     var id;
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
+    store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
     if (!Array.isArray(ids)) {
       ids = [ids];
     }
