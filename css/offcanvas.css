@@ -439,3 +439,6 @@ div.DTTT_container {
 .navbar-condensed .navbar-toggle{
   border-color:#ddd
 }
+.navbar-condensed .navbar-toggle .icon-bar{
+  background-color:#888
+}
