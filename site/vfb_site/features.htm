@@ -36,7 +36,7 @@
 			  	<li> <a href="#datasets">Integrated Datasets</a></li>
 			    <li> <a href="#3dviewer">The 3D Brain Viewer</a></li>
 			    <li> <a href="#querymenu">What can I search for</a></li>
-			    <li> <a href="#anatfinder">The Anatomy/Neuron Finder</a></li>
+			    <li> <a href="#anatfinder">What information is displayed</a></li>
 					<li> <a href="#composite">Overlaying image stacks</a></li>
 			    <li> <a href="#querybuilder">Searching for connecting neurons</a></li>
 			    <li> <a href="#tech">Technical details</a></li>
@@ -60,10 +60,10 @@
 		  <a name="3dviewer"></a>
 			<h2>The 3D Brain Viewer</h2>
 		  <p>
-				Using our <a href="../../site/stacks/index.htm">Viewer</a>, one can explore the anatomy, as well as view image stacks from datasets integrated by VFB. The Viewer is available from the homepage, from the menu 'Stacks'. Under that tab, the templates available on VFB will be shown. Select one template, and click 'Open the Stack Viewer. The full adult brain template corresponds to the Janelia adult brain.
+				Using our <a href="../../site/stacks/index.htm">Viewer</a>, one can explore the anatomy, as well as view image stacks from datasets integrated by VFB. The Viewer is available from the homepage and from the menu 'Stacks'. Under that tab, the templates available on VFB will be shown. Select one template, and click 'Open the Stack Viewer. The full adult brain template corresponds to the Janelia adult brain. A green shortcut button is also available on the header of every page, on the right. The number on the button reflects the number of entities currently displayed in the viewer.
 				</p>
 				<p>
-				The Viewer page is divided into 3 areas: the Stack Viewer and its navigation tools are on left; on the right hand side is a menu with different tabs and functionalities, and the the lower panel corresponds to the term info window, where information about a term will be shown and where further queries can be done from.
+				The Viewer page is divided into 3 areas: the Stack Viewer and its navigation tools are on left; on the right hand side corresponds to the term info window, where information about a term will be shown and where further queries can be done from. The viewer menu with different tabs and functionalities is shown below the viewer.
 			</p>
 
 			<img class="img-responsive center-block" src="/images/vfb/project/viewer_intro.png" alt="Main page" style="align:center;padding:5px" width="800">
@@ -81,22 +81,19 @@
 	  		</li>
 
 				<li>Clicking on the image will show the name of the neuropil domain in that specific location. The clicked on domain becomes selected and is shown in the Selected tab. 
-					To colour highlight a domain, you can either double-click on it, or add it to the viewer by clicking the green paperclip button next to the domain in the Selected tab. The list of displayed entities is shown in the Displayed tab.
+					To colour highlight a domain, you can either double-click on it, or add it to the viewer by clicking the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button next to the domain in the Selected tab. The list of displayed entities is shown in the Displayed tab.
 				</li>
-			  <li> The stack can be centered on any neuropil domain, by clicking the centering button to the left of the domain, in the Displayed tab.</li>
+			  <li> The stack can be centered on any neuropil domain, by clicking the <a href='#' class='btn btn-xs btn-default' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-screenshot'></span></a> button to the left of the domain, in the Displayed tab.</li>
 
-				<li>Search for neuropil domains using the Anatomy or Search tabs. For the first, expand the tree using the button at the top and look for the chosen term. Add to the display by clicking the green paperclip.  In the latter, just type a name or synonym as you would in the homepage search box.
+				<li>Search for neuropil domains using the search box in the header or the Anatomy tab. In the first, just type a name or synonym; it allows searching for neuron types, neuron images, lineage clones, etc. In the Anatomy tab, expand the tree using the button at the top and look for the chosen term. Add to the display by clicking the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button.  
 					<img class="img-responsive center-block" src="/images/vfb/project/search.gif" alt="Search box" style="align:center;padding:5px" width="240">
 				</li>
 				
-				<li> The search tab also allows you to search for neuron types, neuron images, lineage clones, etc.
-				</li>
-				<li>All information associated with a term is displayed in the lower panel, the term info window. To see it, click on the name of the domain, or on the info button next to the name, shown in the various menu tabs.
+				<li>All information associated with a term is displayed on the right panel, the term info window. For a selected term, it will show automatically. To see it for a specific displayed entity, click on the name of the domain, or on the <a href='#' class='btn btn-xs btn-default' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-info-sign'></span></a> button next to the name, shown in the various viewer menu tabs. 
 					The information includes a definition, synonyms, references, parent classes and ontology relationships. For image stacks, a thumbnail is also shown, if available.
 					For example, searching for "protocerebral bridge" would give:
 					<img class="img-responsive center-block" src="/images/vfb/project/protocerebral_bridge.png" alt="Simple search for neuropil" style="align:center;padding:5px" width="800">
 				</li>
-				<li> The information displayed is the same as the one in the <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> page for that term. Terms can also be added to the viewer from this window by clicking the green paperclip.</li>
 			</ul>
 
 			<p>
@@ -106,7 +103,7 @@
 	    <a name="querymenu"></a>
 			<h2>What can I search for</h2>
 			<p>
-		  	Searches for anatomical terms can be done from the homepage, from the <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> or from the Search tab in the <a href="../../site/stacks/index.htm">Viewer</a>.
+		  	Searches for anatomical terms can be done from any page, using the search box in the header.
 				The query options allow searches for neuron classes, or single neurons by location or connectivity, tracts, lineage, expression of transgenes and genes or phenotypes associated to a neuropil domain or neuron. <br/>
 		  	The menu is context dependent, with the query options being different depending if the search starts from a neuron or brain region. In the case of a lineage clone, an additional query is displayed in the neuron menu ('Component neuron').
 				Below, on the left, are the query options available for neuropil domains; on the the right, the ones for neurons and lineage clones.
@@ -165,7 +162,7 @@
 			    </p>
 
 		  		<p>
-		    		To see all information related to each neuron image, click on List individual members. The results window the summary information about each neuron image, including neuron type (if assigned) and driver. To see the full information, click on the neuron name. To display a neuron in the <a href="../../site/stacks/index.htm">Viewer</a>, click on the green paperclip.
+		    		To see all information related to each neuron image, click on 'List individual members'. The results window includes the summary information about each neuron image, including neuron type (if assigned) and driver. To see the full information, click on the neuron name. To display a neuron in the <a href="../../site/stacks/index.htm">Viewer</a>, click on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button.
 			    </p>
 
 					<img class="img-responsive center-block" src="/images/vfb/project/cluster_showAll.png" alt="All neurons in a cluster with annotations" style="align:center;padding:5px" width="800">
@@ -190,12 +187,12 @@
 			<img class="img-responsive center-block" src="/images/vfb/project/query2.png" alt="Query results for transgenes" style="align:center;padding:5px" width="800">
 
 			<a name="anatfinder"></a>
-	    <h2>The Anatomy/Neuron Finder</h2>
+	    <h2>What information is displayed</h2>
 			<p>
-				This search tool, available on the homepage, in <a href="../tools/anatomy_finder/index.htm">Tools</a>, or in the Search tab in the <a href="../../site/stacks/index.htm">Viewer</a> menu searches all the associated information to a neuron class, neuropil domain, lineage clone or tract. You can also search directly for a neuron image, using for example a FlyCircuit identifier such as Cha-F-50005.
+				Searches can be done from any page, using the search box in the header of every page. Searches will include all the associated information to a neuron class, neuropil domain, lineage clone or tract. You can also search directly for a neuron image, using for example a FlyCircuit identifier such as Cha-F-50005.
 			</p>
 
-			<img class="img-responsive center-block" src="/images/vfb/project/searchbox_anatfinder.png" alt="Neuron or neuropil search box" style="align:center;padding:5px" width="300">
+			<img class="img-responsive center-block" src="/images/vfb/project/searchbox_anatfinder.png" alt="VFB search box" style="align:center;padding:5px" width="300">
 
 		  <p>
 		    Searching for a term is made easy by the autocomplete search box which recognises synonyms. Sections displayed for each term include a definition, synonyms, references, parent classes, ontology relationships and thumbnail images, if available.
@@ -210,7 +207,7 @@
 			<a name="composite"></a>
 			<h2>Overlaying image stacks</h2>
 			<p>
-				You can overlay any number of images stacks in our <a href="../../site/stacks/index.htm">Viewer</a>. Images or neuropils can be added to the Viewer by clicking the green paperclip button, next to the name of the entity. The list of displayed images is visible on the Displayed tab in the Viewer menu. In this tab, there is also a Clear all button. The number of images in the Viewer is shown in the header of every page, in the green button to the right. Clicking on it will take you to the Viewer.  
+				You can overlay any number of images stacks in our <a href="../../site/stacks/index.htm">Viewer</a>. Images or neuropils can be added to the Viewer by clicking the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button, next to the name of the entity. The list of displayed images is visible on the Displayed tab in the Viewer menu. In this tab, there is also a Clear all button (<a href='#' class="btn btn-xs btn-warning" style="float:left;">Clear all</a>). The number of images in the Viewer is shown in the header of every page, in the green button to the right. Clicking on it will take you to the Viewer.  
 				<br/>
 				Below, is an example of an overlay of 3 image stacks and 2 neuropils. In green, a single neuron from the FlyCircuit dataset (Cha-F-500059);
 				in dark blue the lineage clone LALv1 and in magenta the lineage clone DL1, both from Tzumin Lee's dataset. In addition to the image stacks,
@@ -234,10 +231,8 @@
 		  <img class="img-responsive center-block" src="/images/vfb/project/queryBuilder.png" alt="Query Builder" style="align:center;padding:5px" width="800">
 
 			<p>
-				Neuropil domains can be selected using any of the methods above: from the the <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> for a term, or from the Viewer menu tabs 'Selected', 'Displayed', 'Anatomy' or 'Search'.
-				</p>
-				<p>
-				 To add a term, click on the light blue menu button next to a term's name, to the right of the green paperclip.
+				Neuropil domains can be selected using any of the methods above.
+				 To add a term, click on the <a href='#' class='btn btn-xs btn-info' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-tasks'></span></a> button next to a term's name, to the right of the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button.
 				 </p>
 				 <p>
 				Once a term has been added, it will be shown in the 'Query' tab. You can specify the directionality of the innervation by choosing the type of terminals: pre-, postsynaptic or any (synaptic) using the drop-down menu underneath the chosen term. Add another term in the same way. Queries can have multiple legs.
