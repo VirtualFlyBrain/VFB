@@ -92,18 +92,7 @@ function animateWlzDisplay(){
                     $("#viewer-panel").css("min-width", $(window).width() - 30);
                     $("#viewer-panel").css("overflow-x", "scroll");
                   }
-                  if ($(window).width() < 640 && $('#right-panel').width() > $(window).width()){
-                    $('#right-panel').css("min-width", $(window).width());
-                  }
-                  if ($(window).width() > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
-                    $('#right-panel').css("min-width", 640);
-                  }
-                  if (($('#right-panel').width()+30) < 640) {
-                    j = $('#right-panel').width()+30;
-                  }else{
-                    j = 640;
-                  }
-                  if ((canvas.width + 40 + j) > $(window).width()) {
+                  if ((canvas.width + 40 + ($('#right-panel').width()+30)) > $(window).width()) {
                     $('#DispMenuTab').show();
                     $('#AnatoMenuTab').show();
                     $('#SearchMenuTab').show();
@@ -169,18 +158,7 @@ function animateWlzDisplay(){
                     $("#viewer-panel").css("min-width", $(window).width() - 10);
                     $("#viewer-panel").css("overflow-x", "scroll");
                   }
-                  if ($(window).width() < 640 && $('#right-panel').width() > $(window).width()){
-                    $('#right-panel').css("min-width", $(window).width());
-                  }
-                  if ($(window).width() > 640 && $('#right-panel').width() < 640 && $('#right-panel').width() !== 80){
-                    $('#right-panel').css("min-width", 640);
-                  }
-                  if (($('#right-panel').width()+30) < 640) {
-                    j = $('#right-panel').width()+30;
-                  }else{
-                    j = 640;
-                  }
-                  if ((canvas.width + 50 + j) > $(window).width()) {
+                  if ((canvas.width + 50 + ($('#right-panel').width()+30)) > $(window).width()) {
                     $('#DispMenuTab').show();
                     $('#AnatoMenuTab').show();
                     $('#SearchMenuTab').show();
@@ -544,7 +522,6 @@ function minimizeMenuTabs() {
   $('#SelecMenuTab').hide();
   $('#QueryMenuTab').hide();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="maximizeMenuTabs();"><span class="glyphicon glyphicon-resize-full"></span> Menu</a>');
-  $('#right-panel').css("min-width",80);
 }
 
 function maximizeMenuTabs(scale) {
@@ -562,11 +539,6 @@ function maximizeMenuTabs(scale) {
   $('#SelecMenuTab').show();
   $('#QueryMenuTab').show();
   $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
-  if ($(window).width() < 640){
-    $('#right-panel').css("min-width", $(window).width());
-  }else{
-    $('#right-panel').css("min-width",640);
-  }
   if (scale){
     parent.$("body").data("disp", "scale");
   }
@@ -1414,8 +1386,8 @@ function loadRightMenuDisplayed() {
     var selected = parent.$("body").data(current.template).selected;
     if (selected && $.fn.dataTable.isDataTable('#displayed')) {
       $('table').each(function(){
-        if ($(this).width() > $('#right-panel').width() || $(this).width() < $('#right-panel').width()){
-          $(this).css('width', $('#right-panel').width());
+        if ($(this).width() > $('#disp').width() || $(this).width() < $('#disp').width()){
+          $(this).css('width', $('#disp').width());
         }
       });
       var layers = Object.keys(selected).length;
