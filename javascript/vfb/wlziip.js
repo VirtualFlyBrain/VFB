@@ -1736,132 +1736,134 @@ function clearSelectedTable() {
 }
 
 function addAvailableItems(ids) {
-  if (!Array.isArray(ids)) {
-    ids = [ids];
-  }
-  var i;
-  var id;
-  var layers;
-  var layer;
-  var temp;
-  var current = parent.$("body").data("current");
-  var selected = parent.$("body").data(current.template).selected;
-  for (i in ids) {
-    id = cleanIdforInt(ids[i]);
-    if (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1){
-      temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
-      for (layers in parent.$("body").data("domains")){
-        if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
-          temp = parent.$("body").data("domains")[layers];
-          if (i > 0) {
-            setText(temp.name);
+  if (typeof(ids) != "undefined" && ids != null){
+    if (!Array.isArray(ids)) {
+      ids = [ids];
+    }
+    var i;
+    var id;
+    var layers;
+    var layer;
+    var temp;
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    for (i in ids) {
+      id = cleanIdforInt(ids[i]);
+      if (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1){
+        temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
+        for (layers in parent.$("body").data("domains")){
+          if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
+            temp = parent.$("body").data("domains")[layers];
+            if (i > 0) {
+              setText(temp.name);
+            }
+            break;
           }
-          break;
         }
-      }
-      // Controls:
-      if (temp.extId) {
-        controls = createControlsBarHTML(cleanIdforInt(temp.extId[0]));
-      }else{
-        controls = "";
-        alertMessage('Unable to resolve for:' + JSON.stringify(temp));
-      }
-      // Name:
-      if (temp.extId) {
-        name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
-        name += "openFullDetails('" + cleanIdforExt(temp.extId[0]) + "');";
-        name += '">';
-        name += temp.name;
-        name += '</span></a>';
-        if (id.indexOf('00000')<0) {
-          openFullDetails(cleanIdforExt(temp.extId[0]));
+        // Controls:
+        if (temp.extId) {
+          controls = createControlsBarHTML(cleanIdforInt(temp.extId[0]));
+        }else{
+          controls = "";
+          alertMessage('Unable to resolve for:' + JSON.stringify(temp));
         }
-      }else{
-        name = temp.name;
-      }
-      // Type:
-      if (temp.extId) {
-        type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
-        type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
-        type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
-        type += cleanIdforExt(temp.extId[0]);
-        type += '</span></a>';
-      }else{
-        type = "";
-      }
-    }else{
-      for (layers in selected){
-        if (cleanIdforInt(selected[layers].id) == id) {
-          temp = selected[layers];
-          if (temp.name){
-            setText(temp.name);
-          }else{
-            setText(cleanIdforExt(temp.id));
+        // Name:
+        if (temp.extId) {
+          name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(temp.extId[0]) + '" onclick="';
+          name += "openFullDetails('" + cleanIdforExt(temp.extId[0]) + "');";
+          name += '">';
+          name += temp.name;
+          name += '</span></a>';
+          if (id.indexOf('00000')<0) {
+            openFullDetails(cleanIdforExt(temp.extId[0]));
           }
-          layer = selected[layers];
-          break;
+        }else{
+          name = temp.name;
         }
-      }
-      // open details
-      if (id.indexOf('00000')<0 && id.indexOf('_a0')<0) {
-        openFullDetails(cleanIdforExt(id));
-      }
-      // Controls:
-      controls = createControlsBarHTML(id);
-      // Name:
-      if (temp.name){
-        name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
-        name += "openFullDetails('" + cleanIdforExt(id) + "');";
-        name += '">';
-        name += temp.name;
+        // Type:
+        if (temp.extId) {
+          type = '<span class="hide" id="parentIdFor' + temp.extId[0] + '" data-id="' + temp.extId[0] + '" ></span><a href="#details"><span class="link" onclick="';
+          type += "openFullDetails($('#parentIdFor"+temp.extId[0]+"').text())";
+          type += '" id="typeFor' + id + '" data-id="' + temp.extId[0] + '">';
+          type += cleanIdforExt(temp.extId[0]);
+          type += '</span></a>';
+        }else{
+          type = "";
+        }
       }else{
-        if (id.indexOf('_a')<0){
-          name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
+        for (layers in selected){
+          if (cleanIdforInt(selected[layers].id) == id) {
+            temp = selected[layers];
+            if (temp.name){
+              setText(temp.name);
+            }else{
+              setText(cleanIdforExt(temp.id));
+            }
+            layer = selected[layers];
+            break;
+          }
+        }
+        // open details
+        if (id.indexOf('00000')<0 && id.indexOf('_a0')<0) {
+          openFullDetails(cleanIdforExt(id));
+        }
+        // Controls:
+        controls = createControlsBarHTML(id);
+        // Name:
+        if (temp.name){
+          name = '<a href="#details"><span id="ResolvedNameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
           name += "openFullDetails('" + cleanIdforExt(id) + "');";
           name += '">';
-          name += cleanIdforExt(temp.id);
+          name += temp.name;
         }else{
-          name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+          if (id.indexOf('_a')<0){
+            name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
+            name += "openFullDetails('" + cleanIdforExt(id) + "');";
+            name += '">';
+            name += cleanIdforExt(temp.id);
+          }else{
+            name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a',''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+          }
         }
-      }
-      name += '</span></a>';
-      // Type:
-      if (temp.typeid) {
-        type = '<a href="#details"><span class="link" onclick="';
-        type += "openFullDetails('" +temp.typeid + "')";
-      }else{
-        if (id.indexOf('_a')<0){
-          type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
-          type += "openFullDetails($('#parentIdFor"+id+"').text())";
+        name += '</span></a>';
+        // Type:
+        if (temp.typeid) {
+          type = '<a href="#details"><span class="link" onclick="';
+          type += "openFullDetails('" +temp.typeid + "')";
         }else{
-          type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
-          type += "openFullDetails('"+cleanIdforExt(id)+"');";
+          if (id.indexOf('_a')<0){
+            type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
+            type += "openFullDetails($('#parentIdFor"+id+"').text())";
+          }else{
+            type = '<span class="hide" id="parentIdFor' + id + '" data-id="' + cleanIdforExt(id) + '" ></span><a href="#details"><span class="link" onclick="';
+            type += "openFullDetails('"+cleanIdforExt(id)+"');";
+          }
         }
-      }
-      if (temp.type) {
-        type += '" id="resolvedTypeFor' + id + '" data-id="' + cleanIdforExt(id) + '" >';
-        type += temp.type;
-      }else{
-        type += '" id="typeFor' + id + '" data-id="' + cleanIdforExt(id) + '" data-layer="' + i + '">';
-        type += cleanIdforExt(id);
-      }
-      type += '</span></a>';
+        if (temp.type) {
+          type += '" id="resolvedTypeFor' + id + '" data-id="' + cleanIdforExt(id) + '" >';
+          type += temp.type;
+        }else{
+          type += '" id="typeFor' + id + '" data-id="' + cleanIdforExt(id) + '" data-layer="' + i + '">';
+          type += cleanIdforExt(id);
+        }
+        type += '</span></a>';
 
+      }
+      var thumb = thumbnailHTMLForId(id);
+      $('#selected').dataTable().fnAddData([ name, SelectedIndex, controls, type, thumb], false);
+      SelectedIndex++;
     }
-    var thumb = thumbnailHTMLForId(id);
-    $('#selected').dataTable().fnAddData([ name, SelectedIndex, controls, type, thumb], false);
-    SelectedIndex++;
-  }
-  $('#selected').dataTable().fnAdjustColumnSizing(false);
-  $('#selected').DataTable().draw(false);
-  updateLabels();
-  if (temp && temp.extid){
-    id=temp.extid;
-  }
-  if (id && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
-    window.setTimeout(function(){
-				openFullDetails(id);
-		}, 5000);
+    $('#selected').dataTable().fnAdjustColumnSizing(false);
+    $('#selected').DataTable().draw(false);
+    updateLabels();
+    if (temp && temp.extid){
+      id=temp.extid;
+    }
+    if (id && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
+      window.setTimeout(function(){
+  				openFullDetails(id);
+  		}, 5000);
+    }
   }
 }
 
