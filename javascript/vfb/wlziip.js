@@ -1676,7 +1676,7 @@ function createTreeHTML(treeStruct) {
     }
     html += "<li>";
     id = node.nodeId;
-    if (parent.$("body").data("domains")[id] === undefined || parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
+    if (typeof(parent.$("body").data("domains")[id]) == "undefined" || parseInt(parent.$("body").data("domains")[id].nodeId) !== parseInt(id)){ // if nodeId not in sync with array index
       for (l in parent.$("body").data("domains")) {
         if (parseInt(parent.$("body").data("domains")[l].nodeId) == parseInt(id)) {
           id = l;
@@ -1707,7 +1707,7 @@ function createTreeHTML(treeStruct) {
         html += createTreeHTML(node.children);
       }
     }else{
-      alertMessage("Error finding nodeId:" + id);
+      alertMessage("Error finding nodeId: " + id);
     }
     html += "</li>";
   }
