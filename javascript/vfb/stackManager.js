@@ -553,8 +553,11 @@ function updateStackData(){
           if (store.get('updated').time > Date.now()-10*60000){
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
-            forceStoreControl();
-            store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+            if (location.pathname == "/site/stacks/index.htm") {
+              forceStoreControl();
+              store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+              parent.$('body').data('disp', 'scale');
+            }
             try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
             window.reloadInterval = 10;
           }else{
