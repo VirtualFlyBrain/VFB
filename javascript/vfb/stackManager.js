@@ -338,9 +338,11 @@ function loadTemplateMeta(id) {
        });
      }
    }
-   var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
-   var orient = parent.$("body").data("current").slice;
-   parent.$("body").data("current").scl = Math.round((($('#viewer-panel').width()-50)/(parent.$("body").data("meta").extent.split(',')[orientation[orient].W]*parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]))*10)/10;
+   if (typeof(parent.$("body").data("meta")) != "undefined"){
+     var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+     var orient = parent.$("body").data("current").slice;
+     parent.$("body").data("current").scl = Math.round((($('#viewer-panel').width()-50)/(parent.$("body").data("meta").extent.split(',')[orientation[orient].W]*parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]))*10)/10;
+   }
 }
 
 function jump(h){
