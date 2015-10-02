@@ -735,12 +735,14 @@ function initWlzControls() {
      parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
      window.features = [];
+     forceStoreControl();
    });
    slSlice.on('slideStop', function(ev){
      window.reloadInterval = 10;
      orient = parent.$("body").data("current").slice;
      parent.$("body").data("current").dst = Math.round(parseInt(ev.value)-((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D])+1)*parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
      $("#slider-sliceSliderVal").text(ev.value);
+     forceStoreControl();
      updateWlzDisplay();
      try{ga('send', 'event', 'viewer', 'slice', String(ev.value));}catch(ignore){}
    });
@@ -751,6 +753,7 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      parent.$("body").data("disp", "scale");
      window.features = [];
+     forceStoreControl();
    });
    slScale.on('slideStop', function(ev){
      window.reloadInterval = 10;
@@ -758,6 +761,7 @@ function initWlzControls() {
      $("#slider-scaleSliderVal").text(String(ev.value.toFixed(1))+'x');
      updateWlzDisplay();
      parent.$("body").data("disp", "scale");
+     forceStoreControl();
      updateWlzDisplay();
      try{ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1))+'x');}catch(ignore){}
    });
@@ -766,16 +770,19 @@ function initWlzControls() {
      window.reloadInterval = 1;
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
+     forceStoreControl();
    });
    slAlpha.on('slideStop', function(ev){
      window.reloadInterval = 10;
      parent.$("body").data("current").alpha = Math.round(((parseInt(ev.value))/100.0)*255.0);
      $("#slider-alphaSliderVal").text(String(ev.value)+'%');
      parent.$("body").data("disp","clear");
+     forceStoreControl();
      updateWlzDisplay();
      try{ga('send', 'event', 'viewer', 'alpha', String(Math.round(((parseInt(ev.value))/100.0)*255.0)));}catch(ignore){}
    });
    $("body").on('click', "#slider-scaleCurrentSliderValLabel", function(){
+     forceStoreControl();
      if ($("#slider-scaleCurrentSlider").is(":visible")){
        $("#slider-scaleCurrentSlider").hide();
        $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
@@ -797,6 +804,7 @@ function initWlzControls() {
      }
    });
    $("body").on('click', "#slider-sliceCurrentSliderValLabel", function(){
+     forceStoreControl();
      if ($("#slider-sliceCurrentSlider").is(":visible")){
        $("#slider-sliceCurrentSlider").hide();
        $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
@@ -818,6 +826,7 @@ function initWlzControls() {
      }
    });
    $("body").on('click', "#slider-alphaCurrentSliderValLabel", function(){
+     forceStoreControl();
      if ($("#slider-alphaCurrentSlider").is(":visible")){
        $("#slider-alphaCurrentSlider").hide();
        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
@@ -839,11 +848,13 @@ function initWlzControls() {
      }
    });
    $("#canvas").click(function(e) {
+     forceStoreControl();
      window.PosX = Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2));
      window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2));
      updatePosition();
    });
    $("body").on('click', "#resetPosition", function(){
+     forceStoreControl();
      hideAllSliders();
      var text = '{ "scl":' + String(defaultScaleByScreen()) + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
      parent.$("body").data("current").scl = String(defaultScaleByScreen());

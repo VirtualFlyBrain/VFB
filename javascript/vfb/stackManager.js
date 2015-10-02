@@ -553,18 +553,18 @@ function updateStackData(){
           if (store.get('updated').time > Date.now()-10*60000){
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
-            store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+            forceStoreControl();
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
             try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
             window.reloadInterval = 10;
           }else{
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-            store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+            forceStoreControl();
           }
         }
       }else{
         store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-        store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+        forceStoreControl();
       }
     }
   }else{
@@ -948,7 +948,7 @@ function addToStackData(ids, showDetails){
     window.reloadInterval = 10;
     if (parent.$("body").data("current") && parent.$("body").data("meta") && parent.$("body").data("domains") && parent.$("body").data("available")) {
       $('#canvas').css('cursor', 'wait');
-      store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+      forceStoreControl();
       var id;
       var i;
       var text;
@@ -1135,6 +1135,10 @@ function addToStackData(ids, showDetails){
   }
 }
 
+function forceStoreControl() {
+  store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+}
+
 function removeFromStackData(ids) {
   if (ids !== undefined && ids !== null) {
     window.reloadInterval = 10;
@@ -1143,7 +1147,7 @@ function removeFromStackData(ids) {
     var id;
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
-    store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
+    forceStoreControl();
     if (!Array.isArray(ids)) {
       ids = [ids];
     }
