@@ -37,7 +37,7 @@
 </script> --%>
 
 <div class="row">
-	<div class="col-md-6" style="min-width:640px;padding: 2px;">
+	<div class="col-md-6" style="min-width:555px;padding: 2px;">
 
 
 		<div class="row" style="overflow:scroll;">
