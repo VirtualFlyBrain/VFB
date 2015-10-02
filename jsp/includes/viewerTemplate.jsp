@@ -166,7 +166,7 @@
 													<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
 													<h4><center>Currently Displayed</center></h4>
 												</div>
-												<div class="col-md-12" style="padding:0;">
+												<div class="col-md-12" style="padding:0;" id="dispTable">
 													<div class="table-responsive" id="dispContent">
 														<table id="displayed" class="display compact" cellspacing="0">
 															<thead>
