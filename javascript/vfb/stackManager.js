@@ -811,6 +811,7 @@ function loadDefaultData(ids) {
 
 function initStackData(ids) {
   if (store.enabled) {
+    forceStoreControl();
     if (!store.has('data')) {
       console.log('initialising data store');
       loadDefaultData(ids);
