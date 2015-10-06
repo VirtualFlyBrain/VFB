@@ -761,6 +761,7 @@ function clearAbsolutlyAllData() {
     }
   }
   updateStackData();
+  parent.$('body').data('disp', 'scale');
 }
 
 function clearAllData() {
