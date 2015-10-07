@@ -1354,9 +1354,23 @@ function createCentreButtonHTML(fxp) {
   var size = parent.$('body').data('meta').voxel.split(',')[ax];
 
   html = '<button class="btn btn-xs" title="center" onclick="';
-  html += "parent.$('body').data('current').fxp='" + fxp + "'; parent.$('body').data('current').dst=0; updateWlzDisplay();updateMenuData();ga('send', 'event', 'viewer', 'center', '" + fxp + "');";
+  html += "moveToCentre(" + fxp + ");";
   html += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
+}
+
+function moveToCentre(fxp){
+  var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
+  var orient = parent.$("body").data("current").slice;
+  var ax = orientation[orient].D;
+  var cur = parent.$('body').data('current').fxp.split(',')[ax];
+  var aim = fxp.split(',')[ax];
+  var size = parent.$('body').data('meta').voxel.split(',')[ax];
+  var dist = Math.round((aim-cur)*size);
+  parent.$('body').data('current').dst=dist;
+  updateWlzDisplay();
+  updateMenuData();
+  ga('send', 'event', 'viewer', 'slice', '" + Math.round(aim*size) + "');
 }
 
 function loadReferenceMeta(id){
