@@ -1354,7 +1354,7 @@ function createCentreButtonHTML(fxp) {
   var size = parent.$('body').data('meta').voxel.split(',')[ax];
 
   html = '<button class="btn btn-xs" title="center" onclick="';
-  html += "moveToCentre(" + fxp + ");";
+  html += "moveToCentre('" + fxp + "');";
   html += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-screenshot"></span></button>';
   return html;
 }
