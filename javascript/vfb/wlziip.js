@@ -1370,6 +1370,7 @@ function moveToCentre(fxp){
   parent.$('body').data('current').dst=dist;
   updateWlzDisplay();
   updateMenuData();
+  window.reloadInterval = 10;
   ga('send', 'event', 'viewer', 'slice', '" + Math.round(aim*size) + "');
 }
 
