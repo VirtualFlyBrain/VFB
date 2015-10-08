@@ -1006,6 +1006,26 @@ function createControlsBarHTML(id) {
   return html;
 }
 
+function componentToHex(c) {
+  c = parseInt(c);
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function returnHexColours(){
+  var RGB = [0,0,0];
+  var HEX = '0x000000';
+  var result = "[";
+  for (var i=0; i < Object.keys(parent.$('body').data('colours')).length; i++) {
+  	RGB = parent.$('body').data('colours')[i].split(',');
+  	HEX = '"0x' + componentToHex(RGB[0]) + componentToHex(RGB[1]) + componentToHex(RGB[2]) + '",';
+  	result += HEX;
+  }
+  result += ']';
+  result = result.replace(",]","]");
+  return result;
+}
+
 function createInvertButtonHTML() {
   var html = "";
   if (parent.$('body').data('current').inverted){
