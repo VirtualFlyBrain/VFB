@@ -1362,6 +1362,7 @@ function updateSearchResults() {
             }
         }
       });
+      $('#searchtext').focus();
       checkSearchValue();
     });
   }
