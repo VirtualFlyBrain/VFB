@@ -1297,6 +1297,17 @@ function executeSearch() {
   }
 }
 
+function clickSearchResult(id) {
+  openFullDetails(id);
+  addToStackData(id);
+  $('.typeahead').typeahead('close');
+  $('#searchgroup').removeClass('has-success').removeClass('has-warning').removeClass('has-info');
+  $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
+  $('.typeahead').typeahead('val','');
+  $("#searchtext").css('width', 146);
+  $('.tt-hint').css('width', 146);
+}
+
 function updateSearchResults() {
   var val = $('#searchtext').val();
   if (val.length > 0){
@@ -1355,9 +1366,9 @@ function updateSearchResults() {
             empty: 'No results found',
             suggestion: function ( data ) {
                 if (data.syn == data.name){
-                  return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                  return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
                 }else{
-                  return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                  return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
                 }
             }
         }
@@ -1385,9 +1396,9 @@ $('body').ready( function () {
         empty: 'No results found',
         suggestion: function ( data ) {
             if (data.syn == data.name){
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+              return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
             }else{
-              return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+              return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
             }
         }
     }
