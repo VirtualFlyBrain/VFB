@@ -1415,12 +1415,12 @@ $('body').ready( function () {
     executeSearch();
   });
 
-  $('#searchtext').focusout(function() {
+  $('#searchtext').blur(function() {
     $("#searchtext").css('width', 146);
     $('.tt-hint').css('width', 146);
   });
 
-  $('#searchtext').focusin(function() {
+  $('#searchtext').focus(function() {
     var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
     if (searchwidth > 100) {
       $("#searchtext").css('width', searchwidth);
