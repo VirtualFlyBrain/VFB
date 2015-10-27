@@ -1423,7 +1423,7 @@ $('body').ready( function () {
     executeSearch();
   });
 
-  $('#searchgroup').focusout(function() {
+  $('#searchtext').focusout(function() {
     $("#searchtext").css('width', 146);
     $('.tt-hint').css('width', 146);
   });
