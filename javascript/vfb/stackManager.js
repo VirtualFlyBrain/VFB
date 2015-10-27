@@ -1343,6 +1343,25 @@ function updateSearchResults() {
       }
       searchresults=newresults;
       engine.add(searchresults);
+      $('#searchtext').typeahead('destroy');
+      $('#searchtext').typeahead({
+        hint: true,
+        minLength: 1
+      }, {
+        display: 'syn',
+        limit: 20,
+        source: engine.ttAdapter(),
+        templates: {
+            empty: 'No results found',
+            suggestion: function ( data ) {
+                if (data.syn == data.name){
+                  return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                }else{
+                  return '<p><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                }
+            }
+        }
+      });
       checkSearchValue();
     });
   }
