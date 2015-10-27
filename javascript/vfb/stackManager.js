@@ -1330,7 +1330,7 @@ function updateSearchResults() {
         }
       }
       searchresults=newresults;
-      engine.local = searchresults;
+      engine.add(searchresults);
       checkSearchValue();
     });
   }
