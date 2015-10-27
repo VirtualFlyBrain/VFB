@@ -15,25 +15,7 @@ var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
 var engine = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local:searchresults,
-  remote: {
-        url: '/search/select?hl=true&fl=iri,short_form,label,synonym,id,type,score&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=100&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=%QUERY&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true',
-        wildcard:'%QUERY',
-        filter: function (resultlist) {
-            // Map the remote source JSON array to a JavaScript object array
-            return $.map(resultlist.response.docs, function (result) {
-                var ref = result.short_form;
-                var i;
-                var results = [];
-                results.push({syn:result.label,name:result.label,id:ref});
-                for (i in result.synonym) {
-                  results.push({syn:result.synonym[i],name:result.label,id:ref});
-                }
-
-                return results;
-            });
-        }
-      }
+  local:searchresults
 });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
