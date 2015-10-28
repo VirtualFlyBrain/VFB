@@ -1249,13 +1249,10 @@ function checkSearchValue() {
       $('#searchtext').css('color', 'olive');
       if (searchresults[0].syn.indexOf($('#searchtext').val())>-1){
         $('#searchtext').attr('data-original-title', 'press return/enter accept default ['+ $('#searchresults').find('option').first().val() + ']').tooltip('fixTitle').tooltip('show');
-        $('.tt-hint').val(searchresults[0].syn);
       }else{
-        $('.tt-hint').val('');
         $('#searchtext').attr('data-original-title', 'continue typing or select from list').tooltip('fixTitle').tooltip('show');
       }
     }else{
-      $('.tt-hint').val('');
       $('#searchgroup').removeClass('has-success').removeClass('has-warning');
       $('#searchtext').css('color', 'black');
       $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
