@@ -1292,6 +1292,7 @@ function clickSearchResult(id) {
   $('.typeahead').typeahead('val','');
   $("#searchtext").css('width', 146);
   $('.tt-hint').css('width', 146);
+  $('#searchtext').val('');
   $('#searchtext').focus();
   checkSearchValue();
 }
