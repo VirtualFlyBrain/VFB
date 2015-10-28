@@ -1072,9 +1072,9 @@ function addToStackData(ids, showDetails){
                     break;
                   }
                 }
+                layers = Object.keys(selected).length;
+                selected[layers] = JSON.parse(text);
               }
-              layers = Object.keys(selected).length;
-              selected[layers] = JSON.parse(text);
             }
           }else if (id.indexOf("FBgn") > -1){
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
