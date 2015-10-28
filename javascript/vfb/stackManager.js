@@ -1301,7 +1301,7 @@ function clickSearchResult(id) {
 }
 
 function updateSearchResults() {
-  if (lastkey < (Date.now()-200)){
+  if (lastkey < (Date.now()-1000)){
     var val = $('#searchtext').val();
     if (val.length > 0){
       console.log('Searching for ' + val+ '...');
