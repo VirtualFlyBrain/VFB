@@ -443,3 +443,7 @@ div.DTTT_container {
     background-color:#ddd
   }
 }
+#scrollable-dropdown-menu .tt-dropdown-menu {
+  max-height: 150px;
+  overflow-y: auto;
+}
