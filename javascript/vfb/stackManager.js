@@ -1376,7 +1376,7 @@ $('body').ready( function () {
 
   window.id = guid();
 
-  //engine.initialize();
+  engine.initialize();
 
   $('#searchtext').typeahead({
     hint: true,
