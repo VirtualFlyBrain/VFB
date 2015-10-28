@@ -1299,74 +1299,74 @@ function clickSearchResult(id) {
 }
 
 function updateSearchResults() {
-  // var val = $('#searchtext').val();
-  // if (val.length > 0){
-  //   $.getJSON( '/search/select?hl=true&fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=100&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"'+ val + '"^2%20synonym_s:"'+ val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q='+ val + '&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function( data ) {
-  //     resl = "";
-  //     var top;
-  //     var i;
-  //     var j;
-  //     var opt;
-  //     var newresults = [];
-  //     var val = $('#searchtext').val();
-  //     for (i in data.response.docs){
-  //       if (data.response.docs[i].label){
-  //         resl = data.response.docs[i].short_form;
-  //         if (i == '0'){
-  //           top = resl;
-  //           $('#searchid').text(resl);
-  //         }
-  //       }
-  //       opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
-  //       newresults.push(opt);
-  //       for (j in data.response.docs[i].synonym){
-  //         opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
-  //         newresults.push(opt);
-  //       }
-  //       if (data.response.docs[i].has_narrow_synonym_annotation) {
-  //         for (j in data.response.docs[i].has_narrow_synonym_annotation){
-  //           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_narrow_synonym_annotation[j],id:resl};
-  //           newresults.push(opt);
-  //         }
-  //       }
-  //       if (data.response.docs[i].has_broad_synonym_annotation) {
-  //         for (j in data.response.docs[i].has_broad_synonym_annotation){
-  //           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_broad_synonym_annotation[j],id:resl};
-  //           newresults.push(opt);
-  //         }
-  //       }
-  //     }
-  //     while (searchresults.length > 0){
-  //       resl = searchresults.pop();
-  //       if (!hasValue(newresults, 'id', resl.id)){
-  //           newresults.push(resl);
-  //       }
-  //     }
-  //     searchresults=newresults;
-  //     engine.add(searchresults);
-  //     $('#searchtext').typeahead('destroy');
-  //     $('#searchtext').typeahead({
-  //       hint: true,
-  //       minLength: 1
-  //     }, {
-  //       display: 'syn',
-  //       limit: 20,
-  //       source: engine.ttAdapter(),
-  //       templates: {
-  //           empty: 'No results found',
-  //           suggestion: function ( data ) {
-  //               if (data.syn == data.name){
-  //                 return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-  //               }else{
-  //                 return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-  //               }
-  //           }
-  //       }
-  //     });
-  //     $('#searchtext').focus();
-  //     checkSearchValue();
-  //   });
-  // }
+  var val = $('#searchtext').val();
+  if (val.length > 0){
+    $.getJSON( '/search/select?hl=true&fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=100&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"'+ val + '"^2%20synonym_s:"'+ val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q='+ val + '&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function( data ) {
+      resl = "";
+      var top;
+      var i;
+      var j;
+      var opt;
+      var newresults = [];
+      var val = $('#searchtext').val();
+      for (i in data.response.docs){
+        if (data.response.docs[i].label){
+          resl = data.response.docs[i].short_form;
+          if (i == '0'){
+            top = resl;
+            $('#searchid').text(resl);
+          }
+        }
+        opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
+        newresults.push(opt);
+        for (j in data.response.docs[i].synonym){
+          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
+          newresults.push(opt);
+        }
+        if (data.response.docs[i].has_narrow_synonym_annotation) {
+          for (j in data.response.docs[i].has_narrow_synonym_annotation){
+            opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_narrow_synonym_annotation[j],id:resl};
+            newresults.push(opt);
+          }
+        }
+        if (data.response.docs[i].has_broad_synonym_annotation) {
+          for (j in data.response.docs[i].has_broad_synonym_annotation){
+            opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_broad_synonym_annotation[j],id:resl};
+            newresults.push(opt);
+          }
+        }
+      }
+      while (searchresults.length > 0){
+        resl = searchresults.pop();
+        if (!hasValue(newresults, 'id', resl.id)){
+            newresults.push(resl);
+        }
+      }
+      searchresults=newresults;
+      engine.add(searchresults);
+      $('#searchtext').typeahead('destroy');
+      $('#searchtext').typeahead({
+        hint: true,
+        minLength: 1
+      }, {
+        display: 'syn',
+        limit: 20,
+        source: engine.ttAdapter(),
+        templates: {
+            empty: 'No results found',
+            suggestion: function ( data ) {
+                if (data.syn == data.name){
+                  return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                }else{
+                  return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                }
+            }
+        }
+      });
+      $('#searchtext').focus();
+      checkSearchValue();
+    });
+  }
 }
 
 $('body').ready( function () {
@@ -1381,66 +1381,7 @@ $('body').ready( function () {
   }, {
     display: 'syn',
     limit: 20,
-    source: function(query, process){
-        // `query` is the text in the field
-        // `process` is a function to call back with the array
-        $.ajax({
-            // Your URL
-            url: "/search/select",
-
-            // Your argument with the query as its value
-            data: {hl:true, fl:'short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation', start:0, fq:'ontology_name:(fbbt)', fq:'is_obsolete:false', fq:'shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*', rows:100, hl.simple.pre:'<b>', bq:'is_defining_ontology:true^100.0%20label_s:"'+ query + '"^2%20synonym_s:"'+ query + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2', q:query, defType:'edismax', hl.simple.post:'</b>', qf:'label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation', hl.fl:'label_autosuggest', hl.fl:'label', hl.fl:'synonym_autosuggest', hl.fl:'synonym', wt:'json', indent:true},
-
-            // Success callback -- since it expects the first
-            // parameter to be the data, and that's what the
-            // success callback is called with, you can just
-            // use `process` directly
-            success: function(data){
-              resl = "";
-              var top;
-              var i;
-              var j;
-              var opt;
-              var newresults = [];
-              var val = $('#searchtext').val();
-              for (i in data.response.docs){
-                if (data.response.docs[i].label){
-                  resl = data.response.docs[i].short_form;
-                  if (i == '0'){
-                    top = resl;
-                    $('#searchid').text(resl);
-                  }
-                }
-                opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
-                newresults.push(opt);
-                for (j in data.response.docs[i].synonym){
-                  opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
-                  newresults.push(opt);
-                }
-                if (data.response.docs[i].has_narrow_synonym_annotation) {
-                  for (j in data.response.docs[i].has_narrow_synonym_annotation){
-                    opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_narrow_synonym_annotation[j],id:resl};
-                    newresults.push(opt);
-                  }
-                }
-                if (data.response.docs[i].has_broad_synonym_annotation) {
-                  for (j in data.response.docs[i].has_broad_synonym_annotation){
-                    opt = {name:data.response.docs[i].label,syn:data.response.docs[i].has_broad_synonym_annotation[j],id:resl};
-                    newresults.push(opt);
-                  }
-                }
-              }
-              while (searchresults.length > 0){
-                resl = searchresults.pop();
-                if (!hasValue(newresults, 'id', resl.id)){
-                    newresults.push(resl);
-                }
-              }
-              searchresults=newresults;
-              process(searchresults);
-            }
-        });
-    },
+    source: engine.ttAdapter(),
     templates: {
         empty: 'No results found',
         suggestion: function ( data ) {
