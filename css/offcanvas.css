@@ -445,9 +445,9 @@ div.DTTT_container {
 }
 
 p.tt-curser{
-  background-color:#777 !important;
+  background-color: #777 !important;
 }
 
-p:hover.tt-suggestion .tt-selectable{
-  background-color:#777 !important;
+p:hover.tt-selectable{
+  background-color: #777 !important;
 }
