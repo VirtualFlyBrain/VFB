@@ -1351,6 +1351,7 @@ function updateSearchResults() {
       }, {
         display: 'syn',
         limit: 20,
+        delay: 2,
         source: engine.ttAdapter(),
         templates: {
             empty: 'No results found',
