@@ -12,11 +12,11 @@ var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
       {syn:'A1 neuron',id:'FBbt_00001988',name:'A1 neuron'},
       {syn:'AL2 clone',id:'FBbt_00110418',name:'adult fruitless aDT-c lineage clone'},
       {syn:'C1 tract',id:'FBbt_00005905',name:'C1 fascicle'}];
-var engine = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local:searchresults
-});
+// var engine = new Bloodhound({
+//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
+//   queryTokenizer: Bloodhound.tokenizers.whitespace,
+//   local:searchresults
+// });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
   B:'VFBt_001!2S!20!2i!6VFBt_00100000!4N!6Janelia Adult Brain',
