@@ -1295,6 +1295,7 @@ function clickSearchResult(id) {
   $('#searchtext').val('');
   $('#searchtext').focus();
   checkSearchValue();
+  $('#searchtext').tooltip('hide');
 }
 
 function updateSearchResults() {
