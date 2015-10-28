@@ -1301,7 +1301,7 @@ function clickSearchResult(id) {
 }
 
 function updateSearchResults() {
-  if (lastkey < Date.now()-(2*60000)){
+  if (lastkey < (Date.now()-200)){
     var val = $('#searchtext').val();
     if (val.length > 0){
       lastkey = Date.now();
