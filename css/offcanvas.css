@@ -443,3 +443,6 @@ div.DTTT_container {
     background-color:#ddd
   }
 }
+p.tt-suggestion .tt-selectable:hover{
+  background-color:#e3e3e3;
+}ß
