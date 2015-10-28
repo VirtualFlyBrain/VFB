@@ -96,7 +96,7 @@
 	      </ul>
 				<form class="navbar-form navbar-left" role="search">
 					<div id="searchgroup scrollable-dropdown-menu" class="form-group">
-						<input id="searchtext" type="text" class="typeahead form-control" autocomplete="off" placeholder="Search" aria-describedby="searchid" title="Search for neuropil, neuron, lineage clone or tract">
+						<input id="searchtext" type="text" class="typeahead form-control" autocomplete="off" placeholder="Search" aria-describedby="searchid" title="Search for neuropil, neuron, lineage clone or tract" data-provide="typeahead">
 						<span class="input-group-addon" id="searchid" style="display: none;"></span>
 					</div>
 				</form>
