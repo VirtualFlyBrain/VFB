@@ -30,8 +30,8 @@ public class xmlController implements Controller {
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String dom = req.getParameter("d");
-      List<String> individuals = ind.split(",");
-      List<String> domains = dom.split(",");
+      String[] individuals = ind.split(",");
+      String[] domains = dom.split(",");
       LOG.info("Loading xml for geppetto...");
       String xmli = "";
       Integer l = 0;
