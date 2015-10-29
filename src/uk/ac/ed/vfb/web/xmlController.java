@@ -26,6 +26,7 @@ public class xmlController implements Controller {
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("do/geppetto.xml");
+    String xmli = "";
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
@@ -33,7 +34,6 @@ public class xmlController implements Controller {
       String[] individuals = ind.split(",");
       String[] domains = dom.split(",");
       LOG.info("Loading xml for geppetto...");
-      String xmli = "";
       Integer l = 0;
       for (Integer i=individuals.size(); i<individuals.size(); i++){
         l = individuals[i].length();
