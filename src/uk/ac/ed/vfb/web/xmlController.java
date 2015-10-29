@@ -21,7 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class tomcatController implements Controller {
+public class xmlController implements Controller {
   private static final Log LOG = LogFactory.getLog(xmlController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
