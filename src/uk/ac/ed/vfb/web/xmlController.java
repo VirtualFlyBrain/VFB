@@ -25,7 +25,7 @@ public class xmlController implements Controller {
   private static final Log LOG = LogFactory.getLog(xmlController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    ModelAndView modelAndView = new ModelAndView("do/geppetto.xml");
+    ModelAndView modelAndView = new ModelAndView("do/geppetto");
     String xmli = "";
     try{
       String temp = req.getParameter("t");
