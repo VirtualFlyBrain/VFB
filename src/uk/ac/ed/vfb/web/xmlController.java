@@ -35,7 +35,7 @@ public class xmlController implements Controller {
       String[] domains = dom.split(",");
       LOG.info("Loading xml for geppetto...");
       Integer l = 0;
-      for (Integer i=individuals.size(); i<individuals.size(); i++){
+      for (Integer i=individuals.length(); i<individuals.length(); i++){
         l = individuals[i].length();
         xmli += "            <tns:entity>\n                        <tns:id>" + individuals[i] + "</tns:id>\n                        <tns:aspect>\n                            <tns:id>morphology</tns:id>\n                            <tns:model>\n                                <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>\n                                <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc</tns:modelURL>\n                            </tns:model>\n                        </tns:aspect>\n                    </tns:entity>";
       }
