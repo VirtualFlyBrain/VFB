@@ -767,17 +767,7 @@
             <tns:id>neurons</tns:id>
             <tns:aspect>
                 <tns:id>morphology</tns:id>
-            </tns:aspect><c:forEach var="i" begin="1" end="5">
-            <tns:entity>
-                <tns:id>VFB_0000000${i}</tns:id>
-                <tns:aspect>
-                    <tns:id>morphology</tns:id>
-                    <tns:model>
-                        <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>
-                        <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/0000/000${i}/volume.swc</tns:modelURL>
-                    </tns:model>
-                </tns:aspect>
-            </tns:entity></c:forEach>
+            </tns:aspect><c:if test="${fn:length(indxml)>0}">${indxml}</c:if>
         </tns:entity>
     </tns:entity>
 </tns:geppettoModel>
