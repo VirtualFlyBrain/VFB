@@ -36,7 +36,7 @@ public class geppettoController implements Controller {
       modelAndView.addObject("indjson", ind);
       modelAndView.addObject("domjson", dom);
       modelAndView.addObject("tempjson", temp);
-      modelAndView.addObject("time", getTime());
+      modelAndView.addObject("time", Date.getTime());
     }catch(Exception ex){
       LOG.error("Error creating json for geppetto:");
       ex.printStackTrace();
