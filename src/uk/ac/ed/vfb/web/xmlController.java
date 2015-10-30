@@ -34,12 +34,12 @@ public class xmlController implements Controller {
       if (ind.indexOf(",")>-1){
         String[] individuals = ind.split(",");
       }else{
-        individuals = [ind];
+        String[] individuals = new String[] {ind};
       }
       if (dom.indexOf(",")>-1){
         String[] domains = dom.split(",");
       }else{
-        domains = [dom];
+        String[] domains = new String[] {dom};
       }
       LOG.info("Loading xml for geppetto...");
       Integer l = 0;
