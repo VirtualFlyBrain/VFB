@@ -31,8 +31,8 @@ public class xmlController implements Controller {
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String dom = req.getParameter("d");
-      String[] individuals = new String[];
-      String[] domains = new String[];
+      String[] individuals;
+      String[] domains;
       if (ind.indexOf(",")>-1){
         individuals = ind.split(",");
       }else{
