@@ -31,7 +31,7 @@ public class geppettoController implements Controller {
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String dom = req.getParameter("d");
-      String cur = Date.getTime();
+      String cur = Date.getTime().toString();
       LOG.info("Loading json for geppetto...");
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
       modelAndView.addObject("indjson", ind);
