@@ -9,7 +9,7 @@
             "status": "COMPLETED",
             "script": "SERVER_ROOT/appdata/vfb/brain/brain1.js",
             description : "Adult Fly Brain",
-            "lastModified":"${getTime()}",
+            "lastModified":"${time}",
             "aspectConfigurations": []
         }
     ],
