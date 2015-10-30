@@ -33,13 +33,13 @@ public class xmlController implements Controller {
       String dom = req.getParameter("d");
       String[] individuals;
       String[] domains;
-      if (dom != null){
+      if (dom == null){
         dom = "";
       }
-      if (ind != null){
+      if (ind == null){
         ind = "";
       }
-      if (temp != null){
+      if (temp == null){
         temp = "VFBt_001";
       }
       if (ind.indexOf(",")>-1){
