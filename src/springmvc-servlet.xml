@@ -33,7 +33,11 @@
 	</bean>
 
 	<!-- geppetto xml -->
-	<bean name="/do/geppetto.html" class="uk.ac.ed.vfb.web.xmlController" scope="request">
+	<bean name="/do/geppettoXml.html" class="uk.ac.ed.vfb.web.xmlController" scope="request">
+	</bean>
+
+	<!-- geppetto json -->
+	<bean name="/do/geppettoJson.html" class="uk.ac.ed.vfb.web.geppettoController" scope="request">
 	</bean>
 
 	<!-- List of beans as result of an OWL query -->

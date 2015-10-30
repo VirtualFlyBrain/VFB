@@ -21,12 +21,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class xmlController implements Controller {
-  private static final Log LOG = LogFactory.getLog(xmlController.class);
+public class geppettoController implements Controller {
+  private static final Log LOG = LogFactory.getLog(geppettoController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    ModelAndView modelAndView = new ModelAndView("do/geppettoXml");
-    String xmli = "";
+    ModelAndView modelAndView = new ModelAndView("do/geppetto");
+    String jsoni = "";
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
@@ -52,21 +52,21 @@ public class xmlController implements Controller {
       }else{
         domains = new String[] {dom};
       }
-      LOG.info("Loading xml for geppetto...");
+      LOG.info("Loading json for geppetto...");
       Integer l = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
       for (Integer i=0; i<individuals.length; i++){
         l = individuals[i].length();
         if (l > 8){
-          xmli += "            <tns:entity>\n                        <tns:id>" + individuals[i] + "</tns:id>\n                        <tns:aspect>\n                            <tns:id>morphology</tns:id>\n                            <tns:model>\n                                <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>\n                                <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc</tns:modelURL>\n                            </tns:model>\n                        </tns:aspect>\n                    </tns:entity>";
+          jsoni += "            <tns:entity>\n                        <tns:id>" + individuals[i] + "</tns:id>\n                        <tns:aspect>\n                            <tns:id>morphology</tns:id>\n                            <tns:model>\n                                <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>\n                                <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc</tns:modelURL>\n                            </tns:model>\n                        </tns:aspect>\n                    </tns:entity>";
         }
       }
     }catch(Exception ex){
-      LOG.error("Error creating xml for geppetto:");
+      LOG.error("Error creating json for geppetto:");
       ex.printStackTrace();
     }
-    modelAndView.addObject("indxml", xmli);
-    LOG.info("returning xml: " + xmli);
+    modelAndView.addObject("indjson", jsoni);
+    LOG.info("returning json: " + jsoni);
     return modelAndView;
   }
 }
