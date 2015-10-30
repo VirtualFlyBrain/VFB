@@ -65,6 +65,7 @@ public class xmlController implements Controller {
       ex.printStackTrace();
     }
     modelAndView.addObject("indxml", xmli);
+    LOG.info("returning xml: " + xmli);
     return modelAndView;
   }
 }
