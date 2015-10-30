@@ -25,7 +25,7 @@ public class geppettoController implements Controller {
   private static final Log LOG = LogFactory.getLog(geppettoController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    ModelAndView modelAndView = new ModelAndView("do/geppetto");
+    ModelAndView modelAndView = new ModelAndView("do/geppettoJson");
     String jsoni = "";
     try{
       String temp = req.getParameter("t");
