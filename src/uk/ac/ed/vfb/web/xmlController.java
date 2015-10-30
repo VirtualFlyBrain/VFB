@@ -31,15 +31,17 @@ public class xmlController implements Controller {
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String dom = req.getParameter("d");
+      String[] individuals = new String[];
+      String[] domains = new String[];
       if (ind.indexOf(",")>-1){
-        String[] individuals = ind.split(",");
+        individuals = ind.split(",");
       }else{
-        String[] individuals = new String[] {ind};
+        individuals = new String[] {ind};
       }
       if (dom.indexOf(",")>-1){
-        String[] domains = dom.split(",");
+        domains = dom.split(",");
       }else{
-        String[] domains = new String[] {dom};
+        domains = new String[] {dom};
       }
       LOG.info("Loading xml for geppetto...");
       Integer l = 0;
