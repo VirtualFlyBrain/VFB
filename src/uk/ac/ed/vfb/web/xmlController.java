@@ -33,9 +33,13 @@ public class xmlController implements Controller {
       String dom = req.getParameter("d");
       if (ind.indexOf(",")>-1){
         String[] individuals = ind.split(",");
+      }else{
+        individuals = [ind];
       }
       if (dom.indexOf(",")>-1){
         String[] domains = dom.split(",");
+      }else{
+        domains = [dom];
       }
       LOG.info("Loading xml for geppetto...");
       Integer l = 0;
