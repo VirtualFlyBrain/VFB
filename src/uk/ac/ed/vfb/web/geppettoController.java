@@ -33,13 +33,14 @@ public class geppettoController implements Controller {
       String dom = req.getParameter("d");
       LOG.info("Loading json for geppetto...");
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
+      modelAndView.addObject("indjson", ind);
+      modelAndView.addObject("domjson", dom);
+      modelAndView.addObject("tempjson", temp);
     }catch(Exception ex){
       LOG.error("Error creating json for geppetto:");
       ex.printStackTrace();
     }
-    modelAndView.addObject("indjson", ind);
-    modelAndView.addObject("domjson", dom);
-    modelAndView.addObject("tempjson", temp);
+
     return modelAndView;
   }
 }
