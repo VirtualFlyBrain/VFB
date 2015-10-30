@@ -54,7 +54,7 @@ public class xmlController implements Controller {
       }
       LOG.info("Loading xml for geppetto...");
       Integer l = 0;
-      LOG.info("Using template: " + temp + "Individual(s) requested: " + individuals[i] + ". Domain(s) requested: " + dom );
+      LOG.info("Using template: " + temp + "Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
       for (Integer i=individuals.length; i<individuals.length; i++){
         l = individuals[i].length();
         if (l > 8){
