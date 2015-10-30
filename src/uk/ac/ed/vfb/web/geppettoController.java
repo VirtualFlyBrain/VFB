@@ -31,42 +31,15 @@ public class geppettoController implements Controller {
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String dom = req.getParameter("d");
-      String[] individuals;
-      String[] domains;
-      if (dom == null){
-        dom = "";
-      }
-      if (ind == null){
-        ind = "";
-      }
-      if (temp == null){
-        temp = "VFBt_001";
-      }
-      if (ind.indexOf(",")>-1){
-        individuals = ind.split(",");
-      }else{
-        individuals = new String[] {ind};
-      }
-      if (dom.indexOf(",")>-1){
-        domains = dom.split(",");
-      }else{
-        domains = new String[] {dom};
-      }
       LOG.info("Loading json for geppetto...");
-      Integer l = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
-      for (Integer i=0; i<individuals.length; i++){
-        l = individuals[i].length();
-        if (l > 8){
-          jsoni += "            <tns:entity>\n                        <tns:id>" + individuals[i] + "</tns:id>\n                        <tns:aspect>\n                            <tns:id>morphology</tns:id>\n                            <tns:model>\n                                <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>\n                                <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc</tns:modelURL>\n                            </tns:model>\n                        </tns:aspect>\n                    </tns:entity>";
-        }
-      }
     }catch(Exception ex){
       LOG.error("Error creating json for geppetto:");
       ex.printStackTrace();
     }
-    modelAndView.addObject("indjson", jsoni);
-    LOG.info("returning json: " + jsoni);
+    modelAndView.addObject("indjson", ind);
+    modelAndView.addObject("domjson", dom);
+    modelAndView.addObject("tempjson", temp);
     return modelAndView;
   }
 }
