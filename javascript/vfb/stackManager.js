@@ -91,7 +91,7 @@ function updateStackCounter() {
       }else{
         $("#clearEverythingOption").hide();
       }
-      $("#menuOpen3Dlink").attr(href, "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
+      $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
       $("[id^=Count]").each(function(){
         try{
           $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
