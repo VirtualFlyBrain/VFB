@@ -77,7 +77,7 @@
 							<li><a onClick="forceStoreControl();addToStackData('VFBt_003');post('/site/stacks/index.htm',{'add':'VFBt_00300000'});">Open the Larval Brain <span id="CountVFBt_003" class="label label-warning label-as-badge"></span></a></li>
 	          	<li id="clearAllOption"><a onClick="forceStoreControl();clearAllData();">Clear <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items</a></li>
 							<li id="clearEverythingOption"><a onClick="forceStoreControl();clearAbsolutlyAllData();">Clear All <span id="viewerTotalItems" class="label label-warning label-as-badge">*</span> items</a></li>
-							<li id="menuOpen3D"><a href="http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=http://vfbdev.inf.ed.ac.uk/do/geppettoJson.html" target="_blank">Open <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items in 3D viewer</a></li>
+							<li id="menuOpen3D"><a href="http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=http://www.virtualflybrain.org/do/geppettoJson.html" target="_blank">Open <span id="viewer2DVal" class="label label-success label-as-badge">*</span> items in 3D viewer</a></li>
 						</ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Downloads <span class="caret"></span></a>
