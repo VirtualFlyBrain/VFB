@@ -37,7 +37,7 @@
 	</bean>
 
 	<!-- geppetto json -->
-	<bean name="/do/geppettoJson.html" class="uk.ac.ed.vfb.web.geppettoController" scope="request">
+	<bean name="/do/geppettoJson.json" class="uk.ac.ed.vfb.web.geppettoController" scope="request">
 	</bean>
 
 	<!-- List of beans as result of an OWL query -->
