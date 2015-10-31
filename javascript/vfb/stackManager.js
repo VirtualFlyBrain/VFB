@@ -1220,9 +1220,9 @@ function returnGeppettoConfUrl() {
           }
         }
       }
-      return "http://"+window.location.host+window.location.pathname+"/do/geppettoJson.json?i="+displayed;
+      return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed;
     }else{
-      return "http://"+window.location.host+window.location.pathname+"/do/geppettoJson.json";
+      return "http://"+window.location.host+"/do/geppettoJson.json";
     }
 }
 
