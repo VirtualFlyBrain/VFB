@@ -1,4 +1,4 @@
-<%@ page import="java.io.*,java.util.*, javax.servlet.*" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>{
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>{
     "id": 1,
     "name": "Virtual Fly Brain",
     "activeExperimentId": 1,
