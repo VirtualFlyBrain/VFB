@@ -8,8 +8,8 @@
             "name": "Only morphologies, no simulation",
             "status": "COMPLETED",
             "script": "SERVER_ROOT/appdata/vfb/brain/brain1.js",
-            description : "Adult Fly Brain",
-            "lastModified":"${time}",
+            "description": "Adult Fly Brain",
+            "lastModified": "${time}",
             "aspectConfigurations": []
         }
     ],
