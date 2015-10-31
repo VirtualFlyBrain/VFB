@@ -1936,7 +1936,6 @@ function returnFullUrl() {
     }
 }
 
-
 $('body').ready( function () {
   $('body').css('cursor', 'wait');
   initWlzControls();

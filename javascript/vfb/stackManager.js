@@ -91,6 +91,7 @@ function updateStackCounter() {
       }else{
         $("#clearEverythingOption").hide();
       }
+      $("#menuOpen3D").attr(href, "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
       $("[id^=Count]").each(function(){
         try{
           $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
@@ -1200,6 +1201,29 @@ function removeFromStackData(ids) {
     }
     updateStackData();
   }
+}
+
+function returnGeppettoConfUrl() {
+    var current = parent.$("body").data("current");
+    if (current){
+      var selected = parent.$("body").data(current.template).selected;
+      var i;
+      var displayed = selected[0].id;
+      var template = current.template;
+      var domains = "";
+      for (i in selected) {
+        if (i>0){
+          if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1){
+            displayed += "," + cleanIdforExt(selected[i].id);
+          }else if (cleanIdforExt(selected[i].id).indexOf('VFBd_')>-1){
+            domains += "," + cleanIdforExt(selected[i].id);
+          }
+        }
+      }
+      return "http://"+window.location.host+window.location.pathname+"/do/geppettoJson.json?i="+displayed;
+    }else{
+      return "http://"+window.location.host+window.location.pathname+"/do/geppettoJson.json";
+    }
 }
 
 function thumbnailHTMLForId(id) {
