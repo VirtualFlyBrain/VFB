@@ -34,7 +34,7 @@ public class geppettoController implements Controller {
       String diffs = req.getParameter("d");
       String cur = new Long((new Date().getTime())).toString();
       LOG.info("Loading json for geppetto...");
-      LOG.info("Using template: " + temp + ". Item(s) requested: " + items + ". Difference(s) requested: " + dom );
+      LOG.info("Using template: " + temp + ". Item(s) requested: " + items + ". Difference(s) requested: " + diffs );
       modelAndView.addObject("itemsjson", items);
       modelAndView.addObject("diffsjson", diffs);
       modelAndView.addObject("tempjson", temp);
