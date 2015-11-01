@@ -32,9 +32,6 @@ public class xmlController implements Controller {
       String ind = req.getParameter("i");
       String[] individuals;
       String[] domains;
-      if (dom == null){
-        dom = "";
-      }
       if (ind == null){
         ind = "";
       }
