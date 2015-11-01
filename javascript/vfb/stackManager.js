@@ -1215,7 +1215,7 @@ function returnGeppettoConfUrl() {
         if (i>0){
           displayed += "," + cleanIdforExt(selected[i].id);
           if (cleanIdforExt(selected[i].colour).indexOf('auto')<0){
-            diffs += "," + cleanIdforExt(selected[i].id) + "-" + selected[i].colour;
+            diffs += "," + cleanIdforExt(selected[i].id) + "-" + rgbColToHex(selected[i].colour).replace("#","0x");
           }
         }
       }
