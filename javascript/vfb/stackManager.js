@@ -1210,17 +1210,16 @@ function returnGeppettoConfUrl() {
       var i;
       var displayed = selected[0].id;
       var template = current.template;
-      var domains = "";
+      var diffs = "";
       for (i in selected) {
         if (i>0){
-          if (cleanIdforExt(selected[i].id).indexOf('VFB_')>-1){
-            displayed += "," + cleanIdforExt(selected[i].id);
-          }else if (cleanIdforExt(selected[i].id).indexOf('VFBd_')>-1){
-            domains += "," + cleanIdforExt(selected[i].id);
+          displayed += "," + cleanIdforExt(selected[i].id);
+          if (cleanIdforExt(selected[i].colour).indexOf('auto')<0){
+            diffs += "," + cleanIdforExt(selected[i].id) + "-" + selected[i].colour;
           }
         }
       }
-      return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed;
+      return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed+"&t="+template+"&d="+diffs;
     }else{
       return "http://"+window.location.host+"/do/geppettoJson.json";
     }

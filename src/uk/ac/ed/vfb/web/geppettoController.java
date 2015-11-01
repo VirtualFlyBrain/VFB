@@ -30,13 +30,13 @@ public class geppettoController implements Controller {
     String jsoni = "";
     try{
       String temp = req.getParameter("t");
-      String ind = req.getParameter("i");
-      String dom = req.getParameter("d");
+      String items = req.getParameter("i");
+      String diffs = req.getParameter("d");
       String cur = new Long((new Date().getTime())).toString();
       LOG.info("Loading json for geppetto...");
-      LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind + ". Domain(s) requested: " + dom );
-      modelAndView.addObject("indjson", ind);
-      modelAndView.addObject("domjson", dom);
+      LOG.info("Using template: " + temp + ". Item(s) requested: " + items + ". Difference(s) requested: " + dom );
+      modelAndView.addObject("itemsjson", items);
+      modelAndView.addObject("diffsjson", diffs);
       modelAndView.addObject("tempjson", temp);
       modelAndView.addObject("time", cur);
     }catch(Exception ex){

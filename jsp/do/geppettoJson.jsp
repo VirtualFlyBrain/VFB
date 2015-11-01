@@ -15,7 +15,7 @@
     ],
     "geppettoModel": {
         "id": 9,
-        "url": "http://www.virtualflybrain.org/do/geppettoXml.xml?<c:if test="${fn:length(indjson)>0}">i=${indjson}</c:if>",
+        "url": "http://www.virtualflybrain.org/do/geppettoXml.xml?<c:if test="${fn:length(itemsjson)>0}">i=${itemsjson}</c:if>",
         "type": "GEPPETTO_PROJECT"
     }
 }
