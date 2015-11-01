@@ -1208,7 +1208,7 @@ function returnGeppettoConfUrl() {
     if (current){
       var selected = parent.$("body").data(current.template).selected;
       var i;
-      var displayed = selected[0].id;
+      var displayed = "";
       var template = current.template;
       var diffs = "";
       for (i in selected) {
