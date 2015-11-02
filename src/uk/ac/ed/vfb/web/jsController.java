@@ -21,8 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class xmlController implements Controller {
-  private static final Log LOG = LogFactory.getLog(xmlController.class);
+public class jsController implements Controller {
+  private static final Log LOG = LogFactory.getLog(jsController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("do/geppettoJs");
