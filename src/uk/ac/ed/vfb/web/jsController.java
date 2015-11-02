@@ -62,7 +62,7 @@ public class xmlController implements Controller {
       diffName = diff;
       diffColour = diff;
       for (i=0; i<diff.length; i++){
-        if (diff.indexOf("-")>-1){
+        if (diff[i].indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
            diffColour[i] = diff[i].split("-")[1];
         }
