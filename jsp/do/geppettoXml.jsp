@@ -21,8 +21,8 @@
                         <tns:modelURL>SERVER_ROOT/appdata/vfb/${domDir}/domain${curr}.obj</tns:modelURL>
                     </tns:model>
                 </tns:aspect>
-            </tns:entity></c:forEach>
-        <tns:entity>
+            </tns:entity>
+        </c:forEach><tns:entity>
             <tns:id>neurons</tns:id>
             <tns:aspect>
                 <tns:id>morphology</tns:id>
