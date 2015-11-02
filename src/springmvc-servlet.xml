@@ -36,6 +36,10 @@
 	<bean name="/do/geppettoXml.xml" class="uk.ac.ed.vfb.web.xmlController" scope="request">
 	</bean>
 
+	<!-- geppetto Js -->
+	<bean name="/do/geppettoJs.html" class="uk.ac.ed.vfb.web.jsController" scope="request">
+	</bean>
+
 	<!-- geppetto json -->
 	<bean name="/do/geppettoJson.json" class="uk.ac.ed.vfb.web.geppettoController" scope="request">
 	</bean>
