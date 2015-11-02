@@ -58,10 +58,10 @@ public class xmlController implements Controller {
       }else{
         diff = new String[] {diffs};
       }
-      Integer i = 0;
+      int i;
       diffName = diff;
       diffColour = diff;
-      for (i in diff){
+      for (i=0; i<diff.length; i++){
         if (diff.indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
            diffColour[i] = diff[i].split("-")[1];
