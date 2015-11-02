@@ -5,6 +5,5 @@ coli = 0;
 <c:forEach items="${domains}" var="curr" varStatus="status">flybrain.regions.${domHead}${curr}.setName('${abrev[status.index]}');</c:forEach>
 <c:forEach items="${individuals}" var="curr" varStatus="status">flybrain.<c:if test="${fn:contains(curr, 'VFB_')}">neurons.</c:if><c:if test="${fn:contains(curr, 'VFBd_')}">regions.</c:if>${curr}.morphology.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}</c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">flybrain.<c:if test="${fn:contains(curr, 'VFB_')}">neurons.</c:if><c:if test="${fn:contains(curr, 'VFBd_')}">regions.</c:if>${curr}.morphology.setColor('${diffColour[status.index]}');</c:forEach>
-for (i in flybrain){ if (i.indexOf("VFB_")>-1) {flybrain[i].setColor(colours[coli],true);coli++;if (coli>199) {coli=0;}} else {for (j in flybrain[i]){ if (j.indexOf("VFB_")>-1) { flybrain[i][j].setName('Ref '+ flybrain[i][j].id) }}}};
 G.setCameraPosition(182.941,-48.076,-773.498);
 G.setCameraRotation(2.904,-0.158,-0.012,878.060);
