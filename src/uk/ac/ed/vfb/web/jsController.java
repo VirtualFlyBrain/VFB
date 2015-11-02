@@ -65,7 +65,7 @@ public class jsController implements Controller {
       for (i=0; i<diff.length; i++){
         if (diff[i].indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
-           diffColour[i] = diff[i].split("-")[1];
+           diffColour[i] = diffColour[i].replace(diffName[i]+"-","");
            change = true;
         }
       }
@@ -88,7 +88,7 @@ public class jsController implements Controller {
       modelAndView.addObject("domains", domains);
       modelAndView.addObject("individuals", individuals);
     }catch(Exception ex){
-      LOG.error("Error creating xml for geppetto:");
+      LOG.error("Error creating script for geppetto:");
       ex.printStackTrace();
     }
     LOG.info("returning xml: " + xmli);
