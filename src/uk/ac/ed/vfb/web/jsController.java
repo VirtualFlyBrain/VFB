@@ -65,7 +65,7 @@ public class jsController implements Controller {
       for (i=0; i<diff.length; i++){
         if (diff[i].indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
-           diffColour[i] = diffColour[i].split("-")[1];
+           diffColour[i] = diff[i].split("-")[1];
            change = true;
         }
       }
