@@ -10,7 +10,7 @@
             <tns:aspect>
                 <tns:id>morphology</tns:id>
             </tns:aspect>
-            <c:forEach items="${domains}" var="curr" varStatus="status"><tns:entity>
+<c:forEach items="${domains}" var="curr" varStatus="status">            <tns:entity>
                 <tns:id>${domHead}${curr}</tns:id>
                 <tns:aspect>
                     <tns:id>morphology</tns:id>
