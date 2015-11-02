@@ -1219,6 +1219,12 @@ function returnGeppettoConfUrl() {
           }
         }
       }
+      if (displayed.length > 1){
+        displayed = displayed.substr(1);
+      }
+      if (diffs.length > 1){
+        diffs = diffs.substr(1);
+      }
       return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed+"&t="+template+"&d="+diffs;
     }else{
       return "http://"+window.location.host+"/do/geppettoJson.json";
