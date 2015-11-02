@@ -12,6 +12,7 @@
             </tns:aspect>
 <c:forEach items="${domains}" var="curr" varStatus="status">      <tns:entity>
                 <tns:id>${domHead}${curr}</tns:id>
+                <tns:name>${abrev[status.index]}</tns:name>
                 <tns:aspect>
                     <tns:id>morphology</tns:id>
                     <tns:model>
