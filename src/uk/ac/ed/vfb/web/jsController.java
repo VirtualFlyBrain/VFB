@@ -33,11 +33,11 @@ public class xmlController implements Controller {
     String domDir = "";
     String[] diffName;
     String[] diffColour;
+    String[] individuals;
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String diffs = req.getParameter("d");
-      String[] individuals;
       if (ind == null){
         ind = "";
       }
