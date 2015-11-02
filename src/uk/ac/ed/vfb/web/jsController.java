@@ -78,20 +78,19 @@ public class jsController implements Controller {
       domDir = temp.replace("VFBt_","VFB/t/");
       Integer l = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind);
-
+      if (change){
+        modelAndView.addObject("diffName", diffName);
+        modelAndView.addObject("diffColour", diffColour);
+      }
+      modelAndView.addObject("domDir", domDir);
+      modelAndView.addObject("domHead", domHead);
+      modelAndView.addObject("abrev", abrev);
+      modelAndView.addObject("domains", domains);
+      modelAndView.addObject("individuals", individuals);
     }catch(Exception ex){
       LOG.error("Error creating xml for geppetto:");
       ex.printStackTrace();
     }
-    if (change){
-      modelAndView.addObject("diffName", diffName);
-      modelAndView.addObject("diffColour", diffColour);
-    }
-    modelAndView.addObject("domDir", domDir);
-    modelAndView.addObject("domHead", domHead);
-    modelAndView.addObject("abrev", abrev);
-    modelAndView.addObject("domains", domains);
-    modelAndView.addObject("individuals", individuals);
     LOG.info("returning xml: " + xmli);
     return modelAndView;
   }
