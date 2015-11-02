@@ -7,7 +7,7 @@
             "id": 1,
             "name": "Only morphologies, no simulation",
             "status": "COMPLETED",
-            "script": "SERVER_ROOT/appdata/vfb/brain/brain1.js",
+            "script": "http://www.virtualflybrain.org/do/geppettoJs.html?<c:if test="${fn:length(diffsjson)>0}">d=${diffsjson}&</c:if><c:if test="${fn:length(tempjson)>0}">t=${tempjson}&</c:if><c:if test="${fn:length(itemsjson)>0}">i=${itemsjson}</c:if>",
             "description": "Adult Fly Brain",
             "lastModified": "${time}",
             "aspectConfigurations": []
