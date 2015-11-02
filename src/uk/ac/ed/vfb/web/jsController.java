@@ -34,6 +34,7 @@ public class jsController implements Controller {
     String[] diffName;
     String[] diffColour;
     String[] individuals;
+    boolean change = false;
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
@@ -65,6 +66,7 @@ public class jsController implements Controller {
         if (diff[i].indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
            diffColour[i] = diff[i].split("-")[1];
+           change = true;
         }
       }
       LOG.info("Loading script for geppetto...");
@@ -81,9 +83,11 @@ public class jsController implements Controller {
       LOG.error("Error creating xml for geppetto:");
       ex.printStackTrace();
     }
+    if (change){
+      modelAndView.addObject("diffName", diffName);
+      modelAndView.addObject("diffColour", diffColour);
+    }
     modelAndView.addObject("domDir", domDir);
-    modelAndView.addObject("diffName", diffName);
-    modelAndView.addObject("diffColour", diffColour);
     modelAndView.addObject("domHead", domHead);
     modelAndView.addObject("abrev", abrev);
     modelAndView.addObject("domains", domains);
