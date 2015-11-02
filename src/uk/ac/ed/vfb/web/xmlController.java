@@ -27,11 +27,11 @@ public class xmlController implements Controller {
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("do/geppettoXml");
     String xmli = "";
+    String[] domains;
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
       String[] individuals;
-      String[] domains;
       if (ind == null){
         ind = "";
       }
