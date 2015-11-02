@@ -61,11 +61,11 @@ public class jsController implements Controller {
       }
       int i;
       diffName = diff;
-      diffColour = diff;
+      diffColour = new String [] diff;
       for (i=0; i<diff.length; i++){
         if (diff[i].indexOf("-")>-1){
            diffName[i] = diff[i].split("-")[0];
-           diffColour[i] = diffColour[i].replace(diffName[i]+"-","");
+           diffColour[i] = diffColour[i].split("-")[1];
            change = true;
         }
       }
