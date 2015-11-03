@@ -44,14 +44,14 @@
 
 			<div class="col-md-12" id="viewer-menu">
 				<form class="form-inline">
-					<div class="btn btn-default btn-xs" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
-					<div class="btn btn-default btn-xs" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
-					<div id="slider-sliceCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
-					<div class="btn btn-default btn-xs" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
-					<div id="slider-scaleCurrentSlider" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
-					<div class="btn btn-default btn-xs" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
-					<div class="btn btn-default btn-xs hidden-xs" title="Adjust the image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
-					<div id="slider-alphaCurrentSlider" class="hidden-xs" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
+					<div class="btn btn-default btn-xs form-group" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
+					<div class="btn btn-default btn-xs form-group" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-sliceCurrentSlider form-group" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
+					<div class="btn btn-default btn-xs form-group" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-scaleCurrentSlider form-group" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
+					<div class="btn btn-default btn-xs form-group" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
+					<div class="btn btn-default btn-xs hidden-xs form-group" title="Adjust the image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-alphaCurrentSlider form-group" class="hidden-xs" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
 					<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
 						data-placement="bottom"
 						title="Image Attribution"
@@ -76,7 +76,7 @@
 						</c:if>
 						</span>
 					</div>
-					<div class="btn btn-success btn-xs" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank');">3D <span class="glyphicon glyphicon-share"></span></div>
+					<div class="btn btn-success btn-xs form-group" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank');">3D <span class="glyphicon glyphicon-share"></span></div>
 				</form>
 			</div>
 		</div>
