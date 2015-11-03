@@ -76,7 +76,6 @@
 						</c:if>
 						</span>
 					</div>
-					<div class="text-muted" style="display:none;" id="positionDiv"><span title="Image center" class="glyphicon glyphicon-screenshot"></span> <span id="positionVal" title="Image currently centered on this point" class="label label-default label-as-badge">X,Y,Z</span></div>
 					<div class="btn btn-success btn-xs" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank');">3D <span class="glyphicon glyphicon-share"></span></div>
 				</form>
 			</div>
