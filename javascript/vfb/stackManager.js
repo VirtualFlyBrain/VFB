@@ -62,190 +62,195 @@ var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!
 
 
 function updateStackCounter() {
-  var html;
-  if (parent.$("body").data("meta")){
-    $("[id=stackName]").each(function(){
-      $(this).text(parent.$("body").data("meta").name);
-    });
-  }
-  if (store.enabled) {
-    var data = store.get('data');
-    if (data !== undefined && data.current !== undefined){
-      var count = Object.keys(data[data.current.template].selected).length-1;
-      $("[id=viewer2DVal]").each(function(){
-        $(this).text(count);
+  try{
+    var html;
+    if (parent.$("body").data("meta")){
+      $("[id=stackName]").each(function(){
+        $(this).text(parent.$("body").data("meta").name);
       });
-      $("#viewerTotalItems").text(totalItemCount());
-      if (window.location.pathname != "/site/stacks/index.htm"){
-        $("#openStackViewerOption").show();
-      }else{
-        $("#openStackViewerOption").hide();
-      }
-      if (0<parseInt(count)){
-        $("#clearAllOption").show();
-      }else{
-        $("#clearAllOption").hide();
-      }
-      if (parseInt($("#viewerTotalItems").text())>parseInt(count)){
-        $("#clearEverythingOption").show();
-      }else{
-        $("#clearEverythingOption").hide();
-      }
-      $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
-      $("[id^=Count]").each(function(){
-        try{
-          $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
-          if ($(this).attr('id').replace("CountVFBt","VFBt") == data.current.template){
-            $(this).removeClass('label-warning').addClass('label-success');
-          }else{
-            $(this).addClass('label-warning').removeClass('label-success');
-          }
-        }catch (ignore) {}
-      });
-      generateAddButtons();
-
-      if (store.get('cookie-box') != 'c'){
-        $('#cookie-warning').show();
-        html = '<div class="col-md-8 col-md-offset-2">';
-        html += '<div class="alert alert-info" role="alert" id="info-char">';
-        html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
-        html += "store.set('cookie-box', 'c');";
-        html += '"><span aria-hidden="true">&times;</span></button>';
-        html += '<center>';
-        html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and browser local data storage to store your preferences.';
-        html += 'By continuing to use our website, you agree to the use of local data storage and cookies. <br>';
-        html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
-        html += '</center>';
-        html += '</div>';
-        html += '</div>';
-        $('#cookie-warning').html(html);
-      }else{
-        $('#cookie-warning').hide();
-      }
-      if (store.get('dev-box') != 'c'){
-        $('#dev-warning').show();
-        $.removeCookie('#dev-warning', { path: '/' });
-        html = '<div class="col-md-8 col-md-offset-2">';
-        html += '<div class="alert alert-warning" role="alert" id="warning-char">';
-        html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
-        html += "store.set('dev-box', 'c');";
-        html += '"><span aria-hidden="true">&times;</span></button>';
-        html += '<center>';
-        html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
-        html += '</center>';
-        html += '</div>';
-        html += '</div>';
-        $('#dev-warning').html(html);
-      }else{
-        $('#dev-warning').hide();
-      }
     }
-  }else{
-    if ($.cookie("displaying")) {
-      var stack = expandCookieDisplayed();
-      if (stack.current){
+    if (store.enabled) {
+      var data = store.get('data');
+      if (data !== undefined && data.current !== undefined){
+        var count = Object.keys(data[data.current.template].selected).length-1;
         $("[id=viewer2DVal]").each(function(){
-          if (stack[stack.current.template]){
-            $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
-            if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
-              if (checkCount + 10000 < performance.now()){
-                $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
-                alertMessage('Only ' + String(Object.keys(stack[stack.current.template].selected).length-1) + ' out of ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' were saved!');
-                $(this).removeClass('label-success').addClass('label-danger');
-                $(this).attr('title', 'Too many items selected to save! Note: you can still work but new items will not be saved; you can try clearing items in other templates to free space.');
-              }else{
-                $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
-              }
-            }else{
-              checkCount = performance.now();
-              $(this).addClass('label-success').removeClass('label-danger');
-              $(this).attr('title', 'Number of items currently saved');
-            }
-          }else{
-            parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
-            updateStackData();
-          }
+          $(this).text(count);
         });
+        $("#viewerTotalItems").text(totalItemCount());
         if (window.location.pathname != "/site/stacks/index.htm"){
           $("#openStackViewerOption").show();
         }else{
           $("#openStackViewerOption").hide();
         }
-        if (0<parseInt(Object.keys(stack[stack.current.template].selected).length-1)){
+        if (0<parseInt(count)){
           $("#clearAllOption").show();
         }else{
           $("#clearAllOption").hide();
         }
-        if (totalItemCount()>(Object.keys(stack[stack.current.template].selected).length-1)){
+        if (parseInt($("#viewerTotalItems").text())>parseInt(count)){
           $("#clearEverythingOption").show();
         }else{
           $("#clearEverythingOption").hide();
         }
-        $("#viewerTotalItems").text(totalItemCount());
+        $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
         $("[id^=Count]").each(function(){
-          if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
-            $(this).text(Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
-            $(this).show();
-            if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
+          try{
+            $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
+            if ($(this).attr('id').replace("CountVFBt","VFBt") == data.current.template){
               $(this).removeClass('label-warning').addClass('label-success');
             }else{
               $(this).addClass('label-warning').removeClass('label-success');
             }
-          }else{
-            if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
-              $(this).text('0');
-              $(this).removeClass('label-warning').addClass('label-success');
-              $(this).show();
-            }else{
-              $(this).text('-');
-              $(this).addClass('label-warning').removeClass('label-success');
-              $(this).hide();
-            }
-          }
+          }catch (ignore) {}
         });
         generateAddButtons();
 
-        if ($.cookie('cookie-box') != 'c'){
-          $.removeCookie('cookie-box', { path: '/' });
-  				$('#cookie-warning').show();
+        if (store.get('cookie-box') != 'c'){
+          $('#cookie-warning').show();
           html = '<div class="col-md-8 col-md-offset-2">';
-    			html += '<div class="alert alert-info" role="alert" id="info-char">';
-    			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
-          html += "$.cookie('cookie-box', 'c', { expires: 5*365, path: '/' });";
-          html += '"><span aria-hidden="true" >&times;</span></button>';
-    			html += '<center>';
-    			html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.';
-    			html += 'By continuing to use our website, you agree to the use of cookies. <br>';
-    			html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
-    			html += '</center>';
-    			html += '</div>';
-    			html += '</div>';
+          html += '<div class="alert alert-info" role="alert" id="info-char">';
+          html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
+          html += "store.set('cookie-box', 'c');";
+          html += '"><span aria-hidden="true">&times;</span></button>';
+          html += '<center>';
+          html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and browser local data storage to store your preferences.';
+          html += 'By continuing to use our website, you agree to the use of local data storage and cookies. <br>';
+          html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
+          html += '</center>';
+          html += '</div>';
+          html += '</div>';
           $('#cookie-warning').html(html);
-          $.removeCookie('cookie-box', { path: '/' });
-  			}else{
-  				$('#cookie-warning').hide();
-  			}
-        if ($.cookie('dev-box') != 'c'){
+        }else{
+          $('#cookie-warning').hide();
+        }
+        if (store.get('dev-box') != 'c'){
           $('#dev-warning').show();
           $.removeCookie('#dev-warning', { path: '/' });
           html = '<div class="col-md-8 col-md-offset-2">';
-					html += '<div class="alert alert-warning" role="alert" id="warning-char">';
-					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
-          html += "$.cookie('dev-box', 'c', { expires: 7, path: '/' });";
+          html += '<div class="alert alert-warning" role="alert" id="warning-char">';
+          html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
+          html += "store.set('dev-box', 'c');";
           html += '"><span aria-hidden="true">&times;</span></button>';
-					html += '<center>';
-					html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
-					html += '</center>';
-					html += '</div>';
-					html += '</div>';
+          html += '<center>';
+          html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
+          html += '</center>';
+          html += '</div>';
+          html += '</div>';
           $('#dev-warning').html(html);
-          $.removeCookie('dev-box', { path: '/' });
         }else{
           $('#dev-warning').hide();
         }
+      }
+    }else{
+      if ($.cookie("displaying")) {
+        var stack = expandCookieDisplayed();
+        if (stack.current){
+          $("[id=viewer2DVal]").each(function(){
+            if (stack[stack.current.template]){
+              $(this).text(Object.keys(stack[stack.current.template].selected).length-1);
+              if (typeof $.fn.dataTable !== 'undefined' && $.fn.dataTable.isDataTable('#displayed') && parseInt(Object.keys(stack[stack.current.template].selected).length-1) !== (parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1)) {
+                if (checkCount + 10000 < performance.now()){
+                  $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
+                  alertMessage('Only ' + String(Object.keys(stack[stack.current.template].selected).length-1) + ' out of ' + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1) + ' were saved!');
+                  $(this).removeClass('label-success').addClass('label-danger');
+                  $(this).attr('title', 'Too many items selected to save! Note: you can still work but new items will not be saved; you can try clearing items in other templates to free space.');
+                }else{
+                  $(this).text(String(Object.keys(stack[stack.current.template].selected).length-1) + "/" + String(parseInt($('#displayed').dataTable().fnSettings().fnRecordsTotal())-1));
+                }
+              }else{
+                checkCount = performance.now();
+                $(this).addClass('label-success').removeClass('label-danger');
+                $(this).attr('title', 'Number of items currently saved');
+              }
+            }else{
+              parent.$("body").data(stack.current.template, { selected: { 0: { id: stack.current.template+"00000", colour: "auto", visible: true }}});
+              updateStackData();
+            }
+          });
+          if (window.location.pathname != "/site/stacks/index.htm"){
+            $("#openStackViewerOption").show();
+          }else{
+            $("#openStackViewerOption").hide();
+          }
+          if (0<parseInt(Object.keys(stack[stack.current.template].selected).length-1)){
+            $("#clearAllOption").show();
+          }else{
+            $("#clearAllOption").hide();
+          }
+          if (totalItemCount()>(Object.keys(stack[stack.current.template].selected).length-1)){
+            $("#clearEverythingOption").show();
+          }else{
+            $("#clearEverythingOption").hide();
+          }
+          $("#viewerTotalItems").text(totalItemCount());
+          $("[id^=Count]").each(function(){
+            if (stack[$(this).attr('id').replace("CountVFBt","VFBt")] && Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1 > 0){
+              $(this).text(Object.keys(stack[$(this).attr('id').replace("CountVFBt","VFBt")].selected).length-1);
+              $(this).show();
+              if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
+                $(this).removeClass('label-warning').addClass('label-success');
+              }else{
+                $(this).addClass('label-warning').removeClass('label-success');
+              }
+            }else{
+              if ($(this).attr('id').replace("CountVFBt","VFBt") == stack.current.template){
+                $(this).text('0');
+                $(this).removeClass('label-warning').addClass('label-success');
+                $(this).show();
+              }else{
+                $(this).text('-');
+                $(this).addClass('label-warning').removeClass('label-success');
+                $(this).hide();
+              }
+            }
+          });
+          generateAddButtons();
 
+          if ($.cookie('cookie-box') != 'c'){
+            $.removeCookie('cookie-box', { path: '/' });
+    				$('#cookie-warning').show();
+            html = '<div class="col-md-8 col-md-offset-2">';
+      			html += '<div class="alert alert-info" role="alert" id="info-char">';
+      			html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
+            html += "$.cookie('cookie-box', 'c', { expires: 5*365, path: '/' });";
+            html += '"><span aria-hidden="true" >&times;</span></button>';
+      			html += '<center>';
+      			html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and preferences.';
+      			html += 'By continuing to use our website, you agree to the use of cookies. <br>';
+      			html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
+      			html += '</center>';
+      			html += '</div>';
+      			html += '</div>';
+            $('#cookie-warning').html(html);
+            $.removeCookie('cookie-box', { path: '/' });
+    			}else{
+    				$('#cookie-warning').hide();
+    			}
+          if ($.cookie('dev-box') != 'c'){
+            $('#dev-warning').show();
+            $.removeCookie('#dev-warning', { path: '/' });
+            html = '<div class="col-md-8 col-md-offset-2">';
+  					html += '<div class="alert alert-warning" role="alert" id="warning-char">';
+  					html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="';
+            html += "$.cookie('dev-box', 'c', { expires: 7, path: '/' });";
+            html += '"><span aria-hidden="true">&times;</span></button>';
+  					html += '<center>';
+  					html += '<strong><span class="glyphicon glyphicon-warning-sign"></span></strong> This is a test server and not the official VFB site.';
+  					html += '</center>';
+  					html += '</div>';
+  					html += '</div>';
+            $('#dev-warning').html(html);
+            $.removeCookie('dev-box', { path: '/' });
+          }else{
+            $('#dev-warning').hide();
+          }
+
+        }
       }
     }
+  }catch (ignore){
+    console.log('Reloading due to error...');
+    window.open(window.location.href, '_top');
   }
 }
 
