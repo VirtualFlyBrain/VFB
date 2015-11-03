@@ -550,7 +550,7 @@ function updateStackData(){
               store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
               parent.$('body').data('disp', 'scale');
             }
-            try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
+            //try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
             window.reloadInterval = 10;
           }else{
             store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
@@ -897,16 +897,16 @@ function openFullDetails(id) {
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){
           window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank');
-          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
           $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
-          window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }
       }else if (id.indexOf("FB") > -1) {
         $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
         $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_blank">FlyBase report for '+ id.replace('_','') + '</a>');
-        window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+        //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
       }else{
         alertMessage("Can't open details for:" + id);
       }
@@ -921,7 +921,7 @@ function openFullDetails(id) {
             temp = parent.$("body").data("domains")[layers];
             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
             $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
-            window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
+            //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
             break;
           }
         }
@@ -982,7 +982,7 @@ function addToStackData(ids, showDetails){
              }
              parent.$("body").data("disp","scale");
              updateStackData();
-             try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm?add='+id );}catch (ignore){}
+             //try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm?add='+id );}catch (ignore){}
             //  if (window.location.pathname == "/site/stacks/index.htm"){
             //    location.href=location.href.replace(location.hash,"").replace('#','');
             //  }
