@@ -1225,7 +1225,7 @@ function returnGeppettoConfUrl() {
       if (diffs.length > 1){
         diffs = diffs.substr(1);
       }
-      return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed+"&t="+template+"&d="+diffs;
+      return "http://"+window.location.host+"/do/geppettoJson.json?i="+displayed+"%26t="+template+"%26d="+diffs;
     }else{
       return "http://"+window.location.host+"/do/geppettoJson.json";
     }
