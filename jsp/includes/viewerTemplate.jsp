@@ -208,7 +208,7 @@
 						        <div class="tab-pane" id="anato">
 											<div class="row-fluid" style="padding:0;">
 												<div class="col-sm-12">
-						            	<h4 style="display: inline-block;">Neuroanatomy</h4>
+						            	<h4 style="display: inline-block;">Neuroanatomy </h4>
 													<div class="btn-group">
 														<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span> Add All</button>
 														<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span> Remove All</button>
