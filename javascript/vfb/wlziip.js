@@ -1913,7 +1913,7 @@ function addAvailableItems(ids) {
     if (temp && temp.extid){
       id=temp.extid;
     }
-    if (id && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
+    if (id !== undefined && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
       window.setTimeout(function(){
   				openFullDetails(id);
   		}, 5000);
