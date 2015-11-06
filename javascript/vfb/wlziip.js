@@ -1424,6 +1424,21 @@ function updateItemName( solrAPI, layer ) {
   });
 }
 
+function updateItemType( solrAPI, layer ) {
+  $.getJSON( solrAPI, {
+    q: "child_iri:*" + cleanIdforExt(layer.id),
+    fl: "label,short_form",
+    wt: "json",
+    sort: "score desc"
+  }).done(function(data){
+    if (data.response.docs && data.response.docs[0] && data.response.docs[0].label) {
+      layer.type = '<a href="#details"><span class="link" onclick="openFullDetails('+"'"+cleanIdforExt(data.response.docs[0].short_form)+"'"+')" id="resolvedTypeFor'+cleanIdforExt(layer.id)+'" data-id="'+cleanIdforExt(data.response.docs[0].short_form)+'" data-layer="11"><span id="partParent"><li>'+data.response.docs[0].label+'</li></span></span></a>';
+    }else{
+      alertMessage(JSON.stringify(data));
+    }
+  });
+}
+
 function loadRightMenuDisplayed() {
   //console.log('Updating the displayed layers...');
   if (parent.$("body").data("current") && parent.$("body").data("colours")){
@@ -1451,6 +1466,11 @@ function loadRightMenuDisplayed() {
         if (!layer.name) {
           if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0 && layer.id.indexOf("_a") < 0) {
             updateItemName(solrAPI, layer);
+          }
+        }
+        if (!layer.type) {
+          if (layer.id.indexOf("FBbt_") > -1) {
+            updateItemType(solrAPI, layer);
           }
         }
       }
@@ -1770,7 +1790,7 @@ function clearSelectedTable() {
 }
 
 function addAvailableItems(ids) {
-  if (typeof(ids) != "undefined" && ids != null){
+  if (typeof(ids) != "undefined" && ids !== null){
     if (!Array.isArray(ids)) {
       ids = [ids];
     }
