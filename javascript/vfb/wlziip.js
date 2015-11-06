@@ -1473,7 +1473,7 @@ function loadRightMenuDisplayed() {
             updateItemName(solrAPI, layer);
           }
         }
-        if (!layer.type) {
+        if (!layer.type || !layer.typeid) {
           if (layer.id.indexOf("FBbt_") > -1 || (layer.extid !== undefined && layer.extid.indexOf("FBbt_") > -1)) {
             updateItemType(solrAPI, layer);
           }
