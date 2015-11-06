@@ -212,10 +212,10 @@
 												</div>
 												<div id="openCloseAll" class="col-sm-3" style="min-width:180px;">
 													<div class="btn-group">
-														<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span></button>
-														<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span></button>
-														<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-full"></span></button>
-														<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-small"></span></button>
+														<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span> Add All</button>
+														<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span> Remove All</button>
+														<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-full"></span> Expand Tree</button>
+														<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-small"></span> Collapse Tree</button>
 													</div>
 												</div>
 												<div class="clearfix visible-sm-block"></div>
