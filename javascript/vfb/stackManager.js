@@ -1039,6 +1039,7 @@ function addToStackData(ids, showDetails){
               for (layers in parent.$("body").data("domains")){
                 if (parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == parseInt(id.substr(8))) {
                   text += cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) + '"';
+                  text+= ',"L":"'+layers+'"';
                   if (parent.$("body").data("domains")[layers].type !== undefined){
                     text += ',"type":"' + parent.$("body").data("domains")[layers].type + '"';
                   }
