@@ -1436,7 +1436,8 @@ function updateItemType( solrAPI, layer ) {
     sort: "score desc"
   }).done(function(data){
     if (data.response.docs && data.response.docs[0] && data.response.docs[0].label) {
-      layer.type = '<a href="#details"><span class="link" onclick="openFullDetails('+"'"+cleanIdforExt(data.response.docs[0].short_form)+"'"+')" id="resolvedTypeFor'+cleanIdforExt(layer.id)+'" data-id="'+cleanIdforExt(data.response.docs[0].short_form)+'" data-layer="11"><span id="partParent">'+data.response.docs[0].label+'</span></span></a>';
+      layer.typeid = data.response.docs[0].short_form;
+      layer.type = data.response.docs[0].label;
     }else{
       alertMessage(JSON.stringify(data));
     }
