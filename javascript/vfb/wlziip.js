@@ -1426,7 +1426,7 @@ function updateItemName( solrAPI, layer ) {
 
 function updateItemType( solrAPI, layer ) {
   var id = layer.id;
-  if (id.indexOf('FBbt_')<0){
+  if (id.indexOf('FBbt')<0){
     id = layer.extid;
   }
   $.getJSON( solrAPI, {
@@ -1474,7 +1474,7 @@ function loadRightMenuDisplayed() {
           }
         }
         if (!layer.type || !layer.typeid) {
-          if (layer.id.indexOf("FBbt_") > -1 || (layer.extid !== undefined && layer.extid.indexOf("FBbt_") > -1)) {
+          if (layer.id.indexOf("FBbt") > -1 || (layer.extid !== undefined && layer.extid.indexOf("FBbt") > -1)) {
             updateItemType(solrAPI, layer);
           }
         }
