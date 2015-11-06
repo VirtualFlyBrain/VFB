@@ -1425,8 +1425,12 @@ function updateItemName( solrAPI, layer ) {
 }
 
 function updateItemType( solrAPI, layer ) {
+  var id = layer.id;
+  if (id.indexOf('FBbt_')<0){
+    id = layer.extid;
+  }
   $.getJSON( solrAPI, {
-    q: "child_iri:*" + cleanIdforExt(layer.id),
+    q: "child_iri:*" + cleanIdforExt(id),
     fl: "label,short_form",
     wt: "json",
     sort: "score desc"
@@ -1469,7 +1473,7 @@ function loadRightMenuDisplayed() {
           }
         }
         if (!layer.type) {
-          if (layer.id.indexOf("FBbt_") > -1) {
+          if (layer.id.indexOf("FBbt_") > -1 || layer.extid.indexOf("FBbt_") > -1) {
             updateItemType(solrAPI, layer);
           }
         }
