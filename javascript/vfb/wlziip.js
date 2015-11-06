@@ -1401,8 +1401,10 @@ function updateItemType( solrAPI, layer ) {
     if (data.response.docs && data.response.docs[0] && data.response.docs[0].label) {
       layer.typeid = data.response.docs[0].short_form;
       layer.type = data.response.docs[0].label;
-      parent.$("body").data("domains")[layer.L].type = data.response.docs[0].label;
-      parent.$("body").data("domains")[layer.L].typeId = data.response.docs[0].short_form;
+      if (layer.L !== undefined){
+        parent.$("body").data("domains")[layer.L].type = data.response.docs[0].label;
+        parent.$("body").data("domains")[layer.L].typeId = data.response.docs[0].short_form;
+      }
     }else{
       alertMessage(JSON.stringify(data));
     }
