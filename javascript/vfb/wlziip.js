@@ -1169,44 +1169,7 @@ function updateLabels() {
             $(this).attr('id', "Resolved" + $(this).attr('id'));
             break;
           case "FBbt":
-            $(this).load('/do/ont_bean.html?id=' + content.replace('_',':') + ' #partParent', function(response, status, xhr) {
-              if ( status == "error" ) {
-                if ($(this).data('retrys')) {
-                  $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > retries){
-                    $(this).attr('id', "Failed" + $(this).attr('id'));
-                  }
-                }else{
-                  $(this).data('retrys', 1);
-                }
-              }else{
-                if ($(this).text().indexOf("_") < 0){
-                  if ($(this).data('layer')) {
-                    parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
-                  }
-                  $(this).attr('id', "Resolved" + $(this).attr('id'));
-                }
-              }
-            });
-            $("#"+$(this).attr("id").replace("typeFor","parentIdFor")).load('/do/ont_bean.html?id=' + content.replace('_',':') + ' #partParentId', function(response, status, xhr) {
-              if ( status == "error" ) {
-                if ($(this).data('retrys')) {
-                  $(this).data('retrys', $(this).data('retrys')+1);
-                  if ($(this).data('retrys') > retries){
-                    $(this).attr('id', "Failed" + $(this).attr('id'));
-                  }
-                }else{
-                  $(this).data('retrys', 1);
-                }
-              }else{
-                if ($(this).text().length > 5){
-                  if ($(this).data('layer')) {
-                    parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
-                  }
-                  $(this).attr('id', "Resolved" + $(this).attr('id'));
-                }
-              }
-            });
+            console.log('Not yet loaded type for '+$(this).attr('id'));
             break;
           case "FBgn":
             $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_blank"><li>gene</li>');
