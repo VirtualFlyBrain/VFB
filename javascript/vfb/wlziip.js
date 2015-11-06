@@ -1473,7 +1473,7 @@ function loadRightMenuDisplayed() {
           }
         }
         if (!layer.type) {
-          if (layer.id.indexOf("FBbt_") > -1 || layer.extid.indexOf("FBbt_") > -1) {
+          if (layer.id.indexOf("FBbt_") > -1 || (layer.extid !== undefined && layer.extid.indexOf("FBbt_") > -1)) {
             updateItemType(solrAPI, layer);
           }
         }
