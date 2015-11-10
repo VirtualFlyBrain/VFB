@@ -250,7 +250,7 @@ function updateStackCounter() {
     }
   }catch (ignore){
     console.log('Reloading due to error...');
-    window.open(window.location.href, '_top');
+    window.open(window.location.href, '_top',async = true);
   }
 }
 
@@ -896,7 +896,7 @@ function openFullDetails(id) {
     if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
       if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
         if (id.indexOf("_a")>-1){
-          window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank');
+          window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank',async = true);
           //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }else{
           $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
