@@ -76,7 +76,7 @@
 						</c:if>
 						</span>
 					</div>
-					<div class="btn btn-success btn-xs form-group" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank');">3D <span class="glyphicon glyphicon-share"></span></div>
+					<div class="btn btn-success btn-xs form-group" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank', async = true);">3D <span class="glyphicon glyphicon-share"></span></div>
 				</form>
 			</div>
 		</div>
