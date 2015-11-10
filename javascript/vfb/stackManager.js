@@ -686,7 +686,7 @@ function decompressJSONdata(data) {
 
 function expandCookieDisplayed() {
   if (store.enabled) {
-    if ($.removeCookie('displaying', {path: '/'}) || $.removeCookie('cookie-box', {path: '/'}) || $.removeCookie('dev-box', {path: '/'}) ){
+    if ($.isFunction($.removeCookie) && ($.removeCookie('displaying', {path: '/'}) || $.removeCookie('cookie-box', {path: '/'}) || $.removeCookie('dev-box', {path: '/'}) )){
       alertMessage('removing old unused cookies');
     }
     return store.get('data');
