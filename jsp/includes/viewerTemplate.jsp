@@ -13,7 +13,6 @@
 	<jsp:param name="js" value="
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
 		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
 		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
 		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
