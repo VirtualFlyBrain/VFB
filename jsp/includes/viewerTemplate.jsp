@@ -182,15 +182,20 @@
 																loadRightMenuDisplayed();
 																updateLabels();
 														    window.setInterval(function(){
-																	if ($.fn.dataTable.isDataTable('#displayed')) {
-																		loadRightMenuDisplayed();
-																		// $('#displayed').DataTable().column( 0 ).visible( false );
-															      // $('#displayed').dataTable().fnAdjustColumnSizing();
-																		if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
-															        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
-															      }
-																		if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
-																			$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
+																	if ($.fn.dataTable == undefined){
+																		console.log('Reloading on watchdog failure...');
+																		location.reload();
+																	}else{
+																		if ($.fn.dataTable.isDataTable('#displayed')) {
+																			loadRightMenuDisplayed();
+																			// $('#displayed').DataTable().column( 0 ).visible( false );
+																      // $('#displayed').dataTable().fnAdjustColumnSizing();
+																			if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+																        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+																      }
+																			if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
+																				$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
+																			}
 																		}
 																	}
 														    }, 10000);
