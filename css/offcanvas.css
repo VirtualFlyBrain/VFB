@@ -459,7 +459,7 @@ tr.odd {
     background-color: lightgray;
 }
 
-table.dataTable th {
+table.dataTable td, table.dataTable th {
   padding-left:5px;
   padding-right:5px;
 }
