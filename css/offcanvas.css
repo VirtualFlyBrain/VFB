@@ -458,3 +458,8 @@ p:hover.tt-selectable{
 tr.odd {
     background-color: lightgray;
 }
+
+td {
+  padding-left:5px;
+  padding-right:5px;
+}
