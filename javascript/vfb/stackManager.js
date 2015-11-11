@@ -7,6 +7,7 @@ window.reloadInterval = 10;
 window.id = '0-0-0-0';
 var lastkey = Date.now();
 var searchDelayed = false;
+var detailLoad = false;
 var checkCount = 0;
 var cookieMax = 4000;
 var dropItems = 0;
@@ -885,58 +886,62 @@ function returnCurrentUrl() {
 }
 
 function openFullDetails(id) {
-  if ($('#anatomyDetails').length) {
-    id = cleanIdforExt(id);
-    // watchdog for failed loading:
-    window.setTimeout(function(){
-      if ($('#anatomyDetails').html()=='<img src="/images/tools/ajax-loader.gif" alt="loading...">') {
-        $('#anatomyDetails').html('Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>Information for the selected anatomical term will be displayed here, with further query options visible after selection.');
-      }
-    }, 60000);
-    if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
-      if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
-        if (id.indexOf("_a")>-1){
-          window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank',async = true);
+  if (!detailLoad) {
+    if ($('#anatomyDetails').length) {
+      id = cleanIdforExt(id);
+      // watchdog for failed loading:
+      window.setTimeout(function(){
+        if ($('#anatomyDetails').html()=='<img src="/images/tools/ajax-loader.gif" alt="loading...">') {
+          $('#anatomyDetails').html('Click anywhere on the stack viewer or use the Search or Anatomy menu tabs to select an anatomy term.<br/><br/>Information for the selected anatomical term will be displayed here, with further query options visible after selection.');
+          detailLoad = false;
+        }
+      }, 60000);
+      if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0){
+        if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1){
+          if (id.indexOf("_a")>-1){
+            window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a',''))) + '/', '_blank',async = true);
+            //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          }else{
+            $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+            $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
+            //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          }
+        }else if (id.indexOf("FB") > -1) {
+          $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+          $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_blank">FlyBase report for '+ id.replace('_','') + '</a>');
           //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
         }else{
-          $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-          $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_',':'));
-          //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
+          alertMessage("Can't open details for:" + id);
         }
-      }else if (id.indexOf("FB") > -1) {
-        $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-        $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_','') + '" target="_blank">FlyBase report for '+ id.replace('_','') + '</a>');
-        //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
       }else{
-        alertMessage("Can't open details for:" + id);
-      }
-    }else{
-      if (parent.$("body").data("domains") && (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1)){
-        var current = parent.$("body").data("current");
-        var selected = parent.$("body").data(current.template).selected;
-        var temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
-        var layers;
-        for (layers in parent.$("body").data("domains")){
-          if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
-            temp = parent.$("body").data("domains")[layers];
-            $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-            $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
-            //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
-            break;
+        if (parent.$("body").data("domains") && (id.indexOf('VFBd_')>-1 || id.indexOf('VFBt_')>-1)){
+          var current = parent.$("body").data("current");
+          var selected = parent.$("body").data(current.template).selected;
+          var temp = parseInt(id.replace(current.template,'').replace(current.template.replace('VFBt_','VFBd_'),''));
+          var layers;
+          for (layers in parent.$("body").data("domains")){
+            if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
+              temp = parent.$("body").data("domains")[layers];
+              $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+              $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
+              //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
+              break;
+            }
           }
+        }else{
+          alertMessage("Can't directly open details for:" + id);
         }
-      }else{
-        alertMessage("Can't directly open details for:" + id);
       }
+      if (document.getElementById('details')){
+        jump('details');
+      }
+      try{
+        ga('send', 'event', 'load', 'details', id);
+      }catch(ignore){}
+    }else{
+      post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
     }
-    if (document.getElementById('details')){
-      jump('details');
-    }
-    try{
-      ga('send', 'event', 'load', 'details', id);
-    }catch(ignore){}
-  }else{
-    post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
+    detailLoad = false;
   }
 }
 
