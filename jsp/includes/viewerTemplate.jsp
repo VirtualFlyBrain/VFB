@@ -2,25 +2,13 @@
 	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
 	<jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
-		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
-		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
-		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
-		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
-		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
-		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
+		//cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,af-2.1.0,b-1.1.0,b-colvis-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,cr-1.3.0,fc-3.2.0,fh-3.1.0,kt-2.1.0,r-2.0.0,rr-1.1.0,sc-1.4.0/datatables.min.css;
 		/css/bootstrap-colorpicker.min.css;
 		" />
 	<jsp:param name="js" value="
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
-		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
-		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.jqueryui.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.print.min.js;
+	  //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,af-2.1.0,b-1.1.0,b-colvis-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,cr-1.3.0,fc-3.2.0,r-2.0.0,rr-1.1.0,sc-1.4.0/datatables.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		" />
