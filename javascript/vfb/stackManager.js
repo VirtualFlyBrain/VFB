@@ -949,6 +949,7 @@ function addToStackData(ids, showDetails){
       forceStoreControl();
       var id;
       var i;
+      var detailReq = !showDetails;
       var text;
       var selected;
       var layers;
@@ -1011,7 +1012,10 @@ function addToStackData(ids, showDetails){
               for (layers in selected){
                 if (cleanIdforInt(selected[layers].id) == id){
                   selected[layers].visible = true;
-                  openFullDetails(cleanIdforExt(id));
+                  if (!detailReq) {
+                    openFullDetails(cleanIdforExt(id));
+                    detailReq = true;
+                  }
                 }
               }
             }else{
@@ -1030,7 +1034,10 @@ function addToStackData(ids, showDetails){
               for (layers in selected){
                 if (cleanIdforInt(selected[layers].id) == id){
                   selected[layers].visible = true;
-                  openFullDetails(cleanIdforInt(selected[layers].extid));
+                  if (!detailReq) {
+                    openFullDetails(cleanIdforInt(selected[layers].extid));
+                    detailReq = true;
+                  }
                 }
               }
             }else{
@@ -1046,7 +1053,10 @@ function addToStackData(ids, showDetails){
                   if (parent.$("body").data("domains")[layers].typeId !== undefined){
                     text += ',"typeid":"' + parent.$("body").data("domains")[layers].typeId + '"';
                   }
-                  openFullDetails(cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]));
+                  if (!detailReq) {
+                    openFullDetails(cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]));
+                    detailReq = true;
+                  }
                   break;
                 }
               }
@@ -1055,7 +1065,10 @@ function addToStackData(ids, showDetails){
               selected[layers] = JSON.parse(text);
             }
           }else if (id.indexOf("FBbt_") > -1){
-            openFullDetails(id);
+            if (!detailReq) {
+              openFullDetails(id);
+              detailReq = true;
+            }
             selected = parent.$("body").data(parent.$("body").data("current").template).selected;
             if (JSON.stringify(selected).indexOf(id) > -1){
               for (layers in selected){
