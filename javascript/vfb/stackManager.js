@@ -889,6 +889,7 @@ function openFullDetails(id) {
   if (!detailLoad) {
     if ($('#anatomyDetails').length) {
       id = cleanIdforExt(id);
+      detailLoad = true;
       // watchdog for failed loading:
       window.setTimeout(function(){
         if ($('#anatomyDetails').html()=='<img src="/images/tools/ajax-loader.gif" alt="loading...">') {
