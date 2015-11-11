@@ -1772,6 +1772,7 @@ function addAvailableItems(ids) {
     var i;
     var id;
     var layers;
+    var detailReq = false;
     var layer;
     var temp;
     var current = parent.$("body").data("current");
@@ -1804,7 +1805,10 @@ function addAvailableItems(ids) {
           name += temp.name;
           name += '</span></a>';
           if (id.indexOf('00000')<0) {
-            openFullDetails(cleanIdforExt(temp.extId[0]));
+            if (!detailReq) {
+              openFullDetails(cleanIdforExt(temp.extId[0]));
+              detailReq = true;
+            }
           }
         }else{
           name = temp.name;
@@ -1834,7 +1838,10 @@ function addAvailableItems(ids) {
         }
         // open details
         if (id.indexOf('00000')<0 && id.indexOf('_a0')<0) {
-          openFullDetails(cleanIdforExt(id));
+          if (!detailReq) {
+            openFullDetails(cleanIdforExt(id));
+            detailReq = true;
+          }
         }
         // Controls:
         controls = createControlsBarHTML(id);
@@ -1888,9 +1895,12 @@ function addAvailableItems(ids) {
     if (temp && temp.extid){
       id=temp.extid;
     }
-    if (id !== undefined && id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1) {
+    if (!detailReq && id !== undefined && (id.indexOf('FBbt') > -1 || id.indexOf('VFB_') > -1)) {
       window.setTimeout(function(){
-  				openFullDetails(id);
+        if (!detailReq) {
+          openFullDetails(id);
+          detailReq = true;
+        }
   		}, 5000);
     }
   }
