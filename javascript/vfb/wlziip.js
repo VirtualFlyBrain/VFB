@@ -1373,6 +1373,9 @@ function loadReferenceMeta(id){
 }
 
 function updateItemName( solrAPI, layer ) {
+  $.ajaxSetup({
+    async: true
+  });
   $.getJSON( solrAPI, {
     q: "short_form:" + cleanIdforExt(layer.id),
     fl: "label",
@@ -1382,7 +1385,7 @@ function updateItemName( solrAPI, layer ) {
     if (data.response.docs && data.response.docs[0] && data.response.docs[0].label) {
       layer.name = data.response.docs[0].label;
     }else{
-      alertMessage(JSON.stringify(data));
+      alertMessage("Missing label:" + JSON.stringify(data));
     }
   });
 }
@@ -1406,7 +1409,7 @@ function updateItemType( solrAPI, layer ) {
         parent.$("body").data("domains")[layer.L].typeId = data.response.docs[0].short_form;
       }
     }else{
-      alertMessage(JSON.stringify(data));
+      alertMessage("Missing type: "+JSON.stringify(data));
     }
   });
 }

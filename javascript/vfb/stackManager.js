@@ -833,7 +833,7 @@ function initStackData(ids) {
   parent.$("body").data(expandCookieDisplayed());
   if (parent.$("body").data("current") === undefined){
     alertMessage("Invalid cookie! Sorry your settings have got currupted so we will have to clear them.");
-    alertMessage($.cookie("displaying"));
+    alertMessage("Previous: "+ $.cookie("displaying"));
     alertMessage(returnCleanData(0));
     $.cookie("displaying", null, { expires: -5, path: '/' });
     loadDefaultData(ids);
