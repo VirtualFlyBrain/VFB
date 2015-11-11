@@ -454,3 +454,7 @@ p.tt-cursor{
 p:hover.tt-selectable{
   background-color: #DFDFDF !important;
 }
+
+tr.odd {
+    background-color: lightgray;
+}
