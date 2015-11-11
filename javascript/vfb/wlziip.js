@@ -1580,7 +1580,7 @@ function loadRightMenuDisplayed() {
         responsive: false,
         stateSave: true,
         order: [[ 1, 'desc' ]],
-        dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>><'row'<'col-md-4'l>>"
+        dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>><'row'<'col-md-4'l><'col-md-8'f>>"
       });
       $('#displayed').on( 'page.dt', function () {
         updateLabels();
