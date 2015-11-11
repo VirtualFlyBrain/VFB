@@ -2,8 +2,14 @@
 <tns:geppettoModel xmlns:tns="http://www.openworm.org/simulationSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openworm.org/simulationSchema ../../main/resources/schema/simulation/simulationSchema.xsd">
     <tns:entity>
         <tns:id>flybrain</tns:id>
+        <tns:aspect>
+            <tns:id>morphology</tns:id>
+        </tns:aspect>
         <tns:entity>
             <tns:id>regions</tns:id>
+            <tns:aspect>
+                <tns:id>morphology</tns:id>
+            </tns:aspect>
 <c:forEach items="${domains}" var="curr" varStatus="status">      <tns:entity>
                 <tns:id>${domHead}${curr}</tns:id>
                 <tns:aspect>
