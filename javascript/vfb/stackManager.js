@@ -942,7 +942,6 @@ function openFullDetails(id) {
     }else{
       post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
     }
-    detailLoad = false;
   }
 }
 
