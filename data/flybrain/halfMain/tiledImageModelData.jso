@@ -33,7 +33,7 @@
         }
    ],
    "initialState": {"scale":"1.0", "distance":"0", "pitch":"0", "yaw":"0", "roll":"0"},
-   "pixelResolution": {"x":"0.6362335", "y":"0.6362335", "z":"0.6362331", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
+   "pixelResolution": {"x":"0.6362335", "y":"0.6362335", "z":"1.41", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
    "menuStructureFile": "/data/flybrain/halfMain/menu/menuStructure.jso",
    "menuContentFile": "/data/flybrain/halfMain/menu/menuContent.jso",
    "wlzMode": "zeta",
