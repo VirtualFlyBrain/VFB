@@ -15,15 +15,15 @@
    ],
    "layerData": [
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/halfMain/woolz/",
-         "imageName":"InsectBrainNomenclature_Merged.wlz",
+         "imageDir":"/disk/data/VFB/IMAGE_DATA/VFB/t/002/",
+         "imageName":"composite.wlz",
          "type":"rgba",
          "opacity":"1.0",
          "visible":"true"
       },
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/halfMain/woolz/",
-         "imageName":"InsectBrainNomenclature_Merged.wlz",
+         "imageDir":"/disk/data/VFB/IMAGE_DATA/VFB/t/002/",
+         "imageName":"composite.wlz",
          "type":"label",
          "opacity":"1.0",
          "current":"",
