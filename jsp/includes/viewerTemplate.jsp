@@ -14,7 +14,7 @@
 		" />
 </jsp:include>
 <script>paramInc = {};</script>
-<c:if test="${!empty param.clear}"><c:if test="${!empty param.add}"><script>addToStackData("${param.add}"); updateStackData();</script></c:if><script>clearAllDisplayed(); updateStackData(); paramInc.clear = 'true'; </script></c:if>
+<c:if test="${!empty param.clear}"><script>window.setTimeout(function(){clearAllDisplayed(); updateStackData();}, 3000); paramInc.clear = '${param.clear}'; </script><c:if test="${!empty param.add}"><script>window.setTimeout(function(){addToStackData("${param.add}"); updateStackData();}, 3500);</script></c:if></c:if>
 <c:if test="${!empty param.add}"><script>addToStackData("${param.add}"); updateStackData(); paramInc.add = '${param.add}'; </script></c:if>
 <c:if test="${!empty param.tab}"><script>$('body').ready( function () { window.setTimeout(function(){ openTab("${param.tab}"); }, 5000);}); paramInc.tab = '${param.tab}'; </script></c:if>
 <c:if test="${!empty param.id}"><script>$('body').ready( function () { window.setTimeout(function(){ openFullDetails("${param.id}"); }, 5000);}); paramInc.id = '${param.id}'; </script></c:if>
