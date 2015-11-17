@@ -1910,10 +1910,10 @@ function copyUrlToClipboard() {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
     var i;
-    var displayed = selected[0].id;
+    var displayed = cleanIdforExt(selected[0].id);
     for (i in selected) {
       if (i>0){
-        displayed += "," + selected[i].id;
+        displayed += "," + cleanIdforExt(selected[i].id);
       }
     }
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
