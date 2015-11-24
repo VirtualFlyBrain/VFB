@@ -8,28 +8,28 @@
 	<span style="color:red">
 		We are sorry, your request may not be completed. The possible reasons are:
 		<ul>
-		<li>Perhaps the page you are looking for is not available, or</li> 
+		<li>Perhaps the page you are looking for is not available, or</li>
 		<li>your request is missing an argument, or </li>
 		<li>the Virtual Fly Brain site is currently experiencing technical problems. </li>
 		</ul>
 		Please check that the URL for your request is correct and try again.<br/>
 		<p>
-			If it is our fault, we will check it and put right ASAP, 
-			you can report the problem by 
+			If it is our fault, we will check it and put right ASAP,
+			you can report the problem by
 			<script>
 				window.SupDetail = {};
 				var nVer = navigator.appVersion;
 				var nAgt = navigator.userAgent;
 				var browserName  = navigator.appName;
-				var fullVersion  = ''+parseFloat(navigator.appVersion); 
+				var fullVersion  = ''+parseFloat(navigator.appVersion);
 				var majorVersion = parseInt(navigator.appVersion,10);
 				var nameOffset,verOffset,ix;
-	
+
 				// In Opera, the true version is after "Opera" or after "Version"
 				if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
 				 browserName = "Opera";
 				 fullVersion = nAgt.substring(verOffset+6);
-				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+				 if ((verOffset=nAgt.indexOf("Version"))!=-1)
 				   fullVersion = nAgt.substring(verOffset+8);
 				}
 				// In MSIE, the true version is after "MSIE" in userAgent
@@ -37,26 +37,26 @@
 				 browserName = "Microsoft Internet Explorer";
 				 fullVersion = nAgt.substring(verOffset+5);
 				}
-				// In Chrome, the true version is after "Chrome" 
+				// In Chrome, the true version is after "Chrome"
 				else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
 				 browserName = "Chrome";
 				 fullVersion = nAgt.substring(verOffset+7);
 				}
-				// In Safari, the true version is after "Safari" or after "Version" 
+				// In Safari, the true version is after "Safari" or after "Version"
 				else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
 				 browserName = "Safari";
 				 fullVersion = nAgt.substring(verOffset+7);
-				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+				 if ((verOffset=nAgt.indexOf("Version"))!=-1)
 				   fullVersion = nAgt.substring(verOffset+8);
 				}
-				// In Firefox, the true version is after "Firefox" 
+				// In Firefox, the true version is after "Firefox"
 				else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
 				 browserName = "Firefox";
 				 fullVersion = nAgt.substring(verOffset+8);
 				}
-				// In most other browsers, "name/version" is at the end of userAgent 
-				else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
-						  (verOffset=nAgt.lastIndexOf('/')) ) 
+				// In most other browsers, "name/version" is at the end of userAgent
+				else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
+						  (verOffset=nAgt.lastIndexOf('/')) )
 				{
 				 browserName = nAgt.substring(nameOffset,verOffset);
 				 fullVersion = nAgt.substring(verOffset+1);
@@ -69,10 +69,10 @@
 				   fullVersion=fullVersion.substring(0,ix);
 				if ((ix=fullVersion.indexOf(" "))!=-1)
 				   fullVersion=fullVersion.substring(0,ix);
-	
+
 				majorVersion = parseInt(''+fullVersion,10);
 				if (isNaN(majorVersion)) {
-				 fullVersion  = ''+parseFloat(navigator.appVersion); 
+				 fullVersion  = ''+parseFloat(navigator.appVersion);
 				 majorVersion = parseInt(navigator.appVersion,10);
 				}
 				SupDetail.sysDetail = navigator.userAgent;
@@ -84,13 +84,13 @@
 			</script>.
 			</p>
 			<p>
-				Alternatively, as VFB is an opensource project,   
-				you can engage directly with our developer community on GitHub 
+				Alternatively, as VFB is an opensource project,
+				you can engage directly with our developer community on GitHub
 				[<a href="https://github.com/VirtualFlyBrain/VFB" target="_blank">VirtualFlyBrain/VFB</a>].
-			</p> 
+			</p>
 			<p>
-				If you have a GitHub account can easily raise a new issue by clicking   
-				<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0AError%20info%3A%0A" 
+				If you have a GitHub account can easily raise a new issue by clicking
+				<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0AError%20info%3A%0A"
 				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
 				here</a>.
 			</p>
@@ -110,11 +110,11 @@
 	<h2>The 3D Brain Viewer and Query Tools</h2>
 
 	<p>The <a href="site/stacks/index.htm">Brain Viewer</a> is an interactive, configurable application that allows the user to view and explore
-		the adult fruit fly brain anatomy in terms of known Drosophila brain neuropils. 
+		the adult fruit fly brain anatomy in terms of known Drosophila brain neuropils.
 	  </p>
 	<p>
 	  The viewer's central window features a 2D representation of an adult brain that can be viewed along the x-, y- and
-		z-axes, rotated and zoomed, and shows neuropil domains as colour-coded overlays. Domains can be selected by double-clicking on the stack or by selecting them on the interactive anatomy tree on the right panel (left click). The tree can be simply browsed, or terms can be directly searched by using the search box above the tree. More information about the last selected term (on the stack or on the tree) will be displayed in the lower panel, the term info window. 
+		z-axes, rotated and zoomed, and shows neuropil domains as colour-coded overlays. Domains can be selected by double-clicking on the stack or by selecting them on the interactive anatomy tree on the right panel (left click). The tree can be simply browsed, or terms can be directly searched by using the search box above the tree. More information about the last selected term (on the stack or on the tree) will be displayed in the lower panel, the term info window.
 	</p>
 	<p>
 	       Searching for neurons, innervation patterns, gene and transgene expression and phenotypes associated to a brain neuropil, is possible by right/control clicking on the term in the tree or on the term info window. </p>
@@ -128,17 +128,17 @@
 	</p>
 	<p>* The brain stack currently used for the viewer was kindly provided by Arnim Jenett of HHMI Janelia Farm research campus, and by Kei Ito and Kazunori Shinomiya of Tokyo University.</p>
 
-	<p> The <a href="site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> tool allows searching for information associated with any neuropil domain or neuron.</p>
+	<p> The <a href="site/stacks/index.htm">Anatomy/Neuron Finder</a> tool allows searching for information associated with any neuropil domain or neuron.</p>
 
 	<p>The interactive <a href="site/tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
 		multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality of these connections. </p>
 
-	
+
 	</div> <!-- center_wide -->
-	
+
 	<%--jsp:include page="/jsp/includes/bits/homeRight.jsp" /--%>
-	
-	
+
+
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

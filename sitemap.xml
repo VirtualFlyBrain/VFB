@@ -45,7 +45,7 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
   <loc>http://www.virtualflybrain.org/site/vfb_site/about_us.htm</loc>
 </url>
 <url>
-  <loc>http://www.virtualflybrain.org/site/tools/anatomy_finder/</loc>
+  <loc>http://www.virtualflybrain.org/site/stacks/</loc>
 </url>
 <url>
   <loc>http://www.virtualflybrain.org/site/vfb_site/inProgress.htm</loc>
