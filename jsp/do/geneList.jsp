@@ -54,7 +54,7 @@
 						<c:forEach items="${geneList}" var="geneBean" varStatus="status">
 							<tr>
 								<td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html" target="_blank">${geneBean.driver}</a></td>
-								<td><a href="/site/tools/anatomy_finder/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
+								<td><a href="/site/stacks/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
 								<c:if test="${geneBean.flag}">
 									<a href="" class="warn" title="${queryDesc} expression in this cell may be localised to regions of the cell that do not overlap the queried structure">(*)</a>
 								</c:if>

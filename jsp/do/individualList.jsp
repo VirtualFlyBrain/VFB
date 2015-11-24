@@ -92,7 +92,7 @@
 								<td>
 									<c:if test="${!empty types}">
 										<c:forEach items="${types}" var="item" varStatus="stat">
-											<a href="/site/tools/anatomy_finder/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn btn-sm btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
+											<a href="/site/stacks/index.htm?id=${item.key}" title="View ${item.value} entry" target="_top" class="btn btn-sm btn-success">${item.value}</a><c:if test="${!stat.last}">,</c:if>
 											<br/>
 										</c:forEach>
 									</c:if>

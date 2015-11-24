@@ -160,7 +160,7 @@ public class PubBean {
 			return "http://gowiki.tamu.edu/wiki/index.php/Category:" + id;
 		}
 		if (id.contains("FBbt:")){
-			return "/site/tools/anatomy_finder/index.htm?id=" + id;
+			return "/site/stacks/index.htm?id=" + id;
 		}
 		if (id.contains("doi:")){
 			return id.replace("doi:", "http://dx.doi.org/");
