@@ -940,7 +940,7 @@ function openFullDetails(id) {
         ga('send', 'event', 'load', 'details', id);
       }catch(ignore){}
     }else{
-      post('/site/stacks/index.htm',{'add': cleanIdforInt(id)});
+      post('/site/stacks/index.htm',{'add': cleanIdforInt(id),'id': cleanIdforInt(id)});
     }
   }
 }
