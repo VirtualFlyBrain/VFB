@@ -264,6 +264,11 @@ function animateWlzDisplay(){
   requestAnimationFrame(step);
 }
 
+window.onpopstate = function(event) {
+  alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  openFullDetails(event.state.id);
+};
+
 function openTab(Id) {
   maximizeMenuTabs();
   $('.nav.nav-pills.nav-justified > li').removeClass('active');
