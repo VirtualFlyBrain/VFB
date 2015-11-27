@@ -937,7 +937,9 @@ function openFullDetails(id) {
       if (document.getElementById('details')){
         //jump('details');
         if (history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id))){
-          history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
+          window.setTimeout(function(){
+            history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
+          },500);
         }
       }
       try{
