@@ -935,7 +935,7 @@ function openFullDetails(id) {
       }
       if (document.getElementById('details')){
         jump('details');
-        history.pushState({"id": id}, $('#partName').text(), "?id="+cleanIdforExt(id));
+        history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
       }
       try{
         ga('send', 'event', 'load', 'details', id);

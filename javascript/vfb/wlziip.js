@@ -266,7 +266,9 @@ function animateWlzDisplay(){
 
 window.onpopstate = function(event) {
   alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-  openFullDetails(event.state.id);
+  if (event.state !== null){
+    openFullDetails(event.state.id);
+  }
 };
 
 function openTab(Id) {
