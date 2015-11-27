@@ -266,7 +266,7 @@ function animateWlzDisplay(){
 
 window.onpopstate = function(event) {
   if (event.state !== null){
-    alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    alertMessage("location: " + document.location + ", state: " + JSON.stringify(event.state));
     openFullDetails(event.state.id);
   }
 };
