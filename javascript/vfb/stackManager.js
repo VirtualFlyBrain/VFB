@@ -938,7 +938,11 @@ function openFullDetails(id) {
         //jump('details');
         if (id.length > 3 && (history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id)))){
           window.setTimeout(function(){
-            history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
+            if (location.href.indexOf('#')>-1 | location.href.indexOf('?')<0){
+              history.replaceState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
+            }else{
+              history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
+            }
           },500);
         }
       }
