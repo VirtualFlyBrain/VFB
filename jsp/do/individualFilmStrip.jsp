@@ -23,9 +23,8 @@
 <c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
-<a href="/site/stacks/index.htm?add=${tpb.vfbId}" title="open ${ontBean.name} in viewer" target="_top">
-<img class="lazy" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})" style="width:350px;"></a>
-<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ${ontBean.name} in viewer" onclick="window.location.href='/site/stacks/index.htm?add=${tpb.vfbId}';">
+<img class="lazy" title="open ${ontBean.name} in viewer" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})" style="width:350px;cursor: pointer;" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
+<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ${ontBean.name} in viewer" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
   <b>${ontBean.name}</b><br>
   <span class="small">${tpb.vfbId}</span>
 </div>
@@ -46,7 +45,7 @@
 <div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onClick="addToStackData('${allIds}');updateStackData();" class="btn btn-xs btn-success" title="Add all in stack viewer"><span style="border:none;" class="glyphicon glyphicon-paperclip"></span> <span class="badge">${fn:length(ontBeanList)}</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onClick="window.location.href='/do/individual_list.html?action=exemplar_neuron&id=${region}'" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></button></div></div>
 </c:if>
 <c:if test="${fn:length(ontBeanList) > (showMax - 1)}">
-<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onClick="post('/site/stacks/index.htm',{'add':'${allIds}'});" class="btn btn-xs btn-success" title="Open all in stack viewer">Open <span class="badge">${fn:length(ontBeanList)}</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onClick="window.location.href='/do/individual_list.html?action=exemplar_neuron&id=${region}'" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></button></div></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onClick="openFullDetails('${allIds}');addToStackData('${allIds}');" class="btn btn-xs btn-success" title="Open all in stack viewer">Open <span class="badge">${fn:length(ontBeanList)}</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onClick="window.location.href='/do/individual_list.html?action=exemplar_neuron&id=${region}'" title="Open a list of all results">List all <span class="badge">${fn:length(ontBeanList)}</span></button></div></div>
 </c:if>
 </c:if>
 <c:if test="${empty ontBeanList}">
