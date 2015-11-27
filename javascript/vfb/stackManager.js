@@ -936,7 +936,7 @@ function openFullDetails(id) {
       }
       if (document.getElementById('details')){
         //jump('details');
-        if (id.length > 3 && (history.state.id.length < 3 | history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id)))){
+        if (id.length > 3 && (history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id)))){
           window.setTimeout(function(){
             history.pushState({"id": id}, $('#partName').text(), location.pathname+"?id="+cleanIdforExt(id));
           },500);
