@@ -923,6 +923,7 @@ function openFullDetails(id) {
           for (layers in parent.$("body").data("domains")){
             if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
               temp = parent.$("body").data("domains")[layers];
+              id = cleanIdforExt(temp.extId[0]);
               $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
               $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_',':'));
               //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
