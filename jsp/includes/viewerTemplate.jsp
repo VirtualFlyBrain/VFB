@@ -18,13 +18,6 @@
 <c:if test="${!empty param.clear}"><script>window.setTimeout(function(){clearAllDisplayed(); updateStackData();}, 3000); paramInc.clear = '${param.clear}'; </script><c:if test="${!empty param.add}"><script>window.setTimeout(function(){addToStackData("${param.add}"); updateStackData();}, 3500);</script></c:if></c:if>
 <c:if test="${!empty param.add}"><script>addToStackData("${param.add}", paramInc.id === undefined); updateStackData(); paramInc.add = '${param.add}'; </script></c:if>
 <c:if test="${!empty param.tab}"><script>$('body').ready( function () { window.setTimeout(function(){ openTab("${param.tab}"); }, 5000);}); paramInc.tab = '${param.tab}'; </script></c:if>
-<script>
-	window.setTimeout(function(){
-		if (location.href.indexOf('?')>-1){
-			try {history.pushState( {}, 'VirtualFlyBrain Stack Viewer', returnCurrentUrl());}catch (ignore){};
-		}
-	}, 5500);
-</script>
 
 <div class="row">
 	<div class="col-md-6" style="min-width:555px;padding: 2px;">
