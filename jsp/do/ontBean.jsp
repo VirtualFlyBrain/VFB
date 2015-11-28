@@ -63,7 +63,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			<p>
 				<b>ID: </b><a id="partId" href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}');" target="_top" title="View details and run queries" >${ontBean.fbbtIdAsOWL}</a>
 			</p>
-			<script>history.replaceState({"id": "${ontBean.fbbtIdAsOWL}"}, "${ontBean.name}", "/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}");</script>
+			<script>history.replaceState({"id": "${ontBean.fbbtIdAsOWL}"}, "${ontBean.name}", "/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}"); detailLoad = false;</script>
 			</c:if>
 			<p id="partDef">
 				<b>Definition: </b>${ontBean.def}

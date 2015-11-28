@@ -337,8 +337,13 @@ function loadTemplateMeta(id) {
 }
 
 function jump(h){
-  var top = document.getElementById(h).offsetTop;
-  window.scrollTo(0, top);
+  try{
+    if (document.getElementById(h) !== null){
+      var top = document.getElementById(h).offsetTop;
+      var left = document.getElementById(h).offsetTop;
+      window.scrollTo(left, top);
+    }
+  }catch (ignore){}
 }
 
 function createColButHTML(i) {
@@ -935,7 +940,7 @@ function openFullDetails(id) {
         }
       }
       if (document.getElementById('details')){
-        //jump('details');  
+        //jump('details');
         if (id.length > 3 && (history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id)))){
           window.setTimeout(function(){
             if (history.state === null | location.href.indexOf('#')>-1 | location.href.indexOf('?')<0){
