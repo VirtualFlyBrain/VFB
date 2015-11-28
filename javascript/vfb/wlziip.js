@@ -271,7 +271,11 @@ window.onpopstate = function(event) {
     openFullDetails(event.state.id);
     jump('details');
   }else{
-    history.replaceState({"id": $('partId').text()}, $('#partName').text(), location.pathname+"?id="+$('partId').text());
+    window.setTimeout(function(){
+      if (history.state === null){
+        history.replaceState({"id": $('partId').text()}, $('#partName').text(), location.pathname+"?id="+$('partId').text());
+      }
+    },5000);
   }
 };
 
