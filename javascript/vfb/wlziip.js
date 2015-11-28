@@ -269,7 +269,6 @@ window.onpopstate = function(event) {
     alertMessage("location: " + document.location + ", state: " + JSON.stringify(event.state));
     detailLoad = false;
     openFullDetails(event.state.id);
-    jump('details');
   }
 };
 
