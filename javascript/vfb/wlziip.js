@@ -268,8 +268,8 @@ window.onpopstate = function(event) {
   if (event.state !== null){
     alertMessage("location: " + document.location + ", state: " + JSON.stringify(event.state));
     detailLoad = false;
-    openFullDetails(event.state.id);
     jump('details');
+    openFullDetails(event.state.id);
   }
 };
 
