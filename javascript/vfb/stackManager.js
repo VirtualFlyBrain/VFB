@@ -935,7 +935,7 @@ function openFullDetails(id) {
         }
       }
       if (document.getElementById('details')){
-        //jump('details');
+        //jump('details');  
         if (id.length > 3 && (history.state === null | (history.state !== null && history.state.id === undefined) | (history.state !== null && history.state.id === undefined && history.state.id != cleanIdforExt(id)))){
           window.setTimeout(function(){
             if (history.state === null | location.href.indexOf('#')>-1 | location.href.indexOf('?')<0){
