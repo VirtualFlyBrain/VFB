@@ -332,7 +332,7 @@ function loadTemplateMeta(id) {
    if (typeof(parent.$("body").data("meta")) != "undefined"){
      var orientation = {Z:{W:0,H:1,D:2},Y:{W:0,H:2,D:1},X:{W:1,H:2,D:0}};
      var orient = parent.$("body").data("current").slice;
-     parent.$("body").data("current").scl = Math.round((($('#viewer-panel').width()-50)/(parent.$("body").data("meta").extent.split(',')[orientation[orient].W]*parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]))*10)/10;
+     parent.$("body").data("current").scl = String(Math.round((($('#viewer-panel').width()-50)/(parent.$("body").data("meta").extent.split(',')[orientation[orient].W]*parent.$("body").data("meta").voxel.split(',')[orientation[orient].W]))*10)/10);
    }
 }
 
@@ -549,12 +549,16 @@ function updateStackData(){
           store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
         }else{
           if (store.get('updated').time > Date.now()-10*60000){
+            oldScl = parent.$("body").data("current").scl;
+            oldDst = parent.$("body").data("current").dst;
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
             if (location.pathname == "/site/stacks/index.htm") {
-              forceStoreControl();
-              store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-              parent.$('body').data('disp', 'scale');
+              parent.$("body").data("current").scl = oldScl;
+              parent.$("body").data("current").dst = oldDst;
+              //forceStoreControl();
+              //store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+              //parent.$('body').data('disp', 'scale');
             }
             //try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
             window.reloadInterval = 10;
@@ -792,7 +796,7 @@ function loadDefaultData(ids) {
   console.log('Clearing back to default');
   forceStoreControl();
   var count = 0;
-  var text = '{ "template": "VFBt_001","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
+  var text = '{ "template": "VFBt_001","scl":' + String(defaultScaleByScreen()) + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
   parent.$("body").data("current", JSON.parse(text));
   parent.$("body").data("VFBt_001", { selected: { 0: { id: "VFBt_00100000", colour: "auto", visible: true }}});
   loadTemplateMeta("VFBt_001");
@@ -994,7 +998,7 @@ function addToStackData(ids, showDetails){
            id = id.replace("00000", "");
            if (id != parent.$("body").data("current").template){
              parent.$("body").data("current").template = id;
-             text = '{ "template": "' + id + '","scl":' + defaultScaleByScreen() + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
+             text = '{ "template": "' + id + '","scl":' + String(defaultScaleByScreen()) + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0.0,0.0,0.0","alpha": 100,"blend":"screen","inverted":false}';
              parent.$("body").data("current",JSON.parse(text));
              loadTemplateMeta(id);
              if (!parent.$("body").data(id)){

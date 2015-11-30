@@ -330,7 +330,7 @@ function addScale(scale) {
   if (parent.$('body').data('current')){
     scl = parent.$('body').data('current').scl;
   }else{
-    scl = 1;
+    scl = "1.0";
   }
   var ctx = document.getElementById("canvas").getContext("2d");
   ctx.beginPath();
@@ -368,7 +368,7 @@ function addOrientation() {
     if (parent.$('body').data('current')){
       scl = parent.$('body').data('current').scl;
     }else{
-      scl = 1;
+      scl = "1.0";
     }
     if (scl > 0.4){
     ctx.beginPath();
