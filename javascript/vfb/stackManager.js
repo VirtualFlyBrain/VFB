@@ -551,11 +551,16 @@ function updateStackData(){
           if (store.get('updated').time > Date.now()-10*60000){
             oldScl = parent.$("body").data("current").scl;
             oldDst = parent.$("body").data("current").dst;
+            oldTemp = parent.$("body").data("current").template;
             parent.$("body").data(expandCookieDisplayed());
             console.log('overridden by another session');
             if (location.pathname == "/site/stacks/index.htm") {
-              parent.$("body").data("current").scl = oldScl;
-              parent.$("body").data("current").dst = oldDst;
+              if (parent.$("body").data("current").template == oldTemp){
+                parent.$("body").data("current").scl = oldScl;
+                parent.$("body").data("current").dst = oldDst;
+              }else{
+                parent.$('body').data('disp', 'scale');
+              }
               if (vis()){
                 forceStoreControl();
                 store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
