@@ -1217,6 +1217,7 @@ var vis = (function(){
 })();
 
 vis(function(){
+  updateStackData();
   if (vis()){
     forceStoreControl();
     document.title = document.title.replace("*","");
