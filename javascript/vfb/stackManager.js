@@ -1217,9 +1217,11 @@ vis(function(){
     forceStoreControl();
     document.title = document.title.replace("*","");
   }else{
-    if (store.get("updated").session != window.id && document.title.indexOf('*')<0){
-      document.title = "*" + document.title;
-    }
+    window.setTimeout(function(){
+      if ((!vis()) && store.get("updated").session != window.id && document.title.indexOf('*')<0){
+        document.title = "*" + document.title;
+      }
+    },2000);
   }
 });
 
