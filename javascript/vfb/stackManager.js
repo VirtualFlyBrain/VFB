@@ -556,9 +556,11 @@ function updateStackData(){
             if (location.pathname == "/site/stacks/index.htm") {
               parent.$("body").data("current").scl = oldScl;
               parent.$("body").data("current").dst = oldDst;
-              //forceStoreControl();
-              //store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
-              //parent.$('body').data('disp', 'scale');
+              if (vis()){
+                forceStoreControl();
+                store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
+                parent.$('body').data('disp', 'scale');
+              }
             }
             //try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
             window.reloadInterval = 10;
@@ -1190,6 +1192,36 @@ function addToStackData(ids, showDetails){
 function forceStoreControl() {
   store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
 }
+
+var vis = (function(){
+    var stateKey, eventKey, keys = {
+        hidden: "visibilitychange",
+        webkitHidden: "webkitvisibilitychange",
+        mozHidden: "mozvisibilitychange",
+        msHidden: "msvisibilitychange"
+    };
+    for (stateKey in keys) {
+        if (stateKey in document) {
+            eventKey = keys[stateKey];
+            break;
+        }
+    }
+    return function(c) {
+        if (c) document.addEventListener(eventKey, c);
+        return !document[stateKey];
+    }
+})();
+
+vis(function(){
+  if (vis()){
+    forceStoreControl();
+    document.title = document.title.replace("*","");
+  }else{
+    if (store.get("updated").session != window.id && document.title.indexOf('*')<0){
+      document.title = "*" + document.title;
+    }
+  }
+});
 
 function removeFromStackData(ids) {
   if (ids !== undefined && ids !== null) {
