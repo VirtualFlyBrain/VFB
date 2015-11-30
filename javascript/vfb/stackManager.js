@@ -560,6 +560,10 @@ function updateStackData(){
                 forceStoreControl();
                 store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
                 parent.$('body').data('disp', 'scale');
+              }else{
+                if (document.title.indexOf('*')<0){
+                  document.title = "*" + document.title;
+                }
               }
             }
             //try {history.pushState( {}, parent.$("body").data("meta").name, location.pathname );}catch (ignore){}
