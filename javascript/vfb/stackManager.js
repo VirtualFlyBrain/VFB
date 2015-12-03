@@ -1482,7 +1482,9 @@ function executeSearch() {
   }else{
     if ($('.tt-hint').val().indexOf($('#searchtext').val())>-1){
       $('.typeahead').typeahead('val',$('.tt-hint').val());
-      updateSearchResults();
+      if ($('.tt-suggestion > b').first().text() == $('.tt-hint').val()){
+        $('.tt-suggestion').first().click();
+      }
     }
     if ($('#searchtext').val().toUpperCase().indexOf('VFB')>-1 || $('#searchtext').val().toUpperCase().indexOf('FBBT')>-1) {
       if (searchresults[0].id == $('#searchtext').val().replace(':','_')) {
