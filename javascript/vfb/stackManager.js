@@ -44,10 +44,10 @@ var engine = new Bloodhound({
        return -1;
      }
      //also with underscores ignored
-     if (Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))<0 && Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))>-1){
+     if (Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_',' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',' '))<0 && Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_',' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',' '))>-1){
        return 1;
      }
-     if (Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))<0 && Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))>-1){
+     if (Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_',' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',' '))<0 && Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_',' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',' '))>-1){
        return -1;
      }
      //if not found in one then advance the other
