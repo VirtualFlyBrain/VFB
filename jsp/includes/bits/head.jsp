@@ -63,6 +63,7 @@
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
+							<li><a href="#searchtext" onclick="$('#searchtext').focus()">Search</a></li>
 	          	<li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a></li>
 							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
