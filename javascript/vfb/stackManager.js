@@ -1658,7 +1658,6 @@ function updateSearchResults() {
           }
         });
         $('#searchtext').focus();
-        checkSearchValue();
       });
     }
   }else{
@@ -1671,6 +1670,7 @@ function updateSearchResults() {
       },1000);
     }
   }
+  checkSearchValue();
 }
 
 $('body').ready( function () {
