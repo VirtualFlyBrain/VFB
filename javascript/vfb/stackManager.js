@@ -19,6 +19,7 @@ var engine = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   local:searchresults,
+  limit:20,
   sorter:function(a, b) {
          //get input text
      var InputString=   $(Selector).val();
