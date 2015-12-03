@@ -1360,6 +1360,21 @@ function removeFromStackData(ids) {
   }
 }
 
+function uniq_json(a) {
+  var seen = {};
+  var out = [];
+  var len = a.length;
+  var j = 0;
+  for(var i = 0; i < len; i++) {
+    var item = JSON.stringify(a[i]);
+    if(seen[item] !== 1) {
+      seen[item] = 1;
+      out[j++] = JSON.parse(item);
+    }
+  }
+  return out;
+}
+
 function returnGeppettoConfUrl() {
     var current = parent.$("body").data("current");
     if (current){
@@ -1537,7 +1552,7 @@ function updateSearchResults() {
               newresults.push(resl);
           }
         }
-        searchresults=newresults;
+        searchresults=uniq_json(newresults);
         engine.add(searchresults);
         $('#searchtext').typeahead('destroy');
         $('#searchtext').typeahead({
