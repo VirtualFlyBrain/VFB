@@ -1508,9 +1508,8 @@ function updateSearchResults() {
               $('#searchid').text(resl);
             }
           }
-          if (data.response.docs[i].synonym == undefined){
-            data.response.docs[i].synonym = [data.response.docs[i].id];
-          }
+          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].resl,id:resl};
+          newresults.push(opt);
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
           newresults.push(opt);
           for (j in data.response.docs[i].synonym){
@@ -1553,6 +1552,8 @@ function updateSearchResults() {
               suggestion: function ( data ) {
                   if (data.syn == data.name){
                     return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+                  }else if(data.syn == data.id){
+                    return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>(" + data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ')</small></p>';
                   }else{
                     return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
                   }
