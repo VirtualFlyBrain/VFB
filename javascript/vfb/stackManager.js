@@ -21,29 +21,46 @@ var engine = new Bloodhound({
   local:searchresults,
   limit:20,
   sorter:function(a, b) {
-         //get input text
+      //get input string
      var InputString=$('#searchtext').val();
-         //move exact matches to top
+     //move exact matches to top
      if(InputString==a.syn){return -1;}
      if(InputString==b.syn){return 1;}
-          //close match without case matching
+     //close match without case matching
      if(InputString.toLowerCase()==a.syn.toLowerCase()){return -1;}
      if(InputString.toLowerCase()==b.syn.toLowerCase()){return 1;}
-
+     //match against id
+     if(InputString.toLowerCase()==a.id.toLowerCase()){return -1;}
+     if(InputString.toLowerCase()==b.id.toLowerCase()){return 1;}
+     //if not found in one then advance the other
+     if (a.syn.toLowerCase().indexOf(InputString.toLowerCase())<0 && b.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1){
+       return 1;
+     }
+     if (b.syn.toLowerCase().indexOf(InputString.toLowerCase())<0 && a.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1){
+       return -1;
+     }
+     // if the match is closer to start than the other move up
      if (a.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1 && a.syn.toLowerCase().indexOf(InputString.toLowerCase()) < b.syn.toLowerCase().indexOf(InputString.toLowerCase())){
        return -1;
      }
      if (b.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1 && b.syn.toLowerCase().indexOf(InputString.toLowerCase()) < a.syn.toLowerCase().indexOf(InputString.toLowerCase())){
        return 1;
      }
+     // if the match in the id is closer to start then move up
+     if (a.id.toLowerCase().indexOf(InputString.toLowerCase())>-1 && a.id.toLowerCase().indexOf(InputString.toLowerCase()) < b.id.toLowerCase().indexOf(InputString.toLowerCase())){
+       return -1;
+     }
+     if (b.id.toLowerCase().indexOf(InputString.toLowerCase())>-1 && b.id.toLowerCase().indexOf(InputString.toLowerCase()) < a.id.toLowerCase().indexOf(InputString.toLowerCase())){
+       return 1;
+     }
+     // move the shorter synonyms to the top
      if (a.syn < b.syn) {
        return -1;
      }
      else if (a.syn > b.syn) {
        return 1;
      }
-     else return 0;
-
+     else return 0; // if nothing found then do nothing.
   }
 });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
