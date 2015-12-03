@@ -1497,11 +1497,16 @@ function updateSearchResults() {
               $('#searchid').text(resl);
             }
           }
+          if (data.response.docs[i].synonym == undefined){
+            data.response.docs[i].syn = [data.response.docs[i].label];
+          }
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
           newresults.push(opt);
           for (j in data.response.docs[i].synonym){
-            opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
-            newresults.push(opt);
+            if (data.response.docs[i].label != data.response.docs[i].synonym[j]){
+              opt = {name:data.response.docs[i].label,syn:data.response.docs[i].synonym[j],id:resl};
+              newresults.push(opt);
+            }
           }
           if (data.response.docs[i].has_narrow_synonym_annotation) {
             for (j in data.response.docs[i].has_narrow_synonym_annotation){
