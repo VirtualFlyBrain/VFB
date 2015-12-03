@@ -16,8 +16,8 @@ var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
       {syn:'AL2 clone',id:'FBbt_00110418',name:'adult fruitless aDT-c lineage clone'},
       {syn:'C1 tract',id:'FBbt_00005905',name:'C1 fascicle'}];
 var engine = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.obj.nonword("syn"),
+  queryTokenizer: Bloodhound.tokenizers.nonword,
   local:searchresults,
   limit:20,
   sorter:function(a, b) {
