@@ -23,6 +23,7 @@ var engine = new Bloodhound({
   sorter:function(a, b) {
          //get input text
      var InputString=   $('#searchtext').val();
+     console.log(a);
          //move exact matches to top
      if(InputString==a.value){ return -1;}
      if(InputString==b.value){return 1;}
