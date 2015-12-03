@@ -29,9 +29,20 @@ var engine = new Bloodhound({
      //close match without case matching
      if(InputString.toLowerCase()==a.syn.toLowerCase()){return -1;}
      if(InputString.toLowerCase()==b.syn.toLowerCase()){return 1;}
+     //match ignoring joinging nonwords
+     Bloodhound.tokenizers.nonword("test thing-here12 34f").join(' ')
+     if(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ')==Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ')){return -1;}
+     if(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ')==Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ')){return 1;}
      //match against id
      if(InputString.toLowerCase()==a.id.toLowerCase()){return -1;}
      if(InputString.toLowerCase()==b.id.toLowerCase()){return 1;}
+     //pick up any match without nonword join character match
+     if (Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))<0 && Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))>-1){
+       return 1;
+     }
+     if (Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))<0 && Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))>-1){
+       return -1;
+     }
      //if not found in one then advance the other
      if (a.syn.toLowerCase().indexOf(InputString.toLowerCase())<0 && b.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1){
        return 1;
