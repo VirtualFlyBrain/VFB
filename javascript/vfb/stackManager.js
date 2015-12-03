@@ -1476,9 +1476,7 @@ function checkSearchValue() {
     window.setTimeout(function(){
       searchChecking = false;
       if (searchCheck){
-        if ($('.tt-cursor').length > 0 && $('.tt-hint').val().length > $('#searchtext').val().length){
-          $('#searchtext').val($('.tt-hint').val());
-        }
+        updateSearchResults();
       }
     },1000);
   }
