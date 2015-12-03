@@ -43,6 +43,13 @@ var engine = new Bloodhound({
      if (Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))<0 && Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' '))>-1){
        return -1;
      }
+     //also with underscores ignored
+     if (Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))<0 && Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))>-1){
+       return 1;
+     }
+     if (Bloodhound.tokenizers.nonword(b.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))<0 && Bloodhound.tokenizers.nonword(a.syn.toLowerCase()).join(' ').replace('_','').indexOf(Bloodhound.tokenizers.nonword(InputString.toLowerCase()).join(' ').replace('_',''))>-1){
+       return -1;
+     }
      //if not found in one then advance the other
      if (a.syn.toLowerCase().indexOf(InputString.toLowerCase())<0 && b.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1){
        return 1;
