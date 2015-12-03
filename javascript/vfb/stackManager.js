@@ -24,20 +24,26 @@ var engine = new Bloodhound({
          //get input text
      var InputString=$('#searchtext').val();
          //move exact matches to top
-     if(InputString==a.syn){ return -1;}
+     if(InputString==a.syn){return -1;}
      if(InputString==b.syn){return 1;}
           //close match without case matching
-     if(InputString.toLowerCase() ==a.syn.toLowerCase()){ return -1;}
+     if(InputString.toLowerCase()==a.syn.toLowerCase()){return -1;}
      if(InputString.toLowerCase()==b.syn.toLowerCase()){return 1;}
-     if( (InputString!=a.syn) && (InputString!=b.syn)){
-          if (a.syn < b.syn) {
-             return -1;
-          }
-          else if (a.syn > b.syn) {
-             return 1;
-          }
-          else return 0;
+
+     if (a.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1 && a.syn.toLowerCase().indexOf(InputString.toLowerCase()) < b.syn.toLowerCase().indexOf(InputString.toLowerCase())){
+       return -1;
      }
+     if (b.syn.toLowerCase().indexOf(InputString.toLowerCase())>-1 && b.syn.toLowerCase().indexOf(InputString.toLowerCase()) < a.syn.toLowerCase().indexOf(InputString.toLowerCase())){
+       return 1;
+     }
+     if (a.syn < b.syn) {
+       return -1;
+     }
+     else if (a.syn > b.syn) {
+       return 1;
+     }
+     else return 0;
+
   }
 });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
