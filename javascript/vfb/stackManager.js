@@ -1527,7 +1527,7 @@ function updateSearchResults() {
               $('#searchid').text(resl);
             }
           }
-          opt = {name:data.response.docs[i].label,syn:data.response.docs[i].resl,id:resl};
+          opt = {name:data.response.docs[i].label,syn:resl,id:resl};
           newresults.push(opt);
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
           newresults.push(opt);
