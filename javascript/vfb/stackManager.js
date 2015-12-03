@@ -8,8 +8,6 @@ window.id = '0-0-0-0';
 var lastkey = Date.now();
 var searchDelayed = false;
 var detailLoad = false;
-var searchCheck = false;
-var searchChecking = false;
 var checkCount = 0;
 var cookieMax = 4000;
 var dropItems = 0;
@@ -1471,15 +1469,6 @@ function checkSearchValue() {
       $('#searchtext').attr('data-original-title', $('#searchtext').attr('title')).tooltip('fixTitle').tooltip('show');
     }
   }
-  if (!searchChecking){
-    searchChecking = true;
-    window.setTimeout(function(){
-      searchChecking = false;
-      if (searchCheck){
-        updateSearchResults();
-      }
-    },1000);
-  }
 }
 
 function hasValue(obj, key, value) {
@@ -1736,11 +1725,10 @@ $('body').ready( function () {
   $('#searchtext').blur(function() {
     $("#searchtext").css('width', 146);
     $('.tt-hint').css('width', 146);
-    searchCheck = false;
   });
 
   $('#searchtext').focus(function() {
-    var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-46);
+    var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
     if (searchwidth > 100) {
       $("#searchtext").css('width', searchwidth);
       $('.tt-hint').css('width', searchwidth);
@@ -1748,7 +1736,6 @@ $('body').ready( function () {
       $("#searchtext").css('width', '100%');
       $('.tt-hint').css('width', '100%');
     }
-    searchCheck = true;
   });
 
 	initStackData(null);
