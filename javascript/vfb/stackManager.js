@@ -1436,9 +1436,13 @@ function checkSearchValue() {
   var exists = false;
   var k;
   for (k = searchresults.length - 1; k >= 0; --k) {
-    if (searchresults[k].syn.toUpperCase() == val.toUpperCase()) {
-      exists = true;
-      endVal = k;
+    try{
+      if (searchresults[k].syn.toUpperCase() == val.toUpperCase()) {
+        exists = true;
+        endVal = k;
+      }
+    }catch (ignore){
+        alertMessage("Issue with result: " + JSON.stringify(searchresults[k]));
     }
   }
   if (exists) {
