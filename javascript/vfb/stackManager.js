@@ -18,7 +18,26 @@ var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
 var engine = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace("syn"),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local:searchresults
+  local:searchresults,
+  sorter:function(a, b) {
+         //get input text
+     var InputString=   $(Selector).val();
+         //move exact matches to top
+     if(InputString==a.value){ return -1;}
+     if(InputString==b.value){return 1;}
+          //close match without case matching
+     if(InputString.toLowerCase() ==a.value.toLowerCase()){ return -1;}
+     if(InputString.toLowerCase()==b.value.toLowerCase()){return 1;}
+     if( (InputString!=a.value) && (InputString!=b.value)){
+          if (a.value < b.value) {
+             return -1;
+          }
+          else if (a.value > b.value) {
+             return 1;
+          }
+          else return 0;
+     }
+  }
 });
 var CompKey = ['"}}}}','"},"','":{"','{"','","','":{"','":"','":','},"',',"'];
 var CompMax = {A:'!4scl!71!9mod!6zeta!4slice!6Z!4dst!70!9pit!70!9yaw!70!9rol!70!9qlt!780!9cvt!6png!4fxp!6',
