@@ -22,18 +22,18 @@ var engine = new Bloodhound({
   limit:20,
   sorter:function(a, b) {
          //get input text
-     var InputString=   $('#searchtext').val();
+     var InputString=$('#searchtext').val();
          //move exact matches to top
-     if(InputString==a.value){ return -1;}
-     if(InputString==b.value){return 1;}
+     if(InputString==a.syn){ return -1;}
+     if(InputString==b.syn){return 1;}
           //close match without case matching
-     if(InputString.toLowerCase() ==a.value.toLowerCase()){ return -1;}
-     if(InputString.toLowerCase()==b.value.toLowerCase()){return 1;}
-     if( (InputString!=a.value) && (InputString!=b.value)){
-          if (a.value < b.value) {
+     if(InputString.toLowerCase() ==a.syn.toLowerCase()){ return -1;}
+     if(InputString.toLowerCase()==b.syn.toLowerCase()){return 1;}
+     if( (InputString!=a.syn) && (InputString!=b.syn)){
+          if (a.syn < b.syn) {
              return -1;
           }
-          else if (a.value > b.value) {
+          else if (a.syn > b.syn) {
              return 1;
           }
           else return 0;
