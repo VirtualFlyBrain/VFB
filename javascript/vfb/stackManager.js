@@ -1509,7 +1509,7 @@ function updateSearchResults() {
             }
           }
           if (data.response.docs[i].synonym == undefined){
-            data.response.docs[i].syn = [data.response.docs[i].label];
+            data.response.docs[i].synonym = [data.response.docs[i].id];
           }
           opt = {name:data.response.docs[i].label,syn:data.response.docs[i].label,id:resl};
           newresults.push(opt);
