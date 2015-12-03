@@ -1454,6 +1454,11 @@ function checkSearchValue() {
       $('#searchgroup').removeClass('has-warning').addClass('has-success');
       $('#searchtext').css('color', 'lightgreen');
       $('#searchtext').attr('data-original-title', 'MATCH: press return/enter to get details').tooltip('fixTitle').tooltip('show');
+      window.setTimeout(function(){
+        if (lastkey < (Date.now()-1000) && $('#searchtext').val() == $('.tt-suggestion > b').first().text()){
+          $('.tt-suggestion').first().click();
+        }
+      },5000);
   }else{
     if (val.length > 0){
       $('#searchgroup').addClass('has-warning').removeClass('has-success');
