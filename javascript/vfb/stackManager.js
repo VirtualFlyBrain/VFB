@@ -11,10 +11,7 @@ var detailLoad = false;
 var checkCount = 0;
 var cookieMax = 4000;
 var dropItems = 0;
-var searchresults = [{syn:'optic lobe',id:'FBbt_00003701',name:'optic lobe'},
-      {syn:'A1 neuron',id:'FBbt_00001988',name:'A1 neuron'},
-      {syn:'AL2 clone',id:'FBbt_00110418',name:'adult fruitless aDT-c lineage clone'},
-      {syn:'C1 tract',id:'FBbt_00005905',name:'C1 fascicle'}];
+var searchresults = [];
 var engine = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.nonword(d.syn.replace('_',' ')); },
   queryTokenizer: function(d) { return Bloodhound.tokenizers.nonword(d.replace('_',' ')); },
