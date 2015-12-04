@@ -62,7 +62,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				detailsUpdating = false;
 				function updateDetailButtons(){
 					$('#detailButtons').html(
-						createControlsBarHTML('FBbt_00007054').replace('btn-group-justified','btn-group-vertical').replace('style="width:150px"','')
+						createControlsBarHTML('FBbt_00007054')
 					);
 					buttons=$('#detailButtons > div > div > button');
 					buttons.each(function(index){
@@ -74,19 +74,12 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						$(this).tooltip();
 					});
 					buttons.first().hide();
-					// if (!detailsUpdating){
-					// 	detailsUpdating=true;
-					// 	window.setTimeout(function(){
-					// 		detailsUpdating=false;
-					//     updateDetailButtons();
-	  			// 	},5000);
-					// }
 				};
 				$('body').ready( function () {
 					updateDetailButtons();
 				});
 			</script>
-			<div id="detailButtons" style="position:absolute;top:0px;right:-21px;"></div>
+			<div id="detailButtons" style="position:absolute;top:0px;right:150px;"></div>
 			<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 			<p>
 				<b>ID: </b><a id="partId" href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}');" target="_top" title="View details and run queries" >${ontBean.fbbtIdAsOWL}</a>
