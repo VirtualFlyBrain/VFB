@@ -59,6 +59,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<div class="col-xs-12">
 			<h2><a href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}')" title="View details and run queries"><span id="partName">${ontBean.name}</span></a></h2>
 			<script>
+				detailsUpdating = false;
 				function updateDetailButtons(){
 					$('#detailButtons').html(
 						createControlsBarHTML('FBbt_00007054').replace('btn-group-justified','btn-group-vertical').replace('style="width:150px"','')
@@ -66,6 +67,8 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					buttons=$('#detailButtons > div > div > button');
 					buttons.each(function(){
 						$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+						$(this).attr('data-toggle','tooltip');
+						$(this).attr('data-placement','left');
 					});
 					buttons.first().hide();
 					if (!detailsUpdating){
@@ -75,7 +78,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					    updateDetailButtons();
 	  				},5000);
 					}
-				}
+				};
 				$('body').ready( function () {
 					updateDetailButtons();
 				});
