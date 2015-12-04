@@ -68,6 +68,13 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
 					});
 					buttons.first().hide();
+					if (!detailsUpdating){
+						detailsUpdating=true;
+						window.setTimeout(function(){
+							detailsUpdating=false;
+					    updateDetailButtons();
+	  				},5000);
+					}
 				}
 				$('body').ready( function () {
 					updateDetailButtons();
