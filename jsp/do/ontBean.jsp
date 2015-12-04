@@ -69,9 +69,6 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						if ($(this).html().indexOf('eye')>-1 || $(this).html().indexOf('trash')>-1 || $(this).html().indexOf('paperclip')>-1){
 							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
 						}
-						$(this).attr('data-toggle','tooltip');
-						$(this).attr('data-placement','top');
-						$(this).tooltip();
 					});
 					buttons.first().hide();
 				};
