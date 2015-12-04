@@ -71,6 +71,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						}
 						$(this).attr('data-toggle','tooltip');
 						$(this).attr('data-placement','left');
+						$(this).tooltip();
 					});
 					buttons.first().hide();
 					// if (!detailsUpdating){
