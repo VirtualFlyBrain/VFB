@@ -75,6 +75,10 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						}
 					});
 					buttons.first().hide();
+					$('button').each(function(index){$(this).attr('data-toggle','tooltip');
+						$(this).attr('data-placement','top');
+						$(this).tooltip();
+					});
 				};
 				$('body').ready( function () {
 					updateDetailButtons();

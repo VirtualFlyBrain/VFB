@@ -34,10 +34,7 @@ function updateMenuData() {
   updateAnatomyTree();
   updateLabels();
   updateWlzDisplay();
-  $('button').each(function(index){$(this).attr('data-toggle','tooltip');
-		$(this).attr('data-placement','top');
-		$(this).tooltip();
-	});
+  
 }
 
 function animateWlzDisplay(){
