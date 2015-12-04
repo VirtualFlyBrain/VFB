@@ -1328,9 +1328,9 @@ function createAddButtonHTML(id) {
 }
 
 function createAddToQueryButtonHTMLfinal(id) {
-  var text = '<a href="#" class="btn btn-xs btn-info" title="add to query" onclick="';
+  var text = '<button class="btn btn-xs btn-info" title="add to query" onclick="';
   text += "parent.$('#query_builder').attr('src', '/do/query_builder.html?action=add&amp;rel=include&amp;fbId=" + cleanIdforExt(id) + "&amp;time=" + String(Date.now()) + "');if (typeof openTab !== 'undefined' && $.isFunction(openTab)) {openTab('query');};try{ga('send', 'event', 'query', 'add', '" + cleanIdforExt(id) + "');}catch(ignore){}";
-  text += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span></a>';
+  text += '"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-tasks"></span></button>';
   return text;
 }
 
