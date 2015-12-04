@@ -70,7 +70,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
 						}
 						$(this).attr('data-toggle','tooltip');
-						$(this).attr('data-placement','left');
+						$(this).attr('data-placement','top');
 						$(this).tooltip();
 					});
 					buttons.first().hide();
@@ -79,7 +79,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					updateDetailButtons();
 				});
 			</script>
-			<div id="detailButtons" style="position:absolute;top:0px;right:150px;"></div>
+			<div id="detailButtons" style="position:absolute;top:5px;right:5px;"></div>
 			<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 			<p>
 				<b>ID: </b><a id="partId" href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}');" target="_top" title="View details and run queries" >${ontBean.fbbtIdAsOWL}</a>
