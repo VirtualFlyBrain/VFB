@@ -68,6 +68,10 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					buttons.each(function(index){
 						if ($(this).html().indexOf('eye')>-1 || $(this).html().indexOf('trash')>-1 || $(this).html().indexOf('paperclip')>-1){
 							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+							if ($(this).html().indexOf('paperclip')>-1 && parent.$('body').data('available').indexOf('${ontBean.fbbtIdAsOWL}')<0 && '${ontBean.fbbtIdAsOWL}'.indexOf('VFB')<0){
+								$(this).attr('disabled','true');
+								$(this).attr('title','Not labeled in this stack');
+							}
 						}
 					});
 					buttons.first().hide();
