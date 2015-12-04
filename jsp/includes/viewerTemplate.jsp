@@ -145,8 +145,8 @@
 						        <div class="tab-pane active" id="disp">
 											<div class="row-fluid" style="padding:0;">
 												<div class="col-md-12" style="padding:0;">
-							            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;">Clear all</a>
-													<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;">Copy URL</a>
+							            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-trash"></span> Clear all</a>
+													<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-copy"></span> Copy URL</a>
 													<h4><center>Currently Displayed</center></h4>
 												</div>
 												<div class="col-md-12" style="padding:0;" id="dispTable">
