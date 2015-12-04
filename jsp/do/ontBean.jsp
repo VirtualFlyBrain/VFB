@@ -65,19 +65,21 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						createControlsBarHTML('FBbt_00007054').replace('btn-group-justified','btn-group-vertical').replace('style="width:150px"','')
 					);
 					buttons=$('#detailButtons > div > div > button');
-					buttons.each(function(){
-						$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+					buttons.each(function(index){
+						if ($(this).text().indexOf('eye')>-1){
+							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+						}
 						$(this).attr('data-toggle','tooltip');
 						$(this).attr('data-placement','left');
 					});
 					buttons.first().hide();
-					if (!detailsUpdating){
-						detailsUpdating=true;
-						window.setTimeout(function(){
-							detailsUpdating=false;
-					    updateDetailButtons();
-	  				},5000);
-					}
+					// if (!detailsUpdating){
+					// 	detailsUpdating=true;
+					// 	window.setTimeout(function(){
+					// 		detailsUpdating=false;
+					//     updateDetailButtons();
+	  			// 	},5000);
+					// }
 				};
 				$('body').ready( function () {
 					updateDetailButtons();
