@@ -66,7 +66,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					);
 					buttons=$('#detailButtons > div > div > button');
 					buttons.each(function(index){
-						if ($(this).text().indexOf('eye')>-1){
+						if ($(this).html().indexOf('eye')>-1 || $(this).html().indexOf('trash')>-1 || $(this).html().indexOf('paperclip')>-1){
 							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
 						}
 						$(this).attr('data-toggle','tooltip');
