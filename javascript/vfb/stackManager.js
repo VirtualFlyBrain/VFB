@@ -1253,6 +1253,7 @@ function addToStackData(ids, showDetails){
 				addToStackData(ids);
 			}, 1000);
     }
+    if (typeof updateMenuData !== 'undefined' && $.isFunction(updateMenuData)) {updateMenuData();};
   }
 }
 
