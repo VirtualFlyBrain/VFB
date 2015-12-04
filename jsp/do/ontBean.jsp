@@ -62,7 +62,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				detailsUpdating = false;
 				function updateDetailButtons(){
 					$('#detailButtons').html(
-						createControlsBarHTML('FBbt_00007054')
+						createControlsBarHTML('${ontBean.fbbtIdAsOWL}')
 					);
 					buttons=$('#detailButtons > div > div > button');
 					buttons.each(function(index){
