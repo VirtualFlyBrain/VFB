@@ -59,10 +59,18 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<div class="col-xs-12">
 			<h2><a href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}')" title="View details and run queries"><span id="partName">${ontBean.name}</span></a></h2>
 			<script>
-				$('body').ready( function () {
+				function updateDetailButtons(){
 					$('#detailButtons').html(
 						createControlsBarHTML('FBbt_00007054').replace('btn-group-justified','btn-group-vertical').replace('style="width:150px"','')
 					);
+					buttons=$('#detailButtons > div > div > button');
+					buttons.each(function(){
+						$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+					});
+					buttons.first().hide();
+				}
+				$('body').ready( function () {
+					updateDetailButtons();
 				});
 			</script>
 			<div id="detailButtons" style="position:absolute;top:0px;right:-21px;"></div>
