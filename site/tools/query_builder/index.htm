@@ -9,11 +9,11 @@
 		})
 		function execOntQuery()
 		{
-			window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
+			window.open('/do/ont_query_result.html?action=multiquery&time=' + Date.now() ,'_blank'); return false;
 		}
 		function execDBQuery()
 		{
-			fireLightBox("/do/gene_list.html?action=multiquery", 600, 800); return false;
+			fireLightBox("/do/gene_list.html?action=multiquery&time=" + Date.now(), 600, 800); return false;
 		}
 		function showPopup(url)
 		{
