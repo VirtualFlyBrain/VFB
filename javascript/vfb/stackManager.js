@@ -1741,7 +1741,7 @@ $('body').ready( function () {
   });
 
   $('#searchtext').focus(function() {
-    var searchwidth = Math.round($(".navbar-right").offset().left-$("#searchtext").offset().left-45);
+    var searchwidth = Math.floor(($(".navbar-right").offset().left-$("#searchtext").offset().left)-43.0);
     if (searchwidth > 100) {
       $("#searchtext").css('width', searchwidth);
       $('.tt-hint').css('width', searchwidth);
