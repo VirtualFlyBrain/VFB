@@ -34,7 +34,7 @@ function updateMenuData() {
   updateAnatomyTree();
   updateLabels();
   updateWlzDisplay();
-  
+
 }
 
 function animateWlzDisplay(){
@@ -289,6 +289,7 @@ function openTab(Id) {
     case "query":
       $('#QueryMenuTab').addClass('active');
       $('#queryBuild').addClass('active');
+      jump('right-panel');
       break;
     case "disp":
       $('#DispMenuTab').addClass('active');
