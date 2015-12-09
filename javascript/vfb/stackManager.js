@@ -1571,27 +1571,31 @@ function initialiseSearchResults() {
     }
     searchresults=uniq_json(newresults);
     engine.add(searchresults);
-    $('#searchtext').typeahead('destroy');
-    $('#searchtext').typeahead({
-      hint: true,
-      minLength: 1
-    }, {
-      display: 'syn',
-      limit: 2500,
-      source: engine.ttAdapter(),
-      templates: {
-          empty: 'No matches yet...',
-          suggestion: function ( data ) {
-              if (data.syn == data.name){
-                return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-              }else if(data.syn == data.id){
-                return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>(" + data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ')</small></p>';
-              }else{
-                return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-              }
-          }
-      }
-    });
+    createAutocomplete();
+  });
+}
+
+function createAutocomplete(){
+  $('#searchtext').typeahead('destroy');
+  $('#searchtext').typeahead({
+    hint: true,
+    minLength: 1
+  }, {
+    display: 'syn',
+    limit: 2500,
+    source: engine.ttAdapter(),
+    templates: {
+        empty: 'No matches yet...',
+        suggestion: function ( data ) {
+            if (data.syn == data.name){
+              return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+            }else if(data.syn == data.id){
+              return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>(" + data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ')</small></p>';
+            }else{
+              return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
+            }
+        }
+    }
   });
 }
 
@@ -1649,28 +1653,10 @@ function updateSearchResults() {
         searchresults=uniq_json(newresults);
         engine.add(searchresults);
 
-        // $('#searchtext').typeahead('destroy');
-        // $('#searchtext').typeahead({
-        //   hint: true,
-        //   minLength: 1
-        // }, {
-        //   display: 'syn',
-        //   limit: 20,
-        //   source: engine.ttAdapter(),
-        //   templates: {
-        //       empty: 'No matches yet...',
-        //       suggestion: function ( data ) {
-        //           if (data.syn == data.name){
-        //             return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>[<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-        //           }else if(data.syn == data.id){
-        //             return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>(" + data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ')</small></p>';
-        //           }else{
-        //             return '<p onclick="clickSearchResult(' + "'" + data.id + "'" + ');"><b>' +  data.syn.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + "</b> <small>("+data.name.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + ") [<i>" + data.id.replace($('#searchtext').val(),'<u>' + $('#searchtext').val() + '</u>') + '</i>]</small></p>';
-        //           }
-        //       }
-        //   }
-        // });
-        // $('#searchtext').focus();
+        if ($('.tt-menu').children().first().text()=="No matches yet..."){
+          createAutocomplete();
+          $('#searchtext').focus();
+        }
       });
     }
   }else{
