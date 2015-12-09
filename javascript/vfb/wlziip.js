@@ -1067,6 +1067,11 @@ function updateLabels() {
       for (var i=0; i<3; i++){
         pos[i] = String(parseInt(pos[i])+1);
       }
+      if (parent.$("body").data("meta") && parent.$("body").data("meta").has3D){
+        $('#open3D').show();
+      }else{
+        $('#open3D').hide();
+      }
     }
 
     if (parent.$("body").data("meta")){
