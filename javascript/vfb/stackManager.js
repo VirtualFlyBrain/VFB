@@ -601,7 +601,7 @@ function updateStackData(){
         loadTemplateMeta(parent.$("body").data('current').template);
       }
     }
-    if (JSON.stringify(parent.$("body").data()).length > 10){
+    if (parent.$("body").data() && JSON.stringify(parent.$("body").data()).length > 10){
       if (store.has('updated')){
         if (store.get('updated').session == window.id) {
           store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
