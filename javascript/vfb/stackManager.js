@@ -1577,7 +1577,6 @@ function initialiseSearchResults() {
       minLength: 1
     }, {
       display: 'syn',
-      limit: 20,
       source: engine.ttAdapter(),
       templates: {
           empty: 'No matches yet...',
@@ -1699,7 +1698,6 @@ $('body').ready( function () {
     minLength: 1
   }, {
     display: 'syn',
-    limit: 20,
     source: engine.ttAdapter(),
     templates: {
         empty: 'No results found',
