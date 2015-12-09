@@ -1571,11 +1571,11 @@ function initialiseSearchResults() {
     }
     searchresults=uniq_json(newresults);
     engine.add(searchresults);
-    createAutocomplete();
+    createAutocompleteList();
   });
 }
 
-function createAutocomplete(){
+function createAutocompleteList(){
   $('#searchtext').typeahead('destroy');
   $('#searchtext').typeahead({
     hint: true,
@@ -1654,7 +1654,7 @@ function updateSearchResults() {
         engine.add(searchresults);
 
         if ($('.tt-menu').children().first().text()=="No matches yet..."){
-          createAutocomplete();
+          createAutocompleteList();
           $('#searchtext').focus();
         }
       });
