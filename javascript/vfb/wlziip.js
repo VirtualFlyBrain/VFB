@@ -10,6 +10,7 @@ var image = [];
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
+var mylabelTimeout;
 window.features = [];
 var coloursLoading = false;
 var change = Date.now()-(60*60000);
