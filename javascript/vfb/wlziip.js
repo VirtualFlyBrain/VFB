@@ -865,9 +865,13 @@ function initWlzControls() {
    });
    $("#canvas").hover(function(e) {
      forceStoreControl();
-     $("#labelBlock").show();
-     $("#labelBlock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
+     labelTimeout = setTimeout(function() {
+       $("#labelBlock").show();
+       $("#labelBlock").text('click for info');
+       $("#labelBlock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
+     }, 3000);
    }, function() {
+     clearTimeout(labelTimeout);
      $("#labelBlock").hide();
    });
    $("body").on('click', "#resetPosition", function(){
