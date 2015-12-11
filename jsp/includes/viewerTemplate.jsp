@@ -66,7 +66,7 @@
 		<div class="row" style="overflow:scroll;">
 			<div class="col-md-12" id="viewer-panel">
 				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" >Your browser does not support the HTML5 canvas tag.</canvas>
-				<div id="labelBlock" style="position: absolute; color: black; padding-left: 5px; padding-right: 5px; top: 0px; right: 50px;">Loading...</div>
+				<div id="labelBlock" style="position: absolute; color: black; padding-left: 5px; padding-right: 5px; top: 0px; right: 53px;">Loading...</div>
 				<script>
 					$(document).ready(function() {
 						$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
