@@ -863,11 +863,11 @@ function initWlzControls() {
      window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2));
      updatePosition();
    });
-   $("#canvas").hover(function(e) {
+   $("#canvas").hover(function() {
      forceStoreControl();
      $("#labelBlock").show();
      $("#labelBlock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
-   }, function{
+   }, function() {
      $("#labelBlock").hide();
    });
    $("body").on('click', "#resetPosition", function(){
