@@ -12,7 +12,6 @@ var retries = 4;
 var maxSlice = 1;
 var showLabel = false;
 var labelCall = false;
-var mylabelTimeout;
 window.features = [];
 var coloursLoading = false;
 var change = Date.now()-(60*60000);
@@ -919,13 +918,10 @@ function initWlzControls() {
    });
    $("#canvas").hover(function(e) {
      forceStoreControl();
-     labelTimeout = setTimeout(function() {
-       $("#labelBlock").show();
-       $("#labelBlock").text('click for full details');
-       showLabel = true;
-     }, 3000);
+     $("#labelBlock").show();
+     $("#labelBlock").text('click for full details');
+     showLabel = true;
    }, function() {
-     clearTimeout(labelTimeout);
      $("#labelBlock").hide();
      showLabel = false;
    });
