@@ -65,7 +65,7 @@
 		</div>
 		<div class="row" style="overflow:scroll;">
 			<div class="col-md-12" id="viewer-panel">
-				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" title="click for info; double click to select">Your browser does not support the HTML5 canvas tag.</canvas>
+				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" >Your browser does not support the HTML5 canvas tag.</canvas>
 				<div id="labelBlock" style="position: absolute; color: black; padding-left: 5px; padding-right: 5px; top: 0px; right: 50px;">Loading...</div>
 				<script>
 					$(document).ready(function() {
@@ -183,6 +183,7 @@
 																			}
 																		}
 																	}
+																	$("#labelBlock").text('click for info; double click to select');
 														    }, 10000);
 																loadRightMenuDisplayed();
 																if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
