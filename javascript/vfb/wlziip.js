@@ -879,7 +879,8 @@ function initWlzControls() {
    });
    $("#canvas").mousemove(function(e) {
      if (showLabel) {
-       $("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
+       //$("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
+       $("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: 20+Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
      }
    });
    $("body").on('click', "#resetPosition", function(){
