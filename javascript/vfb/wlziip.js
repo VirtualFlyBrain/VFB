@@ -863,6 +863,10 @@ function initWlzControls() {
      window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2));
      updatePosition();
    });
+   $("#canvas").hover(function(e) {
+     forceStoreControl();
+     $("#testblock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
+   })
    $("body").on('click', "#resetPosition", function(){
      forceStoreControl();
      hideAllSliders();
