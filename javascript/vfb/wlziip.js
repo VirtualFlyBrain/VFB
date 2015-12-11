@@ -865,8 +865,11 @@ function initWlzControls() {
    });
    $("#canvas").hover(function(e) {
      forceStoreControl();
-     $("#testblock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
-   })
+     $("#labelBlock").show();
+     $("#labelBlock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
+   }, function{
+     $("#labelBlock").hide();
+   });
    $("body").on('click', "#resetPosition", function(){
      forceStoreControl();
      hideAllSliders();
