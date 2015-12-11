@@ -11,6 +11,7 @@ var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
 var showLabel = false;
+var labelCall = false;
 var mylabelTimeout;
 window.features = [];
 var coloursLoading = false;
@@ -473,6 +474,57 @@ function drawFeatures() {
   }
 }
 
+function callForLabel(x,y) {
+  var current = parent.$("body").data("current");
+  var file = fileFromId(parent.$("body").data("current").template);
+  var text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(current.dst)*parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&prl=-1," + String(x) + "," + String(y) + "&obj=Wlz-foreground-objects&obj=Wlz-coordinate-3D";
+  $.ajax({
+      url: text,
+      type: "GET",
+      timeout: 99999999,
+      dataType: "text", // "xml", "json"
+      xhrFields: {
+        withCredentials: true
+      },
+      success: function(data) {
+          // format fcgi response for JSON
+          data = data.trim();
+          data = '{ ' + data.replace(/[\n\r]/g,'], ') + '] }';
+          data = data.replace('], ], ','], ');
+          data = data.replace('Wlz-foreground-objects:','"Wlz-foreground-objects": [');
+          data = data.replace('Wlz-coordinate-3d:','"Wlz-coordinate-3d": [');
+          data = data.replace('[ ','[');
+          data = data.replace(/\s/g,', ');
+          data = data.replace('{,','{');
+          data = data.replace(':,',':');
+          data = data.replace(':,',':');
+          data = data.replace(',,',',');
+          data = data.replace(', }',' }');
+
+          var json = JSON.parse(data);
+
+          var temp = json['Wlz-foreground-objects'];
+
+          if (temp.length > 1){
+            var domains = parent.$('body').data('domains');
+            for (i in domains){
+              if (domains[i].domainData && domains[i].domainData.domainId && domains[i].domainData.domainId == String(temp[1])){
+                $("#labelBlock").text(domains[i].name);
+                break;
+              }
+            }
+          }else{
+            $("#labelBlock").text('not labeled');
+          }
+          labelCall = false;
+        },
+        error: function(jqXHR, textStatus, ex) {
+            alertMessage(textStatus + "," + ex + "," + jqXHR.responseText);
+        }
+    });
+    return true;
+}
+
 function callForObjects(text, id) {
   //console.log('Calling:' + text);
   $.ajax({
@@ -878,9 +930,9 @@ function initWlzControls() {
      showLabel = false;
    });
    $("#canvas").mousemove(function(e) {
-     if (showLabel) {
-       //$("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
-       $("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: 20+Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
+     if (showLabel && !labelCall) {
+       labelCall = true;
+       callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2)));
      }
    });
    $("body").on('click', "#resetPosition", function(){
