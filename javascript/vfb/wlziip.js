@@ -10,6 +10,7 @@ var image = [];
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
+var showLabel = false;
 var mylabelTimeout;
 window.features = [];
 var coloursLoading = false;
@@ -868,12 +869,18 @@ function initWlzControls() {
      forceStoreControl();
      labelTimeout = setTimeout(function() {
        $("#labelBlock").show();
-       $("#labelBlock").text('click for info');
-       $("#labelBlock").css({left: Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width())/2))+'px', top: Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height())/2))+'px'});
+       $("#labelBlock").text('click for full details');
+       showLabel = true;
      }, 3000);
    }, function() {
      clearTimeout(labelTimeout);
      $("#labelBlock").hide();
+     showLabel = false;
+   });
+   $("#canvas").mousemove(function(e) {
+     if (showLabel) {
+       $("#labelBlock").css({left: Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width())/2))+'px', top: Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height())/2))+'px'});
+     }
    });
    $("body").on('click', "#resetPosition", function(){
      forceStoreControl();
