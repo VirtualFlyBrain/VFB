@@ -1082,7 +1082,7 @@ function createControlsBarHTML(id) {
       }
     }
     html += start + createAddToQueryButtonHTMLfinal(id) + end;
-  }else if (id.indexOf('VFB_')>-1){
+  }else if (id.indexOf('VFBi_')>-1 || id.indexOf('VFB_')>-1){
     html += start + createInfoButtonHTMLbyId(id) + end;
     html += start + createAddButtonHTMLfinal(id) + end;
     html += start + createAddToQueryButtonHTMLfinal(id) + end;
