@@ -405,9 +405,6 @@ div.DTTT_container {
 
 /*compacted query menu*/
 @media screen and (min-width: 768px){
-  .navbar .navbar-default .navbar-static-top{
-    max-height: 50px !important;
-  }
   .navbar-condensed{
     margin-bottom: 2px !important;
   }
