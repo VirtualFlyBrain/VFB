@@ -28,7 +28,7 @@ function updateWlzDisplay(){
   if ($('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider .slider-handle.min-slider-handle').is(":focus")){
     $('#slider-alphaCurrentSlider').hide();
   }
-  if (typeof updateDetailButtons !== 'undefined' &&$.isFunction(updateDetailButtons)) {
+  if (typeof updateDetailButtons !== 'undefined' && $.isFunction(updateDetailButtons)) {
     updateDetailButtons();
   }
 }
