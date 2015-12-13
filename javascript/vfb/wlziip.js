@@ -12,6 +12,7 @@ var retries = 4;
 var maxSlice = 1;
 var showLabel = false;
 var labelCall = false;
+var isTyping = false;
 window.features = [];
 var coloursLoading = false;
 var change = Date.now()-(60*60000);
@@ -424,13 +425,21 @@ function setCircle() {
 }
 
 function setText(message) {
-  if (window.features.length > 0 && window.features[window.features.length-1][3]==message){
-    console.log('double click');
+  if (isTyping){
+    setTimeout(function (message) {
+      setText(message);
+    }, 100);
   }else{
-    window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
-    window.textOffset+= 12;
-    try{ga('send', 'event', 'viewer', 'selected', message);}catch(ignore){}
-    window.reloadInterval = 10;
+    isTyping = true;
+    if (window.features.length > 0 && window.features[window.features.length-1][3]==message){
+      console.log('double click');
+    }else{
+      window.features[window.features.length]=[0,window.PosX + 5,window.PosY + window.textOffset - 12, message];
+      window.textOffset+= 12;
+      try{ga('send', 'event', 'viewer', 'selected', message);}catch(ignore){}
+      window.reloadInterval = 10;
+    }
+    isTyping = false;
   }
 }
 
