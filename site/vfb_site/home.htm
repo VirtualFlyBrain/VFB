@@ -34,7 +34,7 @@
 									DIVactive = '';
 								}
 								html = html.replace('</ol>','<li data-target="#carousel-example-generic" data-slide-to="'+REGcount+'"'+OLactive+'></li>'+'</ol>');
-								html = html.replace('</div >','<div class="item'+DIVactive+'">'+'<img src="'+thumbnailHTMLForId('VFBt_001').replace('<img class="lazy thumb_sm" data-original="','').replace(`" onclick="openFullDetails('VFBt_001');" alt="click to see full details" />`,'').replace('scl=0.2','scl=1').replace('0,255,0&fxp','255,255,255&fxp')+'" alt="'+templates[i].meta.name+'">'+'</div >');
+								html = html.replace('</div >','<div class="item'+DIVactive+'">'+'<img src="'+thumbnailHTMLForId(i).replace('<img class="lazy thumb_sm" data-original="','').replace(`" onclick="openFullDetails('VFBt_001');" alt="click to see full details" />`,'').replace('scl=0.2','scl=1').replace('0,255,0&fxp','255,255,255&fxp')+'" alt="'+templates[i].meta.name+'">'+'</div >');
 								html = html.replace('</div >','<div class="carousel-caption">'+templates[i].meta.name+'</div></div></div >');
 								REGcount++;
 							}
