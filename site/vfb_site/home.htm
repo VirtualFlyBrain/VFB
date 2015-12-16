@@ -16,7 +16,7 @@
 				$(function(){
 					setTimeout(function () {
 						var templates = parent.$('body').data();
-						var html = '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel"><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox"></div ><a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
+						var html = '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:50%;"><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox"></div ><a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
 						var OLactive = '';
 						var DIVactive = '';
 						var REGcount = 0;
@@ -34,7 +34,7 @@
 									DIVactive = '';
 								}
 								html = html.replace('</ol>','<li data-target="#carousel-example-generic" data-slide-to="'+REGcount+'"'+OLactive+'></li>'+'</ol>');
-								html = html.replace('</div >','<div class="item'+DIVactive+'" style="background-color: black;">'+thumbnailHTMLForId(i).replace('scl=0.2','scl=1').replace('0,255,0&fxp','255,255,255&fxp').replace('fxp='+parent.$('body').data('meta').center,'fxp='+templates[i].meta.center)+'</div >');
+								html = html.replace('</div >','<div class="item'+DIVactive+'" style="background-color: black;">'+thumbnailHTMLForId(i).replace('scl=0.2','scl=1').replace('0,255,0&fxp','255,255,255&fxp').replace('fxp='+parent.$('body').data('meta').center,'fxp='+templates[i].meta.center).replace('thumb_sm','thumb_lg')+'</div >');
 								html = html.replace('</div >','<div class="carousel-caption">'+templates[i].meta.name+'</div></div></div >');
 								REGcount++;
 							}
