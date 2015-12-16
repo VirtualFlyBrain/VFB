@@ -20,6 +20,7 @@
 						var OLactive = '';
 						var DIVactive = '';
 						var REGcount = 0;
+						var colFilter = '255,0,255';
 						var originalStack = parent.$('body').data('meta').id;
 						for (i in templates){
 							if (templates[i].meta == undefined){
@@ -33,8 +34,13 @@
 									OLactive = '';
 									DIVactive = '';
 								}
+								if (i=='VFBt_002'){
+									colFilter = '255,255,255';
+								}else{
+									colFilter = '255,0,255';
+								}
 								html = html.replace('</ol>','<li data-target="#carousel-example-generic" data-slide-to="'+REGcount+'"'+OLactive+'></li>'+'</ol>');
-								html = html.replace('</div >','<div class="item'+DIVactive+'" style="background-color: black;">'+thumbnailHTMLForId(i).replace('scl=0.2','scl=1').replace('0,255,0&fxp','255,255,255&fxp').replace('fxp='+parent.$('body').data('meta').center,'fxp='+templates[i].meta.center).replace('thumb_sm','thumb_lg').replace('details" />','details" style="height:300px;" />')+'</div >');
+								html = html.replace('</div >','<div class="item'+DIVactive+'" style="background-color: black;">'+thumbnailHTMLForId(i).replace('scl=0.2','scl=1').replace('0,255,0&fxp',colFilter+'&fxp').replace('fxp='+parent.$('body').data('meta').center,'fxp='+templates[i].meta.center).replace('thumb_sm','thumb_lg').replace('details" />','details" style="height:300px;" />')+'</div >');
 								html = html.replace('</div >','<div class="carousel-caption" style="bottom:-20px;">'+templates[i].meta.name+'</div></div></div >');
 								REGcount++;
 							}
