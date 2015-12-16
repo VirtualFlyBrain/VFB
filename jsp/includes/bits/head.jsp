@@ -69,7 +69,7 @@
 							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
 	          </ul>
 	        </li>
-	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
+	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="stacksMenu" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
 							<li id="openStackViewerOption"><a href="/site/stacks/index.htm">Open the Stack Viewer (<span id="stackName"></span>)</a></li>
 	            <li><a onClick="forceStoreControl();addToStackData('VFBt_001');post('/site/stacks/index.htm',{'add':'VFBt_00100000'});">Open the Janelia Adult Brain <span id="CountVFBt_001" class="label label-warning label-as-badge"></span></a></li>
