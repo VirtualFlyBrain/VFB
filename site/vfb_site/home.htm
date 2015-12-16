@@ -48,15 +48,16 @@
 						$('#availableRegions').html(html);
 						addToStackData(originalStack);
 					}, 2000);
-					function jumpToSearch(){
-						if ($('.navbar-toggle').is(':visible')){
-							$('#navbar-collapse-1').collapse('show');
-							$('#searchtext').focus();
-						}else{
-							$('#searchtext').focus();
-						}
-					}
+
 				});
+				function jumpToSearch(){
+					if ($('.navbar-toggle').is(':visible')){
+						$('#navbar-collapse-1').collapse('show');
+						$('#searchtext').focus();
+					}else{
+						$('#searchtext').focus();
+					}
+				}
 			</script>
       <p>or simply search for the item you're interested in</p>
 			<p><input title="Search by any neuropil, neuron, lineage clone, tract or specific image data name" placeholder="Search by any neuropil, neuron, lineage clone, tract or specific image data name" style="width:70%;" type="text" name="secondarySearch" onclick="jumpToSearch();" onfocus="jumpToSearch();"></p>
