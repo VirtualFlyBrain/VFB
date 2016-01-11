@@ -23,10 +23,10 @@
 						var colFilter = '255,0,255';
 						var originalStack = parent.$('body').data('meta').id;
 						for (i in templates){
-							if (templates[i].meta == undefined){
+							if (i.indexOf('VFB')>-1 && templates[i].meta == undefined){
 								addToStackData(i);
 							}
-							if (i.indexOf('VFB')>-1){
+							if (i.indexOf('VFB')>-1 && templates[i].meta.isLive){
 								if (i=='VFBt_001'){
 									OLactive = ' class="active"';
 									DIVactive = ' active';
