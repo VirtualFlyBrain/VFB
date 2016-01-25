@@ -280,30 +280,32 @@ window.onpopstate = function(event) {
 };
 
 function openTab(Id) {
-  maximizeMenuTabs();
-  $('.nav.nav-pills.nav-justified > li').removeClass('active');
-  $('.tab-pane').removeClass('active');
-  switch (Id) {
-    case "selec":
-      $('#SelecMenuTab').addClass('active');
-      $('#selec').addClass('active');
-      break;
-    case "anato":
-      $('#AnatoMenuTab').addClass('active');
-      $('#anato').addClass('active');
-      break;
-    case "query":
-      $('#QueryMenuTab').addClass('active');
-      $('#queryBuild').addClass('active');
-      jump('right-panel');
-      break;
-    case "disp":
-      $('#DispMenuTab').addClass('active');
-      $('#disp').addClass('active');
-      break;
-    default:
-      $('#DispMenuTab').addClass('active');
-      $('#disp').addClass('active');
+  if ($('#AnatoMenuTab').attr('class') != "active"){
+    maximizeMenuTabs();
+    $('.nav.nav-pills.nav-justified > li').removeClass('active');
+    $('.tab-pane').removeClass('active');
+    switch (Id) {
+      case "selec":
+        $('#SelecMenuTab').addClass('active');
+        $('#selec').addClass('active');
+        break;
+      case "anato":
+        $('#AnatoMenuTab').addClass('active');
+        $('#anato').addClass('active');
+        break;
+      case "query":
+        $('#QueryMenuTab').addClass('active');
+        $('#queryBuild').addClass('active');
+        jump('right-panel');
+        break;
+      case "disp":
+        $('#DispMenuTab').addClass('active');
+        $('#disp').addClass('active');
+        break;
+      default:
+        $('#DispMenuTab').addClass('active');
+        $('#disp').addClass('active');
+    }
   }
 }
 
