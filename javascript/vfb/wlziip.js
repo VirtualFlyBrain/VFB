@@ -280,7 +280,7 @@ window.onpopstate = function(event) {
 };
 
 function openTab(Id) {
-  if ($('#AnatoMenuTab').attr('class') != "active"){
+  if ($('#AnatoMenuTab').attr('class') != "active" || Id == "selec"){
     maximizeMenuTabs();
     $('.nav.nav-pills.nav-justified > li').removeClass('active');
     $('.tab-pane').removeClass('active');
