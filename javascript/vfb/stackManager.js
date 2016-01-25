@@ -396,7 +396,7 @@ function loadTemplateMeta(id) {
 
 function jump(h){
   try{
-    if (document.getElementById(h) !== null){
+    if (document.getElementById(h) !== null && (typeof $('#AnatoMenuTab').attr('active') == "undefined" || $('#AnatoMenuTab').attr('class') != "active")){
       var top = document.getElementById(h).offsetTop;
       var left = document.getElementById(h).offsetTop;
       window.scrollTo(left, top);
