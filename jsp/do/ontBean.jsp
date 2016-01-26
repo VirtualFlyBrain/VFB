@@ -64,6 +64,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					$('#detailButtons').html(
 						createControlsBarHTML('${ontBean.fbbtIdAsOWL}')
 					);
+					$('#detailButtons').css('position','absolute');
+					$('#detailButtons').css('top','0px');
+					$('#detailButtons').css('right','5px');
 					buttons=$('#detailButtons > div > div > button');
 					buttons.each(function(index){
 						if ($(this).html().indexOf('eye')>-1 || $(this).html().indexOf('trash')>-1 || $(this).html().indexOf('paperclip')>-1){
@@ -84,7 +87,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					updateDetailButtons();
 				});
 			</script>
-			<div id="detailButtons" style="position:absolute;top:5px;right:5px;"></div>
+			<div id="detailButtons" style="position:absolute;top:0px;right:5px;"></div>
 			<c:if test="${!empty ontBean.fbbtIdAsOWL}">
 			<p>
 				<b>ID: </b><a id="partId" href="#details" onclick="openFullDetails('${ontBean.fbbtIdAsOWL}');" target="_top" title="View details and run queries" >${ontBean.fbbtIdAsOWL}</a>
