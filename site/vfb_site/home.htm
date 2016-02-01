@@ -30,7 +30,7 @@
 						var colFilter = '255,0,255';
 						var originalStack = parent.$('body').data('meta').id;
 						for (i in templates){
-							if (i.indexOf('VFB')>-1 && templates[i].meta.isLive){
+							if (i.indexOf('VFB')>-1 && (templates[i].meta.isLive || location.hostname.toLowerCase().indexOf('sandbox') > 0)){
 								if (i=='VFBt_001'){
 									OLactive = ' class="active"';
 									DIVactive = ' active';
