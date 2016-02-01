@@ -329,8 +329,9 @@ function updateStackCounter() {
         }
       }
     }
-  }catch (ignore){
+  }catch (err){
     console.log('Reloading due to error...');
+    console.log(err.message);
     window.open(window.location.href, '_top',async = true);
   }
 }
