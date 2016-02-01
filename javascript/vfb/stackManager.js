@@ -151,17 +151,21 @@ function updateStackCounter() {
         }else{
           $("#clearEverythingOption").hide();
         }
-        for (i in parent.$('body').data()){
-          if (i.indexOf('VFB')>-1 && (parent.$('body').data(i).meta.isLive || location.hostname.toLowerCase().indexOf('sandbox') > -1)){
-            $("#open"+i).show();
-          }else{
-            $("#open"+i).hide();
+        try{
+          for (i in parent.$('body').data()){
+            if (i.indexOf('VFB')>-1 && (parent.$('body').data(i).meta.isLive || location.hostname.toLowerCase().indexOf('sandbox')>-1)){
+              $("#open"+i).show();
+            }else{
+              $("#open"+i).hide();
+            }
           }
-        }
-        if (parent.$('body').data(parent.$('body').data('current').template).meta.has3D || location.hostname.toLowerCase().indexOf('sandbox')>-1){
-          $("#menuOpen3Dlink").show();
-        }else{
-          $("#menuOpen3Dlink").hide();
+          if (parent.$('body').data(parent.$('body').data('current').template).meta.has3D || location.hostname.toLowerCase().indexOf('sandbox')>-1){
+            $("#menuOpen3Dlink").show();
+          }else{
+            $("#menuOpen3Dlink").hide();
+          }
+        }catch (ignore){
+          console.log('.');
         }
         $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
         $("[id^=Count]").each(function(){
