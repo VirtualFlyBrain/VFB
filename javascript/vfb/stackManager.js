@@ -164,14 +164,18 @@ function updateStackCounter() {
           //backgroundLoadMeta(i);
         }
         try{
-          if (parent.$('body').data(parent.$('body').data('current').template).meta.has3D || location.hostname.toLowerCase().indexOf('sandbox')>-1){
+          if (parent.$('body').data('current') && parent.$('body').data(parent.$('body').data('current').template).meta.has3D || location.hostname.toLowerCase().indexOf('sandbox')>-1){
             $("#menuOpen3Dlink").show();
           }else{
             $("#menuOpen3Dlink").hide();
           }
         }catch (ignore){
-          console.log('Missing 3D meta data for '+parent.$('body').data('current').template);
-          //backgroundLoadMeta(parent.$('body').data('current').template);
+          if (parent.$('body').data('current') && parent.$('body').data('current').template){
+            console.log('Missing 3D meta data for '+parent.$('body').data('current').template);
+            //backgroundLoadMeta(parent.$('body').data('current').template);
+          }else{
+            console.log('Awaiting initialisation...');
+          }
         }
         $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
         $("[id^=Count]").each(function(){
