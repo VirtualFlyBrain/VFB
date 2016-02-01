@@ -16,14 +16,14 @@ import uk.ac.ed.vfb.ont_query.model.OntQueryManager;
 import uk.ac.ed.vfb.service.OntBeanManager;
 
 /**
- * Front-facing controller for query builder results. 
- * Wraps the /do/count_results.html or forwards to /do/ont_bean_list.html depending on the parameters provided 
+ * Front-facing controller for query builder results.
+ * Wraps the /do/count_results.html or forwards to /do/ont_bean_list.html depending on the parameters provided
  */
 
 public class OntQueryListController extends AbstractController{
 	private OntQueryManager ontQuery;
 	private OntBeanManager obm;
-	private static final Log LOG = LogFactory.getLog(OntQueryListController.class); 
+	private static final Log LOG = LogFactory.getLog(OntQueryListController.class);
 
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -34,7 +34,7 @@ public class OntQueryListController extends AbstractController{
 		String[] types = req.getParameterValues("type");
 //		//LOG.debug(">>> ids: " + ids[0] + "," + ids[1]);
 //		//LOG.debug(">>> types: " + types[0] + "," + types[1]);
-		//Retrofitted adding terms as url parameters - done for running queries on 
+		//Retrofitted adding terms as url parameters - done for running queries on
 		//home page
 		if (ids!= null && ids.length ==2 && rels!=null && rels.length ==2 && types!= null && types.length ==2){
 			ontQuery = new OntQueryManager();
@@ -67,10 +67,10 @@ public class OntQueryListController extends AbstractController{
 		}
 		// Set per page first
 		else if (perPage != null) {
-			ontQuery.setPerPage(req);			
+			ontQuery.setPerPage(req);
 			results = ontQuery.getPageNumber(ontQuery.getCurrPage());
 		}
-		// Now, deal with the rest of the request	
+		// Now, deal with the rest of the request
 		else if (page != null){
 			try{
 				int pageI = Integer.parseInt(page);
@@ -84,16 +84,21 @@ public class OntQueryListController extends AbstractController{
 					results = ontQuery.getPreviousPage();
 				}
 			}
-		}		
+		}
 		modelAndView.addObject("ontBeanList", results);
-		modelAndView.addObject("type", "oqm");		
+		modelAndView.addObject("type", "oqm");
 		params = ontQuery.getUsefulParams(params);
 		String actionDesc = ontQuery.getQueryText();
-		modelAndView.addObject("query", actionDesc.replaceAll("<br/>", " "));
+		if (actionDesc == null || actionDesc == ""){
+			actionDesc = "";
+		}else{
+			actionDesc = actionDesc.replaceAll("<br/>", " ");
+		}
+		modelAndView.addObject("query", actionDesc);
 		modelAndView.addObject("paramItems", params.split("&"));
 		modelAndView.addObject("paramString", params);
 		modelAndView.addObject("nav", ontQuery.getNav(params));
-		return modelAndView;			
+		return modelAndView;
 	}
 
 	public void setObm(OntBeanManager obm) {

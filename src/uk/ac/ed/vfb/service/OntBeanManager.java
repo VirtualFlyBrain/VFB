@@ -109,7 +109,9 @@ public class OntBeanManager extends APageable {
 				//LOG.debug("OBM result: " + result);
 				this.ontBeans.put(result.getFbbtId(), result);
 			}else{
+				//LOG.debug("Not a VFB ref");
 				result = ontClient.getBeanForId(fbbtId);
+				//LOG.debug("Found OntBean: " + result);
 				ThirdPartyBean tpb =  tpbm.getBeanForVfbId(OntBean.idAsOWL(result.getFbbtId()));
 				//LOG.debug("TPB result: " + tpb);
 				if ( tpb!=null){

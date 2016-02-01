@@ -23,6 +23,10 @@ function mail2(name, dom, tl, params, display)
 {
 	document.write('<a href="'+m_+e(name,dom,tl)+params+'">'+display+'</a>');
 }
+function mail3(name, dom, tl, params, display, marker)
+{
+	$('#'+marker).html('<a href="'+m_+e(name,dom,tl)+params+'">'+display+'</a>');
+}
 function e(name, dom, tl)
 {
 	var s = name+a_;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
-	
+
 	<global-method-security secured-annotations="enabled">
 	</global-method-security>
 
@@ -30,9 +30,9 @@
 			authentication-failure-url="/site/tools/login/login.htm?login_error=1"
 			default-target-url="/site/tools/protected/index.htm"
 		/>
-		
+
 		<logout logout-success-url="/site/tools/login/logout.htm" invalidate-session="true"/>
-			
+
 	</http>
 
 	<authentication-provider>
@@ -43,20 +43,12 @@
 	</authentication-provider>
 
 	<!-- Usernames/Passwords are rod/koala dianne/emu scott/wombat peter/opal -->
-	<!-- authentication-provider> <password-encoder hash="md5" /> <user-service> 
-		<user name="rod" password="a564de63c2d0da68cf47586ee05984d7" authorities="ROLE_SUPERVISOR, 
-		ROLE_USER, ROLE_TELLER" /> <user name="dianne" password="65d15fe9156f9c4bbffd98085992a44e" 
-		authorities="ROLE_USER,ROLE_TELLER" /> <user name="scott" password="2b58af6dddbd072ed27ffc86725d7d3a" 
-		authorities="ROLE_USER" /> <user name="peter" password="22b5c9accc6e1ba628cedc63a72d57f8" 
+	<!-- authentication-provider> <password-encoder hash="md5" /> <user-service>
+		<user name="rod" password="a564de63c2d0da68cf47586ee05984d7" authorities="ROLE_SUPERVISOR,
+		ROLE_USER, ROLE_TELLER" /> <user name="dianne" password="65d15fe9156f9c4bbffd98085992a44e"
+		authorities="ROLE_USER,ROLE_TELLER" /> <user name="scott" password="2b58af6dddbd072ed27ffc86725d7d3a"
+		authorities="ROLE_USER" /> <user name="peter" password="22b5c9accc6e1ba628cedc63a72d57f8"
 		authorities="ROLE_USER" /> </user-service> </authentication-provider -->
 
-	<beans:bean id="userManagerDAO" class="uk.ac.ed.vfb.dao.security.UserManagerDAO" scope="singleton">
-		<beans:property name="dataSource" ref="vfbDataSource" />
-	</beans:bean>
-	
-	<beans:bean id="userManager" class="uk.ac.ed.vfb.service.UserManager" scope="session">
-		<beans:property name="dao" ref="userManagerDAO" />
-	</beans:bean>
-	
 
 </beans:beans>

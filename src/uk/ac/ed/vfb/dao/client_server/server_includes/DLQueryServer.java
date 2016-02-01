@@ -138,8 +138,14 @@ public class DLQueryServer {
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
 			LOG.error("Trying to retrieve individual for id: " + fbbtId);
-			result = engineIndividual.getOntBeanForId(fbbtId);
-			LOG.error("Found?: " + result);
+			try {
+				result = engineIndividual.getOntBeanForId(fbbtId);
+				LOG.error("Found?: " + result);
+			}catch(java.lang.NullPointerException ex){
+				LOG.error(ex.getMessage());
+				LOG.error("failed to find individual: " + fbbtId);
+				result = null;
+			}
 		}
 		return result;
 	}
