@@ -4,34 +4,11 @@
 	<jsp:param name="css" value="/css/vfb/utils/table.css" />
 </jsp:include>
 
-<style type="text/css">
-  dl.dlHorizontal2 {
-    background: none repeat scroll 0 0 #F5FBFE;
-    border: 1px solid gray;
-    display: inline-block;
-    margin: 1em 0 2em;
-    padding: 10px 5px 0;
-    width: 98%;
-}
-  dl.dlHorizontal2 dt {
-    clear: both;
-    float: left;
-    margin: 0 0 10px;
-    padding: 5px;
-    width: 26%;
-    font-weight: bold;
-}
-  dl.dlHorizontal2 dd {
-    width: 70%;
-    border-left: 1px solid gray;
-    float: right;
-    margin: 0 0 10px;
-    padding: 5px;
-}
-</style>
 
-<div id="center_wide">
+<div class="row row-centered">
 
+	<div class="col-md-9 col-centered">
+	
 <h2>Cookies and Logging</h2>
 
 <p>We may collect information about your computer, including where
@@ -127,25 +104,11 @@ individually or personally and is not linked to any other information
 we store about you.</dd>
 </dl>
 
-<h2>User Registration and Data Gathering</h2>
+</div>
 
-<p>To provide advanced functionality on our site,
-we ask our users to register with the VFB site. During the registration we collect 
-user data such as name, email, contact telephone, organisation with which the user 
-is affiliated and the position held within the organisation. </p>
-
-<p>This information is used to track user activity within a site and to support users 
-in managing their data. New users can register <a href="/do/user.html?action=new">here</a>. </p>
-
-<p>Any user registration data gathered by the site is not shared with any third parties, services or 
-other users and is kept strictly confidential within the Virtual Fly Brain website.</p>
-
-
+<!--<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>-->
 
 </div>
-<!-- center_wide -->
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
-
-
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

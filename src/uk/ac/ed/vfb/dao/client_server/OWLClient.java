@@ -20,7 +20,7 @@ import uk.ac.ed.vfb.service.ThirdPartyBeanManager;
  * Receives a query from application component (eg., OntBeanManager) and passes it on to the ont server.
  * Uses sockets, supports multi-threading
  * Returns a set of OntBeans
- * 
+ *
  */
 
 public class OWLClient {
@@ -30,14 +30,14 @@ public class OWLClient {
 
 	public OWLClient() {
 		super();
-		//LOG.debug("Creating a client: " + this);	
+		//LOG.debug("Creating a client: " + this);
 	}
 
 
 	public static void main (String[] argv) {
 		OWLClient client = new OWLClient();
 		if (argv != null && argv.length > 0) {
-			try {				
+			try {
 				Set<OntBean> results = client.askQuery(argv[0]);
 				//LOG.info("Asking query: " + argv[0] + " \nResults found: " + results.size());
 			} catch (Exception e) {
@@ -127,7 +127,7 @@ public class OWLClient {
 
 
 	/**
-	 * Worker Thread - the classthat does all the job in the tread 
+	 * Worker Thread - the classthat does all the job in the tread
 	 * @author nmilyaev
 	 *
 	 */

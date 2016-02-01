@@ -1,38 +1,65 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" itemtype="http://schema.org/Organization" >
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %><!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Virtual Fly Brain: ${param.title}</title>
+	<link rel="icon" href="/favicon.ico">
+
 	<meta name="keywords" content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
-	
+
 		<!-- START Google Snippit code -->
 			<meta itemprop="name" content="Virtual Fly Brain">
 			<meta itemprop="description" content="Integrative queries of Drosophila neuroanatomical data.">
 			<meta itemprop="image" content="http://www.virtualflybrain.org/images/vfb/project/cluster_eg.png">
-		<!-- START Google Snippit code -->
-		
-	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />              
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout-home.css" />
-      	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/table.css" />
-      	<c:forEach items="${fn:split(param.css, ';')}" var="item">
-      		<link rel="stylesheet" media="all" type="text/css" href="${item}" />
-      	</c:forEach>      
-      	<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-      	<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>  
-	<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
-	<script src="/thirdParty/smoothbox/smoothbox.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/javascript/vfb/mailEncoder.js" ></script>	  
+		<!-- END Google Snippit code -->
+
+	  <c:if test="${!empty param.cache}">
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		</c:if>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/bloodhound.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+
+		<!-- Code to manage stacks -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/store.js/1.3.17/store+json2.min.js"></script>
+		<script type="text/javascript" src="/javascript/vfb/stackManager.js" ></script>
+
+		<!-- https://github.com/CWSpear/bootstrap-hover-dropdown -->
+		<script src="/javascript/thirdParty/bootstrap-hover-dropdown.min.js"></script>
+
+  	<c:forEach items="${fn:split(param.css, ';')}" var="item">
+  		<link rel="stylesheet" href="${item}" />
+  	</c:forEach>
+
+		<c:forEach items="${fn:split(param.js, ';')}" var="item">
+			<script src="${item}"></script>
+  	</c:forEach>
+
+
 </head>
 <body>
   <jsp:include page="/jsp/includes/js/tag.jsp" />
-  <div id="wrapper">
-  	<c:if test="${empty param.nonav}">
+  <c:if test="${empty param.nonav}">
 		<jsp:include page="/jsp/includes/bits/head.jsp"/>
-	</c:if> 	 
-	
-	<div id="contentwrapper">
-	<!--  Closing tag is in homeFoot.js -->	
+	</c:if>
+
+
+	<div class="container-fluid">
+	<!--  Closing tag is in homeFoot.js -->

@@ -30,7 +30,7 @@ public class CsvOntView  extends CsvViewer {
 			if (curr.correctIdFormat().contains("VFB")){
 				link = "=HYPERLINK(\"http://www.virtualflybrain.org/" + curr.correctIdFormat() + "\")";
 			}else{
-				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" + curr.correctIdFormat() + "\")";
+				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/stacks/index.htm?id=" + curr.correctIdFormat() + "\")";
 			}
 			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + curr.correctIdFormat() + "\"," + link + "\n";
 			writer.write(line);

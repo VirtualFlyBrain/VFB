@@ -4,64 +4,69 @@
 	<jsp:param name="title" value="Overview" />
 </jsp:include>
 
-<div id="center_wide">
-
-	<h2>What is Virtual Fly Brain?</h2>
-
-	<p>
-		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy, neuron connectivity and gene expression of the adult <i>Drosophila melanogaster</i> brain. <br />
-		Our goal is to make it easier for researchers to find relevant anatomical information and reagents. We integrate the neuroanatomical data and expression from the published literature, as well as image datasets onto the same standard (anatomy ontology and brain template stack), making it possible to run cross searches and compare image data on our Viewer. 
-	</p>
-	<h1 style="font-size: 12pt; font-weight: normal">
-		The VFB <i>Drosophila melanogaster</i> fly brain atlas was developed in accordance with BrainName's standard nomenclature <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017">(Ito et al., 2014)</a>.
-	</h1>
-
-	<h2>The 3D Brain Viewer and Query Tools</h2>
-
-	<p>The <a href="../../site/stacks/index.htm">Brain Viewer</a> is an interactive application that allows the user to view and explore the adult fruit fly brain anatomy in terms of known Drosophila brain neuropils, as well as to overlay registered images of single neurons and clones from published datasets which we have integrated.  
-	  </p>
-	<p>Currently, 16132 registered images of single neurons from the Flycircuit dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a> can be searched on the site. We thank the group of A.S. Chiang for taking the lead in making their raw image data available. In addition, searches for registered images of neuroblast clones provided by Tzumin Lee <a href="http://dx.doi.org/doi:10.1016/j.cub.2013.02.057">(Yu et al., 2013, Curr. Biol. 23(8): 633-43)</a>, Kei Ito <a href="http://dx.doi.org/10.1016/j.cub.2013.03.015">(Ito et al., 2013, Curr. Biol. 23(8): 644--655)</a> and a <i>fruitless</i> clone dataset by Cachero and Ostrovsky <a href="http://dx.doi.org/10.1016/j.cub.2010.07.045">(Cachero et al., 2010, Curr. Biol. 20(18): 1589--1601)</a> are also available.
-		</p>
-	<p>
-	  The viewer's central window features a 2D representation of an adult brain that can be viewed along the x-, y- and z-axes, rotated and zoomed, and shows neuropil domains as colour-coded overlays. Domains can be selected by double-clicking on the stack or by selecting them on the interactive anatomy tree on the right panel. Information on the selected term will be displayed in the lower panel, the term info window. 
-	</p>
-
-	<p style="text-align: center">
-		<img src="/images/vfb/project/vfb.png" alt="Main page" width="650" style="border: 1px solid gray" />
-	</p>
-
-	<p>* The brain stack currently used for the viewer was kindly provided by Arnim Jenett of HHMI Janelia Farm Research Campus, and by Kei Ito and Kazunori Shinomiya of University of Tokyo.</p>
-
-	<p>
-	       Querying for neuron classes by lineage or innervation patterns, gene and transgene expression and phenotypes associated to a brain neuropil, is possible by using the query menu at the top of the term info window (it will appear if a term is selected). Whenever available, images of neurons representative of a certain class are displayed.</p>
+<div class="row">
 	
-	<p>
-	  Searches for individual neuron images is also possible, with result lists displaying relevant neurons divided into groups of morphologically similar neurons (tool developed by Gregory Jefferis, Division of Neurobiology, MRC Laboratory of Molecular Biology). This approach makes it easier to find a specific neuron, as well as all of the neurons related to it.
-	</p>
-	<p> All of this image data can be displayed on the 3D Brain Viewer, either as single layers or as overlays, by creating a composite view. Up to three images can be displayed at the same time.<br/>
-	Below, is an example of a composite view. In red, a single neuron from the FlyCircuit dataset (Cha-F-500059); in blue the lineage clone LALv1 and in green the lineage clone DL1, both from Tzumin Lee's dataset. In addition to the image stacks, two neuropils are also selected: noduli (in violet) and ellipsoid body (in yellow).
-	</p>
+	<div class="col-md-9" align="center">
+		<div class="well">
+
+			<h2>What is Virtual Fly Brain?</h2>
 		
-		<p style="text-align: center">
-			<img src="/images/vfb/project/composite.png" alt="Composite view" width="650" style="border: 1px solid gray" />
-		</p>
-
-	<p> The <a href="../tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> tool allows searching for information or images associated with any neuropil domain, neuron or lineage clone. Any of the queries possible on the 3D Viewer, are also available on this tool. The advantage of using this tool is that neuron classes can be searched directly, whereas in the Viewer, neuron classes have to be searched via a query of the neuropil.</p>
-	
-	<p> Below, the queries available for neuropils and neurons or lineage clones, respectively, are shown.
-		</p>
-
-	<p style="text-align: center;">
-					<img src="/images/vfb/project/bothmenus.png" alt="Query Menu" style="border: 1px solid gray;" width="650">
+			<p>
+				Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy, neuron connectivity and gene expression of the adult <i>Drosophila melanogaster</i> brain. <br />
+				Our goal is to make it easier for researchers to find relevant anatomical information and reagents. We integrate the neuroanatomical data and expression from the published literature, as well as image datasets onto the same standard (anatomy ontology and brain template stack), making it possible to run cross searches and compare image data on our Viewer. 
+			</p>
+			<h1 style="font-size: 12pt; font-weight: normal">
+				The VFB <i>Drosophila melanogaster</i> fly brain atlas was developed in accordance with BrainName's standard nomenclature <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017">(Ito et al., 2014)</a>.
+			</h1>
+		
+			<h2>The 3D Brain Viewer and Query Tools</h2>
+		
+			<p>The <a href="../../site/stacks/index.htm">Brain Viewer</a> is an interactive application that allows the user to view and explore the adult fruit fly brain anatomy in terms of known Drosophila brain neuropils, as well as to overlay registered images of single neurons and clones from published datasets which we have integrated.  
+			  </p>
+			<p>Currently, 16132 registered images of single neurons from the Flycircuit dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a> can be searched on the site. We thank the group of A.S. Chiang for taking the lead in making their raw image data available. In addition, searches for registered images of neuroblast clones provided by Tzumin Lee <a href="http://dx.doi.org/doi:10.1016/j.cub.2013.02.057">(Yu et al., 2013, Curr. Biol. 23(8): 633-43)</a>, Kei Ito <a href="http://dx.doi.org/10.1016/j.cub.2013.03.015">(Ito et al., 2013, Curr. Biol. 23(8): 644--655)</a> and a <i>fruitless</i> clone dataset by Cachero and Ostrovsky <a href="http://dx.doi.org/10.1016/j.cub.2010.07.045">(Cachero et al., 2010, Curr. Biol. 20(18): 1589--1601)</a> are also available.
 				</p>
-
-	<p>The interactive <a href="../tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
-		multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality (pre- or post-synaptic) of these connections.</p>
+			<p>
+			  The viewer's central window features a 2D representation of an adult brain that can be viewed along the x-, y- and z-axes, rotated and zoomed, and shows neuropil domains as colour-coded overlays. Domains can be selected by double-clicking on the stack or by selecting them on the interactive anatomy tree on the right panel. Information on the selected term will be displayed in the lower panel, the term info window. 
+			</p>
+		
+			<p style="text-align: center">
+				<img src="/images/vfb/project/vfb.png" alt="Main page" width="650" style="border: 1px solid gray" />
+			</p>
+		
+			<p>* The brain stack currently used for the viewer was kindly provided by Arnim Jenett of HHMI Janelia Research Campus, and by Kei Ito and Kazunori Shinomiya of University of Tokyo.</p>
+		
+			<p>
+			       Querying for neuron classes by lineage or innervation patterns, gene and transgene expression and phenotypes associated to a brain neuropil, is possible by using the query menu at the top of the term info window (it will appear if a term is selected). Whenever available, images of neurons representative of a certain class are displayed.</p>
+			
+			<p>
+			  Searches for individual neuron images is also possible, with result lists displaying relevant neurons divided into groups of morphologically similar neurons (tool developed by Gregory Jefferis, Division of Neurobiology, MRC Laboratory of Molecular Biology). This approach makes it easier to find a specific neuron, as well as all of the neurons related to it.
+			</p>
+			<p> All of this image data can be displayed on the 3D Brain Viewer, either as single layers or as overlays, by creating a composite view. Up to three images can be displayed at the same time.<br/>
+			Below, is an example of a composite view. In red, a single neuron from the FlyCircuit dataset (Cha-F-500059); in blue the lineage clone LALv1 and in green the lineage clone DL1, both from Tzumin Lee's dataset. In addition to the image stacks, two neuropils are also selected: noduli (in violet) and ellipsoid body (in yellow).
+			</p>
+				
+				<p style="text-align: center">
+					<img src="/images/vfb/project/composite.png" alt="Composite view" width="650" style="border: 1px solid gray" />
+				</p>
+		
+			<p> The <a href="../stacks/index.htm">Anatomy/Neuron Finder</a> tool allows searching for information or images associated with any neuropil domain, neuron or lineage clone. Any of the queries possible on the 3D Viewer, are also available on this tool. The advantage of using this tool is that neuron classes can be searched directly, whereas in the Viewer, neuron classes have to be searched via a query of the neuropil.</p>
+			
+			<p> Below, the queries available for neuropils and neurons or lineage clones, respectively, are shown.
+				</p>
+		
+			<p style="text-align: center;">
+							<img src="/images/vfb/project/bothmenus.png" alt="Query Menu" style="border: 1px solid gray;" width="650">
+						</p>
+		
+			<p>The interactive <a href="../tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
+				multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality (pre- or post-synaptic) of these connections.</p>
+		</div>	
+	</div>
+	<!-- center_wide -->
 	
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
 </div>
-<!-- center_wide -->
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
-
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
