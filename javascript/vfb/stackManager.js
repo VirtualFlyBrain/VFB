@@ -170,8 +170,8 @@ function updateStackCounter() {
             $("#menuOpen3Dlink").hide();
           }
         }catch (ignore){
-          console.log('Loading 3D meta data for '+i);
-          backgroundLoadMeta(i);
+          console.log('Missing 3D meta data for '+parent.$('body').data('current').template);
+          backgroundLoadMeta(parent.$('body').data('current').template);
         }
         $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
         $("[id^=Count]").each(function(){
