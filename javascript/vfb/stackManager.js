@@ -161,7 +161,7 @@ function updateStackCounter() {
           }
         }catch (ignore){
           console.log('Loading meta data for '+i);
-          //backgroundLoadMeta(i);
+          backgroundLoadMeta(i);
         }
         try{
           if (parent.$('body').data('current') && parent.$('body').data(parent.$('body').data('current').template).meta.has3D || location.hostname.toLowerCase().indexOf('sandbox')>-1){
@@ -172,7 +172,7 @@ function updateStackCounter() {
         }catch (ignore){
           if (parent.$('body').data('current') && parent.$('body').data('current').template){
             console.log('Missing 3D meta data for '+parent.$('body').data('current').template);
-            //backgroundLoadMeta(parent.$('body').data('current').template);
+            backgroundLoadMeta(parent.$('body').data('current').template);
           }else{
             console.log('Awaiting initialisation...');
           }
@@ -371,7 +371,7 @@ function backgroundLoadMeta(id){
     file = "/data/" + fileFromId(id).replace("composite.wlz","meta.json");
     $.getJSON( file, function( data ) {
       $.each( data, function( key, val ) {
-        parent.$("body").data(id).key = val;
+        parent.$("body").data(id)[key] = val;
       });
     });
   }
