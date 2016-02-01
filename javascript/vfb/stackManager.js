@@ -198,7 +198,7 @@ function updateStackCounter() {
           html += "store.set('cookie-box', 'c');";
           html += '"><span aria-hidden="true">&times;</span></button>';
           html += '<center>';
-          html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and browser local data storage to store your preferences.';
+          html += '<strong><span class="glyphicon glyphicon-info-sign"></span></strong> Just so you know this site uses cookies to track usage and browser local data storage to store your preferences. <br>';
           html += 'By continuing to use our website, you agree to the use of local data storage and cookies. <br>';
           html += 'If you would like to know more about cookies and how to manage them please view our <a href="/site/vfb_site/privacy_cookies.htm">privacy and cookies</a> policy.';
           html += '</center>';
