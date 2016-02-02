@@ -22,7 +22,7 @@
 			            </li>
 			            <li>
 			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1084">Using NBLAST and VFB</a><br/>
-			                  Find similar neurons online
+			                  Find similar neurons and GAL4 drivers online 
 			               </p>
 			            </li>
 			            <li>
