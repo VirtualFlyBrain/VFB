@@ -19,23 +19,11 @@ pageContext.setAttribute("aclTract", acdao.getSynSet());
 acdao = (AutocompleteDAO)wac.getBean("autocompleteDAOClone");
 pageContext.setAttribute("aclClone", acdao.getSynSet());
 %>
-
-<c:choose>
-	<c:when test="${headAtt == true}">
 		<!-- Google Analytics -->
 			<script>
 				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=${ontBean.fbbtId}'});
 			</script>
 		<!-- End Google Analytics -->
-
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="/jsp/includes/1ColHead.jsp">
-			<jsp:param name="title" value="${ontBean.name}" />
-		</jsp:include>
-		<c:set var="needFoot" value="true" />
-	</c:otherwise>
-</c:choose>
 
 <c:forEach items="${aclNeuron}" var="neuron" varStatus="i"><c:if test="${ontBean.fbbtId == neuron.fbbtId}"><c:set var="isNeuron" value="true" scope="request"/></c:if></c:forEach>
 <c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${ontBean.fbbtId == neuropil.fbbtId}"><c:set var="isNeuropil" value="true" scope="request"/></c:if></c:forEach>
@@ -213,7 +201,3 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		</div>
 	</div>
 </div>
-
-<c:if test="${needFoot == true}">
-	<jsp:include page="/jsp/includes/homeFoot.jsp"/>
-</c:if>
