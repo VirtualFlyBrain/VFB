@@ -16,18 +16,18 @@
 			      <div id="newsection">
 			         <ul>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=824">Updated data</a>
-						<br/>Flybase and Ontology Update
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1086">New site live</a>
+						<br/>Our new cleaner and slicker VFB 1.5 site is now live
 			               </p>
 			            </li>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=782">New adult brain stack</a><br/>
-			                  Now hosting Ito's tricolour adult brain stack
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1084">Using NBLAST and VFB</a><br/>
+			                  Find similar neurons online
 			               </p>
 			            </li>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=774">We're looking for fedback</a><br/>
-			                  How do you use VFB?
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=833">VFB 2.0 coming later in the year</a><br/>
+			                  Check out the new 3D display
 			               </p>
 			            </li>
 			         </ul>
