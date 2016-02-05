@@ -61,10 +61,12 @@ public class xmlController implements Controller {
       domDir = temp.replace("VFBt_","VFB/t/");
       Integer l = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind);
+      lib = "";
       for (Integer i=0; i<individuals.length; i++){
         l = individuals[i].length();
         if (individuals[i].indexOf("VFB_")>-1){
-          xmli += "            <tns:entity>\n                        <tns:id>" + individuals[i] + "</tns:id>\n                        <tns:aspect>\n                            <tns:id>morphology</tns:id>\n                            <tns:model>\n                                <tns:modelInterpreterId>swcModelInterpreter</tns:modelInterpreterId>\n                                <tns:modelURL>SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc</tns:modelURL>\n                            </tns:model>\n                        </tns:aspect>\n                    </tns:entity>";
+          xmli += '<variables id="' + individuals[i] + '" name="' + individuals[i] + '" types="//@libraries.1/@types.' + i.toString() + '"/>\n';
+          lib += '<types xsi:type="gep_1:ImportType" id="' + individuals[i] + '" name="' + individuals[i] + '" url="SERVER_ROOT/appdata/vfb/VFB/i/' + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc" modelInterpreterId="objModelInterpreterService"/>\n';
         }
       }
     }catch(Exception ex){
@@ -75,8 +77,8 @@ public class xmlController implements Controller {
     modelAndView.addObject("domHead", domHead);
     modelAndView.addObject("abrev", abrev);
     modelAndView.addObject("domains", domains);
-    modelAndView.addObject("indxml", xmli);
-    LOG.info("returning xml: " + xmli);
+    modelAndView.addObject("indVar", xmli);
+    modelAndView.addObject("indLib", lib);
     return modelAndView;
   }
 }
