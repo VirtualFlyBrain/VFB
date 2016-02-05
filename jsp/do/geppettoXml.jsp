@@ -11,7 +11,7 @@
                 <tns:id>morphology</tns:id>
             </tns:aspect>
 <c:forEach items="${domains}" var="curr" varStatus="status">      <tns:entity>
-                <tns:id>${domHead}${fmt:formatNumber minIntegerDigits="5" value=curr}</tns:id>
+                <tns:id>${domHead}</tns:id>
                 <tns:aspect>
                     <tns:id>morphology</tns:id>
                     <tns:model>
