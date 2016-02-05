@@ -35,6 +35,7 @@
 			<!-- url-pattern>*.html</url-pattern -->
 			<!-- url-pattern>/do</url-pattern -->
 			<!-- All other .jsp pages (typically includes) -->
+			<url-pattern>/do/geppettoXmi.xmi</url-pattern>
 			<url-pattern>*.jsp</url-pattern>
 			<url-pattern>/sitemap.xml</url-pattern>
 			<url-pattern>/sitemap1.xml</url-pattern>
