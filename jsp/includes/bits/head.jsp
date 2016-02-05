@@ -57,9 +57,11 @@
 				  		<li><a href="/site/vfb_site/features.htm">Features</a></li>
 				  		<li><a href="/site/vfb_site/releases.htm">Releases</a></li>
 				  		<li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
-				  		<li><a href="/site/vfb_site/yourPaper.htm">Tell us about your paper</a></li>
+				  		<li><a href="/site/vfb_site/yourPaper.htm">Tell us about your data</a></li>
 	    				<li id="EmailHeader1"><script>mail3("support","virtualflybrain",1,"","Email us","EmailHeader1")</script></li>
 	  					<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="http://tinyurl.com/jqdxh28" target="_blank">The Old Site</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-expanded="false">Tools <span class="caret"></span></a>
@@ -67,7 +69,7 @@
 							<li><a href="#searchtext" onclick="$('#searchtext').focus()">Search</a></li>
 	          	<li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
 	            <li><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a></li>
-							<li style="display: none;"><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
+							<li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
 	          </ul>
 	        </li>
 	        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="stacksMenu" data-hover="dropdown" role="button" aria-expanded="false">Stacks <span class="caret"></span></a>
