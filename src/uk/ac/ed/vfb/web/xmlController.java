@@ -61,7 +61,7 @@ public class xmlController implements Controller {
       domDir = temp.replace("VFBt_","VFB/t/");
       Integer l = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind);
-      lib = "";
+      String lib = "";
       for (Integer i=0; i<individuals.length; i++){
         l = individuals[i].length();
         if (individuals[i].indexOf("VFB_")>-1){
