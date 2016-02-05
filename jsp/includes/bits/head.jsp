@@ -60,6 +60,7 @@
 				  		<li><a href="/site/vfb_site/yourPaper.htm">Tell us about your data</a></li>
 	    				<li id="EmailHeader1"><script>mail3("support","virtualflybrain",1,"","Email us","EmailHeader1")</script></li>
 	  					<li><a href="/site/vfb_site/about_us.htm">About us</a></li>
+							<li role="separator" class="divider"></li>
 							<li><a href="http://tinyurl.com/jqdxh28" target="_blank">The Old Site</a></li>
 	          </ul>
 	        </li>
