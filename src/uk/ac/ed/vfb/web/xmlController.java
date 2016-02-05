@@ -66,7 +66,7 @@ public class xmlController implements Controller {
         l = individuals[i].length();
         if (individuals[i].indexOf("VFB_")>-1){
           xmli += '<variables id="' + individuals[i] + '" name="' + individuals[i] + '" types="//@libraries.1/@types.' + i.toString() + '"/>\n';
-          lib += '<types xsi:type="gep_1:ImportType" id="' + individuals[i] + '" name="' + individuals[i] + '" url="SERVER_ROOT/appdata/vfb/VFB/i/' + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc" modelInterpreterId="objModelInterpreterService"/>\n';
+          lib += '<types xsi:type="gep_1:ImportType" id="' + individuals[i] + '" name="' + individuals[i] + '" url="SERVER_ROOT/appdata/vfb/VFB/i/' + individuals[i].substring(l-8,l-4) + '/' + individuals[i].substring(l-4,l) + '/volume.swc" modelInterpreterId="objModelInterpreterService"/>\n';
         }
       }
     }catch(Exception ex){
