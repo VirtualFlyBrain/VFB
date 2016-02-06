@@ -33,7 +33,7 @@
 	</bean>
 
 	<!-- geppetto xml -->
-	<bean name="/do/geppettoXml.xmi" class="uk.ac.ed.vfb.web.xmlController" scope="request">
+	<bean name="/do/geppettoXml.xml" class="uk.ac.ed.vfb.web.xmlController" scope="request">
 	</bean>
 
 	<!-- geppetto Js -->
