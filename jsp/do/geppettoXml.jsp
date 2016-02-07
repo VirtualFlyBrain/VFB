@@ -4,7 +4,7 @@
 </c:forEach>
 <c:if test="${fn:length(indVar)>0}">${indVar}</c:if>
 <libraries id="vfbobj" name="VFB OBJs">
-<c:forEach items="${domains}" var="curr" varStatus="status"><types xsi:type="gep_1:ImportType" id="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" name="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" url="SERVER_ROOT/appdata/vfb/${domDir}/domain${curr}.obj" modelInterpreterId="objModelInterpreterService"/>
+<c:forEach items="${domains}" var="curr" varStatus="status"><types xsi:type="gep_1:ImportType" url="SERVER_ROOT/appdata/vfb/${domDir}/domain${curr}.obj" id="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" name="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" modelInterpreterId="objModelInterpreterService"/>
 </c:forEach>
 <c:if test="${fn:length(indLib)>0}">${indLib}</c:if>
 </libraries>
