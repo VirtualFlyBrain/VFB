@@ -2,10 +2,10 @@
 <gep:GeppettoModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gep="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore" xmlns:gep_1="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore#//types">
 <c:forEach items="${domains}" var="curr" varStatus="status"><variables id="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" name="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" types="//@libraries.0/@types.${status.index}"/>
 </c:forEach>
-<c:out value="${indvar}"/>
+<c:out escapeXml="false" value="${indvar}"/>
 <libraries id="vfbobj" name="VFB OBJs">
 <c:forEach items="${domains}" var="curr" varStatus="status"><types xsi:type="gep_1:ImportType" url="SERVER_ROOT/appdata/vfb/${domDir}/domain<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />.obj" id="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" name="${domHead}<fmt:formatNumber type="number" minIntegerDigits="5" groupingUsed="false" value="${curr}" />" modelInterpreterId="objModelInterpreterService"/>
 </c:forEach>
-<c:out value="${indlib}"/>
+<c:out escapeXml="false" value="${indlib}"/>
 </libraries>
 </gep:GeppettoModel>
