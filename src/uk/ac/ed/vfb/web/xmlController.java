@@ -78,8 +78,8 @@ public class xmlController implements Controller {
     modelAndView.addObject("domHead", domHead);
     modelAndView.addObject("abrev", abrev);
     modelAndView.addObject("domains", domains);
-    modelAndView.addObject("indVar", xmli);
-    modelAndView.addObject("indLib", lib);
+    modelAndView.addObject("indvar", xmli);
+    modelAndView.addObject("indlib", lib);
     return modelAndView;
   }
 }
