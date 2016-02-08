@@ -12,5 +12,5 @@ coli = 0;
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
 </c:forEach>
-G.setCameraPosition(182.941,-48.076,-773.498);
-G.setCameraRotation(2.904,-0.158,-0.012,878.060);
+${campos}
+${camrot}
