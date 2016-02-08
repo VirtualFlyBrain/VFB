@@ -6,11 +6,9 @@ coli = 0;
 </c:forEach>
 <c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setOpacity(0.3,true);
 </c:forEach>
-<c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setName('${abrev[status.index]}');
-</c:forEach>
 <c:forEach items="${individuals}" var="curr" varStatus="status">${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
 </c:forEach>
-G.setCameraPosition(182.941,-48.076,-773.498);
-G.setCameraRotation(2.904,-0.158,-0.012,878.060);
+<c:out value="${campos}"/>
+<c:out value="${camrot}"/>
