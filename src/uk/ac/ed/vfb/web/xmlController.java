@@ -65,18 +65,20 @@ public class xmlController implements Controller {
       domDir = temp.replace("VFBt_","VFB/t/");
       Integer l = 0;
       Integer c = domains.length;
+      Integer n = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind);
 
       for (Integer i=0; i<individuals.length; i++){
         l = individuals[i].length();
-        c = domains.length + i;
         if (individuals[i].indexOf("VFB_")>-1){
           if (new File("/disk/data/VFB/IMAGE_DATA/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc").isFile()) {
-            xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + c.toString() + "\"/>\r\n";
+            xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
             lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+            n++;
           }else{
             xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
             objlib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.obj\" modelInterpreterId=\"objModelInterpreterService\"/>\r\n";
+            c++;
           }
         }
         lib = objlib + lib;
