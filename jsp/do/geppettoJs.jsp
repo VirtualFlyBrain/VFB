@@ -9,6 +9,5 @@ coli = 0;
 <c:forEach items="${individuals}" var="curr" varStatus="status">${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
-</c:forEach>
-<c:out escapeXml="false" value="${campos}"/>
+</c:forEach><c:out escapeXml="false" value="${campos}"/>
 <c:out escapeXml="false" value="${camrot}"/>
