@@ -12,5 +12,5 @@ coli = 0;
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
 </c:forEach>
-${campos}
-${camrot}
+<c:out value="${campos}"/>
+<c:out value="${camrot}"/>
