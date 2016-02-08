@@ -6,8 +6,6 @@ coli = 0;
 </c:forEach>
 <c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setOpacity(0.3,true);
 </c:forEach>
-<c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setName('${abrev[status.index]}');
-</c:forEach>
 <c:forEach items="${individuals}" var="curr" varStatus="status">${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
