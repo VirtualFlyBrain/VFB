@@ -21,6 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import java.io.File;
+
 public class xmlController implements Controller {
   private static final Log LOG = LogFactory.getLog(xmlController.class);
 
@@ -69,7 +71,11 @@ public class xmlController implements Controller {
         c = domains.length + i;
         if (individuals[i].indexOf("VFB_")>-1){
           xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
-          lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+          if (new File("/disk/data/VFB/IMAGE_DATA/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc").isFile()) {
+            lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+          }else{
+            lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.obj\" modelInterpreterId=\"objModelInterpreterService\"/>\r\n";
+          } 
         }
       }
     }catch(Exception ex){
