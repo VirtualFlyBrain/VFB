@@ -68,7 +68,7 @@ public class xmlController implements Controller {
         l = individuals[i].length();
         c = domains.length + i;
         if (individuals[i].indexOf("VFB_")>-1){
-          xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + c.toString() + "\"/>\r\n";
+          xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
           lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreterService\"/>\r\n";
         }
       }
