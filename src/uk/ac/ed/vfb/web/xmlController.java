@@ -73,8 +73,8 @@ public class xmlController implements Controller {
         l = individuals[i].length();
         if (individuals[i].indexOf("VFB_")>-1){
           if (new File("/disk/data/VFB/IMAGE_DATA/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc").isFile()) {
-            swcxmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
-            lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+            swcxmli += "<variables id=\"" + individuals[i] + "_swc\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
+            lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "_swc\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
             n++;
           }
           xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
