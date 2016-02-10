@@ -75,11 +75,10 @@ public class xmlController implements Controller {
             xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
             lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
             n++;
-          }else{
-            xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
-            objlib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.obj\" modelInterpreterId=\"objModelInterpreterService\"/>\r\n";
-            c++;
           }
+          xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
+          objlib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.obj\" modelInterpreterId=\"objModelInterpreterService\"/>\r\n";
+          c++;
         }
         lib = objlib + lib;
       }
