@@ -9,6 +9,11 @@ coli = 0;
 <c:forEach items="${individuals}" var="curr" varStatus="status">${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}
 </c:forEach>
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
-</c:forEach>
-<c:out value="${campos}"/>
-<c:out value="${camrot}"/>
+</c:forEach><c:out escapeXml="false" value="${campos}"/>
+<c:out escapeXml="false" value="${camrot}"/>
+nameWid = G.addWidget(1);
+nameWid.setName('Currently Selected');
+nameWid.setPosition(113,4)
+nameWid.setSize(100,266.8)
+oldSelection = "";
+setInterval(function(){ selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0] != oldSelection){ oldSelection = selection[0]; for (i in selection){ message += "<b>" + selection[i].getName() + "</b><br />"; }; nameWid.setMessage(message); }; }; }, 3000);

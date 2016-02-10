@@ -21,13 +21,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import java.io.File;
+
 public class xmlController implements Controller {
   private static final Log LOG = LogFactory.getLog(xmlController.class);
 
   public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
     ModelAndView modelAndView = new ModelAndView("do/geppettoXml");
     String xmli = "";
-    String lib = "";
+    String lib = "</libraries>\r\n<libraries id=\"vfbswc\" name=\"VFB SWCs\">\r\n";
+    String objlib = "";
     String[] domains = new String[] {"00002","00003","00004","00005","00006","00007","00008","00009","00010","00011","00012","00013","00014","00015","00016","00017","00018","00019","00020","00022","00023","00024","00025","00026","00027","00028","00029","00030","00031","00032","00033","00034","00035","00036","00037","00038","00039","00040","00049","00050","00051","00052","00053","00054","00055","00056","00057","00058","00059","00060","00061","00062","00063","00064","00065","00066","00067","00069","00070","00071","00072","00073","00074","00075","00076","00077","00078","00079","00080","00081","00082","00083","00084","00085","00086"};
     String[] abrev = new String[] {"AME_R","LO_R","NO","BU_R","PB","LH_R","LAL_R","SAD","CAN_R","AMMC_R","ICL_R","VES_R","IB_R","ATL_R","CRE_R","MB_PED_R","MB_VL_R","MB_ML_R","FLA_R","LOP_R","EB","AL_R","ME_R","FB","SLP_R","SIP_R","SMP_R","AVLP_R","PVLP_R","IVLP_R","PLP_R","AOTU_R","GOR_R","MB_CA_R","SPS_R","IPS_R","SCL_R","EPA_R","GNG","PRW","GA_R","AME_L","LO_L","BU_L","LH_L","LAL_L","CAN_L","AMMC_L","ICL_L","VES_L","IB_L","ATL_L","CRE_L","MB_PED_L","MB_VL_L","MB_ML_L","FLA_L","LOP_L","AL_L","ME_L","SLP_L","SIP_L","SMP_L","AVLP_L","PVLP_L","IVLP_L","PLP_L","AOTU_L","GOR_L","MB_CA_L","SPS_L","IPS_L","SCL_L","EPA_L","GA_L"};
     String domHead = "";
@@ -49,7 +52,7 @@ public class xmlController implements Controller {
       }
       LOG.info("Loading xml for geppetto...");
       if (temp.indexOf("VFBt_001") > -1){
-        abrev = new String[] {"AME_R","LO_R","NO","BU_R","PB","LH_R","LAL_R","SAD","CAN_R","AMMC_R","ICL_R","VES_R","IB_R","ATL_R","CRE_R","MB_PED_R","MB_VL_R","MB_ML_R","FLA_R","LOP_R","EB","AL_R","ME_R","FB","SLP_R","SIP_R","SMP_R","AVLP_R","PVLP_R","IVLP_R","PLP_R","AOTU_R","GOR_R","MB_CA_R","SPS_R","IPS_R","SCL_R","EPA_R","GNG","PRW","GA_R","AME_L","LO_L","BU_L","LH_L","LAL_L","CAN_L","AMMC_L","ICL_L","VES_L","IB_L","ATL_L","CRE_L","MB_PED_L","MB_VL_L","MB_ML_L","FLA_L","LOP_L","AL_L","ME_L","SLP_L","SIP_L","SMP_L","AVLP_L","PVLP_L","IVLP_L","PLP_L","AOTU_L","GOR_L","MB_CA_L","SPS_L","IPS_L","SCL_L","EPA_L","GA_L"};
+        abrev = new String[] {"accessory medulla","lobula","nodulus","bulb","protocerebral bridge","lateral horn","lateral accessory lobe","saddle","cantle","antennal mechanosensory and motor center","inferior clamp","vest","inferior bridge","antler","crepine","pedunculus of adult mushroom body","vertical lobe of adult mushroom body","medial lobe of adult mushroom body","flange","lobula plate","ellipsoid body","adult antennal lobe","medulla","fan-shaped body","superior lateral protocerebrum","superior intermediate protocerebrum","superior medial protocerebrum","anterior ventrolateral protocerebrum","posterior ventrolateral protocerebrum","wedge","posterior lateral protocerebrum","anterior optic tubercle","gorget","calyx of adult mushroom body","superior posterior slope","inferior posterior slope","superior clamp","epaulette","adult gnathal ganglion","prow","gall","accessory medulla","lobula","bulb","lateral horn","lateral accessory lobe","cantle","antennal mechanosensory and motor center","inferior clamp","vest","inferior bridge","antler","crepine","pedunculus of adult mushroom body","vertical lobe of adult mushroom body","medial lobe of adult mushroom body","flange","lobula plate","adult antennal lobe","medulla","superior lateral protocerebrum","superior intermediate protocerebrum","superior medial protocerebrum","anterior ventrolateral protocerebrum","posterior ventrolateral protocerebrum","wedge","posterior lateral protocerebrum","anterior optic tubercle","gorget","calyx of adult mushroom body","superior posterior slope","inferior posterior slope","superior clamp","epaulette","gall"};
         domains = new String[] {"00002","00003","00004","00005","00006","00007","00008","00009","00010","00011","00012","00013","00014","00015","00016","00017","00018","00019","00020","00022","00023","00024","00025","00026","00027","00028","00029","00030","00031","00032","00033","00034","00035","00036","00037","00038","00039","00040","00049","00050","00051","00052","00053","00054","00055","00056","00057","00058","00059","00060","00061","00062","00063","00064","00065","00066","00067","00069","00070","00071","00072","00073","00074","00075","00076","00077","00078","00079","00080","00081","00082","00083","00084","00085","00086"};
       }else if (temp.indexOf("VFBt_002") > -1){
         abrev = new String[] {"VFBd_00200001","VFBd_00200002","VFBd_00200003","VFBd_00200004","VFBd_00200005","VFBd_00200006","VFBd_00200007","VFBd_00200008","VFBd_00200009","VFBd_00200010","VFBd_00200011","VFBd_00200012","VFBd_00200013","VFBd_00200014","VFBd_00200015","VFBd_00200016","VFBd_00200017","VFBd_00200018","VFBd_00200019","VFBd_00200020","VFBd_00200021","VFBd_00200022","VFBd_00200023","VFBd_00200024","VFBd_00200025","VFBd_00200026","VFBd_00200027","VFBd_00200028","VFBd_00200029","VFBd_00200030","VFBd_00200031","VFBd_00200032","VFBd_00200033","VFBd_00200034","VFBd_00200035","VFBd_00200036","VFBd_00200037","VFBd_00200038","VFBd_00200039","VFBd_00200040","VFBd_00200041","VFBd_00200042","VFBd_00200043","VFBd_00200044","VFBd_00200045","VFBd_00200046","VFBd_00200047","VFBd_00200048","VFBd_00200049","VFBd_00200301","VFBd_00200302","VFBd_00200303","VFBd_00200304","VFBd_00200305","VFBd_00200306","VFBd_00200307","VFBd_00200308","VFBd_00200309","VFBd_00200310","VFBd_00200311","VFBd_00200312","VFBd_00200313","VFBd_00200314","VFBd_00200315","VFBd_00200316","VFBd_00200317","VFBd_00200318","VFBd_00200319","VFBd_00200320","VFBd_00200321","VFBd_00200322","VFBd_00200323","VFBd_00200324","VFBd_00200325","VFBd_00200326","VFBd_00200327","VFBd_00200328","VFBd_00200329","VFBd_00200330","VFBd_00200331","VFBd_00200332","VFBd_00200333","VFBd_00200334","VFBd_00200335","VFBd_00200336","VFBd_00200337","VFBd_00200338","VFBd_00200339","VFBd_00200340","VFBd_00200341","VFBd_00200342","VFBd_00200343","VFBd_00200344","VFBd_00200345","VFBd_00200346","VFBd_00200347","VFBd_00200348","VFBd_00200349","VFBd_00200350","VFBd_00200351","VFBd_00200352","VFBd_00200353","VFBd_00200354"};
@@ -61,14 +64,24 @@ public class xmlController implements Controller {
       domHead = temp.replace("VFBt_","VFBd_");
       domDir = temp.replace("VFBt_","VFB/t/");
       Integer l = 0;
+      Integer c = domains.length;
+      Integer n = 0;
       LOG.info("Using template: " + temp + ". Individual(s) requested: " + ind);
 
       for (Integer i=0; i<individuals.length; i++){
         l = individuals[i].length();
         if (individuals[i].indexOf("VFB_")>-1){
-          xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + i.toString() + "\"/>\r\n";
-          lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreterService\"/>\r\n";
+          if (new File("/disk/data/VFB/IMAGE_DATA/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc").isFile()) {
+            xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
+            lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+            n++;
+          }else{
+            xmli += "<variables id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
+            objlib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individuals[i] + "\" name=\"" + individuals[i] + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individuals[i].substring(l-8,l-4) + "/" + individuals[i].substring(l-4,l) + "/volume.obj\" modelInterpreterId=\"objModelInterpreterService\"/>\r\n";
+            c++;
+          }
         }
+        lib = objlib + lib;
       }
     }catch(Exception ex){
       LOG.error("Error creating xml for geppetto:");
