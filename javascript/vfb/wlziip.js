@@ -450,7 +450,8 @@ function setText(message) {
 }
 
 function drawText(X, Y, message, color) {
-    if (parent.$('body').data('current').scl > 0.4) {
+    var scl = parent.$('body').data('current').scl;
+    if (scl > 0.4) {
         var ctx = document.getElementById("canvas").getContext("2d");
         set_textRenderContext(ctx);
         if (check_textRenderContext(ctx)) {
