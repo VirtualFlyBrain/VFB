@@ -10,3 +10,4 @@ google*.html
 jdoc/
 robots.txt
 resources/catalog-v001.xml
+.idea
