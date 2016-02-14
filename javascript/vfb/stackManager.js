@@ -448,6 +448,7 @@ var CompMax = {
     P8: 'false',
     P9: 'true'
 };
+var availableTemplates = ['VFBt_001','VFBt_002','VFBt_003','VFBt_004']; // TBD generate from folders
 
 
 function updateStackCounter() {
@@ -495,7 +496,7 @@ function updateStackCounter() {
                 } catch (ignore) {
                     if (typeof i !== 'undefined') {
                         console.log('Loading meta data for ' + i);
-                        backgroundLoadMeta(i);
+                        backgroundLoadMeta();
                     } else {
                         console.log('Issue accessing metadata...');
                     }
@@ -509,7 +510,7 @@ function updateStackCounter() {
                 } catch (ignore) {
                     if (parent.$('body').data('current') && parent.$('body').data('current').template) {
                         console.log('Missing 3D meta data for ' + parent.$('body').data('current').template);
-                        backgroundLoadMeta(parent.$('body').data('current').template);
+                        backgroundLoadMeta();
                     } else {
                         console.log('Awaiting initialisation...');
                     }
@@ -713,13 +714,22 @@ function cleanIdforInt(id) {
 }
 
 function backgroundLoadMeta(id) {
-    if (id) {
-        var file = "/data/" + fileFromId(id).replace("composite.wlz", "meta.json");
-        $.getJSON(file, function (data) {
-            $.each(data, function (key, val) {
-                parent.$("body").data(id)[key] = val;
+    try {
+        if (id && id.indexOf('VFBt_')>-1) {
+            var file = "/data/" + fileFromId(id).replace("composite.wlz", "meta.json");
+            $.getJSON(file, function (data) {
+                $.each(data, function (key, val) {
+                    parent.$("body").data(id)[key] = val;
+                });
             });
-        });
+        } else {
+            var i;
+            for (i in availableTemplates){
+                backgroundLoadMeta(availableTemplates[i]);
+            }
+        }
+    }catch (ignore){
+        console.log('Background meta loading error...');
     }
 }
 
@@ -1211,6 +1221,7 @@ function clearAbsolutlyAllData() {
             }
         }
     }
+    backgroundLoadMeta();
     updateStackData();
     parent.$('body').data('disp', 'scale');
 }
@@ -1224,6 +1235,7 @@ function clearAllData() {
             delete selected[i];
         }
     }
+    backgroundLoadMeta();
     updateStackData();
 }
 
