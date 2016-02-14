@@ -715,7 +715,7 @@ function cleanIdforInt(id) {
 
 function backgroundLoadMeta(id) {
     try {
-        if (id) {
+        if (id && id.indexOf('VFBt_')>-1) {
             var file = "/data/" + fileFromId(id).replace("composite.wlz", "meta.json");
             $.getJSON(file, function (data) {
                 $.each(data, function (key, val) {
@@ -725,7 +725,7 @@ function backgroundLoadMeta(id) {
         } else {
             var i;
             for (i in availableTemplates){
-                backgroundLoadMeta(i);
+                backgroundLoadMeta(availableTemplates[i]);
             }
         }
     }catch (ignore){
