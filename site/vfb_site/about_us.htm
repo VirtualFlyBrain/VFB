@@ -1,192 +1,276 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|About Us@"/>
 	<jsp:param name="title" value="About Us" />	
-	<jsp:param name="css" value="/css/vfb/utils/table.css" />
 </jsp:include>
 
-<div id="center_wide">
-
-	<h2>Who we are</h2>
-
-	<p>Virtual Fly Brain (VFB) members and their contribution: </p>
-	<p> <a href="http://www.anc.ed.ac.uk/index.php?option=com_content&task=view&id=12&Itemid=68" target="_new">
-			<img src="/images/vfb/project/logos/InformaticsLogo.gif" border="0" style="float:left; padding: 0px 10px 50px 0;" width="200px" />
-		</a>
-		<i>3D Viewer, online tools, server and the website:</i><br/>
-		Institute for Adaptive and Neural Computation<br/>
-		School of Informatics, University of Edinburgh<br/> 
-		Douglas Armstrong (current project PI)<br/>
-		Robert Court <br/>
-		Former devs: Nestor Milyaev<br />
-	</p>
-
-	<p> <a href="http://www.gen.cam.ac.uk/" target="_new">
-			<img src="/images/vfb/project/logos/CUnibig.png" border="0" style="float:left; padding: 0px 10px 60px 0;" width="200px" />
-		</a>
-		<i>Ontology editing, FlyBase support and data annotation:</i><br /> 
-		Department of Genetics, University of Cambridge<br />
-		Marta Costa<br />
-		Cahir O'Kane (current project PI)<br /> 
-		Michael Ashburner (original PI and grant holder)<br />
-		Former contributors: Simon Reeve (2009 - 2011)<br />
-	</p>
-
-	<p> <a href="http://www2.mrc-lmb.cam.ac.uk/" target="_new">
-			<img src="/images/vfb/project/logos/MRC-LMB_logo.png" border="0" style="float:left; padding: 0px 10px 95px 0;" width="200px" />
-		</a>
-		<i>Image processing, registration and NBLAST neuron search:</i><br /> 
-		MRC Laboratory of Molecular Biology, Cambridge<br />
-		Marta Costa<br />
-		Greg Jefferis (current project PI)<br />
-	</p>
+<div class="row row-centered">
 	
-	<p>  	Schema development &amp; Web development<br />
-		European Bioinformatics Institute (EMBL-EBI)<br />
-		Cambridge, UK<br />
-		David Osumi-Sutherland - Schema dev (Researcher Co-I on grant)<br />
-		TBR - Web Dev<br />
-		Helen Parkinson (PI)<br />
-	</p>
-	<br/>		
+	<div class="col-md-9 col-centered">
 
-	<h2>Funding</h2> 
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Who we are</h2>
+			
+				<p>Virtual Fly Brain members and their contribution: </p>
+			</div>
+			<div class="container col-xs-12">
+				<div class="row">
+				
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www.anc.ed.ac.uk/index.php?option=com_content&task=view&id=12&Itemid=68" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/InformaticsLogo.gif" style="max-width:70%;background-color:#ffffff;" />
+				</a>
+				</div>
+				
+				<div class="col-xs-9 top-buffer">
+				<i>3D Viewer, online tools, server and the website:</i><br/>
+				<b>Institute for Adaptive and Neural Computation, School of Informatics, University of Edinburgh</b><br/> 
+				Robert Court <br/>
+				Douglas Armstrong (current project PI)<br/>
+				Former devs: Nestor Milyaev<br />
+				</div>
+				</div>
+
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www.gen.cam.ac.uk/" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/CUnibig.png" style="max-width:70%;background-color:#ffffff;" />
+				</a>
+				</div>
+				
+				<div class="col-xs-9 top-buffer">
+				<i>Ontology editing, FlyBase support and data annotation:</i><br /> 
+				<b>Department of Genetics, University of Cambridge</b><br />
+				Marta Costa<br />
+				Nicole Staudt<br />
+				Cahir O'Kane (current project PI)<br /> 
+				Former contributors: Michael Ashburner (original PI and grant holder) and Simon Reeve (2009 - 2011)<br />
+				</div>
+				
+				</div>
+			
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www2.mrc-lmb.cam.ac.uk/" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/MRC-LMB_logo.png" border="0" style="max-width:100%;background-color:#ffffff;" />
+				</a>
+				</div>
+				<div class="col-xs-9 top-buffer">
+				<i>Image processing, registration and NBLAST neuron search:</i><br /> 
+				<b>MRC Laboratory of Molecular Biology, Cambridge</b><br />
+				Marta Costa<br />
+				Greg Jefferis (current project PI)<br />
+				</div>
+				
+				</div>
+			
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www.ebi.ac.uk/" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/EMBL_EBI_logo_180pixels_RGB.jpg" border="0" style="max-width:80%;background-color:#ffffff;" />
+				</a>
+				</div>
+			
+				<div class="col-xs-9 top-buffer">
+			  	<i>Schema development &amp; Web development:</i><br />
+				<b>European Bioinformatics Institute (EMBL-EBI), Cambridge</b><br />
+				David Osumi-Sutherland (current project Co-I)<br />
+				Helen Parkinson (current project PI)<br />
+				</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+			
+				<hr/>	
+					
+			
+				<h2>Funding</h2> 
+				
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www.ebi.ac.uk/" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/wtvm050446.jpg" border="0" style="max-width:80%;background-color:#ffffff;" />
+				</a>
+				</div>
+				
+				<div class="col-xs-9 top-buffer">
+				Virtual Fly Brain is supported by a grant from the <a href="http://www.wellcome.ac.uk/">Wellcome Trust</a>: Virtual Fly Brain: a global informatics hub for Drosophila neurobiology (WT105023MA) (October 2014 to September 2017).
+				</div>
+				</div>
+				 
+				<p>	This work was previously supported by a research award from the <a href="http://www.bbsrc.ac.uk/">BBSRC</a> to Douglas Armstrong and Michael Ashburner.
+				Details of this grant at <a href="http://www.bbsrc.ac.uk/pa/grants/AwardDetails.aspx?FundingReference=BB/G02233X/1" target="_blank">Cambridge</a> and
+					 <a href="http://www.bbsrc.ac.uk/pa/grants/AwardDetails.aspx?FundingReference=BB/G02247X/1" target="_blank">Edinburgh</a>.
+				A UK <a href="http://www.rcuk.ac.uk/research/xrcprogrammes/prevprogs/">e-Science Theme award</a> to Douglas Armstrong helped us establish the project.
+				</p>
+				<p>
+					Marta Costa was also supported by a <a href="http://www.newtontrust.cam.ac.uk/">Isaac Newton Trust</a> grant (October 2012 to September 2013).
+				</p>
+			
+			</div>
+			
+			<div class="col-xs-12">
+				<hr/>
+		
+				<h2>Collaborators</h2> 
+			
+			</div>
+			<div class="container col-xs-12">
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+			
+				<a href="http://www.hgu.mrc.ac.uk/" target="_blank"> 
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/mrchguLogo.png" border="0" style="max-width:70%;background-color:#ffffff" /></a>
+				</div>
+				
+				<div class="col-xs-9 top-buffer">
+				<i>The IIP3D server, Woolz software and client-side tools* are developed by:</i><br/>
+				MRC Human Genetics Unit (MRC HGU): Richard Baldock, Nick Burton, Bill Hill, Zsolt Husz<br/>  
+				<i>(*) An on-going development of the client-side tools is done in collaboration between the MRC HGU and Edinburgh University</i> <br />
+				Visit the <a href="http://www.emouseatlas.org/emage/" target="_blank">EMAGE gene expression database</a> to see other tools the MRC HGU have developed.<br />
+				<br clear="all"/>
 	
-	<p>Virtual Fly Brain is supported by a grant from the Wellcome Trust:<br />
-	Virtual Fly Brain: a global informatics hub for Drosophila neurobiology (WT105023MA)</p>
-	 
-	<p>	This work was previously supported by a research award from the  BBSRC (UK) to JDA and Michael Ashburner. 
-		A UK e-Science Theme award (to JDA) helped us establish the project.<br/>
-		Grant details: <a href="http://www.bbsrc.ac.uk/pa/grants/AwardDetails.aspx?FundingReference=BB/G02233X/1" target="_new">Cambridge</a>, 
-		 <a href="http://www.bbsrc.ac.uk/pa/grants/AwardDetails.aspx?FundingReference=BB/G02247X/1" target="_new">Edinburgh</a> <br/>
-		Marta Costa was also supported by a Isaac Newton Trust grant (October 2012 to September 2013).
-	</p>
-
-	<h2>Collaborators</h2> 
-	<p><a href="http://www.hgu.mrc.ac.uk/" target="_new"> 
-			<img src="/images/vfb/project/logos/mrchguLogo.png" border="0" style="float:left; padding: 0px 10px 100px 0;" width="150px" />
-		</a> 
-		<i>The IIP3D server, Woolz software and client-side tools* are developed by:</i><br/>
-		MRC Human Genetics Unit (MRC HGU)<br/>  
-		Richard Baldock <br/>
-		Nick Burton<br/>
-		Bill Hill<br/>
-		Zsolt Husz<br/> 
-		<i>(*) An on-going development of the client-side tools is done in collaboration between the MRC HGU and Edinburgh University</i> <br />
-		Visit the <a href="http://www.emouseatlas.org/emage/" target="_new">EMAGE gene expression database</a> to see other tools the MRC HGU have developed.<br />
-		<br clear="all"/>
-	</p>
-
-	<p>	<a href="http://www.flybase.org/" target="_new">
-			<img src="/images/vfb/project/logos/flybase.gif" border="0" style="float:left; padding: 0px 10px 10px 0;" width="150px" />
-		</a> 
-		<i>Expression data displayed on VFB is collaboratively curated by VFB and FlyBase.<br/>
-		Phenotype data displayed on VFB is curated by FlyBase.<br/>
-		Expression and phenotype data displayed on VFB is stored and maintained by FlyBase.</i>
-		<br/>		 
-	</p>
-
-	<p>	<a href="http://www2.mrc-lmb.cam.ac.uk/index.php/" target="_new">
-			<img src="/images/vfb/project/logos/MRC-LMB_logo.png" border="0" style="float:left; padding: 0px 10px 10px 0;" width="150px" />
-		</a> 
-	 
-		<i>Image registration and analysis of data sets including the FlyCircuit single neuron and Rubin/JFRC Gal4 collection was contributed by the lab of :</i><br/>
-		Gregory Jefferis<br/>
-		Division of Neurobiology, <br/>
-		MRC Laboratory of Molecular Biology, Cambridge
-		<br/>
-	</p>
-	
-	<h2>Acknowledgements</h2>
-
-	<p> We would like to thank Arnim Jenett of HHMI Janelia Farm research campus, and Kei Ito and Kazunori Shinomiya of Tokyo University for the painted adult brain stack that we use on the 3D Brain Viewer.
-	</p> 
-	<p>We thank the group of A.S. Chiang (Brain Research Center, National Tsing Hua University, Taiwan) for making their FlyCircuit raw data available. We also thank Kei Ito (Tokyo University) and Tzumin Lee (HHMI Janelia Farm research campus) for providing us with their neuroblast clone data.
-	</p>
-	<p> We also thank the following researchers for their hard work in reviewing elements of VFB content:
-	</p> <ul>
-	  <li>
-Liria Masuda Nakagawa (Department of Genetics, University of Cambridge, Cambridge) for review of the larval olfactory system;
-	  </li>
-	  <li>
-Orie Shafer (Molecular, Cellular and Developmental Biology, University of Michigan) for reviewing VFB pacemaker neuron terms and related content;
-</li>
-	  <li>
-Jo Young (Institute for Adaptive and Neural Computation, University of Edinburgh) for review of the central complex;
-</li>
-	  <li>
-Gregory Jefferis (MRC Laboratory of Molecular Biology, Cambridge) for review of the adult olfactory system.
-</li>
-	  </ul>
-	  <p> Virtual Fly Brain uses open source software from a variety of sources:</p>
-	  <ul>
-	  <li> the <a href="http://owlapi.sourceforge.net/" target="_new">OWL-API</a> underpins handling of all ontology metadata and queries on VFB with help from the <a href="https://code.google.com/p/owltools/" target="_new">OWLtools</a> and <a href="https://github.com/loopasam/Brain/wiki" target="_new">brain</a> libraries;
-	  </li>
-	   <li> the super fast ontology queries that drive VFB would not be possible without the <a href="http://code.google.com/p/elk-reasoner/" target="_new">elk reasoner</a>.
-	   </li>
-	   </ul>
-	</p>
-	
-	<h2>Publications</h2>
-	<p>
-		For more information on the technology behind the VFB website:
-		<br />
-		<ul>
-			<li>
-				Milyaev, N., Osumi-Sutherland, D., Reeve, S., Burton, N., Baldock,
-				R. A. and Armstrong, J. D. (2012).
-				<a href="http://dx.doi.org/10.1093/bioinformatics/btr677" target="_new">The Virtual Fly Brain browser and query interface</a>. Bioinformatics 28, 411-5.
-			</li>
-			<br />
-			<li>
-				Husz ZL, Burton N, Hill B, Milyaev N, Baldock RA:<a href="http://dx.doi.org/doi:10.1186/1471-2105-13-122" target="_new"> Web tools for
-				large-scale 3D biological images and atlases</a>. BMC Bioinformatics
-				13:122, 2012.
-			</li>
-		</ul>
-
-		<p>
-			For details on the anatomy ontology:
-			<br />
-			<ul>
-				<li>
-					Osumi-Sutherland, D., Reeve, S., Mungall, C. J., Neuhaus, F.,
-					Ruttenberg, A., Jefferis, G. S. and Armstrong, J. D. (2012).
-					<a href="http://dx.doi.org/doi:10.1093/bioinformatics/bts113" target="_new"> A strategy for building neuroanatomy ontologies</a>. Bioinformatics 28, 1262-1269.
-				</li>
-			</ul>
-		</p>
-	
-	<a name="citation"></a>
-	<h2>How to cite us</h2>
-	<p> Please use the format below:</p>
-	<p>
-		Milyaev, N., Osumi-Sutherland, D., Reeve, S., Burton, N., Baldock, R. A. and Armstrong, J. D. (2012). <a href="http://dx.doi.org/10.1093/bioinformatics/btr677" target="_new">The Virtual Fly Brain browser and query interface</a>. Bioinformatics 28, 411-5. 
-		</p>
-	
-	<h2>Contact us</h2>
-	<p>
-		To be kept updated on new functionalities and additions to the website sign up to our mailing list using the "Receive updates by email" box on the homepage or on any of the pages under the 'The VFB Site' menu.
-	</p>
-	<p>
-	Alternatively, if you would like to send us your comments or suggestions directly, please use 
-	<script>mail2("support","virtualflybrain",1,"","this email address")</script>. 
-	</p>
-
-	  <h2>Using the Virtual Fly Brain software or registered image data</h2>
-	
-		</p> Because the VFB software was developed as part of an open source project and freely distributed under a GNU GPL2 license. 
-				This means that the software can be embedded in any third-party website where it can provide the same functionality as on the VFB website.
+				</div>
+				</div>
+			
+				<div class="row">
+				<div class="col-xs-3 top-buffer"> 
+				<a href="http://www.flybase.org/" target="_blank">
+					<img class="btn btn-default btn-sm" src="/images/vfb/project/logos/flybase.gif" border="0" style="max-width:80%;background-color:#ffffff" /></a> 
+				</div>
+				
+				<div class="col-xs-9 top-buffer">
+				<i>Expression data</i> is collaboratively curated by VFB and <a href="http://www.flybase.org/">FlyBase</a>. <i>Phenotype data</i> is curated by FlyBase. Expression and phenotype data displayed on VFB is stored and maintained by FlyBase.
+				</div>
+				</div>
+			</div>
+			
+			
+			<div class="col-xs-12">
+				<hr/>
+			
+				<h2>Acknowledgements</h2>
+		
+			<p> We would like to thank Arnim Jenett of HHMI Janelia Farm research campus, and Kei Ito and Kazunori Shinomiya of Tokyo University for the painted adult brain stack that we use on the 3D Brain Viewer.
+			</p> 
+			<p>We thank the group of A.S. Chiang (Brain Research Center, National Tsing Hua University, Taiwan) for making their FlyCircuit raw data available. We also thank Kei Ito (Tokyo University) and Tzumin Lee (HHMI Janelia Farm research campus) for providing us with their neuroblast clone data.
 			</p>
+			<p> We also thank the following researchers for their hard work in reviewing elements of VFB content:
+			</p> 
+			<ul>
+			  <li>
+		Liria Masuda Nakagawa (Department of Genetics, University of Cambridge, Cambridge) for review of the larval olfactory system;
+			  </li>
+			  <li>
+		Orie Shafer (Molecular, Cellular and Developmental Biology, University of Michigan) for reviewing VFB pacemaker neuron terms and related content;
+		</li>
+			  <li>
+		Jo Young (Institute for Adaptive and Neural Computation, University of Edinburgh) for review of the central complex;
+		</li>
+			  <li>
+		Gregory Jefferis (MRC Laboratory of Molecular Biology, Cambridge) for review of the adult olfactory system.
+		</li>
+			  </ul>
+			  <p> Virtual Fly Brain uses open source software from a variety of sources:</p>
+			  <ul>
+			  <li> the <a href="http://owlapi.sourceforge.net/" target="_blank">OWL-API</a> underpins handling of all ontology metadata and queries on VFB with help from the <a href="https://code.google.com/p/owltools/" target="_blank">OWLtools</a> and <a href="https://github.com/loopasam/Brain/wiki" target="_blank">brain</a> libraries;
+			  </li>
+			   <li> the super fast ontology queries that drive VFB would not be possible without the <a href="http://code.google.com/p/elk-reasoner/" target="_blank">elk reasoner</a>.
+			   </li>
+			   </ul>
+			</p>
+			
+			</div>
+			
+			<div class="col-xs-12">
+				<hr/>
+			
+			<h2>Publications</h2>
 			<p>
-				If you use our <a href="image_data_downloads.htm" target="_new">registered image stacks</a> in any publication, please cite the original authors and the VFB project (see above).
-		</p>
-	  
-	<br />	
+				For more information on the technology behind the VFB website:
+				<br />
+				<ul>
+					<li>
+						Milyaev, N., Osumi-Sutherland, D., Reeve, S., Burton, N., Baldock,
+						R. A. and Armstrong, J. D. (2012).
+						<a href="http://dx.doi.org/10.1093/bioinformatics/btr677" target="_blank">The Virtual Fly Brain browser and query interface</a>. Bioinformatics 28, 411-5.
+					</li>
+					<br />
+					<li>
+						Husz ZL, Burton N, Hill B, Milyaev N, Baldock RA:<a href="http://dx.doi.org/doi:10.1186/1471-2105-13-122" target="_blank"> Web tools for
+						large-scale 3D biological images and atlases</a>. BMC Bioinformatics
+						13:122, 2012.
+					</li>
+				</ul>
+			</p>
+		
+			<p> For details on the anatomy ontology:
+					<br />
+					<ul>
+						<li>
+							Osumi-Sutherland, D., Reeve, S., Mungall, C. J., Neuhaus, F.,
+							Ruttenberg, A., Jefferis, G. S. and Armstrong, J. D. (2012).
+							<a href="http://dx.doi.org/doi:10.1093/bioinformatics/bts113" target="_blank"> A strategy for building neuroanatomy ontologies</a>. Bioinformatics 28, 1262-1269.
+						</li>
+					</ul>
+			</p>
+				
+			</div>
+				
+			<div class="col-xs-12">
+				<hr/>
+			
+			<a name="citation"></a>
+			<h2>How to cite us</h2>
+			<p> Please use the format below:</p>
+			<p>
+				Milyaev, N., Osumi-Sutherland, D., Reeve, S., Burton, N., Baldock, R. A. and Armstrong, J. D. (2012). <a href="http://dx.doi.org/10.1093/bioinformatics/btr677" target="_blank">The Virtual Fly Brain browser and query interface</a>. Bioinformatics 28, 411-5. 
+			</p>
+				
+			</div>
+				
+			<div class="col-xs-12">
+			<hr/>
+			
+			<h2>Contact us</h2>
+			</div>
+			
+			<div class="col-xs-7">
+			<p>
+				To report a bug on the site, use the <a href="Feedback.htm">Report an issue</a> page. For help, comments or suggestions, please use 
+			<script>mail2("support","virtualflybrain",1,"","this email address")</script>.
+			</p>
+			
+			<p>
+			To be kept updated on new features and data sign up to our mailing list using the subscribe button on the right.
+			</p>
+			
+			<p> 
+			To tell us about new data that you generated that could be incorporated into VFB see <a href="yourPaper.htm target="_blank">here</a>.
+			</div>
+			
+		<div class="col-xs-5 col-min">
+					<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
+		</div>
 
+			
+			<div class="col-xs-12">
+				<hr/>
+			
+			  <h2>Using our software or registered image data</h2>
+			
+				</p> The VFB software can be embedded in any third-party website where it can provide the same functionality as on the VFB website. This is because it was developed as part of an open source project and freely distributed under a GNU GPL2 license.
+				</p>
+				<p>
+				If you use our <a href="image_data_downloads.htm" target="_blank">registered image stacks</a> in any publication, please cite the original authors and the VFB project.
+				</p>
+				
+			</div>
+			  	
+		</div><!-- row -->
+	</div><!-- col -->
+	
 </div>
-<!-- center_wide -->
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
-
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
+

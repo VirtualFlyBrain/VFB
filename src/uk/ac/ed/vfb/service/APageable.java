@@ -17,7 +17,7 @@ public class APageable {
 	/** The bean set to work with */
 	protected SortedSet resultSet;
 	/** How many entries per page - default value */
-	private int perPage = 100;
+	private int perPage = 999999999;
 	/** number of current page */
 	private int currPage; 	// Min = 1
 	/** Records displayed on the current page */
@@ -196,6 +196,10 @@ public class APageable {
 			i++;
 		}
 		return result;
+	}
+
+	public Set getCompleteSet() {
+		return resultSet;
 	}
 
 }

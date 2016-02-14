@@ -37,18 +37,32 @@ public class OntBeanController implements Controller {
 				return null;
 			}else{
 				id = OntBean.idAsOWL(req.getParameter("id"));
-				
 			}
 		}else{
 			id = OntBean.idAsOBO(req.getParameter("fbId"));
 		}
 		if (id.contains("VFB")){
+			id = OntBean.idAsOWL(id);
 			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
+			if (ob == null){
+				this.obm.getBeanForId("VFB_00000001");
+			}
 			modelAndView.addObject("beanType", "ind");
 		}else{
-			ob = this.obm.getBeanForId(id);
+			id = OntBean.idAsOBO(id);
+			LOG.debug("Calling for: " + id);
+			try{
+				ob = this.obm.getBeanForId(id);
+			} catch (Exception e) {
+				LOG.error(e);
+			}
+			LOG.debug("Returned: " + ob);
+			if (ob == null){
+				this.obm.getBeanForId("FBbt:00007060");
+			}
 			modelAndView.addObject("beanType", "ont");
 		}
+		//LOG.debug(ob);
 		//LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
 		//LOG.debug("Found publications:" + pbList.size());

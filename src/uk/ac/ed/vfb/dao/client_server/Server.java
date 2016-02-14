@@ -124,6 +124,7 @@ public class Server {
 			try {
 				out.writeObject(results);
 			} catch (IOException ex) {
+				LOG.error("IOException writing OntServer result(s): " + results);
 				ex.printStackTrace();
 			}
 		}
@@ -156,13 +157,25 @@ public class Server {
 			} catch (IOException ex) {
 				LOG.error("Ontology server IOException:");
 				ex.printStackTrace();
+				sendObjectToClient(this.results);
 			} catch (ClassNotFoundException ex) {
 				LOG.error("Ontology server ClassNotFoundException:");
 				ex.printStackTrace();
+				sendObjectToClient(this.results);
 			} catch (NullPointerException ex) {
 				LOG.error("Ontology server NullPointerException:");
-                		ex.printStackTrace();
-            		}
+        ex.printStackTrace();
+				sendObjectToClient(this.results);
+      } finally {
+				try {
+					out.close();
+					//LOG.debug("Output stream closed.");
+				} catch (IOException ex) {
+					LOG.error("IOException closing OntServer request: " + results);
+					ex.printStackTrace();
+				}
+
+			}
 		}
 	}
 

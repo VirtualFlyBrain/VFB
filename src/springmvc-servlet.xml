@@ -23,13 +23,25 @@
 		<property name="obm" ref="ontBeanManager" />
 		<property name="pbm" ref="pubBeanManager" />
 	</bean>
-	
+
 	<!-- tomcat logfile -->
 	<bean name="/do/tomcat.html" class="uk.ac.ed.vfb.web.logs.tomcatController" scope="request">
 	</bean>
-	
+
 	<!-- tomcat logfile -->
 	<bean name="/do/ontServer.html" class="uk.ac.ed.vfb.web.logs.ontServerController" scope="request">
+	</bean>
+
+	<!-- geppetto xml -->
+	<bean name="/do/geppettoXml.xml" class="uk.ac.ed.vfb.web.xmlController" scope="request">
+	</bean>
+
+	<!-- geppetto Js -->
+	<bean name="/do/geppettoJs.html" class="uk.ac.ed.vfb.web.jsController" scope="request">
+	</bean>
+
+	<!-- geppetto json -->
+	<bean name="/do/geppettoJson.json" class="uk.ac.ed.vfb.web.geppettoController" scope="request">
 	</bean>
 
 	<!-- List of beans as result of an OWL query -->
@@ -47,7 +59,7 @@
 
 	<!-- Build a ontology query -->
 	<bean name="/do/query_builder.html" class="uk.ac.ed.vfb.ont_query.web.OntQueryController"
-		scope="session">
+		scope="request">
 		<property name="ontQuery" ref="ontQueryManager" />
 		<property name="obm" ref="ontBeanManager" />
 		<property name="acd" ref="autocompleteDAONeuropil" />
@@ -55,162 +67,47 @@
 
 	<!-- Build a ontology query -->
 	<bean name="/do/ont_query_result.html" class="uk.ac.ed.vfb.ont_query.web.OntQueryListController"
-		scope="session">
+		scope="request">
 		<property name="ontQuery" ref="ontQueryManager" />
 		<property name="obm" ref="ontBeanManager" />
 		<!-- property name="formView" value="ont_query/queryBuilder" / -->
 	</bean>
 
-	<!-- SCV reports -->
-	<bean name="/do/csv_report.html" class="uk.ac.ed.vfb.web.CsvController" 
-		scope="request">
-		<property name="obm" ref="ontBeanManager" />
-		<property name="gbm" ref="geneBeanManager" />
-		<property name="oqm" ref="ontQueryManager" />
-	</bean>
-
-	<!-- User New detail form -->
-	<bean name="/do/user.html" class="uk.ac.ed.vfb.web.UserController" 
-		scope="session">
-		<property name="commandClass" value="uk.ac.ed.vfb.model.security.UserBean" />
-		<property name="formView" value="do/userBean"/>
-		<property name="successView" value="/site/tools/login/index.htm" />
-		<property name="validator">
-        	<bean class="uk.ac.ed.vfb.web.UserValidator">
-        		<property name="dao" ref="userManagerDAO" />
-        	</bean>
-        </property>
-		<property name="manager" ref="userManager" />
-	</bean>
-	
-	<!-- Error handling -->
-	<bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<props>
-				<prop key="uk.ac.ed.vfb.web.exception.SessionExpiredException">
-					/errors/sessionExpiredPage
-				</prop>
-				<!-- prop key="java.lang.Exception"> /errors/error </prop -->
-			</props>
-		</property>
-	</bean>
-	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<props>
-				<prop key="uk.ac.ed.vfb.web.exception.StackExistsException">
-					/errors/stackExistsPage
-				</prop>
-				<!-- prop key="java.lang.Exception"> /errors/error </prop -->
-			</props>
-		</property>
-	</bean>
-	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<props>
-				<prop key="uk.ac.ed.vfb.web.exception.UserPermissionsException">
-					/errors/userPermissionsErrorPage
-				</prop>
-				<!-- prop key="java.lang.Exception"> /errors/error </prop -->
-			</props>
-		</property>
-	</bean>
-	
-	
-	<!-- User stack upload controller -->
-	<bean name="/do/file_upload.html" class="uk.ac.ed.vfb.annotation.web.UploadStackController" scope="session">
-		<property name="sbm" ref="stackBeanManager" />
-		<!-- property name="sdc" ref="/do/annotation/stackDetail.html" / -->
-	</bean>
-
-	<!-- User Stack detail form -->
-	<bean name="/do/annotation/stackDetail.html" class="uk.ac.ed.vfb.annotation.web.StackDetailController"
-		scope="session">
-		<property name="commandClass" value="uk.ac.ed.vfb.annotation.model.StackBean" />
-		<property name="formView" value="/do/annotation/stackDetail" />
-		<property name="successView" value="/site/tools/upload_stack/checkStackReady.jsp" />
-		<property name="sbm" ref="stackBeanManager" />
-		<property name="validator">
-			<bean class="uk.ac.ed.vfb.annotation.web.StackDeatailValidator">
-			</bean>
-		</property>
-	</bean>
-	
-	<!-- User Stack detail form -->
-	<bean name="/do/annotation/stack_edit.html" class="uk.ac.ed.vfb.annotation.web.StackDetailEditController"
-		scope="session">
-		<property name="commandClass" value="uk.ac.ed.vfb.annotation.model.StackBean" />
-		<property name="formView" value="/do/annotation/stackDetail" />
-		<property name="successView" value="/do/annotation/stack_list.html" />
-		<property name="sbm" ref="stackBeanManager" />
-		<property name="validator">
-			<bean class="uk.ac.ed.vfb.annotation.web.StackDeatailValidator">
-			</bean>
-		</property>
-	</bean>
-	
-	<!-- List of stack beans as result to DB query -->
-	<bean name="/do/annotation/warp_to_woolz.html" class="uk.ac.ed.vfb.annotation.web.WoolzRegisterController" scope="session">
-		<property name="sbm" ref="stackBeanManager" />
-		<property name="ubm" ref="userManager" />
-	</bean>
-	
-	<!-- List of stack beans as result to DB query -->
-	<bean name="/do/annotation/stack_list.html" class="uk.ac.ed.vfb.annotation.web.StackListController" scope="session">
-		<property name="sbm" ref="stackBeanManager" />
-	</bean>
-	
-	<!-- Controller to delete given Stack by ID -->
-	<bean name="/do/annotation/delete_stack.html" class="uk.ac.ed.vfb.annotation.web.StackDeleteController" scope="session">
-		<property name="sbm" ref="stackBeanManager" />
-		<property name="confirmView" value="/do/annotation/stack_list.html" />
-	</bean>
-	
 	<!-- List of neuron clusters as result of an OWL query -->
-	<bean name="/do/cluster_list.html" class="uk.ac.ed.vfb.web.ClusterListController" scope="session">
+	<bean name="/do/cluster_list.html" class="uk.ac.ed.vfb.web.ClusterListController" scope="request">
 		<property name="obm" ref="ontBeanManager" />
 	</bean>
-	
+
 	<!-- List of beans as result of an OWL query -->
-	<bean name="/do/individual_list.html" class="uk.ac.ed.vfb.web.IndividualListController" scope="session">
+	<bean name="/do/individual_list.html" class="uk.ac.ed.vfb.web.IndividualListController" scope="request">
 		<property name="obm" ref="ontBeanManager" />
 		<property name="vfbDS" ref="vfbDataSource" />
 	</bean>
-	
+
 	<!-- List of beans as result of an OWL query -->
-	<bean name="/do/individual_film_strip.html" class="uk.ac.ed.vfb.web.IndividualFlmStripController" scope="session">
+	<bean name="/do/individual_film_strip.html" class="uk.ac.ed.vfb.web.IndividualFlmStripController" scope="request">
 		<property name="obm" ref="ontBeanManager" />
 	</bean>
-	
+
 	<!-- Autocomplete servlet for all anatomy -->
-	<bean name="/do/autocomplete_list.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
+	<bean name="/do/autocomplete_list.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="request">
 		<property name="autocompleteDAO" ref="autocompleteDAOAll" />
 	</bean>
 
 	<!-- Autocomplete servlet for neuropils -->
-	<bean name="/do/autocomplete_list_neuropil.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
+	<bean name="/do/autocomplete_list_neuropil.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="request">
 		<property name="autocompleteDAO" ref="autocompleteDAONeuropil" />
 	</bean>
-	
+
 	<!-- Autocomplete servlet for adult brain anatomy -->
-	<bean name="/do/autocomplete_list_adultbrain.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="session">
+	<bean name="/do/autocomplete_list_adultbrain.html" class="uk.ac.ed.vfb.web.AutocompleteController" scope="request">
 		<property name="autocompleteDAO" ref="autocompleteDAOAB" />
 	</bean>
-	
+
 	<!-- Controller for Json files (IIP3D metadata) -->
-	<bean name="/do/get_json.html" class="uk.ac.ed.vfb.web.JsonController" scope="session">
+	<bean name="/do/get_json.html" class="uk.ac.ed.vfb.web.JsonController" scope="request">
 	</bean>
-	
-	<!-- Session-bound bean representing users composite -->
-	<bean name="compositeViewBean" class="uk.ac.ed.vfb.composite.model.CompositeViewBean" scope="session">
-	</bean>
-	
-	<!-- Controller for CompositeView -->
-	<bean name="/do/composite_view.html" class="uk.ac.ed.vfb.composite.web.CompositeViewController" scope="session">
-		<property name="tpbm" ref="thirdPartyBeanManager" />
-		<property name="cvb" ref="compositeViewBean" />
-	</bean>	
+
+
 
 </beans>

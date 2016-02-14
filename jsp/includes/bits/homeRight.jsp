@@ -1,67 +1,42 @@
-	<div id="right_panel">
+	<div class="row-fluid visible-desktop row-centered">
 
-		<jsp:include page="/jsp/includes/bits/wpRssReader.jsp" />
+		<div class="col-md-12 col-min">
 
-		<!-- START Twitter code -->
-			<div id="tw-root" style="margin-top:2px"></div>
-			<div class="t-page" data-width="237" style="width:237px;">
-				<a class="twitter-timeline" href="https://twitter.com/virtualflybrain" data-widget-id="450466505088454656">
-					Tweets by @virtualflybrain
-				</a>
-				<script>
-					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-						if(!d.getElementById(id)){
-							js=d.createElement(s);
-							js.id=id;
-							js.src=p+"://platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js,fjs);
-						}
-					}(document,"script","twitter-wjs");
-				</script>
-			</div>
-		<!-- END twitter code -->
+			<div class="well-white"> <!-- new news well-->
 
+				<section class="shortcuts transparent" id="news-container" style="overflow:hidden">
+			   <div id="news">
+			      <h3 class="pane-title">
+			         <a href="http://vfbblog.inf.ed.ac.uk/">News</a>
+			         <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="window.open('http://vfbblog.inf.ed.ac.uk/?feed=rss2', 'new_window')"><img src="/images/vfb/utils/rss.png" height="20"/></div>
+			         <div title="Facebook Logo" class="icon-right socialmedia" onclick="window.open('https://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118','new_window')"><img src="/images/vfb/utils/facebook.logo.png" height="20"/></div>
+			         <div title="Twitter Logo" class="icon-right socialmedia" onclick="window.open('http://twitter.com/virtualflybrain', 'new_window')"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="20"/></div>
 
-		<!-- START Google+ page badge -->
-			<div id="gp-root" style="margin-top:2px"></div>
-			<div class="g-page" data-width="237" data-href="https://plus.google.com/+VirtualflybrainOrg" data-rel="publisher"></div>
+			      </h3>
+			      <div id="newsection">
+			         <ul>
+			            <li>
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1086">New site live</a>
+						<br/>Our new cleaner and slicker VFB 1.5 site is now live
+			               </p>
+			            </li>
+			            <li>
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1084">Using NBLAST and VFB</a><br/>
+			                  Find similar neurons and GAL4 drivers online 
+			               </p>
+			            </li>
+			            <li>
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=833">VFB 2.0 coming later in the year</a><br/>
+			                  Check out the new 3D display
+			               </p>
+			            </li>
+			         </ul>
+			      </div>
+			      <br clear="all"/>
+						<a href="http://vfbblog.inf.ed.ac.uk/" target="_blank" class="btn btn-info btn-xs outline" role="button" style="text-align:left">More &raquo</a>
+			   	</div>
+				</section>
+			</div><!-- end of news well-->
+		</div><!-- end of col-->
 
-			<!-- Place this tag after the last widget tag. -->
-			<script type="text/javascript">
-				window.___gcfg = {lang: 'en-GB'};
-
-				(function() {
-					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-					po.src = 'https://apis.google.com/js/platform.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-				})();
-			</script>
-		<!-- END Google+ page badge -->
-
-		<!-- START facebook code -->
-			<div id="fb-root" style="margin-top:2px"></div>
-			<script>
-				(function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) {return;}
-					js = d.createElement(s); js.id = id;
-					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-					fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-			</script>
-			<div class="fb-like-box" style="height: 370px; width: 237px; overflow:hidden;"
-			data-href="http://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118" data-height="370"
-			data-width="237" data-show-faces="true" data-stream="false" data-header="false"></div>
-		<!-- END facebook code -->
-
-
-		<!-- script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-		<fb:like-box href="http://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118" width="220" show_faces="true" stream="true" header="true"></fb:like-box -->
-
-	<!-- Start Bravenet.com Service Code for feature poll -->
-	<!-- The following line of code must be on one line, it cannot wrap // -->
-	<!-- div align="center" style="margin-top:2px"><script type="text/javascript" src="http://pub40.bravenet.com/minipoll/show.php?usernum=3359088759&qid=37910"></script></div-->
-	<!-- End Bravenet.com Service Code -->
-
-</div>
-	</div> <!--  right_panel -->
+		</div><!-- end of row-->

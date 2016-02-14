@@ -1,121 +1,678 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="/jsp/includes/homeHead.jsp">
-	<jsp:param name="navpath" value="VFB Home@"/>
-	<jsp:param name="title" value="VFB Home" />	
-	<jsp:param name="css" value="/css/tree/autocomplete.css;" />
+	<jsp:param name="title" value="VFB Home" />
 </jsp:include>
 
-	  <script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
-	  <script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js" ></script>
-	  <script type="text/javascript" src="/javascript/tree/contextMenuVFB.js" ></script>
-	  <script type="text/javascript" src="/site/tools/anatomy_finder/anatomyFinder.js" ></script>	  
-	  
-<script type="text/javascript">
-window.addEvent('domready', createAutocomplete);
-</script>
+<div class="row row-centered">
 
-<div id="center_wide" style="overflow:auto;padding-left:0px;padding-right:0px;">
+	<div class="jumbotron">
+	  <div class="container">
+	    <h1>Welcome to Virtual Fly Brain</h1>
+			<h2>A hub for <i>Drosophila melanogaster</i> neural anatomy and imaging data</h2>
+	    <p>You can explore via <a href="/site/stacks/index.htm" >images/stacks</a> of the central nervous system</p>
+			<p id="availableRegions" align="center"></p>
+			<script>
+				$(function(){
+					setTimeout(function () {
+						var templates = parent.$('body').data();
+						for (i in templates){
+							if (i.indexOf('VFB')>-1 && templates[i].meta == undefined){
+								backgroundLoadMeta(i);
+							}
+						}
+						var html = '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="background-color:black;max-width: 575px;height: 300px;"><ol style="height:0px;" class="carousel-indicators"></ol><div class="carousel-inner" role="listbox"></div ><a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
+						var OLactive = '';
+						var DIVactive = '';
+						var REGcount = 0;
+						var colFilter = '255,0,255';
+						var originalStack = parent.$('body').data('meta').id;
+						for (i in templates){
+							if (i.indexOf('VFB')>-1 && (templates[i].meta.isLive || location.hostname.toLowerCase().indexOf('sandbox') > 0)){
+								if (i=='VFBt_001'){
+									OLactive = ' class="active"';
+									DIVactive = ' active';
+								}else {
+									OLactive = '';
+									DIVactive = '';
+								}
+								if (i=='VFBt_002'){
+									colFilter = '255,255,255';
+								}else{
+									colFilter = '255,0,255';
+								}
+								html = html.replace('</ol>','<li data-target="#carousel-example-generic" data-slide-to="'+REGcount+'"'+OLactive+'></li>'+'</ol>');
+								html = html.replace('</div >','<div class="item'+DIVactive+'" style="background-color:black;height:300px;">'+thumbnailHTMLForId(i).replace('scl=0.2','scl=1').replace('0,255,0&fxp',colFilter+'&fxp').replace('fxp='+parent.$('body').data('meta').center,'fxp='+templates[i].meta.center).replace('thumb_sm','thumb_lg').replace('details" />','details" style="height:290px;" />')+'</div >');
+								html = html.replace('</div >','<div class="carousel-caption" style="bottom:-30px;">'+templates[i].meta.name+'</div></div></div >');
+								REGcount++;
+							}
+						}
+						$('#availableRegions').html(html);
+						addToStackData(originalStack);
+					}, 2000);
 
-<div class="icon_row">
-	<div class="icon">  
-		<small>
-			<a class="icon_link" href="/site/stacks/index.htm" title="Explore and run queiries on the adult Drosophila Brain"> <h3 style="margin:3px 0 -10px 0 ">Browse and query the adult brain anatomy</h3> <br/>
-				<img src="/images/vfb/project/viewerIcon.png" width="180" height="110"></img>
-			</a>
-		</small>
-	</div>
-	<div class="icon">
-		<small>
-			<a class="icon_link" href="/site/tools/query_builder/index.htm" title="Build and execute connectivity queries"> <h3 style="margin:3px 0 -10px 0">For connectivity queries</h3> <br/>
-				<img src="/images/vfb/project/queryBuilderIcon.png" width="180" height="110"></img> 
-			</a>
-		</small>
-	</div>
-	<div class="icon" style="width:452px;">
-		<small> 
-			<jsp:include page="/site/vfb_site/whats_new.htm" />
-			<p>For full details about the site see the <a class="icon_link" href="overview.htm">overview</a> and <a class="icon_link" href="features.htm">features</a> pages.</p>
-		</small>
-	</div>
-</div> <!-- icon_row --> 
-	
-<div class="icon_row">
-	<div id="search_panel" class="icon" style="width:948px; height:160px;">
-		<h2>Search for brain region or neuron</h2>
-		<label>Search in:</label> 
-		<select name="scope" id="scope" onchange="setScope()">
-			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-		</select>
-		<a class="help " href="./home_query_howtos/scope.htm" style="float:none; margin-left:10px" title="How search scope works" target="_blank">&nbsp;What is it?</a>
-		<br/><br/>
-		<input id="search_text" type="text" style="width:600px;" alt="Type in the name of the anatomy term/neuron to search"/>
-		<input id="id_container" type="hidden" />
-		<input id="scopeValue" type="hidden" />			
-		<!-- p> Query options will be available on each term's page</p -->
-	</div> &nbsp;
-
-</div> <!-- icon_row -->
-
-<div class="icon_row">
-  <div class="icon" style="width:948px;height:370px; text-align:left; margin-top:-10px">
-        <h2 style="text-align:center">What can VFB do for me? Example queries</h2>
-	<ul>
-	  <li><a href="/site/stacks/index.htm?add=FBbt:00045048">
-	  		What and where is the <b>saddle</b>?
-	  	</a>
-	  	<a class="help " href="./home_query_howtos/q1.htm" style="float:none; margin-left:10px" title="What and where is the 'saddle':" target="_blank">&nbsp;Show me how</a>
-	  </li>
-	
-	  <li><a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
-	  		Find neuron classes with synaptic terminals in the <b>antennal mechanosensory and motor centre (AMMC)</b>
-	  	</a>
-	  	<a class="help " href="./home_query_howtos/q2.htm" style="float:none; margin-left:10px" title="Find neurons that innervate the AMMC:" target="_blank">&nbsp;Show me how</a>
-	  </li>
-	 
-	  <li><a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
-	  		Find images of single neurons with some part in the <b>ellipsoid body</b>
-	  	</a>
-	  	<a class="help " href="./home_query_howtos/q3.htm" style="float:none; margin-left:10px" title="Find images of neuron that overlap the EB:" target="_blank">&nbsp;Show me how</a>
-	
-		<li><a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
-		  		Find neurons that develop from one of the <b>neuroblasts in the antennal lobe</b>
-		  	</a>
-		  	<a class="help " href="./home_query_howtos/q6.htm" style="float:none; margin-left:10px" title="Find neurons from an AL lineage" target="_blank">&nbsp;Show me how</a>
-		  </li>
-	  </li>
-	  <li><a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
-	  		Find transgenes expressed in <b>mushroom body alpha/beta neurons</b>
-	  	</a>
-	  	<a class="help" href="./home_query_howtos/q4.htm" style="float:none; margin-left:10px" title="Find transgenes expressed in the MB-alpha'/beta' neurons:" target="_blank">&nbsp;Show me how</a>
-	  </li>
-	  <li><a href="/do/ont_query_result.html?action=multiquery&id=FBbt:00003852&id=FBbt:00003748&type=postsynaptic&type=presynaptic&rel=include&rel=include" target="_blank">
-	  		Find all neurons that have postsynaptic terminals in <b>lobula</b> and presynaptic terminals in <b>medulla</b>
-	  	</a>
-	  	<a class="help" href="./home_query_howtos/q5.htm" style="float:none; margin-left:10px" title="Find neurons that innervate the medulla and lobula:" target="_blank">&nbsp;Show me how</a>
-	  </li>
-	   <li><a href="/do/composite_view.html?action=load&uuid=2050-07-05_10.04.35.973" target="_blank">
-	  		Overlay 3 different image stacks of neurons and lineage clones that overlap the <b>adult central complex</b>
-	  	</a>
-	  	<a class="help" href="/site/tools/help/composite_help.htm" style="float:none; margin-left:10px" title="How to work with composite views" target="_blank">&nbsp;Show me how</a>
-	  </li>
-	  
-	  
-	</ul>
+				});
+				function jumpToSearch(){
+					if ($('.navbar-toggle').is(':visible')){
+						$('#navbar-collapse-1').collapse('show');
+						$('#searchtext').focus();
+					}else{
+						$('#searchtext').focus();
+					}
+				}
+			</script>
+      <p>or simply search for the item you're interested in using the <span onclick="jumpToSearch();" onfocus="jumpToSearch();" style="font-weight: bold;cursor: pointer;">search box</span> in the menu bar:</p>
+			<p><img src="/images/vfb/searchbar.png" style="width:70%;padding-left: 10px;cursor: pointer;" alt="Search by any neuropil, neuron, lineage clone, tract or specific image stack name" onclick="jumpToSearch();" onfocus="jumpToSearch();" /></p>
+    </div>
   </div>
-</div> <!-- icon_row -->
 
-<div class="icon_row">
-	<div class="icon" style="border:1px solid gray; height:520px; width:948px; border-radius:10px; margin: 10px; text-align: center; float: left">
-		<a href="http://www.youtube.com/channel/UC1g10aJo13fXpO9VwRJPdHg" target="_new" style="z-index:0"> <h3 style="margin:3px">Tutorial videos on YouTube </h3></a><br/>
-		<iframe width="700" height="460" src="//www.youtube.com/embed/videoseries?list=PLByf4V60-spifADBofOXP3dp-Gpd6xff6" frameborder="0" allowfullscreen></iframe>
-	</div>
-</div> <!-- icon_row -->
+	<div class="col-md-9 col-centered">
 
-</div>
-<!-- center_wide -->
+		<div class="row-fluid">
 
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+			<div class="col-md-12">
+				<!--<div class="well" align="left">-->
+					<center>
+				    		<h2>What can VFB do for me? <small>Example queries with detailed steps</small></h2>
+					</center>
+
+
+					<div class="panel panel-info" style="width:100%;" > <!-- query panel -->
+					  <div class="panel-heading">
+					  	<h3 class="panel-title">Anatomy information for the whole nervous system</h3>
+					  </div>
+
+					 	 <!--3 thumbnails-->
+					 	<div class="container center-block" style="width:100%;">
+        			<div class="row-fluid">
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
+               		<div class="thumbnail thumbnail-top">
+                   	<a href="/site/stacks/index.htm?add=VFBt_00100000,FBbt_00045048" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/saddle_q1.png" alt="The saddle in the Viewer"/></a>
+										<div class="caption" align="center">
+										 	<a href="/site/stacks/index.htm?add=VFBt_00100000,FBbt_00045048" target="_blank">
+												<b>What</b> and <b>where</b> is the saddle?
+											</a><br />
+											<a href="#" tabindex="0" rel="question1" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom" title="What and where is the saddle:"
+												data-popover-content="#Question1">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+
+									<div id="Question1" class="hide">
+										<p>
+								    	For more information on this type of query go <a href="/site/vfb_site/features.htm#3dviewer">here</a>.
+								    </p>
+								  	<ul>
+								  	<li>
+												Searches of this kind can be done straight from any page on the site, using the search bar on the header.
+											</li>
+										  <li>
+										  	Use the search box on the header bar, and start typing <i>saddle</i> or any other synonym, such as <i>SAD</i>.
+										  </li>
+
+										  <li>
+										  	Choose the term <i>saddle</i> from the autocomplete list.
+										  </li>
+										  <li>
+										  	The page shows, on the left,  the viewer, with the saddle highlighted, and on the right, the information for that term (term info window). The <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-ok-circle'></span></a> symbol next to the neuropil name indicates that that domain is displayed in the viewer.
+										  	</li>
+										  	<li>
+										  	Below the viewer is the viewer menu. Any entity that is displayed in the viewer is listed in the Displayed tab. You can centre, hide, delete or add that neuropil to the query builder using the buttons in the display column of the Displayed tab.
+										  </li>
+										  <li>
+										  You can also interact with the viewer using the buttons on top of it. These include a slice browser, zoom, plane of view and changing background colour.
+
+										  <li>
+												Further queries are now possible from the <i>Query for</i> menu, at the top of the term info window. Hover on the query options to the right of it to see all available queries.
+												Choose the desired option and click to run the query.
+									   </li>
+									 	</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question1"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
+								</div> <!--col-->
+
+    						<div class="col-xs-12 col-sm-4" style="min-width:85px">
+ 							 		<div class="thumbnail thumbnail-top">
+           					<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/fru-M-400110_AMMCsyn_q2.png" alt="Neurons in the AMMC"/></a>
+           					<div class="caption" align="center">
+											<a href="/do/ont_bean_list.html?action=synaptic&id=FBbt:00003982" target="_blank">
+						  					Find <b>neurons</b> with synaptic <b>terminals</b> in the AMMC
+						  				</a><br />
+						  				<a href="#" tabindex="0" rel="question2" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find neurons that arborise in the AMMC:"
+												data-popover-content="#Question2">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question2" class="hide">
+										<p>
+											For more information on this type of query go <a href="/site/vfb_site/features.htm#neuronsbylocation">here</a>.
+										</p>
+
+										<ul>
+											<li>
+												Searches of this kind can be done straight from any page on the site, using the search bar on the header.
+											</li>
+											<li>
+												In the search box start typing <i>antennal mechanosensory and motor centre</i> or any synonym such as <i>AMMC</i>.
+											</li>
+											<li>
+												Choose the term from the autocomplete list. A page with all the information about that neuropil will be displayed.
+											</li>
+											<li>
+										  	The page shows, on the left,  the viewer, with the saddle highlighted, and on the right, the information for that term (term info window). The <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-ok-circle'></span></a> symbol next to the neuropil name indicates that that domain is displayed in the viewer.
+										  	</li>
+										  	<li>
+										  	Below the viewer is the viewer menu. Any entity that is displayed in the viewer is listed in the Displayed tab. You can centre, hide, delete or add that neuropil to the query builder using the buttons in the display column of the Displayed tab.
+										  </li>
+
+											<li>
+											The query menu, <i>Query for</i>, is shown at the top of the term info window. Click on the arrowheads to see all available sub-options.
+
+											</li>
+											<li>
+											Select the query <i>Neurons with: synaptic terminals here</i>.
+											</li>
+											<li>
+											A list with the query results will be displayed. Clicking on any of the names of the neuron types will display the viewer and term info window for that neuron type. <br/></li>
+											<li>
+											If images are available for a neuron type, they will be displayed in the 'Available Images' column. Click the <a href='#' class="btn btn-xs btn-success">Open</a> button to display all neuron images of that type in the Viewer. Clicking on the <a href='#' class="btn btn-xs btn-success">List all</a> button, will list all images for that neuron type. From there, you can add images to the Viewer one by one by clicking on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button.
+											</li>
+
+											<li>
+												<p>
+													If you want to find neurons that arborise in AMMC and in another neuropil, you can use one of our other tools, Query Builder. For more information on this type of query click <a href="../features.htm#querybuilder">here</a>.
+												</p>
+
+												<ul>
+												<li>
+												Query builder queries are made from the Viewer page. The query will be shown in the Query Builder tab.
+												</li>
+												<li>
+												To add a neuropil to the viewer, use the search box on the header, the Anatomy tab, or double-click on a neuropil directly in the viewer. Click on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> symbol for the neuropil to be displayed in the viewer.
+												</li>
+												<li>
+												All images displayed in the viewer are listed in the Displayed tab.
+												</li>
+												  <li>
+												 		To add a term to a Query Builder query, click the <a href='#' class='btn btn-xs btn-info' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-tasks'></span></a> button. In the tab Query Builder, choose the type of terminals.
+												  </li>
+
+												  <li>
+													  Add another neuropil in the same way. The query text below will be updated to reflect your query.
+
+												  </li>
+												  <li>
+												  The number of records found is shown at each step.
+												  <li>
+												  	When happy with your query, and the number of records is more than 0, click the <a href='#' class="btn btn-xs btn-primary">Show Results</a> button.
+												  </li>
+
+												 </ul>
+											</li>
+										</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question2"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
+            		</div> <!--col-->
+
+    						<div class="col-xs-12 col-sm-4" style="min-width:85px">
+									<div class="thumbnail thumbnail-top">
+										<a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/neuroblast_ALad1_q4.png" alt="Neurons of the lineage ALad1"></a>
+										<div class="caption" align="center">
+											<a href="/do/ont_bean_list.html?action=lineage_clone&id=FBbt:00007401" target="_blank">
+												Find <b>neurons</b> that develop from a <b>neuroblast</b> in the antennal lobe
+											</a><br />
+											<a href="#" tabindex="0" rel="question4" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find neurons from an AL lineage:"
+												data-popover-content="#Question4">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question4" class="hide">
+
+										<p>
+											For more information on this type of query click <a href="/site/vfb_site/features.htm#querymenu">here</a>.
+										</p>
+
+										<ul>
+											<li>
+											Searches of this kind can be done straight from any page on the site, using the search bar on the header.
+											</li>
+											<li>
+												In the search box, start typing <i>antennal lobe</i> or any known synonym, such as <i>AL</i>.
+											</li>
+
+											<li>
+												Choose the term from the autocomplete list, <i>adult antennal lobe</i> .
+											</li>
+											<li>
+												 A page with all the information about that neuropil will be displayed.
+											</li>
+											<li>
+										  	The page shows, on the left,  the viewer, with the saddle highlighted, and on the right, the information for that term (term info window). The <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-ok-circle'></span></a> symbol next to the neuropil name indicates that that domain is displayed in the viewer.
+										  	</li>
+										  	<li>
+										  	Below the viewer is the viewer menu. Any entity that is displayed in the viewer is listed in the Displayed tab. You can centre, hide, delete or add that neuropil to the query builder using the buttons in the display column of the Displayed tab.
+										  </li>
+											<li>
+												Further query options are available from <i>Query for</i>. Click on the arrowheads to see all available sub-options.
+											</li>
+											<li>
+												Select the query: <i>Lineage clones with: some part here</i>.
+											</li>
+											<li>
+												A list with the query results will be displayed. If images are available, they will be shown in the Available Images column.
+											</li>
+											<li>
+												Click on <a href='#' class="btn btn-xs btn-success">More info</a> or on the name of the clone to see more details about each lineage clone, including synonyms and thumbnail image. You can display the lineage clone images on the <a href="/site/stacks/index.htm">Stack Viewer</a> by clicking the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> symbol. Either display all at once by clicking the latter, or list the images first, using <a href='#' class="btn btn-xs btn-success">List all</a> and then choose which one to display. In this way you will be able to overlay any of the painted neuropil domains on the brain, together with the lineage clone.
+											</li>
+											<li>
+												To find neurons, or other clones that are part of this lineage select the query form the term info page for a clone, for example ALad1: <i>Component of</i>.
+												<br/>
+												<b>Did you know?</b> If you know which neuroblast lineage you are looking for, you can search directly for <i>adult X lineage clone</i>, where X is the neuroblast you want.
+											</li>
+											<li>
+												A list of neuron types and clones is displayed. To list all images for that neuron type, click on the <a href='#' class="btn btn-xs btn-success">List all</a> button. You can now add them one by one to the viewer, by clicking the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button. To display all at once use the <a href='#' class="btn btn-xs btn-success">Open</a> button instead. To see all the information available for each neuron type, click on <a href='#' class="btn btn-xs btn-success">More info</a>.
+												<b>Did you know?</b> From this term info page, you can also directly query for transgenes expressed in that neuron class.
+											</li>
+
+												<li>
+												The list of all the neuron images is organised into 7 columns: ID, name of the neuron, definition, image thumbnail, source, neuron type and driver used.
+											</li>
+											<li>
+												To see a neuron in the Viewer, click on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> symbol after its name.
+												</li>
+											<li>
+												You can add any other neuron or neuropil images to the viewer by clicking on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> symbol. For example, click on the name of the image to see the term info window, and add a neuropil that is overlaps with, shown in the Relationships section.
+											</li>
+										</ul>
+
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question4"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
+
+    						</div> <!--col-->
+
+
+          		</div><!--row-->
+          	</div><!--container-->
+
+					</div> <!--end of panel-->
+
+
+
+					 <!--3 thumbnails-->
+					<div class="panel panel-info" style="width:100%;"> <!-- example query panel -->
+					 	<div class="panel-heading">
+							<h3 class="panel-title">Expression and images of single neurons, transgenes and lineage clones</h3>
+				  	</div>
+
+					 	<div class="container center-block" style="width:100%;">
+							<div class="row-fluid">
+								<div class="col-xs-12 col-sm-4" style="min-width:85px">
+ 							 		<div class="thumbnail thumbnail-top">
+     								 <a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/cluster_5-HT1B-M-400020_q3.png" alt="Neuron cluster in the ellipsoid body"></a>
+     								<div class="caption" align="center">
+											<a href="/do/cluster_list.html?action=cluster_found&id=FBbt:00003678" target="_blank">
+												Find <b>images of neurons</b> with some <b>part in</b> the ellipsoid body
+											</a><br/>
+											<a href="#" tabindex="0" rel="question3" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find images of neurons that overlap the ellipsoid body:"
+												data-popover-content="#Question3">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question3" class="hide">
+										<p>
+									    For more information on this type of query click <a href="/site/vfb_site/features.htm#clusterbylocation">here</a>.
+								    </p>
+
+								  	<ul>
+										  <li>
+											Searches of this kind can be done straight from any page on the site, using the search bar on the header.
+											</li>
+										  <li>
+											 	In the search box start typing <i>ellipsoid body</i> any known synonym, such as <i>EB</i>.
+										  </li>
+										   <li>
+												Choose the term, <i>ellipsoid body</i> from the autocomplete list.
+		 									 </li>
+										  <li>
+												 A page with all the information about that neuropil (term info window) will be displayed.
+											</li>
+											<li>
+										  	The page shows, on the left,  the viewer, with the saddle highlighted, and on the right, the information for that term (term info window). The <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-ok-circle'></span></a> symbol next to the neuropil name indicates that that domain is displayed in the viewer.
+										  	</li>
+										  	<li>
+										  	Below the viewer is the viewer menu. Any entity that is displayed in the viewer is listed in the Displayed tab. You can centre, hide, delete or add that neuropil to the query builder using the buttons in the display column of the Displayed tab.
+										  </li>
+											<li>
+												Further query options are available from <i>Query for</i>. Click on the arrowheads to see all available sub-options.
+											</li>
+										  <li>
+										  	Select the query <i>Images of neurons with: some part here (clustered by shape)</i>.
+										  </li>
+										  <li>
+											  A list with the query results will be displayed. These are organised by cluster of neurons (group of similar neurons) that overlap the ellipsoid body, and these are named by the exemplar of the cluster. A thumbnail image of the cluster exemplar is also shown. This allows you to quickly scan the clusters to find the neurons you are interested in.
+											</li>
+											<li>
+												The result list has six columns: on the left is a snapshot of the cluster, followed by the exemplar, summary, source, exemplar preview. The last column presents an option to display all images of the neurons in a specific cluster in the viewer, or to list them.
+										  </li>
+											<li>
+												Clicking on the cluster snapshot will take you to the cluster page. There, you can see a 3D rendering of the cluster (in WebGL), and interact with it (rotate, zoom). In addition, the page displays a list of the neurons in that clusters sorted by similarity score, and a list of the top 5 clusters most similar to that one.
+											</li>
+											<li>
+												Back on the result list, clicking on <a href='#' class="btn btn-xs btn-success">List individual members</a>, displays a list of all the neurons that are part of that cluster. The results are organised in seven columns: id, name of the neuron, definition, image thumbnail, source, neuron type and driver.
+											</li>
+											<li>
+												To open a neuron in the viewer, click on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> next to the neuron name. To open all neurons in the results list, click the <a href='#' class="btn btn-xs btn-success">Open in viewer</a> button, at the top of the table.
+											</li>
+											<li>
+											The number of stacks added to the viewer is shown on the green Stack Viewer button in the page header. Click on the button to go to the viewer.
+											</li>
+											<li>
+												In addition to images, you can also add neuropils to the viewer. Search from them using the search box in the page header.
+											</li>
+								 		</ul>
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question3"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
+
+
+            		</div> <!--col-->
+
+
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
+               		<div class="thumbnail thumbnail-top">
+                   	 <a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/R21B06_KCab_q5.png" alt="Transgene that includes alpha/beta Kenyon cells"></a>
+                   	<div class="caption" align="center">
+											<a href="/do/gene_list.html?action=transgene&id=FBbt:00100248" target="_blank">
+						  					Find <b>transgenes</b> expressed <b>in</b> mushroom body alpha/beta <b>neurons</b>
+						  				</a><br/>
+											<a href="#" tabindex="0" rel="question5" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="Find transgenes expressed in the mushroom body alpha/beta neurons:"
+												data-popover-content="#Question5">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question5" class="hide">
+
+										<p>
+										   For more information on this type of query click <a href="/site/vfb_site/features.htm#expquery">here</a>.
+										</p>
+										<ul>
+											<li>
+											Searches of this kind can be done straight from any page on the site, using the search bar on the header.
+											</li>
+											<li>
+												In the search box, start typing <i>mushroom body alpha/beta neuron</i> or any known synonym, such as <i>alpha/beta Kenyon cell</i>.
+											</li>
+
+											<li>
+												Choose the term from the autocomplete list.
+											</li>
+											<li>
+												 A page with all the information about that neuron type (term info window) will be displayed.
+											</li>
+											<li>
+										  	The page shows, on the left,  the viewer, with the saddle highlighted, and on the right, the information for that term (term info window). The <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-ok-circle'></span></a> symbol next to the neuropil name indicates that that domain is displayed in the viewer.
+										  	</li>
+										  	<li>
+										  	Below the viewer is the viewer menu. Any entity that is displayed in the viewer is listed in the Displayed tab. You can centre, hide, delete or add that neuropil to the query builder using the buttons in the display column of the Displayed tab.
+										  </li>
+											<li>
+												The query menu, <i>Query for</i>, is shown at the top of the term info window. Hover to see all available sub-options.
+											</li>
+											<li>
+												Select the query <i>Expression/Phenotypes found here: Transgenes expressed here</i>.
+											</li>
+											<li>
+												A list with the query results will be displayed.
+											</li>
+											<li>
+												If images for the expression pattern of the driver are available they will be shown.<br/>
+												<b>Did you know?</b> If you don't find all the results that you hoped, try running the same query for the neuropils, that is <i>mushroom body alpha, mushroom body beta lobe, or adult mushroom body</i>.
+											</li>
+										</ul>
+
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question5"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												e.preventDefault();
+													if ($(this).is(":focus")) {
+														if ($(this).data("open")) {
+															$(this).blur();
+															$(this).data("open", false);
+														}else{
+															$(this).data("open", true);
+														}
+													}
+											});
+										});
+									</script>
+
+            		</div> <!--col-->
+
+
+            		<div class="col-xs-12 col-sm-4" style="min-width:85px">
+               		<div class="thumbnail thumbnail-top" style="min-width:85px">
+                   	<a href="/site/stacks/index.htm?add=VFBt_00100000,VFBi_00016207,VFBi_00020020,VFBi_00020062" target="_blank"><img class="lazy" style="max-width:100%;" data-original="/images/vfb/project/composite_cropped_q7.png" alt="Overlay of 3 image stacks"></a>
+                   	<div class="caption" align="center">
+											<a href="/site/stacks/index.htm?add=VFBt_00100000,VFBi_00016207,VFBi_00020020,VFBi_00020062" target="_blank">
+						  					<b>Overlay</b> 3 different <b>image stacks</b> that overlap the central complex
+						  				</a><br/>
+						  				<a href="#" tabindex="0" rel="question7" class="btn btn-info btn-xs outline" role="button" data-toggle="popover" data-trigger="focus"
+												data-placement="bottom"
+												title="How to work with composite views:"
+												data-popover-content="#Question7">More &raquo;
+											</a>
+										</div><!--caption-->
+									</div><!--thumbnail-->
+									<div id="Question7" class="hide">
+										<h2>Generating a composite view</h2>
+									  <ul>
+										  <li>
+												You can overlay as many images as you would like on the viewer. Click on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button that appears close to an image name, or if it is a group of neurons, on the <a href='#' class="btn btn-xs btn-success">Open</a> button, and that image will be added to the viewer. </li>
+												<li>
+												In the same way as with image stacks, neuropil domains can also be displayed in the viewer by clicking on the <a href='#' class='btn btn-xs btn-success' ><span style='border:none;padding-left:0px;padding-right:0px;' class='glyphicon glyphicon-paperclip'></span></a> button.
+												</li>
+												<li>
+												Searches for images of neuron types, lineage clones or neuropils can be done straight from any page on the site, using the search bar on the header.
+												<li>
+												The number of stacks added to the viewer is shown on the green Stack Viewer button in the page header. Click on the button to go to the viewer.
+										  </li>
+
+										  <li>
+										The Displayed tab on the menu shows all images that are currently being displayed.
+										  </li>
+										  <li>
+												Each display is associated to a URL which you can share with others. In the Displayed tab, click on <a href='#' class="btn btn-xs btn-success">Copy URL</a> to retrieve it.
+										  </li>
+
+										  <li>
+											  You can save this URL anywhere in a text file or share it with others. Paste the URL in a browser address bar to view that specific combination of images.
+										  </li>
+										  <li>
+										  To clear the viewer, use the <a href='#' class="btn btn-xs btn-warning">Clear all</a> button in the viewer menu, or the header menu 'Stacks > Clear items'.
+										  </li>
+										  <li>
+										  Displayed entities are remembered between visits.
+										  </li>
+
+										</ul>
+
+									</div>
+									<script>
+										$(function(){
+											$('[rel="question7"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+													var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+													return clone;
+												}
+											}).click(function(e) {
+												if ($(this).is(":focus")) {
+													if ($(this).data("open")) {
+														$(this).blur();
+														$(this).data("open", false);
+														return true;
+													}else{
+														$(this).data("open", true);
+														e.preventDefault();
+													}
+												}
+											});
+										});
+									</script>
+
+            		</div> <!--col-->
+
+            	</div><!--row-->
+            </div><!--container-->
+
+          </div><!--panel-->
+
+
+
+
+
+			</div> <!-- div col -->
+
+			<div class="col-md-3" align="center">
+				<div class="well" align="center">
+					<a href="/site/stacks/index.htm" title="Explore and run queries on the adult Drosophila Brain">
+						<h3>Adult Brain Anatomy</h3><img class="lazy" data-original="/images/vfb/project/viewerIcon.png" style="max-width:100%;" />
+					</a>
+				</div>
+			</div>
+
+			<div class="col-md-6" align="center">
+				<div class="well" align="center">
+					<jsp:include page="/site/vfb_site/whats_new.htm" />
+					<p>For full details about the site see the <a href="features.htm">features</a> page.</p>
+				</div>
+			</div>
+
+			<div class="col-md-3" align="center">
+				<div class="well" align="center">
+					<a href="/site/stacks/index.htm?tab=query" title="Build and execute connectivity queries">
+						<h3>Connectivity Query</h3><img class="lazy" data-original="/images/vfb/project/queryBuilderIcon.png" style="max-width:100%;" />
+					</a>
+				</div>
+			</div>
+
+			<div class="clearfix visible-md-block"></div>
+
+
+			<div class="col-md-7" align="center">
+				<div class="well" align="center">
+					<a href="http://www.youtube.com/channel/UC1g10aJo13fXpO9VwRJPdHg" target="_blank" style="z-index:0"> <h3 style="margin:3px">Demonstration Videos</h3></a>
+					<!-- 16:9 aspect ratio -->
+					<div class="embed-responsive embed-responsive-16by9">
+					  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/videoseries?list=PLByf4V60-spifADBofOXP3dp-Gpd6xff6"></iframe>
+					</div>
+				</div>
+			</div> <!-- icon_row -->
+
+			<div class="col-md-5" align="center">
+						<div class="content">
+							<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+						</div>
+			</div><!--/.sidebar-offcanvas-->
+
+		</div><!--div row-->
+
+
+
+	</div><!--div col9-->
+
+
+
+
+
+
+</div><!--/row-->
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

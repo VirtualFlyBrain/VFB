@@ -1,7 +1,6 @@
 <jsp:include page="/jsp/includes/1ColHead.jsp" >
 	<jsp:param name="title" value="Query Builder" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Tools@#|Query Builder@ " />
-	<jsp:param name="css" value="/css/vfb/layout/layout-query.css;" />
 </jsp:include>
 
 	<script type="text/javascript">
@@ -10,18 +9,25 @@
 		})
 		function execOntQuery()
 		{
-			window.open('/do/ont_query_result.html?action=multiquery','_blank'); return false;
+			window.open('/do/ont_query_result.html?action=multiquery&time=' + Date.now(),'_blank'); return false;
 		}
 		function execDBQuery()
 		{
-			fireLightBox("/do/gene_list.html?action=multiquery", 600, 800); return false;
+			fireLightBox("/do/gene_list.html?action=multiquery&time=" + Date.now(), 600, 800); return false;
 		}
 		function showPopup(url)
 		{
 			fireLightBox(url, 600, 800); return false;
 		}
-		
+
 	</script>
-		<iframe id="browser_interface" src="/site/tools/query_builder/vfbInterfaceBasic.htm?currURL=${sessionScope.currURL}" height="1500px" width="830px" align="left" scrolling="no" FRAMEBORDER="0"></iframe>
-		<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" height="1500px" width="420px" align="left" FRAMEBORDER="0"></iframe>
-<jsp:include page="/jsp/includes/homeFoot.jsp" /> 
+
+	<div class="row">
+		<div class="col-md-8">
+			<iframe id="browser_interface" src="/site/tools/query_builder/vfbInterfaceBasic.htm?currURL=${sessionScope.currURL}" style="width=100%; height=100%" align="left" scrolling="no" FRAMEBORDER="0"></iframe>
+		</div>
+		<div class="col-md-8">
+			<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width=100%; height=100%" align="left" FRAMEBORDER="0"></iframe>
+		</div>
+	</div>
+	<jsp:include page="/jsp/includes/bits/cellar.jsp" />

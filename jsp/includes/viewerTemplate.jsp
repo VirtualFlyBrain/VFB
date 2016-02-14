@@ -1,155 +1,268 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><c:set var="meta_root">${(empty param.meta_root)?"/data/flybrain/":param.meta_root}</c:set><jsp:include page="/jsp/includes/homeHead.jsp">
+	<jsp:param name="title" value="Virtual Fly Brain: ${param.title}" />
+	<jsp:param name="css" value="
+		/css/bootstrap-slider.min.css;
+		//cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.css;
+		/css/bootstrap-colorpicker.min.css;
+		" />
+	<jsp:param name="js" value="
+		/javascript/vfb/wlziip.js;
+		/javascript/thirdParty/bootstrap-slider.min.js;
+	  //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.js;
+		/javascript/thirdParty/bootstrap-colorpicker.min.js;
+		/javascript/thirdParty/stroketext/strokeText.js;
+		//cdn.datatables.net/plug-ins/1.10.10/api/fnStandingRedraw.js;
+		" />
+</jsp:include>
+<script>paramInc = {};</script>
+<c:if test="${!empty param.id}"><script>$('body').ready( function () { openFullDetails("${param.id}"); window.setTimeout(function(){ detailLoad = false; openFullDetails("${param.id}"); }, 5000);}); paramInc.id = '${param.id}'; </script></c:if>
+<c:if test="${!empty param.clear}"><script>window.setTimeout(function(){clearAllDisplayed(); updateStackData();}, 3000); paramInc.clear = '${param.clear}'; </script><c:if test="${!empty param.add}"><script>window.setTimeout(function(){addToStackData("${param.add}"); updateStackData();}, 3500);</script></c:if></c:if>
+<c:if test="${!empty param.add}"><script>addToStackData("${param.add}", paramInc.id === undefined); updateStackData(); paramInc.add = '${param.add}'; </script></c:if>
+<c:if test="${!empty param.tab}"><script>$('body').ready( function () { window.setTimeout(function(){ openTab("${param.tab}"); }, 5000);}); paramInc.tab = '${param.tab}'; </script></c:if>
 
-<c:set var="meta_root">${(empty param.meta_root)?"/data/flybrain/":param.meta_root}</c:set>
+<div class="row">
+	<div class="col-md-6" style="min-width:555px;padding: 2px;">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Virtual Fly Brain: ${param.title}</title>
-<meta name="keywords"
-	content="virtual fly brain atlas, interactive fly brain, Drosophila, fruit fly,  brain atlas, neuron search, neuropil search, phenotype search, gene expression" />
-<meta name="author" content="Virtual Fly Brain Project" />
-<meta name="description" content="High Resolution 3D Drosophila brain atlas" />
 
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/header.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/layout/layout.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/help.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/utils.css" />
-<link rel="stylesheet" type="text/css" href="/css/vfb/utils/p7menu.css" />
+		<div class="row" style="overflow:scroll;">
 
-<link rel="stylesheet" media="all" type="text/css" href="/css/utils/contextMenu.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/autocomplete.css" />
-
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/tiledImage.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/draggableWindow.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/rotation.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/fixedPoint.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/scale.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/refresh.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/measuring.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/selector.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/locator.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/tools/slider.css" />
-
-<link rel="stylesheet" type="text/css" media="all" href="/css/utils/busyIndicator.css" />
-<link rel="stylesheet" type="text/css" media="all" href="/css/utils/marker.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/utils/emapMenu.css" />
-
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/tree.css" />
-<link rel="stylesheet" media="all" type="text/css" href="/css/tree/colourPick.css" />
-<link rel="stylesheet" href="/thirdParty/smoothbox/smoothbox.css" type="text/css" media="screen" />
-
-<c:forEach items="${fn:split(param.css, ';')}" var="item">
-	<link rel="stylesheet" media="all" type="text/css" href="${item}" />
-</c:forEach>
-
-<script type="text/javascript" src="/javascript/thirdParty/json2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-core-1.3.2.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mootools-more-1.3.2.1.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/mifTree.js"></script>
-
-<script type="text/javascript" src="/javascript/utils/busyIndicator.js"></script>
-<script type="text/javascript" src="/javascript/utils/utilities.js"></script>
-<script type="text/javascript" src="/javascript/utils/ajaxContentLoader.js"></script>
-<script type="text/javascript" src="/javascript/utils/emapMenu.js"></script>
-
-<script type="text/javascript" src="/javascript/tiledImageModel.js"></script>
-<script type="text/javascript" src="/javascript/tiledImageView.js"></script>
-
-<script type="text/javascript" src="/javascript/tools/draggableWindow.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/expressionLevelKey.js"></script>
-<script type="text/javascript" src="/javascript/tools/sliderComponent.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageLocatorTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageDistanceTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageLayerTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImagePropertiesTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageRotationTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageRefreshTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageMeasuringTool.js"></script>
-<script type="text/javascript" src="/javascript/tree/treeImplementVFB.js"></script>
-<script type="text/javascript" src="/javascript/tree/tiledImageTreeTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageScaleTool.js"></script>
-<script type="text/javascript" src="/javascript/tools/tiledImageFixedPointTool.js"></script>
-<script type="text/javascript" src="/javascript/tree/colorPicker.js"></script>
-<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
-<script type="text/javascript" src="/javascript/tree/contextMenu.js"></script>
-<script type="text/javascript" src="/javascript/tree/contextMenuVFB.js"></script>
-<script type="text/javascript" src="/javascript/vfb/utils.js"></script>
-<script type="text/javascript" src="/thirdParty/smoothbox/smoothbox.js"></script>
-<script type="text/javascript" src="/javascript/vfb/mailEncoder.js"></script>
-
-<script type="text/javascript">
-	   var emapModel = emouseatlas.emap.tiledImageModel;
-	   var selectedNodeId = "${param.id}";
-	   var addNodeId = '${param.add}';
-	   var domainList = readCookieAsArray('domainList');
-	   //alert("Domain List: " + domainList);
-	   if (addNodeId !== undefined && addNodeId != null && addNodeId != ''){
-		    //alert("including " + addNodeId);
-	   	 	domainList.include(addNodeId);
-	   }
-	   //alert("Updated cookie: " + domainList);
-	   saveArrayAsCookie(domainList, 'domainList');
-//	   Cookie.dispose('domainList');
-	   window.addEvent('domready', function() {
-	   <c:if test="${!empty param.json}">
-		  jso = {"modelDataUrl":"/do/get_json.html?json=${param.json}&type=${param.type}"};
-		</c:if>
-		<c:if test="${!empty param.woolz}">
-		  jso = {"modelDataUrl":"${meta_root}${param.woolz}"};
-		</c:if>
-	      emapModel.initialise(jso);
-		});
-	
-</script>
-
-</head>
-<body>
-	<jsp:include page="/jsp/includes/js/tag.jsp" />
-
-	<jsp:include page="/jsp/includes/bits/head.jsp" />
-
-	<div id="contentwrapper">
-		<div id="center_panel">
-			<div id="emapIIPViewerDiv"></div>
-		</div>
-	</div>
-
-	<div id="left_panel">
-		<div id="toolContainerDiv">
-			<!-- We presume that for third party stacks with proper credits the param.json will be used-->
-			<c:if test="${empty param.json}">
-				<jsp:include page="/jsp/includes/bits/credits.jsp" />
-			</c:if>
-			<c:if test="${!empty param.json}">
-				<jsp:include page="/jsp/includes/bits/credits3party.jsp">
-					<jsp:param name="tpb" value="${param.tpb}" /> 
-				</jsp:include>
-			</c:if>
-		</div>
-	</div>
-
-	<div id="right_panel"></div>
-
-	<div id="footer">
-		<div id="annotation">
-			<!-- Need this to get the context menu on the term info box working, see span above -->
-			<div id="annotation_content">
-				<h2 class="panel_header">Annotation for Selected Node</h2>
-				Annotation for currently selected anatomical term is displayed here.<br/><br/>
-				Please click anywhere on the stack viewer above or on any node of the
-				tree on the right to select a domain.<br/><br/>
-				<b>Did you know?</b> You can run simple queries on a chosen term from the current panel. <br/> 
-				Simply choose one of the query options to the right of 'Query for', on the term-specific menu bar that will appear at the top of this panel once you have selected an anatomy term.<br/><br/> 
-				<b>Tip: </b> To keep your current domain/tree selection open links in a new tab. Right/control click the link and select "Open link in new tab".  
+			<div class="col-md-12" id="viewer-menu">
+				<form class="form-inline">
+					<div class="btn btn-default btn-xs form-group" title="Reset view" id="resetPosition"><span class="glyphicon glyphicon-screenshot"></span></div>
+					<div class="btn btn-default btn-xs form-group" title="Move through the stack" id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal" class="badge">1</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-sliceCurrentSlider" class="form-group" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice" type="text" /></div>
+					<div class="btn btn-default btn-xs form-group" title="Change the image scale" id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal" class="badge">1x</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-scaleCurrentSlider" class="form-group" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale" type="text" /></div>
+					<div class="btn btn-default btn-xs form-group" title="Change the viewing plane" id="toggle-view">Plane <span id="toggle-viewVal" class="badge">Z</span> <span class="glyphicon glyphicon-repeat"></span></div>
+					<div class="btn btn-default btn-xs hidden-xs form-group" title="Adjust the image blending transparency. Note: this will also be automatically adjusted" id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span id="slider-alphaSliderVal" class="badge">61%</span> <span class="glyphicon glyphicon-edit"></span></div>
+					<div id="slider-alphaCurrentSlider" class="hidden-xs form-group" style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha" type="text" /></div>
+					<a href="#" tabindex="0" rel="imageAttributes" class="btn btn-default btn-xs" role="button" data-toggle="popover" data-trigger="focus"
+						data-placement="bottom"
+						title="Image Attribution"
+						data-popover-content="#imageAttributes">
+							<span class="glyphicon glyphicon-info-sign"></span>
+					</a>
+					<div id="imageAttributes" class="hide">
+						<span id="imageAttributesText" >
+						<c:if test="${!empty param.stackInfo}">
+							<c:set var="credits" value="${fn:split(param.stackInfo,'|')}" />
+							<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
+							<p>${credits[0]}</p>
+						  <p><b>Created by: </b>${credits[1]}</p>
+						  <p><b>Background Staining: </b>${credits[2]} <span id="backgroundStain"><a href="${credits[3]}" target="_blank">${credits[4]}</a></span</p>
+							<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
+							<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
+						</c:if>
+						<c:if test="${empty param.stackInfo}">
+							<h3><span class="glyphicon glyphicon-picture"></span> Background and Anatomy Stack:</h3>
+							<p><a href="/site/vfb_site/template_files_downloads.htm">Full details and a download link can be found here.</a>
+							<h3><span class="glyphicon glyphicon-info-sign"></span> See information for each image for attribution information.</h3>
+						</c:if>
+						</span>
+					</div>
+					<div class="btn btn-success btn-xs form-group" title="Open current items in 3D" id="open3D" onclick="window.open($('#menuOpen3Dlink').attr('href'), '_blank', async = true);">3D <span class="glyphicon glyphicon-share"></span></div>
+				</form>
 			</div>
 		</div>
-		<jsp:include page="/jsp/includes/bits/cellar.jsp" />
+		<div class="row" style="overflow:scroll;">
+			<div class="col-md-12" id="viewer-panel">
+				<canvas class="well" id="canvas" style="display: block; cursor: crosshair;" >Your browser does not support the HTML5 canvas tag.</canvas>
+				<div id="labelBlock" style="position: absolute; color: black; padding-left: 5px; padding-right: 5px; top: 0px; left: 35px;">Loading...</div>
+				<script>
+					$(document).ready(function() {
+						$('[rel="imageAttributes"]').popover({trigger: 'focus',container: 'body',html: true,content: function () {
+								var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+								return clone;
+							}
+						}).click(function(e) {
+							if ($(this).is(":focus")) {
+								if ($(this).data("open")) {
+									$(this).blur();
+									$(this).data("open", false);
+									return true;
+								}else{
+									$(this).data("open", true);
+									e.preventDefault();
+								}
+							}
+						});
+						animateWlzDisplay();
+					});
+				</script>
+			</div>
+		</div>
+
+		<div class="row">
+				<div class="col-md-12" id="right-panel">
+					<div class="content-fluid">
+						<ul class="nav nav-tabs">
+						  <li id="SelecMenuTab"><a id="selecHead" href="#selec" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Selected</a></li>
+						  <li id="DispMenuTab" class="active"><a href="#disp" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Displayed</a></li>
+						  <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
+							<li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span class="glyphicon glyphicon-tasks"></span> Query Builder</a></li>
+							<li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
+						</ul>
+						<div class="tab-content">
+						        <div class="tab-pane" id="selec">
+											<div class="row-fluid" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
+													<h4>Available at the selected point <span id="pointVal" class="label label-default label-as-badge">X,Y,Z</span></h4>
+												</div>
+												<div class="col-md-12" style="padding:0;">
+													<div class="table-responsive" id="selecContent">
+														<table id="selected" class="display compact" cellspacing="0">
+															<thead>
+																<tr>
+																	<th>Name</th><th>#</th><th>Controls</th><th>Type</th><th>Image</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr><th>Click somewhere on the image</th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
+															</tbody>
+														</table>
+														<script>
+														  $(document).ready(function() {
+																$('#selected').DataTable( { retrieve: true,
+													        paging: true,
+													        searching: true,
+													        ordering: true,
+													        responsive: false,
+													        stateSave: true,
+													        order: [[ 1, 'desc' ]],
+																	dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
+													      });
+																$('#selected').DataTable().column(3).visible(false);
+																$('#selected').DataTable().column(1).visible(false);
+																$('#selected').on( 'page.dt', function () {
+													        updateLabels();
+																	$('#selected').dataTable().fnAdjustColumnSizing(false);
+																	$('#selected').DataTable().draw(false);
+													      } );
+															});
+														</script>
+													</div>
+												</div>
+											</div>
+						        </div>
+						        <div class="tab-pane active" id="disp">
+											<div class="row-fluid" style="padding:0;">
+												<div class="col-md-12" style="padding:0;">
+							            <a href="#" onClick="clearAllDisplayed();" class="btn btn-xs btn-warning" style="float:left;"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-trash"></span> Clear all</a>
+													<a href="#" onClick="copyUrlToClipboard();" class="btn btn-xs btn-success" style="float:right;"><span style="border:none;padding-left:0px;padding-right:0px;" class="glyphicon glyphicon-copy"></span> Copy URL</a>
+													<h4><center>Currently Displayed</center></h4>
+												</div>
+												<div class="col-md-12" style="padding:0;" id="dispTable">
+													<div class="table-responsive" id="dispContent">
+														<table id="displayed" class="display compact" cellspacing="0">
+															<thead>
+																<tr>
+																	<th>Name</th><th>#</th><th>Controls</th><th>Type</th><th>Image</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th>-</th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th><th><img src="/images/tools/ajax-loader.gif" alt="loading..." /></th></tr>
+															</tbody>
+														</table>
+														<script>
+														  $(document).ready(function() {
+																loadRightMenuDisplayed();
+																updateLabels();
+														    window.setInterval(function(){
+																	if ($.fn.dataTable == undefined){
+																		console.log('Reloading on watchdog failure...');
+																		location.reload();
+																	}else{
+																		if ($.fn.dataTable.isDataTable('#displayed')) {
+																			loadRightMenuDisplayed();
+																			// $('#displayed').DataTable().column( 0 ).visible( false );
+																      // $('#displayed').dataTable().fnAdjustColumnSizing();
+																			if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+																        $('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+																      }
+																			if ($('#selected_filter > label') && $('#selected_filter > label').html() && $('#selected_filter > label').html().indexOf('Search:')>-1) {
+																				$('#selected_filter > label').html($('#selected_filter > label').html().replace('Search:','Filter:'));
+																			}
+																		}
+																	}
+																	$("#labelBlock").text('click for info; double click to select');
+														    }, 10000);
+																loadRightMenuDisplayed();
+																if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
+																	$('#displayed_filter > label').html($('#displayed_filter > label').html().replace('Search:','Filter:'));
+																}
+														  });
+														</script>
+													</div>
+												</div>
+											</div>
+						        </div>
+						        <div class="tab-pane" id="anato">
+											<div class="row-fluid" style="padding:0;">
+												<div class="col-sm-12">
+						            	<h4 style="display: inline-block;">Neuroanatomy </h4>
+													<div class="btn-group">
+														<button class"btn btn-default btn-xs" onClick="addAllDomains();" title="Add all available anatomy to the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-plus"></span> Add All</button>
+														<button class"btn btn-default btn-xs" onClick="removeAllDomains();" title="Remove all available anatomy from the stack" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-minus"></span> Remove All</button>
+														<button class"btn btn-default btn-xs" onClick="expandTree();" title="expand tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-full"></span> Expand Tree</button>
+														<button class"btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree" data-toggle="tooltip" data-placement="top"><span class="glyphicon glyphicon-resize-small"></span> Collapse Tree</button>
+													</div>
+												</div>
+												<div class="clearfix visible-sm-block"></div>
+												<div class="col-md-12" id="anatoContent" style="padding:0;"></div>
+											</div>
+						        </div>
+										<div class="tab-pane" id="queryBuild">
+											<div class="row-fluid row-centered" style="padding:0;">
+												<div class="col-md-12 col-centered">
+						            	<h4>Your Query</h4>
+												</div>
+												<div id="queryText" class="col-md-12 col-centered" style="padding:0;">
+													<iframe id="query_builder" name="query_builder" src="/do/query_builder.html" id="query_builder" style="width:100%;height:400px" FRAMEBORDER="0"></iframe>
+												</div>
+											</div>
+										</div>
+										<div class="tab-pane" id="min">
+										</div>
+						</div><!-- tab content -->
+					</div><!-- end of container -->
+				</div>
+		</div>
 	</div>
 
+	<div class="col-md-6">
 
-</body>
-</html>
+		<div id="details">
+			<div id="annotation" class="well" style="padding-top: 2px;">
+				<a name="details"></a>
+				<div id="anatomyDetails">
+					<!-- <h2 class="panel_header">Annotation for Selected Node</h2> -->
+					Click anywhere on the stack viewer or use the search in the header or the Anatomy menu tab to select an anatomy term.<br/><br/>
+					Information for the selected anatomical term will be displayed here, with further query options visible after selection.
+					<script>
+					$(document).ready(function() {
+						if (parent.$('body').data('current')) {
+							var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+							var topLayer = Object.keys(selected).length-1;
+							var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+							openFullDetails(id);
+						}else{
+							window.setTimeout(function(){
+								if (parent.$('body').data('current')) {
+									var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+									var topLayer = Object.keys(selected).length-1;
+									var id = parent.$("body").data(parent.$("body").data("current").template).selected[topLayer].id;
+									if (id.indexOf('00000')<0 && id.indexOf('VFBd_')<0) {
+										openFullDetails(id);
+									}
+								}
+						  }, 5000);
+						}
+					});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content-fluid" id="footer">
+<jsp:include page="/jsp/includes/homeFoot.jsp" />

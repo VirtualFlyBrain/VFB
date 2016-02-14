@@ -38,7 +38,7 @@
 //emouseatlas.emap.tiledImageTreeTool = new Class ({
 var tiledImageTreeTool = new Class ({
 	Extends: tiledImageTool,
-	
+
 	initialize: function(params) {
 
 		this.name = "TreeTool";
@@ -50,7 +50,7 @@ var tiledImageTreeTool = new Class ({
 
 		this.layer = params.layer;
 
-		var win = $(this.shortName + '-win');	
+		var win = $(this.shortName + '-win');
 		win.setStyles({
 			'width':'100%',
 			'height':($(this.targetId).getSize().y-this.toolBarHeight-8),
@@ -86,7 +86,7 @@ var tiledImageTreeTool = new Class ({
 		this.searchHeader = new Element("h2", {
 			"id": "search_header",
 			"class":"panel_header",
-			"text":"Anatomy Tree and Search",
+			"text":"Anatomy Tree",
 			"style":"margin-top:0"
 		});
 		this.searchHeader.inject(this.treeControlContainer, 'inside');
@@ -94,7 +94,8 @@ var tiledImageTreeTool = new Class ({
 		this.searchTextBox = new Element("input", {
 			"type":"text",
 			"id": "search_text",
-			"text":"start typing here"
+			"text":"start typing here",
+			"placeholder": "Search for a neuropil"
 		});
 		this.searchTextBox.inject(this.treeControlContainer, 'inside');
 		//----------------------------------------

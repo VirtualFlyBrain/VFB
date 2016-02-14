@@ -16,9 +16,9 @@ import uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO;
 
 public class AutocompleteView extends AbstractView{
 	private AutocompleteDAO autocompleteDAO;
-	private static String SYN_STR="\t{\"id\": \"ID\", \"text\": \"VALUE\"},\n"; 
-	private static final Log LOG = LogFactory.getLog(AutocompleteView.class); 
-	
+	private static String SYN_STR="\t{\"id\": \"ID\", \"text\": \"VALUE\"},\n";
+	private static final Log LOG = LogFactory.getLog(AutocompleteView.class);
+
 	public AutocompleteView(AutocompleteDAO autocompleteDAO) {
 		super();
 		this.autocompleteDAO = autocompleteDAO;
@@ -32,13 +32,11 @@ public class AutocompleteView extends AbstractView{
 		String limit = req.getParameter("limit");
 		PrintWriter writer = res.getWriter();
 		writer.write(getAutocompleteListAsJson(q, limit));
-		writer.flush(); 
-		writer.close();		
+		writer.flush();
+		writer.close();
 	}
-	
-	private String getAutocompleteListAsJson(String q, String limit){
-		//if query is shorter than 3 chars ignore request. 
-		if (q==null || q.length()<2) return "";
+
+	private String getAutocompleteListAsJson(String q, String limit){ 
 		return autocompleteDAO.getMatchingBeansByPattern(q,  "itunes");
 	}
 
