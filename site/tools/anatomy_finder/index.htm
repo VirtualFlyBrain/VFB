@@ -1,67 +1,18 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:choose>
-	<c:when test="${(empty param.id) || (empty param.name)}" >
-		<jsp:include page="/jsp/includes/homeHead.jsp">
-			<jsp:param name="title" value="Advanced Search" />
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="/jsp/includes/homeHead.jsp">
-			<jsp:param name="title" value="${fn:replace(param.name,'%20',' ')}" />
-	</c:otherwise>
-</c:choose>
-<!-- Need to be here to load dynamically, otherwise does not work -->
-	<script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
+<string>
+    // Original URL
+    var url = window.location.href;
+    var newUrl = "";
+
+    // Split the String to get the Query strings
+    var splitString = url.split('?');
 
 
-<div class="row">
-
-	<div id="details" class="col-xs-12 col-lg-10 col-lg-offset-1">
-
-		<div class="row">
-			<div class="col-lg-4" id="result-section" style="display: none;">
-				<div class="well">
-					<div class="contence-fluid" id="result">
-						<div class="row" id="navigation">
-							<div class="col-xs-6" id="pager-header"></div>
-							<div class="col-xs-6"><ul class="list-inline" id="pager"></ul></div>
-						</div>
-						<dl>
-							<div class="contence-fluid" id="docs"></div>
-						</dl>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-8" id="details-section">
-				<div class="well" id="anatomyDetails">
-					<c:if test="${!empty param.id}" >
-						<script>
-							jQuery(function( $ ){
-								$('#result-section').hide();
-								$('#details-section').addClass('col-lg-12').removeClass('col-lg-8');
-							});
-						</script>
-						<jsp:include page="/do/ont_bean.html">
-							<jsp:param name="fbId" value="${param.id}" />
-						</jsp:include>
-					</c:if>
-
-					<c:if test="${empty param.id}" >
-						Select a specific neuron, neuropil domain, lineage clone or tract to see annotations and further query options. <br/>
-
-						<br />
-					</c:if>
-
-
-					<c:if test="${!empty errorMsg}" >
-						<script type="text/javascript">
-							alert("${errorMsg}");
-						</script>
-					</c:if>
-				</div>
-			</div>
-
-		</div> <!-- annotation -->
-	</div>
-</div>
-<jsp:include page="/jsp/includes/homeFoot.jsp"/>
+    if (splitString.length > 1) {
+        // New Url With Query strings
+        newUrl = "/do/ont_bean.html" + "?" + splitString[1];
+    } else {
+        // New Url With NO query string
+        newUrl = "/site/stacks/index.htm";
+    }
+    window.location = newUrl;
+</string>
