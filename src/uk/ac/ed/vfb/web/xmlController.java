@@ -60,8 +60,8 @@ public class xmlController implements Controller {
                 l = individual.length();
                 if (individual.indexOf("VFB_") > -1) {
                     if (new File("/disk/data/VFB/IMAGE_DATA/VFB/i/" + individual.substring(l - 8, l - 4) + "/" + individual.substring(l - 4, l) + "/volume.swc").isFile()) {
-                        swcxmli += "<variables id=\"" + individual + "_swc\" name=\"" + individual + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
-                        lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individual + "_swc\" name=\"" + individual + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individual.substring(l - 8, l - 4) + "/" + individual.substring(l - 4, l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
+                        swcxmli += "<variables id=\"" + individual + "\" name=\"" + individual + "\" types=\"//@libraries.1/@types." + n.toString() + "\"/>\r\n";
+                        lib += "<types xsi:type=\"gep_1:ImportType\" id=\"" + individual + "\" name=\"" + individual + "\" url=\"SERVER_ROOT/appdata/vfb/VFB/i/" + individual.substring(l - 8, l - 4) + "/" + individual.substring(l - 4, l) + "/volume.swc\" modelInterpreterId=\"swcModelInterpreter\"/>\r\n";
                         n++;
                     } else {
                         xmli += "<variables id=\"" + individual + "\" name=\"" + individual + "\" types=\"//@libraries.0/@types." + c.toString() + "\"/>\r\n";
