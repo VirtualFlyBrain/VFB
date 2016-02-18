@@ -162,7 +162,12 @@ then
         chmod -R 777 . 2>/dev/null | :
         echo "Done."
     fi
-
+    if [ $branch == "Main-Server" ] 
+    then
+    	printf 'User-agent: *\r\nDisallow: \r\n' > robots.txt
+    else
+    	printf 'User-agent: *\r\nDisallow: /\r\n' > robots.txt
+    fi
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
 fi
