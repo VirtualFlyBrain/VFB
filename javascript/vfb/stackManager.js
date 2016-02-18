@@ -448,7 +448,7 @@ var CompMax = {
     P8: 'false',
     P9: 'true'
 };
-var availableTemplates = ['VFBt_001','VFBt_002','VFBt_003','VFBt_004']; // TBD generate from folders
+var availableTemplates = ['VFBt_001', 'VFBt_002', 'VFBt_003', 'VFBt_004']; // TBD generate from folders
 
 
 function updateStackCounter() {
@@ -715,7 +715,7 @@ function cleanIdforInt(id) {
 
 function backgroundLoadMeta(id) {
     try {
-        if (id && id.indexOf('VFBt_')>-1) {
+        if (id && id.indexOf('VFBt_') > -1) {
             var file = "/data/" + fileFromId(id).replace("composite.wlz", "meta.json");
             $.getJSON(file, function (data) {
                 $.each(data, function (key, val) {
@@ -724,11 +724,11 @@ function backgroundLoadMeta(id) {
             });
         } else {
             var i;
-            for (i in availableTemplates){
+            for (i in availableTemplates) {
                 backgroundLoadMeta(availableTemplates[i]);
             }
         }
-    }catch (ignore){
+    } catch (ignore) {
         console.log('Background meta loading error...');
     }
 }
