@@ -943,18 +943,22 @@ function initWlzControls() {
         });
         $("#canvas").hover(function (e) {
             forceStoreControl();
+            $("#labelBlock").css('background-color', 'white');
             $("#labelBlock").show();
             $("#labelBlock").text('click for full details');
             showLabel = true;
         }, function () {
             $("#labelBlock").hide();
+            $("#labelBlock").css('top', 0);
+            $("#labelBlock").css('left', 35);
+            $("#labelBlock").css('background-color', '');
             showLabel = false;
         });
         $("#canvas").mousemove(function (e) {
             if (showLabel && !labelCall) {
                 labelCall = true;
                 callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
-                $("#labelBlock").css('top', e.pageY - $("#canvas").offset().top);
+                $("#labelBlock").css('top', (e.pageY + 20) - $("#canvas").offset().top);
                 $("#labelBlock").css('left', e.pageX - $("#canvas").offset().left);
             }
         });
