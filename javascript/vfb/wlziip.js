@@ -16,9 +16,13 @@ var isTyping = false;
 window.features = [];
 var coloursLoading = false;
 var change = Date.now() - (60 * 60000);
+var controlSelection = 'slider-sliceCurrentSliderValLabel';
 
 function updateWlzDisplay() {
     updateStackData();
+    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchgroup').is(":focus"))) {
+        clickControlButton(controlSelection);
+    }
     if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
         $('#slider-sliceCurrentSlider').hide();
         $('.tt-menu').hide();
@@ -31,6 +35,9 @@ function updateWlzDisplay() {
     }
     if (typeof updateDetailButtons !== 'undefined' && $.isFunction(updateDetailButtons)) {
         updateDetailButtons();
+    }
+    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchgroup').is(":focus"))) {
+        clickControlButton(controlSelection);
     }
 }
 
@@ -898,71 +905,35 @@ function initWlzControls() {
             }
         });
         $("body").on('click', "#slider-scaleCurrentSliderValLabel", function () {
-            forceStoreControl();
-            if ($("#slider-scaleCurrentSlider").is(":visible")) {
-                $("#slider-scaleCurrentSlider").hide();
-                $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
-                $("#slider-scaleCurrentSliderValLabel").removeClass("active");
-            } else {
-                hideAllSliders();
-                $("#slider-scaleCurrentSlider").css('display', 'inline-block');
-                $("#slider-scaleCurrentSliderValLabel .glyphicon").hide();
-                $("#slider-scaleCurrentSliderValLabel").addClass("active");
-                $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focus();
-                window.reloadInterval = 10;
-            }
+            clickControlButton('scale');
         });
-        $("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-            if ($("#slider-scaleCurrentSlider").is(":visible")) {
-                $("#slider-scaleCurrentSlider").hide();
-                $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
-                $("#slider-scaleCurrentSliderValLabel").removeClass("active");
-            }
-        });
+        //$("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
+        //    if ($("#slider-scaleCurrentSlider").is(":visible")) {
+        //        $("#slider-scaleCurrentSlider").hide();
+        //        $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
+        //        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
+        //    }
+        //});
         $("body").on('click', "#slider-sliceCurrentSliderValLabel", function () {
-            forceStoreControl();
-            if ($("#slider-sliceCurrentSlider").is(":visible")) {
-                $("#slider-sliceCurrentSlider").hide();
-                $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
-                $("#slider-sliceCurrentSliderValLabel").removeClass("active");
-            } else {
-                hideAllSliders();
-                $("#slider-sliceCurrentSlider").css('display', 'inline-block');
-                $("#slider-sliceCurrentSliderValLabel .glyphicon").hide();
-                $("#slider-sliceCurrentSliderValLabel").addClass("active");
-                $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focus();
-                window.reloadInterval = 10;
-            }
+            clickControlButton('slice');
         });
-        $("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-            if ($("#slider-sliceCurrentSlider").is(":visible")) {
-                $("#slider-sliceCurrentSlider").hide();
-                $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
-                $("#slider-sliceCurrentSliderValLabel").removeClass("active");
-            }
-        });
+        //$("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
+        //    if ($("#slider-sliceCurrentSlider").is(":visible")) {
+        //        $("#slider-sliceCurrentSlider").hide();
+        //        $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
+        //        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
+        //    }
+        //});
         $("body").on('click', "#slider-alphaCurrentSliderValLabel", function () {
-            forceStoreControl();
-            if ($("#slider-alphaCurrentSlider").is(":visible")) {
-                $("#slider-alphaCurrentSlider").hide();
-                $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
-                $("#slider-alphaCurrentSliderValLabel").removeClass("active");
-            } else {
-                hideAllSliders();
-                $("#slider-alphaCurrentSlider").css('display', 'inline-block');
-                $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").hide();
-                $("#slider-alphaCurrentSliderValLabel").addClass("active");
-                $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focus();
-                window.reloadInterval = 10;
-            }
+            clickControlButton('alpha');
         });
-        $("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-            if ($("#slider-alphaCurrentSlider").is(":visible")) {
-                $("#slider-alphaCurrentSlider").hide();
-                $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
-                $("#slider-alphaCurrentSliderValLabel").removeClass("active");
-            }
-        });
+        //$("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
+        //    if ($("#slider-alphaCurrentSlider").is(":visible")) {
+        //        $("#slider-alphaCurrentSlider").hide();
+        //        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
+        //        $("#slider-alphaCurrentSliderValLabel").removeClass("active");
+        //    }
+        //});
         $("#canvas").click(function (e) {
             forceStoreControl();
             window.PosX = Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width()) / 2));
@@ -1033,6 +1004,23 @@ function initWlzControls() {
         window.setTimeout(function () {
             initWlzControls();
         }, 5000);
+    }
+}
+
+function clickControlButton(name){
+    forceStoreControl();
+    if ($("#slider-" + name + "CurrentSlider").is(":visible")) {
+        $("#slider-" + name + "CurrentSlider").hide();
+        $("#slider-" + name + "CurrentSliderValLabel .glyphicon").show();
+        $("#slider-" + name + "CurrentSliderValLabel").removeClass("active");
+    } else {
+        controlSelection = name;
+        hideAllSliders();
+        $("#slider-" + name + "CurrentSlider").css('display', 'inline-block');
+        $("#slider-" + name + "CurrentSliderValLabel .glyphicon").hide();
+        $("#slider-" + name + "CurrentSliderValLabel").addClass("active");
+        $("#slider-" + name + "CurrentSlider .slider-handle.min-slider-handle").focus();
+        window.reloadInterval = 10;
     }
 }
 
