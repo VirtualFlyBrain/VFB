@@ -1,3 +1,24 @@
+<!--forward requests to main browser-->
+<meta http-equiv="Refresh" content="50;URL=/site/stacks/index.htm"/>
+<script language="JavaScript">
+	// Original URL
+	var url = window.location.href;
+	var newUrl = "";
+
+	// Split the String to get the Query strings
+	var splitString = url.split('?');
+
+
+	if (splitString.length > 1) {
+		// New Url With Query strings
+		newUrl = "/do/ont_bean.html" + "?" + splitString[1];
+	} else {
+		// New Url With NO query string
+		newUrl = "/site/stacks/index.htm";
+	}
+	window.location = newUrl;
+</script>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/includes/1ColHead.jsp">
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Tools@#|User details" />

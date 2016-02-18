@@ -455,7 +455,7 @@ function drawText(X, Y, message, color) {
         var ctx = document.getElementById("canvas").getContext("2d");
         set_textRenderContext(ctx);
         if (check_textRenderContext(ctx)) {
-            var point = 12;
+            var point = 10;
             if (scl < 1) {
                 point = Math.ceil(point * scl);
             }
