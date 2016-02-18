@@ -954,6 +954,8 @@ function initWlzControls() {
             if (showLabel && !labelCall) {
                 labelCall = true;
                 callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
+                $("#labelBlock").css('top', e.pageY - $("#canvas").offset().top);
+                $("#labelBlock").css('left', e.pageX - $("#canvas").offset().left);
             }
         });
         $("body").on('click', "#resetPosition", function () {
