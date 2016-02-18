@@ -1961,6 +1961,7 @@ function addAvailableItems(ids) {
                 } else {
                     controls = "";
                     alertMessage('Unable to resolve for:' + JSON.stringify(temp));
+                    break;
                 }
                 // Name:
                 if (temp.extId) {
