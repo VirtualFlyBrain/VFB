@@ -16,7 +16,7 @@ var isTyping = false;
 window.features = [];
 var coloursLoading = false;
 var change = Date.now() - (60 * 60000);
-var controlSelection = 'slider-sliceCurrentSliderValLabel';
+var controlSelection = 'slice';
 
 function updateWlzDisplay() {
     updateStackData();
@@ -831,6 +831,7 @@ function initWlzControls() {
             $("#slider-sliceSliderVal").text(ev.value);
             window.features = [];
             forceStoreControl();
+            updateWlzDisplay();
         });
         slSlice.on('slideStop', function (ev) {
             window.reloadInterval = 10;
