@@ -1033,13 +1033,13 @@ function initWlzControls() {
             window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height()) / 2));
             updatePosition();
         });
-        $("#canvas").mouseenter(function (e) {
+        $("#canvas").hover(function (e) {
             forceStoreControl();
             $("#labelBlock").css('background-color', 'white');
             $("#labelBlock").show();
             $("#labelBlock").text('Click to add multiple labels:');
             showLabel = true;
-        }).mouseleave(function () {
+        }, function () {
             $("#labelBlock").hide();
             $("#labelBlock").css('top', 0);
             $("#labelBlock").css('left', 35);
