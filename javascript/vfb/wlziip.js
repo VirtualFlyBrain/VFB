@@ -572,7 +572,7 @@ function callForLabel(x, y) {
                     }
                 }
             } else {
-                $("#labelBlock").text('not labeled');
+                $("#labelBlock").text('not labelled');
             }
             labelCall = false;
         },
@@ -977,14 +977,16 @@ function initWlzControls() {
             forceStoreControl();
             $("#labelBlock").css('background-color', 'white');
             $("#labelBlock").show();
-            $("#labelBlock").text('click for full details');
+            $("#labelBlock").text('Click to add multiple labels:');
             showLabel = true;
         }, function () {
             $("#labelBlock").hide();
             $("#labelBlock").css('top', 0);
             $("#labelBlock").css('left', 35);
             $("#labelBlock").css('background-color', '');
+            $("#labelBlock").text('');
             showLabel = false;
+            $("#labelBlock").show();
         });
         $("#canvas").mousemove(function (e) {
             if (showLabel && !labelCall) {

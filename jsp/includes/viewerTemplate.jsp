@@ -184,7 +184,7 @@
 																			}
 																		}
 																	}
-																	$("#labelBlock").text('click for info; double click to select');
+																	$("#labelBlock").text('Click to select any open item, double click to toggle anatomy:');
 														    }, 10000);
 																loadRightMenuDisplayed();
 																if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
