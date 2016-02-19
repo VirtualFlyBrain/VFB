@@ -134,7 +134,7 @@ function animateWlzDisplay() {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
-                                        }, 3000);
+                                        }, 10000);
                                     }
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
@@ -209,7 +209,7 @@ function animateWlzDisplay() {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
-                                        }, 3000);
+                                        }, 5000);
                                     }
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
