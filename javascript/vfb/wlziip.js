@@ -121,7 +121,7 @@ function animateWlzDisplay() {
                                         $('#QueryMenuTab').show();
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
-
+                                    loadBackground();
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
                                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -188,6 +188,7 @@ function animateWlzDisplay() {
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
                                     parent.$("body").data("disp", "done");
+                                    loadBackground();
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -341,7 +342,7 @@ function loadColours() {
     }
 }
 
-function loadBackgroundThumb(){
+function loadBackground(){
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
     var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
@@ -349,17 +350,16 @@ function loadBackgroundThumb(){
     var i;
     var f = $('body').data('current').fxp.split(',');
     var d;
-    var s = '0.2';
     for (i=1; i<m; i++) {
         background[i] = document.createElement('img');
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
         f[orientation[orient]['D']] = String(d);
-        background[i].src = generateWlzURL(0).replace(/scl=\d+(\.\d{1,2})?/g,'scl='+s).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]).replace(/,[0-9]*\&mod/g,'&mod');
+        background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]).replace(/,[0-9]*\&mod/g,'&mod');
     }
 }
 
-function showBackgroundThumb(slice){
+function showBackground(slice){
     if (background[slice] && background[slice].complete) {
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
@@ -858,7 +858,7 @@ function initWlzControls() {
             $("#slider-sliceSliderVal").text(ev.value);
             window.features = [];
             forceStoreControl();
-            showBackgroundThumb(ev.value);
+            showBackground(ev.value);
         });
         slSlice.on('slideStop', function (ev) {
             window.reloadInterval = 10;
@@ -1030,7 +1030,6 @@ function initWlzControls() {
         hideAllSliders();
         parent.$("body").data("disp", "scale");
         loadTemplateAnatomyTree();
-        loadBackgroundThumb();
     } else {
         if (parent.$("body").data("current")) {
             loadTemplateMeta(parent.$("body").data("current").template);
