@@ -363,6 +363,7 @@ function showBackgroundThumb(slice){
     if (background[slice] && background[slice].complete) {
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
+        ctx.globalCompositeOperation = 'copy';
         ctx.drawImage(background[slice], 0, 12);
     }
 }
