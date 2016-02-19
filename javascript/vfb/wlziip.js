@@ -365,27 +365,34 @@ function loadColours() {
 }
 
 function loadBackground(){
-    console.log('Caching background slices...');
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
     var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
-    background = new Array(m);
+    if ( background.length != m) {
+        background = new Array(m);
+    }
     var i = background[$('#slider-sliceSliderVal').text()];
     var f = $('body').data('current').fxp.split(',');
     var d;
-    //load current slice
-    background[i] = document.createElement('img');
-    background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-    background[i].src = generateWlzURL(0);
-    //load all slices
-    for (i=1; i<m; i++) {
+    if (!background[i] || background[i].src.indexOf(generateWlzURL(0))<0) {
+        console.log('Caching background slices...');
+        //load current slice
         background[i] = document.createElement('img');
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+        background[i].src = generateWlzURL(0);
+    }
+    //load all slices
+    for (i=1; i<m; i++) {
+        if (background[i] == undefined) {
+            background[i] = document.createElement('img');
+            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+        }
         d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
         f[orientation[orient]['D']] = String(d);
-        background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]);
+        if (!background[i] || background[i].src.indexOf(generateWlzURL(0))<0) {
+            background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]);
+        }
     }
-    console.log('Loading images...');
 }
 
 function showBackground(slice){
