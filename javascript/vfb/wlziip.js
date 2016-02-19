@@ -1073,6 +1073,7 @@ function initWlzControls() {
             window.features = [];
             window.reloadInterval = 10;
             parent.$("body").data("disp", "scale");
+            loadBackground();
             try {
                 ga('send', 'event', 'viewer', 'reset_pos');
             } catch (ignore) {
