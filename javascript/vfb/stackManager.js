@@ -484,6 +484,15 @@ function updateStackCounter() {
                 } else {
                     $("#clearEverythingOption").hide();
                 }
+                if (addAllDomains !== 'undefined' && $.isFunction(addAllDomains)) {
+                    $("#sepAnatomy").show();
+                    $("#menuAddAnatomy").show();
+                    $("#menuRemoveAnatomy").show();
+                } else {
+                    $("#sepAnatomy").hide();
+                    $("#menuAddAnatomy").hide();
+                    $("#menuRemoveAnatomy").hide();
+                }
                 try {
                     var i;
                     for (i in parent.$('body').data()) if (i.indexOf('VFB') > -1) {
@@ -1349,7 +1358,7 @@ function alertMessage(message) {
 }
 
 function returnCurrentUrl() {
-    if (typeof returnFullUrl !== 'undefined' && $.isFunction(returnFullUrl)) {
+    if (returnFullUrl !== 'undefined' && $.isFunction(returnFullUrl)) {
         return returnFullUrl();
     } else {
         return window.location.pathname;

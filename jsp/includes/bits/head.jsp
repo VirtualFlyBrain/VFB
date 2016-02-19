@@ -116,6 +116,17 @@
                                                target="_blank">Open <span id="viewer2DVal"
                                                                           class="label label-success label-as-badge">*</span>
                             items in 3D viewer</a></li>
+                        <li id="sepAnatomy" role="separator" class="divider"></li>
+                        <li id="menuAddAnatomy">
+                            <a onClick="forceStoreControl();addAllDomains();">
+                                Add (colour) all neuroanatomy
+                            </a>
+                        </li>
+                        <li id="menuRemoveAnatomy">
+                            <a onClick="forceStoreControl();removeAllDomains();">
+                                Remove all neuroanatomy
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
