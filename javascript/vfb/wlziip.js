@@ -349,14 +349,15 @@ function loadColours() {
 function loadBackground(){
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
-    var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
+    var v = parseFloat(parent.$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
+    var m = Math.ceil(v*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
     if ( background.length != m) {
         background = new Array(m);
     }
-    var i = $('#slider-sliceSliderVal').text();
-    var v = $('body').data('meta').voxel.split(',')[orientation[orient]['D']];
-    var f = $('body').data('current').fxp.split(',')[orientation[orient]['D']]/v;
-    var d = Math.round((i-1)/v) - f;
+    var i = parseInt($('#slider-sliceSliderVal').text());
+    var s = parseFloat(parent.$('body').data('current').scl);
+    var f = Math.round((parseInt($('body').data('current').fxp.split(',')[orientation[orient]['D']])+1)*v);
+    var d = Math.floor((i-f)*s);
     if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
         console.log('Caching background slices...');
         //load current slice
@@ -370,7 +371,7 @@ function loadBackground(){
             background[i] = document.createElement('img');
             background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         }
-        d = Math.round((i-1)/v) - f;
+        d = Math.floor((i-f)*s);
         if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
             background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
         }
