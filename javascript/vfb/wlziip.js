@@ -355,7 +355,7 @@ function loadBackground(){
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
         f[orientation[orient]['D']] = String(d);
-        background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]).replace(/,[0-9]*\&mod/g,'&mod');
+        background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]);
     }
 }
 
