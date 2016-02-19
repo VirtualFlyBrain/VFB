@@ -1048,8 +1048,10 @@ function initWlzControls() {
             showLabel = false;
             $("#labelBlock").show();
         }).mouseup(function () {
+            labelCall = true;
             $("#labelBlock").css('top', 0);
             $("#labelBlock").css('left', 35);
+            callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
         }).mousemove(function (e) {
             if (showLabel && !labelCall) {
                 labelCall = true;
