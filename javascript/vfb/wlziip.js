@@ -365,7 +365,7 @@ function loadBackground(){
         background[i].src = generateWlzURL(0);
     }
     //load all slices
-    for (i=1; i<m; i++) {
+    for (i=0; i<(m+1); i++) {
         if (background[i] == undefined) {
             background[i] = document.createElement('img');
             background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
