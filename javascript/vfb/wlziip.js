@@ -523,9 +523,17 @@ function setText(message) {
     } else {
         //noinspection JSUnusedAssignment
         isTyping = true;
+
         if (window.features.length > 0 && window.features[window.features.length - 1][3] == message) {
             console.log('double click');
         } else {
+            // timeout existing matching labels
+            var i;
+            for (i in window.features) {
+                if (window.features[i].indexOf(message) > -1) {
+                    window.features[i][0] = 1000;
+                }
+            }
             window.features[window.features.length] = [0, window.PosX + 5, window.PosY + window.textOffset - 12, message];
             window.textOffset += 12;
             try {
