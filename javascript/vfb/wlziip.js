@@ -130,11 +130,12 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setInterval(function(){
-                                            loadBackground();
+                                            if (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                                                loadBackground();
+                                            }
                                             backgroundLoading = false;
                                         }, 3000);
                                     }
-
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
                                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -201,7 +202,15 @@ function animateWlzDisplay() {
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
                                     parent.$("body").data("disp", "done");
-                                    loadBackground();
+                                    if (!backgroundLoading) {
+                                        backgroundLoading = true;
+                                        window.setInterval(function(){
+                                            if (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                                                loadBackground();
+                                            }
+                                            backgroundLoading = false;
+                                        }, 3000);
+                                    }
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
