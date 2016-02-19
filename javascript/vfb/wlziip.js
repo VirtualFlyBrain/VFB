@@ -927,7 +927,7 @@ function initWlzControls() {
             }
             if (!backgroundLoading) {
                 backgroundLoading = true;
-                window.setInterval(function(){
+                window.setTimeout(function(){
                     if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
                         loadBackground();
                     }
@@ -1063,6 +1063,16 @@ function initWlzControls() {
         hideAllSliders();
         parent.$("body").data("disp", "scale");
         loadTemplateAnatomyTree();
+        if (!backgroundLoading) {
+            backgroundLoading = true;
+            window.setTimeout(function(){
+                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                    console.log('Initial image load...')
+                    loadBackground();
+                }
+                backgroundLoading = false;
+            }, 10000);
+        }
     } else {
         if (parent.$("body").data("current")) {
             loadTemplateMeta(parent.$("body").data("current").template);
@@ -2186,14 +2196,4 @@ $('body').ready(function () {
             window.location = location.href;
         }
     });
-    if (!backgroundLoading) {
-        backgroundLoading = true;
-        window.setInterval(function(){
-            if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
-                console.log('Initial image load...')
-                loadBackground();
-            }
-            backgroundLoading = false;
-        }, 15000);
-    }
 });
