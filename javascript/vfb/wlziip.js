@@ -916,6 +916,7 @@ function initWlzControls() {
             orient = parent.$("body").data("current").slice;
             parent.$("body").data("current").dst = Math.round(parseInt(ev.value) - ((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
             $("#slider-sliceSliderVal").text(ev.value);
+            showBackground(ev.value);
             forceStoreControl();
             updateWlzDisplay();
             try {
