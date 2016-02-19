@@ -1096,6 +1096,9 @@ function initWlzControls() {
             backgroundLoading = true;
             window.setTimeout(function(){
                 if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                    parent.$("body").data("current").scl = String(defaultScaleByScreen());
+                    updateWlzDisplay();
+                    updateLabels();
                     console.log('Initial image load...')
                     loadBackground();
                 }
