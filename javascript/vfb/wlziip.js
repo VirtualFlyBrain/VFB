@@ -19,6 +19,7 @@ var coloursLoading = false;
 var change = Date.now() - (60 * 60000);
 var controlSelection = 'slice';
 var backgroundLoading = false;
+var backgroundLoaded = 0;
 
 function updateWlzDisplay() {
     updateStackData();
@@ -393,6 +394,15 @@ function loadBackground(){
             background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
         }
     }
+    //check all stacks
+    var c = 0;
+    for (i=0; i<(m+1); i++) {
+        if (background[i] && background[i].complete){
+            c++;
+        }
+    }
+    backgroundLoaded = Math.floor((c/m)*100);
+    console.log(String(backgroundLoaded)+'% of background slices loaded.')
 }
 
 function showBackground(slice){
