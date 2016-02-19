@@ -396,9 +396,6 @@ function loadBackground(){
     }
     window.setTimeout(function () {
         countBackground();
-        if (backgroundLoaded < 99) {
-            loadBackground();
-        }
     },90000);
 }
 
@@ -412,6 +409,9 @@ function countBackground() {
     }
     backgroundLoaded = Math.floor((c / background.length) * 100);
     console.log(String(backgroundLoaded) + '% of background slices loaded.')
+    if (backgroundLoaded < 99) {
+        loadBackground();
+    }
 }
 
 function showBackground(slice){
