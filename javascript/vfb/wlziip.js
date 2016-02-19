@@ -372,7 +372,7 @@ function loadBackground(){
         }
         d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
         f[orientation[orient]['D']] = String(d);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0))<0) {
+        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]))<0) {
             background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]);
         }
     }
