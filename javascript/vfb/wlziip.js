@@ -355,14 +355,13 @@ function loadBackground(){
     }
     var i = $('#slider-sliceSliderVal').text();
     var f = $('body').data('current').fxp.split(',');
-    var d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
-    f[orientation[orient]['D']] = String(d);
-    if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]))<0) {
+    var d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]) - f[orientation[orient]['D']];
+    if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
         console.log('Caching background slices...');
         //load current slice
         background[i] = document.createElement('img');
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-        background[i].src = generateWlzURL(0);
+        background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
     }
     //load all slices
     for (i=0; i<(m+1); i++) {
@@ -370,10 +369,9 @@ function loadBackground(){
             background[i] = document.createElement('img');
             background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         }
-        d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
-        f[orientation[orient]['D']] = String(d);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]))<0) {
-            background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g, 'fxp=' + f[0] + ',' + f[1] + ',' + f[2]);
+        d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]) - f[orientation[orient]['D']];
+        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
+            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
         }
     }
 }
