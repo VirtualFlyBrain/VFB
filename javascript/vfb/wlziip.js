@@ -349,13 +349,13 @@ function loadBackgroundThumb(){
     var i;
     var f = $('body').data('current').fxp.split(',');
     var d;
-    var s = '0.4';
+    var s = '0.2';
     for (i=1; i<m; i++) {
         background[i] = document.createElement('img');
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
         f[orientation[orient]['D']] = String(d);
-        background[i].src = generateWlzURL(0).replace(/scl=\d+(\.\d{1,2})?/g,'scl='+s).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]);
+        background[i].src = generateWlzURL(0).replace(/scl=\d+(\.\d{1,2})?/g,'scl='+s).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]).replace(/,[0-9]*\&mod/g,'&mod');
     }
 }
 
