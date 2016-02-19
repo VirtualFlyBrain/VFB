@@ -365,14 +365,28 @@ function loadBackground(){
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
     }
-    //load all slices
-    for (i=0; i<(m+1); i++) {
+    //load all high end slices
+    for (i=parseInt($('#slider-sliceSliderVal').text()); i<(m+1); i++) {
         if (background[i] && background[i].complete == false) {
             break;
         }
         if (background[i] == undefined) {
             background[i] = document.createElement('img');
-            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        }
+        d = Math.floor((i-f)*s);
+        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
+            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
+        }
+    }
+    //load all low end slices
+    for (i=parseInt($('#slider-sliceSliderVal').text()); i>-1; i--) {
+        if (background[i] && background[i].complete == false) {
+            break;
+        }
+        if (background[i] == undefined) {
+            background[i] = document.createElement('img');
+            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
         d = Math.floor((i-f)*s);
         if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
