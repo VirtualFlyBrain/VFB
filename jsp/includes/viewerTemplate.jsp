@@ -184,7 +184,11 @@
 																			}
 																		}
 																	}
-																	$("#labelBlock").text('Click to select any open item, double click to toggle anatomy:');
+																	if (backgroundLoaded < 99){
+																		$("#labelBlock").text('Loading slices in background for faster access...');
+																	}else {
+																		$("#labelBlock").text('Click to select any open item, double click to toggle anatomy:');
+																	}
 														    }, 10000);
 																loadRightMenuDisplayed();
 																if ($('#displayed_filter > label') && $('#displayed_filter > label').html() && $('#displayed_filter > label').html().indexOf('Search:')>-1) {
