@@ -130,7 +130,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setInterval(function(){
-                                            if (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                                            if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
@@ -205,7 +205,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setInterval(function(){
-                                            if (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                                            if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
