@@ -395,19 +395,23 @@ function loadBackground(){
         }
     }
     window.setTimeout(function () {
-        //check all stacks
-        var c = 0;
-        for (i=0; i<(m+1); i++) {
-            if (background[i] && background[i].complete){
-                c++;
-            }
-        }
-        backgroundLoaded = Math.floor((c/m)*100);
-        console.log(String(backgroundLoaded)+'% of background slices loaded.')
+        countBackground();
         if (backgroundLoaded < 99) {
             loadBackground();
         }
     },90000);
+}
+
+function countBackground() {
+    //check all stacks
+    var c = 0;
+    for (i = 0; i < (m + 1); i++) {
+        if (background[i] && background[i].complete) {
+            c++;
+        }
+    }
+    backgroundLoaded = Math.floor((c / background.length) * 100);
+    console.log(String(backgroundLoaded) + '% of background slices loaded.')
 }
 
 function showBackground(slice){

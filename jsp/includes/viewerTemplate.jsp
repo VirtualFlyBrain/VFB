@@ -288,6 +288,7 @@
                                                     }
                                                     if (backgroundLoaded < 99) {
                                                         $("#labelBlock").text('Loading slices in background for faster access...');
+                                                        countBackground();
                                                     } else {
                                                         $("#labelBlock").text('Click to select any open item, double click to toggle anatomy:');
                                                     }
