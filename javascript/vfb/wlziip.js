@@ -405,7 +405,7 @@ function loadBackground(){
 function countBackground() {
     //check all stacks
     var c = 0;
-    for (i = 0; i < (m + 1); i++) {
+    for (i = 0; i < (background.length + 1); i++) {
         if (background[i] && background[i].complete) {
             c++;
         }
