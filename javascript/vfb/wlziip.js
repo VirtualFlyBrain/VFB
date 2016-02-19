@@ -364,7 +364,7 @@ function showBackground(slice){
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
-        ctx.drawImage(background[slice], 0, 12);
+        ctx.drawImage(background[slice], 0, 0);
     }
 }
 
