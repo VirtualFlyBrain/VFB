@@ -353,7 +353,7 @@ function loadBackground(){
     if ( background.length != m) {
         background = new Array(m);
     }
-    var i = background[$('#slider-sliceSliderVal').text()];
+    var i = $('#slider-sliceSliderVal').text();
     var f = $('body').data('current').fxp.split(',');
     var d;
     if (!background[i] || background[i].src.indexOf(generateWlzURL(0))<0) {
