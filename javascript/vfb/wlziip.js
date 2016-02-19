@@ -7,6 +7,7 @@ window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
+var background = [];
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
@@ -54,7 +55,6 @@ function animateWlzDisplay() {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
-
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     canvas.width = Math.round($(window).width() / 3);
@@ -338,6 +338,32 @@ function loadColours() {
                 }
             }, 30000);
         }
+    }
+}
+
+function loadBackgroundThumb(){
+    var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
+    var orient = parent.$("body").data("current").slice;
+    var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
+    background = new Array(m);
+    var i;
+    var f = $('body').data('current').fxp.split(',');
+    var d;
+    var s = '0.4';
+    for (i=1; i<m; i++) {
+        background[i] = document.createElement('img');
+        background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+        d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
+        f[orientation[orient]['D']] = String(d);
+        background[i].src = generateWlzURL(0).replace(/scl=\d+(\.\d{1,2})?/g,'scl='+s).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]);
+    }
+}
+
+function showBackgroundThumb(slice){
+    if (background[slice] && background[slice].complete) {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(background[slice], 0, 12);
     }
 }
 
@@ -831,7 +857,7 @@ function initWlzControls() {
             $("#slider-sliceSliderVal").text(ev.value);
             window.features = [];
             forceStoreControl();
-            updateWlzDisplay();
+            showBackgroundThumb(ev.value);
         });
         slSlice.on('slideStop', function (ev) {
             window.reloadInterval = 10;
@@ -1003,6 +1029,7 @@ function initWlzControls() {
         hideAllSliders();
         parent.$("body").data("disp", "scale");
         loadTemplateAnatomyTree();
+        loadBackgroundThumb();
     } else {
         if (parent.$("body").data("current")) {
             loadTemplateMeta(parent.$("body").data("current").template);
