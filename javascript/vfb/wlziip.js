@@ -354,8 +354,9 @@ function loadBackground(){
         background = new Array(m);
     }
     var i = $('#slider-sliceSliderVal').text();
-    var f = $('body').data('current').fxp.split(',');
-    var d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]) - f[orientation[orient]['D']];
+    var v = $('body').data('meta').voxel.split(',')[orientation[orient]['D']];
+    var f = $('body').data('current').fxp.split(',')[orientation[orient]['D']]/v;
+    var d = Math.round((i-1)/v) - f;
     if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
         console.log('Caching background slices...');
         //load current slice
@@ -369,7 +370,7 @@ function loadBackground(){
             background[i] = document.createElement('img');
             background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
         }
-        d = Math.round((i-1)/$('body').data('meta').voxel.split(',')[orientation[orient]['D']]) - f[orientation[orient]['D']];
+        d = Math.round((i-1)/v) - f;
         if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d)))<0) {
             background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
         }
