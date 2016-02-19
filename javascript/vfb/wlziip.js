@@ -1033,13 +1033,13 @@ function initWlzControls() {
             window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height()) / 2));
             updatePosition();
         });
-        $("#canvas").mouseover(function (e) {
+        $("#canvas").mouseenter(function (e) {
             forceStoreControl();
             $("#labelBlock").css('background-color', 'white');
             $("#labelBlock").show();
             $("#labelBlock").text('Click to add multiple labels:');
             showLabel = true;
-        }, function () {
+        }).mouseleave(function () {
             $("#labelBlock").hide();
             $("#labelBlock").css('top', 0);
             $("#labelBlock").css('left', 35);
@@ -1047,8 +1047,10 @@ function initWlzControls() {
             $("#labelBlock").text('');
             showLabel = false;
             $("#labelBlock").show();
-        });
-        $("#canvas").mousemove(function (e) {
+        }).mouseup(function () {
+            $("#labelBlock").css('top', 0);
+            $("#labelBlock").css('left', 35);
+        }).mousemove(function (e) {
             if (showLabel && !labelCall) {
                 labelCall = true;
                 callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
