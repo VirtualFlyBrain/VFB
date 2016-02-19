@@ -530,7 +530,7 @@ function setText(message) {
             // timeout existing matching labels
             var i;
             for (i in window.features) {
-                if (window.features[i].indexOf(message) > -1) {
+                if (window.features[i][3] == message) {
                     window.features[i][0] = 1000;
                 }
             }
