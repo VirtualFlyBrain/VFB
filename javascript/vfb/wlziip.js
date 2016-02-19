@@ -22,7 +22,7 @@ var backgroundLoading = false;
 
 function updateWlzDisplay() {
     updateStackData();
-    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchgroup').is(":focus"))) {
+    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
         clickControlButton(controlSelection);
     }
     if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
@@ -38,7 +38,7 @@ function updateWlzDisplay() {
     if (typeof updateDetailButtons !== 'undefined' && $.isFunction(updateDetailButtons)) {
         updateDetailButtons();
     }
-    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchgroup').is(":focus"))) {
+    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
         clickControlButton(controlSelection);
     }
 }
