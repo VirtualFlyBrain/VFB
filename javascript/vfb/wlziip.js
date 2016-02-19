@@ -69,6 +69,7 @@ function animateWlzDisplay() {
                     var count = 0;
                     var i;
                     var j;
+                    var slice = $('#slider-sliceSliderVal').text();
                     var current = parent.$("body").data("current");
                     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
                     var orient = current.slice;
@@ -80,8 +81,12 @@ function animateWlzDisplay() {
                                 updated = true;
                             }
                             if (image[i].src.indexOf(generateWlzURL(i)) < 0) {
-                                image[i].src = generateWlzURL(i);
-                                updated = true;
+                                if (i === 0 && background[slice] && background[slice].complete) {
+                                    image[i] = background[slice];
+                                }else {
+                                    image[i].src = generateWlzURL(i);
+                                    updated = true;
+                                }
                                 $('#canvas').css('cursor', 'wait');
                             }
                             if (count === 0) {
