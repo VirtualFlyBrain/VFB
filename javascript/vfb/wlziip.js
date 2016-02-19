@@ -356,6 +356,7 @@ function loadColours() {
 }
 
 function loadBackground(){
+    console.log('Caching background slices...');
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
     var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
@@ -370,6 +371,7 @@ function loadBackground(){
         f[orientation[orient]['D']] = String(d);
         background[i].src = generateWlzURL(0).replace(/fxp=[0-9]*,[0-9]*,[0-9]*/g,'fxp='+f[0]+','+f[1]+','+f[2]);
     }
+    console.log('Loading images...');
 }
 
 function showBackground(slice){
