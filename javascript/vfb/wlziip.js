@@ -394,15 +394,20 @@ function loadBackground(){
             background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g,'dst='+String(d));
         }
     }
-    //check all stacks
-    var c = 0;
-    for (i=0; i<(m+1); i++) {
-        if (background[i] && background[i].complete){
-            c++;
+    window.setTimeout(function () {
+        //check all stacks
+        var c = 0;
+        for (i=0; i<(m+1); i++) {
+            if (background[i] && background[i].complete){
+                c++;
+            }
         }
-    }
-    backgroundLoaded = Math.floor((c/m)*100);
-    console.log(String(backgroundLoaded)+'% of background slices loaded.')
+        backgroundLoaded = Math.floor((c/m)*100);
+        console.log(String(backgroundLoaded)+'% of background slices loaded.')
+        if (backgroundLoaded < 99) {
+            loadBackground();
+        }
+    },90000);
 }
 
 function showBackground(slice){
