@@ -295,7 +295,7 @@
                                                         $("#labelBlock").text('Loading slices in background for faster access...');
                                                         countBackground();
                                                     } else {
-                                                        $("#labelBlock").text('Click to select any open item, double click to toggle anatomy:');
+                                                        $("#labelBlock").text('Click to select or double click to toggle anatomy:');
                                                     }
                                                 }, 10000);
                                                 loadRightMenuDisplayed();
