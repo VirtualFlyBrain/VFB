@@ -286,11 +286,6 @@
                                                             }
                                                         }
                                                     }
-//                                                    return label to border
-                                                    $("#labelBlock").css('top', 0);
-                                                    $("#labelBlock").css('left', 35);
-                                                    $("#labelBlock").css('background-color', '');
-//                                                    add appropriate help label
                                                     if (backgroundLoaded < 99) {
                                                         $("#labelBlock").text('Loading slices in background for faster access...');
                                                         countBackground();
