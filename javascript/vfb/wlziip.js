@@ -370,9 +370,14 @@ function loadBackground(){
     var orient = parent.$("body").data("current").slice;
     var m = Math.ceil($('body').data('meta').voxel.split(',')[orientation[orient]['D']]*$('body').data('meta').extent.split(',')[orientation[orient]['D']])+1;
     background = new Array(m);
-    var i;
+    var i = background[$('#slider-sliceSliderVal').text()];
     var f = $('body').data('current').fxp.split(',');
     var d;
+    //load current slice
+    background[i] = document.createElement('img');
+    background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+    background[i].src = generateWlzURL(0);
+    //load all slices
     for (i=1; i<m; i++) {
         background[i] = document.createElement('img');
         background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
