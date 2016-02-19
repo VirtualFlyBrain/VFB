@@ -18,6 +18,7 @@ window.features = [];
 var coloursLoading = false;
 var change = Date.now() - (60 * 60000);
 var controlSelection = 'slice';
+var backgroundLoading = false;
 
 function updateWlzDisplay() {
     updateStackData();
@@ -126,7 +127,14 @@ function animateWlzDisplay() {
                                         $('#QueryMenuTab').show();
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
-                                    loadBackground();
+                                    if (!backgroundLoading) {
+                                        backgroundLoading = true;
+                                        window.setInterval(function(){
+                                            loadBackground();
+                                            backgroundLoading = false;
+                                        }, 3000);
+                                    }
+
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
                                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
