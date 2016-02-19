@@ -1074,6 +1074,7 @@ function initWlzControls() {
             window.reloadInterval = 10;
             parent.$("body").data("disp", "scale");
             loadBackground();
+            countBackground();
             try {
                 ga('send', 'event', 'viewer', 'reset_pos');
             } catch (ignore) {
