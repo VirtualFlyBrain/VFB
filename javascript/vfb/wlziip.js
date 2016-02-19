@@ -367,6 +367,9 @@ function loadBackground(){
     }
     //load all slices
     for (i=0; i<(m+1); i++) {
+        if (background[i] && background[i].complete == false) {
+            break;
+        }
         if (background[i] == undefined) {
             background[i] = document.createElement('img');
             background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
