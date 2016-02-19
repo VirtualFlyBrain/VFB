@@ -1033,7 +1033,7 @@ function initWlzControls() {
             window.PosY = Math.round(e.pageY - $(this).offset().top - Math.round(($(this).outerHeight() - $(this).height()) / 2));
             updatePosition();
         });
-        $("#canvas").hover(function (e) {
+        $("#canvas").mouseover(function (e) {
             forceStoreControl();
             $("#labelBlock").css('background-color', 'white');
             $("#labelBlock").show();
