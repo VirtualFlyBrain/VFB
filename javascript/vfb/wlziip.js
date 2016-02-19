@@ -928,7 +928,7 @@ function initWlzControls() {
             if (!backgroundLoading) {
                 backgroundLoading = true;
                 window.setInterval(function(){
-                    if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                    if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
                         loadBackground();
                     }
                     backgroundLoading = false;
@@ -1067,6 +1067,7 @@ function initWlzControls() {
             backgroundLoading = true;
             window.setInterval(function(){
                 if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                    console.log('Initial image load...')
                     loadBackground();
                 }
                 backgroundLoading = false;
