@@ -70,7 +70,7 @@ footer {
    }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1109px) {
+@media screen and (max-width: 1109px) {
     .col-md-6 {
         min-width: 100% !important;
     }
