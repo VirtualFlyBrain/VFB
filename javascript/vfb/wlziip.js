@@ -2251,7 +2251,7 @@ $('body').ready(function () {
             window.location = location.href;
         }
     });
-    $(window).on('resize', function () {
+    $(window).resize(function () {
         if (!backgroundLoading) {
             backgroundLoading = true;
             window.setTimeout(function () {
