@@ -484,14 +484,18 @@ function updateStackCounter() {
                 } else {
                     $("#clearEverythingOption").hide();
                 }
-                if (addAllDomains !== 'undefined' && $.isFunction(addAllDomains)) {
-                    $("#sepAnatomy").show();
-                    $("#menuAddAnatomy").show();
-                    $("#menuRemoveAnatomy").show();
-                } else {
-                    $("#sepAnatomy").hide();
-                    $("#menuAddAnatomy").hide();
-                    $("#menuRemoveAnatomy").hide();
+                try {
+                    if (typeof addAllDomains !== 'undefined' && $.isFunction(addAllDomains)) {
+                        $("#sepAnatomy").show();
+                        $("#menuAddAnatomy").show();
+                        $("#menuRemoveAnatomy").show();
+                    } else {
+                        $("#sepAnatomy").hide();
+                        $("#menuAddAnatomy").hide();
+                        $("#menuRemoveAnatomy").hide();
+                    }
+                } catch (ignore) {
+                    console.log('stack anatomy set fail!');
                 }
                 try {
                     var i;
