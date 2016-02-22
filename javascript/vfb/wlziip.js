@@ -2255,13 +2255,13 @@ $('body').ready(function () {
         if (!backgroundLoading) {
             backgroundLoading = true;
             window.setTimeout(function () {
+                // checking scale after windows should have all loaded
+                parent.$("body").data("current").scl = String(defaultScaleByScreen());
+                window.reloadInterval = 10;
+                parent.$("body").data("disp", "scale");
+                updateWlzDisplay();
+                updateLabels();
                 if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
-                    // checking scale after windows should have all loaded
-                    parent.$("body").data("current").scl = String(defaultScaleByScreen());
-                    window.reloadInterval = 10;
-                    parent.$("body").data("disp", "scale");
-                    updateWlzDisplay();
-                    updateLabels();
                     // loading the background cache
                     console.log('Matching new screen size...')
                     loadBackground();
