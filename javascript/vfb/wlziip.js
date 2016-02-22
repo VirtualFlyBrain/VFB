@@ -2255,7 +2255,7 @@ $('body').ready(function () {
         if (!backgroundLoading) {
             backgroundLoading = true;
             window.setTimeout(function () {
-                // checking scale after windows should have all loaded
+                // checking scale after window resize
                 parent.$("body").data("current").scl = String(defaultScaleByScreen());
                 window.reloadInterval = 10;
                 parent.$("body").data("disp", "scale");
