@@ -159,7 +159,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="overflow:scroll;">
             <div class="col-md-12" id="right-panel">
                 <div class="content-fluid">
                     <ul class="nav nav-tabs">
