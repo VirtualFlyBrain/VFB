@@ -24,7 +24,7 @@ var backgroundLoaded = 0;
 function updateWlzDisplay() {
     updateStackData();
     if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
-        clickControlButton(controlSelection);
+        openControlButton(controlSelection);
     }
     if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
         $('#slider-sliceCurrentSlider').hide();
@@ -40,7 +40,7 @@ function updateWlzDisplay() {
         updateDetailButtons();
     }
     if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
-        clickControlButton(controlSelection);
+        openControlButton(controlSelection);
     }
 }
 
@@ -1152,6 +1152,22 @@ function clickControlButton(name){
         $("#slider-" + name + "CurrentSliderValLabel .glyphicon").hide();
         $("#slider-" + name + "CurrentSliderValLabel").addClass("active");
         $("#slider-" + name + "CurrentSlider .slider-handle.min-slider-handle").focus();
+        window.reloadInterval = 10;
+    }
+}
+
+function openControlButton(name) {
+    forceStoreControl();
+    if ($("#slider-" + name + "CurrentSlider").is(":visible")) {
+        $("#slider-" + name + "CurrentSlider").hide();
+        $("#slider-" + name + "CurrentSliderValLabel .glyphicon").show();
+        $("#slider-" + name + "CurrentSliderValLabel").removeClass("active");
+    } else {
+        controlSelection = name;
+        hideAllSliders();
+        $("#slider-" + name + "CurrentSlider").css('display', 'inline-block');
+        $("#slider-" + name + "CurrentSliderValLabel .glyphicon").hide();
+        $("#slider-" + name + "CurrentSliderValLabel").addClass("active");
         window.reloadInterval = 10;
     }
 }
