@@ -1161,6 +1161,7 @@ function clickControlButton(name) {
         $("#slider-" + name + "CurrentSliderValLabel .glyphicon").show();
         $("#slider-" + name + "CurrentSliderValLabel").removeClass("active");
         controlSelection = 'slice';
+        openControlButton(controlSelection);
     } else {
         openControlButton(name);
         $("#slider-" + name + "CurrentSlider .slider-handle.min-slider-handle").focus();
