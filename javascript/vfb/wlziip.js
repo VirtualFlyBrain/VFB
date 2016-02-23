@@ -23,23 +23,20 @@ var backgroundLoaded = 0;
 
 function updateWlzDisplay() {
     updateStackData();
-    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
-        openControlButton(controlSelection);
-    }
-    if ($('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
+    if (controlSelection != 'slice' && $('#slider-sliceCurrentSlider') && $('#slider-sliceCurrentSlider').is(":visible") && !$('#slider-sliceCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
         $('#slider-sliceCurrentSlider').hide();
         $('.tt-menu').hide();
     }
-    if ($('#slider-scaleCurrentSlider') && $('#slider-scaleCurrentSlider').is(":visible") && !$('#slider-scaleCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
+    if (controlSelection != 'scale' && $('#slider-scaleCurrentSlider') && $('#slider-scaleCurrentSlider').is(":visible") && !$('#slider-scaleCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
         $('#slider-scaleCurrentSlider').hide();
     }
-    if ($('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
+    if (controlSelection != 'alpha' && $('#slider-alphaCurrentSlider') && $('#slider-alphaCurrentSlider').is(":visible") && !$('#slider-alphaCurrentSlider .slider-handle.min-slider-handle').is(":focus")) {
         $('#slider-alphaCurrentSlider').hide();
     }
     if (typeof updateDetailButtons !== 'undefined' && $.isFunction(updateDetailButtons)) {
         updateDetailButtons();
     }
-    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible")) && (!$('#searchtext').is(":focus"))) {
+    if ((!$('#slider-' + controlSelection + 'CurrentSlider').is(":visible"))) {
         openControlButton(controlSelection);
     }
 }
@@ -1145,6 +1142,7 @@ function clickControlButton(name){
         $("#slider-" + name + "CurrentSlider").hide();
         $("#slider-" + name + "CurrentSliderValLabel .glyphicon").show();
         $("#slider-" + name + "CurrentSliderValLabel").removeClass("active");
+        controlSelection = 'slice';
     } else {
         controlSelection = name;
         hideAllSliders();
