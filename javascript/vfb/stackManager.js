@@ -485,6 +485,19 @@ function updateStackCounter() {
                     $("#clearEverythingOption").hide();
                 }
                 try {
+                    if (typeof addAllDomains !== 'undefined' && $.isFunction(addAllDomains)) {
+                        $("#sepAnatomy").show();
+                        $("#menuAddAnatomy").show();
+                        $("#menuRemoveAnatomy").show();
+                    } else {
+                        $("#sepAnatomy").hide();
+                        $("#menuAddAnatomy").hide();
+                        $("#menuRemoveAnatomy").hide();
+                    }
+                } catch (ignore) {
+                    console.log('stack anatomy set fail!');
+                }
+                try {
                     var i;
                     for (i in parent.$('body').data()) if (i.indexOf('VFB') > -1) {
                         if (location.hostname.toLowerCase().indexOf('sandbox') > -1 || (parent.$('body').data(i).hasOwnProperty('meta') && parent.$('body').data(i).meta.hasOwnProperty('isLive') && parent.$('body').data(i).meta.isLive)) {
@@ -1349,7 +1362,7 @@ function alertMessage(message) {
 }
 
 function returnCurrentUrl() {
-    if (typeof returnFullUrl !== 'undefined' && $.isFunction(returnFullUrl)) {
+    if (returnFullUrl !== 'undefined' && $.isFunction(returnFullUrl)) {
         return returnFullUrl();
     } else {
         return window.location.pathname;
