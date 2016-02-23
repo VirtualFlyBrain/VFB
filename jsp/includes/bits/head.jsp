@@ -116,6 +116,17 @@
                                                target="_blank">Open <span id="viewer2DVal"
                                                                           class="label label-success label-as-badge">*</span>
                             items in 3D viewer</a></li>
+                        <li id="sepAnatomy" role="separator" class="divider"></li>
+                        <li id="menuAddAnatomy">
+                            <a onClick="forceStoreControl();addAllDomains();">
+                                Add (colour) all neuroanatomy
+                            </a>
+                        </li>
+                        <li id="menuRemoveAnatomy">
+                            <a onClick="forceStoreControl();removeAllDomains();">
+                                Remove all neuroanatomy
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
@@ -133,6 +144,10 @@
                         <li><a href="/site/vfb_site/tutorial.htm">Tutorial Videos</a></li>
                         <li><a href="https://groups.google.com/forum/#!forum/vfb-suport" target="_blank">Support
                             Forum</a></li>
+                        <li><a id="issueLinkM" href="/site/vfb_site/Feedback.htm"
+                               onclick="ga('send', 'event', 'click', 'issue', theURL);" target="_blank">Report an
+                            issue</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -163,9 +178,11 @@
                                 window.setInterval(function () {
                                     theURL = returnFullUrl();
                                     $('#issueLink').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
+                                    $('#issueLinkM').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
                                 }, 30000);
                             }
                             $('#issueLink').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
+                            $('#issueLinkM').attr('href', '/site/vfb_site/Feedback.htm?url=' + theURL);
                         });
                     </script>
                     <a id="issueLink" href="/site/vfb_site/Feedback.htm"

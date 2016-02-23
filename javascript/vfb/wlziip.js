@@ -523,9 +523,17 @@ function setText(message) {
     } else {
         //noinspection JSUnusedAssignment
         isTyping = true;
+
         if (window.features.length > 0 && window.features[window.features.length - 1][3] == message) {
             console.log('double click');
         } else {
+            // timeout existing matching labels
+            var i;
+            for (i in window.features) {
+                if (window.features[i][3] == message) {
+                    window.features[i][0] = 1000;
+                }
+            }
             window.features[window.features.length] = [0, window.PosX + 5, window.PosY + window.textOffset - 12, message];
             window.textOffset += 12;
             try {
@@ -1047,8 +1055,12 @@ function initWlzControls() {
             $("#labelBlock").text('');
             showLabel = false;
             $("#labelBlock").show();
-        });
-        $("#canvas").mousemove(function (e) {
+        }).mouseup(function () {
+            labelCall = true;
+            $("#labelBlock").css('top', 0);
+            $("#labelBlock").css('left', 35);
+            callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
+        }).mousemove(function (e) {
             if (showLabel && !labelCall) {
                 labelCall = true;
                 callForLabel(Math.round(e.pageX - $("#canvas").offset().left - Math.round(($("#canvas").outerWidth() - $("#canvas").width()) / 2)), Math.round(e.pageY - $("#canvas").offset().top - Math.round(($("#canvas").outerHeight() - $("#canvas").height()) / 2)));
@@ -1073,6 +1085,8 @@ function initWlzControls() {
             window.features = [];
             window.reloadInterval = 10;
             parent.$("body").data("disp", "scale");
+            loadBackground();
+            countBackground();
             try {
                 ga('send', 'event', 'viewer', 'reset_pos');
             } catch (ignore) {
@@ -2235,6 +2249,26 @@ $('body').ready(function () {
             console.log('next page requested by user...');
             clearAllDisplayed();
             window.location = location.href;
+        }
+    });
+    $(window).resize(function () {
+        if (!backgroundLoading) {
+            backgroundLoading = true;
+            window.setTimeout(function () {
+                // checking scale after window resize
+                parent.$("body").data("current").scl = String(defaultScaleByScreen());
+                window.reloadInterval = 10;
+                parent.$("body").data("disp", "scale");
+                updateWlzDisplay();
+                updateLabels();
+                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                    // loading the background cache
+                    console.log('Matching new screen size...')
+                    loadBackground();
+                    countBackground();
+                }
+                backgroundLoading = false;
+            }, 1000);
         }
     });
 });
