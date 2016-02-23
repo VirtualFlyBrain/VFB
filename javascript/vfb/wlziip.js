@@ -125,6 +125,15 @@ function animateWlzDisplay() {
                                         $('#QueryMenuTab').show();
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
+                                    if (!backgroundLoading) {
+                                        backgroundLoading = true;
+                                        window.setTimeout(function () {
+                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                                loadBackground();
+                                            }
+                                            backgroundLoading = false;
+                                        }, 2000);
+                                    }
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
                                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -191,6 +200,15 @@ function animateWlzDisplay() {
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
                                     parent.$("body").data("disp", "done");
+                                    if (!backgroundLoading) {
+                                        backgroundLoading = true;
+                                        window.setTimeout(function () {
+                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                                loadBackground();
+                                            }
+                                            backgroundLoading = false;
+                                        }, 2000);
+                                    }
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -215,6 +233,15 @@ function animateWlzDisplay() {
                         i++;
                         if (imageDist == 1) {
                             console.log('loading surrounding slices in background...');
+                            if (!backgroundLoading) {
+                                backgroundLoading = true;
+                                window.setTimeout(function () {
+                                    if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                        loadBackground();
+                                    }
+                                    backgroundLoading = false;
+                                }, 2000);
+                            }
                         }
                         if (!updated && imageDist < 100 && (imageDist === 1 || (image[i] && image[i].complete))) {
                             var dist = current.dst;
@@ -963,15 +990,6 @@ function initWlzControls() {
             try {
                 ga('send', 'event', 'viewer', 'scale', String(ev.value.toFixed(1)) + 'x');
             } catch (ignore) {
-            }
-            if (!backgroundLoading) {
-                backgroundLoading = true;
-                window.setTimeout(function () {
-                    if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
-                        loadBackground();
-                    }
-                    backgroundLoading = false;
-                }, 5000);
             }
         });
         var slAlpha = $("#slider-alpha").bootstrapSlider({
