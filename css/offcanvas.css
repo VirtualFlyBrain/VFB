@@ -70,6 +70,12 @@ footer {
    }
 }
 
+@media screen and (max-width: 1109px) {
+    .col-md-6 {
+        min-width: 100% !important;
+    }
+}
+
 /****************
  Outline button
 *************/
