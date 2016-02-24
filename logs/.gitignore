@@ -1,3 +1,2 @@
-tomcat.log
-ontServer.log
+*.log
 
