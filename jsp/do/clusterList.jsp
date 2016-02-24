@@ -8,90 +8,126 @@
 <c:set var="cleanTitle">${fileName}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
 
-<jsp:include page="/jsp/includes/1ColHead.jsp">
+<jsp:include page="/jsp/includes/homeHead.jsp">
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
-	<jsp:param name="css" value="/css/vfb/utils/help.css;/css/vfb/utils/resultList.css;" />
+	<jsp:param name="css" value="
+		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
+		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
+		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
+		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
+		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
+	" />
+	<jsp:param name="js" value="
+		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
+		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
+		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
+		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.jqueryui.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
+		//cdn.datatables.net/buttons/1.0.1/js/buttons.print.min.js;
+	" />
 </jsp:include>
 
+<script>$('body').css('cursor', 'wait');</script>
 
 
-<script type="text/javascript">
-	function formSubmit() {
-		alert(document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value);
-		var value = document.getElementById("perPage").options[document.getElementById("perPage").selectedIndex].value;
-		window.open("?<%=request.getQueryString()%>&perPage=" + value, "_self");
-	}
-</script>
-
-
-	<div id="help_wrapper">
-		<div id="help_head_wrapper">
-			<h1 id="help_header">Query: ${query}</h1>
-		</div>
-
-		<div id="help_content">
-
-			<span style="width: 100%;">
-				<form name="perPage" action="?${paramString}">
-					${nav} &nbsp; Records per page:
-					<c:forEach items="${paramItems}" var="curr">
-						<input type="hidden" name="${fn:split(curr, '=')[0]}" value="${fn:split(curr, '=')[1]}" />
-					</c:forEach>
-					<select id="perPage" name="perPage" onchange='this.form.submit()'>
-						<option value="10" ${(perPage==10)?"selected":""} >10</option>
-						<option value="20" ${(perPage==20)?"selected":""} >20</option>
-						<option value="50" ${(perPage==50)?"selected":""} >50</option>
-						<option value="100" ${(perPage ge 100 || perPage lt 10)?"selected":""} >100</option>
-					</select>
-					<a id="csv" style="float: right; margin-right: 10px" href="/do/csv_report.html?type=${type}&filename=${fileName}">Save
-						as CSV</a>
-				</form>
-
-				<c:if test="${perPage lt 10 || perPage gt 100}">
-					<script> document.getElementById('perPage').onchange(); </script>
-				</c:if>
-
-			</span>
-
-			<table>
-				<thead>
-					<th>Cluster</th>
-					<th>Exemplar name / Summary</th>
-					<th>Exemplar preview</th>
-					<th>Members of cluster</th>
-				</thead>
-				<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
-					<tr>
-						<td style="padding: 2px 0; text-align: center;">
-							<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_new">
-								<img height="100" src="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" alt="${query}: ${ontBean.name}, ${ontBean.def}" />
-							</a>
-						</td>
-						<td>
-							<h3 style='margin: -2px 0 2px 0; font-size: 1.1.em;'>${ontBean.name}</h3> <vfbUtil:trimToWhite
-								string="${ontBean.def}" size="210" />
-							<c:set var="tpb" value="${ontBean.thirdPartyBean}" /><br />
-							<b>Source:</b>
-							<a href="${tpb.baseUrl}${tpb.remoteId}" target="_new">${tpb.sourceName}</a>
-						</td>
-						<c:if test="${!empty tpb}">
-							<td style="padding: 2px 0; text-align: center;"><a href="${tpb.baseUrl}${tpb.remoteId}"
-								title="View ${tpb.sourceName} entry" target="_new"><img class="thumb" src="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" /></a> &nbsp;&nbsp; 
-							</td>
-							<td style="padding: 2px">
-								<c:if test="${empty param.popup}">
-								<a href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">Show
-										individual members&nbsp;>> </a>
-								</c:if>
-							</td>
-						</c:if>
-					</tr>
-				</c:forEach>
-			</table>
-
+<div class="row-fluid" style="padding:0;">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="container-fluid" align="center">
+				<h2>Query: ${query}</h2>
+			</div>
 		</div>
 	</div>
-	<!-- help_wrapper -->
-
+	<div class="col-xs-12" style="padding:0;">
+		<div class="container-fluid" style="padding:0;">
+			<div class="table-responsive">
+				<table id="resultsTable" class="display">
+		    	<thead>
+		        <tr>
+							<th>Cluster</th>
+							<th>Exemplar name</th>
+							<th>Summary</th>
+							<th>Source</th>
+							<th>Exemplar Preview</th>
+							<th>Members of cluster</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${ontBeanList}" var="ontBean" varStatus="status"><tr>
+							<td>
+								<a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/" title="Interactive 3D rendering of cluster" target="_blank">
+									<img class="lazy" data-original="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png" alt="${query}: ${ontBean.name}, ${ontBean.def}" />
+								</a>
+							</td>
+							<td>
+								<h5>${ontBean.name}</h5>
+							</td>
+							<td>
+								${ontBean.def}<c:set var="tpb" value="${ontBean.thirdPartyBean}" />
+							</td>
+							<td>
+								<a href="${tpb.baseUrl}${tpb.remoteId}" target="_blank" class="btn btn-sm btn-warning">${tpb.sourceName}</a>
+							</td>
+							<td>
+								<c:if test="${!empty tpb}"><img class="lazy" data-original="${tpb.thumbUrl}" alt="${query}: ${tpb.sourceName} (${tpb.remoteId}), ${ontBean.name}, ${ontBean.def}" onclick="post('/site/stacks/index.htm',{'add':'${tpb.vfbId}'});" style="cursor: pointer;" /></c:if>
+							</td>
+							<td>
+								<c:if test="${!empty tpb}">
+									<span id="OpenAllButtonFor${tpb.vfbId}" data-id="${tpb.vfbId}"></span><br/>
+									<a class="btn btn-sm btn-success" href="/do/individual_list.html?action=neuron_found&id=${tpb.vfbId}&region=${ontBean.name}">
+									List individual members
+								</a></c:if>
+							</td>
+						</tr></c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script>
+			$(document).ready( function () {
+				var table = $('#resultsTable').DataTable( {
+					paging: true,
+					searching: true,
+					ordering: true,
+					responsive: true,
+					autoWidth: false,
+					"order": [[ 0, "desc" ]],
+					dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
+					buttons: [
+							'copy',
+							'csv',
+							'print'
+					]
+				} );
+				window.setTimeout(function(){
+					updateStackCounter();
+					$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
+					$('#resultsTable').DataTable().draw();
+					$('#resultsTable_length label').after($('#resultsTable_info').text().substring($('#resultsTable_info').text().indexOf(' of')).replace(' entries', ''));
+					window.setInterval(function(){
+						if ($('.lazy').parent().width() > 360) {
+							$('#resultsTable').dataTable().fnAdjustColumnSizing(false);
+							$('#resultsTable').DataTable().draw(false);
+						}
+					}, 10000);
+					$('body').css('cursor', 'default');
+				}, 1000);
+				window.setInterval(function(){
+					$('[id^=OpenAllButtonFor]').each(function() {
+						if ($(this).html() == "") {
+							$(this).load('/do/individual_list.html?action=neuron_found&id=' + cleanIdforExt($(this).data("id")) + ' #openAllButton');
+						}else{
+							$(this).id = "Resolved" + $(this).id;
+						}
+					});
+				}, 5000);
+			} );
+		</script>
+	</div>
+</div>
 <jsp:include page="/jsp/includes/homeFoot.jsp"/>

@@ -60,9 +60,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//xrefs
 			List<String> axioms = ogw.getDefXref(result);
 			//LOG.debug("=========== xrefs ==============" + axioms.size());
-			//for (String axiom:axioms){
+			for (String axiom:axioms){
 				//LOG.debug(axiom.toString() + "\n");
-			//}
+			}
 
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
@@ -128,7 +128,8 @@ public class OwlResultParserClass extends AOwlResultParser {
 			String relName = "";
 			OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
 			for (OWLSubClassOfAxiom rel:rels){
-				//LOG.debug("rel" + relI++ + " : " + rel.toString() + " > " + "\n");
+				relI++;
+				//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
 				//LOG.debug("=========== rel props ==============");
 				Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
 				int propI = 0;
@@ -158,9 +159,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 				}
 				else {
 					//LOG.debug("CurrRel: " + currRel);
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery)};
+					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
 					//LOG.debug("vals: " + Arrays.toString(vals));
-					ob.getRelationships().put(ogw.getIdentifier(targetClass), vals);
+					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 				}
 			}
 		}
@@ -172,20 +173,8 @@ public class OwlResultParserClass extends AOwlResultParser {
 			e.printStackTrace();
 		}
 		//Set<OWLSubClassOfAxiom> axioms1 = this.ontology.getSubClassAxiomsForSuperClass((OWLClass)result);
-		//LOG.debug(axioms);
+		//LOG.debug(ob);
 		return ob;
 	}
-
-	/**
-	 * Convenience wrapper method to retrieve OntBean by id
-	 * @param id
-	 * @return
-	 */
-	//public OntBean getOntBeanForId(String id) {
-		//LOG.debug("OwlResultParserClass OGW: " + this.ogw + " ID: " + id);
-	//	OWLEntity oo = (OWLEntity)this.ogw.getOWLObjectByIdentifier(OntBean.idAsOBO(id));
-		//LOG.debug("OWLEntity: " + oo);
-	//	return this.getOntBeanForEntity(oo);
-	//}
 
 }

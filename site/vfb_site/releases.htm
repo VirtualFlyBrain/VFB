@@ -4,28 +4,26 @@
 	<jsp:param name="title" value="Releases" />
 </jsp:include>
 
-<div id="center_wide">
+<div class="row row-centered">
 
-<div id="contents" style="" >
+	<div class="col-md-9 col-centered">
+
+
+
+			The Virtual Fly Brain service is an opensource project.<br /><br />
+			This site is running version <b><jsp:include page="/revision" /></b> from the <a href="https://github.com/VirtualFlyBrain/VFB/tree/<jsp:include page="/branch" />" target="_blank" title="Current GitHub code repository branch and revision" >
+				<jsp:include page="/branch" /></a> branch. <br />
+			Visit our <a href="https://github.com/VirtualFlyBrain/VFB">GitHub repository</a> for details, raise any issues or to find out how to get involved.<br /><br />
+			The site is currently using version
+			<a id="flybaseLinkRelease" href="ftp://ftp.flybase.net/releases/" target="_blank" title="Current FlyBase DataBase in use" >
+			<jsp:include page="/flybase" /></a> of the <a target="_blank" href="http://www.flybase.org">FlyBase</a> <a target="_blank" href="http://gmod.org/wiki/Chado" >chado</a> database. <span id="flybaseRelesedOn"></span>.<br /><br />
+			We also use an <a href="http://en.wikipedia.org/wiki/Web_Ontology_Language" target="_blank" title="Web Ontology Language" >OWL version</a> of the <a href="http://sourceforge.net/p/fbbtdv/wiki/Home/">Drosophila anatomy ontology</a> which is available here <a href="<jsp:include page="/owldate" />" target="_blank" title="Current VFB OWL ontology in use" >
+			<jsp:include page="/owldate" /></a> and generate an OWL individuals file available here <a href="<jsp:include page="/owlIndRev" />" target="_blank" title="Current VFB OWL individuals in use" >
+			<jsp:include page="/owlIndRev" /></a>.
+
+	</div><!-- center_wide -->
+
 </div>
-
-	<p style="text-align: left;">
-
-	The Virtual Fly Brain service is an opensource project.<br /><br />
-	This site is running version <b><jsp:include page="/revision" /></b> from the <a href="https://github.com/VirtualFlyBrain/VFB/tree/<jsp:include page="/branch" />" target="_new" title="Current GitHub code repository branch and revision" >
-		<jsp:include page="/branch" /></a> branch. <br />
-	Visit our <a href="https://github.com/VirtualFlyBrain/VFB">GitHub repository</a> for details, raise any issues or to find out how to get involved.<br /><br />
-	The site is currently using version
-	<a href="ftp://ftp.flybase.net/releases/<jsp:include page="/flybase" />" target="_new" title="Current FlyBase DataBase in use" >
-	<jsp:include page="/flybase" /></a> of the Flybase chado database.<br /><br />
-	We also create and utilse an <a href="http://en.wikipedia.org/wiki/Web_Ontology_Language" target="_new" title="Web Ontology Language" >OWL</a> anatomy ontology which is available here <a href="<jsp:include page="/owldate" />" target="_new" title="Current VFB OWL ontology in use" >
-	<jsp:include page="/owldate" /></a>.
-	</p>
-</div><!-- center_wide -->
-<!-- /div><!-- FF fix - layout breaks otherwise -->
-
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

@@ -45,14 +45,14 @@ public class PubBean {
 		super();
 		this.id = id;
 		this.miniref = miniref;
-		LOG.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
+		//LOG.debug("Created PubBean with id: " + id + " and miniref: " + miniref);
 	}
 
 	public PubBean(String id) {
 		super();
 		this.id = id;
 		this.miniref = decodeId2miniref(id);
-		LOG.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
+		//LOG.debug("Created PubBean from id: " + id + " which resolved with miniref: " + miniref);
 	}
 
 	public String getId() {
@@ -69,12 +69,12 @@ public class PubBean {
 	}
 
 	public String getShortref() {
-		LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
+		//LOG.debug("Shortref requested for: " + id + " with a current miniref of " + miniref);
 		return produceShortref(id, miniref);
 	}
 
 	public String getYear() {
-		LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
+		//LOG.debug("Year requested for: " + id + " with a current miniref of " + miniref);
 		if (miniref!=null){
 			if (miniref.contains(",") && id.contains("FBrf")){
 				String[] parts = miniref.split(",");
@@ -139,10 +139,13 @@ public class PubBean {
 				return "http://flybase.org";
 			}
 			// TBR: to handle block consultant links.
-			if (miniref.contains("FlyBase")){ 
+			if (miniref.contains("Consultant")){ 
 				return "http://flybase.org";
 			}
 			return "http://www.pubfacts.com/author/" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" ","+");
+		}
+		if (id.contains("CARO:MAH")){
+			return "http://www.pubfacts.com/author/" + miniref.replace("Common Anatomy Reference Ontology: ","").replace(" ","+");
 		}
 		if (id.contains("ISBN:")){
 			return "https://www.google.com/search?q=" + id.replace("-","");
@@ -157,7 +160,10 @@ public class PubBean {
 			return "http://gowiki.tamu.edu/wiki/index.php/Category:" + id;
 		}
 		if (id.contains("FBbt:")){
-			return "/site/tools/anatomy_finder/index.htm?id=" + id;
+			return "/site/stacks/index.htm?id=" + id;
+		}
+		if (id.contains("doi:")){
+			return id.replace("doi:", "http://dx.doi.org/");
 		}
 		//handling FBxx other types
 		for (String key:rep.keySet()){
@@ -178,6 +184,11 @@ public class PubBean {
 				result = result.replace("Curator","Consultant");
 				result = "FlyBase"; // TBR: once the Consultants are approved.
 			}
+			return result;
+		}
+		if (id.contains("CARO:")){
+			result = id.replace("CARO:", "Common Anatomy Reference Ontology: ");
+			result = result.replace("MAH", "Melissa Haendel");
 			return result;
 		}
 		if (id.contains("FlyBrain_NDB:")){
@@ -206,6 +217,10 @@ public class PubBean {
 		}
 		if (id.contains("FBbt:")){
 			result = id.replace("FBbt:","Anatomy Term [FBbt:") + "]";
+			return result;
+		}
+		if (id.contains("doi:")){
+			result = id.replace("doi:","Digital Object Identifier [doi:") + "]";
 			return result;
 		}
 		//handling FBxx other types
@@ -247,6 +262,12 @@ public class PubBean {
 				return id;
 			}
 			if (id.contains("FBbt:")){
+				return id;
+			}
+			if (id.contains("doi:")){
+				return id;
+			}
+			if (id.contains("CARO:")){
 				return id;
 			}
 			if (id.contains("VFB_vol:")){

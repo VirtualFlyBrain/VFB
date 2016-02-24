@@ -10,20 +10,20 @@
    "coronalView": {"pitch": "90", "yaw": "0", "roll": "90"},
    "viewerTargetId": "emapIIPViewerDiv",
    "layerNames": [
-      "grey",
+      "background",
       "anatomy"
    ],
    "layerData": [
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/halfMain/woolz/",
-         "imageName":"InsectBrainNomenclature_neuropil.wlz",
+         "imageDir":"/disk/data/VFB/IMAGE_DATA/VFB/t/002/",
+         "imageName":"composite.wlz",
          "type":"rgba",
          "opacity":"1.0",
          "visible":"true"
       },
       {
-         "imageDir":"/usr/local/tomcat-6/webapps/WEBAPP_NAME/data/flybrain/halfMain/woolz/",
-         "imageName":"InsectBrainNomenclature_neuropil.wlz",
+         "imageDir":"/disk/data/VFB/IMAGE_DATA/VFB/t/002/",
+         "imageName":"composite.wlz",
          "type":"label",
          "opacity":"1.0",
          "current":"",
@@ -33,7 +33,7 @@
         }
    ],
    "initialState": {"scale":"1.0", "distance":"0", "pitch":"0", "yaw":"0", "roll":"0"},
-   "pixelResolution": {"x":"0.6362335", "y":"0.6362335", "z":"0.6362331", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
+   "pixelResolution": {"x":"0.6362335", "y":"0.6362335", "z":"1.41", "units":["\u03BC\u006D", "\u03BC\u006D", "\u03BC\u006D"]},
    "menuStructureFile": "/data/flybrain/halfMain/menu/menuStructure.jso",
    "menuContentFile": "/data/flybrain/halfMain/menu/menuContent.jso",
    "wlzMode": "zeta",

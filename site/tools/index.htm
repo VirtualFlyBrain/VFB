@@ -1,23 +1,20 @@
-<jsp:include page="/jsp/includes/1ColHead.jsp" >
-	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Tools" />
-</jsp:include>
+<!--forward requests to main browser-->
+<meta http-equiv="Refresh" content="50;URL=/site/stacks/index.htm"/>
+<script language="JavaScript">
+	// Original URL
+	var url = window.location.href;
+	var newUrl = "";
 
-	<div id="center_wide">
+	// Split the String to get the Query strings
+	var splitString = url.split('?');
 
-	<h2>The 3D Brain Viewer</h2>
-	<p>
-		The pages in that section provide downloadable and online tools developed as part of the VFB project.
-	</p>
-	<h3>Currently available tools</h3>
-	<ul>
-		<li><b>Query browser</b> - allows one to run queries comprising multiple anatomy terms</li>
-	</ul>
-	<h3>Tools - work in progress</h3>
-	<ul>
-		<li><b>Upload your stack</b> - It is planned that VFB would be enhanced with tools allowing uploading and browsing actual experimental stacks. 
-		Then the VFB users will be provided with the means to upload their stack and use the VBF application for online brwosing of the stack  </li>
-	</ul>
-	
-	
-	</div>
-<jsp:include page="/jsp/includes/homeFoot.jsp" />
+
+	if (splitString.length > 1) {
+		// New Url With Query strings
+		newUrl = "/do/ont_bean.html" + "?" + splitString[1];
+	} else {
+		// New Url With NO query string
+		newUrl = "/site/stacks/index.htm";
+	}
+	window.location = newUrl;
+</script>

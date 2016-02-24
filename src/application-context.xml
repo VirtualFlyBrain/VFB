@@ -5,19 +5,19 @@
  -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="localeResolver"
     	class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
     	<property name="defaultLocale" value="en_GB"/>
 	</bean>
-	
+
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename"><value>messages</value></property>
 	</bean>
-	
-	<import resource="db.xml"/> 
+
+	<import resource="db.xml"/>
 
 	<bean id="geneQueryDAO" class="uk.ac.ed.vfb.dao.db.GeneQueryDAO"
 		scope="singleton">
@@ -31,12 +31,12 @@
 	<bean id="thirdPartyDAO" class="uk.ac.ed.vfb.dao.db.ThirdPartyDAO" scope="singleton">
 		<property name="dataSource" ref="vfbDataSource" />
 	</bean>
-	
+
 	<bean id="stackManagerDAO" class="uk.ac.ed.vfb.annotation.dao.StackManagerDAO"
 		scope="singleton">
 		<property name="dataSource" ref="vfbDataSource" />
 	</bean>
-	
+
 	<!-- Manager for ThirdParty Beans -->
 	<bean id="thirdPartyBeanManager" class="uk.ac.ed.vfb.service.ThirdPartyBeanManager" scope="singleton" >
 		<property name="dao" ref="thirdPartyDAO" />
@@ -47,26 +47,26 @@
 		<property name="ontClient" ref="ontClient" />
 		<property name="tpbm" ref="thirdPartyBeanManager" />
 	</bean>
-	
+
 	<!-- Manager for ontBean lists and single instances -->
 	<bean id="ontBeanManager" class="uk.ac.ed.vfb.service.OntBeanManager" scope="session">
 		<property name="ontClient" ref="ontClient" />
 		<property name="tpbm" ref="thirdPartyBeanManager" />
 	</bean>
-	
+
 	<!-- Manager for pubBean lists -->
 	<bean id="pubBeanManager" class="uk.ac.ed.vfb.service.PubBeanManager"
 		scope="session">
 		<property name="dao" ref="pubQueryDAO" />
-	</bean>	
-	
+	</bean>
+
 	<!-- Manager for geneBean lists -->
 	<bean id="geneBeanManager" class="uk.ac.ed.vfb.service.GeneBeanManager" scope="session">
-		<property name="queryDAO" ref="geneQueryDAO" />		
+		<property name="queryDAO" ref="geneQueryDAO" />
 		<property name="obm" ref="ontBeanManager" />
 		<property name="tpbm" ref="thirdPartyBeanManager" />
 	</bean>
-	
+
 	<bean id="autocompleteDAONeuropil" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">
 		<property name="dataSource" ref="dataSource" />
@@ -87,28 +87,28 @@
 		<property name="type" value="tract" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
-	
+
 	<bean id="autocompleteDAOClone" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="lineage_clone" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
-	
+
 	<bean id="autocompleteDAOAll" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="all" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
-	</bean>	
-	
+	</bean>
+
 	<bean id="autocompleteDAONeuropilAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="neuropilAB" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
 	</bean>
-	
+
 	<bean id="autocompleteDAOTractAB" class="uk.ac.ed.vfb.tools.autocomplete.AutocompleteDAO"
 		scope="singleton">
 		<property name="dataSource" ref="dataSource" />
@@ -121,28 +121,28 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="type" value="allAB" />
 		<property name="obm" ref="ontBeanManagerSingleton" />
-	</bean>	
-		
-		
+	</bean>
+
+
 	<!-- Manager for Ont Query bean lists -->
 	<bean id="ontQueryManager" class="uk.ac.ed.vfb.ont_query.model.OntQueryManager" scope="session">
 	</bean>
-	
-	<!-- Manager for ontology domains used for the viewer to keep the highlights when refreshed 
+
+	<!-- Manager for ontology domains used for the viewer to keep the highlights when refreshed
 		No longer in use. All relevant classes can be removed-->
 	<!-- bean id="domainManager" class="uk.ac.ed.vfb.service.DomainManager"
 		scope="session">
 		<property name="obm" ref="ontBeanManager" />
-	</bean-->		
+	</bean-->
 
 	<!-- Bean for User Stack -->
 	<bean id="stackBeanManager" class="uk.ac.ed.vfb.annotation.service.StackBeanManager" scope="session">
 		<property name="dao" ref="stackManagerDAO" />
 	</bean>
-	
+
 	<!-- Ontology Client -->
 	<bean id="ontClient" class="uk.ac.ed.vfb.dao.client_server.OWLClient" >
 		<property name="tpbm" ref="thirdPartyBeanManager" />
-	</bean>	
+	</bean>
 
 </beans>

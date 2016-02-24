@@ -24,13 +24,16 @@ then
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
         head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
+        head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
         echo "which are:"
         cat branch
         cat revision
         echo "Flybase version:"
         cat flybase
-        echo "OWL date:"
+        echo "OWL ontology version:"
         cat owldate
+        echo "OWL individual version:"
+        cat owlIndRev
 
         echo "checking filters to use correct branch names"
         find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
@@ -53,8 +56,8 @@ then
         find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
 
         echo "checking any direct references to website url is set to the branch site"
-        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
-        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed
+        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenClean.sed
+        find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenSmudge.sed
 
         echo "Recompiling the site..."
         nice ant
@@ -65,82 +68,106 @@ then
         echo "Done."
 
     else
-        if [ `git diff --name-only $current | grep "\.gz" | wc -l` -gt 0 ]
+        if [ `git diff --name-only $current | grep "deploy/update.sh" | wc -l` -gt 0 ]
         then
-            nice deploy/decompress.sh
+            nice deploy/update.sh
+        else
+            if [ `git diff --name-only $current | grep "\.gz\|\.gz\.part\-aa" | wc -l` -gt 0 ]
+            then
+                nice deploy/decompress.sh
+            fi
+    
+            echo "recording git branch and version details"
+            git describe --long > revision
+            echo $branch > branch
+            cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+            head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
+	    head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
+            echo "which are:"
+            cat branch
+            cat revision
+            echo "Flybase version:"
+            cat flybase
+            echo "OWL Ont Ver:"
+            cat owldate
+            echo "OWL Ind Ver:"
+            cat owlIndRev
+            if [ `git diff --name-only $current | grep "deploy/attributes\|deploy/config" | wc -l` -gt 0 ]
+            then
+                echo "updating git filters"
+                cp deploy/attributes .git/info/
+                cp deploy/config .git/
+            fi
+            if [ `git diff --name-only $current | grep "\.sed" | wc -l` -gt 0 ]
+            then
+                echo "checking filters to use correct branch names"
+                find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
+                find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "tiledImageModelD" | wc -l` -gt 0 ]
+            then
+                echo "checking image json files"
+                find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
+                find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "resources.properties" | wc -l` -gt 0 ]
+            then
+                echo "checking resources.properties"
+                find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed
+                find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "web.xml" | wc -l` -gt 0 ]
+            then
+                echo "checking web.xml"
+                find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
+                find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "ga.jsp" | wc -l` -gt 0 ]
+            then
+                echo "checking google analytics code"
+                find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
+                find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl\|\.java|log4j.properties" | wc -l` -gt 0 ]
+            then
+                echo "checking any direct references to website url is set to the branch site"
+                find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenClean.sed
+                find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenSmudge.sed
+            fi
+            if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
+            then
+                echo "Recompiling the site..."
+                om tomcat stop
+                nice ant
+                om tomcat start
+            fi
+            if [ `git diff --name-only $current | grep "owl/fbbt-simple.owl" | wc -l` -gt 0 ]
+            then
+                echo "updating fbbt-simple.owl symlink..."
+                nice ln -sf ../resources/fbbt-simple.owl owl/fbbt-simple.owl
+            fi
+            if [ `git diff --name-only $current | grep "owl/fbbt_vfb_ind_pr_nr.owl" | wc -l` -gt 0 ]
+            then
+                echo "updating fbbt_vfb_ind_pr_nr.owl symlink..."
+                nice ln -sf ../resources/fbbt_vfb_ind_pr_nr.owl owl/fbbt_vfb_ind_pr_nr.owl
+            fi
+            if [ `git diff --name-only $current | grep "\.owl\|\.owl\.gz\.part\-aa\|deploy/start" | wc -l` -gt 0 ]
+            then
+                echo "Redeploying ontology server..."
+                nice deploy/start-${branch}-Ont-Server.sh
+                echo "giving tomcat time to restart..."
+                sleep 5m
+            fi
         fi
-
-        echo "recording git branch and version details"
-        git describe --long > revision
-        echo $branch > branch
-        cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
-        head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
-        echo "which are:"
-        cat branch
-        cat revision
-        echo "Flybase version:"
-        cat flybase
-        echo "OWL date:"
-        cat owldate
-        if [ `git diff --name-only $current | grep "deploy/attributes\|deploy/config" | wc -l` -gt 0 ]
-        then
-            echo "updating git filters"
-            cp deploy/attributes .git/info/
-            cp deploy/config .git/
-        fi
-        if [ `git diff --name-only $current | grep "\.sed" | wc -l` -gt 0 ]
-        then
-            echo "checking filters to use correct branch names"
-            find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
-            find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "tiledImageModelD" | wc -l` -gt 0 ]
-        then
-            echo "checking image json files"
-            find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
-            find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "resources.properties" | wc -l` -gt 0 ]
-        then
-            echo "checking resources.properties"
-            find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed
-            find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "web.xml" | wc -l` -gt 0 ]
-        then
-            echo "checking web.xml"
-            find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
-            find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "ga.jsp" | wc -l` -gt 0 ]
-        then
-            echo "checking google analytics code"
-            find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
-            find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "\.xml\|\.jsp\|\.htm\|\.html\|\.js\|\.owl\|\.java" | wc -l` -gt 0 ]
-        then
-            echo "checking any direct references to website url is set to the branch site"
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenClean.sed
-            find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' | xargs sed -i -f filters/FiltGenSmudge.sed
-        fi
-        if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
-        then
-            echo "Recompiling the site..."
-            nice ant
-        fi
-        if [ `git diff --name-only $current | grep "\.owl\|deploy/start" | wc -l` -gt 0 ]
-        then
-            echo "Redeploying ontology server..."
-            nice deploy/start-${branch}-Ont-Server.sh
-            echo "Waiting for intitialisation..."
-            sleep 1m
-            echo "Rebooting tomcat"
-            om tomcat restart
-        fi
+        chmod -R 777 . 2>/dev/null | :
         echo "Done."
     fi
-
+    if [ $branch == "Main-Server" ] 
+    then
+    	printf 'User-agent: *\r\nDisallow: \r\n' > robots.txt
+    else
+    	printf 'User-agent: *\r\nDisallow: /\r\n' > robots.txt
+    fi
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
 fi

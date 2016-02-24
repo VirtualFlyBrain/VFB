@@ -1231,15 +1231,20 @@ emouseatlas.emap.tiledImageView = function() {
 			return false;
 		}
 
-		var text;
-		// for now just use indexArr[1]
-		if(indexData[indexArr[1]] === undefined) {
-			//return false;
-			text = "not defined";
-		} else {
-			text = indexData[indexArr[1]].name;
+		var text = "";
+		// uses all but background domain
+		for (var i=1;i<indexArr.length;i++) {
+			if(indexData[indexArr[i]] !== undefined) {
+				if (i>1 && text!=""){
+					text = text + ", "
+				}
+				text = text + indexData[indexArr[i]].name;
+			}
 		}
-
+		if (text == ""){
+			text = "not defined";
+		}
+	
 		var viewerPos = emouseatlas.emap.utilities.findPos(targetContainer);
 		var X = Math.round(docX - viewerPos.x);
 		var Y = Math.round(docY - viewerPos.y);

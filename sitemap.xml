@@ -19,7 +19,7 @@ AutocompleteDAO acdaoTracts = (AutocompleteDAO)wac.getBean("autocompleteDAOTract
 pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
 %>
 <c:set var="u1" value="<url>" /><c:set var="u2" value="</url>" /><c:set var="l1" value="<loc>" /><c:set var="l2" value="</loc>" />
-<c:set var="af" value="http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=" />
+<c:set var="af" value="http://www.virtualflybrain.org/site/stacks/index.htm?id=" />
 <c:set var="bsf" value="http://www.virtualflybrain.org/site/stacks/index.htm?add=" />
 <c:set var="qob" value="http://www.virtualflybrain.org/do/ont_bean_list.html?action=found&amp;amp;id=" />
 <c:set var="qcl" value="http://www.virtualflybrain.org/do/cluster_list.html?action=cluster_found&amp;amp;id=" />
@@ -45,13 +45,43 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
   <loc>http://www.virtualflybrain.org/site/vfb_site/about_us.htm</loc>
 </url>
 <url>
-  <loc>http://www.virtualflybrain.org/site/tools/anatomy_finder/</loc>
+  <loc>http://www.virtualflybrain.org/site/stacks/</loc>
 </url>
 <url>
   <loc>http://www.virtualflybrain.org/site/vfb_site/inProgress.htm</loc>
 </url>
 <url>
   <loc>http://www.virtualflybrain.org/site/stacks/index.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/template_files_downloads.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/image_data_downloads.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/supp_files_downloads.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/Feedback.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/stacks/halfmain.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/tools/query_builder/</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/home.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/usefulLinks.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/sitemap.htm</loc>
+</url>
+<url>
+  <loc>http://www.virtualflybrain.org/site/vfb_site/privacy_cookies.htm</loc>
 </url>
 <url>
   <loc>http://www.virtualflybrain.org/public_resources/NeuroFly2010.ppt</loc>
@@ -61,7 +91,7 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
   <loc>http://www.virtualflybrain.org/search.htm?id=FBbt_00007333</loc>
 </url>
 <url>
-  <loc>http://www.virtualflybrain.org/site/tools/anatomy_finder/index.htm?id=FBbt:00007333</loc>
+  <loc>http://www.virtualflybrain.org/site/stacks/index.htm?id=FBbt:00007333</loc>
 </url>
 <c:forEach items="${neuropils}" var="neuropil" varStatus="i">
 ${u1}
@@ -91,11 +121,6 @@ ${u2}
 <c:forEach items="${neurons}" var="neuron" varStatus="i">
 ${u1}
 ${l1}${af}${neuron.fbbtId}${l2}
-${u2}
-</c:forEach>
-<c:forEach begin="0" end="23726" var="val">
-${u1}
-${l1}http://www.virtualflybrain.org/do/ont_bean.html?id=VFB_<c:choose><c:when test="${val < 10}">0000000</c:when><c:when test="${val < 100}">000000</c:when><c:when test="${val < 1000}">00000</c:when><c:when test="${val < 10000}">0000</c:when><c:when test="${val < 100000}">000</c:when><c:when test="${val < 1000000}">00</c:when><c:when test="${val < 10000000}">0</c:when></c:choose><c:out value="${val}" />${l2}
 ${u2}
 </c:forEach>
 </urlset>

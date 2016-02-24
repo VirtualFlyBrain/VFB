@@ -56,6 +56,8 @@
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/UploadStackController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/Utils.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/annotation/web/WoolzRegisterController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/logs/tomcatController.java"/>
+        <pathelement location="./src/uk/ac/ed/vfb/annotation/web/logs/ontServerController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/composite/model/CompositeViewBean.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/composite/web/CompositeViewController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/dao/client_server/OWLClient.java"/>
@@ -78,13 +80,10 @@
         <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/GeneQueryResultSetExtractor.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/PubQueryResultSetExtractor.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/ThirdPartyQueryResultSetExtractor.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/dao/db/pojo/UserBeanQueryResultSetExtractor.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/dao/security/UserManagerDAO.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/OntBean.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/OntBeanIndividual.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/PubBean.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/ThirdPartyBean.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/model/security/UserBean.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/tree/OntNode.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/model/tree/OntTreeManager.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/ont_query/model/Argument.java"/>
@@ -98,7 +97,6 @@
         <pathelement location="./src/uk/ac/ed/vfb/service/OntBeanManager.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/service/PubBeanManager.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/service/ThirdPartyBeanManager.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/service/UserManager.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/servlets/CharsetEncodingFilter.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/servlets/ServletUtil.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/tags/TrimToWhiteSpace.java"/>
@@ -115,8 +113,6 @@
         <pathelement location="./src/uk/ac/ed/vfb/web/JsonController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/OntBeanController.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/OntBeanListController.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/web/UserController.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/web/UserValidator.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/WebQueryUtils.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvGeneView.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvOntView.java"/>
@@ -124,7 +120,6 @@
         <pathelement location="./src/uk/ac/ed/vfb/web/csvviewer/CsvViewer.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/SessionExpiredException.java"/>
         <pathelement location="./src/uk/ac/ed/vfb/web/exception/StackExistsException.java"/>
-        <pathelement location="./src/uk/ac/ed/vfb/web/exception/UserPermissionsException.java"/>
         <pathelement location="./src/uk/ac/ebi/brain/core/Brain.java"/>
         <pathelement location="./src/uk/ac/ebi/brain/error/BadNameException.java"/>
         <pathelement location="./src/uk/ac/ebi/brain/error/BadPrefixException.java"/>
@@ -159,13 +154,13 @@
             </fileset>
         </copy>
     </target>
-    
+
     <target name="clean">
         <delete dir="build"/>
     </target>
-    
-    <target depends="jdoc-clean, init, compile, copy, jdoc, clean" name="build"/>
- 
+
+    <target depends="init, compile, copy, clean" name="build"/>
+
     <target depends="init" name="compile">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="build" includeantruntime="false" source="${source}" target="${target}">
@@ -179,7 +174,7 @@
         </copy>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-	
+
 	<!-- Generate javadocs for current project into doc -->
 	<target name="jdoc-clean">
         <delete dir="jdoc"/>
@@ -191,4 +186,3 @@
     </target>
 
 </project>
-

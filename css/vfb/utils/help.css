@@ -30,8 +30,8 @@ a.warn:hover {
 
 #help_head_wrapper {
 	width: 101%;
-	background-image: url('/images/vfb/utils/grad_blu.gif');
 	margin: -16px 0 0 -7px;
+	background: #99BCDB;
 }
 
 #help_head_wrapper h1 {
@@ -39,7 +39,7 @@ a.warn:hover {
 }
 
 #help_header {
-	color: white;
+	color: black;
 	font-size: 1.6em;
 }
 

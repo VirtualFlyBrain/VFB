@@ -1,6 +1,6 @@
 package uk.ac.ed.vfb.model;
 
-import java.io.Serializable;
+import java.io.*;
 import uk.ac.ed.vfb.annotation.web.Utils;
 
 import org.apache.commons.logging.Log;
@@ -67,6 +67,61 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.displayName = displayName;
 		this.stackType = stackType;
 		this.completeExpressionPattern = completeExpressionPattern;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String remoteId, String resourceName, String baseUrl, 
+			String descr, String displayName) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = remoteId;
+		this.sourceName = resourceName;
+		this.baseUrl = baseUrl;
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = descr;
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = "";
+		this.sourceName = resourceName;
+		this.baseUrl = "/site/vfb_site/image_data_downloads.htm";
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = "";
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
+	}
+	
+	public ThirdPartyBean(String vfbId, String fbId, String displayName, String resourceName, String link) {
+		super();
+		this.vfbId = vfbId;
+		this.fbId = fbId;
+		this.remoteId = "";
+		this.sourceName = resourceName;
+		this.baseUrl = link;
+		this.thumbName = "thumbnail.png";
+		this.vfbIm = getVFBidAsImageRef(vfbId);
+		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.stackName = displayName;
+		this.descr = "";
+		this.displayName = displayName;
+		this.stackType = "adult brain";
+		this.completeExpressionPattern = true;
 	}
 
 	public String getVfbId() {
@@ -191,6 +246,14 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 	}
 	public String getVFBidAsImageRef(String vfbId) {
 		return vfbId.toLowerCase().replace(":", "_").replace("vfb_","VFBi_");
+	}
+	
+	public String getImageDir() {
+		String result = vfbId;
+		result = result.toLowerCase().replace("vfb_","");
+		result = "/disk/data/VFB/IMAGE_DATA/VFB/i/" + result.substring(0, 4) + "/" + result.substring(4) + "/";
+		//LOG.debug(vfbId + " resolved to image directory " + result);
+		return result;
 	}
 
 	@Override

@@ -21,10 +21,18 @@ public class CsvOntView  extends CsvViewer {
 	protected void renderOutput(){
 		String line = "";  
 		@SuppressWarnings("unchecked")
-		Iterator<OntBean> it = manager.getResultSet().iterator();		
+		String link = "";
+		Iterator<OntBean> it = manager.getResultSet().iterator();
+		line = "\"Name\",\"Definition\",\"Id\",\"Link\"\n";
+		writer.write(line);
 		while (it.hasNext()) {
 			OntBean curr = it.next();
-			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + curr.getFbbtIdAsOBO() + "\"\n";
+			if (curr.correctIdFormat().contains("VFB")){
+				link = "=HYPERLINK(\"http://www.virtualflybrain.org/" + curr.correctIdFormat() + "\")";
+			}else{
+				link = "=HYPERLINK(\"http://www.virtualflybrain.org/site/stacks/index.htm?id=" + curr.correctIdFormat() + "\")";
+			}
+			line = "\"" + curr.getName() + "\",\"" + curr.getDef() + "\",\"" + curr.correctIdFormat() + "\"," + link + "\n";
 			writer.write(line);
 		}
 	}
