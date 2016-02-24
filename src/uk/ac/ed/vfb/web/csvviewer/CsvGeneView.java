@@ -27,7 +27,9 @@ public class CsvGeneView  extends CsvViewer {
 			query = query.substring(0, query.length()-1);
 		}
 		@SuppressWarnings("unchecked")
-		Iterator<GeneQueryResult> it = manager.getResultSet().iterator();		
+		Iterator<GeneQueryResult> it = manager.getResultSet().iterator();
+		line = "\"Driver\",\"Location\",\"Reference\",\"Note\"\n";
+		writer.write(line);
 		while (it.hasNext()) {
 			GeneQueryResult curr = it.next();
 			line = "\"" + curr.getDriver() + "\",\"" + curr.getLocation() + "\",\"" + curr.getReferenceRef() + "\",\"" + (curr.getFlag()?"Note: " + query + " expression in this cell may be localised to regions of the cell that do not overlap the queried structure.":"") + "\"\n";

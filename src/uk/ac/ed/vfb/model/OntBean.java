@@ -14,7 +14,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	protected String fbbtId;
 	protected String name;
 	protected String def;
-	protected String comment;	
+	protected String comment;
 	protected List<String> synonyms;
 	protected List<String> refs;
 	/** List of key:value[] pairs describing relationships, eg "FBbt:00000020 :[part_of, abdomen]" */
@@ -29,10 +29,10 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 * Static factory-like method - only creates new bean if the FBbt returned != "Nothing"
 	 * Used when creating beans after outcome from OWLClient query.
 	 */
-	public static OntBean getOntBean(String value){
-		if (value.equals("Nothing")) return null;
-		//Bring id to OBO format just to be sure...
-		return new OntBean(value.replace("_", ":"));
+	public static OntBean getOntBean(String fbbtId){
+		if (fbbtId.equals("Nothing")) return null;
+		fbbtId = OntBean.correctIdFormat(fbbtId);
+		return new OntBean(fbbtId);
 	}
 
 	public OntBean() {
@@ -43,6 +43,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 
 	public OntBean(String fbbtId) {
 		this();
+		fbbtId = OntBean.correctIdFormat(fbbtId);
 		this.fbbtId = OntBean.idAsOBO(fbbtId);
 	}
 
@@ -95,11 +96,15 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public Hashtable<String, String[]> getRelationships() {
+		//LOG.debug("Id:" + fbbtId);
+		//LOG.debug("Relationships:" + relationships);
 		return relationships;
 	}
 
 	public void setRelationships(Hashtable<String, String[]> relationships) {
 		this.relationships = relationships;
+		//LOG.debug("Id:" + fbbtId);
+		//LOG.debug("Relationships:" + relationships);
 	}
 
 	public HashMap<String, String> getIsa() {
@@ -110,7 +115,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		this.isa = isa;
 	}
 
-	
+
 	public ThirdPartyBean getThirdPartyBean() {
 		return thirdPartyBean;
 	}
@@ -134,20 +139,20 @@ public class OntBean implements Comparable<Object>, Serializable{
 	public String getFbbtIdAsOBO() {
 		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
-	
+
 	/**
 	 * A quick-fixs method so as to not bother with bean creation
-	 * Converts ":" id to "_" 
+	 * Converts ":" id to "_"
 	 * @param fbbtId
 	 * @return
 	 */
 	public static String idAsOWL(String fbbtId) {
 		return fbbtId.replace(":", "_").replace("fbbt","FBbt");
 	}
-	
+
 	/**
 	 * A quick-fixs method so as to not bother with bean creation
-	 * Converts "_" id to ":"  
+	 * Converts "_" id to ":"
 	 * @param fbbtId
 	 * @return
 	 */
@@ -155,16 +160,32 @@ public class OntBean implements Comparable<Object>, Serializable{
 		return fbbtId.replace("_", ":").replace("fbbt","FBbt");
 	}
 
+	public static String correctIdFormat(String fbbtId) {
+		if (fbbtId.contains("VFB")) {
+			fbbtId = OntBean.idAsOWL(fbbtId);
+		}else{
+			fbbtId = OntBean.idAsOBO(fbbtId);
+		}
+		return fbbtId;
+	}
+
+	public String correctIdFormat() {
+		return correctIdFormat(fbbtId);
+	}
+
 	/**
 	 *  Returns numerical Id of the ontBean
 	 */
 	public String getId() {
+		if (fbbtId.contains("VFB")){
+			return fbbtId.substring(4);
+		}
 		return fbbtId.substring(5);
 	}
 
 	@Override
 	public int compareTo(Object o) {
-		OntBean typeO = (OntBean)o; 
+		OntBean typeO = (OntBean)o;
 		return (this.name).compareToIgnoreCase(typeO.name);
 	}
 

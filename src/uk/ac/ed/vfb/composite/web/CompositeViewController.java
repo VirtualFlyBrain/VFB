@@ -43,9 +43,9 @@ public class CompositeViewController extends MultiActionController{
 				//Only allow up to 3 stacks in the composite
 				if (cvb.getStackCont()<3){
 					String id = ids[0];
-					LOG.debug("Composite View adding - ID: " + id);
+					//LOG.debug("Composite View adding - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					LOG.debug("Composite View adding - TPB: " + tpb);
+					//LOG.debug("Composite View adding - TPB: " + tpb);
 					errorMsg = cvb.addStack(tpb);
 				}
 				else{
@@ -58,9 +58,9 @@ public class CompositeViewController extends MultiActionController{
 			else if (action != null & action.equals("Delete selected")){
 				//removing stacks from the view
 				for (String id : ids){
-					LOG.debug("Composite View removing - ID: " + id);
+					//LOG.debug("Composite View removing - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					LOG.debug("Composite View removing - TPB: " + tpb);
+					//LOG.debug("Composite View removing - TPB: " + tpb);
 					errorMsg = cvb.removeStack(tpb);
 				}
 			}		

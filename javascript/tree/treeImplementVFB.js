@@ -206,7 +206,7 @@ Mif.Tree.implement({
 	// create autocomplete items and build them into the text box
 	autocompleteInit: function(){
     	var tree = this;
-		new Meio.Autocomplete($('search_text'), "/do/autocomplete_list_adultbrain.html", {
+		new Meio.Autocomplete($('search_text'), "/do/autocomplete_list_neuropil.html", {
 			selectOnTab: false, 
 			onNoItemToList: function(elements){
 				elements.field.node.highlight('#ff0000');

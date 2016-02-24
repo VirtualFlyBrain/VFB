@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %><%@page import="org.springframework.web.context.*, org.springframework.web.context.support.*, uk.ac.ed.vfb.tools.autocomplete.*, uk.ac.ed.vfb.service.*" %>
+<%
+//test the spring framework
+ServletContext servletContext =this.getServletContext();
+WebApplicationContext wac = WebApplicationContextUtils.
+getRequiredWebApplicationContext(servletContext);
+AutocompleteDAO acdao = (AutocompleteDAO)wac.getBean("autocompleteDAONeuropil");
+pageContext.setAttribute("neuropils", acdao.getSynSet());
+AutocompleteDAO acdaoNeurons = (AutocompleteDAO)wac.getBean("autocompleteDAONeuron");
+pageContext.setAttribute("neurons", acdaoNeurons.getSynSet());
+AutocompleteDAO acdaoTracts = (AutocompleteDAO)wac.getBean("autocompleteDAOTract");
+pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
+%>
+<c:set var="u1" value="<url>" /><c:set var="u2" value="</url>" /><c:set var="l1" value="<loc>" /><c:set var="l2" value="</loc>" />
+<c:set var="af" value="http://www.virtualflybrain.org/site/stacks/index.htm?id=" />
+<c:set var="bsf" value="http://www.virtualflybrain.org/site/stacks/index.htm?add=" />
+<c:set var="qob" value="http://www.virtualflybrain.org/do/ont_bean_list.html?action=found&amp;amp;id=" />
+<c:set var="qcl" value="http://www.virtualflybrain.org/do/cluster_list.html?action=cluster_found&amp;amp;id=" />
+<c:forEach begin="1" end="24230" var="val">
+${u1}
+${l1}http://www.virtualflybrain.org/site/stacks/index.htm?id=VFB_<c:choose><c:when test="${val < 10}">0000000</c:when><c:when test="${val < 100}">000000</c:when><c:when test="${val < 1000}">00000</c:when><c:when test="${val < 10000}">0000</c:when><c:when test="${val < 100000}">000</c:when><c:when test="${val < 1000000}">00</c:when><c:when test="${val < 10000000}">0</c:when></c:choose><c:out value="${val}" />${l2}
+${u2}
+</c:forEach>
+<c:forEach begin="1" end="24230" var="val">
+${u1}
+${l1}http://www.virtualflybrain.org/owl/VFB_<c:choose><c:when test="${val < 10}">0000000</c:when><c:when test="${val < 100}">000000</c:when><c:when test="${val < 1000}">00000</c:when><c:when test="${val < 10000}">0000</c:when><c:when test="${val < 100000}">000</c:when><c:when test="${val < 1000000}">00</c:when><c:when test="${val < 10000000}">0</c:when></c:choose><c:out value="${val}" />${l2}
+${u2}
+</c:forEach>
+</urlset>

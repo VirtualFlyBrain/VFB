@@ -4,8 +4,10 @@ revision
 branch
 flybase
 owldate
+owlIndRev
 google*.html
 *.wlz
 jdoc/
-
+robots.txt
 resources/catalog-v001.xml
+.idea

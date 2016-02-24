@@ -22,79 +22,82 @@ pageContext.setAttribute("tracts", acdaoTracts.getSynSet());
 <c:set var="a3" value="</a>" />
 <c:set var="l1" value="<loc>" />
 <c:set var="l2" value="</loc>" />
-<c:set var="af" value="/site/tools/anatomy_finder/index.htm?id=" />
+<c:set var="af" value="/site/stacks/index.htm?id=" />
 
-<div id="center_wide">
-
-<ul style="list-style:none">
-	<li>
-		<b>The VFB Site</b> <br/>
-		<ul>
-			<li>${a1}/site/vfb_site/overview.htm${a2}Overview${a3}</li>
-			<li>${a1}/site/vfb_site/features.htm${a2}Features${a3}</li>
-			<li>${a1}/site/vfb_site/tutorial.htm${a2}Video Tutorials${a3}</li>
-			<li>${a1}/site/vfb_site/releases.htm${a2}Releases${a3}</li>
-			<li>${a1}/site/vfb_site/sitemap.htm${a2}Sitemap${a3} </li>
-			<li>${a1}/site/vfb_site/privacy_cookies.htm${a2}Privacy and Cookies${a3} </li>
-			<li>${a1}/site/vfb_site/usefulLinks.htm${a2}Useful Links${a3}</li>
-			<li>${a1}/site/vfb_site/about_us.htm${a2}About Us${a3}</li>
-		</ul>
-	<li>
-		<b>Tools</b> <br/>
-		<ul>	
-			<li>${a1}/site/tools/query_builder/index.htm${a2}Query Builder${a3} </li>
-			<li>${a1}/site/tools/anatomy_finder/index.htm${a2}Anatomy/Neuron Finder${a3} </li>
-		</ul>
-	</li>
-	<li>
-		<b>Stacks</b> <br/>
-		<ul>	
-			<li>${a1}/site/stacks/index.htm${a2}Adult Brain Stack${a3}</li>
-		</ul>
-	</li>
-	<li>
-		<b>Miscellaneous</b> <br/>
-		<ul>	
-			<li>${a1}/public_resources/NeuroFly2010.ppt${a2}Neurofly 2010 Poster${a3}</li>
-			<li>${a1}/search.htm${a2}Anatomy/Neuron search and link-out page${a3} (Use it to link to our anatomy pages from third party site)</li>
-		</ul>
-	</li>
-	<li>
-		<b>Alphabetic list of all neuropil pages</b> <br/>
-		<ul>	
-		<c:forEach items="${neuropils}" var="neuropil" varStatus="i">
-		<li>
-			${a1}/site/tools/anatomy_finder/index.htm?id=${neuropil.fbbtId}${a2}${neuropil.name}${a3}
-		</li>
-		</c:forEach>
-		</ul>
-	</li>
-		<li>
-		<b>Alphabetic list of all tract pages</b> <br/>
-		<ul>	
-		<c:forEach items="${tracts}" var="tract" varStatus="i">
-		<li>
-			${a1}/site/tools/anatomy_finder/index.htm?id=${tract.fbbtId}${a2}${tract.name}${a3}
-		</li>
-		</c:forEach>
-		</ul>
-	</li>
+<div class="row">
 	
-	<li>
-		<b>Alphabetic list of all neuron pages</b> <br/>
-		<ul>	
-		<c:forEach items="${neurons}" var="neuron" varStatus="i">
-		<li>
-			${a1}/site/tools/anatomy_finder/index.htm?id=${neuron.fbbtId}${a2}${neuron.name}${a3}
-		</li>
-		</c:forEach>
+	<div class="col-md-9">
+
+		<ul style="list-style:none">
+			<li>
+				<b>The VFB Site</b> <br/>
+				<ul>
+					<li>${a1}/site/vfb_site/overview.htm${a2}Overview${a3}</li>
+					<li>${a1}/site/vfb_site/features.htm${a2}Features${a3}</li>
+					<li>${a1}/site/vfb_site/tutorial.htm${a2}Video Tutorials${a3}</li>
+					<li>${a1}/site/vfb_site/releases.htm${a2}Releases${a3}</li>
+					<li>${a1}/site/vfb_site/sitemap.htm${a2}Sitemap${a3} </li>
+					<li>${a1}/site/vfb_site/privacy_cookies.htm${a2}Privacy and Cookies${a3} </li>
+					<li>${a1}/site/vfb_site/usefulLinks.htm${a2}Useful Links${a3}</li>
+					<li>${a1}/site/vfb_site/about_us.htm${a2}About Us${a3}</li>
+				</ul>
+			<li>
+				<b>Tools</b> <br/>
+				<ul>	
+					<li>${a1}/site/tools/query_builder/index.htm${a2}Query Builder${a3} </li>
+					<li>${a1}/site/stacks/index.htm${a2}Anatomy/Neuron Finder${a3} </li>
+				</ul>
+			</li>
+			<li>
+				<b>Stacks</b> <br/>
+				<ul>	
+					<li>${a1}/site/stacks/index.htm${a2}Adult Brain Stack${a3}</li>
+				</ul>
+			</li>
+			<li>
+				<b>Miscellaneous</b> <br/>
+				<ul>	
+					<li>${a1}/public_resources/NeuroFly2010.ppt${a2}Neurofly 2010 Poster${a3}</li>
+					<li>${a1}/search.htm${a2}Anatomy/Neuron search and link-out page${a3} (Use it to link to our anatomy pages from third party site)</li>
+				</ul>
+			</li>
+			<li>
+				<b>Alphabetic list of all neuropil pages</b> <br/>
+				<ul>	
+				<c:forEach items="${neuropils}" var="neuropil" varStatus="i">
+				<li>
+					${a1}/site/stacks/index.htm?id=${neuropil.fbbtId}${a2}${neuropil.name} [${neuropil.fbbtId}]${a3}
+				</li>
+				</c:forEach>
+				</ul>
+			</li>
+				<li>
+				<b>Alphabetic list of all tract pages</b> <br/>
+				<ul>	
+				<c:forEach items="${tracts}" var="tract" varStatus="i">
+				<li>
+					${a1}/site/stacks/index.htm?id=${tract.fbbtId}${a2}${tract.name} [${tract.fbbtId}]${a3}
+				</li>
+				</c:forEach>
+				</ul>
+			</li>
+			
+			<li>
+				<b>Alphabetic list of all neuron pages</b> <br/>
+				<ul>	
+				<c:forEach items="${neurons}" var="neuron" varStatus="i">
+				<li>
+					${a1}/site/stacks/index.htm?id=${neuron.fbbtId}${a2}${neuron.name} [${neuron.fbbtId}]${a3}
+				</li>
+				</c:forEach>
+				</ul>
+			</li>	
 		</ul>
-	</li>	
-</ul>
 
-</div><!-- center_wide -->
-<!-- /div><!-- FF fix - layout breaks otherwise -->
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div><!-- col -->
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

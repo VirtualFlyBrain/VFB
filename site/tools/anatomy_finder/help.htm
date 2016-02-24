@@ -2,11 +2,7 @@
 
 <c:set var="head" value="How to use the Anatomy/Neuron finder" />
 
-<jsp:include page="/jsp/includes/help.jsp">
-	<jsp:param name="head" value="${head}" />
-	<jsp:param name="content" value="${content}" />
-</jsp:include> 
-
+<c:set var="content">
 <p>
 	This tool allows searches for neuropil domains, neurons lineage clones and tracts. In addition
 	to the information displayed for each term, further query options for a
@@ -78,4 +74,9 @@
 		  <li>For expression queries, the result lists have four columns. The first shows the driver/reporter, gene or alelle, the second displays the relevant anatomy term ('expressed in' or 'phenotype in'), the third lists the references and the fourth displays a thumbnail of the expression patter for that driver (if integrated by the site). The first and third columns link to the appropriate pages on FlyBase. Clicking on a term in the second column displays the information for that term in the same window. It is the same information as in the Anatomy/Neuron Finder Pages or on the Term info window (if it is a neuropil domain).</li>
 
 </ul>
+</c:set>
 
+<jsp:include page="/jsp/includes/help.jsp">
+	<jsp:param name="head" value="${head}" />
+	<jsp:param name="content" value="${content}" />
+</jsp:include>

@@ -1,0 +1,3 @@
+*.gz merge=keepTheir
+*.gz.part-* merge=keepTheir
+*.owl merge=keepTheir

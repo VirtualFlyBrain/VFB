@@ -10,3 +10,4 @@ analytics.js filter=modity-GA
 *.js filter=modify-ref-gen
 *.owl filter=modify-ref-gen
 *.java filter=modify-ref-gen
+log4j.properties filter=modify-ref-gen
