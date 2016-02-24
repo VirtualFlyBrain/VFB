@@ -28,6 +28,7 @@ then
 		then
 			echo Skipping ${filename}
 		else
+	        	sed -i -f filters/FiltGenClean.sed ${filename}
 	        	mergedname=${filename}.gz
 	        	echo compressing ${filename} keeping original file.
 	        	pigz -9kf ${filename}
@@ -35,6 +36,7 @@ then
 	        	echo splitting ${mergedname} into 48mb pieces - ${partname}??
 	        	split -b 48m ${mergedname} ${partname}
 	        	rm ${mergedname}
+	        	sed -i -f filters/FiltGenSmudge.sed ${filename}
 	        	echo completed packaging ${filename} for push to GITHUB
 		fi
 	else
