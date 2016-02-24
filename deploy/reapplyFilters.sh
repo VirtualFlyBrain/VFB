@@ -3,6 +3,11 @@
 if [ $branch ]
 then
   echo "Adding git Smudge/Clean filters..."
+  for file in filters/Filt*Smudge.sed
+  do
+    sed -f filters/Local-General-Clean.sed $file
+    sed -f filters/Local-${branch}-Smudge.sed $file
+  done
   cp deploy/config .git/
   if [ ! -d .git/info ]
   then
