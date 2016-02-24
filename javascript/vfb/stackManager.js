@@ -1355,7 +1355,7 @@ function post(path, params, method) {
 function alertMessage(message) {
     try {
         console.log(message);
-        ga('send', 'event', 'code', 'alert', message);
+        dataLayer.push({'event': 'exception', 'exDescription': message, 'exFatal': false});
     } catch (ignore) {
 
     }
