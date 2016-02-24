@@ -5,9 +5,9 @@
 </jsp:include>
 
 <div class="row row-centered">
-    <div id="center_wide" class="well">
-	<span style="color:red;">
-		We are sorry, your request may not be completed. The possible reasons are:
+    <div id="center_wide" class="well col-md-8">
+	<span style="color:red;text-align: left;">
+        We are sorry, your request may not be completed. The possible reasons are:
 		<ul>
             <li>Perhaps the page you are looking for is not available, or</li>
             <li>your request is missing an argument, or</li>
@@ -101,7 +101,7 @@
     </div> <!-- center_wide -->
 </div>
 
-<div id="hometext" class="col-md-8">
+<div id="hometext" class="row row-centered">
     <script>
         $('body').ready(function () {
             $('#hometext').load('/site/vfb_site/home.htm #content');
