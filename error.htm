@@ -79,8 +79,10 @@
 				SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
 				SupDetail.cleanURL = encodeURIComponent(window.location)
 				mail2("support","virtualflybrain",1,"?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent,"emailing us")
-				dataLayer.push({'event':'error', 'eventLabel':SupDetail.cleanURL});
-				dataLayer.push({'event':'error', 'eventLabel':navigator.userAgent});
+                message = 'Error page for ' + decodeURIComponent(SupDetail.cleanURL) + ' loaded on ' + navigator.userAgent;
+                ga('send', 'exception', {'exDescription': message, 'exFatal': true});
+                //dataLayer.push({'event':'error', 'eventLabel':SupDetail.cleanURL});
+                //dataLayer.push({'event':'error', 'eventLabel':navigator.userAgent});
 			</script>.
 			</p>
 			<p>
