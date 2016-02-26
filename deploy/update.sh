@@ -141,15 +141,13 @@ then
                 nice ant
                 om tomcat start
             fi
-            if [ `git diff --name-only $current | grep "owl/fbbt-simple.owl" | wc -l` -gt 0 ]
+            if [ `git diff --name-only $current | grep "owl/*.owl" | wc -l` -gt 0 ]
             then
-                echo "updating fbbt-simple.owl symlink..."
-                nice ln -sf ../resources/fbbt-simple.owl owl/fbbt-simple.owl
-            fi
-            if [ `git diff --name-only $current | grep "owl/fbbt_vfb_ind_pr_nr.owl" | wc -l` -gt 0 ]
-            then
-                echo "updating fbbt_vfb_ind_pr_nr.owl symlink..."
-                nice ln -sf ../resources/fbbt_vfb_ind_pr_nr.owl owl/fbbt_vfb_ind_pr_nr.owl
+                for filename in resources/fbbt*.owl
+                do
+                    echo "updating " + ${filename/resources/} + " symlink..."
+                    nice ln -sf ../resources${filename/resources/} owl${filename/resources/}
+                done
             fi
             if [ `git diff --name-only $current | grep "\.owl\|\.owl\.gz\.part\-aa\|deploy/start" | wc -l` -gt 0 ]
             then
