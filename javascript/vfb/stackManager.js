@@ -1355,7 +1355,7 @@ function post(path, params, method) {
 function alertMessage(message) {
     try {
         console.log(message);
-        ga('send', 'event', 'code', 'alert', message);
+        dataLayer.push({'event': 'exception', 'exDescription': message, 'exFatal': false});
     } catch (ignore) {
 
     }
@@ -4567,7 +4567,7 @@ function updateSearchResults() {
         if (val.length > 0) {
             console.log('Searching for ' + val + '...');
             lastkey = Date.now();
-            $.getJSON('/search/select?fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=250&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q="*' + val.split(' ').join('?') + '*"%20OR%20"' + val + '"&defType=edismax&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&wt=json&indent=true', function (data) {
+            $.getJSON('/search/select?fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(fbbt)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=250&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=*' + val.split(' ').join('?') + '*%20OR%20' + val + '&defType=edismax&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&wt=json&indent=true', function (data) {
                 var resl = "";
                 var top;
                 var i;
