@@ -37,6 +37,7 @@
                     <thead>
                     <tr>
                         <th style="display:none;">Query</th>
+                        <th style="display:none;">Cluster details</th>
                         <th>Cluster</th>
                         <th>Exemplar name</th>
                         <th>Exemplar definition</th>
@@ -49,12 +50,15 @@
                     <c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
                         <tr>
                             <td style="display:none;">${query}</td>
+                            <td style="display:none;">
+                                http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/
+                            </td>
                             <td>
                                 <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/"
                                    title="Interactive 3D rendering of cluster" target="_blank">
                                     <img class="lazy"
                                          data-original="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png"
-                                         alt="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/VGlut-F-800026/"/>
+                                         alt="NBLAST neuron cluster based on exemplar ${ontBean.name}"/>
                                 </a>
                             </td>
                             <td>
@@ -106,7 +110,7 @@
                         {
                             extend: 'csvHtml5',
                             exportOptions: {
-                                columns: [0, 1, 2, 3, 4]
+                                columns: [0, 1, 3, 4, 5]
                             }
                         },
                         'print'
@@ -119,16 +123,21 @@
                         },
                         {
                             "targets": [1],
-                            "visible": true,
+                            "visible": false,
                             "searchable": false
                         },
                         {
-                            "targets": [5],
+                            "targets": [2],
                             "visible": true,
                             "searchable": false
                         },
                         {
                             "targets": [6],
+                            "visible": true,
+                            "searchable": false
+                        },
+                        {
+                            "targets": [7],
                             "visible": true,
                             "searchable": false
                         }
