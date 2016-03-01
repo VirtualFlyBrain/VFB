@@ -51,7 +51,7 @@
                             <td style="display:none;">
                                 http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/
                             </td>
-                            <td>
+                            <td style="padding: 5px;">
                                 <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/"
                                    title="NBLAST neuron cluster based on exemplar ${ontBean.name}" target="_blank">
                                     <img class="lazy"
