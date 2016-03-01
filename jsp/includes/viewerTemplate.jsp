@@ -5,14 +5,14 @@
     <jsp:param name="title" value="Virtual Fly Brain: ${param.title}"/>
     <jsp:param name="css" value="
 		/css/bootstrap-slider.min.css;
-		//cdn.datatables.net/t/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,b-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,r-2.0.2/datatables.min.css;
+		//cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.css;
 		/css/bootstrap-colorpicker.min.css;
 		"/>
     <jsp:param name="js" value="
 		/javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-	    //cdn.datatables.net/t/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,b-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,r-2.0.2/datatables.min.js;
-	    /javascript/thirdParty/bootstrap-colorpicker.min.js;
+	  //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.js;
+		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		//cdn.datatables.net/plug-ins/1.10.10/api/fnStandingRedraw.js;
 		"/>
@@ -214,49 +214,7 @@
                                                     responsive: false,
                                                     stateSave: true,
                                                     order: [[1, 'desc']],
-                                                    dom: "<'row-fluid'<'col-sm-6'i><'col-sm-6'f>>R<'row-fluid'<'col-sm-12'tr>><'row-fluid'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
-                                                    buttons: [
-                                                        {
-                                                            extend: 'copyHtml5',
-                                                            exportOptions: {
-                                                                columns: [1, 0, 3]
-                                                            }
-                                                        },
-                                                        {
-                                                            extend: 'csvHtml5',
-                                                            exportOptions: {
-                                                                columns: [1, 0, 3]
-                                                            }
-                                                        },
-                                                        {
-                                                            extend: 'print',
-                                                            exportOptions: {
-                                                                columns: [1, 0, 3]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "columnDefs": [
-                                                        {
-                                                            "targets": [1],
-                                                            "visible": false,
-                                                            "searchable": false
-                                                        },
-                                                        {
-                                                            "targets": [2],
-                                                            "visible": true,
-                                                            "searchable": false
-                                                        },
-                                                        {
-                                                            "targets": [3],
-                                                            "visible": false,
-                                                            "searchable": false
-                                                        },
-                                                        {
-                                                            "targets": [4],
-                                                            "visible": true,
-                                                            "searchable": false
-                                                        }
-                                                    ]
+                                                    dom: "R<'row'<'col-sm-12'tr>><'row'<'col-md-4'i><'col-md-8'p>>"
                                                 });
                                                 $('#selected').DataTable().column(3).visible(false);
                                                 $('#selected').DataTable().column(1).visible(false);
