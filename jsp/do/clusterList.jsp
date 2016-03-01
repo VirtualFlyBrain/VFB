@@ -99,18 +99,15 @@
                     dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
                     buttons: [
                         'copyHtml5',
-                        extend
-                :
-                'csvHtml5',
-                        exportOptions
-                :
-                {
-                    columns: [0, 1, 3, 5]
-                }
-                'printHtml5'
-                ]
-            } )
-                ;
+                        {
+                            extend: 'csvHtml5',
+                            exportOptions: {
+                                columns: [0, 1, 3, 5]
+                            }
+                        },
+                        'printHtml5'
+                    ]
+                })
                 window.setTimeout(function () {
                     updateStackCounter();
                     $('#resultsTable').dataTable().fnAdjustColumnSizing(false);
