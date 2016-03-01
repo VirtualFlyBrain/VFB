@@ -33,16 +33,16 @@
     <div class="col-xs-12" style="padding:0;">
         <div class="container-fluid" style="padding:0;">
             <div class="table-responsive">
-                <table id="resultsTable" class="display" width="100%" border="1" frame="sides" rules="rows">
+                <table id="resultsTable" class="display" width="100%" border="1" frame="below" rules="rows">
                     <thead>
                     <tr>
-                        <th style="display:none;">Cluster details</th>
-                        <th style="padding-top: 20px;">Cluster</th>
-                        <th>Exemplar name</th>
-                        <th>Exemplar definition</th>
-                        <th>Exemplar source</th>
-                        <th>Exemplar preview</th>
-                        <th>Members of cluster</th>
+                        <th align="center" style="display:none;">Cluster details</th>
+                        <th align="center" style="padding-top: 20px;">Cluster</th>
+                        <th align="center">Exemplar name</th>
+                        <th align="center">Exemplar definition</th>
+                        <th align="center">Exemplar source</th>
+                        <th align="center">Exemplar preview</th>
+                        <th align="center">Members of cluster</th>
                     </tr>
                     </thead>
                     <tbody>
