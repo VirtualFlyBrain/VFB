@@ -33,7 +33,7 @@
     <div class="col-xs-12" style="padding:0;">
         <div class="container-fluid" style="padding:0;">
             <div class="table-responsive">
-                <table id="resultsTable" class="display">
+                <table id="resultsTable" class="display" width="100%">
                     <thead>
                     <tr>
                         <th style="display:none;">Query</th>
@@ -100,16 +100,38 @@
                     responsive: true,
                     autoWidth: false,
                     "order": [[0, "desc"]],
-                    dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>R<'row'<'col-sm-12'tr>><'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
+                    dom: "<'row-fluid'<'col-sm-6'i><'col-sm-6'f>>R<'row-fluid'<'col-sm-12'tr>><'row-fluid'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
                     buttons: [
                         'copyHtml5',
                         {
                             extend: 'csvHtml5',
                             exportOptions: {
-                                columns: [0, 1, 3, 5]
+                                columns: [0, 1, 2, 3, 4]
                             }
                         },
                         'print'
+                    ],
+                    "columnDefs": [
+                        {
+                            "targets": [0],
+                            "visible": false,
+                            "searchable": false
+                        },
+                        {
+                            "targets": [1],
+                            "visible": true,
+                            "searchable": false
+                        },
+                        {
+                            "targets": [5],
+                            "visible": true,
+                            "searchable": false
+                        },
+                        {
+                            "targets": [6],
+                            "visible": true,
+                            "searchable": false
+                        }
                     ]
                 });
                 window.setTimeout(function () {
