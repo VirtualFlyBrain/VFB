@@ -48,7 +48,6 @@
                     <tbody>
                     <c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
                         <tr>
-                            <td style="display:none;">${query}</td>
                             <td style="display:none;">
                                 http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/
                             </td>
