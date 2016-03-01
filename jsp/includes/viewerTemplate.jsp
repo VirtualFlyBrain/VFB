@@ -184,7 +184,8 @@
                                 </div>
                                 <div class="col-md-12" style="padding:0;">
                                     <div class="table-responsive" id="selecContent">
-                                        <table id="selected" class="display compact" cellspacing="0">
+                                        <table id="selected" class="display compact" cellspacing="0" width="100%"
+                                               border="1" frame="sides" rules="rows">
                                             <thead>
                                             <tr>
                                                 <th>Name</th>
