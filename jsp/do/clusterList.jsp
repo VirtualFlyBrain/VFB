@@ -36,13 +36,13 @@
                 <table id="resultsTable" class="display" width="100%" border="1" frame="below" rules="rows">
                     <thead>
                     <tr>
-                        <th align="center" style="display:none;">Cluster details</th>
-                        <th align="center" style="padding-top: 20px;">Cluster</th>
-                        <th align="center">Exemplar name</th>
-                        <th align="center">Exemplar definition</th>
-                        <th align="center">Exemplar source</th>
-                        <th align="center">Exemplar preview</th>
-                        <th align="center">Members of cluster</th>
+                        <th style="display:none;">Cluster details</th>
+                        <th style="padding-top: 20px;">Cluster</th>
+                        <th>Exemplar name</th>
+                        <th>Exemplar definition</th>
+                        <th>Exemplar source</th>
+                        <th>Exemplar preview</th>
+                        <th>Members of cluster</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -132,17 +132,32 @@
                         {
                             "targets": [1],
                             "visible": true,
-                            "searchable": false
+                            "searchable": false,
+                            "className": "dt-center"
+                        },
+                        {
+                            "targets": [2],
+                            "visible": true,
+                            "searchable": true,
+                            "className": "dt-center"
+                        },
+                        {
+                            "targets": [3],
+                            "visible": true,
+                            "searchable": true,
+                            "className": "dt-center"
                         },
                         {
                             "targets": [5],
                             "visible": true,
-                            "searchable": false
+                            "searchable": false,
+                            "className": "dt-center"
                         },
                         {
                             "targets": [6],
                             "visible": true,
-                            "searchable": false
+                            "searchable": false,
+                            "className": "dt-center"
                         }
                     ]
                 });
