@@ -12,23 +12,10 @@
 	<jsp:param name="title" value="${cleanTitle}" />
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Query Results@ " />
 	<jsp:param name="css" value="
-		//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css;
-		//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css;
-		//cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css;
-		//cdn.datatables.net/colreorder/1.2.0/css/colReorder.bootstrap.min.css;
-		//cdn.datatables.net/buttons/1.0.1/css/buttons.dataTables.min.css;
-		//cdn.datatables.net/buttons/1.0.1/css/buttons.bootstrap.min.css;
+		//cdn.datatables.net/t/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,b-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,r-2.0.2/datatables.min.css;
 	" />
 	<jsp:param name="js" value="
-		//cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js;
-		//cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js;
-		//cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js;
-		//cdn.datatables.net/colreorder/1.2.0/js/dataTables.colReorder.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/dataTables.buttons.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.bootstrap.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.jqueryui.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.html5.min.js;
-		//cdn.datatables.net/buttons/1.0.1/js/buttons.print.min.js;
+		//cdn.datatables.net/t/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.11,b-1.1.2,b-flash-1.1.2,b-html5-1.1.2,b-print-1.1.2,r-2.0.2/datatables.min.js;
 	" />
 </jsp:include>
 
