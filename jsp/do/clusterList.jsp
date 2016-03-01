@@ -37,7 +37,7 @@
                     <thead>
                     <tr>
                         <th style="display:none;">Cluster details</th>
-                        <th>Cluster</th>
+                        <th style="padding-top: 20px;">Cluster</th>
                         <th>Exemplar name</th>
                         <th>Exemplar definition</th>
                         <th>Exemplar source</th>
