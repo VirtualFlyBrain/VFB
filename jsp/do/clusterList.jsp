@@ -36,7 +36,6 @@
                 <table id="resultsTable" class="display" width="100%">
                     <thead>
                     <tr>
-                        <th style="display:none;">Query</th>
                         <th style="display:none;">Cluster details</th>
                         <th>Cluster</th>
                         <th>Exemplar name</th>
@@ -110,7 +109,7 @@
                         {
                             extend: 'csvHtml5',
                             exportOptions: {
-                                columns: [0, 1, 3, 4, 5]
+                                columns: [2, 3, 4, 0]
                             }
                         },
                         'print'
@@ -123,21 +122,16 @@
                         },
                         {
                             "targets": [1],
-                            "visible": false,
+                            "visible": true,
                             "searchable": false
                         },
                         {
-                            "targets": [2],
+                            "targets": [5],
                             "visible": true,
                             "searchable": false
                         },
                         {
                             "targets": [6],
-                            "visible": true,
-                            "searchable": false
-                        },
-                        {
-                            "targets": [7],
                             "visible": true,
                             "searchable": false
                         }
