@@ -104,14 +104,24 @@
                     "order": [[1, "desc"]],
                     dom: "<'row-fluid'<'col-sm-6'i><'col-sm-6'f>>R<'row-fluid'<'col-sm-12'tr>><'row-fluid'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'p>>",
                     buttons: [
-                        'copyHtml5',
+                        {
+                            extend: 'copyHtml5',
+                            exportOptions: {
+                                columns: [2, 3, 4, 0]
+                            }
+                        },
                         {
                             extend: 'csvHtml5',
                             exportOptions: {
                                 columns: [2, 3, 4, 0]
                             }
                         },
-                        'print'
+                        {
+                            extend: 'print',
+                            exportOptions: {
+                                columns: [2, 3, 4, 0]
+                            }
+                        }
                     ],
                     "columnDefs": [
                         {
