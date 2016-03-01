@@ -33,7 +33,7 @@
     <div class="col-xs-12" style="padding:0;">
         <div class="container-fluid" style="padding:0;">
             <div class="table-responsive">
-                <table id="resultsTable" class="display" width="100%">
+                <table id="resultsTable" class="display" width="100%" border="1" frame="sides" rules="rows">
                     <thead>
                     <tr>
                         <th style="display:none;">Cluster details</th>
