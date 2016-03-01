@@ -53,7 +53,7 @@
                             </td>
                             <td>
                                 <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/"
-                                   title="Interactive 3D rendering of cluster" target="_blank">
+                                   title="NBLAST neuron cluster based on exemplar ${ontBean.name}" target="_blank">
                                     <img class="lazy"
                                          data-original="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png"
                                          alt="NBLAST neuron cluster based on exemplar ${ontBean.name}"/>
