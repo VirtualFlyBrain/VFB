@@ -38,9 +38,9 @@
                     <tr>
                         <th>Cluster</th>
                         <th>Exemplar name</th>
-                        <th>Summary</th>
-                        <th>Source</th>
-                        <th>Exemplar Preview</th>
+                        <th>Exemplar definition</th>
+                        <th>Exemplar source</th>
+                        <th>Exemplar preview</th>
                         <th>Members of cluster</th>
                     </tr>
                     </thead>
@@ -56,7 +56,8 @@
                                 </a>
                             </td>
                             <td>
-                                <h5>${ontBean.name}</h5><br/>(${ontBean.fbbtIdAsOWL})
+                                <h5>${ontBean.name}</h5><span style="cursor: pointer;"
+                                                              onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});">${ontBean.fbbtIdAsOWL}</span>
                             </td>
                             <td>
                                     ${ontBean.def}
