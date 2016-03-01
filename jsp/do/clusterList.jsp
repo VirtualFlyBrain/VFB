@@ -36,6 +36,7 @@
                 <table id="resultsTable" class="display">
                     <thead>
                     <tr>
+                        <th style="display:none;">Query</th>
                         <th>Cluster</th>
                         <th>Exemplar name</th>
                         <th>Exemplar definition</th>
@@ -47,17 +48,19 @@
                     <tbody>
                     <c:forEach items="${ontBeanList}" var="ontBean" varStatus="status">
                         <tr>
+                            <td style="display:none;">${query}</td>
                             <td>
                                 <a href="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/"
                                    title="Interactive 3D rendering of cluster" target="_blank">
                                     <img class="lazy"
                                          data-original="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/${ontBean.name}/thumb_0.333.png"
-                                         alt="${query} (${ontBean.name})"/>
+                                         alt="http://flybrain.mrc-lmb.cam.ac.uk/vfb/fc/clusterv/3/VGlut-F-800026/"/>
                                 </a>
                             </td>
                             <td>
-                                <h5>${ontBean.name}</h5><span style="cursor: pointer;"
-                                                              onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});">${ontBean.fbbtIdAsOWL}</span>
+                                <h5><span style="cursor: pointer;"
+                                          onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});">${ontBean.name}</span>
+                                </h5>
                             </td>
                             <td>
                                     ${ontBean.def}
