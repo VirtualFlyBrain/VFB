@@ -107,7 +107,7 @@
                         },
                         'printHtml5'
                     ]
-                })
+                });
                 window.setTimeout(function () {
                     updateStackCounter();
                     $('#resultsTable').dataTable().fnAdjustColumnSizing(false);
