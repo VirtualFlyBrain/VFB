@@ -106,7 +106,7 @@
                                 columns: [0, 1, 3, 5]
                             }
                         },
-                        'printHtml5'
+                        'print'
                     ]
                 });
                 window.setTimeout(function () {
