@@ -37,7 +37,7 @@
                     <thead>
                     <tr>
                         <th style="display:none;">Cluster details</th>
-                        <th style="padding-top: 20px;">Cluster</th>
+                        <th><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a> Cluster</th>
                         <th>Exemplar name</th>
                         <th>Exemplar definition</th>
                         <th>Exemplar source</th>
