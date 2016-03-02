@@ -41,7 +41,10 @@
                         <c:forEach items="${geneList}" var="geneBean" varStatus="status">
                             <tr>
                                 <td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html"
-                                       target="_blank">${geneBean.driver}</a></td>
+                                       target="_blank">${geneBean.driver}</a><br/>
+                                    <c:if test="${!empty geneBean.thirdPartyBean.stackName}">
+                                        <span id="attach" data-id="${tpb.vfbId}"></span>
+                                    </c:if></td>
                                 <td>
                                     <a href="/site/stacks/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
                                     <c:if test="${geneBean.flag}">
@@ -60,9 +63,6 @@
                                                title="View registered stack in 3D Viewer" target="_blank">
                                                 <img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}"
                                                      alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
-                                        </c:if>
-                                        <c:if test="${!empty geneBean.thirdPartyBean.stackName}">
-                                            <span id="attach" data-id="${tpb.vfbId}"></span>
                                         </c:if>
                                     </c:if>
                                 </td>
