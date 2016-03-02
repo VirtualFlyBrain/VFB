@@ -514,3 +514,7 @@ table.dataTable td, table.dataTable th {
 th.dt-center, td.dt-center {
     text-align: center;
 }
+
+.navbar-brand {
+    width: 70px !important;
+}
