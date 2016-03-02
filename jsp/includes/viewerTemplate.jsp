@@ -67,25 +67,25 @@
                     <div class="btn btn-default btn-xs form-group" title="Move through the stack"
                          id="slider-sliceCurrentSliderValLabel"><span
                             class="glyphicon glyphicon-resize-vertical"></span><span
-                            class="hidden-sm hidden-xs"> Slice:</span> <span id="slider-sliceSliderVal"
-                                                                             class="badge">1</span></div>
+                            class="label-visible-sm"> Slice:</span> <span id="slider-sliceSliderVal"
+                                                                          class="badge">1</span></div>
                     <div id="slider-sliceCurrentSlider" class="form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice"
                                                                                             type="text"/></div>
                     <div class="btn btn-default btn-xs form-group" title="Change the image scale"
                          id="slider-scaleCurrentSliderValLabel"><span class="glyphicon glyphicon-zoom-in"></span><span
-                            class="hidden-md hidden-sm hidden-xs"> Zoom:</span> <span id="slider-scaleSliderVal"
-                                                                                      class="badge">1x</span></div>
+                            class="label-visible-md"> Zoom:</span> <span id="slider-scaleSliderVal"
+                                                                         class="badge">1x</span></div>
                     <div id="slider-scaleCurrentSlider" class="form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale"
                                                                                             type="text"/></div>
                     <div class="btn btn-default btn-xs form-group" title="Change the viewing plane" id="toggle-view">
-                        <span class="glyphicon glyphicon-repeat"></span><span class="hidden-md hidden-sm hidden-xs"> Plane:</span>
+                        <span class="glyphicon glyphicon-repeat"></span><span class="label-visible-md"> Plane:</span>
                         <span id="toggle-viewVal" class="badge">Z</span></div>
                     <div class="btn btn-default btn-xs hidden-xs form-group"
                          title="Adjust the image blending transparency. Note: this will also be automatically adjusted"
                          id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span><span
-                            class="visible-xl"> Blend:</span> <span
+                            class="label-visible-xl"> Blend:</span> <span
                             id="slider-alphaSliderVal" class="badge">61%</span></div>
                     <div id="slider-alphaCurrentSlider" class="hidden-xs form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha"
