@@ -37,9 +37,9 @@
         </div>
     </div>
     <div class="col-xs-12" style="padding:0;">
-        <div class="container-fluid" style="padding:0;" width="100%" border="1" frame="below" rules="rows">
+        <div class="container-fluid" style="padding:0;">
             <div class="table-responsive">
-                <table id="resultsTable" class="display">
+                <table id="resultsTable" class="display" width="100%" border="1" frame="below" rules="rows">
                     <thead>
                     <tr>
                         <th>ID</th>
