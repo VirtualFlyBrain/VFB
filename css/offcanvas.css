@@ -78,6 +78,18 @@ footer {
     }
 }
 
+@media screen and (min-width: 1400px) {
+    .visible-xl {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .visible-xl {
+        display: none;
+    }
+}
+
 /****************
  Outline button
 *************/
