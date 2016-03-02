@@ -50,7 +50,9 @@
                             <td><a href="http://www.virtualflybrain.org/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}"
                                    class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
                             <td><a href="http://www.virtualflybrain.org/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}"
-                                   class="text-success">${ontBean.name}</a></td>
+                                   class="text-success">${ontBean.name}</a><br/><span
+                                    style="border:none;padding-left:0px;padding-right:0px;" id="attach"
+                                    data-id="${ontBean.fbbtIdAsOWL}"></span></td>
                             <td class="text-muted">${ontBean.def}</td>
                             <td><a class="btn btn-success btn-sm"
                                    href="http://www.virtualflybrain.org/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}">More
