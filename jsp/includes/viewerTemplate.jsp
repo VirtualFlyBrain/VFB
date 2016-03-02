@@ -9,9 +9,9 @@
 		/css/bootstrap-colorpicker.min.css;
 		"/>
     <jsp:param name="js" value="
-		/javascript/vfb/wlziip.js;
+	    /javascript/vfb/wlziip.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
-	  //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.js;
+	    //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
 		/javascript/thirdParty/stroketext/strokeText.js;
 		//cdn.datatables.net/plug-ins/1.10.10/api/fnStandingRedraw.js;
@@ -66,26 +66,22 @@
                             class="glyphicon glyphicon-screenshot"></span></div>
                     <div class="btn btn-default btn-xs form-group" title="Move through the stack"
                          id="slider-sliceCurrentSliderValLabel">Slice: <span id="slider-sliceSliderVal"
-                                                                             class="badge">1</span> <span
-                            class="glyphicon glyphicon-edit"></span></div>
+                                                                             class="badge">1</span></div>
                     <div id="slider-sliceCurrentSlider" class="form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-slice"
                                                                                             type="text"/></div>
                     <div class="btn btn-default btn-xs form-group" title="Change the image scale"
                          id="slider-scaleCurrentSliderValLabel">Zoom: <span id="slider-scaleSliderVal"
-                                                                            class="badge">1x</span> <span
-                            class="glyphicon glyphicon-edit"></span></div>
+                                                                            class="badge">1x</span></div>
                     <div id="slider-scaleCurrentSlider" class="form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-scale"
                                                                                             type="text"/></div>
                     <div class="btn btn-default btn-xs form-group" title="Change the viewing plane" id="toggle-view">
-                        Plane <span id="toggle-viewVal" class="badge">Z</span> <span
-                            class="glyphicon glyphicon-repeat"></span></div>
+                        Plane <span id="toggle-viewVal" class="badge">Z</span></div>
                     <div class="btn btn-default btn-xs hidden-xs form-group"
                          title="Adjust the image blending transparency. Note: this will also be automatically adjusted"
                          id="slider-alphaCurrentSliderValLabel"><span class="glyphicon glyphicon-adjust"></span> <span
-                            id="slider-alphaSliderVal" class="badge">61%</span> <span
-                            class="glyphicon glyphicon-edit"></span></div>
+                            id="slider-alphaSliderVal" class="badge">61%</span></div>
                     <div id="slider-alphaCurrentSlider" class="hidden-xs form-group"
                          style="display: none;padding-left: 5px;padding-right: 5px;"><input id="slider-alpha"
                                                                                             type="text"/></div>
