@@ -44,7 +44,8 @@
                                        target="_blank">${geneBean.driver}</a><br/>
                                     <c:set var="tpb" value="${geneBean.thirdPartyBean}"/>
                                     <c:if test="${!empty geneBean.thirdPartyBean.stackName}">
-                                        <span id="attach" data-id="${tpb.vfbId}"></span>
+                                        <span id="attach" style="border:none;padding-left:0px;padding-right:0px;"
+                                              data-id="${tpb.vfbId}"></span>
                                     </c:if></td>
                                 <td>
                                     <a href="/site/stacks/index.htm?id=FBbt:${geneBean.locationRef}&name=${geneBean.location}">${geneBean.location}</a>
