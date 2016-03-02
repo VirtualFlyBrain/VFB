@@ -62,7 +62,8 @@
                             <td>
                                 <h5><span style="cursor: pointer;"
                                           onclick="post('/site/stacks/index.htm',{'add':'${ontBean.fbbtIdAsOWL}'});">${ontBean.name}</span>
-                                </h5>
+                                </h5><br/>
+                                <span id="attach" data-id="${ontBean.fbbtIdAsOWL}">
                             </td>
                             <td>
                                     ${ontBean.def}

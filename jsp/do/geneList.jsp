@@ -42,6 +42,7 @@
                             <tr>
                                 <td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html"
                                        target="_blank">${geneBean.driver}</a><br/>
+                                    <c:set var="tpb" value="${geneBean.thirdPartyBean}"/>
                                     <c:if test="${!empty geneBean.thirdPartyBean.stackName}">
                                         <span id="attach" data-id="${tpb.vfbId}"></span>
                                     </c:if></td>
@@ -55,7 +56,6 @@
                                 <td><a href="${transgeneLinks[0]}${geneBean.reference}.html"
                                        target="_blank">${geneBean.referenceRef}</a></td>
                                 <td>
-                                    <c:set var="tpb" value="${geneBean.thirdPartyBean}"/>
                                     <c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
                                         <c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
                                             <a style="float: left; margin: 0 3px;"
