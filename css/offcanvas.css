@@ -78,20 +78,6 @@ footer {
     }
 }
 
-@media screen and (min-width: 1400px) {
-    .visible-xl {
-        display: block;
-    }
-
-    .label-visible-md {
-        display: block;
-    }
-
-    .label-visible-sm {
-        display: block;
-    }
-}
-
 @media screen and (max-width: 1399px) and (min-width: 1110px) {
     .visible-xl {
         display: none;
@@ -100,37 +86,11 @@ footer {
     .label-visible-md {
         display: none;
     }
-
-    .label-visible-sm {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1109px) and (min-width: 771px) {
-    .label-visible-xl {
-        display: block;
-    }
-
-    .label-visible-md {
-        display: block;
-    }
-
-    .label-visible-sm {
-        display: block;
-    }
 }
 
 @media screen and (max-width: 770px) and (min-width: 701px) {
     .label-visible-xl {
         display: none;
-    }
-
-    .label-visible-md {
-        display: block;
-    }
-
-    .label-visible-sm {
-        display: block;
     }
 }
 
@@ -147,7 +107,6 @@ footer {
         display: none;
     }
 }
-
 
 /****************
  Outline button
