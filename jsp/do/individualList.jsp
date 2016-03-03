@@ -59,7 +59,7 @@
                             <td>
                                 <a href="http://www.virtualflybrain.org/site/stacks/index.htm?id=${ontBean.fbbtIdAsOWL}"
                                    class="text-muted">${ontBean.fbbtIdAsOWL}</a></td>
-                            <td align="center">
+                            <td>
                                 <c:choose>
                                     <c:when test="${!empty tpb}">
                                         <a href="/site/stacks/index.htm?id=${tpb.vfbId}"
@@ -73,7 +73,7 @@
                                     </c:otherwise>
                                 </c:choose>
                             </td>
-                            <td class="text-muted">${ontBean.def}</td>
+                            <td>${ontBean.def}</td>
                             <td>
                                 <c:if test="${!empty tpb}">
                                     <img class="lazy" data-original="${tpb.thumbUrl}" alt="See in viewer"
