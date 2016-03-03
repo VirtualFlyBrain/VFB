@@ -27,7 +27,7 @@ public class OntBeanListController extends AbstractController{
 		ModelAndView modelAndView = new ModelAndView("do/ontBeanList");
 		String params = req.getQueryString();
 		//LOG.debug(">>> Manager: " + obm + " > " + params);
-		String id = req.getParameter("id");
+		String id = OntBean.idAsOBO(req.getParameter("id"));
 		String action = req.getParameter("action");
 		Set<OntBean> results = null;
 		String actionStr;
