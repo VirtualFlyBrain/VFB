@@ -32,7 +32,7 @@ public class IndividualListController extends AbstractController{
 		ModelAndView modelAndView = new ModelAndView("do/individualList");
 		String params = req.getQueryString();
 		//LOG.debug(">>> Manager: " + obm + " > " + params);
-		String id = req.getParameter("id");
+		String id = OntBean.idAsOBO(req.getParameter("id"));
 		// Since the second query is fired off with a neuron id, we need to capture the id of
 		// the original region (clicked neuropil)
 		String region = req.getParameter("region");

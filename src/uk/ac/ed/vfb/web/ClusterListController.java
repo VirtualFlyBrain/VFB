@@ -27,7 +27,7 @@ public class ClusterListController extends AbstractController{
 		ModelAndView modelAndView = new ModelAndView("do/clusterList");
 		String params = req.getQueryString();
 		//LOG.debug(">>> Manager: " + obm + " > " + params);
-		String id = req.getParameter("id");
+		String id = OntBean.idAsOBO(req.getParameter("id"));
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");
 		String perPage = req.getParameter("perPage");

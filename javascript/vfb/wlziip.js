@@ -1023,33 +1023,12 @@ function initWlzControls() {
         $("body").on('click', "#slider-scaleCurrentSliderValLabel", function () {
             clickControlButton('scale');
         });
-        //$("#slider-scaleCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-        //    if ($("#slider-scaleCurrentSlider").is(":visible")) {
-        //        $("#slider-scaleCurrentSlider").hide();
-        //        $("#slider-scaleCurrentSliderValLabel .glyphicon").show();
-        //        $("#slider-scaleCurrentSliderValLabel").removeClass("active");
-        //    }
-        //});
         $("body").on('click', "#slider-sliceCurrentSliderValLabel", function () {
             clickControlButton('slice');
         });
-        //$("#slider-sliceCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-        //    if ($("#slider-sliceCurrentSlider").is(":visible")) {
-        //        $("#slider-sliceCurrentSlider").hide();
-        //        $("#slider-sliceCurrentSliderValLabel .glyphicon").show();
-        //        $("#slider-sliceCurrentSliderValLabel").removeClass("active");
-        //    }
-        //});
         $("body").on('click', "#slider-alphaCurrentSliderValLabel", function () {
             clickControlButton('alpha');
         });
-        //$("#slider-alphaCurrentSlider .slider-handle.min-slider-handle").focusout(function () {
-        //    if ($("#slider-alphaCurrentSlider").is(":visible")) {
-        //        $("#slider-alphaCurrentSlider").hide();
-        //        $("#slider-alphaCurrentSliderValLabel .glyphicon-edit").show();
-        //        $("#slider-alphaCurrentSliderValLabel").removeClass("active");
-        //    }
-        //});
         $("#canvas").click(function (e) {
             forceStoreControl();
             window.PosX = Math.round(e.pageX - $(this).offset().left - Math.round(($(this).outerWidth() - $(this).width()) / 2));
@@ -1158,7 +1137,6 @@ function clickControlButton(name) {
     forceStoreControl();
     if ($("#slider-" + name + "CurrentSlider").is(":visible") && name != 'slice') {
         $("#slider-" + name + "CurrentSlider").hide();
-        $("#slider-" + name + "CurrentSliderValLabel .glyphicon").show();
         $("#slider-" + name + "CurrentSliderValLabel").removeClass("active");
         controlSelection = 'slice';
         openControlButton(controlSelection);
@@ -1173,7 +1151,6 @@ function openControlButton(name) {
     controlSelection = name;
     hideAllSliders();
     $("#slider-" + name + "CurrentSlider").css('display', 'inline-block');
-    $("#slider-" + name + "CurrentSliderValLabel .glyphicon").hide();
     $("#slider-" + name + "CurrentSliderValLabel").addClass("active");
     window.reloadInterval = 10;
 }
