@@ -29,7 +29,7 @@ public class GeneListController implements Controller{
 		String params = req.getQueryString();
 		//LOG.info(">>> Manager: " + gbm + " > " + params);
 		ModelAndView modelAndView = new ModelAndView("do/geneList");
-		String id = req.getParameter("id");
+		String id = OntBean.idAsOBO(req.getParameter("id"));
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");
 		String perPage = req.getParameter("perPage");

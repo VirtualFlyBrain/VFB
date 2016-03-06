@@ -51,9 +51,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand hidden-xs hidden-sm" href="/site/vfb_site/home.htm">VirtualFlyBrain.org</a>
-            <a class="navbar-brand" href="/site/vfb_site/home.htm"><img id="logo" src="/images/vfb/flyBrain.gif"
-                                                                        style="max-height:100%;"
-                                                                        alt="VirtualFlyBrain.org"></a>
+            <a class="navbar-brand navbar-brand-logo" href="/site/vfb_site/home.htm"><img id="logo"
+                                                                                          src="/images/vfb/flyBrain.gif"
+                                                                                          style="max-height:100%;"
+                                                                                          alt="VirtualFlyBrain.org"></a>
         </div>
         <div id="navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
