@@ -244,8 +244,7 @@ function animateWlzDisplay() {
                             var dist = current.dst;
                             var buffSlice = parseInt(slice) + imageDist;
                             if (buffSlice <= maxSlice) {
-                                console.log('loading slice ' + String(buffSlice))
-                            );
+                                console.log('loading slice ' + String(buffSlice));
                                 current.dst = dist + imageDist;
                                 for (j in selected) {
                                     if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
@@ -258,11 +257,9 @@ function animateWlzDisplay() {
                                     }
                                 }
                             }
-buffSlice = parseInt(slice) - imageDist;
-if (buffSlice > -1) {
-    console.log('loading slice ' + String(buffSlice))
-)
-;
+                            buffSlice = parseInt(slice) - imageDist;
+                            if (buffSlice > -1) {
+                                console.log('loading slice ' + String(buffSlice));
                                 current.dst = dist - imageDist;
                                 for (j in selected) {
                                     if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
