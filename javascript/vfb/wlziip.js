@@ -228,7 +228,7 @@ function animateWlzDisplay() {
                     addScale(50);
                     addOrientation();
                     drawFeatures();
-                    if (window.reloadInterval > 500) {
+                    if (window.reloadInterval > 499) {
                         if (imageDist == 1) {
                             console.log('loading surrounding expression slices in background...');
                             if (!backgroundLoading) {
@@ -246,6 +246,7 @@ function animateWlzDisplay() {
                             var buffSlice = parseInt(slice) + imageDist;
                             var imageChanged = false;
                             if (buffSlice <= maxSlice) {
+                                window.reloadInterval = 500; // maintain speed if still loading
                                 imageChanged = false;
                                 current.dst = dist + imageDist;
                                 for (j in selected) {
@@ -266,6 +267,7 @@ function animateWlzDisplay() {
                             }
                             buffSlice = parseInt(slice) - imageDist;
                             if (buffSlice > -1) {
+                                window.reloadInterval = 500; // maintain speed if still loading
                                 imageChanged = false;
                                 current.dst = dist - imageDist;
                                 for (j in selected) {
