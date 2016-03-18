@@ -296,6 +296,7 @@ function animateWlzDisplay() {
                 window.setTimeout(function () {
                     reDrawing = false;
                     requestAnimationFrame(step);
+                    console.log('step');
                     if (window.reloadInterval < 1000) {
                         window.reloadInterval = window.reloadInterval + 10;
                     }
