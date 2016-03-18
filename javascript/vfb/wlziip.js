@@ -8,7 +8,7 @@ var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
 var background = [];
-var reDrawing = false;
+var reDrawing = 0;
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
@@ -291,10 +291,10 @@ function animateWlzDisplay() {
                     }
                 }
             }
-            if (!reDrawing) {
-                reDrawing = true;
+            if (reDrawing < 1 && vis()) {
+                reDrawing++;
                 window.setTimeout(function () {
-                    reDrawing = false;
+                    reDrawing--;
                     requestAnimationFrame(step);
                     console.log('step');
                     if (window.reloadInterval < 1000) {

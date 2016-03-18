@@ -1699,7 +1699,13 @@ vis(function () {
     if (vis()) {
         forceStoreControl();
         document.title = document.title.replace("*", "");
-        //animateWlzDisplay();
+        if (typeof addAllDomains !== 'undefined' && $.isFunction(addAllDomains) && reDrawing < 1) {
+            reloadInterval = 10;
+            console.log('Restarting animation...')
+            reDrawing = 0;
+            animateWlzDisplay();
+            parent.$('body').data('disp', 'scale');
+        }
     } else {
         window.setTimeout(function () {
             if ((!vis()) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
