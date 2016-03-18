@@ -8,6 +8,7 @@ var SelectedIndex = 0;
 var drawingText = false;
 var image = [];
 var background = [];
+var reDrawing = false;
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
@@ -290,12 +291,16 @@ function animateWlzDisplay() {
                     }
                 }
             }
-            window.setTimeout(function () {
-                requestAnimationFrame(step);
-                if (window.reloadInterval < 1000) {
-                    window.reloadInterval = window.reloadInterval + 10;
-                }
-            }, window.reloadInterval);
+            if (reDrawing == false) {
+                reDrawing = true;
+                window.setTimeout(function () {
+                    reDrawing = false;
+                    requestAnimationFrame(step);
+                    if (window.reloadInterval < 1000) {
+                        window.reloadInterval = window.reloadInterval + 10;
+                    }
+                }, window.reloadInterval);
+            }
         } else {
             alertMessage('ERROR: data missing');
             try {

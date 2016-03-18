@@ -1699,6 +1699,7 @@ vis(function () {
     if (vis()) {
         forceStoreControl();
         document.title = document.title.replace("*", "");
+        animateWlzDisplay();
     } else {
         window.setTimeout(function () {
             if ((!vis()) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
