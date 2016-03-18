@@ -385,24 +385,24 @@ function loadColours() {
 function loadBackground() {
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
+    var current = parent.$("body").data("current");
     var v = parseFloat(parent.$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
     var m = Math.ceil(v * $('body').data('meta').extent.split(',')[orientation[orient]['D']]) + 1;
     if (imageStack[0].length != m) {
         imageStack[0] = new Array(m);
     }
-    var i = parseInt($('#slider-sliceSliderVal').text());
-    var s = parseFloat(parent.$('body').data('current').scl);
-    var f = Math.round((parseInt($('body').data('current').fxp.split(',')[orientation[orient]['D']]) + 1) * v);
-    var d = Math.floor((i - f) * s);
+    var slice = parseInt($('#slider-sliceSliderVal').text());
+    var i = slice;
+    var d = current.dst;
     if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
         console.log('Caching background slices...');
         //load current slice
         imageStack[0][i] = document.createElement('img');
         imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-        imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        imageStack[0][i].src = generateWlzURLdist(0, d);
     }
     //load all high end slices
-    for (i = parseInt($('#slider-sliceSliderVal').text()); i < (m + 1); i++) {
+    for (i = slice; i < (m + 1); i++) {
         if (imageStack[0][i] && imageStack[0][i].complete == false) {
             break;
         }
@@ -410,9 +410,9 @@ function loadBackground() {
             imageStack[0][i] = document.createElement('img');
             imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
-        d = Math.floor((i - f) * s);
-        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        d = i - slice;
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
+            imageStack[0][i].src = generateWlzURLdist(0, d);
         }
     }
     //load all low end slices
@@ -424,9 +424,9 @@ function loadBackground() {
             imageStack[0][i] = document.createElement('img');
             imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
-        d = Math.floor((i - f) * s);
-        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        d = i - slice;
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
+            imageStack[0][i].src = generateWlzURLdist(0, d);
         }
     }
     window.setTimeout(function () {
@@ -890,6 +890,56 @@ function FindPosition(oElement) {
     else {
         return [oElement.x, oElement.y];
     }
+}
+
+function generateWlzURLdist(index, distance) {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    var layer = selected[index];
+    var file = "";
+    var colour = "255,255,255";
+    var text = "";
+    if (layer.colour !== "auto") {
+        colour = layer.colour;
+    } else {
+        if (!parent.$("body").data("colours")) {
+            loadColours();
+        } else {
+            while (index > 200) {
+                index = index - 200;
+            }
+            colour = parent.$("body").data("colours")[index];
+        }
+    }
+    switch (layer.id.substr(0, 4)) {
+        case "VFB_":
+            file = fileFromId(layer.id);
+            text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            break;
+        case "VFBi":
+            file = fileFromId(layer.id);
+            if (current.inverted) {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0,255,255,255&MAP=LINEAR,0,255,255," + String(colour.split(',')[0]) + ",LINEAR,0,255,255," + String(colour.split(',')[1]) + ",LINEAR,0,255,255," + String(colour.split(',')[2]) + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            } else {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            }
+            break;
+        case "VFBt":
+            file = fileFromId(layer.id);
+            if (current.inverted) {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&MAP=LINEAR,0,255,255,0,LINEAR,0,255,255,0,LINEAR,0,255,255,0&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            } else {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            }
+            break;
+        case "VFBd":
+            file = fileFromId(current.template);
+            text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(8))) + "," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            break;
+        default:
+            alertMessage("unable to generate URL for id:" + layer.id);
+    }
+    return text;
 }
 
 function generateWlzURL(index) {
