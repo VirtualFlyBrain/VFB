@@ -136,7 +136,7 @@
 </div><!-- content -->
 <c:if test="${!empty errorMsg}">
     <script type="text/javascript">
-        alert("${errorMsg}");
+        console.log("${errorMsg}");
     </script>
 </c:if>
 
