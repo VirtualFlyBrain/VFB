@@ -6,8 +6,8 @@ window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
-var image = [];
-var background = [];
+var imageStack = [[], []];
+var reDrawing = 0;
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
@@ -74,18 +74,17 @@ function animateWlzDisplay() {
                     var orient = current.slice;
                     for (i in selected) {
                         if (selected[i].visible) {
-                            if (!image[i]) {
-                                image[i] = document.createElement('img');
-                                image[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+                            if (!imageStack[i]) {
+                                imageStack[i] = [];
+                            }
+                            if (!imageStack[i][slice]) {
+                                imageStack[i][slice] = document.createElement('img');
+                                imageStack[i][slice].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
                                 updated = true;
                             }
-                            if (image[i].src.indexOf(generateWlzURL(i)) < 0) {
-                                if (i === 0 && background[slice] && background[slice].complete) {
-                                    image[i] = background[slice];
-                                } else {
-                                    image[i].src = generateWlzURL(i);
-                                    updated = true;
-                                }
+                            if (imageStack[i][slice].src.indexOf(generateWlzURL(i)) < 0) {
+                                imageStack[i][slice].src = generateWlzURL(i);
+                                updated = true;
                                 $('#canvas').css('cursor', 'wait');
                             }
                             if (count === 0) {
@@ -97,9 +96,9 @@ function animateWlzDisplay() {
                                     }
                                 }
                                 if (parent.$("body").data("disp") == "scale") {
-                                    if (selected[0].visible && image[0].complete && image[0].height) {
-                                        $('#canvas').attr('width', image[0].width);
-                                        $('#canvas').attr('height', image[0].height);
+                                    if (selected[0].visible && imageStack[0][slice].complete && imageStack[0][slice].height) {
+                                        $('#canvas').attr('width', imageStack[0][slice].width);
+                                        $('#canvas').attr('height', imageStack[0][slice].height);
                                         parent.$("body").data("disp", "done");
                                     } else {
                                         parent.$("body").data("disp", "scale");
@@ -128,7 +127,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setTimeout(function () {
-                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
@@ -141,21 +140,21 @@ function animateWlzDisplay() {
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                             }
-                            if ((image[i] && image[i].complete)) {
-                                if (image[i].width === 0) {
+                            if ((imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete)) {
+                                if (imageStack[i][slice].width === 0) {
                                     alertMessage('Failed to load ' + generateWlzURL(i));
                                     selected[i].visible = false;
                                     $('#canvas').css('cursor', 'crosshair');
                                 } else {
                                     try {
-                                        ctx.drawImage(image[i], 0, 0);
+                                        ctx.drawImage(imageStack[i][slice], 0, 0);
                                         if (i === 0) {
-                                            $('#canvas').attr('width', image[i].width);
-                                            $('#canvas').attr('height', image[i].height);
+                                            $('#canvas').attr('width', imageStack[i][slice].width);
+                                            $('#canvas').attr('height', imageStack[i][slice].height);
                                         }
                                         $('#canvas').css('cursor', 'crosshair');
                                     } catch (e) {
-                                        alertMessage("Problem loading image (" + image[i].src + "); error " + e);
+                                        alertMessage("Problem loading image (" + imageStack[i][slice].src + "); error " + e);
                                     }
                                 }
                             } else {
@@ -168,9 +167,9 @@ function animateWlzDisplay() {
                         } else {
                             if (count === 0 && (selected[0].visible === false || parent.$("body").data("disp") == "clear")) {
                                 if (parent.$("body").data("disp") == "scale") {
-                                    if (selected[0].visible && image[0].complete && image[0].height) {
-                                        $('#canvas').attr('width', image[0].width);
-                                        $('#canvas').attr('height', image[0].height);
+                                    if (selected[0].visible && imageStack[0][slice].complete && imageStack[0][slice].height) {
+                                        $('#canvas').attr('width', imageStack[0][slice].width);
+                                        $('#canvas').attr('height', imageStack[0][slice].height);
                                         parent.$('body').data('disp', 'scale');
                                     } else {
                                         if (parent.$("body").data("meta")) {
@@ -203,7 +202,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setTimeout(function () {
-                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
@@ -229,50 +228,62 @@ function animateWlzDisplay() {
                     addScale(50);
                     addOrientation();
                     drawFeatures();
-                    if (window.reloadInterval > 999) {
-                        i++;
+                    if (window.reloadInterval > 499) {
                         if (imageDist == 1) {
-                            console.log('loading surrounding slices in background...');
+                            console.log('loading surrounding expression slices in background...');
                             if (!backgroundLoading) {
                                 backgroundLoading = true;
                                 window.setTimeout(function () {
-                                    if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                    if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                         loadBackground();
                                     }
                                     backgroundLoading = false;
                                 }, 2000);
                             }
                         }
-                        if (!updated && imageDist < 100 && (imageDist === 1 || (image[i] && image[i].complete))) {
+                        if (!updated && imageDist < 300 && (imageStack[i] && imageStack[i][parseInt(slice) + imageDist - 1] && imageStack[i][parseInt(slice) + imageDist - 1].complete)) {
                             var dist = current.dst;
-                            if ((parseInt($('#slider-sliceSliderVal').text()) + imageDist) <= maxSlice) {
-                                console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text()) + imageDist));
+                            var buffSlice = parseInt(slice) + imageDist;
+                            var imageChanged = false;
+                            if (buffSlice <= maxSlice) {
+                                window.reloadInterval = 500; // maintain speed if still loading
+                                imageChanged = false;
                                 current.dst = dist + imageDist;
                                 for (j in selected) {
-                                    if (!image[i] || (image[i] && image[i].complete)) {
-                                        if (!image[i]) {
-                                            image[i] = document.createElement('img');
+                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
+                                        if (!imageStack[j][buffSlice]) {
+                                            imageStack[j][buffSlice] = document.createElement('img');
+                                            imageChanged = true;
                                         }
-                                        if (image[i].src.indexOf(generateWlzURL(j)) < 0) {
-                                            image[i].src = generateWlzURL(j);
+                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
+                                            imageStack[j][buffSlice].src = generateWlzURL(j);
+                                            imageChanged = true;
                                         }
                                     }
-                                    i++;
+                                }
+                                if (imageChanged) {
+                                    console.log('loading slice ' + String(buffSlice));
                                 }
                             }
-                            if (parseInt($('#slider-sliceSliderVal').text()) - imageDist > -1) {
-                                console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text()) - imageDist));
+                            buffSlice = parseInt(slice) - imageDist;
+                            if (buffSlice > -1) {
+                                window.reloadInterval = 500; // maintain speed if still loading
+                                imageChanged = false;
                                 current.dst = dist - imageDist;
                                 for (j in selected) {
-                                    i++;
-                                    if (!image[i] || (image[i] && image[i].complete)) {
-                                        if (!image[i]) {
-                                            image[i] = document.createElement('img');
+                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
+                                        if (!imageStack[j][buffSlice]) {
+                                            imageStack[j][buffSlice] = document.createElement('img');
+                                            imageChanged = true;
                                         }
-                                        if (image[i].src.indexOf(generateWlzURL(j)) < 0) {
-                                            image[i].src = generateWlzURL(j);
+                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
+                                            imageStack[j][buffSlice].src = generateWlzURL(j);
+                                            imageChanged = true;
                                         }
                                     }
+                                }
+                                if (imageChanged) {
+                                    console.log('loading slice ' + String(buffSlice));
                                 }
                             }
                             current.dst = dist;
@@ -284,18 +295,20 @@ function animateWlzDisplay() {
                             }
                         }
                     } else {
-                        if (updated) {
-                            imageDist = 1;
-                        }
+                        imageDist = 1;
                     }
                 }
             }
-            window.setTimeout(function () {
-                requestAnimationFrame(step);
-                if (window.reloadInterval < 1000) {
-                    window.reloadInterval = window.reloadInterval + 10;
-                }
-            }, window.reloadInterval);
+            if (reDrawing < 1 && vis()) {
+                reDrawing++;
+                window.setTimeout(function () {
+                    reDrawing--;
+                    requestAnimationFrame(step);
+                    if (window.reloadInterval < 1000) {
+                        window.reloadInterval = window.reloadInterval + 10;
+                    }
+                }, window.reloadInterval);
+            }
         } else {
             alertMessage('ERROR: data missing');
             try {
@@ -374,48 +387,48 @@ function loadColours() {
 function loadBackground() {
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
+    var current = parent.$("body").data("current");
     var v = parseFloat(parent.$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
     var m = Math.ceil(v * $('body').data('meta').extent.split(',')[orientation[orient]['D']]) + 1;
-    if (background.length != m) {
-        background = new Array(m);
+    if (imageStack[0].length != m) {
+        imageStack[0] = new Array(m);
     }
-    var i = parseInt($('#slider-sliceSliderVal').text());
-    var s = parseFloat(parent.$('body').data('current').scl);
-    var f = Math.round((parseInt($('body').data('current').fxp.split(',')[orientation[orient]['D']]) + 1) * v);
-    var d = Math.floor((i - f) * s);
-    if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
+    var slice = parseInt($('#slider-sliceSliderVal').text());
+    var i = slice;
+    var d = current.dst;
+    if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
         console.log('Caching background slices...');
         //load current slice
-        background[i] = document.createElement('img');
-        background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-        background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        imageStack[0][i] = document.createElement('img');
+        imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+        imageStack[0][i].src = generateWlzURLdist(0, d);
     }
     //load all high end slices
-    for (i = parseInt($('#slider-sliceSliderVal').text()); i < (m + 1); i++) {
-        if (background[i] && background[i].complete == false) {
+    for (i = slice; i < (m + 1); i++) {
+        if (imageStack[0][i] && imageStack[0][i].complete == false) {
             break;
         }
-        if (background[i] == undefined) {
-            background[i] = document.createElement('img');
-            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        if (imageStack[0][i] == undefined) {
+            imageStack[0][i] = document.createElement('img');
+            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
-        d = Math.floor((i - f) * s);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        d = i - slice;
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
+            imageStack[0][i].src = generateWlzURLdist(0, d);
         }
     }
     //load all low end slices
     for (i = parseInt($('#slider-sliceSliderVal').text()); i > -1; i--) {
-        if (background[i] && background[i].complete == false) {
+        if (imageStack[0][i] && imageStack[0][i].complete == false) {
             break;
         }
-        if (background[i] == undefined) {
-            background[i] = document.createElement('img');
-            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        if (imageStack[0][i] == undefined) {
+            imageStack[0][i] = document.createElement('img');
+            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
-        d = Math.floor((i - f) * s);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        d = i - slice;
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
+            imageStack[0][i].src = generateWlzURLdist(0, d);
         }
     }
     window.setTimeout(function () {
@@ -426,24 +439,33 @@ function loadBackground() {
 function countBackground() {
     //check all stacks
     var c = 0;
-    for (i = 0; i < (background.length + 1); i++) {
-        if (background[i] && background[i].complete) {
+    var i;
+    for (i = 0; i < (imageStack[0].length + 1); i++) {
+        if (imageStack[0][i] && imageStack[0][i].complete) {
             c++;
         }
     }
-    backgroundLoaded = Math.floor((c / background.length) * 100);
-    console.log(String(backgroundLoaded) + '% of background slices loaded.')
+    backgroundLoaded = Math.floor((c / imageStack[0].length) * 100);
+    console.log(String(backgroundLoaded) + '% of background slices loaded.');
     if (backgroundLoaded < 99) {
         loadBackground();
     }
 }
 
 function showBackground(slice) {
-    if (background[slice] && background[slice].complete) {
+    if (imageStack[0][slice] && imageStack[0][slice].complete) {
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
-        ctx.drawImage(background[slice], 0, 0);
+        ctx.drawImage(imageStack[0][slice], 0, 0);
+        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        var i;
+        ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+        for (i in selected) {
+            if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
+                ctx.drawImage(imageStack[i][slice], 0, 0);
+            }
+        }
     }
 }
 
@@ -872,6 +894,56 @@ function FindPosition(oElement) {
     }
 }
 
+function generateWlzURLdist(index, distance) {
+    var current = parent.$("body").data("current");
+    var selected = parent.$("body").data(current.template).selected;
+    var layer = selected[index];
+    var file = "";
+    var colour = "255,255,255";
+    var text = "";
+    if (layer.colour !== "auto") {
+        colour = layer.colour;
+    } else {
+        if (!parent.$("body").data("colours")) {
+            loadColours();
+        } else {
+            while (index > 200) {
+                index = index - 200;
+            }
+            colour = parent.$("body").data("colours")[index];
+        }
+    }
+    switch (layer.id.substr(0, 4)) {
+        case "VFB_":
+            file = fileFromId(layer.id);
+            text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            break;
+        case "VFBi":
+            file = fileFromId(layer.id);
+            if (current.inverted) {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0,255,255,255&MAP=LINEAR,0,255,255," + String(colour.split(',')[0]) + ",LINEAR,0,255,255," + String(colour.split(',')[1]) + ",LINEAR,0,255,255," + String(colour.split(',')[2]) + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            } else {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            }
+            break;
+        case "VFBt":
+            file = fileFromId(layer.id);
+            if (current.inverted) {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&MAP=LINEAR,0,255,255,0,LINEAR,0,255,255,0,LINEAR,0,255,255,0&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            } else {
+                text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=0," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            }
+            break;
+        case "VFBd":
+            file = fileFromId(current.template);
+            text = "/fcgi/wlziipsrv.fcgi?wlz=/disk/data/VFB/IMAGE_DATA/" + file + "&sel=" + String(parseInt(layer.id.substr(8))) + "," + colour + "," + current.alpha + "&mod=" + current.mod + "&fxp=" + current.fxp + "&scl=" + current.scl + "&dst=" + String(parseInt(parseInt(distance) * parseFloat(current.scl))) + "&pit=" + current.pit + "&yaw=" + current.yaw + "&rol=" + current.rol + "&qlt=" + current.qlt + "&cvt=" + current.cvt;
+            break;
+        default:
+            alertMessage("unable to generate URL for id:" + layer.id);
+    }
+    return text;
+}
+
 function generateWlzURL(index) {
     var current = parent.$("body").data("current");
     var selected = parent.$("body").data(current.template).selected;
@@ -1108,7 +1180,7 @@ function initWlzControls() {
         if (!backgroundLoading) {
             backgroundLoading = true;
             window.setTimeout(function () {
-                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                     // checking scale after windows should have all loaded
                     parent.$("body").data("current").scl = String(defaultScaleByScreen());
                     window.reloadInterval = 10;
@@ -1116,7 +1188,7 @@ function initWlzControls() {
                     updateWlzDisplay();
                     updateLabels();
                     // loading the background cache
-                    console.log('Initial image load...')
+                    console.log('Initial image load...');
                     loadBackground();
                 }
                 backgroundLoading = false;
@@ -2260,9 +2332,9 @@ $('body').ready(function () {
                 parent.$("body").data("disp", "scale");
                 updateWlzDisplay();
                 updateLabels();
-                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                     // loading the background cache
-                    console.log('Matching new screen size...')
+                    console.log('Matching new screen size...');
                     loadBackground();
                     countBackground();
                 }
