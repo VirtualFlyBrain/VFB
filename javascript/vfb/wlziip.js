@@ -244,33 +244,44 @@ function animateWlzDisplay() {
                         if (!updated && imageDist < 100 && (imageStack[i] && imageStack[i][parseInt(slice) + imageDist - 1] && imageStack[i][parseInt(slice) + imageDist - 1].complete)) {
                             var dist = current.dst;
                             var buffSlice = parseInt(slice) + imageDist;
+                            var imageChanged = false;
                             if (buffSlice <= maxSlice) {
-                                console.log('loading slice ' + String(buffSlice));
+                                imageChanged = false;
                                 current.dst = dist + imageDist;
                                 for (j in selected) {
                                     if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
                                         if (!imageStack[j][buffSlice]) {
                                             imageStack[j][buffSlice] = document.createElement('img');
+                                            imageChanged = true;
                                         }
                                         if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
                                             imageStack[j][buffSlice].src = generateWlzURL(j);
+                                            imageChanged = true;
                                         }
                                     }
+                                }
+                                if (imageChanged) {
+                                    console.log('loading slice ' + String(buffSlice));
                                 }
                             }
                             buffSlice = parseInt(slice) - imageDist;
                             if (buffSlice > -1) {
-                                console.log('loading slice ' + String(buffSlice));
+                                imageChanged = false;
                                 current.dst = dist - imageDist;
                                 for (j in selected) {
                                     if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
                                         if (!imageStack[j][buffSlice]) {
                                             imageStack[j][buffSlice] = document.createElement('img');
+                                            imageChanged = true;
                                         }
                                         if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
                                             imageStack[j][buffSlice].src = generateWlzURL(j);
+                                            imageChanged = true;
                                         }
                                     }
+                                }
+                                if (imageChanged) {
+                                    console.log('loading slice ' + String(buffSlice));
                                 }
                             }
                             current.dst = dist;
