@@ -291,7 +291,7 @@ function animateWlzDisplay() {
                     }
                 }
             }
-            if (reDrawing == false) {
+            if (!reDrawing) {
                 reDrawing = true;
                 window.setTimeout(function () {
                     reDrawing = false;
