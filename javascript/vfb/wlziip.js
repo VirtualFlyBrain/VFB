@@ -228,9 +228,9 @@ function animateWlzDisplay() {
                     addScale(50);
                     addOrientation();
                     drawFeatures();
-                    if (window.reloadInterval > 999) {
+                    if (window.reloadInterval > 500) {
                         if (imageDist == 1) {
-                            console.log('loading surrounding slices in background...');
+                            console.log('loading surrounding expression slices in background...');
                             if (!backgroundLoading) {
                                 backgroundLoading = true;
                                 window.setTimeout(function () {
