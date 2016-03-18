@@ -75,6 +75,9 @@ function animateWlzDisplay() {
                     var orient = current.slice;
                     for (i in selected) {
                         if (selected[i].visible) {
+                            if (!imageStack[i]) {
+                                imageStack[i] = [];
+                            }
                             if (!imageStack[i][slice]) {
                                 imageStack[i][slice] = document.createElement('img');
                                 imageStack[i][slice].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
@@ -138,7 +141,7 @@ function animateWlzDisplay() {
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                             }
-                            if ((imageStack[i][slice] && imageStack[i][slice].complete)) {
+                            if ((imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete)) {
                                 if (imageStack[i][slice].width === 0) {
                                     alertMessage('Failed to load ' + generateWlzURL(i));
                                     selected[i].visible = false;
