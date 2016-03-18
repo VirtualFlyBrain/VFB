@@ -241,7 +241,7 @@ function animateWlzDisplay() {
                                 }, 2000);
                             }
                         }
-                        if (!updated && imageDist < 100) {
+                        if (!updated && imageDist < 100 && (imageStack[i] && imageStack[i][parseInt(slice) + imageDist - 1] && imageStack[i][parseInt(slice) + imageDist - 1].complete)) {
                             var dist = current.dst;
                             var buffSlice = parseInt(slice) + imageDist;
                             if (buffSlice <= maxSlice) {
