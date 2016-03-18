@@ -6,8 +6,7 @@ window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
-var background = [];
-var imageStack = [background, []];
+var imageStack = [[], []];
 var reDrawing = 0;
 var imageDist = 1;
 var retries = 4;
@@ -128,7 +127,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setTimeout(function () {
-                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
@@ -203,7 +202,7 @@ function animateWlzDisplay() {
                                     if (!backgroundLoading) {
                                         backgroundLoading = true;
                                         window.setTimeout(function () {
-                                            if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                                 loadBackground();
                                             }
                                             backgroundLoading = false;
@@ -230,13 +229,12 @@ function animateWlzDisplay() {
                     addOrientation();
                     drawFeatures();
                     if (window.reloadInterval > 999) {
-                        i++;
                         if (imageDist == 1) {
                             console.log('loading surrounding slices in background...');
                             if (!backgroundLoading) {
                                 backgroundLoading = true;
                                 window.setTimeout(function () {
-                                    if (!background[$('#slider-sliceSliderVal').text()] || (background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0 && background[$('#slider-sliceSliderVal').text()].complete)) {
+                                    if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
                                         loadBackground();
                                     }
                                     backgroundLoading = false;
@@ -380,46 +378,46 @@ function loadBackground() {
     var orient = parent.$("body").data("current").slice;
     var v = parseFloat(parent.$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
     var m = Math.ceil(v * $('body').data('meta').extent.split(',')[orientation[orient]['D']]) + 1;
-    if (background.length != m) {
-        background = new Array(m);
+    if (imageStack[0].length != m) {
+        imageStack[0] = new Array(m);
     }
     var i = parseInt($('#slider-sliceSliderVal').text());
     var s = parseFloat(parent.$('body').data('current').scl);
     var f = Math.round((parseInt($('body').data('current').fxp.split(',')[orientation[orient]['D']]) + 1) * v);
     var d = Math.floor((i - f) * s);
-    if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
+    if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
         console.log('Caching background slices...');
         //load current slice
-        background[i] = document.createElement('img');
-        background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-        background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        imageStack[0][i] = document.createElement('img');
+        imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+        imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
     }
     //load all high end slices
     for (i = parseInt($('#slider-sliceSliderVal').text()); i < (m + 1); i++) {
-        if (background[i] && background[i].complete == false) {
+        if (imageStack[0][i] && imageStack[0][i].complete == false) {
             break;
         }
-        if (background[i] == undefined) {
-            background[i] = document.createElement('img');
-            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        if (imageStack[0][i] == undefined) {
+            imageStack[0][i] = document.createElement('img');
+            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
         d = Math.floor((i - f) * s);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
+            imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
         }
     }
     //load all low end slices
     for (i = parseInt($('#slider-sliceSliderVal').text()); i > -1; i--) {
-        if (background[i] && background[i].complete == false) {
+        if (imageStack[0][i] && imageStack[0][i].complete == false) {
             break;
         }
-        if (background[i] == undefined) {
-            background[i] = document.createElement('img');
-            background[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        if (imageStack[0][i] == undefined) {
+            imageStack[0][i] = document.createElement('img');
+            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
         }
         d = Math.floor((i - f) * s);
-        if (!background[i] || background[i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-            background[i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
+        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
+            imageStack[0][i].src = generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d));
         }
     }
     window.setTimeout(function () {
@@ -430,26 +428,27 @@ function loadBackground() {
 function countBackground() {
     //check all stacks
     var c = 0;
-    for (i = 0; i < (background.length + 1); i++) {
-        if (background[i] && background[i].complete) {
+    var i;
+    for (i = 0; i < (imageStack[0].length + 1); i++) {
+        if (imageStack[0][i] && imageStack[0][i].complete) {
             c++;
         }
     }
-    backgroundLoaded = Math.floor((c / background.length) * 100);
-    console.log(String(backgroundLoaded) + '% of background slices loaded.')
+    backgroundLoaded = Math.floor((c / imageStack[0].length) * 100);
+    console.log(String(backgroundLoaded) + '% of background slices loaded.');
     if (backgroundLoaded < 99) {
         loadBackground();
     }
 }
 
 function showBackground(slice) {
-    if (background[slice] && background[slice].complete) {
+    if (imageStack[0][slice] && imageStack[0][slice].complete) {
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
-        ctx.drawImage(background[slice], 0, 0);
+        ctx.drawImage(imageStack[0][slice], 0, 0);
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-        var i = 0;
+        var i;
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
         for (i in selected) {
             if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
@@ -1120,7 +1119,7 @@ function initWlzControls() {
         if (!backgroundLoading) {
             backgroundLoading = true;
             window.setTimeout(function () {
-                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                     // checking scale after windows should have all loaded
                     parent.$("body").data("current").scl = String(defaultScaleByScreen());
                     window.reloadInterval = 10;
@@ -1128,7 +1127,7 @@ function initWlzControls() {
                     updateWlzDisplay();
                     updateLabels();
                     // loading the background cache
-                    console.log('Initial image load...')
+                    console.log('Initial image load...');
                     loadBackground();
                 }
                 backgroundLoading = false;
@@ -2272,9 +2271,9 @@ $('body').ready(function () {
                 parent.$("body").data("disp", "scale");
                 updateWlzDisplay();
                 updateLabels();
-                if (!background[$('#slider-sliceSliderVal').text()] || background[$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
+                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
                     // loading the background cache
-                    console.log('Matching new screen size...')
+                    console.log('Matching new screen size...');
                     loadBackground();
                     countBackground();
                 }
