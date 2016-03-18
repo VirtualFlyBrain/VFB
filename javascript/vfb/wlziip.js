@@ -293,9 +293,7 @@ function animateWlzDisplay() {
                             }
                         }
                     } else {
-                        if (updated) {
-                            imageDist = 1;
-                        }
+                        imageDist = 1;
                     }
                 }
             }
