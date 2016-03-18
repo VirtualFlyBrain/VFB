@@ -6,8 +6,8 @@ window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
 var drawingText = false;
-var image = [];
 var background = [];
+var imageStack = [background, []];
 var reDrawing = 0;
 var imageDist = 1;
 var retries = 4;
@@ -75,18 +75,14 @@ function animateWlzDisplay() {
                     var orient = current.slice;
                     for (i in selected) {
                         if (selected[i].visible) {
-                            if (!image[i]) {
-                                image[i] = document.createElement('img');
-                                image[i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
+                            if (!imageStack[i][slice]) {
+                                imageStack[i][slice] = document.createElement('img');
+                                imageStack[i][slice].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
                                 updated = true;
                             }
-                            if (image[i].src.indexOf(generateWlzURL(i)) < 0) {
-                                if (i === 0 && background[slice] && background[slice].complete) {
-                                    image[i] = background[slice];
-                                } else {
-                                    image[i].src = generateWlzURL(i);
-                                    updated = true;
-                                }
+                            if (imageStack[i][slice].src.indexOf(generateWlzURL(i)) < 0) {
+                                imageStack[i][slice].src = generateWlzURL(i);
+                                updated = true;
                                 $('#canvas').css('cursor', 'wait');
                             }
                             if (count === 0) {
@@ -98,9 +94,9 @@ function animateWlzDisplay() {
                                     }
                                 }
                                 if (parent.$("body").data("disp") == "scale") {
-                                    if (selected[0].visible && image[0].complete && image[0].height) {
-                                        $('#canvas').attr('width', image[0].width);
-                                        $('#canvas').attr('height', image[0].height);
+                                    if (selected[0].visible && imageStack[0][slice].complete && imageStack[0][slice].height) {
+                                        $('#canvas').attr('width', imageStack[0][slice].width);
+                                        $('#canvas').attr('height', imageStack[0][slice].height);
                                         parent.$("body").data("disp", "done");
                                     } else {
                                         parent.$("body").data("disp", "scale");
@@ -142,21 +138,21 @@ function animateWlzDisplay() {
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                             }
-                            if ((image[i] && image[i].complete)) {
-                                if (image[i].width === 0) {
+                            if ((imageStack[i][slice] && imageStack[i][slice].complete)) {
+                                if (imageStack[i][slice].width === 0) {
                                     alertMessage('Failed to load ' + generateWlzURL(i));
                                     selected[i].visible = false;
                                     $('#canvas').css('cursor', 'crosshair');
                                 } else {
                                     try {
-                                        ctx.drawImage(image[i], 0, 0);
+                                        ctx.drawImage(imageStack[i][slice], 0, 0);
                                         if (i === 0) {
-                                            $('#canvas').attr('width', image[i].width);
-                                            $('#canvas').attr('height', image[i].height);
+                                            $('#canvas').attr('width', imageStack[i][slice].width);
+                                            $('#canvas').attr('height', imageStack[i][slice].height);
                                         }
                                         $('#canvas').css('cursor', 'crosshair');
                                     } catch (e) {
-                                        alertMessage("Problem loading image (" + image[i].src + "); error " + e);
+                                        alertMessage("Problem loading image (" + imageStack[i][slice].src + "); error " + e);
                                     }
                                 }
                             } else {
@@ -169,9 +165,9 @@ function animateWlzDisplay() {
                         } else {
                             if (count === 0 && (selected[0].visible === false || parent.$("body").data("disp") == "clear")) {
                                 if (parent.$("body").data("disp") == "scale") {
-                                    if (selected[0].visible && image[0].complete && image[0].height) {
-                                        $('#canvas').attr('width', image[0].width);
-                                        $('#canvas').attr('height', image[0].height);
+                                    if (selected[0].visible && imageStack[0][slice].complete && imageStack[0][slice].height) {
+                                        $('#canvas').attr('width', imageStack[0][slice].width);
+                                        $('#canvas').attr('height', imageStack[0][slice].height);
                                         parent.$('body').data('disp', 'scale');
                                     } else {
                                         if (parent.$("body").data("meta")) {
@@ -244,34 +240,37 @@ function animateWlzDisplay() {
                                 }, 2000);
                             }
                         }
-                        if (!updated && imageDist < 100 && (imageDist === 1 || (image[i] && image[i].complete))) {
+                        if (!updated && imageDist < 100 && (imageDist === 1 || (imageStack[i][slice] && imageStack[i][slice].complete))) {
                             var dist = current.dst;
-                            if ((parseInt($('#slider-sliceSliderVal').text()) + imageDist) <= maxSlice) {
-                                console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text()) + imageDist));
+                            var buffSlice = parseInt(slice) + imageDist;
+                            if (buffSlice <= maxSlice) {
+                                console.log('loading slice ' + String(buffSlice))
+                            );
                                 current.dst = dist + imageDist;
                                 for (j in selected) {
-                                    if (!image[i] || (image[i] && image[i].complete)) {
-                                        if (!image[i]) {
-                                            image[i] = document.createElement('img');
+                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
+                                        if (!imageStack[j][buffSlice]) {
+                                            imageStack[j][buffSlice] = document.createElement('img');
                                         }
-                                        if (image[i].src.indexOf(generateWlzURL(j)) < 0) {
-                                            image[i].src = generateWlzURL(j);
+                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
+                                            imageStack[j][buffSlice].src = generateWlzURL(j);
                                         }
                                     }
-                                    i++;
                                 }
                             }
-                            if (parseInt($('#slider-sliceSliderVal').text()) - imageDist > -1) {
-                                console.log('loading slice ' + String(parseInt($('#slider-sliceSliderVal').text()) - imageDist));
+buffSlice = parseInt(slice) - imageDist;
+if (buffSlice > -1) {
+    console.log('loading slice ' + String(buffSlice))
+)
+;
                                 current.dst = dist - imageDist;
                                 for (j in selected) {
-                                    i++;
-                                    if (!image[i] || (image[i] && image[i].complete)) {
-                                        if (!image[i]) {
-                                            image[i] = document.createElement('img');
+                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
+                                        if (!imageStack[j][buffSlice]) {
+                                            imageStack[j][buffSlice] = document.createElement('img');
                                         }
-                                        if (image[i].src.indexOf(generateWlzURL(j)) < 0) {
-                                            image[i].src = generateWlzURL(j);
+                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
+                                            imageStack[j][buffSlice].src = generateWlzURL(j);
                                         }
                                     }
                                 }
@@ -449,6 +448,14 @@ function showBackground(slice) {
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
         ctx.drawImage(background[slice], 0, 0);
+        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        var i = 0;
+        ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+        for (i in selected) {
+            if (imageStack[i][slice] && imageStack[i][slice].complete) {
+                ctx.drawImage(imageStack[i][slice], 0, 0);
+            }
+        }
     }
 }
 
