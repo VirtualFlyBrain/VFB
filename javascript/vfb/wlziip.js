@@ -216,6 +216,9 @@ function animateWlzDisplay() {
                     addScale(50);
                     addOrientation();
                     drawFeatures();
+                    if (buffering) {
+                        bufferPie(canvas.width - 12, 12, 10);
+                    }
                 }
             }
             if (reDrawing < 1 && vis()) {
@@ -362,17 +365,17 @@ function bufferPie(x, y, r) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     ctx.globalCompositeOperation = 'copy';
-    ctx.fillStyle = "#D95B43";
+    ctx.fillStyle = "#00CC00";
     var midPoint = Math.PI * 2 * (bufferedSlices / totalSlice);
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, 0, midPoint, false);
     ctx.lineTo(x, y);
     ctx.fill();
-    ctx.fillStyle = "#542437";
+    ctx.fillStyle = "#ffff00";
     ctx.beginPath();
     ctx.moveTo(x, y);
-    ctx.arc(x, y, 50, midpoint, Math.PI * 2, false);
+    ctx.arc(x, y, 50, midPoint, Math.PI * 2, false);
     ctx.lineTo(x, y);
     ctx.fill();
 }
