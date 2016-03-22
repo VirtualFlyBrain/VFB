@@ -371,7 +371,7 @@ function bufferPie(x, y, r) {
     ctx.fillStyle = "#00CC00";
     var start = -0.5 * Math.PI
     var end = Math.PI * 1.5
-    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) - start;
+    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
     if (parent.$('body').data('current').inverted) {
         ctx.strokeStyle = '#000000';
     } else {
