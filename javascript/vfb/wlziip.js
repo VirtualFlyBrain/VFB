@@ -415,6 +415,8 @@ function showStack(slice) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
             }
         }
+        addScale(50);
+        addOrientation();
     }
 }
 
