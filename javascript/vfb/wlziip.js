@@ -369,7 +369,9 @@ function bufferPie(x, y, r) {
     var ctx = canvas.getContext('2d');
     ctx.globalCompositeOperation = parent.$("body").data("current").blend;
     ctx.fillStyle = "#00CC00";
-    var midPoint = Math.PI * 2 * ((bufferedSlices / 2) / totalSlice);
+    var start = -0.5 * Math.PI
+    var end = Math.PI * 1.5
+    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) - start;
     if (parent.$('body').data('current').inverted) {
         ctx.strokeStyle = '#000000';
     } else {
@@ -377,14 +379,14 @@ function bufferPie(x, y, r) {
     }
     ctx.beginPath();
     ctx.moveTo(x, y);
-    ctx.arc(x, y, r, 0, midPoint, false);
+    ctx.arc(x, y, r, start, midPoint, false);
     ctx.lineTo(x, y);
     ctx.stroke();
     ctx.fill();
     ctx.fillStyle = "#999900";
     ctx.beginPath();
     ctx.moveTo(x, y);
-    ctx.arc(x, y, r, midPoint, Math.PI * 2, false);
+    ctx.arc(x, y, r, midPoint, end, false);
     ctx.lineTo(x, y);
     ctx.stroke();
 }
