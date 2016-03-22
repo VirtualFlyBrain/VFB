@@ -308,7 +308,6 @@ function loadColours() {
 
 function bufferStack() {
     if (imageDist < maxSlice) {
-        buffering = false;
         var current = parent.$("body").data("current");
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var slice = parseInt($('#slider-sliceSliderVal').text());
@@ -343,6 +342,7 @@ function bufferStack() {
         if (loadDone) {
             imageDist++;
             bufferedSlices += loaded;
+            buffering = false;
         }
         totalSlice = (maxSlice + 1) * stackCount;
         bufferTick(100);
