@@ -369,6 +369,11 @@ function bufferPie(x, y, r) {
     ctx.globalCompositeOperation = parent.$("body").data("current").blend;
     ctx.fillStyle = "#00CC00";
     var midPoint = Math.PI * 2 * ((bufferedSlices / 2) / totalSlice);
+    if (parent.$('body').data('current').inverted) {
+        ctx.strokeStyle = '#000000';
+    } else {
+        ctx.strokeStyle = '#ffffff';
+    }
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, 0, midPoint, false);
@@ -379,11 +384,11 @@ function bufferPie(x, y, r) {
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, midPoint, Math.PI * 2, false);
     ctx.lineTo(x, y);
-    ctx.fill();
+    ctx.stroke();
 }
 
 function bufferImage(j, buffSlice, slice) {
-    var d = buffSlice - slice;
+    var d = (buffSlice - slice);
     var imageChanged = false;
     if (!imageStack[j]) {
         imageStack[j] = [];
