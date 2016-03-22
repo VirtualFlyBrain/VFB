@@ -323,7 +323,7 @@ function bufferStack() {
             if (selected[i].visible) {
                 stackCount++;
                 if (buffSlice < maxSlice) {
-                    if (!bufferImage(i, buffSlice) && imageStack[i][buffSlice].complete) {
+                    if (!bufferImage(i, buffSlice, slice) && imageStack[i][buffSlice].complete) {
                         bufferedSlices++;
                     } else {
                         loadDone = false;
@@ -331,7 +331,7 @@ function bufferStack() {
                 }
                 buffSlice = slice - imageDist;
                 if (buffSlice > -1) {
-                    if (!bufferImage(i, buffSlice) && imageStack[i][buffSlice].complete) {
+                    if (!bufferImage(i, buffSlice, slice) && imageStack[i][buffSlice].complete) {
                         bufferedSlices++;
                     } else {
                         loadDone = false;
