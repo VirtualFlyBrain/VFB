@@ -314,6 +314,7 @@ function bufferStack() {
         var slice = parseInt($('#slider-sliceSliderVal').text());
         var buffSlice = (slice + imageDist);
         var stackCount = 0;
+        var loaded = 0;
         var i;
         var loadDone = true;
         if (imageDist == 1) {
@@ -325,19 +326,23 @@ function bufferStack() {
                 if (buffSlice < maxSlice) {
                     if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
+                    } else {
+                        loaded++;
                     }
                 }
                 buffSlice = (slice - imageDist);
                 if (buffSlice > -1) {
                     if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
+                    } else {
+                        loaded++;
                     }
                 }
             }
         }
         if (loadDone) {
             imageDist++;
-            bufferedSlices += 2 * stackCount;
+            bufferedSlices += loaded;
         }
         totalSlice = (maxSlice + 1) * stackCount;
         bufferTick(100);
