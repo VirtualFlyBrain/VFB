@@ -1531,7 +1531,11 @@ function setOrientaion(ori) {
             parent.$("body").data("current").rol = 0.0;
     }
     $('#slider-slice').data('bootstrapSlider').options.max = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+    parent.$("body").data("current").scl = String(defaultScaleByScreen());
+    window.reloadInterval = 10;
+    parent.$("body").data("disp", "scale");
     updateWlzDisplay();
+    updateLabels();
     reloadStack();
 }
 
