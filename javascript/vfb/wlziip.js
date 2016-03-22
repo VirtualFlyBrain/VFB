@@ -344,7 +344,7 @@ function bufferStack() {
             imageDist++;
         }
         totalSlice = (maxSlice + 1) * stackCount;
-        bufferTick(1000);
+        bufferTick(200);
     } else {
         buffering = false;
         bufferTick(30000);
