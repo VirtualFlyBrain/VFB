@@ -399,6 +399,7 @@ function bufferImage(j, buffSlice, slice) {
     }
     if (imageChanged) {
         buffering = true;
+        console.log('Loading slice ' + buffSlice + ' of item ' + j);
     }
     return imageChanged
 }
