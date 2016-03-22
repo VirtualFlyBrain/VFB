@@ -319,7 +319,6 @@ function bufferStack() {
         var loadDone = true;
         if (imageDist == 1) {
             bufferedSlices = 0;
-            buffering = false;
         }
         for (i in selected) {
             if (selected[i].visible) {
@@ -351,7 +350,7 @@ function bufferStack() {
         bufferTick(100);
     } else {
         buffering = false;
-        bufferTick(90000);
+        bufferTick(2000);
     }
 }
 
