@@ -312,7 +312,7 @@ function bufferStack() {
         var current = parent.$("body").data("current");
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var slice = parseInt($('#slider-sliceSliderVal').text());
-        var buffSlice = slice + imageDist;
+        var buffSlice = (slice + imageDist);
         var stackCount = 0;
         var i;
         var loadDone = true;
@@ -327,7 +327,7 @@ function bufferStack() {
                         loadDone = false;
                     }
                 }
-                buffSlice = slice - imageDist;
+                buffSlice = (slice - imageDist);
                 if (buffSlice > -1) {
                     if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
