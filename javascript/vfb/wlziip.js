@@ -1102,7 +1102,6 @@ function initWlzControls() {
             window.reloadInterval = 10;
             parent.$("body").data("disp", "scale");
             reloadStack();
-            countBackground();
             try {
                 ga('send', 'event', 'viewer', 'reset_pos');
             } catch (ignore) {
@@ -2286,7 +2285,6 @@ $('body').ready(function () {
                     // loading the background cache
                     console.log('Matching new screen size...');
                     reloadStack();
-                    countBackground();
                 }
                 backgroundLoading = false;
             }, 1000);
