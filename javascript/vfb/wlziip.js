@@ -2300,11 +2300,7 @@ $('body').ready(function () {
                 parent.$("body").data("disp", "scale");
                 updateWlzDisplay();
                 updateLabels();
-                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
-                    // loading the background cache
-                    console.log('Matching new screen size...');
-                    reloadStack();
-                }
+                reloadStack();
                 backgroundLoading = false;
             }, 1000);
         }
