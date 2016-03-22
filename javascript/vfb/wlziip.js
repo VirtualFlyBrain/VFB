@@ -1542,8 +1542,11 @@ function setOrientaion(ori) {
             updateLabels();
             reloadStack();
             backgroundLoading = false;
-        }, 1000);
+        }, 5000);
     }
+    updateWlzDisplay();
+    updateLabels();
+    reloadStack();
 }
 
 function createInfoButtonHTML(layer) {
