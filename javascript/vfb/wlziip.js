@@ -379,6 +379,7 @@ function bufferPie(x, y, r) {
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, 0, midPoint, false);
     ctx.lineTo(x, y);
+    ctx.stroke();
     ctx.fill();
     ctx.fillStyle = "#999900";
     ctx.beginPath();
