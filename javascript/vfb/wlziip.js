@@ -311,7 +311,7 @@ function bufferStack() {
         var current = parent.$("body").data("current");
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var slice = parseInt($('#slider-sliceSliderVal').text());
-        var buffSlice = (slice + imageDist);
+        var buffSlice = slice;
         var stackCount = 0;
         var loaded = 0;
         var middleSlice = $('#slider-slice').data('bootstrapSlider').options.max / 2;
@@ -323,6 +323,7 @@ function bufferStack() {
         for (i in selected) {
             if (selected[i].visible) {
                 stackCount++;
+                buffSlice = (slice + imageDist);
                 if (buffSlice < maxSlice) {
                     if (bufferImage(i, buffSlice, middleSlice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
@@ -387,25 +388,25 @@ function bufferPie(x, y, r) {
     ctx.stroke();
 }
 
-function bufferImage(j, buffSlice, slice) {
-    var d = (buffSlice - slice);
+function bufferImage(j, slice, middle) {
+    var d = (slice - middle);
     var imageChanged = false;
     if (!imageStack[j]) {
         imageStack[j] = [];
     }
-    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
-        if (!imageStack[j][buffSlice]) {
-            imageStack[j][buffSlice] = document.createElement('img');
+    if (!imageStack[j][slice] || (imageStack[j][slice] && imageStack[j][slice].complete)) {
+        if (!imageStack[j][slice]) {
+            imageStack[j][slice] = document.createElement('img');
             imageChanged = true;
         }
-        if (imageStack[j][buffSlice].src.indexOf(generateWlzURLdist(j, d)) < 0) {
-            imageStack[j][buffSlice].src = generateWlzURLdist(j, d);
+        if (imageStack[j][slice].src.indexOf(generateWlzURLdist(j, d)) < 0) {
+            imageStack[j][slice].src = generateWlzURLdist(j, d);
             imageChanged = true;
         }
     }
     if (imageChanged) {
         buffering = true;
-        console.log('Loading slice ' + buffSlice + ' of item ' + j);
+        console.log('Loading slice ' + slice + ' of item ' + j);
     }
     return imageChanged
 }
