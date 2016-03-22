@@ -314,6 +314,7 @@ function bufferStack() {
         var buffSlice = (slice + imageDist);
         var stackCount = 0;
         var loaded = 0;
+        var middleSlice = $('#slider-slice').data('bootstrapSlider').options.max / 2;
         var i;
         var loadDone = true;
         if (imageDist == 1) {
@@ -323,7 +324,7 @@ function bufferStack() {
             if (selected[i].visible) {
                 stackCount++;
                 if (buffSlice < maxSlice) {
-                    if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
+                    if (bufferImage(i, buffSlice, middleSlice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     } else {
                         loaded++;
@@ -331,7 +332,7 @@ function bufferStack() {
                 }
                 buffSlice = (slice - imageDist);
                 if (buffSlice > -1) {
-                    if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
+                    if (bufferImage(i, buffSlice, middleSlice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     } else {
                         loaded++;
