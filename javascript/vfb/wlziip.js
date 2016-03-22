@@ -350,7 +350,7 @@ function bufferStack() {
         bufferTick(100);
     } else {
         buffering = false;
-        bufferTick(30000);
+        bufferTick(90000);
     }
 }
 
@@ -429,13 +429,13 @@ function showStack(slice) {
         }
         addScale(50);
         addOrientation();
+        imageDist = 1;
     }
 }
 
 function reloadStack() {
     imageDist = 1;
     bufferStack();
-
 }
 
 function addScale(scale) {
