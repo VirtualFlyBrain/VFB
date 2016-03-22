@@ -308,7 +308,7 @@ function loadColours() {
 
 function bufferStack() {
     if (imageDist < maxSlice) {
-        buffering = true;
+        buffering = false;
         var current = parent.$("body").data("current");
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var slice = parseInt($('#slider-sliceSliderVal').text());
@@ -395,6 +395,9 @@ function bufferImage(j, buffSlice, slice) {
             imageStack[j][buffSlice].src = generateWlzURLdist(j, d);
             imageChanged = true;
         }
+    }
+    if (imageChanged) {
+        buffering = true;
     }
     return imageChanged
 }
