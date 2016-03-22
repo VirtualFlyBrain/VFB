@@ -434,6 +434,9 @@ function showStack(slice) {
 }
 
 function reloadStack() {
+    var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
+    var orient = parent.$("body").data("current").slice;
+    maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     imageDist = 1;
     bufferStack();
 }
@@ -1529,6 +1532,7 @@ function setOrientaion(ori) {
     }
     $('#slider-slice').data('bootstrapSlider').options.max = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     updateWlzDisplay();
+    reloadStack();
 }
 
 function createInfoButtonHTML(layer) {
