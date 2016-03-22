@@ -364,7 +364,7 @@ function bufferTick(t) {
 function bufferPie(x, y, r) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    ctx.globalCompositeOperation = 'copy';
+    ctx.globalCompositeOperation = parent.$("body").data("current").blend;
     ctx.fillStyle = "#00CC00";
     var midPoint = Math.PI * 2 * (bufferedSlices / totalSlice);
     ctx.beginPath();
