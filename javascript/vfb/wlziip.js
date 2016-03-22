@@ -319,6 +319,7 @@ function bufferStack() {
         var loadDone = true;
         if (imageDist == 1) {
             bufferedSlices = 0;
+            buffering = false;
         }
         for (i in selected) {
             if (selected[i].visible) {
