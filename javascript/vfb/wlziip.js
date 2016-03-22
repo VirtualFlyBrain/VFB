@@ -323,28 +323,24 @@ function bufferStack() {
             if (selected[i].visible) {
                 stackCount++;
                 if (buffSlice < maxSlice) {
-                    if (!bufferImage(i, buffSlice, imageDist) && imageStack[i][buffSlice].complete) {
-                        bufferedSlices++;
-                    } else {
+                    if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     }
                 }
                 buffSlice = slice - imageDist;
                 if (buffSlice > -1) {
-                    if (!bufferImage(i, buffSlice, (-imageDist)) && imageStack[i][buffSlice].complete) {
-                        bufferedSlices++;
-                    } else {
+                    if (bufferImage(i, buffSlice, slice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     }
-
                 }
             }
         }
         if (loadDone) {
             imageDist++;
+            bufferedSlices += 2 * stackCount;
         }
         totalSlice = (maxSlice + 1) * stackCount;
-        bufferTick(200);
+        bufferTick(100);
     } else {
         buffering = false;
         bufferTick(30000);
@@ -380,7 +376,8 @@ function bufferPie(x, y, r) {
     ctx.fill();
 }
 
-function bufferImage(j, buffSlice, d) {
+function bufferImage(j, buffSlice, slice) {
+    var d = buffSlice - slice;
     var imageChanged = false;
     if (!imageStack[j]) {
         imageStack[j] = [];
