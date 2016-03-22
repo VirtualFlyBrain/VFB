@@ -366,7 +366,7 @@ function bufferPie(x, y, r) {
     var ctx = canvas.getContext('2d');
     ctx.globalCompositeOperation = parent.$("body").data("current").blend;
     ctx.fillStyle = "#00CC00";
-    var midPoint = Math.PI * 2 * (bufferedSlices / totalSlice);
+    var midPoint = Math.PI * 2 * ((bufferedSlices / 2) / totalSlice);
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, 0, midPoint, false);
