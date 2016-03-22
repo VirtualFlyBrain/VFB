@@ -323,7 +323,7 @@ function bufferStack() {
             if (selected[i].visible) {
                 stackCount++;
                 if (buffSlice < maxSlice) {
-                    if (!bufferImage(i, buffSlice, slice) && imageStack[i][buffSlice].complete) {
+                    if (!bufferImage(i, buffSlice, imageDist) && imageStack[i][buffSlice].complete) {
                         bufferedSlices++;
                     } else {
                         loadDone = false;
@@ -331,7 +331,7 @@ function bufferStack() {
                 }
                 buffSlice = slice - imageDist;
                 if (buffSlice > -1) {
-                    if (!bufferImage(i, buffSlice, slice) && imageStack[i][buffSlice].complete) {
+                    if (!bufferImage(i, buffSlice, (-imageDist)) && imageStack[i][buffSlice].complete) {
                         bufferedSlices++;
                     } else {
                         loadDone = false;
@@ -380,9 +380,8 @@ function bufferPie(x, y, r) {
     ctx.fill();
 }
 
-function bufferImage(j, buffSlice, slice) {
+function bufferImage(j, buffSlice, d) {
     var imageChanged = false;
-    var d = buffSlice - slice;
     if (!imageStack[j]) {
         imageStack[j] = [];
     }
