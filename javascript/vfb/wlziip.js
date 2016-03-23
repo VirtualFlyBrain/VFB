@@ -346,7 +346,7 @@ function bufferStack() {
             bufferedSlices += loaded;
             buffering = false;
         }
-        totalSlice = (maxSlice + 1) * stackCount;
+        totalSlice = (maxSlice - 1) * stackCount;
         bufferTick(100);
     } else {
         buffering = false;
