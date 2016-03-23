@@ -14,6 +14,7 @@ var bufferedSlices = 0;
 var totalSlice = 0;
 var drawingSlice = 0;
 var middleSlice = 0;
+var bufferLimit = 1;
 var buffering = false;
 var buffRun = false;
 var showLabel = false;
@@ -320,7 +321,7 @@ function bufferStack() {
             bufferedSlices = 0;
         }
         for (i in selected) {
-            if (selected[i].visible) {
+            if (selected[i].visible && i < bufferLimit) {
                 stackCount++;
                 buffSlice = (slice + imageDist);
                 if (buffSlice < maxSlice) {
@@ -346,10 +347,16 @@ function bufferStack() {
             buffering = false;
         }
         totalSlice = (maxSlice - 1) * stackCount;
-        bufferTick(100);
+        bufferTick(50);
     } else {
         buffering = false;
-        bufferTick(2000);
+        if (bufferLimit < 100) {
+            bufferLimit++;
+            imageDist = 1;
+            bufferTick(100);
+        } else {
+            bufferTick(2000);
+        }
     }
 }
 
@@ -371,13 +378,14 @@ function bufferPie(x, y, r) {
     var start = -0.5 * Math.PI
     var end = Math.PI * 1.5
     var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
-    ctx.strokeStyle = '#777777';
+    ctx.strokeStyle = '#00CC00';
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, start, midPoint, false);
     ctx.lineTo(x, y);
     ctx.stroke();
     ctx.fill();
+    ctx.strokeStyle = '#777777';
     ctx.fillStyle = "#999900";
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -438,6 +446,7 @@ function reloadStack() {
     maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     middleSlice = Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     imageDist = 1;
+    bufferLimit = 3;
     bufferStack();
 }
 
