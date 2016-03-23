@@ -90,6 +90,7 @@ function animateWlzDisplay() {
                                 imageStack[i][slice].src = generateWlzURL(i);
                                 updated = true;
                                 $('#canvas').css('cursor', 'wait');
+                                reloadStack();
                             }
                             if (count === 0) {
                                 if (current.alpha == 220 || current.alpha == 100) {
