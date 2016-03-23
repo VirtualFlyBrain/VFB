@@ -415,7 +415,7 @@ function bufferImage(j, slice, middle) {
 }
 
 function showStack(slice) {
-    if (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].complete) {
+    if (imageStack[0][slice] && imageStack[0][slice].complete) {
         drawingSlice = slice;
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
@@ -424,17 +424,16 @@ function showStack(slice) {
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var i;
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-        try {
-            for (i in selected) {
+        for (i in selected) {
+            if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
-                if (drawingSlice != slice) {
-                    break;
-                }
             }
-            addScale(50);
-            addOrientation();
-        } catch (ignore) {
+            if (drawingSlice != slice) {
+                break;
+            }
         }
+        addScale(50);
+        addOrientation();
         imageDist = 1;
     }
 }
