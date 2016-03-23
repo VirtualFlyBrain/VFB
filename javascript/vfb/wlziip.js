@@ -13,6 +13,7 @@ var retries = 4;
 var maxSlice = 1;
 var bufferedSlices = 0;
 var totalSlice = 0;
+var drawingSlice = 0;
 var buffering = false;
 var buffRun = false;
 var showLabel = false;
@@ -415,6 +416,7 @@ function bufferImage(j, slice, middle) {
 
 function showStack(slice) {
     if (imageStack[0][slice] && imageStack[0][slice].complete) {
+        drawingSlice = slice;
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
@@ -425,6 +427,9 @@ function showStack(slice) {
         for (i in selected) {
             if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
+            }
+            if (drawingSlice != slice) {
+                break;
             }
         }
         addScale(50);
