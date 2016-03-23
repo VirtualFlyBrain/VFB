@@ -13,6 +13,7 @@ var maxSlice = 1;
 var bufferedSlices = 0;
 var totalSlice = 0;
 var drawingSlice = 0;
+var middleSlice = 0;
 var buffering = false;
 var buffRun = false;
 var showLabel = false;
@@ -239,7 +240,6 @@ function animateWlzDisplay() {
             }
         }
     }
-
     requestAnimationFrame(step);
 }
 
@@ -313,7 +313,6 @@ function bufferStack() {
         var buffSlice = slice;
         var stackCount = 0;
         var loaded = 0;
-        var middleSlice = $('#slider-slice').data('bootstrapSlider').options.max / 2;
         var i;
         var loadDone = true;
         if (imageDist == 1) {
@@ -324,7 +323,7 @@ function bufferStack() {
                 stackCount++;
                 buffSlice = (slice + imageDist);
                 if (buffSlice < maxSlice) {
-                    if (bufferImage(i, buffSlice, middleSlice) || (!imageStack[i][buffSlice].complete)) {
+                    if (bufferImage(i, buffSlice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     } else {
                         loaded++;
@@ -332,7 +331,7 @@ function bufferStack() {
                 }
                 buffSlice = (slice - imageDist);
                 if (buffSlice > -1) {
-                    if (bufferImage(i, buffSlice, middleSlice) || (!imageStack[i][buffSlice].complete)) {
+                    if (bufferImage(i, buffSlice) || (!imageStack[i][buffSlice].complete)) {
                         loadDone = false;
                     } else {
                         loaded++;
@@ -390,8 +389,8 @@ function bufferPie(x, y, r) {
     ctx.stroke();
 }
 
-function bufferImage(j, slice, middle) {
-    var d = (slice - middle);
+function bufferImage(j, slice) {
+    var d = (slice - middleSlice);
     var imageChanged = false;
     if (!imageStack[j]) {
         imageStack[j] = [];
@@ -440,6 +439,7 @@ function reloadStack() {
     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
     var orient = parent.$("body").data("current").slice;
     maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+    middleSlice = Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     imageDist = 1;
     bufferStack();
 }
