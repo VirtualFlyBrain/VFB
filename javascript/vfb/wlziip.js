@@ -419,11 +419,15 @@ function bufferImage(j, slice) {
 function showStack(slice) {
     if (imageStack[0][slice] && imageStack[0][slice].complete) {
         drawingSlice = slice;
+        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
-        ctx.drawImage(imageStack[0][slice], 0, 0);
-        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        if (imageStack[0][slice].complete && selected[0].visible) {
+            ctx.drawImage(imageStack[0][slice], 0, 0);
+        } else {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        }
         var i;
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
         for (i in selected) {
@@ -446,7 +450,9 @@ function reloadStack() {
     maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     middleSlice = Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
     imageDist = 1;
-    bufferLimit = 3;
+    if (bufferImage(0, middleSlice - 1)) {
+        bufferLimit = 1;
+    }
     bufferStack();
 }
 
