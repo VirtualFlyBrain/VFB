@@ -217,7 +217,7 @@ function animateWlzDisplay() {
                     addOrientation();
                     drawFeatures();
                     if (buffering) {
-                        bufferPie(canvas.width - 12, 12, 10);
+                        bufferPie(canvas.width - 7, 7, 5);
                     }
                 }
             }
@@ -370,11 +370,7 @@ function bufferPie(x, y, r) {
     var start = -0.5 * Math.PI
     var end = Math.PI * 1.5
     var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
-    if (parent.$('body').data('current').inverted) {
-        ctx.strokeStyle = '#000000';
-    } else {
-        ctx.strokeStyle = '#ffffff';
-    }
+    ctx.strokeStyle = '#777777';
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, start, midPoint, false);
