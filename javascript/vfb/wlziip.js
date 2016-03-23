@@ -5,7 +5,6 @@ window.PosY = 0;
 window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
-var drawingText = false;
 var imageStack = [[], []];
 var reDrawing = 0;
 var imageDist = 1;
@@ -52,7 +51,6 @@ function updateMenuData() {
     updateAnatomyTree();
     updateLabels();
     updateWlzDisplay();
-
 }
 
 function animateWlzDisplay() {
@@ -552,13 +550,21 @@ function setText(message) {
         } else {
             // timeout existing matching labels
             var i;
+            window.features.sort();
             for (i in window.features) {
+                if (window.features[i] == undefined) {
+                    window.features.pop();
+                }
                 if (window.features[i][3] == message) {
                     window.features[i][0] = 1000;
+                }
+                if ((window.features[i][1] == window.PosX + 5) && (window.features[i][1] == window.PosY + window.textOffset - 12)) {
+                    window.textOffset += 12;
                 }
             }
             window.features[window.features.length] = [0, window.PosX + 5, window.PosY + window.textOffset - 12, message];
             window.textOffset += 12;
+            window.features.sort();
             try {
                 ga('send', 'event', 'viewer', 'selected', message);
             } catch (ignore) {
