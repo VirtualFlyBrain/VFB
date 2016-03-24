@@ -308,10 +308,16 @@ function loadColours() {
 }
 
 function bufferStack() {
-    if (imageDist < maxSlice) {
+    var slice = parseInt($('#slider-sliceSliderVal').text());
+    var maxDist = maxSlice;
+    if (slice > middleSlice) {
+        maxDist = maxSlice - (middleSlice - (slice - middleSlice));
+    } else {
+        maxDist = maxSlice - slice;
+    }
+    if (imageDist < maxDist) {
         var current = parent.$("body").data("current");
         var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
-        var slice = parseInt($('#slider-sliceSliderVal').text());
         var buffSlice = slice;
         var stackCount = 0;
         var loaded = 0;
@@ -347,15 +353,15 @@ function bufferStack() {
             buffering = false;
         }
         totalSlice = (maxSlice - 1) * stackCount;
-        bufferTick(50);
+        bufferTick(100);
     } else {
         buffering = false;
-        if (bufferLimit < 100) {
-            bufferLimit++;
+        if (bufferLimit < totalSlice + 10) {
+            bufferLimit += 10;
             imageDist = 1;
             bufferTick(100);
         } else {
-            bufferTick(2000);
+            bufferTick(30000);
         }
     }
 }
@@ -433,6 +439,8 @@ function showStack(slice) {
         for (i in selected) {
             if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
+            } else {
+                break;
             }
             if (drawingSlice != slice) {
                 break;
