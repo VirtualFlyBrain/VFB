@@ -287,9 +287,8 @@
                                                             }
                                                         }
                                                     }
-                                                    if (backgroundLoaded < 99) {
-                                                        $("#labelBlock").text('Loading slices in background for faster access...');
-                                                        countBackground();
+                                                    if (buffering) {
+                                                        $("#labelBlock").text('Buffering slices in background for faster access...');
                                                     } else {
                                                         $("#labelBlock").text('Click to select or double click to toggle anatomy:');
                                                     }
