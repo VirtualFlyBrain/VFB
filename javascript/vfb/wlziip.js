@@ -578,7 +578,7 @@ function setText(message) {
                 if (window.features[i][3] == message) {
                     window.features[i][0] = 1000;
                 }
-                if ((window.features[i][1] == window.PosX + 5) && (window.features[i][1] == window.PosY + window.textOffset - 12)) {
+                if ((window.features[i][1] == (window.PosX + 5)) && (window.features[i][2] == (window.PosY + window.textOffset - 12))) {
                     window.textOffset += 12;
                 }
             }
