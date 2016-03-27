@@ -5,12 +5,18 @@ window.PosY = 0;
 window.lastSel = [""];
 window.textOffset = 0;
 var SelectedIndex = 0;
-var drawingText = false;
 var imageStack = [[], []];
 var reDrawing = 0;
 var imageDist = 1;
 var retries = 4;
 var maxSlice = 1;
+var bufferedSlices = 0;
+var totalSlice = 0;
+var drawingSlice = 0;
+var middleSlice = 0;
+var bufferLimit = 1;
+var buffering = false;
+var buffRun = false;
 var showLabel = false;
 var labelCall = false;
 var isTyping = false;
@@ -47,7 +53,6 @@ function updateMenuData() {
     updateAnatomyTree();
     updateLabels();
     updateWlzDisplay();
-
 }
 
 function animateWlzDisplay() {
@@ -86,6 +91,7 @@ function animateWlzDisplay() {
                                 imageStack[i][slice].src = generateWlzURL(i);
                                 updated = true;
                                 $('#canvas').css('cursor', 'wait');
+                                reloadStack();
                             }
                             if (count === 0) {
                                 if (current.alpha == 220 || current.alpha == 100) {
@@ -124,15 +130,7 @@ function animateWlzDisplay() {
                                         $('#QueryMenuTab').show();
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
-                                    if (!backgroundLoading) {
-                                        backgroundLoading = true;
-                                        window.setTimeout(function () {
-                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
-                                                loadBackground();
-                                            }
-                                            backgroundLoading = false;
-                                        }, 2000);
-                                    }
+                                    reloadStack();
                                 }
                                 if (selected[0].visible === false || parent.$("body").data("disp") == "clear") {
                                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -199,15 +197,7 @@ function animateWlzDisplay() {
                                         $('#MinMenuTab').html('<a href="#min" data-toggle="tab" aria-expanded="false" onclick="minimizeMenuTabs();"><span class="glyphicon glyphicon-resize-small"></span> Minimize</a>');
                                     }
                                     parent.$("body").data("disp", "done");
-                                    if (!backgroundLoading) {
-                                        backgroundLoading = true;
-                                        window.setTimeout(function () {
-                                            if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
-                                                loadBackground();
-                                            }
-                                            backgroundLoading = false;
-                                        }, 2000);
-                                    }
+                                    reloadStack();
                                 }
                                 ctx.globalCompositeOperation = 'source-over';
                                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -228,74 +218,8 @@ function animateWlzDisplay() {
                     addScale(50);
                     addOrientation();
                     drawFeatures();
-                    if (window.reloadInterval > 499) {
-                        if (imageDist == 1) {
-                            console.log('loading surrounding expression slices in background...');
-                            if (!backgroundLoading) {
-                                backgroundLoading = true;
-                                window.setTimeout(function () {
-                                    if (!imageStack[0][slice] || (imageStack[0] && imageStack[0][slice] && imageStack[0][slice].src.indexOf(generateWlzURL(0)) < 0 && imageStack[0][slice].complete)) {
-                                        loadBackground();
-                                    }
-                                    backgroundLoading = false;
-                                }, 2000);
-                            }
-                        }
-                        if (!updated && imageDist < 300 && (imageStack[i] && imageStack[i][parseInt(slice) + imageDist - 1] && imageStack[i][parseInt(slice) + imageDist - 1].complete)) {
-                            var dist = current.dst;
-                            var buffSlice = parseInt(slice) + imageDist;
-                            var imageChanged = false;
-                            if (buffSlice <= maxSlice) {
-                                window.reloadInterval = 500; // maintain speed if still loading
-                                imageChanged = false;
-                                current.dst = dist + imageDist;
-                                for (j in selected) {
-                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
-                                        if (!imageStack[j][buffSlice]) {
-                                            imageStack[j][buffSlice] = document.createElement('img');
-                                            imageChanged = true;
-                                        }
-                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
-                                            imageStack[j][buffSlice].src = generateWlzURL(j);
-                                            imageChanged = true;
-                                        }
-                                    }
-                                }
-                                if (imageChanged) {
-                                    console.log('loading slice ' + String(buffSlice));
-                                }
-                            }
-                            buffSlice = parseInt(slice) - imageDist;
-                            if (buffSlice > -1) {
-                                window.reloadInterval = 500; // maintain speed if still loading
-                                imageChanged = false;
-                                current.dst = dist - imageDist;
-                                for (j in selected) {
-                                    if (!imageStack[j][buffSlice] || (imageStack[j][buffSlice] && imageStack[j][buffSlice].complete)) {
-                                        if (!imageStack[j][buffSlice]) {
-                                            imageStack[j][buffSlice] = document.createElement('img');
-                                            imageChanged = true;
-                                        }
-                                        if (imageStack[j][buffSlice].src.indexOf(generateWlzURL(j)) < 0) {
-                                            imageStack[j][buffSlice].src = generateWlzURL(j);
-                                            imageChanged = true;
-                                        }
-                                    }
-                                }
-                                if (imageChanged) {
-                                    console.log('loading slice ' + String(buffSlice));
-                                }
-                            }
-                            current.dst = dist;
-                            imageDist++;
-                        } else {
-                            if (updated) {
-                                imageDist = 1;
-                                console.log('stopping background load.');
-                            }
-                        }
-                    } else {
-                        imageDist = 1;
+                    if (buffering) {
+                        bufferPie(canvas.width - 7, 7, 5);
                     }
                 }
             }
@@ -318,7 +242,6 @@ function animateWlzDisplay() {
             }
         }
     }
-
     requestAnimationFrame(step);
 }
 
@@ -384,89 +307,161 @@ function loadColours() {
     }
 }
 
-function loadBackground() {
-    var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
-    var orient = parent.$("body").data("current").slice;
-    var current = parent.$("body").data("current");
-    var v = parseFloat(parent.$('body').data('meta').voxel.split(',')[orientation[orient]['D']]);
-    var m = Math.ceil(v * $('body').data('meta').extent.split(',')[orientation[orient]['D']]) + 1;
-    if (imageStack[0].length != m) {
-        imageStack[0] = new Array(m);
-    }
+function bufferStack() {
     var slice = parseInt($('#slider-sliceSliderVal').text());
-    var i = slice;
-    var d = current.dst;
-    if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURL(0).replace(/dst=(-*)\d+(\.\d{1,2})?/g, 'dst=' + String(d))) < 0) {
-        console.log('Caching background slices...');
-        //load current slice
-        imageStack[0][i] = document.createElement('img');
-        imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';");
-        imageStack[0][i].src = generateWlzURLdist(0, d);
+    var maxDist = maxSlice;
+    if (slice > middleSlice) {
+        maxDist = maxSlice - (middleSlice - (slice - middleSlice));
+    } else {
+        maxDist = maxSlice - slice;
     }
-    //load all high end slices
-    for (i = slice; i < (m + 1); i++) {
-        if (imageStack[0][i] && imageStack[0][i].complete == false) {
-            break;
+    if (imageDist < maxDist) {
+        var current = parent.$("body").data("current");
+        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        var buffSlice = slice;
+        var stackCount = 0;
+        var loaded = 0;
+        var i;
+        var loadDone = true;
+        if (imageDist == 1) {
+            bufferedSlices = 0;
         }
-        if (imageStack[0][i] == undefined) {
-            imageStack[0][i] = document.createElement('img');
-            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
+        for (i in selected) {
+            if (selected[i].visible && i < bufferLimit) {
+                stackCount++;
+                buffSlice = (slice + imageDist);
+                if (buffSlice < maxSlice) {
+                    if (bufferImage(i, buffSlice) || (!imageStack[i][buffSlice].complete)) {
+                        loadDone = false;
+                    } else {
+                        loaded++;
+                    }
+                }
+                buffSlice = (slice - imageDist);
+                if (buffSlice > -1) {
+                    if (bufferImage(i, buffSlice) || (!imageStack[i][buffSlice].complete)) {
+                        loadDone = false;
+                    } else {
+                        loaded++;
+                    }
+                }
+            }
         }
-        d = i - slice;
-        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
-            imageStack[0][i].src = generateWlzURLdist(0, d);
+        if (loadDone) {
+            imageDist++;
+            bufferedSlices += loaded;
+            buffering = false;
+        }
+        totalSlice = (maxSlice - 1) * stackCount;
+        bufferTick(100);
+    } else {
+        buffering = false;
+        if (bufferLimit < totalSlice + 10) {
+            bufferLimit += 10;
+            imageDist = 1;
+            bufferTick(100);
+        } else {
+            bufferTick(30000);
         }
     }
-    //load all low end slices
-    for (i = parseInt($('#slider-sliceSliderVal').text()); i > -1; i--) {
-        if (imageStack[0][i] && imageStack[0][i].complete == false) {
-            break;
-        }
-        if (imageStack[0][i] == undefined) {
-            imageStack[0][i] = document.createElement('img');
-            imageStack[0][i].setAttribute('onerror', "this.onerror=null;this.src='/img/blank.png';loadBackground();");
-        }
-        d = i - slice;
-        if (!imageStack[0][i] || imageStack[0][i].src.indexOf(generateWlzURLdist(0, d)) < 0) {
-            imageStack[0][i].src = generateWlzURLdist(0, d);
-        }
-    }
-    window.setTimeout(function () {
-        countBackground();
-    }, 90000);
 }
 
-function countBackground() {
-    //check all stacks
-    var c = 0;
-    var i;
-    for (i = 0; i < (imageStack[0].length + 1); i++) {
-        if (imageStack[0][i] && imageStack[0][i].complete) {
-            c++;
-        }
-    }
-    backgroundLoaded = Math.floor((c / imageStack[0].length) * 100);
-    console.log(String(backgroundLoaded) + '% of background slices loaded.');
-    if (backgroundLoaded < 99) {
-        loadBackground();
+function bufferTick(t) {
+    if (!buffRun) {
+        window.setTimeout(function () {
+            buffRun = false;
+            bufferStack();
+        }, t);
+        buffRun = true;
     }
 }
 
-function showBackground(slice) {
+function bufferPie(x, y, r) {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+    ctx.fillStyle = "#00CC00";
+    var start = -0.5 * Math.PI
+    var end = Math.PI * 1.5
+    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
+    ctx.strokeStyle = '#00CC00';
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.arc(x, y, r, start, midPoint, false);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.fill();
+    ctx.strokeStyle = '#777777';
+    ctx.fillStyle = "#999900";
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.arc(x, y, r, midPoint, end, false);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+}
+
+function bufferImage(j, slice) {
+    var d = (slice - middleSlice);
+    var imageChanged = false;
+    if (!imageStack[j]) {
+        imageStack[j] = [];
+    }
+    if (!imageStack[j][slice] || (imageStack[j][slice] && imageStack[j][slice].complete)) {
+        if (!imageStack[j][slice]) {
+            imageStack[j][slice] = document.createElement('img');
+            imageChanged = true;
+        }
+        if (imageStack[j][slice].src.indexOf(generateWlzURLdist(j, d)) < 0) {
+            imageStack[j][slice].src = generateWlzURLdist(j, d);
+            imageChanged = true;
+        }
+    }
+    if (imageChanged) {
+        buffering = true;
+    }
+    return imageChanged
+}
+
+function showStack(slice) {
     if (imageStack[0][slice] && imageStack[0][slice].complete) {
+        drawingSlice = slice;
+        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         ctx.globalCompositeOperation = 'copy';
-        ctx.drawImage(imageStack[0][slice], 0, 0);
-        var selected = parent.$("body").data(parent.$("body").data("current").template).selected;
+        if (imageStack[0][slice].complete && selected[0].visible) {
+            ctx.drawImage(imageStack[0][slice], 0, 0);
+        } else {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        }
         var i;
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
         for (i in selected) {
             if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
+            } else {
+                break;
+            }
+            if (drawingSlice != slice) {
+                break;
             }
         }
+        addScale(50);
+        addOrientation();
+        imageDist = 1;
     }
+}
+
+function reloadStack() {
+    var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
+    var orient = parent.$("body").data("current").slice;
+    maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+    middleSlice = Math.round((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+    imageDist = 1;
+    if (bufferImage(0, middleSlice - 1)) {
+        bufferLimit = 1;
+    }
+    bufferStack();
 }
 
 function addScale(scale) {
@@ -570,18 +565,26 @@ function setText(message) {
         //noinspection JSUnusedAssignment
         isTyping = true;
 
-        if (window.features.length > 0 && window.features[window.features.length - 1][3] == message) {
+        if (window.features.length > 0 && window.features[window.features.length - 1] != undefined && window.features[window.features.length - 1][3] == message) {
             console.log('double click');
         } else {
             // timeout existing matching labels
             var i;
+            window.features.sort();
             for (i in window.features) {
+                if (window.features[i] == undefined) {
+                    window.features.pop();
+                }
                 if (window.features[i][3] == message) {
                     window.features[i][0] = 1000;
+                }
+                if ((window.features[i][1] == (window.PosX + 5)) && (window.features[i][2] == (window.PosY + window.textOffset - 12))) {
+                    window.textOffset += 12;
                 }
             }
             window.features[window.features.length] = [0, window.PosX + 5, window.PosY + window.textOffset - 12, message];
             window.textOffset += 12;
+            window.features.sort();
             try {
                 ga('send', 'event', 'viewer', 'selected', message);
             } catch (ignore) {
@@ -1017,14 +1020,14 @@ function initWlzControls() {
             $("#slider-sliceSliderVal").text(ev.value);
             window.features = [];
             forceStoreControl();
-            showBackground(ev.value);
+            showStack(ev.value);
         });
         slSlice.on('slideStop', function (ev) {
             window.reloadInterval = 10;
             orient = parent.$("body").data("current").slice;
             parent.$("body").data("current").dst = Math.round(parseInt(ev.value) - ((parseInt(parent.$("body").data("meta").center.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D])));
             $("#slider-sliceSliderVal").text(ev.value);
-            showBackground(ev.value);
+            showStack(ev.value);
             forceStoreControl();
             updateWlzDisplay();
             try {
@@ -1151,8 +1154,7 @@ function initWlzControls() {
             window.features = [];
             window.reloadInterval = 10;
             parent.$("body").data("disp", "scale");
-            loadBackground();
-            countBackground();
+            reloadStack();
             try {
                 ga('send', 'event', 'viewer', 'reset_pos');
             } catch (ignore) {
@@ -1187,9 +1189,9 @@ function initWlzControls() {
                     parent.$("body").data("disp", "scale");
                     updateWlzDisplay();
                     updateLabels();
-                    // loading the background cache
+                    // loading the stack cache
                     console.log('Initial image load...');
-                    loadBackground();
+                    reloadStack();
                 }
                 backgroundLoading = false;
             }, 10000);
@@ -1560,7 +1562,22 @@ function setOrientaion(ori) {
             parent.$("body").data("current").rol = 0.0;
     }
     $('#slider-slice').data('bootstrapSlider').options.max = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
+    if (!backgroundLoading) {
+        backgroundLoading = true;
+        window.setTimeout(function () {
+            // checking scale after window resize
+            parent.$("body").data("current").scl = String(defaultScaleByScreen());
+            window.reloadInterval = 10;
+            parent.$("body").data("disp", "scale");
+            updateWlzDisplay();
+            updateLabels();
+            reloadStack();
+            backgroundLoading = false;
+        }, 5000);
+    }
     updateWlzDisplay();
+    updateLabels();
+    reloadStack();
 }
 
 function createInfoButtonHTML(layer) {
@@ -2332,12 +2349,7 @@ $('body').ready(function () {
                 parent.$("body").data("disp", "scale");
                 updateWlzDisplay();
                 updateLabels();
-                if (!imageStack[0][$('#slider-sliceSliderVal').text()] || imageStack[0][$('#slider-sliceSliderVal').text()].src.indexOf(generateWlzURL(0)) < 0) {
-                    // loading the background cache
-                    console.log('Matching new screen size...');
-                    loadBackground();
-                    countBackground();
-                }
+                reloadStack();
                 backgroundLoading = false;
             }, 1000);
         }
