@@ -683,7 +683,11 @@ function callForLabel(x, y) {
                     }
                 }
             } else {
-                $("#labelBlock").text('not labelled');
+                if (buffering && y < 13 && x > $('#canvas').width() - 13 && x < $('#canvas').width() && y > 0) {
+                    $("#labelBlock").text('Buffering first ' + bufferLimit + ' items...');
+                } else {
+                    $("#labelBlock").text('not labelled');
+                }
             }
             labelCall = false;
         },
