@@ -565,7 +565,7 @@ function setText(message) {
         //noinspection JSUnusedAssignment
         isTyping = true;
 
-        if (window.features.length > 0 && window.features[window.features.length - 1][3] == message) {
+        if (window.features.length > 0 && window.features[window.features.length - 1] != undefined && window.features[window.features.length - 1][3] == message) {
             console.log('double click');
         } else {
             // timeout existing matching labels
