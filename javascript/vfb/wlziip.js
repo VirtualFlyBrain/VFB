@@ -685,7 +685,11 @@ function callForLabel(x, y) {
             } else {
                 if (x < $('#canvas').width() && y > 0 && x > 0 && y < $('#canvas').height()) {
                     if (buffering && y < 13 && x > $('#canvas').width() - 13) {
-                        $("#labelBlock").text('buffering ' + bufferLimit + ' items...');
+                        if (bufferLimit > 1) {
+                            $("#labelBlock").text('buffering ' + bufferLimit + ' items...');
+                        } else {
+                            $("#labelBlock").text('buffering background...');
+                        }
                     } else if (x < 48 && y < 17) {
                         $("#labelBlock").text('scale');
                     } else if (x > ($('#canvas').width() - 29) && y > ($('#canvas').height() - 29)) {
