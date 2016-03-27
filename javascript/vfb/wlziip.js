@@ -683,10 +683,18 @@ function callForLabel(x, y) {
                     }
                 }
             } else {
-                if (buffering && y < 13 && x > $('#canvas').width() - 13 && x < $('#canvas').width() && y > 0) {
-                    $("#labelBlock").text('Buffering first ' + bufferLimit + ' items...');
+                if (x < $('#canvas').width() && y > 0 && x > 0 && y < $('#canvas').height()) {
+                    if (buffering && y < 13 && x > $('#canvas').width() - 13) {
+                        $("#labelBlock").text('buffering ' + bufferLimit + ' items...');
+                    } else if (x < 48 && y < 17) {
+                        $("#labelBlock").text('scale');
+                    } else if (x > ($('#canvas').width() - 29) && y > ($('#canvas').height() - 29)) {
+                        $("#labelBlock").text('orientation');
+                    } else {
+                        $("#labelBlock").text('not labelled');
+                    }
                 } else {
-                    $("#labelBlock").text('not labelled');
+                    $("#labelBlock").text('');
                 }
             }
             labelCall = false;
