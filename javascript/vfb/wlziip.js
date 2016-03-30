@@ -379,12 +379,16 @@ function bufferTick(t) {
 function bufferPie(x, y, r) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
+    var col = bufferLimit;
+    while (col > 200) {
+        col = col - 200;
+    }
     ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-    ctx.fillStyle = "#00CC00";
+    ctx.fillStyle = rgbColToHex(parent.$("body").data("colours")[col]);
     var start = -0.5 * Math.PI
     var end = Math.PI * 1.5
     var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
-    ctx.strokeStyle = '#00CC00';
+    ctx.strokeStyle = rgbColToHex(parent.$("body").data("colours")[col]);
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.arc(x, y, r, start, midPoint, false);
@@ -679,7 +683,23 @@ function callForLabel(x, y) {
                     }
                 }
             } else {
-                $("#labelBlock").text('not labelled');
+                if (x < $('#canvas').width() && y > 0 && x > 0 && y < $('#canvas').height()) {
+                    if (buffering && y < 13 && x > $('#canvas').width() - 13) {
+                        if (bufferLimit > 1) {
+                            $("#labelBlock").text('buffering ' + bufferLimit + ' items...');
+                        } else {
+                            $("#labelBlock").text('buffering background...');
+                        }
+                    } else if (x < 48 && y < 17) {
+                        $("#labelBlock").text('scale');
+                    } else if (x > ($('#canvas').width() - 29) && y > ($('#canvas').height() - 29)) {
+                        $("#labelBlock").text('orientation');
+                    } else {
+                        $("#labelBlock").text('not labelled');
+                    }
+                } else {
+                    $("#labelBlock").text('');
+                }
             }
             labelCall = false;
         },
