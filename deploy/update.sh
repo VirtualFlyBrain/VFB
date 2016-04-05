@@ -24,7 +24,7 @@ then
         echo $branch > branch
         cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
         head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
-        head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
+        head -n 100 resources/vfb.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
         echo "which are:"
         cat branch
         cat revision
@@ -82,7 +82,7 @@ then
             echo $branch > branch
             cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
             head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
-	    head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
+	    head -n 100 resources/vfb.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
             echo "which are:"
             cat branch
             cat revision
