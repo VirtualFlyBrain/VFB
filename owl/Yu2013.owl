@@ -1,1 +1,1922 @@
-/partition/blanik/jenkins/workspace/Build_VFB_ind/src/owl/Yu2013.owl
+Prefix: : <http://www.virtualflybrain.org/owl/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <http://www.virtualflybrain.org/owl/Yu2013.owl>
+
+
+AnnotationProperty: <http://purl.obolibrary.org/obo/IAO_xref>
+
+    
+AnnotationProperty: <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym>
+
+    
+AnnotationProperty: <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000005>
+
+    
+AnnotationProperty: <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006>
+
+    
+AnnotationProperty: <http://purl.obolibrary.org/obo/IAO_0000115>
+
+    
+AnnotationProperty: <http://www.geneontology.org/formats/oboInOwl#hasDbXref>
+
+    
+AnnotationProperty: <http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym>
+
+    
+AnnotationProperty: <http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym>
+
+    
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: <http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym>
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000050>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050093>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050247>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050090>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050244>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050241>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050137>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050134>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050131>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050027>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050199>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050024>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050196>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050194>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050191>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050087>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050084>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050238>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050081>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050019>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050235>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050232>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050128>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050125>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050122>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050016>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050188>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050013>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050185>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050010>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050182>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050078>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050022>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050075>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050229>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050045>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050226>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050223>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050119>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050220>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050116>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050113>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050110>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050179>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050004>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050280>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050176>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050001>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050173>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050069>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050170>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050066>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00007683>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050063>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050217>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050060>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050214>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050211>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050107>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050104>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050277>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050101>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050274>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050271>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050167>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050164>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050161>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050057>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050054>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050208>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050051>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050205>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050202>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050268>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050007>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050265>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050072>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050262>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050158>
+
+    
+Class: owl:Thing
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050155>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050152>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050048>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00003624>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050042>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050259>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050256>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050253>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050149>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050250>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050146>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050143>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050039>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050140>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050036>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050033>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050030>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050098>
+
+    
+Class: <http://purl.obolibrary.org/obo/FBbt_00050095>
+
+    
+Individual: VFB_00020176
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "aDT7 clone of Yu 2010"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020177
+
+    Annotations: 
+        rdfs:label "aDT8 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020178
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "aIP2 clone of Yu 2010"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020179
+
+    Annotations: 
+        rdfs:label "aIP3 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020181
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "pIP2 clone of Yu 2010"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020182
+
+    Annotations: 
+        rdfs:label "aIP5 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020049
+
+    Annotations: 
+        rdfs:label "VLPl&p2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl_p2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl&p2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050146>
+    
+    
+Individual: VFB_00020048
+
+    Annotations: 
+        rdfs:label "DM6 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM6 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM6_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050143>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020047
+
+    Annotations: 
+        rdfs:label "LHp2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHp2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHp2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050140>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020046
+
+    Annotations: 
+        rdfs:label "EBa1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "EBa1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult EBa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050137>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020045
+
+    Annotations: 
+        rdfs:label "VLPa2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPa2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050134>
+    
+    
+Individual: VFB_00020044
+
+    Annotations: 
+        rdfs:label "VLPp&l1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPp&l1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPp_l1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050131>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020043
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "AOTUv3_02"^^xsd:string,
+        rdfs:label "AOTUv3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult AOTUv3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050128>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020042
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPad1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPad1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPad1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050125>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020041
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "DM2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050122>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020040
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VESa1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VESa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "VESa1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050119>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020039
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHd2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "LHd2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHd2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050116>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020038
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPpv2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SMPpv2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPpv2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050113>
+    
+    
+Individual: VFB_00020037
+
+    Annotations: 
+        rdfs:label "VESa2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VESa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VESa2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050110>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020036
+
+    Annotations: 
+        rdfs:label "VPNd1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VPNd1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VPNd1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050107>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020035
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl1_02"^^xsd:string,
+        rdfs:label "VLPl1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050104>
+    
+    
+Individual: VFB_00020034
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM3_02"^^xsd:string,
+        rdfs:label "DM3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050101>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020033
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHd1_02"^^xsd:string,
+        rdfs:label "LHd1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHd1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050098>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020032
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "ALad1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult ALad1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "ALad1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050095>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020031
+
+    Annotations: 
+        rdfs:label "PSp3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult PSp3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "PSp3_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050093>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020030
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpm3_02"^^xsd:string,
+        rdfs:label "SLPpm3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpm3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050090>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020180
+
+    Annotations: 
+        rdfs:label "aSP13 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020094
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHa3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "LHa3 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHa3_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050280>
+    
+    
+Individual: VFB_00020093
+
+    Annotations: 
+        rdfs:label "SIPa1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SIPa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SIPa1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050277>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020092
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult CREa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "CREa2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "CREa2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050274>
+    
+    
+Individual: VFB_00020091
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult MBp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "MBp1_02"^^xsd:string,
+        rdfs:label "MBp1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050271>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020090
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPal2_02"^^xsd:string,
+        rdfs:label "SLPal2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPal2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050268>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020029
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult WEDa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "WEDa1_02"^^xsd:string,
+        rdfs:label "WEDa1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050087>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020028
+
+    Annotations: 
+        rdfs:label "DL2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DL2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DL2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050084>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020027
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHp1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "LHp1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050081>
+    
+    
+Individual: VFB_00020026
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SIPp1_02"^^xsd:string,
+        rdfs:label "SIPp1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SIPp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050078>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020025
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl_d1_02"^^xsd:string,
+        rdfs:label "VLPl&d1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl&d1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050075>
+    
+    
+Individual: VFB_00020024
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult WEDd2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "WEDd2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "WEDd2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050072>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020023
+
+    Annotations: 
+        rdfs:label "SLPpl2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpl2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpl2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050069>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020022
+
+    Annotations: 
+        rdfs:label "VLPl&p1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl&p1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl_p1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050066>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020021
+
+    Annotations: 
+        rdfs:label "AOTUv4 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "AOTUv4_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult AOTUv4 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050063>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020020
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM5 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "DM5 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM5_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050060>
+    
+    
+Individual: VFB_00020089
+
+    Annotations: 
+        rdfs:label "SLPav1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPav1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPav1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050265>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020088
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHl4 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "LHl4 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHl4_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050262>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020087
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl4 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "VLPl4 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl4_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050259>
+    
+    
+Individual: VFB_00020086
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHl3_02"^^xsd:string,
+        rdfs:label "LHl3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHl3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050256>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020085
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM4_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM4 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "DM4 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050253>
+    
+    
+Individual: VFB_00020084
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VPNp1_02"^^xsd:string,
+        rdfs:label "VPNp1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VPNp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050250>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020083
+
+    Annotations: 
+        rdfs:label "CREa1 (male) clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "CREa1m_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult CREa1 (male) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050247>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020082
+
+    Annotations: 
+        rdfs:label "SMPad1 (male) clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPad1m_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPad1 (male) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050244>
+    
+    
+Individual: VFB_00020081
+
+    Annotations: 
+        rdfs:label "WEDd1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "WEDd1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult WEDd1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050241>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020080
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPav2_02"^^xsd:string,
+        rdfs:label "SLPav2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPav2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050238>
+    
+    
+Individual: VFB_00020019
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPav3_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPav3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPav3 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050057>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020018
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult CLp2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "CLp2_02"^^xsd:string,
+        rdfs:label "CLp2 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050054>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020017
+
+    Annotations: 
+        rdfs:label "PSa1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "PSa1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult PSa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050051>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020016
+
+    Annotations: 
+        rdfs:label "LHl1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHl1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHl1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050048>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020015
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpm1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPpm1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpm1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050045>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020014
+
+    Annotations: 
+        rdfs:label "SMPad1 (female) clone of Yu 20"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPad1f_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPad1 (female) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050042>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020013
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "ALlv1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult ALlv1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "ALlv1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050039>
+    
+    
+Individual: VFB_00020012
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult ALv2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "ALv2_02"^^xsd:string,
+        rdfs:label "ALv2 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050036>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020011
+
+    Annotations: 
+        rdfs:label "LHl2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHl2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHl2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050033>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020010
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPpv1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPpv1_02"^^xsd:string,
+        rdfs:label "SMPpv1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050030>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020183
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "aSP3 clone of Yu 2010"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020079
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPp&v1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPp&v1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPp_v1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050235>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020078
+
+    Annotations: 
+        rdfs:label "VLPd1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPd1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPd1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050232>
+    
+    
+Individual: VFB_00020077
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpl1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPpl1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpl1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050229>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020076
+
+    Annotations: 
+        rdfs:label "VLPl2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPl2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPl2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050226>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020075
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "AOTUv1_02"^^xsd:string,
+        rdfs:label "AOTUv1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult AOTUv1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050223>
+    
+    
+Individual: VFB_00020074
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPal1_02"^^xsd:string,
+        rdfs:label "SLPal1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPal1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050220>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020073
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpm2_02"^^xsd:string,
+        rdfs:label "SLPpm2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpm2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050217>
+    
+    
+Individual: VFB_00020072
+
+    Annotations: 
+        rdfs:label "PSp1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "PSp1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult PSp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050214>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020071
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPp2_02"^^xsd:string,
+        rdfs:label "VLPp2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPp2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050211>
+    
+    
+Individual: VFB_00020070
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPd&p1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPd_p1_02"^^xsd:string,
+        rdfs:label "VLPd&p1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050208>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020009
+
+    Annotations: 
+        rdfs:label "LHa1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHa1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050027>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020008
+
+    Annotations: 
+        rdfs:label "ALl1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult ALl1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "ALl1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050024>
+    
+    
+Individual: VFB_00020007
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPpd1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPpd1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SMPpd1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050022>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020006
+
+    Annotations: 
+        rdfs:label "DM1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DM1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DM1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050019>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020005
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "WEDa2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult WEDa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "WEDa2 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050016>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020004
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VPNl&d1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "VPNl&d1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VPNl_d1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050013>
+    
+    
+Individual: VFB_00020003
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult FLAa3 (male) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "FLAa3 (male) clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "FLAa3m_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050010>
+    
+    
+Individual: VFB_00020002
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPpl3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPpl3 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPpl3_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050007>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020001
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPa&l1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "SLPa&l1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPa_l1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050004>
+    
+    
+Individual: VFB_00020000
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LHa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "LHa2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LHa2_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050001>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020069
+
+    Annotations: 
+        rdfs:label "CLp1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult CLp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "CLp1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050205>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020068
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPad2_02"^^xsd:string,
+        rdfs:label "SMPad2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPad2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050202>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020067
+
+    Annotations: 
+        rdfs:label "VLPp1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPp1_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050199>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020066
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "ALv1_02"^^xsd:string,
+        rdfs:label "ALv1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult ALv1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050196>
+    
+    
+Individual: VFB_00020065
+
+    Annotations: 
+        rdfs:label "SMPp&v1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPp&v1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPp_v1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050194>
+    
+    
+Individual: VFB_00020064
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult FLAa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "FLAa1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "FLAa1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050191>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020063
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult FLAa2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "FLAa2_02"^^xsd:string,
+        rdfs:label "FLAa2 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050188>
+    
+    
+Individual: VFB_00020062
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult DL1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "DL1_02"^^xsd:string,
+        rdfs:label "DL1 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050185>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020061
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "AOTUv2_02"^^xsd:string,
+        rdfs:label "AOTUv2 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult AOTUv2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050182>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020060
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult FLAa3 (female) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "FLAa3 (female) clone of Yu 201"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "FLAa3f_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050179>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020184
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "aSP4 clone of Yu 2010"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020185
+
+    Annotations: 
+        rdfs:label "pIP4 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020174
+
+    Annotations: 
+        rdfs:label "aDT1 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020059
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPal5 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPal5_02"^^xsd:string,
+        rdfs:label "SLPal5 clone of Yu 2013"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050176>
+    
+    
+Individual: VFB_00020058
+
+    Annotations: 
+        rdfs:label "SMPad3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SMPad3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SMPad3_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050173>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020057
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "PBp1_02"^^xsd:string,
+        rdfs:label "PBp1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult PBp1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050170>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020056
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "LALv1_02"^^xsd:string,
+        rdfs:label "LALv1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult LALv1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050167>
+    
+    
+Individual: VFB_00020055
+
+    Annotations: 
+        rdfs:label "PSp2 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "PSp2_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult PSp2 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050164>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020054
+
+    Annotations: 
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VPNp&v1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "VPNp&v1 clone of Yu 2013"^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VPNp_v1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050161>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>
+    
+    
+Individual: VFB_00020053
+
+    Annotations: 
+        rdfs:label "VLPa1 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult VLPa1 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "VLPa1_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050158>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020052
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPal4_02"^^xsd:string,
+        rdfs:label "SLPal4 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPal4 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>,
+        <http://purl.obolibrary.org/obo/FBbt_00050155>
+    
+    
+Individual: VFB_00020051
+
+    Annotations: 
+        rdfs:label "SLPal3 clone of Yu 2013"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult SLPal3 lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "SLPal3_02"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/FBbt_00050152>,
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020050
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000006> "CREa1f_02"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an adult CREa1 (female) lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string,
+        rdfs:label "CREa1 (female) clone of Yu 201"^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00050149>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    
+Individual: VFB_00020175
+
+    Annotations: 
+        rdfs:label "aDT4 clone of Yu 2010"^^xsd:string,
+        
+            Annotations: <http://www.geneontology.org/formats/oboInOwl#hasDbXref> "PMID:23541733"^^xsd:string
+        <http://purl.obolibrary.org/obo/IAO_0000115> "An example of an neuroblast lineage clone in the adult brainThis clone was generated by FLP-out MARCM at larval hatching. It therefore does not include embryonic born neurons."^^xsd:string
+    
+    Types: 
+        <http://purl.obolibrary.org/obo/BFO_0000050> some <http://purl.obolibrary.org/obo/FBbt_00003624>,
+        <http://purl.obolibrary.org/obo/FBbt_00007683>
+    
+    

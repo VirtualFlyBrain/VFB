@@ -1,1 +1,218 @@
-/partition/blanik/jenkins/workspace/Build_VFB_ind/src/owl/vfb_ext.owl
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY vfb2 "http://purl.obolibrary.org/obo/fbbt/vfb#" >
+    <!ENTITY vfb "http://purl.obolibrary.org/obo/fbbt/vfb/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY oboInOwl "http://www.geneontology.org/formats/oboInOwl#" >
+]>
+
+
+<rdf:RDF xmlns="&vfb;vfb_ext.owl#"
+     xml:base="&vfb;vfb_ext.owl"
+     xmlns:vfb2="http://purl.obolibrary.org/obo/fbbt/vfb#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:vfb="http://purl.obolibrary.org/obo/fbbt/vfb/"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+    <owl:Ontology rdf:about="&vfb;vfb_ext.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb#clone -->
+
+    <owl:AnnotationProperty rdf:about="&vfb2;clone">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb#neuron -->
+
+    <owl:AnnotationProperty rdf:about="&vfb2;neuron">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb#ns_part -->
+
+    <owl:AnnotationProperty rdf:about="&vfb2;ns_part">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb#synaptic_neuropil -->
+
+    <owl:AnnotationProperty rdf:about="&vfb2;synaptic_neuropil">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb#tract -->
+
+    <owl:AnnotationProperty rdf:about="&vfb2;tract">
+        <rdfs:subPropertyOf rdf:resource="&oboInOwl;SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000005 -->
+
+    <owl:AnnotationProperty rdf:about="&vfb;VFBext_0000005">
+        <rdfs:label>source_data_link</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#SubsetProperty -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;SubsetProperty"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#inSubset -->
+
+    <owl:AnnotationProperty rdf:about="&oboInOwl;inSubset"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7">
+        <rdfs:label xml:lang="en">has_exemplar</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002350 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002350">
+        <rdfs:label>member_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002351 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002351">
+        <rdfs:label>has_member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/c099d9d6-4ef3-11e3-9da7-b1ad5291e0b0 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/c099d9d6-4ef3-11e3-9da7-b1ad5291e0b0">
+        <rdfs:label>exemplar_of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002350"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000001 -->
+
+    <owl:ObjectProperty rdf:about="&vfb;VFBext_0000001">
+        <rdfs:label>has_channel</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000002 -->
+
+    <owl:ObjectProperty rdf:about="&vfb;VFBext_0000002">
+        <rdfs:label>has_background_channel</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&vfb;VFBext_0000001"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/fbbt/vfb/VFBext_0000003 -->
+
+    <owl:ObjectProperty rdf:about="&vfb;VFBext_0000003">
+        <rdfs:label>has_signal_channel</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&vfb;VFBext_0000001"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/depicts -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/depicts"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CARO_0030002 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CARO_0030002">
+        <rdfs:label xml:lang="en">expression pattern</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/vfb/VFB_10000005 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/vfb/VFB_10000005">
+        <rdfs:label>cluster</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/vfb/VFBext_0000004 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/vfb/VFBext_0000004">
+        <rdfs:label>channel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/image -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/image"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
