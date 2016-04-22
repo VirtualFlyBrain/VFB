@@ -1520,6 +1520,7 @@ function updateLabels() {
                         });
                         break;
                     case "VFBt":
+                        loadReferenceMeta(parent.$("body").data("current").template);
                         $(this).html($('#backgroundStain').html());
                         if ($(this).data('layer')) {
                             parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
