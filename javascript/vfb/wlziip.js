@@ -2318,7 +2318,7 @@ function copyUrlToClipboard() {
         }
     }
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
-    $("#temp").val("http://" + window.location.host + window.location.pathname + "?add=" + displayed).select();
+    $("#temp").val("http://" + window.location.host + window.location.pathname + "?add=" + displayed).select() + "&clear=true";
     document.execCommand("copy");
     try {
         ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());
