@@ -1836,7 +1836,7 @@ function loadRightMenuDisplayed() {
                     index = String(i);
                     if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (layer.name && rowD[0].indexOf($('body').data().meta.name) < 0) || (rowD[3].indexOf('"typeFor') > -1 && layer.type) || (rowD[4].indexOf('fxp=undefined') > -1)) {
                         //console.log('Update for row ' + String(i) + ' - ' + rowD);
-                        if (layer.id.indexOf('_a') > -1) {
+                        if ((layer.id.indexOf('_a') > -1) || (layer.id.indexOf('_t') > -1)) {
                             layer.name = cleanIdforExt(layer.id);
                             layer.type = "Private User Data";
                         }
@@ -2250,13 +2250,16 @@ function addAvailableItems(ids) {
                     name += '">';
                     name += temp.name;
                 } else {
-                    if (id.indexOf('_a') < 0) {
+                    if ((id.indexOf('_a') < 0) && (id.indexOf('_t') < 0)) {
                         name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
                         name += "openFullDetails('" + cleanIdforExt(id) + "');";
                         name += '">';
                         name += cleanIdforExt(temp.id);
                     } else {
-                        name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a', ''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+                        name = cleanIdforExt(id);
+                        if (id.indexOf('_a') < 0) {
+                            name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a', ''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+                        }
                     }
                 }
                 name += '</span></a>';
