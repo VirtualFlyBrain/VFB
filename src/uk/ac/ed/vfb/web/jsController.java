@@ -31,8 +31,8 @@ public class jsController implements Controller {
     String[] abrev = new String[] {"AME_R","LO_R","NO","BU_R","PB","LH_R","LAL_R","SAD","CAN_R","AMMC_R","ICL_R","VES_R","IB_R","ATL_R","CRE_R","MB_PED_R","MB_VL_R","MB_ML_R","FLA_R","LOP_R","EB","AL_R","ME_R","FB","SLP_R","SIP_R","SMP_R","AVLP_R","PVLP_R","IVLP_R","PLP_R","AOTU_R","GOR_R","MB_CA_R","SPS_R","IPS_R","SCL_R","EPA_R","GNG","PRW","GA_R","AME_L","LO_L","BU_L","LH_L","LAL_L","CAN_L","AMMC_L","ICL_L","VES_L","IB_L","ATL_L","CRE_L","MB_PED_L","MB_VL_L","MB_ML_L","FLA_L","LOP_L","AL_L","ME_L","SLP_L","SIP_L","SMP_L","AVLP_L","PVLP_L","IVLP_L","PLP_L","AOTU_L","GOR_L","MB_CA_L","SPS_L","IPS_L","SCL_L","EPA_L","GA_L"};
     String domHead = "";
     String domDir = "";
-    String camPos = "G.setCameraPosition(182.941,-48.076,-773.498);";
-    String camRot = "G.setCameraRotation(2.904,-0.158,-0.012,878.060);";
+    String camPos = "G.setCameraPosition(149.545,121.667,343.286);";
+    String camRot = "G.setCameraRotation(-0.262,0.028,0.065,237.260);";
     String[] diffName;
     String[] diffColour;
     String[] individuals;
@@ -89,7 +89,7 @@ public class jsController implements Controller {
         abrev = new String[] {"VFBd_00400001","VFBd_00400002","VFBd_00400003","VFBd_00400004","VFBd_00400005","VFBd_00400006","VFBd_00400007","VFBd_00400008","VFBd_00400009","VFBd_00400010","VFBd_00400011","VFBd_00400012","VFBd_00400013","VFBd_00400014","VFBd_00400015","VFBd_00400016","VFBd_00400017","VFBd_00400018","VFBd_00400019","VFBd_00400020","VFBd_00400024","VFBd_00400025","VFBd_00400026","VFBd_00400027","VFBd_00400028","VFBd_00400029","VFBd_00400030","VFBd_00400040","VFBd_00400041","VFBd_00400042","VFBd_00400043","VFBd_00400044","VFBd_00400045","VFBd_00400046","VFBd_00400047","VFBd_00400048","VFBd_00400049","VFBd_00400050","VFBd_00400051","VFBd_00400053","VFBd_00400054","VFBd_00400055","VFBd_00400056","VFBd_00400099","VFBd_00400241","VFBd_00400242","VFBd_00400243","VFBd_00400244"};
         domains = new String[] {"00001","00002","00003","00004","00005","00006","00007","00008","00009","00010","00011","00012","00013","00014","00015","00016","00017","00018","00019","00020","00024","00025","00026","00027","00028","00029","00030","00040","00041","00042","00043","00044","00045","00046","00047","00048","00049","00050","00051","00053","00054","00055","00056","00099","00241","00242","00243","00244"};
         camPos="G.setCameraPosition(164.253,76.925,720.362);";
-        camRot="G.setCameraRotation(0.235,0.068,1.608,686.397);";
+        camRot="G.setCameraRotation(0.235,0.068,1.608,686.397);VFBd_00300011.zoomTo();";
       }
       domHead = temp.replace("VFBt_","VFBd_");
       domDir = temp.replace("VFBt_","VFB/t/");
