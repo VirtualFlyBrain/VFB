@@ -11,6 +11,9 @@ coli = 0;
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}');
 </c:forEach><c:out escapeXml="false" value="${campos}"/>
 <c:out escapeXml="false" value="${camrot}"/>
+
+G.setIdleTimeout(-1);
+
 nameWid = G.addWidget(1);
 nameWid.setName('Currently Selected');
 nameWid.setPosition(113,4)
