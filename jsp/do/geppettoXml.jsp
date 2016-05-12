@@ -46,7 +46,7 @@
       id="neo4JDataSourceService"
       name="neo4JDataSourceService"
       dataSourceService="neo4jDataSource"
-      url="http://vfbdev.inf.ed.ac.uk/neo4jdb/data/transaction"
+      url="http://www.virtualflybrain.org/neo4jdb/data/transaction"
       dependenciesLibrary="//@libraries.3"
       targetLibrary="//@libraries.4">
     <libraryConfigurations
