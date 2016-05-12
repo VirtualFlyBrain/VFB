@@ -24,7 +24,7 @@ var getId = function(path){window.Model.getDatasources()[0].fetchVariable(path);
 <c:forEach items="${diffName}" var="curr" varStatus="status">${curr}.setColor('${diffColour[status.index]}',true);
 </c:forEach>
 
-<c:forEach items="${individuals}" var="curr" varStatus="status">getId("${curr}");</c:forEach>
+<c:forEach items="${individuals}" var="curr" varStatus="status">resolve3D(${curr});</c:forEach>
 
 <c:out escapeXml="false" value="${campos}"/>
 <c:out escapeXml="false" value="${camrot}"/>
