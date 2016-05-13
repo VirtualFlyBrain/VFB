@@ -48,7 +48,7 @@ var getId = function(path){if (path != ""){Model.getDatasources()[0].fetchVariab
 <c:out escapeXml="false" value="${camrot}"/>
 
 
-G.setIdleTimeout(-1);
+G.setIdleTimeOut(-1);
 
 nameWid = G.addWidget(1);
 nameWid.setName('Currently Selected');
