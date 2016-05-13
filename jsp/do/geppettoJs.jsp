@@ -31,7 +31,7 @@ var customHandler=function(node, path){ var n;try {n = eval(path);} catch (ex) {
   
   <c:forEach items="${individuals}" var="curr" varStatus="status">
     <c:if test="${not empty curr}">
-      resolve3D(${curr});
+      resolve3D("${curr}");
     </c:if>
   </c:forEach>
   
