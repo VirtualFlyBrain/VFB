@@ -55,8 +55,8 @@ var customHandler=function(node, path){ var n;try {n = eval(path);} catch (ex) {
   </c:if>
 </c:forEach>
 
-<c:out escapeXml="false" value="${campos}"/>
-<c:out escapeXml="false" value="${camrot}"/>
+//<c:out escapeXml="false" value="${campos}"/>
+//<c:out escapeXml="false" value="${camrot}"/>
 
 
 G.setIdleTimeOut(-1);
