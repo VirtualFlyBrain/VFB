@@ -11,12 +11,22 @@ var customHandler=function(node, path){ var n;try {n = eval(path);} catch (ex) {
 var getId = function(path){if (path != ""){Model.getDatasources()[0].fetchVariable(path, Instances.getInstance(path+"."+path+"_meta")); }};
 
 <c:if test="${fn:length(individuals)>0}">
-  <c:forEach items="${individuals}" var="curr" varStatus="status">if ("${curr}"!=""){Model.getDatasources()[0].fetchVariable("${curr}");}
+  <c:forEach items="${individuals}" var="curr" varStatus="status">
+    <c:if test="${not empty curr}">
+      Model.getDatasources()[0].fetchVariable("${curr}");
+    </c:if>
   </c:forEach>
   
-  <c:forEach items="${individuals}" var="curr" varStatus="status">if ("${curr}"!=""){Instances.getInstance("${curr}.${curr}_meta");}</c:forEach>
+  <c:forEach items="${individuals}" var="curr" varStatus="status">
+    <c:if test="${not empty curr}">
+      Instances.getInstance("${curr}.${curr}_meta");
+    </c:if>
+  </c:forEach>
   
-  <c:forEach items="${individuals}" var="curr" varStatus="status">if ("${curr}"!=""){setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.8,true);};}, 6000);}
+  <c:forEach items="${individuals}" var="curr" varStatus="status">
+    <c:if test="${not empty curr}">
+      setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.8,true);};}, 6000);
+    </c:if>
   </c:forEach>
   
 </c:if>
