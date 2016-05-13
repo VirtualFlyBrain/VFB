@@ -29,20 +29,31 @@ var getId = function(path){if (path != ""){Model.getDatasources()[0].fetchVariab
     </c:if>
   </c:forEach>
   
+  <c:forEach items="${individuals}" var="curr" varStatus="status">
+    <c:if test="${not empty curr}">
+      resolve3D(${curr});
+    </c:if>
+  </c:forEach>
+  
 </c:if>
 
-<c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setColor('0xaaaaaa',true);
+<c:forEach items="${domains}" var="curr" varStatus="status">
+  <c:if test="${not empty curr}">
+    //${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setColor('0xaaaaaa',true);
+  </c:if>
 </c:forEach>
 
-<c:forEach items="${domains}" var="curr" varStatus="status">${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setOpacity(0.3,true);
+<c:forEach items="${domains}" var="curr" varStatus="status">
+  <c:if test="${not empty curr}">
+    //${domHead}<fmt:formatNumber minIntegerDigits="5" groupingUsed="false" value="${curr}" />.setOpacity(0.3,true);
+  </c:if>
 </c:forEach>
 
-
-
-<c:forEach items="${diffName}" var="curr" varStatus="status">setTimeout(function() { ${curr}.setColor('${diffColour[status.index]}',true);}, 7000);
+<c:forEach items="${diffName}" var="curr" varStatus="status">
+  <c:if test="${not empty curr}">
+    setTimeout(function() { ${curr}.setColor('${diffColour[status.index]}',true);}, 7000);
+  </c:if>
 </c:forEach>
-
-<c:forEach items="${individuals}" var="curr" varStatus="status">resolve3D(${curr});</c:forEach>
 
 <c:out escapeXml="false" value="${campos}"/>
 <c:out escapeXml="false" value="${camrot}"/>
