@@ -8,7 +8,7 @@ colours = ["0x00ff00","0xff00ff","0x0000ff","0xffd300","0x0084f6","0x008d46","0x
 coli = 0;
 var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); }catch(ignore){} i.getType().resolve(); Instances.getInstance(path).setColor(colours[coli],true);coli++;if (coli>199) {coli=0;};}
 var customHandler=function(node, path){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta"; if(n!=undefined){var metanode= Instances.getInstance(meta);G.addWidget(1).setData(metanode).setName(n.getName()).addCustomNodeHandler(customHandler,'click');}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);G.addWidget(1).setData(eval(meta)).setName(eval(path).getName()).addCustomNodeHandler(customHandler,'click'); resolve3D(path);});}};
-var getId = function(path){setTimeout(function() { Model.getDatasources()[0].fetchVariable(path);}, 4000); setTimeout(function() { Instances.getInstance(path+"."+path+"_meta"); }, 5000);};
+var getId = function(path){if (path != ""){setTimeout(function() { Model.getDatasources()[0].fetchVariable(path);}, 4000); setTimeout(function() { Instances.getInstance(path+"."+path+"_meta"); }, 5000);}};
 
 <c:forEach items="${individuals}" var="curr" varStatus="status">getId("${curr}");</c:forEach>
 
