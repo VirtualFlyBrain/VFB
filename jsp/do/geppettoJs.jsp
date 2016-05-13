@@ -27,9 +27,9 @@ var customHandler=function(node, path){ var n;try {n = eval(path);} catch (ex) {
   <c:forEach items="${individuals}" var="curr" varStatus="status">
     <c:if test="${not empty curr}">
       if (coli == 0){
-        setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.2,true);};}, 6000);
+        //setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.2,true);};}, 6000);
       }else{
-        setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.8,true);};}, 6000);
+        //setTimeout(function() { ${curr}.setColor(colours[coli]);coli++;if (coli>199) {coli=0;}; if (${curr}.getType().getWrappedObj().defaultValue.eClass == "OBJ"){${curr}.setOpacity(0.8,true);};}, 6000);
       }
     </c:if>
   </c:forEach>
