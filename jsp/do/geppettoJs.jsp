@@ -60,9 +60,7 @@ var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catc
 
 G.setIdleTimeOut(-1);
 
-nameWid = G.addWidget(1);
-nameWid.setName('Currently Selected');
-nameWid.setPosition(113,4)
-nameWid.setSize(100,266.8)
+info = G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');;
+info.setName('Click on image to show info');
 oldSelection = "";
-setInterval(function(){ selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{info.setData(selection[0].getParent().getChildren()[0]).setName(selection[0].getParent().getChildren()[0].getName());}catch (ignore){}; for (i in selection){ message += "<b style=\"cursor: pointer;\" onclick=\"info=G.addWidget(1).setData("+selection[i].getParent().getId()+"."+selection[i].getParent().getId()+"_meta).setName("+selection[i].getParent().getId()+".getName()).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');\">" + selection[i].getParent().getName() + "</b><br />"; }; nameWid.setMessage(message); }; }; }, 3000);
+setInterval(function(){ selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{info.setData(selection[0].getParent().getChildren()[0]).setName(selection[0].getParent().getChildren()[0].getName());}catch (ignore){}; }; }; }, 3000);
