@@ -1139,6 +1139,21 @@ function compressJSONdata(data) {
     return data;
 }
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 function decompressJSONdata(data) {
     var i;
     var j;
@@ -4541,6 +4556,14 @@ function initialiseSearchResults() {
         }, {"name": "ventral VUM motor neuron", "syn": "ventral MN-VUM", "id": "FBbt_00110297"}];
         engine.add(searchresults);
         createAutocompleteList();
+    }
+    try {
+        if (getUrlParameter('q') != undefined) {
+            jumpToSearch();
+            $('#searchtext').val(getUrlParameter('q'));
+        }
+    } catch (ignore) {
+        alertMessage('Failed to search from link!');
     }
 }
 
