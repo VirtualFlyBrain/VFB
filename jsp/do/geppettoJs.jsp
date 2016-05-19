@@ -20,17 +20,7 @@ var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catc
     <c:forEach items="${individuals}" var="curr" varStatus="status">
         <c:if test="${not empty curr}">
             Model.getDatasources()[0].fetchVariable("${curr}");
-        </c:if>
-    </c:forEach>
-
-    <c:forEach items="${individuals}" var="curr" varStatus="status">
-        <c:if test="${not empty curr}">
             Instances.getInstance("${curr}.${curr}_meta");
-        </c:if>
-    </c:forEach>
-
-    <c:forEach items="${individuals}" var="curr" varStatus="status">
-        <c:if test="${not empty curr}">
             resolve3D("${curr}");
         </c:if>
     </c:forEach>
