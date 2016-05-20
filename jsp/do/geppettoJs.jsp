@@ -18,7 +18,7 @@ var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catc
 
 loading = false; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; loadStage = 0;
 
-var tryGetMeta = function(path){setTimeout(function() {try{ if (type window[path][path+"_meta"] != "undefined") {var meta=path+"."+path+"_meta"; Instances.getInstance(meta); console.log("Loaded metadata for " + path + " into " + meta);}else{tryGetMeta(path);}}catch (ignore){tryGetMeta(path);}}, 200); };
+var tryGetMeta = function(path){setTimeout(function() {try{ if (loadStage == 1) {var meta=path+"."+path+"_meta"; Instances.getInstance(meta); console.log("Loaded metadata for " + path + " into " + meta);}else{tryGetMeta(path);}}catch (ignore){tryGetMeta(path);}}, 200); };
 var tryResolve3D = function(path){setTimeout(function() {try{ if (type window[path][path+"_obj"] != "undefined") {resolve3D(path); console.log("Loaded 3D for " + path);}else{tryResolve3D(path);}}catch (ignore){tryResolve3D(path);}}, 200);};
 var varComplete = function(){loadStage=1;};
 
