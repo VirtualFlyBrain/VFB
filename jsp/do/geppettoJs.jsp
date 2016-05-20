@@ -22,7 +22,7 @@ var tryGetMeta = function(path){setTimeout(function() {try{ if (loadStage == 1) 
 var tryResolve3D = function(path){setTimeout(function() {try{ if (loadStage == 2) {resolve3D(path); console.log("Loaded 3D for " + path);}else{tryResolve3D(path);}}catch (ignore){tryResolve3D(path);}}, 100);};
 var stageComplete = function(){loadStage++;};
 
-var loadInd = function(path){ if (loading == false && order[path] == order["curr"]) {loading = true; loadStage = 0; Model.getDatasources()[0].fetchVariable(path, stageComplete()); tryGetMeta(path); tryResolve3D(path); }else{ if (order[path] == order["curr"] && loadStage < 3){ timeout[path] ++; if (timeout[path] < timeout["max"]){setTimeout(function() {loadInd(path)}, 2000);}else{console.log(path+" loading timeout!");order["curr"]++; loading = false;}}else{order["curr"]++; loading = false; console.log("loaded "+ order[path] + " of " + total)}}};
+var loadInd = function(path){ if (loading == false && order[path] == order["curr"]) {loading = true; loadStage = 0; Model.getDatasources()[0].fetchVariable(path, stageComplete()); tryGetMeta(path); tryResolve3D(path); }else{ if (order[path] == order["curr"]) {if (loadStage < 3){ timeout[path] ++; if (timeout[path] < timeout["max"]){setTimeout(function() {loadInd(path)}, 2000);}else{console.log(path+" loading timeout!");order["curr"]++; loading = false;}}else{order["curr"]++; loading = false; console.log("loaded "+ order[path] + " of " + total)}}else{loadInd(path);}}};
 
 
 <c:if test="${fn:length(individuals)>0}">
