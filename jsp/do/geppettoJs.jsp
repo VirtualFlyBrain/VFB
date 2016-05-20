@@ -13,7 +13,7 @@ colours = ["0x000000","0x00ff00","0xff00ff","0x0000ff","0xffd300","0x0084f6","0x
 
 var setSepCol = function(path){setTimeout(function() {try{ if (typeof window[path] == "undefined") { setSepCol(path); }else{Instances.getInstance(path).setColor(colours[order[path]],true).setOpacity(0.8,true);if (c<1){Instances.getInstance(path).setOpacity(0.2,true);}}}catch (ignore){setSepCol(path);}}, 6000);};
 
-var resolve3D = function(path){ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); i.getType().resolve(setSepCol(path)); };
+var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); }catch(ignore){} i.getType().resolve(setSepCol(path)); };
 var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta";var target=widget; if(GEPPETTO.isKeyPressed("meta")){target=G.addWidget(1).addCustomNodeHandler(customHandler,'click');}if(n!=undefined){var metanode= Instances.getInstance(meta);target.setData(metanode).setName(n.getName());}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);target.setData(eval(meta)).setName(eval(path).getName()); resolve3D(path);});}};
 
 loading = false; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; loadStage = 0;
