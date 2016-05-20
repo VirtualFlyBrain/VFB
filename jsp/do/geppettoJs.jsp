@@ -22,8 +22,7 @@ var tryGetMeta = function(path){setTimeout(function() {try{ if (loadStage == 1) 
 var tryResolve3D = function(path){setTimeout(function() {try{ if (loadStage == 2) {resolve3D(path); console.log("Loaded 3D for " + path);}else{tryResolve3D(path);}}catch (ignore){tryResolve3D(path);}}, 100);};
 var stageComplete = function(){loadStage++;};
 
-var loadInd = function(path){ if (loading == false && order[path] == order["curr"]) {loading = true; loadStage = 0; Model.getDatasources()[0].fetchVariable(path, stageComplete()); tryGetMeta(path); tryResolve3D(path); }else{ if (order[path] == order["curr"]) {if (loadStage < 3){ timeout[path] ++; if (timeout[path] < timeout["max"]){setTimeout(function() {loadInd(path)}, 2000);}else{console.log(path+" loading timeout!");order["curr"]++; loading = false;}}else{order["curr"]++; loading = false; console.log("loaded "+ order[path] + " of " + total)}}else{loadInd(path);}}};
-
+var loadInd=function(path){if(loading==false&&order[path]==order["curr"]){loading=true;loadStage=0;console.log(path+" loading....");Model.getDatasources()[0].fetchVariable(path,stageComplete());tryGetMeta(path);tryResolve3D(path);}else{if(order[path]==order["curr"]){if(loadStage<3){timeout[path]++;if(timeout[path]<timeout["max"]){console.log(path+" wait...");setTimeout(function(){loadInd(path);},2000);}else{console.log(path+" loading timeout!");order["curr"]++;loading=false;}}else{console.log(path+" Done!");order["curr"]++;loading=false;console.log("loaded "+order[path]+" of "+total);}}else{console.log(path+" long wait.......");setTimeout(function(){loadInd(path);},5000);}}};
 
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
