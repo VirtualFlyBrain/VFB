@@ -17,7 +17,7 @@ var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path
 var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta";var target=widget; if(GEPPETTO.isKeyPressed("meta")){target=G.addWidget(1).addCustomNodeHandler(customHandler,'click');}if(n!=undefined){var metanode= Instances.getInstance(meta);target.setData(metanode).setName(n.getName());}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);target.setData(eval(meta)).setName(eval(path).getName()); resolve3D(path);});}};
 
 loading = false; timeout["max"] = 10; order["curr"] = 0;
-var loadInd = function(path){ if (loading == false && order[path] == order["curr"]) {loading = true; var meta=path+"."+path+"_meta"; Model.getDatasources()[0].fetchVariable(path); Instances.getInstance(meta); resolve3D(path); }else{ if (typeof window[path] == "undefined"){ timeout[path] ++; if (timeout[path] < timeout["max"]){setTimeout(function() {loadInd(path)}, 2000);}else{console.log(path+" loading timeout!");order["curr"]++; loading = false;}}else{order["curr"]++; loading = false;}}};
+var loadInd = function(path){ if (loading == false && order[path] == order["curr"]) {loading = true; var meta=path+"."+path+"_meta"; Model.getDatasources()[0].fetchVariable(path); Instances.getInstance(meta); resolve3D(path); }else{ if (typeof window[path] == "undefined"){ timeout[path] ++; if (timeout[path] < timeout["max"]){setTimeout(function() {loadInd(path)}, 2000);}else{console.log(path+" loading timeout!");order["curr"]++; loading = false;}}else{order["curr"]++; loading = false; console.log("loaded "+ order[path] + " of " + total)}}};
 
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
@@ -25,6 +25,7 @@ var loadInd = function(path){ if (loading == false && order[path] == order["curr
             timeout["${curr}"] = 0;
             order["${curr}"] = ${status.index};
             loadInd("${curr}");
+            total = ${status.index};
         </c:if>
     </c:forEach>
 
