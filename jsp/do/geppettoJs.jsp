@@ -13,21 +13,22 @@ colours = ["0xaaaaaa","0x00ff00","0xff00ff","0x0000ff","0xffd300","0x0084f6","0x
 
 var setSepCol = function(path){console.log(path+" setting colour....");try{ if (typeof window[path] == "undefined") { setSepCol(path); }else{Instances.getInstance(path).setColor(colours[order[path]],true).setOpacity(0.8,true);if (order[path]<1){Instances.getInstance(path).setOpacity(0.2,true);}}}catch (ignore){setTimeout(function(){setSepCol(path);},300);}};
 
-var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); }catch(ignore){} i.getType().resolve(setSepCol(path), stageComplete()); };
+var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); }catch(ignore){} i.getType().resolve(setSepCol(path), stageComplete(path)); };
 var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta";var target=widget; if(GEPPETTO.isKeyPressed("meta")){target=G.addWidget(1).addCustomNodeHandler(customHandler,'click');}if(n!=undefined){var metanode= Instances.getInstance(meta);target.setData(metanode).setName(n.getName());}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);target.setData(eval(meta)).setName(eval(path).getName()); resolve3D(path);});}};
 
-loading = false; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; loadStage = 0;
+timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; loadStage = []; capacity = 2;
 
-var tryGetMeta = function(path){console.log(path+" loading Meta....");if (order[path]==order["curr"]&&loadStage<2){ setTimeout(function() {try{ if (loadStage == 1) {var meta=path+"."+path+"_meta"; Instances.getInstance(meta, stageComplete()); console.log("Loaded metadata for " + path + " into " + meta);}else{tryGetMeta(path);}}catch (ignore){tryGetMeta(path);}}, 100); }};
-var tryResolve3D = function(path){console.log(path+" loading 3D....");setTimeout(function() {try{ if (loadStage == 2) {resolve3D(path); console.log("Loaded 3D for " + path);}else{if (loadStage < 3){tryResolve3D(path);}}}catch (ignore){tryResolve3D(path);}}, 100);};
-var stageComplete = function(){loadStage++;};
+var tryGetMeta = function(path){console.log(path+" loading Meta....");if (order[path]<=order["curr"]&&loadStage[path]<2){ setTimeout(function() {try{ if (loadStage[path] == 1) {var meta=path+"."+path+"_meta"; Instances.getInstance(meta, stageComplete(path)); console.log("Loaded metadata for " + path + " into " + meta);}else{tryGetMeta(path);}}catch (ignore){tryGetMeta(path);}}, 100); }};
+var tryResolve3D = function(path){console.log(path+" loading 3D....");setTimeout(function() {try{ if (loadStage[path] == 2) {resolve3D(path); console.log("Loaded 3D for " + path);}else{if (loadStage[path] < 3){tryResolve3D(path);}}}catch (ignore){tryResolve3D(path);}}, 100);};
+var stageComplete = function(path){loadStage[path]++;};
 
-var loadInd=function(path){if(loading==false&&order[path]==order["curr"]){loading=true;loadStage=0;console.log(path+" loading....");Model.getDatasources()[0].fetchVariable(path,stageComplete());tryGetMeta(path);tryResolve3D(path);setTimeout(function(){loadInd(path);},200);}else{if(order[path]==order["curr"]){if(loadStage<3){timeout[path]++;if(timeout[path]<timeout["max"]){console.log(path+" wait...");setTimeout(function(){loadInd(path);},100);}else{console.log(path+" loading timeout!");order["curr"]++;loading=false;}}else{console.log(path+" Done!");order["curr"]++;loading=false;console.log("loaded "+order[path]+" of "+total);}}else{setTimeout(function(){loadInd(path);},(57-order["curr"])*200);}}};
+var loadInd=function(path){if(capacity>0&&order[path]<=order["curr"]){capacity--;loadStage=0;console.log(path+" loading....");Model.getDatasources()[0].fetchVariable(path,stageComplete(path));tryGetMeta(path);tryResolve3D(path);setTimeout(function(){loadInd(path);},200);order["curr"]++;}else{if(order[path]<=order["curr"]){if(loadStage[path]<3){timeout[path]++;if(timeout[path]<timeout["max"]){console.log(path+" wait...");setTimeout(function(){loadInd(path);},100);}else{console.log(path+" loading timeout!");capacity++;}}else{console.log(path+" Done!");capacity++;console.log("loaded "+order[path]+" of "+total);}}else{setTimeout(function(){loadInd(path);},(total-order["curr"])*200);}}};
 
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
         <c:if test="${not empty curr}">
             timeout["${curr}"] = 0;
+            loadStage["${curr}"] = 0;
             order["${curr}"] = ${status.index};
             loadInd("${curr}");
             total = ${status.index};
