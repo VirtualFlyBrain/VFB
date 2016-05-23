@@ -60,7 +60,7 @@ var loadInd=function(path){if(loading==false&&order[path]==order["curr"]){loadin
 
 G.setIdleTimeOut(-1);
 
-info = G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');;
+info = G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');
 info.setName('Click on image to show info');
 oldSelection = "";
 setInterval(function(){ selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{info.setData(selection[0].getParent()[selection[0].getParent().getId()+"_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId()+"_meta"].getName()).addCustomNodeHandler(customHandler,'click');}catch (ignore){}; }; }; }, 3000);
