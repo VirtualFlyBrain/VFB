@@ -40,7 +40,7 @@ GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = 
         <c:if test="${not empty curr}">
             timeout["${curr}"] = 0;
             order["${curr}"] = ${status.index};
-            delay(${status.index}*500,loadInd, "${curr}");
+            delay(${status.index}*1000,loadInd, "${curr}");
             total = ${status.index};
         </c:if>
     </c:forEach>
