@@ -20,9 +20,11 @@ loading = false; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 
 
 var getMeta = function(path){console.log(path+" loading Meta....");var meta=path+"."+path+"_meta"; Instances.getInstance(meta); console.log("Loaded metadata for " + path + " into " + meta);};
 
-var loadInd=function(path){console.log(path+" loading....");Model.getDatasources()[0].fetchVariable(path,function(){getMeta(path);resolve3D(path); sleep(1000);});};
+var loadInd=function(path){console.log(path+" loading....");Model.getDatasources()[0].fetchVariable(path,function(){getMeta(path);resolve3D(path);});};
 
 var sleep=function(miliseconds) {var currentTime = new Date().getTime();while (currentTime + miliseconds >= new Date().getTime()){}}
+
+var delay=function(ms, func, param) { setTimeout(function(){func(param);}, ms);}
 
 info = G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');;
 info.setName('Click on image to show info');
@@ -35,7 +37,7 @@ GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = 
         <c:if test="${not empty curr}">
             timeout["${curr}"] = 0;
             order["${curr}"] = ${status.index};
-            loadInd("${curr}");
+            delay(${status.index}*100,loadInd, "${curr}");
             total = ${status.index};
         </c:if>
     </c:forEach>
