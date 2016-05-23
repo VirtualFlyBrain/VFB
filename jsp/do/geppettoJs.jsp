@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 GEPPETTO.Init.flipCameraY();
 GEPPETTO.Init.flipCameraZ();
+GEPPETTO.SceneController.setWireframe(true);
 G.setOnSelectionOptions({unselected_transparent:false});
 
 GEPPETTO.ControlPanel.setDataFilter(function(entities){var visualInstances = GEPPETTO.ModelFactory.getAllInstancesWithCapability(GEPPETTO.Resources.VISUAL_CAPABILITY, entities);var compositeInstances = [];for(var i=0; i<visualInstances.length; i++){if(visualInstances[i].getType().getMetaType() == GEPPETTO.Resources.COMPOSITE_TYPE_NODE){compositeInstances.push(visualInstances[i]);}}return compositeInstances;});
