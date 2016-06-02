@@ -108,7 +108,7 @@
           xsi:type="gep:SimpleQuery"
           label="Fetch related and references for individuals"
           description="Fetch related and references for individuals"
-          query="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.FlyBase as relFBrf"
+          query="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
           countQuery="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN count(n) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0 //@libraries.3/@types.6"/>
