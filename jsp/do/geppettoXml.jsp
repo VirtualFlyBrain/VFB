@@ -114,10 +114,10 @@
             type="//@libraries.3/@types.0 //@libraries.3/@types.6"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:ProcessQuery"
-          label="This processing step will populate a Variable with the related and references resulting from the previous query"
-          description="This processing step will populate a Variable with the related and references resulting from the previous query"
-          queryProcessorId="vfbImportTypesRelatedQueryProcessor">
+              xsi:type="gep:ProcessQuery"
+              label="This processing step will populate a Variable with the related and references resulting from the previous query"
+              description="This processing step will populate a Variable with the related and references resulting from the previous query"
+              queryProcessorId="vfbImportTypesSynonymQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.0 //@libraries.3/@types.6"/>
       </queryChain>
