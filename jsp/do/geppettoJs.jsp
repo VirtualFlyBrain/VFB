@@ -4,6 +4,7 @@
 GEPPETTO.Init.flipCameraY();
 GEPPETTO.Init.flipCameraZ();
 GEPPETTO.SceneController.setWireframe(false);
+G.setIdleTimeout(-1);
 G.setOnSelectionOptions({unselected_transparent:false});
 
 GEPPETTO.ControlPanel.setColumnMeta([{ "columnName": "path", "order": 1, "locked": false, "displayName": "Path", "source": "$entity$.getPath()" }, { "columnName": "name", "order": 2, "locked": false, "displayName": "Name", "source": "$entity$.getName()", "action": "var displayTexxxt = '$entity$'.split('.')['$entity$'.split('.').length - 1]; G.addWidget(1).setData($entity$[displayTexxxt + '_meta']).setName(displayTexxxt).addCustomNodeHandler(customHandler,'click');" }, { "columnName": "type", "order": 3, "locked": false, "customComponent": GEPPETTO.ArrayComponent, "displayName": "Type(s)", "source": "$entity$.getTypes().map(function (t) {return t.getPath()})", "action": "var displayTexxxt = '$entity$'.split('.')['$entity$'.split('.').length - 1]; G.addWidget(1).setData($entity$[displayTexxxt + '_meta']).setName(displayTexxxt).addCustomNodeHandler(customHandler,'click');" }, { "columnName": "controls", "order": 4, "locked": false, "customComponent": GEPPETTO.ControlsComponent, "displayName": "Controls", "source": "", "action": "GEPPETTO.FE.refresh();" }, { "columnName": "image", "order": 5, "locked": false, "customComponent": GEPPETTO.ImageComponent, "displayName": "Image", "cssClassName": "img-column", "source": "GEPPETTO.ModelFactory.getAllVariablesOfMetaType($entity$.$entity$_meta.getType(), 'ImageType')[0].getInitialValues()[0].value.data" }]);
