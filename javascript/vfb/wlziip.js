@@ -2181,7 +2181,7 @@ function addAvailableItems(ids) {
                 for (layers in parent.$("body").data("domains")) {
                     if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
                         temp = parent.$("body").data("domains")[layers];
-                        if (i > 0 && !(current.template = "VFBt_001" && i > 100)) {
+                        if (i > 0 && !(current.template == "VFBt_001" && i > 100)) {
                             setText(temp.name);
                         }
                         break;
