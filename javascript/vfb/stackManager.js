@@ -528,7 +528,7 @@ function updateStackCounter() {
                         console.log('Awaiting initialisation...');
                     }
                 }
-                $("#menuOpen3Dlink").attr("href", "http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
+                $("#menuOpen3Dlink").attr("href", "http://www.virtualflybrain.org:8180/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
                 $("[id^=Count]").each(function () {
                     try {
                         $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt", "VFBt")].selected).length - 1);
@@ -1138,6 +1138,21 @@ function compressJSONdata(data) {
     }
     return data;
 }
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 
 function decompressJSONdata(data) {
     var i;
@@ -4541,6 +4556,14 @@ function initialiseSearchResults() {
         }, {"name": "ventral VUM motor neuron", "syn": "ventral MN-VUM", "id": "FBbt_00110297"}];
         engine.add(searchresults);
         createAutocompleteList();
+    }
+    try {
+        if (getUrlParameter('q') != undefined) {
+            jumpToSearch();
+            $('#searchtext').val(getUrlParameter('q'));
+        }
+    } catch (ignore) {
+        alertMessage('Failed to search from link!');
     }
 }
 
