@@ -694,6 +694,7 @@ function updateStackCounter() {
             }
         }
     } catch (err) {
+        clearAbsolutleyAllData();
         console.log('Reloading due to error...');
         console.log(err.message);
         window.open(window.location.href, '_top');
