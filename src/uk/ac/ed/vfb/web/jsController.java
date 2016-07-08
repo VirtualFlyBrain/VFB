@@ -21,6 +21,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Set;
+
 public class jsController implements Controller {
   private static final Log LOG = LogFactory.getLog(jsController.class);
 
@@ -55,12 +60,17 @@ public class jsController implements Controller {
         // VFB id for adult brain template:
         ind = "VFB_00017894" + "," + ind;
       }
-      domain2id = {"VFBd_00100002":"VFB_00030621","VFBd_00100003":"VFB_00030622","VFBd_00100004":"VFB_00030609","VFBd_00100005":"VFB_00030625","VFBd_00100006":"VFB_00030619","VFBd_00100007":"FBbt_00007053","VFBd_00100008":"VFB_00030605","VFBd_00100009":"VFB_00030600","VFBd_00100010":"VFB_00030602","VFBd_00100011":"VFB_00030613","VFBd_00100012":"VFB_00030617","VFBd_00100013":"VFB_00030616","VFBd_00100014":"VFB_00030631","VFBd_00100015":"VFB_00030615","VFBd_00100016":"VFB_00030606","VFBd_00100017":"FBbt_00007453","VFBd_00100018":"FBbt_00015407","VFBd_00100019":"FBbt_00007677","VFBd_00100020":"VFB_00030620","VFBd_00100022":"VFB_00030612","VFBd_00100023":"VFB_00030611","VFBd_00100024":"VFB_00030629","VFBd_00100025":"VFB_00030624","VFBd_00100026":"VFB_00030633","VFBd_00100027":"VFB_00030623","VFBd_00100028":"VFB_00030628","VFBd_00100029":"VFB_00030614","VFBd_00100030":"VFB_00030608","VFBd_00100031":"VFB_00030632","VFBd_00100032":"VFB_00030626","VFBd_00100033":"VFB_00030630","VFBd_00100034":"VFB_00030627","VFBd_00100035":"VFB_00030610","VFBd_00100036":"FBbt_00007385","VFBd_00100037":"VFB_00030601","VFBd_00100038":"VFB_00030603","VFBd_00100039":"VFB_00030618","VFBd_00100040":"VFB_00030599","VFBd_00100049":"FBbt_00014013","VFBd_00100050":"VFB_00030604","VFBd_00100051":"VFB_00030607","VFBd_00100101":"FBbt_00110636","VFBd_00100102":"FBbt_00110639","VFBd_00100103":"FBbt_00003632","VFBd_00100104":"FBbt_00003684","VFBd_00100105":"FBbt_00040037","VFBd_00100106":"FBbt_00040001","VFBd_00100107":"FBbt_00003701","VFBd_00100108":"FBbt_00045030","VFBd_00100109":"FBbt_00045021","VFBd_00100110":"FBbt_00040002","VFBd_00100111":"FBbt_00045020","VFBd_00100112":"FBbt_00013688","VFBd_00100113":"FBbt_00040047","VFBd_00100114":"FBbt_00045004","VFBd_00100115":"FBbt_00007058","VFBd_00100116":"FBbt_00040072","VFBd_00100117":"FBbt_00040071"};
-      for (var k in domain2id){
-        if (domain2id.hasOwnProperty(k)) {
-          ind = ind.replace(k,domain2id[k]);
-        }
+      
+      // Convert domain ids to VFB individual ids:
+      HashMap<String,String> domain2id = new HashMap<>();
+      domain2id.add("VFBd_00100002", "VFB_00030621"); domain2id.add("VFBd_00100003", "VFB_00030622"); domain2id.add("VFBd_00100004", "VFB_00030609"); domain2id.add("VFBd_00100005", "VFB_00030625"); domain2id.add("VFBd_00100006", "VFB_00030619"); domain2id.add("VFBd_00100007", "FBbt_00007053"); domain2id.add("VFBd_00100008", "VFB_00030605"); domain2id.add("VFBd_00100009", "VFB_00030600"); domain2id.add("VFBd_00100010", "VFB_00030602"); domain2id.add("VFBd_00100011", "VFB_00030613"); domain2id.add("VFBd_00100012", "VFB_00030617"); domain2id.add("VFBd_00100013", "VFB_00030616"); domain2id.add("VFBd_00100014", "VFB_00030631"); domain2id.add("VFBd_00100015", "VFB_00030615"); domain2id.add("VFBd_00100016", "VFB_00030606"); domain2id.add("VFBd_00100017", "FBbt_00007453"); domain2id.add("VFBd_00100018", "FBbt_00015407"); domain2id.add("VFBd_00100019", "FBbt_00007677"); domain2id.add("VFBd_00100020", "VFB_00030620"); domain2id.add("VFBd_00100022", "VFB_00030612"); domain2id.add("VFBd_00100023", "VFB_00030611"); domain2id.add("VFBd_00100024", "VFB_00030629"); domain2id.add("VFBd_00100025", "VFB_00030624"); domain2id.add("VFBd_00100026", "VFB_00030633"); domain2id.add("VFBd_00100027", "VFB_00030623"); domain2id.add("VFBd_00100028", "VFB_00030628"); domain2id.add("VFBd_00100029", "VFB_00030614"); domain2id.add("VFBd_00100030", "VFB_00030608"); domain2id.add("VFBd_00100031", "VFB_00030632"); domain2id.add("VFBd_00100032", "VFB_00030626"); domain2id.add("VFBd_00100033", "VFB_00030630"); domain2id.add("VFBd_00100034", "VFB_00030627"); domain2id.add("VFBd_00100035", "VFB_00030610"); domain2id.add("VFBd_00100036", "FBbt_00007385"); domain2id.add("VFBd_00100037", "VFB_00030601"); domain2id.add("VFBd_00100038", "VFB_00030603"); domain2id.add("VFBd_00100039", "VFB_00030618"); domain2id.add("VFBd_00100040", "VFB_00030599"); domain2id.add("VFBd_00100049", "FBbt_00014013"); domain2id.add("VFBd_00100050", "VFB_00030604"); domain2id.add("VFBd_00100051", "VFB_00030607"); domain2id.add("VFBd_00100101", "FBbt_00110636"); domain2id.add("VFBd_00100102", "FBbt_00110639"); domain2id.add("VFBd_00100103", "FBbt_00003632"); domain2id.add("VFBd_00100104", "FBbt_00003684"); domain2id.add("VFBd_00100105", "FBbt_00040037"); domain2id.add("VFBd_00100106", "FBbt_00040001"); domain2id.add("VFBd_00100107", "FBbt_00003701"); domain2id.add("VFBd_00100108", "FBbt_00045030"); domain2id.add("VFBd_00100109", "FBbt_00045021"); domain2id.add("VFBd_00100110", "FBbt_00040002"); domain2id.add("VFBd_00100111", "FBbt_00045020"); domain2id.add("VFBd_00100112", "FBbt_00013688"); domain2id.add("VFBd_00100113", "FBbt_00040047"); domain2id.add("VFBd_00100114", "FBbt_00045004"); domain2id.add("VFBd_00100115", "FBbt_00007058"); domain2id.add("VFBd_00100116", "FBbt_00040072"); domain2id.add("VFBd_00100117", "FBbt_00040071");
+      Set set = domain2id.entrySet();
+      Iterator iterator = set.iterator();
+      while(iterator.hasNext()) {
+         Map.Entry mentry = (Map.Entry)iterator.next();
+         ind = ind.replace(mentry.getKey(),mentry.getValue());
       }
+      
       if (ind.indexOf(",")>-1){
         individuals = ind.split(",");
       }else{
