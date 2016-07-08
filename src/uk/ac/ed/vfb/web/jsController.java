@@ -68,7 +68,7 @@ public class jsController implements Controller {
       Iterator iterator = set.iterator();
       while(iterator.hasNext()) {
          Map.Entry mentry = (Map.Entry)iterator.next();
-         ind = ind.replace(mentry.getKey(),mentry.getValue());
+         ind = ind.replace(String.valueOf(mentry.getKey()),String.valueOf(mentry.getValue()));
       }
       
       if (ind.indexOf(",")>-1){
