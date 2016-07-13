@@ -2024,7 +2024,7 @@ function addAllDomains() {
             var domains = parent.$("body").data("domains");
             for (i=0; i<domains.length; i++){
                 if (parseInt(domains[i].domainData.domainId) > 100){
-                    var index = array.indexOf(domains[i].extId[0].replace(':','_'));
+                    var index = available.indexOf(domains[i].extId[0].replace(':','_'));
                     if (index > -1) {
                         available.splice(index, 1);
                     }
