@@ -2018,6 +2018,19 @@ function addAllDomains() {
         if (cleanIdforInt(available[0]).indexOf('FBbt_00003624') > -1) {
             available.shift();
         }
+        var i = 0;
+        var index = -1;
+        if (parent.$("body").data("current").template == "VFBt_001"){
+            var domains = parent.$("body").data("domains");
+            for (i=0; i<domains.length; i++){
+                if (parseInt(domains[i].domainData.domainId) > 100){
+                    var index = array.indexOf(domains[i].extId[0].replace(':','_'));
+                    if (index > -1) {
+                        available.splice(index, 1);
+                    }
+                }
+            }
+        }
         addToStackData(available);
         $('#canvas').css('cursor', 'wait');
         updateMenuData();
