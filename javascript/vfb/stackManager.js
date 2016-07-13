@@ -694,9 +694,12 @@ function updateStackCounter() {
             }
         }
     } catch (err) {
+        clearAbsolutleyAllData();
         console.log('Reloading due to error...');
         console.log(err.message);
-        window.open(window.location.href, '_top');
+        window.setTimeout(function () {
+                window.open(window.location.href, '_top');
+        }, 5000);
     }
 }
 

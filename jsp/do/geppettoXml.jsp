@@ -38,6 +38,9 @@
     <types xsi:type="gep_1:SimpleType"
         id="VFB"
         name="Virtual Fly Brain"/>
+    <types xsi:type="gep_1:SimpleType"
+        id="Orphan"
+        name="No Meta Data"/>
   </libraries>
   <libraries
       id="vfbLibrary"
