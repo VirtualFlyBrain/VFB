@@ -60,8 +60,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.baseUrl = baseUrl;
 		this.thumbName = thumbName;
 		this.vfbIm = getVFBidAsImageRef(vfbId);
-		this.thumbUrl = "/owl/" + vfbIm + "/thumbnail.png";
-		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.thumbUrl = "/data/" + vfbIm + "/thumbnail.png";
+		this.stackUrl = "/data/" + vfbIm + "/data.jso";
 		this.stackName = stackName;
 		this.descr = descr;
 		this.displayName = displayName;
@@ -79,8 +79,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.baseUrl = baseUrl;
 		this.thumbName = "thumbnail.png";
 		this.vfbIm = getVFBidAsImageRef(vfbId);
-		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
-		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.thumbUrl = "/data/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/data/" + vfbIm + "/data.jso";
 		this.stackName = displayName;
 		this.descr = descr;
 		this.displayName = displayName;
@@ -97,8 +97,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.baseUrl = "/site/vfb_site/image_data_downloads.htm";
 		this.thumbName = "thumbnail.png";
 		this.vfbIm = getVFBidAsImageRef(vfbId);
-		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
-		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.thumbUrl = "/data/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/data/" + vfbIm + "/data.jso";
 		this.stackName = displayName;
 		this.descr = "";
 		this.displayName = displayName;
@@ -115,8 +115,8 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.baseUrl = link;
 		this.thumbName = "thumbnail.png";
 		this.vfbIm = getVFBidAsImageRef(vfbId);
-		this.thumbUrl = "/owl/" + vfbIm + "/" + thumbName;
-		this.stackUrl = "/owl/" + vfbIm + "/data.jso";
+		this.thumbUrl = "/data/" + vfbIm + "/" + thumbName;
+		this.stackUrl = "/data/" + vfbIm + "/data.jso";
 		this.stackName = displayName;
 		this.descr = "";
 		this.displayName = displayName;
@@ -245,13 +245,13 @@ public class ThirdPartyBean implements Comparable<ThirdPartyBean>, Serializable 
 		this.completeExpressionPattern = completeExpressionPattern;
 	}
 	public String getVFBidAsImageRef(String vfbId) {
-		return vfbId.toLowerCase().replace(":", "_").replace("vfb_","VFBi_");
+		return vfbId.toLowerCase().replace(":", "_").replace("vfb_","VFB/i/").replaceAll("/([0-z][0-z][0-z][0-z])([0-z][0-z][0-z][0-z])","/$1/$2");
 	}
 	
 	public String getImageDir() {
 		String result = vfbId;
 		result = result.toLowerCase().replace("vfb_","");
-		result = "/disk/data/VFB/IMAGE_DATA/VFB/i/" + result.substring(0, 4) + "/" + result.substring(4) + "/";
+		result = "/disk/data/VFB/IMAGE_DATA/" + getVFBidAsImageRef(result) + "/";
 		//LOG.debug(vfbId + " resolved to image directory " + result);
 		return result;
 	}

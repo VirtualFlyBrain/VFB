@@ -7,6 +7,7 @@ ga.jsp filter=modify-GA
 analytics.js filter=modity-GA
 ???*.jsp filter=modify-ref-gen
 *.htm filter=modify-ref-gen
+*.html filter=modify-ref-gen
 *.js filter=modify-ref-gen
 *.owl filter=modify-ref-gen
 *.java filter=modify-ref-gen

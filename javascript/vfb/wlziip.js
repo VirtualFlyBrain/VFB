@@ -858,10 +858,12 @@ function updatePosition() {
                         if (displayed.indexOf(fullItem) > -1) {
                             //console.log('Removing ' + fullItem + ' after double click');
                             removeFromStackData(fullItem);
+                            break;
                         } else { // else add it
                             //console.log('Adding ' + fullItem + ' after double click');
                             addToStackData(fullItem);
                             $('#canvas').css('cursor', 'wait');
+                            break;
                         }
                     }
                 }
@@ -1020,6 +1022,7 @@ function generateWlzURL(index) {
 function initWlzControls() {
     $('#slider-slice').data('live', false);
     if (parent.$("body").data("meta")) {
+        loadReferenceMeta(parent.$("body").data("current").template);
         var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
         var orient = parent.$("body").data("current").slice;
         maxSlice = Math.round((parseInt(parent.$("body").data("meta").extent.split(',')[orientation[orient].D]) + 1) * parseFloat(parent.$("body").data("meta").voxel.split(',')[orientation[orient].D]));
@@ -1219,7 +1222,6 @@ function initWlzControls() {
     } else {
         if (parent.$("body").data("current")) {
             loadTemplateMeta(parent.$("body").data("current").template);
-            loadReferenceMeta(parent.$("body").data("current").template);
         }
         window.setTimeout(function () {
             initWlzControls();
@@ -1738,7 +1740,11 @@ function loadReferenceMeta(id) {
                 $("#imageAttributesText").html(decodeURIComponent(parent.$("body").data("ref_txt")));
                 delete parent.$("body").data().ref_txt;
             }
+            parent.$("body").data(parent.$("body").data("current").template).selected[0].type = $('#backgroundStain').html()
             updateWlzDisplay();
+            try{
+                $('#displayed').dataTable().fnGetData(0)[3]=$('#displayed').dataTable().fnGetData(0)[3].replace('resolvedTypeForVFBt','typeForVFBt');
+            }catch(ignore){}
         });
     }
 }
@@ -1810,7 +1816,7 @@ function loadRightMenuDisplayed() {
             for (i in selected) {
                 layer = selected[i];
                 if (!layer.name) {
-                    if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0 && layer.id.indexOf("_a") < 0) {
+                    if (layer.id.indexOf("VFBd_") < 0 && layer.id.indexOf("VFBt_") < 0 && layer.id.indexOf("_a") < 0 && layer.id.indexOf("_t") < 0) {
                         updateItemName(solrAPI, layer);
                     }
                 }
@@ -1832,7 +1838,7 @@ function loadRightMenuDisplayed() {
                     index = String(i);
                     if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type) || (rowD[4].indexOf('fxp=undefined') > -1)) {
                         //console.log('Update for row ' + String(i) + ' - ' + rowD);
-                        if (layer.id.indexOf('_a') > -1) {
+                        if ((layer.id.indexOf('_a') > -1) || (layer.id.indexOf('_t') > -1)) {
                             layer.name = cleanIdforExt(layer.id);
                             layer.type = "Private User Data";
                         }
@@ -2014,6 +2020,19 @@ function addAllDomains() {
         if (cleanIdforInt(available[0]).indexOf('FBbt_00003624') > -1) {
             available.shift();
         }
+        var i = 0;
+        var index = -1;
+        if (parent.$("body").data("current").template == "VFBt_001"){
+            var domains = parent.$("body").data("domains");
+            for (i=0; i<domains.length; i++){
+                if (parseInt(domains[i].domainData.domainId) > 100){
+                    var index = available.indexOf(domains[i].extId[0].replace(':','_'));
+                    if (index > -1) {
+                        available.splice(index, 1);
+                    }
+                }
+            }
+        }
         addToStackData(available);
         $('#canvas').css('cursor', 'wait');
         updateMenuData();
@@ -2177,7 +2196,7 @@ function addAvailableItems(ids) {
                 for (layers in parent.$("body").data("domains")) {
                     if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
                         temp = parent.$("body").data("domains")[layers];
-                        if (i > 0) {
+                        if (i == 1) {
                             setText(temp.name);
                         }
                         break;
@@ -2246,13 +2265,16 @@ function addAvailableItems(ids) {
                     name += '">';
                     name += temp.name;
                 } else {
-                    if (id.indexOf('_a') < 0) {
+                    if ((id.indexOf('_a') < 0) && (id.indexOf('_t') < 0)) {
                         name = '<a href="#details"><span id="nameFor' + id + '" data-id="' + cleanIdforInt(id) + '" onclick="';
                         name += "openFullDetails('" + cleanIdforExt(id) + "');";
                         name += '">';
                         name += cleanIdforExt(temp.id);
                     } else {
-                        name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a', ''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+                        name = cleanIdforExt(id);
+                        if (id.indexOf('_a') < 0) {
+                            name = '<a href="http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFBi_a', ''))) + '/" target="_blank"><span>' + cleanIdforExt(id);
+                        }
                     }
                 }
                 name += '</span></a>';
@@ -2311,7 +2333,7 @@ function copyUrlToClipboard() {
         }
     }
     $("body").append("<input type='text' id='temp' style='position:absolute;opacity:0;'>");
-    $("#temp").val("http://" + window.location.host + window.location.pathname + "?add=" + displayed).select();
+    $("#temp").val("http://" + window.location.host + window.location.pathname + "?add=" + displayed).select() + "&clear=true";
     document.execCommand("copy");
     try {
         ga('send', 'event', 'viewer', 'copy_url', $("#temp").val());

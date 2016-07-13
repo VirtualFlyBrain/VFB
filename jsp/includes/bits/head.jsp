@@ -113,7 +113,7 @@
                             All <span id="viewerTotalItems" class="label label-warning label-as-badge">*</span>
                             items</a></li>
                         <li id="menuOpen3D"><a id="menuOpen3Dlink"
-                                               href="http://129.215.164.244:8084/org.geppetto.frontend/geppetto?load_project_from_url=http://www.virtualflybrain.org/do/geppettoJson.json"
+                                               href="http://www.virtualflybrain.org:8180/org.geppetto.frontend/geppetto?load_project_from_url=http://www.virtualflybrain.org/do/geppettoJson.json"
                                                target="_blank">Open <span id="viewer2DVal"
                                                                           class="label label-success label-as-badge">*</span>
                             items in 3D viewer</a></li>
