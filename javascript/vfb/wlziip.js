@@ -858,10 +858,12 @@ function updatePosition() {
                         if (displayed.indexOf(fullItem) > -1) {
                             //console.log('Removing ' + fullItem + ' after double click');
                             removeFromStackData(fullItem);
+                            break;
                         } else { // else add it
                             //console.log('Adding ' + fullItem + ' after double click');
                             addToStackData(fullItem);
                             $('#canvas').css('cursor', 'wait');
+                            break;
                         }
                     }
                 }
