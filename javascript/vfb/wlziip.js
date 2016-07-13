@@ -858,10 +858,12 @@ function updatePosition() {
                         if (displayed.indexOf(fullItem) > -1) {
                             //console.log('Removing ' + fullItem + ' after double click');
                             removeFromStackData(fullItem);
+                            break;
                         } else { // else add it
                             //console.log('Adding ' + fullItem + ' after double click');
                             addToStackData(fullItem);
                             $('#canvas').css('cursor', 'wait');
+                            break;
                         }
                     }
                 }
@@ -2018,6 +2020,19 @@ function addAllDomains() {
         if (cleanIdforInt(available[0]).indexOf('FBbt_00003624') > -1) {
             available.shift();
         }
+        var i = 0;
+        var index = -1;
+        if (parent.$("body").data("current").template == "VFBt_001"){
+            var domains = parent.$("body").data("domains");
+            for (i=0; i<domains.length; i++){
+                if (parseInt(domains[i].domainData.domainId) > 100){
+                    var index = available.indexOf(domains[i].extId[0].replace(':','_'));
+                    if (index > -1) {
+                        available.splice(index, 1);
+                    }
+                }
+            }
+        }
         addToStackData(available);
         $('#canvas').css('cursor', 'wait');
         updateMenuData();
@@ -2181,7 +2196,7 @@ function addAvailableItems(ids) {
                 for (layers in parent.$("body").data("domains")) {
                     if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
                         temp = parent.$("body").data("domains")[layers];
-                        if (i > 0) {
+                        if (i == 1) {
                             setText(temp.name);
                         }
                         break;
