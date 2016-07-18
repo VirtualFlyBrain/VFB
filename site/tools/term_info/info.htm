@@ -125,6 +125,10 @@
                 }
                 ;</script>
 
+                <p>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.synonym limit 1', 'infoDef');</script></span>
+                </p>
+
                 <p id="partDef">
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                 </p>
