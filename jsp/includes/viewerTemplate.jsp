@@ -21,8 +21,10 @@
 <c:if test="${!empty param.id}">
     <script>$('body').ready(function () {
         openFullDetails("${param.id}");
+        requestID = "${param.id}";
         window.setTimeout(function () {
             detailLoad = false;
+            requestID = "${param.id}";
             openFullDetails("${param.id}");
         }, 5000);
     });
