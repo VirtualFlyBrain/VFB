@@ -33,9 +33,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2><a href="#details"
-                       onload="neoCall('MATCH (a) where a.short_form = '+ dq + getUrlParameter('id') + dq + ' return a.label limit 1','partName')"
                        onclick="openFullDetails(getUrlParameter(" id"))" title="View details and run queries"><span
-                        id="partName"></span></a></h2>
+                        id="partName"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.label limit 1', 'partName')</script></span></a>
+                </h2>
                 <script>
                     detailsUpdating = false;
                     function updateDetailButtons() {
@@ -106,7 +106,9 @@
 
                 <p>
                     <b>ID: </b><a id="partId" href="#details" onclick="openFullDetails(getUrlParameter('id'));"
-                                  target="_top" title="View details and run queries">VFB_00030753</a>
+                                  target="_top" title="View details and run queries">
+                    <script>document.getElementById("partId").innerHTML = getUrlParameter('id')</script>
+                </a>
                 </p>
                 <script>document.title = 'Bi1';
                 if (history.state === null | (history.state !== null && history.state.id !== undefined && history.state.id == "VFB_00030753")) {
@@ -123,9 +125,8 @@
                 }
                 ;</script>
 
-                <p id="partDef"
-                   onload="neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1','infoDef')">
-                    <b>Definition: </b><span id="infoDef"></span>
+                <p id="partDef">
+                    <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                 </p>
 
 
