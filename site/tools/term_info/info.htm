@@ -32,10 +32,12 @@
     <div class="well-white" style="padding-top: 0px;">
         <div class="row">
             <div class="col-xs-12">
+                <p style="display: none;">
                 <h2><a href="#details"
                        onclick="openFullDetails(getUrlParameter(" id"))" title="View details and run queries"><span
                         id="partName"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.label limit 1', 'partName')</script></span></a>
                 </h2>
+                </p>
                 <script>
                     detailsUpdating = false;
                     function updateDetailButtons() {
@@ -125,15 +127,15 @@
                 }
                 ;</script>
 
-                <p>
+                <p style="display: none;">
                     <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + getUrlParameter('id') + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym return a.synonym limit 1', 'infoSyn');</script></span>
                 </p>
 
-                <p id="partDef">
+                <p id="partDef" style="display: none;">
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                 </p>
 
-                <p>
+                <p style="display: none;">
                     <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.annotation-comment[0] limit 1', 'infoComment');</script></span>
                 </p>
 
