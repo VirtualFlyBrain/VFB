@@ -4696,8 +4696,8 @@ function neoCall(cypher, htmlid) {
                 list = result.data[0];
             }
             document.getElementById(htmlid).innerHTML = list;
-            if ($(htmlid).parent('p').is(":visible") == false) {
-                $(htmlid).parent('p').show();
+            if (document.getElementById(htmlid).parent('p').is(":visible") == false) {
+                document.getElementById(htmlid).parent('p').show();
             }
         },
         error: function (xhr, err, msg) {
