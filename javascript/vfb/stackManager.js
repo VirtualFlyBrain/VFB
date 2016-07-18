@@ -4676,7 +4676,7 @@ function updateSearchResults() {
 
 function neoCall(cypher, htmlid) {
     $.ajax({
-        url: "http://vfbdev.inf.ed.ac.uk/neo4jdb/data/cypher",
+        url: "http://www.virtualflybrain.org/neo4jdb/data/cypher",
         accepts: "application/json; charset=UTF-8",
         dataType: "json",
         data: {
