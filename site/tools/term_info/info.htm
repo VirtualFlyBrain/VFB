@@ -17,6 +17,10 @@
         }
         var dq = '"';
         var localID = getUrlParameter('id');
+        if (typeof requestID !== 'undefined' && requestID !== "") {
+            localID = requestID;
+            requestID = "";
+        }
     </script>
 
 

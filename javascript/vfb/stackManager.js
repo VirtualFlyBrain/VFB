@@ -12,6 +12,7 @@ var checkCount = 0;
 var cookieMax = 4000;
 var dropItems = 0;
 var searchresults = [];
+var requestID = "";
 var engine = new Bloodhound({
     datumTokenizer: function (d) {
         return Bloodhound.tokenizers.nonword(d.syn.replace('_', ' '));
@@ -1406,7 +1407,7 @@ function openFullDetails(id) {
                             window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a', ''))) + '/', '_blank');
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         } else {
-
+                            requestID = cleanIdforExt(id);
                             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
                             $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
@@ -1428,6 +1429,7 @@ function openFullDetails(id) {
                             if (parent.$("body").data("domains")[layers].domainData.domainId && parseInt(parent.$("body").data("domains")[layers].domainData.domainId) == temp) {
                                 temp = parent.$("body").data("domains")[layers];
                                 id = cleanIdforExt(temp.extId[0]);
+                                requestID = id;
                                 $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
                                 $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + cleanIdforExt(temp.extId[0]).replace('_', ':'));
                                 //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
