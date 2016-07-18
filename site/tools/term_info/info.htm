@@ -174,11 +174,10 @@
             <div class="col-xs-12">
 
                 <p>
-                    <b>Image:</b><br>
-                    <img class="lazy" data-original="/data/VFB/i/0003/0753/thumbnail.png"
-                         onclick="openFullDetails(localID);addToStackData(localID);"
-                         alt="Open in stack viewer" style="cursor: pointer;"
-                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
+                    <b>Image:</b>
+                    <span id="infoImage"><script>if (localID.indexOf('VFB') > -1) {
+                        $('#infoImage').innerHTML = thumbnailHTMLForId(localID);
+                    }</script></span>
                     <br>
                     <b>Source:</b> <a href="/site/vfb_site/image_data_downloads.htm" target="_blank"
                                       title="Open in See the listed reference">See the listed reference</a>
