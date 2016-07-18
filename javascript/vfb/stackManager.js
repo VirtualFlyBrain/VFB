@@ -1406,6 +1406,7 @@ function openFullDetails(id) {
                             window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a', ''))) + '/', '_blank');
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         } else {
+
                             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
                             $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);

@@ -16,6 +16,7 @@
             document.getElementsByTagName("head")[0].appendChild(e);
         }
         var dq = '"';
+        var localID = getUrlParameter('id');
     </script>
 
 
@@ -23,7 +24,7 @@
     <script>
         dataLayer.push({
             'event': 'sendVirtualPageview',
-            'vpv': '/site/tools/term_info/info.htm?fbId=' + getUrlParameter('id')
+            'vpv': '/site/tools/term_info/info.htm?fbId=' + localID
         });
     </script>
     <!-- End Google Analytics -->
@@ -32,17 +33,15 @@
     <div class="well-white" style="padding-top: 0px;">
         <div class="row">
             <div class="col-xs-12">
-                <p style="display: none;">
                 <h2><a href="#details"
-                       onclick="openFullDetails(getUrlParameter(" id"))" title="View details and run queries"><span
-                        id="partName"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.label limit 1', 'partName')</script></span></a>
+                       onclick="openFullDetails(localID)" title="View details and run queries"><span
+                        id="partName"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.label limit 1', 'partName')</script></span></a>
                 </h2>
-                </p>
                 <script>
                     detailsUpdating = false;
                     function updateDetailButtons() {
                         $('#detailButtons').html(
-                                createControlsBarHTML(getUrlParameter("id"))
+                                createControlsBarHTML(localID)
                         );
                         $('#detailButtons').css('position', 'absolute');
                         $('#detailButtons').css('top', '0px');
@@ -51,7 +50,7 @@
                         buttons.each(function (index) {
                             if ($(this).html().indexOf('eye') > -1 || $(this).html().indexOf('trash') > -1 || $(this).html().indexOf('paperclip') > -1) {
                                 $(this).attr('onclick', $(this).attr('onclick') + "updateDetailButtons();");
-                                if ($(this).html().indexOf('paperclip') > -1 && parent.$('body').data('available').indexOf(getUrlParameter("id")) < 0 && getUrlParameter('id').indexOf('VFB') < 0) {
+                                if ($(this).html().indexOf('paperclip') > -1 && parent.$('body').data('available').indexOf(localID) < 0 && localID.indexOf('VFB') < 0) {
                                     $(this).attr('disabled', 'true');
                                     $(this).attr('title', 'Not labeled in this stack');
                                 }
@@ -75,7 +74,7 @@
                         <div class="btn-group" role="group">
                             <button type="button" id="infoButtonForVFB_00030753" class="btn btn-default btn-xs"
                                     aria-label="Open Details" title=""
-                                    onclick="openFullDetails(getUrlParameter('id'));jump('details');"
+                                    onclick="openFullDetails(localID);jump('details');"
                                     data-toggle="tooltip" data-placement="top" style="display: none;"
                                     data-original-title="Full Details"><span
                                     style="border:none;padding-left:0;padding-right:0;"
@@ -107,9 +106,9 @@
                 </div>
 
                 <p>
-                    <b>ID: </b><a id="partId" href="#details" onclick="openFullDetails(getUrlParameter('id'));"
+                    <b>ID: </b><a id="partId" href="#details" onclick="openFullDetails(localID);"
                                   target="_top" title="View details and run queries">
-                    <script>document.getElementById("partId").innerHTML = getUrlParameter('id')</script>
+                    <script>document.getElementById("partId").innerHTML = localID</script>
                 </a>
                 </p>
                 <script>document.title = 'Bi1';
@@ -128,15 +127,15 @@
                 ;</script>
 
                 <p style="display: none;">
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + getUrlParameter('id') + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym return a.synonym limit 1', 'infoSyn');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym return a.synonym limit 1', 'infoSyn');</script></span>
                 </p>
 
                 <p id="partDef" style="display: none;">
-                    <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
+                    <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                 </p>
 
                 <p style="display: none;">
-                    <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.annotation-comment[0] limit 1', 'infoComment');</script></span>
+                    <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.annotation-comment[0] limit 1', 'infoComment');</script></span>
                 </p>
 
                 <p>
@@ -173,9 +172,9 @@
                 <p>
                     <b>Image:</b><br>
                     <img class="lazy" data-original="/data/VFB/i/0003/0753/thumbnail.png"
-                         onclick="openFullDetails(getUrlParameter(" id"));addToStackData(getUrlParameter("id"));"
-                    alt="Open in stack viewer" style="cursor: pointer;"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
+                         onclick="openFullDetails(localID);addToStackData(localID);"
+                         alt="Open in stack viewer" style="cursor: pointer;"
+                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
                     <br>
                     <b>Source:</b> <a href="/site/vfb_site/image_data_downloads.htm" target="_blank"
                                       title="Open in See the listed reference">See the listed reference</a>
