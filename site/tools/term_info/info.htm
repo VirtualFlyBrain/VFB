@@ -15,6 +15,7 @@
             e.type = "text/javascript";
             document.getElementsByTagName("head")[0].appendChild(e);
         }
+        var dq = '"';
     </script>
 
 
@@ -32,7 +33,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2><a href="#details"
-                       onload="neoCall('MATCH (a) where a.short_form = &quot;' + getUrlParameter('id') + '&quot; return a.label limit 1','partName')"
+                       onload="neoCall('MATCH (a) where a.short_form = '+ dq + getUrlParameter('id') + dq + ' return a.label limit 1','partName')"
                        onclick="openFullDetails(getUrlParameter(" id"))" title="View details and run queries"><span
                         id="partName"></span></a></h2>
                 <script>
@@ -123,7 +124,7 @@
                 ;</script>
 
                 <p id="partDef"
-                   onload="neoCall('MATCH (a) where a.short_form = &quot;' + getUrlParameter('id') + '&quot; return a.description[0] limit 1','infoDef')">
+                   onload="neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.description[0] limit 1','infoDef')">
                     <b>Definition: </b><span id="infoDef"></span>
                 </p>
 
