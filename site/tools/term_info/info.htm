@@ -131,7 +131,7 @@
                 ;</script>
 
                 <p style="display: none;">
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym return a.synonym limit 1', 'infoSyn');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym', 'infoSyn');</script></span>
                 </p>
 
                 <p id="partDef" style="display: none;">
