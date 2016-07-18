@@ -1425,7 +1425,7 @@ function updateLabels() {
                 content = cleanIdforExt($(this).data('id'));
                 switch (content.substr(0, 4)) {
                     case "VFB_":
-                        $(this).load('/do/ont_bean.html?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
+                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
                             if (status == "error") {
                                 if ($(this).data('retrys')) {
                                     $(this).data('retrys', $(this).data('retrys') + 1);
@@ -1452,7 +1452,7 @@ function updateLabels() {
                         parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
                         break;
                     case "FBbt":
-                        $(this).load('/do/ont_bean.html?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
+                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
                             if (status == "error") {
                                 if ($(this).data('retrys')) {
                                     $(this).data('retrys', $(this).data('retrys') + 1);
@@ -1482,7 +1482,7 @@ function updateLabels() {
                 content = cleanIdforExt(content);
                 switch (content.substr(0, 4)) {
                     case "VFB_":
-                        $(this).load('/do/ont_bean.html?id=' + content.replace('_', ':') + ' #partParent', function (response, status, xhr) {
+                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partParent', function (response, status, xhr) {
                             if (status == "error") {
                                 if ($(this).data('retrys')) {
                                     $(this).data('retrys', $(this).data('retrys') + 1);
@@ -1501,7 +1501,7 @@ function updateLabels() {
                                 }
                             }
                         });
-                        $("#parentIdFor" + $(this).data('id')).load('/do/ont_bean.html?id=' + content.replace('_', ':') + ' #partParentId', function (response, status, xhr) {
+                        $("#parentIdFor" + $(this).data('id')).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partParentId', function (response, status, xhr) {
                             if (status == "error") {
                                 if ($(this).data('retrys')) {
                                     $(this).data('retrys', $(this).data('retrys') + 1);

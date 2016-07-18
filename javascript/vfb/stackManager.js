@@ -1407,7 +1407,7 @@ function openFullDetails(id) {
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         } else {
                             $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-                            $('#anatomyDetails').load("/do/ont_bean.html?id=" + id.replace('_', ':'));
+                            $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         }
                     } else if (id.indexOf("FB") > -1) {
@@ -1428,7 +1428,7 @@ function openFullDetails(id) {
                                 temp = parent.$("body").data("domains")[layers];
                                 id = cleanIdforExt(temp.extId[0]);
                                 $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-                                $('#anatomyDetails').load("/do/ont_bean.html?id=" + cleanIdforExt(temp.extId[0]).replace('_', ':'));
+                                $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + cleanIdforExt(temp.extId[0]).replace('_', ':'));
                                 //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(temp.extId[0]) );}catch (ignore){}}, 500);
                                 break;
                             }
@@ -4672,6 +4672,37 @@ function updateSearchResults() {
         }
     }
     checkSearchValue();
+}
+
+function neoCall(cypher, htmlid) {
+    $.ajax({
+        url: "http://vfbdev.inf.ed.ac.uk/neo4jdb/data/cypher",
+        accepts: "application/json; charset=UTF-8",
+        dataType: "json",
+        data: {
+            "query": cypher,
+            "params": {}
+        },
+        type: "POST",
+        success: function (result, xhr, status) {
+            console.log(result);
+            var list = "";
+            if (result.data.length > 1) {
+                result.data.forEach(function (item) {
+                        list += "<li>" + item[0] + "</li>";
+                    }
+                );
+            } else {
+                list = result.data[0];
+            }
+            document.getElementById(htmlid).innerHTML = list;
+        },
+        error: function (xhr, err, msg) {
+            console.log(xhr);
+            console.log(err);
+            console.log(msg);
+        }
+    });
 }
 
 $('body').ready(function () {

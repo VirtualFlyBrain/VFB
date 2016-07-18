@@ -1,0 +1,197 @@
+<div id="anatomyDetails">
+
+    <script>
+
+        window.onload(function () {
+            // jquery check
+            if (typeof $ == "undefined") {
+                var e = document.createElement("script");
+                e.src = "/javascript/vfb/stackManager.js";
+                e.type = "text/javascript";
+                document.getElementsByTagName("head")[0].appendChild(e);
+            }
+            // StackViewer Check
+            if (typeof lastkey == "undefined") {
+                var e = document.createElement("script");
+                e.src = "//code.jquery.com/jquery-1.11.3.min.js";
+                e.type = "text/javascript";
+                document.getElementsByTagName("head")[0].appendChild(e);
+            }
+        });
+    </script>
+
+    <script>
+
+        window.onload(function () {
+
+        });
+    </script>
+
+
+    <!-- Google Analytics -->
+    <script>
+        dataLayer.push({
+            'event': 'sendVirtualPageview',
+            'vpv': '/site/tools/term_info/info.htm?fbId=' + getUrlParameter('id')
+        });
+    </script>
+    <!-- End Google Analytics -->
+
+
+    <div class="well-white" style="padding-top: 0px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2><a href="#details"
+                       onload="neoCall('MATCH (a) where a.short_form = &quot;' + getUrlParameter('id') + '&quot; return a.label limit 1','partName')"
+                       onclick="openFullDetails(getUrlParameter(" id"))" title="View details and run queries"><span
+                        id="partName"></span></a></h2>
+                <script>
+                    detailsUpdating = false;
+                    function updateDetailButtons() {
+                        $('#detailButtons').html(
+                                createControlsBarHTML(getUrlParameter("id"))
+                        );
+                        $('#detailButtons').css('position', 'absolute');
+                        $('#detailButtons').css('top', '0px');
+                        $('#detailButtons').css('right', '5px');
+                        buttons = $('#detailButtons > div > div > button');
+                        buttons.each(function (index) {
+                            if ($(this).html().indexOf('eye') > -1 || $(this).html().indexOf('trash') > -1 || $(this).html().indexOf('paperclip') > -1) {
+                                $(this).attr('onclick', $(this).attr('onclick') + "updateDetailButtons();");
+                                if ($(this).html().indexOf('paperclip') > -1 && parent.$('body').data('available').indexOf(getUrlParameter("id")) < 0 && getUrlParameter('id').indexOf('VFB') < 0) {
+                                    $(this).attr('disabled', 'true');
+                                    $(this).attr('title', 'Not labeled in this stack');
+                                }
+                            }
+                        });
+                        buttons.first().hide();
+                        $('button.btn').each(function (index) {
+                            $(this).attr('data-toggle', 'tooltip');
+                            $(this).attr('data-placement', 'top');
+                            $(this).tooltip();
+                        });
+                    }
+                    ;
+                    $('body').ready(function () {
+                        updateDetailButtons();
+                    });
+                </script>
+                <div id="detailButtons" style="position:absolute;top:0px;right:5px;">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="control buttons"
+                         style="width:150px;">
+                        <div class="btn-group" role="group">
+                            <button type="button" id="infoButtonForVFB_00030753" class="btn btn-default btn-xs"
+                                    aria-label="Open Details" title=""
+                                    onclick="openFullDetails(getUrlParameter('id'));jump('details');"
+                                    data-toggle="tooltip" data-placement="top" style="display: none;"
+                                    data-original-title="Full Details"><span
+                                    style="border:none;padding-left:0;padding-right:0;"
+                                    class="glyphicon glyphicon-info-sign"></span></button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default btn-xs" aria-label="Show" title=""
+                                    onclick="parent.$('body').data('VFBt_001').selected[2].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();try{ga('send', 'event', 'viewer', 'show', 'Bi1');}catch(ignore){}updateDetailButtons();"
+                                    data-toggle="tooltip" data-placement="top" data-original-title="Show"><span
+                                    style="border:none;padding-left:0;padding-right:0;"
+                                    class="glyphicon glyphicon-eye-close"></span></button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" data-index="2" data-status="created"
+                                    class="btn btn-default btn-xs colorpicker-element" aria-label="Adjust Colour"
+                                    title="" style="background:rgb(255,0,255);" data-toggle="tooltip"
+                                    data-placement="top" data-original-title="Adjust Colour"><span
+                                    style="border:none;padding-left:0;padding-right:0;"
+                                    class="glyphicon glyphicon-tint"></span></button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default btn-xs" aria-label="Remove" title=""
+                                    onclick="removeFromStackData('VFBi_00030753');updateWlzDisplay();updateMenuData();updateDetailButtons();"
+                                    data-toggle="tooltip" data-placement="top" data-original-title="Remove"><span
+                                    style="border:none;padding-left:0;padding-right:0;"
+                                    class="glyphicon glyphicon-trash"></span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <b>ID: </b><a id="partId" href="#details" onclick="openFullDetails(getUrlParameter('id'));"
+                                  target="_top" title="View details and run queries">VFB_00030753</a>
+                </p>
+                <script>document.title = 'Bi1';
+                if (history.state === null | (history.state !== null && history.state.id !== undefined && history.state.id == "VFB_00030753")) {
+                    history.replaceState({"id": "VFB_00030753"}, "Bi1", "/site/stacks/index.htm?id=VFB_00030753");
+                } else {
+                    history.pushState({"id": "VFB_00030753"}, "Bi1", "/site/stacks/index.htm?id=VFB_00030753");
+                }
+                ;
+                detailLoad = false;
+                if (typeof jump !== 'undefined' && $.isFunction(jump)) {
+                    jump('details')
+                } else {
+                    history.go();
+                }
+                ;</script>
+
+                <p id="partDef"
+                   onload="neoCall('MATCH (a) where a.short_form = &quot;' + getUrlParameter('id') + '&quot; return a.description[0] limit 1','infoDef')">
+                    <b>Definition: </b><span id="infoDef"></span>
+                </p>
+
+
+                <p>
+                    <b>References: </b><br>
+                </p>
+                <div id="partRefs">
+                    <ul>
+                        <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/26854012" title="PubMed ref PMID:26854012"
+                               target="_blank">PubMed ref PMID:26854012</a></li>
+                    </ul>
+                </div>
+                <p></p>
+
+
+                <p>
+                    <b>Parent classes: </b><br>
+                </p>
+                <div id="partParents">
+                    <ul>
+
+
+                        <span class="hide" id="partParentId">FBbt:00111465</span>
+                        <a href="#details" onclick="openFullDetails('FBbt:00111465');" title="Look up"
+                           target="_top"><span id="partParent"><li>antennal mechanosensory and motor center local AMMC Bi1 neuron</li></span></a>
+
+                    </ul>
+                </div>
+                <p></p>
+
+
+            </div>
+            <div class="col-xs-12">
+
+                <p>
+                    <b>Image:</b><br>
+                    <img class="lazy" data-original="/data/VFB/i/0003/0753/thumbnail.png"
+                         onclick="openFullDetails(getUrlParameter(" id"));addToStackData(getUrlParameter("id"));"
+                    alt="Open in stack viewer" style="cursor: pointer;"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
+                    <br>
+                    <b>Source:</b> <a href="/site/vfb_site/image_data_downloads.htm" target="_blank"
+                                      title="Open in See the listed reference">See the listed reference</a>
+                    <br>
+                    <br>
+                    <span id="ResolvedImageViewerOpen" data-id="VFB_00030753" data-name="Bi1"><button
+                            class="btn btn-sm btn-success"
+                            onclick="post('/site/stacks/index.htm',{'add':'VFBi_00030753'});" title=""
+                            data-toggle="tooltip" data-placement="top" data-original-title="Open Bi1 in stack viewer">Open Bi1 in stack viewer</button></span>
+                    <br>
+                </p>
+
+
+            </div>
+        </div>
+        <script>
+
+        </script>
+    </div>
+</div>
