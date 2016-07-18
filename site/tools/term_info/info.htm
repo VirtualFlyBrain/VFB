@@ -126,7 +126,7 @@
                 ;</script>
 
                 <p>
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (a) where a.short_form = ' + dq + getUrlParameter('id') + dq + ' return a.synonym limit 1', 'infoDef');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + getUrlParameter('id') + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym return a.synonym limit 1', 'infoSyn');</script></span>
                 </p>
 
                 <p id="partDef">
