@@ -117,7 +117,7 @@
 
 
                 <p style="display: none;">
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym', 'infoSyn');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
                 </p>
 
                 <p id="partDef" style="display: none;">
@@ -128,17 +128,19 @@
                     <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.annotation-comment[0] limit 1', 'infoComment');</script></span>
                 </p>
 
-                <p>
-                    <b>References: </b><br>
-                </p>
-                <div id="partRefs">
-                    <ul>
-                        <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/26854012" title="PubMed ref PMID:26854012"
-                               target="_blank">PubMed ref PMID:26854012</a></li>
-                    </ul>
+                <p style="display: none;">
+                    <b>Relationships: </b><br>
+                <div id="partRel">
+                    <script>neoCall('MATCH (n:VFB:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label <> "type" RETURN r.label + " <a href=\"#details\" onclick=\"openFullDetails(\"" + sc.short_form + "\");\" title=\"Look up\" target=\"_top\">" + sc.label + "</a> " + "(" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ")" as type', 'partRefs');</script>
                 </div>
-                <p></p>
+                </p>
 
+                <p style="display: none;">
+                    <b>References: </b><br>
+                <div id="partRefs">
+
+                </div>
+                </p>
 
                 <p>
                     <b>Type: </b>
@@ -150,7 +152,7 @@
 
 
             </div>
-            <div class="col-xs-12">
+            <div class="col-md-6">
 
                 <p>
                     <b>Image:</b>
