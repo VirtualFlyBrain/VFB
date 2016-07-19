@@ -129,6 +129,16 @@
                 </p>
 
                 <p style="display: none;">
+                    <b>Type: </b>
+                    <span id="partParent">
+                        <script>
+                            neoCall('MATCH (n:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\\"" + sc.short_form + "\\");\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'partParent');
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "part of" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\\"" + sc.short_form + "\\");\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'partParent');
+                        </script>
+                    </span>
+                </p>
+
+                <p style="display: none;">
                     <b>Relationships: </b><br>
                 <div id="partRel">
                     <script>neoCall('MATCH (n:VFB:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label <> "type" RETURN r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\\"" + sc.short_form + "\\");\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ")" as type', 'partRefs');</script>
@@ -137,11 +147,6 @@
 
                 <p style="display: none;">
                     <b>References: </b><br>
-                </p>
-
-                <p style="display: none;">
-                    <b>Type: </b>
-                    <span id="partParent"><script>neoCall('MATCH (n:VFB:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\\"" + sc.short_form + "\\");\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'partParent');</script></span>
                 </p>
 
                 <p style="display: none;">
