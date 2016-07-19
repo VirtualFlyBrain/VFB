@@ -4688,7 +4688,6 @@ function neoCall(cypher, htmlid) {
         },
         type: "POST",
         success: function (result, xhr, status) {
-            console.log(result);
             var list = "";
             if (result.data.length > 1) {
                 result.data.forEach(function (item) {
@@ -4717,6 +4716,69 @@ function neoCall(cypher, htmlid) {
                 } else {
                     history.go();
                 }
+            }
+        },
+        error: function (xhr, err, msg) {
+            console.log(xhr);
+            console.log(err);
+            console.log(msg);
+        }
+    });
+}
+
+function genExamples(rootID, htmlid) {
+    $.ajax({
+        url: "http://www.virtualflybrain.org/neo4jdb/data/cypher",
+        accepts: "application/json; charset=UTF-8",
+        dataType: "json",
+        data: {
+            "query": 'MATCH (n { short_form: "' + rootID + '" } )<-[:SUBCLASSOF|INSTANCEOF*]-(i:Individual) RETURN i.short_form as exId, i.label as exName',
+            "params": {}
+        },
+        type: "POST",
+        success: function (result, xhr, status) {
+            var count = result.data.length;
+            var html = "";
+            var i = 0;
+            var index = [];
+            html += '<div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;"><span class="sr-only">' + count + ' Images Found.<br></span>';
+            html += '<div id="exampleImages' + rootID + '" class="carousel" data-ride="carousel" data-interval="20000" style="width:350px;">';
+            html += '<ol class="carousel-indicators" style="height: 25px;">';
+            for (i = 0; i < count && i < 7; i++) {
+                html += '<li data-target="#exampleImages' + rootID + '" data-slide-to="' + i + '" class=""></li>';
+            }
+            html += '</ol>';
+            html += '<div class="carousel-inner">';
+            i = 0;
+            result.data.forEach(function (item) {
+                if (i < 7) {
+                    html += '<div class="item">';
+                    html += thumbnailHTMLForId(item[0]);
+                    html += '<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open Bi1 in viewer" onclick="openFullDetails(\'' + item[0] + '\');addToStackData(\'' + item[0] + '\');">';
+                    html += '<b>' + item[1] + '</b><br>';
+                    html += '<span class="small">' + item[0] + '</span>';
+                    html += '</div></div>';
+                }
+                index[i] = item[0];
+                i++;
+            }
+
+            html += '</div>';
+
+            html += '<a class="left carousel-control" href="#exampleImages' + rootID + '" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>';
+            html += '<a class="right carousel-control" href="#exampleImages' + rootID + '" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>';
+
+            html += '</div>';
+
+            html += '<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onclick="addToStackData(\'' + "".join(index, ',') + '\');" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open all in stack viewer">Open <span class="badge">' + count + '</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onclick="window.location.href=\'/do/individual_list.html?action=exemplar_neuron&amp;id=FBbt:00003988\'" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open a list of all results">List all <span class="badge">' + count + '</span></button></div></div>';
+
+            html += '</div>';
+
+            if (count > 0) {
+                document.getElementById(htmlid).innerHTML = html;
+            }
+            if ($('#' + htmlid).parent('div').is(":visible") == false && list !== "undefined" && list !== undefined && list !== "") {
+                $('#' + htmlid).parent('div').show();
             }
         },
         error: function (xhr, err, msg) {
