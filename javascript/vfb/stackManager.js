@@ -4698,7 +4698,9 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            document.getElementById(htmlid).innerHTML = list;
+            if (list !== "undefined" && list !== undefined) {
+                document.getElementById(htmlid).innerHTML = list;
+            }
             if ($('#' + htmlid).parent('p').is(":visible") == false && list !== "undefined" && list !== undefined) {
                 $('#' + htmlid).parent('p').show();
             }
