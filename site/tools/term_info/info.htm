@@ -125,7 +125,7 @@
                 </p>
 
                 <p style="display: none;">
-                    <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.annotation-comment[0] limit 1', 'infoComment');</script></span>
+                    <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = "' + localID + '" return a.`annotation-comment`[0] limit 1', 'infoComment');</script></span>
                 </p>
 
                 <p style="display: none;">
