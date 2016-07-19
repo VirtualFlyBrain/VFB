@@ -4702,6 +4702,20 @@ function neoCall(cypher, htmlid) {
             if ($('#' + htmlid).parent('p').is(":visible") == false && list !== "undefined" && list !== undefined) {
                 $('#' + htmlid).parent('p').show();
             }
+            if (htmlid == "partName") {
+                document.title = $('#partName').text();
+                if (history.state === null | (history.state !== null && history.state.id !== undefined && history.state.id == localID)) {
+                    history.replaceState({"id": localID}, document.title, "/site/stacks/index.htm?id=" + localID);
+                } else {
+                    history.pushState({"id": localID}, document.title, "/site/stacks/index.htm?id=" + localID);
+                }
+                detailLoad = false;
+                if (typeof jump !== 'undefined' && $.isFunction(jump)) {
+                    jump('details')
+                } else {
+                    history.go();
+                }
+            }
         },
         error: function (xhr, err, msg) {
             console.log(xhr);

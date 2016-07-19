@@ -36,7 +36,7 @@
 
     <div class="well-white" style="padding-top: 0px;">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-6">
                 <h2><a href="#details"
                        onclick="openFullDetails(localID)" title="View details and run queries"><span
                         id="partName"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.label limit 1', 'partName')</script></span></a>
@@ -114,21 +114,7 @@
                                   target="_top" title="View details and run queries">
                     <script>document.getElementById("partId").innerHTML = localID</script>
                 </a>
-                </p>
-                <script>document.title = 'Bi1';
-                if (history.state === null | (history.state !== null && history.state.id !== undefined && history.state.id == "VFB_00030753")) {
-                    history.replaceState({"id": "VFB_00030753"}, "Bi1", "/site/stacks/index.htm?id=VFB_00030753");
-                } else {
-                    history.pushState({"id": "VFB_00030753"}, "Bi1", "/site/stacks/index.htm?id=VFB_00030753");
-                }
-                ;
-                detailLoad = false;
-                if (typeof jump !== 'undefined' && $.isFunction(jump)) {
-                    jump('details')
-                } else {
-                    history.go();
-                }
-                ;</script>
+
 
                 <p style="display: none;">
                     <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI)+ ")" as synonym', 'infoSyn');</script></span>
