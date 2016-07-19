@@ -4776,10 +4776,11 @@ function genExamples(rootID, htmlid) {
 
             if (count > 0) {
                 document.getElementById(htmlid).innerHTML = html;
+                if ($('#' + htmlid).parent('div').is(":visible") == false) {
+                    $('#' + htmlid).parent('div').show();
+                }
             }
-            if ($('#' + htmlid).parent('div').is(":visible") == false && list !== "undefined" && list !== undefined && list !== "") {
-                $('#' + htmlid).parent('div').show();
-            }
+
         },
         error: function (xhr, err, msg) {
             console.log(xhr);
