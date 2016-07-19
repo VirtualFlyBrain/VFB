@@ -155,19 +155,12 @@
 
 
                 <p>
-                    <b>Parent classes: </b><br>
-                </p>
+                    <b>Type: </b>
                 <div id="partParents">
-                    <ul>
-
-
-                        <span class="hide" id="partParentId">FBbt:00111465</span>
-                        <a href="#details" onclick="openFullDetails('FBbt:00111465');" title="Look up"
-                           target="_top"><span id="partParent"><li>antennal mechanosensory and motor center local AMMC Bi1 neuron</li></span></a>
-
-                    </ul>
+                    <span class="hide" id="partParentId"></span>
+                    <span id="partParent"><script>neoCall('MATCH (n:VFB:Individual { short_form: "VFB_00000001" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\"#details\" onclick=\"openFullDetails(\"' + sc.short_form + '\");\" title=\"Look up\" target=\"_top\">' + sc.label + '</a>" as type', 'partParent');</script></span>
                 </div>
-                <p></p>
+                </p>
 
 
             </div>
