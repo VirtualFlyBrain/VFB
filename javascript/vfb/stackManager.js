@@ -4698,10 +4698,10 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined) {
+            if (list !== "undefined" && list !== undefined && list !== "") {
                 document.getElementById(htmlid).innerHTML = list;
             }
-            if ($('#' + htmlid).parent('p').is(":visible") == false && list !== "undefined" && list !== undefined) {
+            if ($('#' + htmlid).parent('p').is(":visible") == false && list !== "undefined" && list !== undefined && list !== "") {
                 $('#' + htmlid).parent('p').show();
             }
             if (htmlid == "partName") {
