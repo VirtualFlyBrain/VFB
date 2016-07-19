@@ -4761,7 +4761,7 @@ function genExamples(rootID, htmlid) {
                 }
                 index[i] = item[0];
                 i++;
-            }
+            });
 
             html += '</div>';
 
