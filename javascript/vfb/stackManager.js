@@ -4756,7 +4756,11 @@ function genExamples(rootID, htmlid) {
             i = 0;
             result.data.forEach(function (item) {
                 if (i < 7) {
-                    html += '<div class="item">';
+                    html += '<div class="item';
+                    if (i==0){
+                        html += ' active';
+                    }
+                    html += '">';
                     html += thumbnailHTMLForId(item[0]).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('click to see full details',item[1]+' ('+item[0]+')').replace('/>','style="width: 350px; cursor: pointer; display: block;" />');
                     html += '<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ' + item[1] + ' in viewer" onclick="openFullDetails(\'' + item[0] + '\');addToStackData(\'' + item[0] + '\');">';
                     html += '<b>' + item[1] + '</b><br>';
