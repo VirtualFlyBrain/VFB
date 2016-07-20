@@ -4742,7 +4742,7 @@ function genExamples(rootID, htmlid) {
             var i = 0;
             var index = [];
             html += '<div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;"><span class="sr-only">' + count + ' Images Found.<br></span>';
-            html += '<div id="exampleImages' + rootID + '" class="carousel" data-ride="carousel" data-interval="20000" style="width:350px;">';
+            html += '<div id="exampleImages' + rootID + '" class="carousel" data-ride="carousel" data-interval="20000" style="width:350px;min-height:100px;">';
             html += '<ol class="carousel-indicators" style="height: 25px;">';
             for (i = 0; i < count && i < 7; i++) {
                 html += '<li data-target="#exampleImages' + rootID + '" data-slide-to="' + i + '" class=""></li>';
