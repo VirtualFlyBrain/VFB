@@ -150,7 +150,7 @@
                 </p>
 
                 <p style="display: none;">
-                    <b>Image:</b>
+                    <b>Image:</b><br>
                     <span id="infoImage"><script>if (localID.indexOf('VFB') > -1) {
                         $('#infoImage').html(thumbnailHTMLForId(localID).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('display: inline;','width: 350px; cursor: pointer; display: block;'));
                         $('#infoImage').parent('p').show();
@@ -168,7 +168,7 @@
                 </p>
 
                 <div style="display: none;">
-                    <b>Examples:</b>
+                    <b>Examples:</b><br>
                     <span id="infoExamp">
                         <script>
                             genExamples(localID, "infoExamp");
