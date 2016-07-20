@@ -130,10 +130,10 @@
 
                 <p style="display: none;">
                     <b>Type: </b>
-                    <span id="partParent">
+                    <span id="infoType">
                         <script>
-                            neoCall('MATCH (n:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'partParent');
-                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'partParent');
+                            neoCall('MATCH (n:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'infoType');
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>" as type', 'infoType');
                         </script>
                     </span>
                 </p>
