@@ -122,6 +122,11 @@
 
                 <p id="partDef" style="display: none;">
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
+                    <span id="infoDefRef">
+                        <script>
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ")" as ref','infoDefRef')
+                        </script>
+                    </span>
                 </p>
 
                 <p style="display: none;">
