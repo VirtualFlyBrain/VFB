@@ -4697,7 +4697,7 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && list.trim() !== "") {
+            if (list !== "undefined" && list !== undefined && $.trim(list) !== "") {
                 $('#' + htmlid).html(list);
                 if ($('#' + htmlid).parent('p').is(":visible") == false) {
                     $('#' + htmlid).parent('p').show();
