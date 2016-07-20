@@ -4754,7 +4754,7 @@ function genExamples(rootID, htmlid) {
                 if (i < 7) {
                     html += '<div class="item">';
                     html += thumbnailHTMLForId(item[0]);
-                    html += '<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open Bi1 in viewer" onclick="openFullDetails(\'' + item[0] + '\');addToStackData(\'' + item[0] + '\');">';
+                    html += '<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ' + item[1] + ' in viewer" onclick="openFullDetails(\'' + item[0] + '\');addToStackData(\'' + item[0] + '\');">';
                     html += '<b>' + item[1] + '</b><br>';
                     html += '<span class="small">' + item[0] + '</span>';
                     html += '</div></div>';
