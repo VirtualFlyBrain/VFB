@@ -124,7 +124,7 @@
                 <p style="display: none;">
                     <b>Image:</b><br>
                     <span id="infoImage"><script>if (localID.indexOf('VFB') > -1) {
-                        $('#infoImage').html(thumbnailHTMLForId(localID).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('/>','style="width: 350px; cursor: pointer; display: block;" />').replace('/>',' onerror="$('#infoImage').parent('p').hide();" />'));
+                        $('#infoImage').html(thumbnailHTMLForId(localID).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('/>','style="width: 350px; cursor: pointer; display: block;" />').replace('/>',' onerror="$(\'#infoImage\').parent(\'p\').hide();" />'));
                         $('#infoImage').parent('p').show();
                     }</script></span>
                     <br>
