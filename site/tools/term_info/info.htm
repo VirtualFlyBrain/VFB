@@ -117,14 +117,14 @@
 
 
                 <p style="display: none;">
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
                 </p>
 
                 <p id="partDef" style="display: none;">
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                     <span id="infoDefRef">
                         <script>
-                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ")" as ref','infoDefRef')
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ")" as ref','infoDefRef')
                         </script>
                     </span>
                 </p>
@@ -147,8 +147,8 @@
                     <b>Relationships: </b><br>
                     <span id="partRel">
                         <script>
-                            neoCall('MATCH (n:VFB:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label <> "type" RETURN r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ") <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'partRel');
-                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label <> "is a" RETURN  r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" + coalesce(sc.miniref,sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed") + ") <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'partRel');   
+                            neoCall('MATCH (n:VFB:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label <> "type" RETURN r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ") <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'partRel');
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label <> "is a" RETURN  r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, "Unattributed")+ ") <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'partRel');   
                         </script>
                     </span>
                 </p>
