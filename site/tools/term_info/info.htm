@@ -43,71 +43,35 @@
                 </h2>
                 <script>
                     detailsUpdating = false;
-                    function updateDetailButtons() {
-                        $('#detailButtons').html(
-                                createControlsBarHTML(localID)
-                        );
-                        $('#detailButtons').css('position', 'absolute');
-                        $('#detailButtons').css('top', '0px');
-                        $('#detailButtons').css('right', '5px');
-                        buttons = $('#detailButtons > div > div > button');
-                        buttons.each(function (index) {
-                            if ($(this).html().indexOf('eye') > -1 || $(this).html().indexOf('trash') > -1 || $(this).html().indexOf('paperclip') > -1) {
-                                $(this).attr('onclick', $(this).attr('onclick') + "updateDetailButtons();");
-                                if ($(this).html().indexOf('paperclip') > -1 && parent.$('body').data('available').indexOf(localID) < 0 && localID.indexOf('VFB') < 0) {
-                                    $(this).attr('disabled', 'true');
-                                    $(this).attr('title', 'Not labeled in this stack');
-                                }
-                            }
-                        });
-                        buttons.first().hide();
-                        $('button.btn').each(function (index) {
-                            $(this).attr('data-toggle', 'tooltip');
-                            $(this).attr('data-placement', 'top');
-                            $(this).tooltip();
-                        });
-                    }
-                    ;
-                    $('body').ready(function () {
-                        updateDetailButtons();
-                    });
-                </script>
-                <div id="detailButtons" style="position:absolute;top:0px;right:5px;">
-                    <div class="btn-group btn-group-justified" role="group" aria-label="control buttons"
-                         style="width:150px;">
-                        <div class="btn-group" role="group">
-                            <button type="button" id="infoButtonForVFB_00030753" class="btn btn-default btn-xs"
-                                    aria-label="Open Details" title=""
-                                    onclick="openFullDetails(localID);jump('details');"
-                                    data-toggle="tooltip" data-placement="top" style="display: none;"
-                                    data-original-title="Full Details"><span
-                                    style="border:none;padding-left:0;padding-right:0;"
-                                    class="glyphicon glyphicon-info-sign"></span></button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default btn-xs" aria-label="Show" title=""
-                                    onclick="parent.$('body').data('VFBt_001').selected[2].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();try{ga('send', 'event', 'viewer', 'show', 'Bi1');}catch(ignore){}updateDetailButtons();"
-                                    data-toggle="tooltip" data-placement="top" data-original-title="Show"><span
-                                    style="border:none;padding-left:0;padding-right:0;"
-                                    class="glyphicon glyphicon-eye-close"></span></button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" data-index="2" data-status="created"
-                                    class="btn btn-default btn-xs colorpicker-element" aria-label="Adjust Colour"
-                                    title="" style="background:rgb(255,0,255);" data-toggle="tooltip"
-                                    data-placement="top" data-original-title="Adjust Colour"><span
-                                    style="border:none;padding-left:0;padding-right:0;"
-                                    class="glyphicon glyphicon-tint"></span></button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default btn-xs" aria-label="Remove" title=""
-                                    onclick="removeFromStackData('VFBi_00030753');updateWlzDisplay();updateMenuData();updateDetailButtons();"
-                                    data-toggle="tooltip" data-placement="top" data-original-title="Remove"><span
-                                    style="border:none;padding-left:0;padding-right:0;"
-                                    class="glyphicon glyphicon-trash"></span></button>
-                        </div>
-                    </div>
-                </div>
+    				function updateDetailButtons(){
+    					$('#detailButtons').html(
+    						createControlsBarHTML('${ontBean.fbbtIdAsOWL}')
+    					);
+    					$('#detailButtons').css('position','absolute');
+    					$('#detailButtons').css('top','0px');
+    					$('#detailButtons').css('right','5px');
+    					buttons=$('#detailButtons > div > div > button');
+    					buttons.each(function(index){
+    						if ($(this).html().indexOf('eye')>-1 || $(this).html().indexOf('trash')>-1 || $(this).html().indexOf('paperclip')>-1){
+    							$(this).attr('onclick',$(this).attr('onclick') + "updateDetailButtons();");
+    							if ($(this).html().indexOf('paperclip')>-1 && parent.$('body').data('available').indexOf(localID)<0 && localID.indexOf('VFB')<0){
+    								$(this).attr('disabled','true');
+    								$(this).attr('title','Not labeled in this stack');
+    							}
+    						}
+    					});
+    					buttons.first().hide();
+    					$('button.btn').each(function(index){$(this).attr('data-toggle','tooltip');
+    						$(this).attr('data-placement','top');
+    						$(this).tooltip();
+    					});
+    				};
+    				$('body').ready( function () {
+    					updateDetailButtons();
+    				});
+    			</script>
+			    <div id="detailButtons" style="position:absolute;top:0px;right:5px;"></div>
+            
 
                 <p>
                     <b>ID: </b><a id="partId" href="#details" onclick="openFullDetails(localID);"
