@@ -132,11 +132,18 @@
                                       title="Open in See the listed reference">See the listed reference</a>
                     <br>
                     <br>
-                    <span id="ResolvedImageViewerOpen" data-id="VFB_00030753" data-name="Bi1"><button
+                    <span id="ResolvedImageViewerOpen" data-id="VFB_00030753" data-name="Image"><button
                             class="btn btn-sm btn-success"
                             onclick="post('/site/stacks/index.htm',{'add':'VFBi_00030753'});" title=""
-                            data-toggle="tooltip" data-placement="top" data-original-title="Open Bi1 in stack viewer">Open Bi1 in stack viewer</button></span>
+                            data-toggle="tooltip" data-placement="top" data-original-title="Open in stack viewer">Open in stack viewer</button></span>
                     <br>
+                    <script>
+                    	$('#ResolvedImageViewerOpen').data().id=localID;
+             		$('#ResolvedImageViewerOpen').data().name=$('#partName').text();
+             		$('#ResolvedImageViewerOpen').data().original-title='Open '+$('#partName').text()+' in stack viewer';
+             		$('#ResolvedImageViewerOpen').onclick("addToStackData('"+localID+"')");
+             		$('#ResolvedImageViewerOpen').html('Open '+$('#partName').text()+' in stack viewer');
+                    </script>
                 </p>
 
                 <div style="display: none;">
