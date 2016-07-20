@@ -4779,7 +4779,7 @@ function genExamples(rootID, htmlid) {
 
             html += '</div>';
 
-            html += '<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onclick="addToStackData(\'' + index.join(',') + '\');" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open all in stack viewer">Open <span class="badge">' + count + '</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onclick="window.location.href=\'/do/individual_list.html?action=exemplar_neuron&amp;id=FBbt:00003988\'" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open a list of all results">List all <span class="badge">' + count + '</span></button></div></div>';
+            html += '<div class="btn-group btn-group-justified" role="group" aria-label="open example images" style="width:350px"><div class="btn-group" role="group"><button type="button" onclick="addToStackData(\'' + index.join(',') + '\');" class="btn btn-xs btn-success" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open all in stack viewer">Open <span class="badge">' + count + '</span></button></div><div class="btn-group" role="group"><button type="button" id="queryLink" class="btn btn-xs btn-success" onclick="window.location.href=\'/do/individual_list.html?action=exemplar_neuron&amp;id=' + rootID + '\'" title="" data-toggle="tooltip" data-placement="top" data-original-title="Open a list of all results">List all <span class="badge">' + count + '</span></button></div></div>';
 
             html += '</div>';
 
