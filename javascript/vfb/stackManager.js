@@ -4697,12 +4697,13 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && list !== "") {
+            if (list !== "undefined" && list !== undefined && list.trim() !== "") {
                 $('#' + htmlid).html(list);
+                if ($('#' + htmlid).parent('p').is(":visible") == false) {
+                    $('#' + htmlid).parent('p').show();
+                }
             }
-            if ($('#' + htmlid).parent('p').is(":visible") == false && list !== "undefined" && list !== undefined && list !== "") {
-                $('#' + htmlid).parent('p').show();
-            }
+            
             if (htmlid == "partName") {
                 document.title = $('#partName').text();
                 if (history.state === null | (history.state !== null && history.state.id !== undefined && history.state.id == localID)) {
