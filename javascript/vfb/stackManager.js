@@ -4717,6 +4717,9 @@ function neoCall(cypher, htmlid) {
                 } else {
                     history.go();
                 }
+                $('#ResolvedImageViewerOpen').data().name=$('#partName').text();
+         		$('#ResolvedImageViewerOpen .btn').data().originalTitle='Open '+$('#partName').text()+' in stack viewer';
+         		$('#ResolvedImageViewerOpen .btn').html('Open '+$('#partName').text()+' in stack viewer');
             }
         },
         error: function (xhr, err, msg) {
