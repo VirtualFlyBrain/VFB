@@ -4689,15 +4689,20 @@ function neoCall(cypher, htmlid) {
         type: "POST",
         success: function (result, xhr, status) {
             var list = "";
-            if (result.data.length > 0 && htmlid !== "partName" && htmlid !== "partDef") {
+            if (result.data.length > 0 && htmlid !== "partName" && htmlid !== "partDef" && htmlid !== "infoRef") {
                 list = "<ul>"
                 result.data.forEach(function (item) {
-                        list += "<li>" + item[0] + "</li>";
-                    }
-                );
+                    list += "<li>" + item[0] + "</li>";
+                });
                 list += "</ul>"
             } else {
-                list = result.data[0];
+                if (result.data.length > 1) {
+                    result.data.forEach(function (item) {
+                        list += item[0] + "<br>";
+                    });    
+                }else{
+                    list = result.data[0];
+                }
             }
             if (list !== "undefined" && list !== undefined && $.trim(list) !== "") {
                 $('#' + htmlid).html(list);
