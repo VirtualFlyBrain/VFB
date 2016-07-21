@@ -4690,10 +4690,12 @@ function neoCall(cypher, htmlid) {
         success: function (result, xhr, status) {
             var list = "";
             if (result.data.length > 1) {
+                list = "<ul>"
                 result.data.forEach(function (item) {
                         list += "<li>" + item[0] + "</li>";
                     }
                 );
+                list += "</ul>"
             } else {
                 list = result.data[0];
             }
