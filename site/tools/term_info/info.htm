@@ -80,7 +80,7 @@
                 </a>
 
                 <p id="partDef" style="display: none;">
-                    <b>Definition: </b><br><br><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
+                    <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                     <span id="infoDefRef">
                         <script>
                             neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as ref','infoDefRef')
@@ -89,16 +89,16 @@
                 </p>
 
                 <p style="display: none;">
-                    <b>Synonyms: </b><br><br><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
                 </p>
 
 
                 <p style="display: none;">
-                    <b>Comment: </b><br><br><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = "' + localID + '" return a.`annotation-comment`[0] limit 1', 'infoComment');</script></span>
+                    <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = "' + localID + '" return a.`annotation-comment`[0] limit 1', 'infoComment');</script></span>
                 </p>
 
                 <p style="display: none;">
-                    <b>Type: </b><br><br>
+                    <b>Type: </b>
                     <span id="infoType">
                         <script>
                             neoCall('MATCH (n:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN "<a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a>  <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'infoType');
@@ -108,7 +108,7 @@
                 </p>
 
                 <p style="display: none;">
-                    <b>Relationships: </b><br><br>
+                    <b>Relationships: </b><br>
                     <span id="partRel">
                         <script>
                             neoCall('MATCH (n:Individual { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label <> "type" RETURN r.label + " <a href=\\"#details\\" onclick=\\"openFullDetails(\'" + sc.short_form + "\');\\" title=\\"Look up\\" target=\\"_top\\">" + sc.label + "</a> " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ") <span style=\\"border:none;padding-left:0px;padding-right:0px;\\" id=\\"attach\\" data-id=\\"" + sc.short_form + "\\"></span>" as type', 'partRel');
@@ -118,7 +118,7 @@
                 </p>
 
                 <p style="display: none;">
-                    <b>Image:</b><br><br>
+                    <b>Image:</b><br>
                     <span id="infoImage"><script>if (localID.indexOf('VFB') > -1) {
                         $('#infoImage').html(thumbnailHTMLForId(localID).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('/>','style="min-width: 200px; min-height: 200px; cursor: pointer; display: block;" />').replace('/>',' onerror="$(\'#infoImage\').parent(\'p\').hide();" />'));
                         $('#infoImage').parent('p').show();
@@ -143,7 +143,7 @@
                 </p>
 
                 <div style="display: none;">
-                    <b>Examples:</b><br><br>
+                    <b>Examples:</b><br>
                     <span id="infoExamp">
                         <script>
                             genExamples(localID, "infoExamp");
@@ -154,7 +154,7 @@
 		<br>
 		
 		<p style="display: none;">
-                    <b>References: </b><br><br>
+                    <b>References: </b><br>
                     <span id="infoRef">
                     	<script>
                     		neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN "<b>" + split(sc.miniref,",")[0] + " (" + sc.year + ")</b> " + sc.title + " " + split(sc.miniref,",")[2] + ". (" + coalesce("<a href=\\"http://flybase.org/reports/" + sc.FlyBase + "\\" target=\\"_blank\\">FlyBase:" + sc.FlyBase + "</a>; ", "") + coalesce("<a href=\\"http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID + "\\" target=\\"_blank\\">PMID:" + sc.PMID + "</a>; ", "") + coalesce("<a href=\\"http://dx.doi.org/" + sc.DOI + "\\" target=\\"_blank\\">doi:" + sc.DOI + "</a>)", ")") as bib', 'infoRef');
