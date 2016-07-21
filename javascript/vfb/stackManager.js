@@ -4692,7 +4692,11 @@ function neoCall(cypher, htmlid) {
             if (result.data.length > 0 && htmlid !== "partName") {
                 list = "<ul"
                 if (htmlid !== "infoSyn"){
-                    list += ' style="list-style-type:none;"';
+                    list += ' style="list-style-type:none;';
+                    if (htmlid == "infoDef"){
+                        list += 'margin: 0px;';
+                    }
+                    list += '"';
                 }
                 list += ">";
                 result.data.forEach(function (item) {
