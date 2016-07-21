@@ -4689,7 +4689,7 @@ function neoCall(cypher, htmlid) {
         type: "POST",
         success: function (result, xhr, status) {
             var list = "";
-            if (result.data.length > 0 && htmlid == "partName") {
+            if (result.data.length > 0 && htmlid !== "partName") {
                 list = "<ul"
                 if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;"';
