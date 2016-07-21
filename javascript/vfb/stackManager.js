@@ -4689,9 +4689,9 @@ function neoCall(cypher, htmlid) {
         type: "POST",
         success: function (result, xhr, status) {
             var list = "";
-            if (result.data.length > 0) {
+            if (result.data.length > 0 && htmlid == "partName") {
                 list = "<ul"
-                if (true || htmlid == "partName" || htmlid !== "partDef" || htmlid !== "infoRef"){
+                if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;"';
                 }
                 list += ">";
@@ -4702,7 +4702,7 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && $.trim(list) !== "") {
+            if (list !== "undefined" && list !== undefined && $.trim(list) !== "" && $.trim(list) !== "null") {
                 $('#' + htmlid).html(list);
                 if ($('#' + htmlid).parent('p').is(":visible") == false) {
                     $('#' + htmlid).parent('p').show();
