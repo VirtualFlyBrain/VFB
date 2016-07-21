@@ -4702,7 +4702,7 @@ function neoCall(cypher, htmlid) {
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && $.trim(list) !== "" && $.trim(list) !== "<ul style="list-style-type:none;"><li>null</li></ul>") {
+            if (list !== "undefined" && list !== undefined && $.trim(list) !== "" && $.trim(list) !== '<ul style="list-style-type:none;"><li>null</li></ul>') {
                 $('#' + htmlid).html(list);
                 if ($('#' + htmlid).parent('p').is(":visible") == false) {
                     $('#' + htmlid).parent('p').show();
