@@ -4680,7 +4680,7 @@ function updateSearchResults() {
 function neoCall(cypher, htmlid) {
     $.ajax({
         url: "http://www.virtualflybrain.org/neo4jdb/data/cypher",
-        accepts: "application/json; charset=UTF-8",
+        accepts: {json: "application/json"},
         dataType: "json",
         data: {
             "query": cypher,
@@ -4733,7 +4733,7 @@ function neoCall(cypher, htmlid) {
 function genExamples(rootID, htmlid) {
     $.ajax({
         url: "http://www.virtualflybrain.org/neo4jdb/data/cypher",
-        accepts: "application/json; charset=UTF-8",
+        accepts: {json: "application/json"},
         dataType: "json",
         data: {
             "query": 'MATCH (n { short_form: "' + rootID + '" } )<-[:SUBCLASSOF|INSTANCEOF*]-(i:Individual) RETURN i.short_form as exId, i.label as exName',
