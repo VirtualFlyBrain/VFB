@@ -79,11 +79,6 @@
                     <script>document.getElementById("partId").innerHTML = localID</script>
                 </a>
 
-
-                <p style="display: none;">
-                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
-                </p>
-
                 <p id="partDef" style="display: none;">
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                     <span id="infoDefRef">
@@ -92,6 +87,11 @@
                         </script>
                     </span>
                 </p>
+
+                <p style="display: none;">
+                    <b>Synonyms: </b><span id="infoSyn"><script>neoCall('MATCH (n { short_form: ' + dq + localID + dq + ' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ="syn" RETURN r.synonym + " ["+r.scope+"] " + "(" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "PMID:" + sc.PMID , sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as synonym', 'infoSyn');</script></span>
+                </p>
+
 
                 <p style="display: none;">
                     <b>Comment: </b><span id="infoComment"><script>neoCall('MATCH (a) where a.short_form = "' + localID + '" return a.`annotation-comment`[0] limit 1', 'infoComment');</script></span>
