@@ -4758,7 +4758,7 @@ function genExamples(rootID, htmlid) {
                 html+= '"></li>';
             }
             html += '</ol>';
-            html += '<div class="carousel-inner" style="margin: 0px auto;background-color:black;">';
+            html += '<div class="carousel-inner" style="background-color:black;">';
             i = 0;
             result.data.forEach(function (item) {
                 if (i < 7) {
@@ -4767,7 +4767,7 @@ function genExamples(rootID, htmlid) {
                         html += ' active';
                     }
                     html += '">';
-                    html += thumbnailHTMLForId(item[0]).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('click to see full details',item[1]+' ('+item[0]+')').replace('/>','style="max-width: 350px; min-width:150px; min-height:150px; cursor: pointer; display: block;" />');
+                    html += thumbnailHTMLForId(item[0]).replace(' thumb_sm','').replace('openFullDetails','addToStackData').replace('click to see full details',item[1]+' ('+item[0]+')').replace('/>','style="max-width: 350px; min-width:150px; min-height:150px; cursor: pointer; display: block; margin: 0px auto;" />');
                     html += '<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ' + item[1] + ' in viewer" onclick="openFullDetails(\'' + item[0] + '\');addToStackData(\'' + item[0] + '\');">';
                     html += '<b>' + item[1] + '</b><br>';
                     html += '<span class="small">' + item[0] + '</span>';
