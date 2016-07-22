@@ -726,8 +726,8 @@ function cleanIdforInt(id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
         id = id.replace('VFB_', 'VFBi_');
-        id = id.replace('VFB_00017894','VFBt_00100000');
-        id = id.replace('VFB_00030786','VFBt_00200000');
+        id = id.replace('VFBi_00017894','VFBt_00100000');
+        id = id.replace('VFBi_00030786','VFBt_00200000');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
