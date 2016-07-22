@@ -4786,7 +4786,7 @@ function genExamples(rootID, htmlid) {
                     html += '<span class="small">' + item[0] + '</span>';
                     html += '</div></div>';
                 }
-                index[i] = cleanIdforInt(item[2] + "," + item[0];
+                index[i] = cleanIdforInt(item[2]) + "," + item[0];
                 i++;
             });
 
