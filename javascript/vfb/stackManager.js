@@ -4751,7 +4751,7 @@ function genExamples(rootID, htmlid) {
         accepts: {json: "application/json"},
         dataType: "json",
         data: {
-            "query": 'MATCH (n { short_form: "' + rootID + '" } )<-[:SUBCLASSOF|INSTANCEOF*]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) RETURN i.short_form as exId, i.label as exName, m.short_form as tempId, m.label as tempName',
+            "query": 'MATCH (n { short_form: "' + rootID + '" } )<-[:SUBCLASSOF|INSTANCEOF*]-(i:Individual)-[:Related { label : \'depicts\' } ]-(j:Individual)-[:Related { label : \'has_signal_channel\' } ]-(k:Individual)-[:Related { label: \'has_background_channel\' } ]-(m:Individual) RETURN i.short_form as exId, i.label as exName, m.short_form as tempId, m.label as tempName',
             "params": {}
         },
         type: "POST",
