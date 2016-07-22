@@ -709,6 +709,10 @@ function cleanIdforExt(id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
         id = id.replace('VFBi_', 'VFB_');
+        id = id.replace('VFBt_00100000','VFB_00017894');
+        id = id.replace('VFBt_001','VFB_00017894');
+        id = id.replace('VFBt_00200000','VFB_00030786');
+        id = id.replace('VFBt_002','VFB_00030786');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
@@ -722,6 +726,8 @@ function cleanIdforInt(id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
         id = id.replace('VFB_', 'VFBi_');
+        id = id.replace('VFB_00017894','VFBt_00100000');
+        id = id.replace('VFB_00030786','VFBt_00200000');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
