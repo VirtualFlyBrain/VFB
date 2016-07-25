@@ -145,7 +145,8 @@ function animateWlzDisplay() {
                                     $('#canvas').css('cursor', 'crosshair');
                                 } else {
                                     try {
-                                        ctx.drawImage(imageStack[i][slice], 0, 0);
+                                        
+                                        ctx.drawImage(imageStack[i][slice], ((imageStack[0][slice].width-imageStack[i][slice].width)/2), ((imageStack[0][slice].height-imageStack[i][slice].height)/2));
                                         if (i === 0) {
                                             $('#canvas').attr('width', imageStack[i][slice].width);
                                             $('#canvas').attr('height', imageStack[i][slice].height);
@@ -442,7 +443,7 @@ function showStack(slice) {
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
         for (i in selected) {
             if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
-                ctx.drawImage(imageStack[i][slice], 0, 0);
+                ctx.drawImage(imageStack[i][slice], ((imageStack[0][slice].width-imageStack[i][slice].width)/2), ((imageStack[0][slice].height-imageStack[i][slice].height)/2));
             } else {
                 break;
             }
