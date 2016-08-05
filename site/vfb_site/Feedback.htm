@@ -1,104 +1,125 @@
 <jsp:include page="/jsp/includes/homeHead.jsp" >
 	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Feedback@ " />
-	<jsp:param name="title" value="Feedback" />	
+	<jsp:param name="title" value="Feedback" />
 </jsp:include>
 
 
 
-	<div id="center_wide">
-  	<h2>Help us improve the site</h2>
-		
-			<script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
-			<p>We really appreciate any feedback you could give us.</p>
-			<p>You can simply <b>
+<div class="row">
 
-			
-			
-			<script>
-			window.SupDetail = {};
-			var nVer = navigator.appVersion;
-			var nAgt = navigator.userAgent;
-			var browserName  = navigator.appName;
-			var fullVersion  = ''+parseFloat(navigator.appVersion); 
-			var majorVersion = parseInt(navigator.appVersion,10);
-			var nameOffset,verOffset,ix;
+	<div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
-			// In Opera, the true version is after "Opera" or after "Version"
-			if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
-			 browserName = "Opera";
-			 fullVersion = nAgt.substring(verOffset+6);
-			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
-			   fullVersion = nAgt.substring(verOffset+8);
-			}
-			// In MSIE, the true version is after "MSIE" in userAgent
-			else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
-			 browserName = "Microsoft Internet Explorer";
-			 fullVersion = nAgt.substring(verOffset+5);
-			}
-			// In Chrome, the true version is after "Chrome" 
-			else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
-			 browserName = "Chrome";
-			 fullVersion = nAgt.substring(verOffset+7);
-			}
-			// In Safari, the true version is after "Safari" or after "Version" 
-			else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
-			 browserName = "Safari";
-			 fullVersion = nAgt.substring(verOffset+7);
-			 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
-			   fullVersion = nAgt.substring(verOffset+8);
-			}
-			// In Firefox, the true version is after "Firefox" 
-			else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
-			 browserName = "Firefox";
-			 fullVersion = nAgt.substring(verOffset+8);
-			}
-			// In most other browsers, "name/version" is at the end of userAgent 
-			else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
-					  (verOffset=nAgt.lastIndexOf('/')) ) 
-			{
-			 browserName = nAgt.substring(nameOffset,verOffset);
-			 fullVersion = nAgt.substring(verOffset+1);
-			 if (browserName.toLowerCase()==browserName.toUpperCase()) {
-			  browserName = navigator.appName;
-			 }
-			}
-			// trim the fullVersion string at semicolon/space if present
-			if ((ix=fullVersion.indexOf(";"))!=-1)
-			   fullVersion=fullVersion.substring(0,ix);
-			if ((ix=fullVersion.indexOf(" "))!=-1)
-			   fullVersion=fullVersion.substring(0,ix);
+		<div class="well">
 
-			majorVersion = parseInt(''+fullVersion,10);
-			if (isNaN(majorVersion)) {
-			 fullVersion  = ''+parseFloat(navigator.appVersion); 
-			 majorVersion = parseInt(navigator.appVersion,10);
-			}
-			SupDetail.sysDetail = navigator.userAgent;
-			SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
-			SupDetail.cleanURL = encodeURIComponent('${param.url}')
-			mail2("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + navigator.userAgent,"email us")
-			</script></b> with details.</p>
-		
-			<p>Alternatively, as VFB is an opensource project,   
-			you can engage directly with our developer community on GitHub 
-			[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].</p> 
-			<p>If you have a GitHub account you can easily raise a new issue by clicking   
-			<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A" 
-			onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
-			here</a>.
-			</p>
-			<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in 
-			the page address and system details listed below to help us resolve any issue as quickly as possible. 
-			<br /><small>Note: Both the email and issue links above should do this automatically for you.</small></p>
-			
-			<div style="border: 1px solid green;">
-			<b>Referring page:</b> <small>${param.url}</small><br />
-			<b>System details:</b> <small><script>document.write(SupDetail.sysDetail);</script></small>
+	  	<h2>Help us improve the site</h2>
+
+				<script>var theURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;</script>
+				<p>We really appreciate any feedback you could give us.</p>
+				<p>You can simply <b><span id="emailUs"></span>
+
+
+
+				<script>
+					$(document).ready( function () {
+						window.SupDetail = {};
+						var nVer = navigator.appVersion;
+						var nAgt = navigator.userAgent;
+						var browserName  = navigator.appName;
+						var fullVersion  = ''+parseFloat(navigator.appVersion);
+						var majorVersion = parseInt(navigator.appVersion,10);
+						var nameOffset,verOffset,ix;
+						var browserSize = String($(window).width()) + ',' + String($(window).height());
+						SupDetail.cookies = "";
+
+						// In Opera, the true version is after "Opera" or after "Version"
+						if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+						 browserName = "Opera";
+						 fullVersion = nAgt.substring(verOffset+6);
+						 if ((verOffset=nAgt.indexOf("Version"))!=-1)
+						   fullVersion = nAgt.substring(verOffset+8);
+						}
+						// In MSIE, the true version is after "MSIE" in userAgent
+						else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+						 browserName = "Microsoft Internet Explorer";
+						 fullVersion = nAgt.substring(verOffset+5);
+						}
+						// In Chrome, the true version is after "Chrome"
+						else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+						 browserName = "Chrome";
+						 fullVersion = nAgt.substring(verOffset+7);
+						}
+						// In Safari, the true version is after "Safari" or after "Version"
+						else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+						 browserName = "Safari";
+						 fullVersion = nAgt.substring(verOffset+7);
+						 if ((verOffset=nAgt.indexOf("Version"))!=-1)
+						   fullVersion = nAgt.substring(verOffset+8);
+						}
+						// In Firefox, the true version is after "Firefox"
+						else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+						 browserName = "Firefox";
+						 fullVersion = nAgt.substring(verOffset+8);
+						}
+						// In most other browsers, "name/version" is at the end of userAgent
+						else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
+								  (verOffset=nAgt.lastIndexOf('/')) )
+						{
+						 browserName = nAgt.substring(nameOffset,verOffset);
+						 fullVersion = nAgt.substring(verOffset+1);
+						 if (browserName.toLowerCase()==browserName.toUpperCase()) {
+						  browserName = navigator.appName;
+						 }
+						}
+						// trim the fullVersion string at semicolon/space if present
+						if ((ix=fullVersion.indexOf(";"))!=-1)
+						   fullVersion=fullVersion.substring(0,ix);
+						if ((ix=fullVersion.indexOf(" "))!=-1)
+						   fullVersion=fullVersion.substring(0,ix);
+
+						majorVersion = parseInt(''+fullVersion,10);
+						if (isNaN(majorVersion)) {
+						 fullVersion  = ''+parseFloat(navigator.appVersion);
+						 majorVersion = parseInt(navigator.appVersion,10);
+						}
+						SupDetail.sysDetail = navigator.userAgent + ' Size:[' + browserSize + ']';
+						SupDetail.sysDetailURL = encodeURIComponent(SupDetail.sysDetail);
+						SupDetail.cleanURL = encodeURIComponent('${param.url}');
+
+						SupDetail.cookies = returnCleanData();
+						SupDetail.cookiesURL = encodeURIComponent(SupDetail.cookies);
+
+						$('#systemDetails').text(SupDetail.sysDetail);
+						$('#cookieDetails').text(SupDetail.cookies);
+						if (store.enabled){
+							$('#dataStore').text('LocalData:');
+							mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " LocalData:" + SupDetail.cookiesURL,"email us", "emailUs");
+						}else{
+							mail3("support","virtualflybrain",1,"?subject=Feedback about " + SupDetail.cleanURL + " on " + SupDetail.sysDetail + " Cookies:" + SupDetail.cookiesURL,"email us", "emailUs");
+						}
+					});
+				</script></b> with details.</p>
+
+				<p>Alternatively, as VFB is an opensource project,
+				you can engage directly with our developer community on GitHub
+				[<a href="https://github.com/VirtualFlyBrain/VFB" target="_blank">VirtualFlyBrain/VFB</a>].</p>
+				<p>If you have a GitHub account you can easily raise a new issue:
+				<a class="btn btn-xs btn-warning" href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0ASupport%20info%3A%0A"
+				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL+'%0A'+SupDetail.cookiesURL;return false;" title="Report an issue via GitHub" target="_blank">
+				Create GitHub Issue</a>
+				</p>
+				<p> This could simply be a question or a new feature request, but if you have found a bug we missed please copy in
+				the page address and system details listed below to help us resolve any issue as quickly as possible.
+				<br /><small>Note: Both the email and issue links above should do this automatically for you.</small></p>
+
+				<div style="border: 1px solid green;">
+					<b>Referring page:</b> <small>${param.url}</small><br />
+					<b>System details:</b> <small id="systemDetails"></small><br />
+					<b id="dataStore">Cookies:</b> <small id="cookieDetails"></small><br />
+				</div>
+				<p>Thank you for your help.</p>
 			</div>
-			<p>Thank you for your help.</p>
 	</div> <!-- center_wide -->
-	
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+</div>
 
 
 <jsp:include page="/jsp/includes/homeFoot.jsp" />

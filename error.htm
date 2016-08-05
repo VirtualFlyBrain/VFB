@@ -1,144 +1,119 @@
-<jsp:include page="/jsp/includes/homeHead.jsp" >
-	<jsp:param name="navpath" value="Home@/ " />
-	<jsp:param name="nonav" value="true" />
-	<jsp:param name="css" value="/css/vfb/utils/table.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<jsp:include page="/jsp/includes/homeHead.jsp">
+    <jsp:param name="title" value="Something went wrong!?"/>
 </jsp:include>
 
-	<div id="center_wide">
-	<span style="color:red">
-		We are sorry, your request may not be completed. The possible reasons are:
+<div class="row row-centered">
+    <div class="col-md-8 col-centered">
+        <br/>
+        <div id="center_wide" class="well">
+
+	<span style="color:red;text-align: left;">
+        <p>
+            We are sorry, your request may not be completed. The possible reasons are:
 		<ul>
-		<li>Perhaps the page you are looking for is not available, or</li> 
-		<li>your request is missing an argument, or </li>
-		<li>the Virtual Fly Brain site is currently experiencing technical problems. </li>
-		</ul>
-		Please check that the URL for your request is correct and try again.<br/>
-		<p>
-			If it is our fault, we will check it and put right ASAP, 
-			you can report the problem by 
-			<script>
-				window.SupDetail = {};
-				var nVer = navigator.appVersion;
-				var nAgt = navigator.userAgent;
-				var browserName  = navigator.appName;
-				var fullVersion  = ''+parseFloat(navigator.appVersion); 
-				var majorVersion = parseInt(navigator.appVersion,10);
-				var nameOffset,verOffset,ix;
-	
-				// In Opera, the true version is after "Opera" or after "Version"
-				if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
-				 browserName = "Opera";
-				 fullVersion = nAgt.substring(verOffset+6);
-				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
-				   fullVersion = nAgt.substring(verOffset+8);
-				}
-				// In MSIE, the true version is after "MSIE" in userAgent
-				else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
-				 browserName = "Microsoft Internet Explorer";
-				 fullVersion = nAgt.substring(verOffset+5);
-				}
-				// In Chrome, the true version is after "Chrome" 
-				else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
-				 browserName = "Chrome";
-				 fullVersion = nAgt.substring(verOffset+7);
-				}
-				// In Safari, the true version is after "Safari" or after "Version" 
-				else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
-				 browserName = "Safari";
-				 fullVersion = nAgt.substring(verOffset+7);
-				 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
-				   fullVersion = nAgt.substring(verOffset+8);
-				}
-				// In Firefox, the true version is after "Firefox" 
-				else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
-				 browserName = "Firefox";
-				 fullVersion = nAgt.substring(verOffset+8);
-				}
-				// In most other browsers, "name/version" is at the end of userAgent 
-				else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
-						  (verOffset=nAgt.lastIndexOf('/')) ) 
-				{
-				 browserName = nAgt.substring(nameOffset,verOffset);
-				 fullVersion = nAgt.substring(verOffset+1);
-				 if (browserName.toLowerCase()==browserName.toUpperCase()) {
-				  browserName = navigator.appName;
-				 }
-				}
-				// trim the fullVersion string at semicolon/space if present
-				if ((ix=fullVersion.indexOf(";"))!=-1)
-				   fullVersion=fullVersion.substring(0,ix);
-				if ((ix=fullVersion.indexOf(" "))!=-1)
-				   fullVersion=fullVersion.substring(0,ix);
-	
-				majorVersion = parseInt(''+fullVersion,10);
-				if (isNaN(majorVersion)) {
-				 fullVersion  = ''+parseFloat(navigator.appVersion); 
-				 majorVersion = parseInt(navigator.appVersion,10);
-				}
-				SupDetail.sysDetail = navigator.userAgent;
-				SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
-				SupDetail.cleanURL = encodeURIComponent(window.location)
-				mail2("support","virtualflybrain",1,"?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent,"emailing us")
-				dataLayer.push({'event':'error', 'eventLabel':SupDetail.cleanURL});
-				dataLayer.push({'event':'error', 'eventLabel':navigator.userAgent});
-			</script>.
-			</p>
+            <li>Perhaps the page you are looking for is not available, or</li>
+            <li>your request is missing an argument, or</li>
+            <li>the Virtual Fly Brain site is currently experiencing technical problems.</li>
+        </ul>
+		Please check that the URL for your request is correct and try again.
+        </p>
+        <p>
+            If it is our fault, we will check it and put right ASAP,
+            you can report the problem by
+            <script>
+                window.SupDetail = {};
+                var nVer = navigator.appVersion;
+                var nAgt = navigator.userAgent;
+                var browserName = navigator.appName;
+                var fullVersion = '' + parseFloat(navigator.appVersion);
+                var majorVersion = parseInt(navigator.appVersion, 10);
+                var nameOffset, verOffset, ix;
+
+                // In Opera, the true version is after "Opera" or after "Version"
+                if ((verOffset = nAgt.indexOf("Opera")) != -1) {
+                    browserName = "Opera";
+                    fullVersion = nAgt.substring(verOffset + 6);
+                    if ((verOffset = nAgt.indexOf("Version")) != -1)
+                        fullVersion = nAgt.substring(verOffset + 8);
+                }
+                // In MSIE, the true version is after "MSIE" in userAgent
+                else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
+                    browserName = "Microsoft Internet Explorer";
+                    fullVersion = nAgt.substring(verOffset + 5);
+                }
+                // In Chrome, the true version is after "Chrome"
+                else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
+                    browserName = "Chrome";
+                    fullVersion = nAgt.substring(verOffset + 7);
+                }
+                // In Safari, the true version is after "Safari" or after "Version"
+                else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
+                    browserName = "Safari";
+                    fullVersion = nAgt.substring(verOffset + 7);
+                    if ((verOffset = nAgt.indexOf("Version")) != -1)
+                        fullVersion = nAgt.substring(verOffset + 8);
+                }
+                // In Firefox, the true version is after "Firefox"
+                else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
+                    browserName = "Firefox";
+                    fullVersion = nAgt.substring(verOffset + 8);
+                }
+                // In most other browsers, "name/version" is at the end of userAgent
+                else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) <
+                        (verOffset = nAgt.lastIndexOf('/'))) {
+                    browserName = nAgt.substring(nameOffset, verOffset);
+                    fullVersion = nAgt.substring(verOffset + 1);
+                    if (browserName.toLowerCase() == browserName.toUpperCase()) {
+                        browserName = navigator.appName;
+                    }
+                }
+                // trim the fullVersion string at semicolon/space if present
+                if ((ix = fullVersion.indexOf(";")) != -1)
+                    fullVersion = fullVersion.substring(0, ix);
+                if ((ix = fullVersion.indexOf(" ")) != -1)
+                    fullVersion = fullVersion.substring(0, ix);
+
+                majorVersion = parseInt('' + fullVersion, 10);
+                if (isNaN(majorVersion)) {
+                    fullVersion = '' + parseFloat(navigator.appVersion);
+                    majorVersion = parseInt(navigator.appVersion, 10);
+                }
+                SupDetail.sysDetail = navigator.userAgent;
+                SupDetail.sysDetailURL = encodeURIComponent(navigator.userAgent);
+                SupDetail.cleanURL = encodeURIComponent(window.location)
+                mail2("support", "virtualflybrain", 1, "?subject=Error accessing " + SupDetail.cleanURL + " using " + navigator.userAgent, "emailing us")
+                message = 'Error page for ' + decodeURIComponent(SupDetail.cleanURL) + ' loaded on ' + navigator.userAgent;
+                dataLayer.push({'event': 'exception', 'exDescription': message, 'exFatal': true});
+            </script>
+            .
+        </p>
 			<p>
-				Alternatively, as VFB is an opensource project,   
-				you can engage directly with our developer community on GitHub 
-				[<a href="https://github.com/VirtualFlyBrain/VFB" target="_new">VirtualFlyBrain/VFB</a>].
-			</p> 
+                Alternatively, as VFB is an opensource project,
+                you can engage directly with our developer community on GitHub
+                [<a href="https://github.com/VirtualFlyBrain/VFB" target="_blank">VirtualFlyBrain/VFB</a>].
+            </p>
 			<p>
-				If you have a GitHub account can easily raise a new issue by clicking   
-				<a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0AError%20info%3A%0A" 
-				onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
-				here</a>.
-			</p>
+                If you have a GitHub account can easily raise a new issue by clicking
+                <a href="https://github.com/VirtualFlyBrain/VFB/issues/new?body=%0A%0A%0A%0A%0A%0AError%20info%3A%0A"
+                   onclick="location.href=this.href+SupDetail.cleanURL+'%0A'+SupDetail.sysDetailURL;return false;">
+                    here</a>.
+            </p>
 	</span>
 
-	<h2>What is Virtual Fly Brain?</h2>
 
-	<p>
-		Welcome to Virtual Fly Brain (VFB) - an interactive tool for neurobiologists to explore the detailed neuroanatomy,
-		gene expression, and associated phenotypes of the adult <i>Drosophila melanogaster</i> brain. <br />
-		Our goal is to make it easier for researchers to find relevant anatomical information and reagents. We integrate the neuroanatomical data and expression from the published literature and image datasets onto the same standard, making it possible to run cross searches and comparisons.
-	</p>
-	<h1 style="font-size: 12pt; font-weight: normal">
-		The VFB <i>Drosophila melanogaster</i> fly brain atlas was developed in accordance with BrainName's standard nomenclature.
-	</h1>
+        </div> <!-- center_wide -->
+    </div>
+</div>
 
-	<h2>The 3D Brain Viewer and Query Tools</h2>
-
-	<p>The <a href="site/stacks/index.htm">Brain Viewer</a> is an interactive, configurable application that allows the user to view and explore
-		the adult fruit fly brain anatomy in terms of known Drosophila brain neuropils. 
-	  </p>
-	<p>
-	  The viewer's central window features a 2D representation of an adult brain that can be viewed along the x-, y- and
-		z-axes, rotated and zoomed, and shows neuropil domains as colour-coded overlays. Domains can be selected by double-clicking on the stack or by selecting them on the interactive anatomy tree on the right panel (left click). The tree can be simply browsed, or terms can be directly searched by using the search box above the tree. More information about the last selected term (on the stack or on the tree) will be displayed in the lower panel, the term info window. 
-	</p>
-	<p>
-	       Searching for neurons, innervation patterns, gene and transgene expression and phenotypes associated to a brain neuropil, is possible by right/control clicking on the term in the tree or on the term info window. </p>
-
-	<p>
-	  Searches for individual neuron images is also possible, with result lists displaying relevant neurons, divided into groups of morphologically similar neurons (tool developed by Gregory Jefferis, Division of Neurobiology, MRC Laboratory of Molecular Biology). Currently, 16132 images of single neurons from the Flycircuit dataset can be searched on the site. We thank the group of A.S. Chiang for taking the lead in making their raw image data available.
-	</p>
-
-	<p style="text-align: center">
-		<img src="/images/vfb/project/vfb.png" alt="Main page" width="650" style="border: 1px solid gray" />
-	</p>
-	<p>* The brain stack currently used for the viewer was kindly provided by Arnim Jenett of HHMI Janelia Farm research campus, and by Kei Ito and Kazunori Shinomiya of Tokyo University.</p>
-
-	<p> The <a href="site/tools/anatomy_finder/index.htm">Anatomy/Neuron Finder</a> tool allows searching for information associated with any neuropil domain or neuron.</p>
-
-	<p>The interactive <a href="site/tools/query_builder/index.htm">Query Builder</a> allows the building and execution of more complex queries that may include
-		multiple anatomy terms with differing properties. It allows searching for neurons that connect two different brain regions, specifying the directionality of these connections. </p>
-
-	
-	</div> <!-- center_wide -->
-	
-	<%--jsp:include page="/jsp/includes/bits/homeRight.jsp" /--%>
-	
-	
+<div id="hometext" class="row row-centered">
+    <script>
+        $('body').ready(function () {
+            $('#hometext').load('/site/vfb_site/home.htm #content');
+        });
+    </script>
+</div>
 
 
-<jsp:include page="/jsp/includes/homeFoot.jsp" />
+<jsp:include page="/jsp/includes/homeFoot.jsp"/>

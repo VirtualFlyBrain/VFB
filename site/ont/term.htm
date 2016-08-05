@@ -1,0 +1,84 @@
+<script type="text/javascript">
+if (!window.jQuery) {
+  var jq = document.createElement('script'); jq.type = 'text/javascript';
+  // Path to jquery.js file, eg. Google hosted version
+  jq.src = '//code.jquery.com/jquery-2.1.4.min.js';
+  document.getElementsByTagName('head')[0].appendChild(jq);
+}
+</script>
+
+    <!-- Google Analytics -->
+			<script>
+				dataLayer.push({'event':'sendVirtualPageview','vpv':'/do/ont_bean.html?fbId=FBbt:00004050'});
+			</script>
+		<!-- End Google Analytics -->
+
+    <script type="text/javascript">
+    var QueryString = function () {
+      // This function is anonymous, is executed immediately and
+      // the return value is assigned to QueryString!
+      var query_string = {};
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+            // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+          query_string[pair[0]] = decodeURIComponent(pair[1]);
+            // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+          var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+          query_string[pair[0]] = arr;
+            // If third or later entry with this name
+        } else {
+          query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+      }
+        return query_string;
+      }();
+    </script>
+
+    <script type="text/javascript">
+      var query = "*:*";
+      if (QueryString.id) {
+        var query = "short_form:" + QueryString.id;
+      }else if (QueryString.name) {
+        query =  "label:" + QueryString.name;
+      }
+      window.onload = function () { $.getJSON( "/search/select?sort=score+desc&wt=json&rows=1&fl=label+label_suggest+short_form+description+logical_description&q="+query, function( data ) {
+          var items = data.response.docs;
+          var i;
+          var j;
+          var item;
+          var rel;
+          var rels;
+          var temp;
+          for (i in items) {
+            item = items[i];
+            temp = "";
+            if (item.short_form[0].indexOf('_')>-1){
+              $('#attach').data('id',item.short_form[0]);
+            }else{
+              $('#attach').data('id',item.short_form[1]);
+            }
+            $('#partName').text(item.label);
+            temp = temp + '<dt>ID</dt><dd>' + $('#attach').data('id') + '</dd>';
+            if (item.description !== undefined){
+              temp = temp + '<dt>Definition</dt><dd>' + item.description + '</dd>';
+            }
+            if (item.logical_description !== undefined) {
+              temp = temp + '<dt>Relationships</dt>'
+              rels = String(item.logical_description).split(',');
+              for (j in rels){
+                  rel = rels[j];
+                  temp = temp + '<dd>' + rel + '</a></dd>';
+                  temp = temp.replace(' some ', ' <a href="#" onclick="document.location.href=document.location.pathname + ' + "'?name=" + encodeURIComponent(rel.substr(rel.indexOf(' some ') + 6)) + "'" + '">');
+              }
+            }
+            $('#availableDetails').html(temp);
+          }
+        });
+      };
+    </script>
+  <h2><span id="partName"></span> <span id="attach"></span></h2>
+  <dl class="dl-horizontal" id="availableDetails"></dl>

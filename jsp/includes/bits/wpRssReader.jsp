@@ -20,36 +20,34 @@ URL u = new URL("http://vfbblog.inf.ed.ac.uk/?feed=rss2"); // feed address
 Document doc = builder.parse(u.openStream());
 String title;
 NodeList nodes = doc.getElementsByTagName("item"); %>
-<div id="rss_feed" style="width:235px; border:1px solid gray;  font-size:0.7em;">
-<div style="background-color:#DBE0F5; font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: center;"> &nbsp;&nbsp;&nbsp;News Feed 
-	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 2px;" title="Subscribe to RSS feed">
-		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp; 
+
+<!--<div id="rss_feed" style="width:100%; font-size:0.9em;">
+<div style="font: 16px Arial; font-weight:bold; color:#333; margin-bottom: 6px; text-align: left; margin-left:4px">VFB blog
+	<a href="http://vfbblog.inf.ed.ac.uk/?feed=rss2" style="float:right; margin-right: 4px;" title="Subscribe to RSS feed">
+		<img src="/images/vfb/utils/rss.png" height="18"/></a>&nbsp; &nbsp; &nbsp;
 </div>
-<div style="height:500px; overflow-y: auto; overflow-x: hidden;">
-	<% for(int i=0;i<nodes.getLength();i++) {
-	Element element = (Element)nodes.item(i); 
-	SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy");%>
-		<div style="padding:2px;">
-			<b><%=formatter.format(new java.util.Date(getElementValue(element,"pubDate")))%></b><br/>
-			<p style="margin: 0; font-size:1.2em; font-weight:bold"><a href="<%=getElementValue(element,"link")%>"><%=getElementValue(element,"title")%></a></p><br/>
-			<%--fmt:formatDate value="${newsletter.createdOn}" pattern="MM/dd/yyyy"/>
-			<tr><td>comments:</td><td><%=getElementValue(element,"wfw:comment")%></td></tr--%>
-			<%=getElementValue(element,"description")%><br/>
-			<hr style="width:180px; color:gray; height:1px"/>
-		</div>
-	<%} %>
-	</div>
-	<div style="height:98px; background-color:#DBE0F5; color:#333; border-top: 1px solid #ccc;padding: 2px 5px 8px 5px;">
-		<h3 style="font-weight:bold; margin-top:6px;">Receive updates by email</h3>
-		<form id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true;" target="popupwindow">
-		<label>Type your email below</label>
-		<input id="feedburner_email_widget_sbef_email" name="email" type="text" />
-		<input type="hidden" value="ac/RAmc" name="uri"/>
-		<input type="hidden" name="loc" value="en_US"/>
-		<input id="feedburner_email_widget_sbef_submit" type="submit" value="subscribe" />
-		</form>		
-	</div>
+<div class="feedgrabbr_widget" id="fgid_da786e11f533fcb345cc41656" style="margin-bottom: 15px"></div>
+<script> if (typeof(fg_widgets)==="undefined") fg_widgets = new Array();fg_widgets.push("fgid_da786e11f533fcb345cc41656");</script>
+<script src="http://www.feedgrabbr.com/widget/fgwidget.js"></script>
+
+</div> -->
+
+<div class="panel panel-info" style="width:100%; margin-bottom:0px">
+  <div class="panel-heading">Receive updates by email</div>
+    <div class="panel-body">
+      <div class="input-group-btn">
+        <form class="form-inline" id="feedburner_email_widget_sbef" action="http://feedburner.google.com/fb/a/mailverify" method="post" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=ac/RAmc', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true;" target="popupwindow">
+          <label class="sr-only" for="feedburner_email_widget_sbef_email">Email address</label>
+          <input id="feedburner_email_widget_sbef_email" name="email" type="text" class="form-control" placeholder="Your email">
+          <input type="submit" class="btn btn-default" value="Subscribe" id="feedburner_email_widget_sbef_submit" />
+          <input type="hidden" value="ac/RAmc" name="uri"/>
+	        <input type="hidden" name="loc" value="en_GB"/>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <%!
 public String getElementValue(Element parent,String label) {

@@ -1,65 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:choose>
-	<c:when test="${(empty param.id) || (empty param.name)}" >
-		<jsp:include page="/jsp/includes/1ColHead.jsp">
-			<jsp:param name="title" value="Anatomy/Neuron Finder" />
-			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Tools@#|Anatomy/Neuron Finder@ " />
-			<jsp:param name="css" value="/css/vfb/layout/layout-query.css;/css/tree/autocomplete.css;" />
-		</jsp:include>
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="/jsp/includes/1ColHead.jsp">
-			<jsp:param name="title" value="${fn:replace(param.name,'%20',' ')}" />
-			<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Tools@#|Anatomy/Neuron Finder@ " />
-			<jsp:param name="css" value="/css/vfb/layout/layout-query.css;/css/tree/autocomplete.css;" />
-		</jsp:include>
-	</c:otherwise>
-</c:choose>
-<!-- Need to be here to load dynamically, otherwise does not work -->
-	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu.css" />
-	<link rel="stylesheet" media="all" type="text/css" href="/css/vfb/utils/p7menu_secondary.css" />
-	<script type="text/javascript" src="/javascript/thirdParty/Meio.Autocomplete.js"></script>
-	<script type="text/javascript" src="/javascript/vfb/utils.js" ></script>
-	
+<!--forward requests to main browser-->
+<meta http-equiv="Refresh" content="50;URL=/site/stacks/index.htm"/>
+<script language="JavaScript">
+    // Original URL
+    var url = window.location.href;
+    var newUrl = "";
 
-<script type="text/javascript">
-window.addEvent('domready', createAutocomplete);
+    // Split the String to get the Query strings
+    var splitString = url.split('?');
 
+
+    if (splitString.length > 1) {
+        // New Url With Query strings
+        newUrl = "/do/ont_bean.html" + "?" + splitString[1];
+    } else {
+        // New Url With NO query string
+        newUrl = "/site/stacks/index.htm";
+    }
+    window.location = newUrl;
 </script>
-	
-	<div id="search_panel" style="padding: 0 5px 5px 5px;">
-		<h2 id="header">Search for the anatomy term/neuron here</h2>
-		<label>Search in:</label>
-		<select name="scope" id="scope" onchange="setScope()">
-			<option value="all" <c:if test="${sessionScope.scope=='all'}">selected</c:if>>All Neuroanatomy</option>
-			<option value="allAB" <c:if test="${sessionScope.scope=='allAB'}">selected</c:if>>Adult Brain</option>
-		</select>
-		<input id="search_text" type="text" alt="Type in the name of the anatomy term/neuron to search"/>
-		<input id="scopeValue" type="hidden" />	
-		<input id="id_container" type="hidden" />
-	</div>
-	
-	<div id="annotation" style="margin:5px; overflow: hidden;">
-		<c:if test="${!empty param.id}" >
-			<jsp:include page="/do/ont_bean.html">
-				<jsp:param name="fbId" value="${param.id}" />
-			</jsp:include>
-		</c:if>	
-		<c:if test="${empty param.id}" >
-			<h2 class="panel_header">Annotation for Selected Anatomy Term/Neuron</h2>
-				Annotation for currently selected anatomical term is displayed here.<br/><br/>
-				Search for a neuron, neuropil domain or tract in the search box above. <br/><br/>
-				<b>Did you know?</b> You can run simple queries on a selected term by choosing one of the query options to the right of 'Query for' on the menu bar just above.
-		</c:if>
-
-
-	<c:if test="${!empty errorMsg}" >
-		<script type="text/javascript">
-			alert("${errorMsg}");
-		</script>
-	</c:if>
-
-	</div> <!-- annotation -->
-
-<jsp:include page="/jsp/includes/homeFoot.jsp"/>

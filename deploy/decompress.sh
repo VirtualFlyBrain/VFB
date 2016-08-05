@@ -13,6 +13,11 @@ then
             cat ${filename/part-aa/part-??} > ${mergedname}
             echo decompressing and removing gzip copy of ${mergedname} 
             pigz -df ${mergedname}
+            if [ -f ${mergedname/.owl.gz/}.owl ]
+            then
+                sed -i -f filters/FiltGenClean.sed ${mergedname/.owl.gz/}.owl
+                sed -i -f filters/FiltGenSmudge.sed ${mergedname/.owl.gz/}.owl
+            fi
             echo completed deploying ${mergedname/.gz/}
         else
             echo skipping ${filename} as no change.
@@ -26,6 +31,11 @@ then
             decomname=${filename/.gz/}
             echo decompressing and keeping gzip copy of ${filename} 
             pigz -dkf ${filename}
+            if [ -f ${decomname/.owl/}.owl ]
+                then
+                    sed -i -f filters/FiltGenClean.sed ${mergedname/.owl.gz/}.owl
+                    sed -i -f filters/FiltGenSmudge.sed ${mergedname/.owl.gz/}.owl
+                fi
             echo completed deploying ${decomname}
         else
             echo skipping ${filename} as no change.

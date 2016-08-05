@@ -1,44 +1,77 @@
 <jsp:include page="/jsp/includes/homeHead.jsp">
-	<jsp:param name="navpath"
-		value="The VFB Site@/site/vfb_site/home.htm|Useful" />
-	<jsp:param name="css" value="/css/vfb/utils/table.css" />
-	<jsp:param name="title" value="Useful links" />
+    <jsp:param name="navpath"
+               value="The VFB Site@/site/vfb_site/home.htm|Useful"/>
+    <jsp:param name="css" value="/css/vfb/utils/table.css"/>
+    <jsp:param name="title" value="Useful links"/>
 </jsp:include>
 
-<div id="center_wide">
+<div class="row row-centered">
 
-	<h2>Useful links</h2>
-		<ul>
-			<li>
-				<a href="http://fruitfly.inf.ed.ac.uk/braintrap/">BrainTrap</a>
-			</li>
-			<li>
-				<a href="http://flybase.org/">FlyBase</a>
-			</li>
-			<li>
-				<a href="http://www.flycircuit.tw/">FlyCircuit</a>
-				</li>
-				<li>
-					<a href="http://flweb.janelia.org/cgi-bin/flew.cgi">FlyLight</a>
-		</li>
-		<li>
-					<a href="http://ndb.flybrain.org">FlyBrain Neuron NDB</a>
-		</li>
-				<li>
-					<a href="http://www.genetik.biologie.uni-mainz.de/106.php">Interactive maps of embryonic and larval brain (by Christof Rickert, University Mainz)</a>
-		</li>
-		<li>
-			<a href="http://flybrain.mrc-lmb.cam.ac.uk/jlabwww/Welcome.html">Jefferis lab</a>
-			</li>
-			<li>
-				Standard nomenclature of the adult brain <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017">(Ito et al., 2014)</a>
-				</li>
-		</ul>
-		
+    <div class="col-md-9 col-centered">
+
+        <h2>Useful links</h2>
+        
+        <h4>NBLAST tools</h4>
+        <ul>
+            <li>
+                <a href="http://jefferislab.org/si/nblast/">NBLAST tool</a>: this site provides information and links to all NBLAST resources available. NBLAST finds similar neurons and GAL4 drivers that label specific neurons. Among other things, you can find links to the online tool <a href="http://jefferislab.org/si/nblast/on-the-fly/">NBLAST-on-the-fly</a>, information on <a href="http://flybrain.mrc-lmb.cam.ac.uk/si/nblast/www/nblast_desktop/">installing the software</a> and <a href="http://flybrain.mrc-lmb.cam.ac.uk/si/nblast/www/demos/">video demos</a>.
+            </li>
+            
+            <li>
+            <a href="http://jefferislab.org/si/nblast/clusters/">NBLAST clusters</a>: tool to enable the exploration the groups of similar neurons (clusters) based on NBLAST scores after applying a clustering method to the 16,129 neurons of the FlyCircuit dataset (raw data described <a href="http://dx.doi.org/10.1016/j.cub.2010.11.056">here</a>). Interactive 3D models of each cluster are provided. <strong>Note</strong>: these clusters are different to the ones currently linked from VFB.
+            </li>
+            
+        </ul>
+            
+            <h4>Other tools and resources</h4>
+            <ul>
+            <li>
+                <a href="http://fruitfly.inf.ed.ac.uk/braintrap/">BrainTrap</a>: database that contains database
+                information on protein expression in the adult brain
+            </li>
+            <li>
+                <a href="http://flybase.org/">FlyBase</a>: a database of Drosophila genes & genomes
+            </li>
+            <li>
+                <a href="http://www.flycircuit.tw/">FlyCircuit</a>: database for online archiving, cell type inventory,
+                browsing, searching, analysis and 3D visualization of individual neurons in the adult brain
+            </li>
+            <li>
+                <a href="http://flweb.janelia.org/cgi-bin/flew.cgi">FlyLight</a>: database of the expression patterns of
+                GAL4 and LexA Driver Lines from Janelia Research Campus
+            </li>
+            <li>
+                <a href="http://ndb.flybrain.org">FlyBrain Neuron NDB</a>: database of neuron, strain, antibody and
+                brain regions data.
+            </li>
+            <li>
+                <a href="https://strawlab.org/braincode">Braincode @ Straw Lab</a>: automated segmentation of the Drosophila brain to identify "functional units".
+            </li>
+            <li>
+                <a href="http://www.genetik.biologie.uni-mainz.de/106.php">Interactive maps of embryonic and larval
+                    brain (by Christof Rickert, University Mainz)</a>
+            </li>
+            <li>
+                <a href="http://flybrain.mrc-lmb.cam.ac.uk/jlabwww/Welcome.html">Jefferis lab</a>
+            </li>
+            <li>
+                Standard nomenclature of the adult brain <a href="http://dx.doi.org/10.1016/j.neuron.2013.12.017">(Ito
+                et al., 2014)</a>
+            </li>
+            <li>
+                Protocols for <a href="http://dx.doi.org/10.1101/pdb.prot071720">immunostaining, imaging</a> and <a
+                    href="http://dx.doi.org/10.1101/pdb.prot071738">image registration</a> (Ostrovsky et al., 2013).
+            </li>
+            <li>
+                <a href="http://flybase.org/wiki/FlyBase:External_Resources">External Resources from FlyBase</a>: a
+                comprehensive list of resources for fly researchers, including CRISPR, RNAi and antibodies links.
+            </li>
+        </ul>
+
+    </div>
+    <!-- center_wide -->
+
 </div>
-<!-- center_wide -->
-
-<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
 
 
-<jsp:include page="/jsp/includes/homeFoot.jsp" />
+<jsp:include page="/jsp/includes/homeFoot.jsp"/>

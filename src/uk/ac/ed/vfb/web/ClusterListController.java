@@ -20,49 +20,25 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 
 public class ClusterListController extends AbstractController{
 	private OntBeanManager obm;
-	private static final Log LOG = LogFactory.getLog(IndividualListController.class); 
+	private static final Log LOG = LogFactory.getLog(IndividualListController.class);
 
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/clusterList");
 		String params = req.getQueryString();
 		//LOG.debug(">>> Manager: " + obm + " > " + params);
-		String id = req.getParameter("id");
+		String id = OntBean.idAsOBO(req.getParameter("id"));
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");
 		String perPage = req.getParameter("perPage");
 		Set<OntBean> results = null;
 		// Initial request - here we initialise the bean and run the query
-		if ( (page == null || page.equals("")) && (perPage==null || perPage.equals("")) ){
-			obm.setCurrPage(1);
-			obm.setPerPage(req);
-			String actionStr;
-			actionStr = WebQueryUtils.getDefString(action, id);
-			this.obm.getBeanListForQuery(actionStr);
-			results = obm.getPageRecords();
-		}
-		// Set per page first
-		else if (perPage != null) {
-			obm.setPerPage(req);			
-			results = obm.getPageNumber(obm.getCurrPage());
-		}
-		// Now, deal with the rest of the request	
-		else if (page != null){
-			try{
-				int pageI = Integer.parseInt(page);
-				results = obm.getPageNumber(pageI);
-			}
-			catch(NumberFormatException ex){
-				if (page.equals("next")) {
-					results = obm.getNextPage();
-				}
-				if (page.equals("prev")) {
-					results = obm.getPreviousPage();
-				}
-			}
-		}		
+		String actionStr;
+		actionStr = WebQueryUtils.getDefString(action, id);
+		this.obm.getBeanListForQuery(actionStr);
+		results = obm.getCompleteSet();
 		modelAndView.addObject("ontBeanList", results);
-		modelAndView.addObject("type", "obm");		
+		modelAndView.addObject("type", "obm");
 		params = obm.getUsefulParams(params);
 		String structName = "<i>" + obm.getBeanForId(OntBean.idAsOBO(id)).getName() + "</i>";
 		String actionDesc = WebQueryUtils.getDescString(action).replace("XXX", structName);
@@ -70,7 +46,7 @@ public class ClusterListController extends AbstractController{
 		modelAndView.addObject("paramItems", params.split("&"));
 		modelAndView.addObject("paramString", params);
 		modelAndView.addObject("nav", obm.getNav(params));
-		return modelAndView;			
+		return modelAndView;
 	}
 
 	public void setObm(OntBeanManager obm) {

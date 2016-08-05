@@ -7,14 +7,15 @@
 </jsp:include>
 
 <!-- THE TEMPLATE CONTENT BOX HEADER -->
-<div id="help_wrapper">
-<div id="help_head_wrapper">
-	<h1 id="help_header">${param.head}</h1>
-   </div>
- </div>
-  <div id="help_content">
-	${param.content}
-  </div>
+<div class="content-fluid">
+	<div class="well">
+		<div id="help_head_wrapper">
+			<h1 id="help_header">${param.head}</h1>
+	  	</div>
+	  	<div id="help_content">
+			${param.content}
+	  	</div>
+  	</div>
 </div>
   
 <jsp:include page="/jsp/includes/homeFoot.jsp" />
