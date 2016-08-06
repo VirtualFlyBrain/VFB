@@ -53,13 +53,13 @@ public abstract class AOwlResultParser {
 		try {
 			OWLEntity oe =  this.bsfp.getEntity(OntBean.idAsOWL(id));
 			if (oe == null) {
-				LOG.debug("Failed to get entity for " + OntBean.idAsOWL(id) + " from ontology " + this.ontology.toString());
+				LOG.error("Failed to get entity for " + OntBean.idAsOWL(id) + " from ontology " + this.ontology.toString());
 			}
 			return this.getOntBeanForEntity(oe);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
-			LOG.debug("Failed to get entity for " + OntBean.idAsOWL(id) + " (requested as " + id + ") from ontology " + this.ontology.toString());
+			LOG.error("Failed to get entity for " + OntBean.idAsOWL(id) + " (requested as " + id + ") from ontology " + this.ontology.toString());
 			return null;
 		}
  	}
