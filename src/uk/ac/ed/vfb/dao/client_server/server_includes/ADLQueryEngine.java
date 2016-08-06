@@ -95,7 +95,7 @@ public abstract class ADLQueryEngine {
 		//LOG.debug("bean = " + result);
 		if (result == null) {
 			//LOG.debug("Creating new bean");
-			result = orp.getOntBeanForId(entityid);
+			result = orp.getOntBeanForId(OntBean.idAsOBO(entityid));
 			this.ontBeans.put(result.getFbbtId(), result);
 			//LOG.debug("new bean:  " + result);
 		}
