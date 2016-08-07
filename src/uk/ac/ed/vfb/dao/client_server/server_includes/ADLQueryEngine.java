@@ -94,13 +94,8 @@ public abstract class ADLQueryEngine {
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
 		//LOG.debug("bean = " + result);
 		if (result == null) {
-<<<<<<< HEAD
-			LOG.info("Creating new bean");
-			result = orp.getOntBeanForId(entityid);
-=======
 			//LOG.debug("Creating new bean");
-			result = orp.getOntBeanForId(OntBean.idAsOBO(entityid));
->>>>>>> parent of 0f4f785... adding debug
+			result = orp.getOntBeanForId(entityid);
 			this.ontBeans.put(result.getFbbtId(), result);
 			//LOG.debug("new bean:  " + result);
 		}
