@@ -45,9 +45,9 @@ public abstract class ADLQueryEngine {
 	}
 
 	public ADLQueryEngine(String ontologyURL) {
-		//LOG.debug("Loading ontology for: " + this.getClass() + "...");
+		LOG.info("Loading ontology for: " + this.getClass() + "...");
 		try {
-			//LOG.debug("Ontology: " + ontologyURL);
+			LOG.info("Ontology: " + ontologyURL);
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
 		}
@@ -72,7 +72,7 @@ public abstract class ADLQueryEngine {
 		OntBean currBean;
 		while (it.hasNext()){
 			currId = it.next();
-			//LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
+			LOG.info("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
 			// Skip if it's nothing
 			if (currId.toString().equals("owl:Nothing")) {continue;}
 			currBean = this.orp.getOntBeanForEntity(currId);
@@ -90,14 +90,14 @@ public abstract class ADLQueryEngine {
 	 * @return
 	 */
 	protected OntBean getOntBeanForId(String entityid) {
-		//LOG.debug("Cache " + this.ontBeans);
+		LOG.info("Cache " + this.ontBeans);
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
-		//LOG.debug("bean = " + result);
+		LOG.info("bean = " + result);
 		if (result == null) {
-			//LOG.debug("Creating new bean");
+			LOG.info("Creating new bean");
 			result = orp.getOntBeanForId(OntBean.idAsOBO(entityid));
 			this.ontBeans.put(result.getFbbtId(), result);
-			//LOG.debug("new bean:  " + result);
+			LOG.info("new bean:  " + result);
 		}
 		return result;
 	}
@@ -127,7 +127,7 @@ public abstract class ADLQueryEngine {
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
-				//LOG.debug("Entity : " + entity + "\n");
+				LOG.info("Entity : " + entity + "\n");
 				idSet.add(entity);
 			}
 		}
