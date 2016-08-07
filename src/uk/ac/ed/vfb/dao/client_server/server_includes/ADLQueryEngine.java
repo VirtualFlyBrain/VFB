@@ -45,9 +45,9 @@ public abstract class ADLQueryEngine {
 	}
 
 	public ADLQueryEngine(String ontologyURL) {
-		LOG.info("Loading ontology for: " + this.getClass() + "...");
+		//LOG.debug("Loading ontology for: " + this.getClass() + "...");
 		try {
-			LOG.info("Ontology: " + ontologyURL);
+			//LOG.debug("Ontology: " + ontologyURL);
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
 		}
@@ -72,7 +72,7 @@ public abstract class ADLQueryEngine {
 		OntBean currBean;
 		while (it.hasNext()){
 			currId = it.next();
-			LOG.info("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
+			//LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
 			// Skip if it's nothing
 			if (currId.toString().equals("owl:Nothing")) {continue;}
 			currBean = this.orp.getOntBeanForEntity(currId);
@@ -90,14 +90,19 @@ public abstract class ADLQueryEngine {
 	 * @return
 	 */
 	protected OntBean getOntBeanForId(String entityid) {
-		LOG.info("Cache " + this.ontBeans);
+		//LOG.debug("Cache " + this.ontBeans);
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
-		LOG.info("bean = " + result);
+		//LOG.debug("bean = " + result);
 		if (result == null) {
+<<<<<<< HEAD
 			LOG.info("Creating new bean");
 			result = orp.getOntBeanForId(entityid);
+=======
+			//LOG.debug("Creating new bean");
+			result = orp.getOntBeanForId(OntBean.idAsOBO(entityid));
+>>>>>>> parent of 0f4f785... adding debug
 			this.ontBeans.put(result.getFbbtId(), result);
-			LOG.info("new bean:  " + result);
+			//LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
@@ -127,7 +132,7 @@ public abstract class ADLQueryEngine {
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
-				LOG.info("Entity : " + entity + "\n");
+				//LOG.debug("Entity : " + entity + "\n");
 				idSet.add(entity);
 			}
 		}
