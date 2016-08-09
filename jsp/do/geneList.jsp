@@ -58,13 +58,12 @@
                                        target="_blank">${geneBean.referenceRef}</a></td>
                                 <td>
                                     <c:if test="${!empty tpb && tpb.stackType=='adult brain' && tpb.completeExpressionPattern}">
-                                        <c:if test="${!empty geneBean.thirdPartyBean.thumbName}">
-                                            <a style="float: left; margin: 0 3px;"
-                                               href="/site/stacks/index.htm?add=${tpb.vfbId}"
-                                               title="View registered stack in 3D Viewer" target="_blank">
-                                                <img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}"
-                                                     alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
-                                        </c:if>
+                        	    	<a style="float: left; margin: 0 3px;"
+	                                	href="/site/stacks/index.htm?add=${tpb.vfbId}"
+	                                       	title="View registered stack in 3D Viewer" target="_blank">
+	                                        <img class="lazy" data-original="${geneBean.thirdPartyBean.thumbUrl}"
+	                                             alt="${geneBean.driver} ${query}, ${tpb.sourceName}, ${geneBean.referenceRef}"/></a>
+                                        
                                     </c:if>
                                 </td>
                                 <td>
