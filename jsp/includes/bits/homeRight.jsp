@@ -16,8 +16,8 @@
 			      <div id="newsection">
 			         <ul>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1086">New site live</a>
-						<br/>Our new cleaner and slicker VFB 1.5 site is now live
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1124">Lots of new data</a>
+						<br/>New VFB release with lots of new data, inc 18K VT line images (BrainBase, VDRC) + 50% FlyCircuit neurons classified
 			               </p>
 			            </li>
 			            <li>
@@ -26,8 +26,8 @@
 			               </p>
 			            </li>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=833">VFB 2.0 coming later in the year</a><br/>
-			                  Check out the new 3D display
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1086">New site live</a>
+						<br/>Our new cleaner and slicker VFB 1.5 site is now live
 			               </p>
 			            </li>
 			         </ul>
