@@ -16,7 +16,7 @@
 			      <div id="newsection">
 			         <ul>
 			            <li>
-			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1124">Lots of new data</a>
+			               <p><a href="http://vfbblog.inf.ed.ac.uk/?p=1124">Major new VFB release</a>
 						<br/>New VFB release with lots of new data, inc 18K VT line images (BrainBase, VDRC) + 50% FlyCircuit neurons classified
 			               </p>
 			            </li>
