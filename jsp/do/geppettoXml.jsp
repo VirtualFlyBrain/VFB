@@ -33,14 +33,14 @@
         id="Clone"
         name="Clone"/>
     <types xsi:type="gep_1:SimpleType"
-        id="neuropil"		        id="Synaptic_neuropil"
-        name="Neuropil"/>		        name="Synaptic Neuropil"/>
-    <types xsi:type="gep_1:SimpleType"		    <types xsi:type="gep_1:SimpleType"
-        id="VFB"		        id="VFB"
-        name="Virtual Fly Brain"/>		        name="Virtual Fly Brain"/>
-    <types xsi:type="gep_1:SimpleType"		    <types xsi:type="gep_1:SimpleType"		
-        id="Orphan"		        id="Orphan"		
-        name="No Meta Data"/>		        name="No Meta Data"/>
+        id="Synaptic_neuropil"
+        name="Synaptic Neuropil"/>
+    <types xsi:type="gep_1:SimpleType"
+        id="VFB"
+        name="Virtual Fly Brain"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Orphan"		
+        name="No Meta Data"/>
     <types xsi:type="gep_1:SimpleType"		
         id="Obsolete"		
         name="Obsolete"/>
