@@ -33,14 +33,44 @@
         id="Clone"
         name="Clone"/>
     <types xsi:type="gep_1:SimpleType"
-        id="neuropil"
-        name="Neuropil"/>
-    <types xsi:type="gep_1:SimpleType"
-        id="VFB"
-        name="Virtual Fly Brain"/>
-    <types xsi:type="gep_1:SimpleType"
-        id="Orphan"
-        name="No Meta Data"/>
+        id="neuropil"		        id="Synaptic_neuropil"
+        name="Neuropil"/>		        name="Synaptic Neuropil"/>
+    <types xsi:type="gep_1:SimpleType"		    <types xsi:type="gep_1:SimpleType"
+        id="VFB"		        id="VFB"
+        name="Virtual Fly Brain"/>		        name="Virtual Fly Brain"/>
+    <types xsi:type="gep_1:SimpleType"		    <types xsi:type="gep_1:SimpleType"		
+        id="Orphan"		        id="Orphan"		
+        name="No Meta Data"/>		        name="No Meta Data"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Obsolete"		
+        name="Obsolete"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Synaptic_neuropil_domain"		
+        name="Synaptic Neuropil Domain"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Synaptic_neuropil_subdomain"		
+        name="Synaptic Neuropil Subdomain"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Synaptic_neuropil_block"		
+        name="Synaptic Neuropil Block"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="FBDV"		
+        name="FlyBase Development CV"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="FBCV"		
+        name="FlyBase Controlled Vocabulary"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="FBBI"		
+        name="FlyBase Biological Imaging Methods"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Root"		
+        name="Top Object"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="pub"		
+        name="Publication"/>
+    <types xsi:type="gep_1:SimpleType"		
+        id="Resource"		
+        name="Resource"/>
   </libraries>
   <libraries
       id="vfbLibrary"
