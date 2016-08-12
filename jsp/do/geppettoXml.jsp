@@ -139,7 +139,7 @@
               xsi:type="gep:ProcessQuery"
               label="This processing step will populate a Variable with the related and references resulting from the previous query"
               description="This processing step will populate a Variable with the related and references resulting from the previous query"
-              queryProcessorId="vfbImportTypesSynonymQueryProcessor">
+              queryProcessorId="vfbImportTypesRelatedQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
       </queryChain>
