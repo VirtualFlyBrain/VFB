@@ -20,7 +20,7 @@ var setSepCol = function(path){console.log(path+" setting colour....");try{ if (
 var resolve3D = function(path){ try{ var i = Instances.getInstance(path+"."+path+"_obj"); i = Instances.getInstance(path+"."+path+"_swc"); }catch(ignore){} i.getType().resolve(function(){setSepCol(path);}); };
 var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta";var target=widget; if(GEPPETTO.isKeyPressed("meta")){target=G.addWidget(1).addCustomNodeHandler(customHandler,'click');}if(n!=undefined){var metanode= Instances.getInstance(meta);target.setData(metanode).setName(n.getName());}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);target.setData(eval(meta)).setName(eval(path).getName()); resolve3D(path);});}};
 
-loaded = 0; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; capacity = 3; total=0;
+loaded = 0; timeout = []; timeout["max"] = 10; order = []; order["curr"] = 0; capacity = 1; total=0;
 
 var getMeta = function(path){console.log(path+" loading Meta....");var meta=path+"."+path+"_meta"; Instances.getInstance(meta); console.log("Loaded metadata for " + path + " into " + meta);};
 
