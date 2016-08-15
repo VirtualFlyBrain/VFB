@@ -28,7 +28,7 @@ var loadInd=function(path){console.log(path+" loading....");Model.getDatasources
 
 var sleep=function(miliseconds) {var currentTime = new Date().getTime();while (currentTime + miliseconds >= new Date().getTime()){}}
 
-var delay=function(ms, func, param) { console.log( order[param] + "/" + total + "->" + loaded ); setTimeout(function(){ if (capacity > 0) {capacity--; func(param);}else{delay(1000, func, param);}}, ms);}
+var delay=function(ms, func, param) { setTimeout(function(){ if (capacity > 0) {capacity--; func(param);}else{delay(1000, func, param);}}, ms);}
 
 info = G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).addCustomNodeHandler(customHandler,'click');;
 info.setName('Click on image to show info');
