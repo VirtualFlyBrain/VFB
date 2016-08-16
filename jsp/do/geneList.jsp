@@ -43,7 +43,7 @@
                                 <td><a href="${transgeneLinks[0]}${geneBean.driverRef}.html"
                                        target="_blank">${geneBean.driver}</a><br/>
                                     <c:set var="tpb" value="${geneBean.thirdPartyBean}"/>
-                                    <c:if test="${!empty geneBean.thirdPartyBean.stackName}">
+                                    <c:if test="${!empty tpb}">
                                         <span id="attach" style="border:none;padding-left:0px;padding-right:0px;"
                                               data-id="${tpb.vfbId}"></span>
                                     </c:if></td>
