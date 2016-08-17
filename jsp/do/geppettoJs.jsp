@@ -45,3 +45,7 @@ G.setIdleTimeOut(-1);
         </c:if>
     </c:forEach>
 </c:if>
+
+Popup1.setName('Click on image to show info');
+oldSelection = "";
+GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{Popup1.setData(selection[0].getParent()[selection[0].getParent().getId()+"_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId()+"_meta"].getName());}catch (ignore){};}; };} );
