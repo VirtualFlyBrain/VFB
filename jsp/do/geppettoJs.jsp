@@ -36,5 +36,5 @@ G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10
 
 G.setIdleTimeOut(-1);
 resolved = [];
-for(im in window.Model.getLibraries()[0].getTypes())"function"==typeof im.resolve&&(im.resolve(),resolved.push(im.getId().replace("_swc","").replace("_obj","")));
-for(im in window.Model.getLibraries()[1].getTypes())"function"==typeof im.resolve&&resolved.indexOf(im.getId().replace("_swc","").replace("_obj",""))<0&&(im.resolve(),resolved.push(im.getId().replace("_swc","").replace("_obj","")));
+for(i in window.Model.getLibraries()[0].getTypes())im=window.Model.getLibraries()[0].getTypes()[i],"function"==typeof im.resolve&&(im.resolve(),resolved.push(im.getId().replace("_swc","").replace("_obj","")));
+for(i in window.Model.getLibraries()[1].getTypes())im=window.Model.getLibraries()[1].getTypes()[i],"function"==typeof im.resolve&&resolved.indexOf(im.getId().replace("_swc","").replace("_obj",""))<0&&(im.resolve(),resolved.push(im.getId().replace("_swc","").replace("_obj","")));
