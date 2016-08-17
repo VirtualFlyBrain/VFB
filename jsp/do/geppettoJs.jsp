@@ -34,7 +34,19 @@ var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catc
 
 G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).setData(FBbt_00100219.FBbt_00100219_meta).setName(FBbt_00100219.getName()).addCustomNodeHandler(customHandler,'click');
 
-window.Model.getLibraries()[1].getTypes()[0].resolve();
-
 G.setIdleTimeOut(-1);
-window.Model.getLibraries()[1].getTypes()[0].resolve();
+resolved = [];
+for (im in window.Model.getLibraries()[0].getTypes()){
+    if (typeof im.resolve == "function"){
+        im.resolve();
+        resolved.push(im.getId().replace('_swc','').replace('_obj',''));
+    }
+}
+for (im in window.Model.getLibraries()[1].getTypes()){
+    if (typeof im.resolve == "function"){
+        if (resolved.indexOf(im.getId().replace('_swc','').replace('_obj','')) < 0){
+            im.resolve();
+            resolved.push(im.getId().replace('_swc','').replace('_obj',''));
+        }
+    }
+}
