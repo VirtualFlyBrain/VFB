@@ -22,6 +22,10 @@ G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10
 
 G.setIdleTimeOut(-1);
 
+Popup1.setName('Click on image to show info');
+oldSelection = "";
+GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{Popup1.setData(selection[0].getParent()[selection[0].getParent().getId()+"_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId()+"_meta"].getName());}catch (ignore){};}; };} );
+
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
         <c:if test="${not empty curr}">
@@ -46,6 +50,3 @@ G.setIdleTimeOut(-1);
     </c:forEach>
 </c:if>
 
-Popup1.setName('Click on image to show info');
-oldSelection = "";
-GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = ""; if (selection.length > 0){ if (selection[0].getParent() != oldSelection){ oldSelection = selection[0].getParent(); try{Popup1.setData(selection[0].getParent()[selection[0].getParent().getId()+"_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId()+"_meta"].getName());}catch (ignore){};}; };} );
