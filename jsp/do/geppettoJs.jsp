@@ -30,21 +30,7 @@ GEPPETTO.on(Events.Select, function () {selection = G.getSelection(); message = 
     <c:forEach items="${individuals}" var="curr" varStatus="status">
         <c:if test="${not empty curr}">
             Model.getDatasources()[0].fetchVariable("${curr}");
-        </c:if>
-    </c:forEach>
-</c:if>
-
-<c:if test="${fn:length(individuals)>0}">
-    <c:forEach items="${individuals}" var="curr" varStatus="status">
-        <c:if test="${not empty curr}">
             Instances.getInstance("${curr}.${curr}_meta");
-        </c:if>
-    </c:forEach>
-</c:if>
-
-<c:if test="${fn:length(individuals)>0}">
-    <c:forEach items="${individuals}" var="curr" varStatus="status">
-        <c:if test="${not empty curr}">
             resolve3D("${curr}");
         </c:if>
     </c:forEach>
