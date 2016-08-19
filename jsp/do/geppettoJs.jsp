@@ -13,11 +13,10 @@ var setSepCol = function(entityPath) { var c = coli; coli++; if (coli > 199) { c
 var resolve3D = function(path, callback) { var instance = undefined; try { instance = Instances.getInstance(path + "." + path + "_swc"); } catch (ignore) { } if(instance == undefined){ try { instance = Instances.getInstance(path + "." + path + "_obj"); } catch (ignore) { } } if(instance!=undefined){ instance.getType().resolve(function() { setSepCol(path); if (callback != undefined) { callback(); } }); } };
 var customHandler=function(node, path, widget){ var n;try {n = eval(path);} catch (ex) {node = undefined;}var meta=path+"."+path+"_meta";var target=widget; if(GEPPETTO.isKeyPressed("meta")){target=G.addWidget(1).addCustomNodeHandler(customHandler,'click');}if(n!=undefined){var metanode= Instances.getInstance(meta);target.setData(metanode).setName(n.getName());}else{Model.getDatasources()[0].fetchVariable(path,function(){Instances.getInstance(meta);target.setData(eval(meta)).setName(eval(path).getName()); resolve3D(path);});}};
 
-G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).setData('').setName('').addCustomNodeHandler(customHandler,'click');
-Popup1.setName('Click on image to show info');
+G.addWidget(1).setPosition((window.innerWidth-(Math.ceil(window.innerWidth/5)+10)),10).setSize((window.innerHeight-20),Math.ceil(window.innerWidth/5)).setName('Click on image to show info').addCustomNodeHandler(customHandler,'click');
 
 var oldSelection = "";
-GEPPETTO.on(Events.Select, function() { selection = G.getSelection(); message = ""; if (selection.length > 0) { if (selection[0].getParent() != oldSelection) { oldSelection = selection[0].getParent(); try { Popup1.setData(selection[0].getParent()[selection[0].getParent().getId() + "_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId() + "_meta"].getName()).addCustomNodeHandler(customHandler, 'click'); } catch (ignore) {}; }; }; });
+GEPPETTO.on(Events.Select, function() { selection = G.getSelection(); message = ""; if (selection.length > 0) { if (selection[0].getParent() != oldSelection) { oldSelection = selection[0].getParent(); try { Popup1.setData(selection[0].getParent()[selection[0].getParent().getId() + "_meta"]).setName(selection[0].getParent()[selection[0].getParent().getId() + "_meta"].getName()); } catch (ignore) {}; }; }; });
 
 G.setIdleTimeout(-1);
 
