@@ -2,6 +2,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+window.initVFB();
+
 var resolve3D = function(path, callback) { var instance = undefined; try { instance = Instances.getInstance(path + "." + path + "_swc"); } catch (ignore) { } if(instance == undefined){ try { instance = Instances.getInstance(path + "." + path + "_obj"); } catch (ignore) { } } if(instance!=undefined){ instance.getType().resolve(function() { setSepCol(path); if (callback != undefined) { callback(); } }); } };
 
 <c:if test="${fn:length(individuals)>0}">
