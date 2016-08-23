@@ -173,7 +173,7 @@
                         <li id="AnatoMenuTab"><a href="#anato" data-toggle="tab"><span
                                 class="glyphicon glyphicon-list-alt"></span> Anatomy</a></li>
                         <li id="QueryMenuTab"><a href="#queryBuild" data-toggle="tab"><span
-                                class="glyphicon glyphicon-tasks"></span> Query Builder</a></li>
+                                class="glyphicon glyphicon-tasks"></span> Advanced Query</a></li>
                         <li id="MinMenuTab"><a href="#min" data-toggle="tab" onClick="minimizeMenuTabs();"><span
                                 class="glyphicon glyphicon-resize-small"></span> Minimize</a></li>
                     </ul>
