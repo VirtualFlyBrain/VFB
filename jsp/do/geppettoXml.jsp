@@ -165,4 +165,57 @@
       </queryChain>
     </fetchVariableQuery>
   </dataSources>
+  <dataSources		
+      id="aberOWLDataSourceService"		
+      name="aberOWLDataSourceService"		
+      dataSourceService="aberOWLDataSource"		
+      url="http://aber-owl.net/service/api/runQuery.groovy"		
+      dependenciesLibrary="//@libraries.3"		
+      targetLibrary="//@libraries.4">		
+    <queries		
+        xsi:type="gep:SimpleQuery"		
+        name="Part of"		
+        description="Part of"		
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
+        countQuery="">		
+      <matchingCriteria		
+          type="//@libraries.3/@types.1"/>		
+    </queries>		
+    <queries		
+        xsi:type="gep:SimpleQuery"		
+        name="Neurons"		
+        description="Neurons with some part here"		
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
+        countQuery="">		
+      <matchingCriteria		
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
+    </queries>		
+    <queries		
+        xsi:type="gep:SimpleQuery"		
+        name="Neurons Synaptic"		
+        description="Neurons with synaptic terminals here"		
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
+        countQuery="">		
+      <matchingCriteria		
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
+    </queries>		
+    <queries		
+        xsi:type="gep:SimpleQuery"		
+        name="Neurons Presynaptic"		
+        description="Neurons with presynaptic terminals here"		
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
+        countQuery="">		
+      <matchingCriteria		
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
+    </queries>		
+    <queries		
+        xsi:type="gep:SimpleQuery"		
+        name="Neurons Postsynaptic"		
+        description="Neurons with postsynaptic terminals here"		
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
+        countQuery="">		
+      <matchingCriteria		
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
+    </queries>		
+  </dataSources>
 </gep:GeppettoModel>
