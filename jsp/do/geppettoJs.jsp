@@ -4,8 +4,6 @@
 
 window.initVFB();
 
-var resolve3D = function(path, callback) { var instance = undefined; try { instance = Instances.getInstance(path + "." + path + "_swc"); } catch (ignore) { } if(instance == undefined){ try { instance = Instances.getInstance(path + "." + path + "_obj"); } catch (ignore) { } } if(instance!=undefined){ instance.getType().resolve(function() { setSepCol(path); if (callback != undefined) { callback(); } }); } };
-
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
         <c:if test="${not empty curr}">
