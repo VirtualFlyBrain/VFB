@@ -1418,12 +1418,14 @@ function openFullDetails(id) {
                             $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         }
-                    } else if (id.indexOf("FB") > -1) {
-                        $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-                        $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_', '') + '" target="_blank">FlyBase report for ' + id.replace('_', '') + '</a>');
+                    //} else if (id.indexOf("FB") > -1) {
+                        //$('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+                        //$('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_', '') + '" target="_blank">FlyBase report for ' + id.replace('_', '') + '</a>');
                         //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                     } else {
-                        alertMessage("Can't open details for:" + id);
+                        //alertMessage("Can't open details for:" + id);
+                        $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+                        $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                     }
                 } else {
                     if (parent.$("body").data("domains") && (id.indexOf('VFBd_') > -1 || id.indexOf('VFBt_') > -1)) {
