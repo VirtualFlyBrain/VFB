@@ -13,6 +13,9 @@ G.setOnSelectionOptions({unselected_transparent:false});
             Model.getDatasources()[0].fetchVariable("${curr}");
             Instances.getInstance("${curr}.${curr}_meta");
             resolve3D("${curr}");
+            <c:if test="${(status.index) eq 0}">
+                ${curr}.setOpacity(0.2,true);
+            </c:if>
         </c:if>
     </c:forEach>
 </c:if>
