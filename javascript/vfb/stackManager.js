@@ -4698,7 +4698,7 @@ function neoCall(cypher, htmlid) {
         success: function (result, xhr, status) {
             var list = "";
             if (result.data.length > 0 && htmlid !== "partName") {
-                list = "<ul"
+                list = "<ul";
                 if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;';
                     if (htmlid == "infoDef" || htmlid.indexOf('For') > -1){
@@ -4708,13 +4708,18 @@ function neoCall(cypher, htmlid) {
                 }
                 list += ">";
                 result.data.forEach(function (item) {
-                    list += "<li>" + item[0] + "</li>";
+                    if ($.trim(item) != "" && item != "null" && item != null && $.trim(item) != "(undefined)"){
+                        list += "<li>" + item[0] + "</li>";
+                    }
                 });
                 list += "</ul>"
+                if (list.indexOf('<li>') < 0){
+                    list = "";
+                }
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && $.trim(list) !== "" && $.trim(list) !== '<ul style="list-style-type:none;"><li>null</li></ul>') {
+            if (list !== "undefined" && list !== undefined && $.trim(list) !== "") {
                 $('#' + htmlid).html(list);
                 if ($('#' + htmlid).parent('p').is(":visible") == false) {
                     $('#' + htmlid).parent('p').show();
