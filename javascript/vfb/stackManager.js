@@ -4701,7 +4701,7 @@ function neoCall(cypher, htmlid) {
                 list = "<ul"
                 if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;';
-                    if (htmlid == "infoDef"){
+                    if (htmlid == "infoDef" || htmlid.indexOf('For') > -1){
                         list += 'margin: 0px;';
                     }
                     list += '"';
