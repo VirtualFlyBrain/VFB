@@ -4702,7 +4702,7 @@ function neoCall(cypher, htmlid) {
                 if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;';
                     if (htmlid == "infoDef" || htmlid.indexOf('For') > -1){
-                        list += 'margin: 0px;';
+                        list += 'margin: 0px;padding: 0px;';
                     }
                     list += '"';
                 }
