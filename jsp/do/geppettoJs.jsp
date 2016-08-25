@@ -5,6 +5,7 @@
 window.initVFB();
 G.setIdleTimeout(-1);
 GEPPETTO.SceneController.setWireframe(false);
+G.setOnSelectionOptions({unselected_transparent:false});
 
 <c:if test="${fn:length(individuals)>0}">
     <c:forEach items="${individuals}" var="curr" varStatus="status">
