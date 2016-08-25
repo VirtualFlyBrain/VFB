@@ -1426,9 +1426,9 @@ function updateLabels() {
                 content = cleanIdforExt($(this).data('id'));
                 switch (content.substr(0, 4)) {
                     case "VFB_":
+                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
                         neoCall('MATCH (a) where a.short_form = "' + content + '" return a.label limit 1', $(this).attr('id'));
                         $(this).attr("onclick", $("#infoButtonFor" + content).attr("onclick"));
-                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
                         break;
                     case "VFBt":
                         $(this).text(parent.$("body").data("meta").name);
@@ -1436,9 +1436,9 @@ function updateLabels() {
                         parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
                         break;
                     case "FBbt":
+                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
                         neoCall('MATCH (a) where a.short_form = "' + content + '" return a.label limit 1', $(this).attr('id'));
                         $(this).attr("onclick", $("#" + $(this).attr("id").replace("nameFor", "infoButtonFor")).attr("onclick"));
-                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
                         break;
                     default:
                         alertMessage("unable to resolve name for id:" + content);
@@ -1449,10 +1449,10 @@ function updateLabels() {
                 content = cleanIdforExt(content);
                 switch (content.substr(0, 4)) {
                     case "VFB_":
-                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.label as type', $(this).attr('id'));
-                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.short_form as typeID', $("#parentIdFor" + $(this).data('id')).attr('id'));
                         $(this).attr('id',$(this).attr('id').replace('typeFor','NeoTypeFor'));
                         $("#parentIdFor" + $(this).data('id')).attr('id','NeoParentIdFor' + $(this).data('id'));
+                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.label as type', $(this).attr('id'));
+                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.short_form as typeID', $("#NeoParentIdFor" + $(this).data('id')).attr('id'));
                         break;
                     case "VFBt":
                         $(this).html($('#backgroundStain').html());
@@ -1462,10 +1462,10 @@ function updateLabels() {
                         $(this).attr('id', "Resolved" + $(this).attr('id'));
                         break;
                     case "FBbt":
-                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.label as type', $(this).attr('id'));
-                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.short_form as typeID', $("#parentIdFor" + $(this).data('id')).attr('id'));
                         $(this).attr('id',$(this).attr('id').replace('typeFor','NeoTypeFor'));
                         $("#parentIdFor" + $(this).data('id')).attr('id','NeoParentIdFor' + $(this).data('id'));
+                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.label as type', $(this).attr('id'));
+                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.short_form as typeID', $("#NeoParentIdFor" + $(this).data('id')).attr('id'));
                         break;
                     case "FBgn":
                         $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_blank"><li>gene</li>');
