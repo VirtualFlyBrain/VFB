@@ -13,6 +13,7 @@
             <p>You can explore via <a href="/site/stacks/index.htm">images/stacks</a> of the central nervous system</p>
             <p id="availableRegions" align="center"></p>
             <script>
+                selLoading = true;
                 function updateStackSelector() {
                     try{
                         var templates = parent.$('body').data();
@@ -51,11 +52,21 @@
                         addToStackData(originalStack);
                     } catch (e) {
                         alertMessage("Problem loading image (" + i + "); error " + e);
-                        setTimeout( updateStackSelector(), 2000);
+                        if (selLoading) {
+                            selLoading = true;
+                            setTimeout(function () {
+                                selLoading = false; 
+                                updateStackSelector();
+                            }, 5000);
+                        }
                     }
                 }
                 $(function () {
-                    setTimeout( updateStackSelector(), 2000);
+                    selLoading = true;
+                    setTimeout( function () {
+                        selLoading = false; 
+                        updateStackSelector();
+                    }, 2000);
                 });
                 function jumpToSearch() {
                     if ($('.navbar-toggle').is(':visible')) {
