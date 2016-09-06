@@ -46,13 +46,13 @@
                                 html = html.replace('</div >', '<div class="carousel-caption" style="bottom:-30px;">' + templates[i].meta.name + '</div></div></div >');
                                 REGcount++;
                             }
-                        } catch (e) {
-                            alertMessage("Problem loading image (" + i + "); error " + e);
-                            setTimeout( updateStackSelector(), 2000);
                         }
+                        $('#availableRegions').html(html);
+                        addToStackData(originalStack);
+                    } catch (e) {
+                        alertMessage("Problem loading image (" + i + "); error " + e);
+                        setTimeout( updateStackSelector(), 2000);
                     }
-                    $('#availableRegions').html(html);
-                    addToStackData(originalStack);
                 }
                 $(function () {
                     setTimeout( updateStackSelector(), 2000);
