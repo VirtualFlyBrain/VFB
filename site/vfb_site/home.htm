@@ -52,7 +52,7 @@
                         addToStackData(originalStack);
                     } catch (e) {
                         alertMessage("Problem loading image (" + i + "); error " + e);
-                        if (selLoading) {
+                        if (!selLoading) {
                             selLoading = true;
                             setTimeout(function () {
                                 selLoading = false; 
