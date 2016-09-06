@@ -1,5 +1,10 @@
 /*! VirtualFlyBrain.org functions to manage image stack */
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+    console.log("Error occured: " + errorMsg);
+    return false;
+}
+
 window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
