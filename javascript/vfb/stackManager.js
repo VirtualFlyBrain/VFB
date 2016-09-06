@@ -1299,8 +1299,11 @@ function loadDefaultData(ids) {
     parent.$("body").data("VFBt_001", {selected: {0: {id: "VFBt_00100000", colour: "auto", visible: true}}});
     loadTemplateMeta("VFBt_001");
     parent.$("body").data("VFBt_002", {selected: {0: {id: "VFBt_00200000", colour: "auto", visible: true}}});
+    loadTemplateMeta("VFBt_002");
     parent.$("body").data("VFBt_003", {selected: {0: {id: "VFBt_00300000", colour: "auto", visible: true}}});
+    loadTemplateMeta("VFBt_003");
     parent.$("body").data("VFBt_004", {selected: {0: {id: "VFBt_00400000", colour: "auto", visible: true}}});
+    loadTemplateMeta("VFBt_004");
     updateStackData();
     if (ids !== undefined && ids !== null && ids !== "") {
         addToStackData(ids);
