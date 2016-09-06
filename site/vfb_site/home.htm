@@ -42,7 +42,7 @@
                                     colFilter = '255,0,255';
                                 }
                                 html = html.replace('</ol>', '<li data-target="#carousel-example-generic" data-slide-to="' + REGcount + '"' + OLactive + '></li>' + '</ol>');
-                                html = html.replace('</div >', '<div class="item' + DIVactive + '" style="background-color:black;height:300px;">' + thumbnailHTMLForId(i).replace('data-original', 'src').replace('scl=0.2', 'scl=1').replace('0,255,0&fxp', colFilter + '&fxp').replace('fxp=' + parent.$('body').data('meta').center, 'fxp=' + templates[i].meta.center).replace('thumb_sm', 'thumb_lg').replace('details" />', 'details" style="height:290px;" />') + '</div >');
+                                html = html.replace('</div >', '<div class="item' + DIVactive + '" style="background-color:black;height:300px;">' + thumbnailHTMLForId(i).replace('data-original', 'src').replace('scl=0.2', 'scl=1').replace('0,255,0&fxp', colFilter + '&fxp').replace(/fxp=[0-9]*/g, 'fxp=' + templates[i].meta.center).replace('thumb_sm', 'thumb_lg').replace('details" />', 'details" style="height:290px;" />') + '</div >');
                                 html = html.replace('</div >', '<div class="carousel-caption" style="bottom:-30px;">' + templates[i].meta.name + '</div></div></div >');
                                 REGcount++;
                             }
