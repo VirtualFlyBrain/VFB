@@ -1,5 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><?xml version="1.0" encoding="ASCII"?>
-<gep:GeppettoModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gep="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore" xmlns:gep_1="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore#//types">
+<?xml version="1.0" encoding="ASCII"?>
+<gep:GeppettoModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gep="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore"
+    xmlns:gep_1="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore#//types"
+    xmlns:gep_2="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore#//datasources">
   <libraries
       id="SWCLibrary"
       name="SWC"/>
@@ -165,57 +172,93 @@
       </queryChain>
     </fetchVariableQuery>
   </dataSources>
-  <dataSources		
-      id="aberOWLDataSourceService"		
-      name="aberOWLDataSourceService"		
-      dataSourceService="aberOWLDataSource"		
-      url="http://aber-owl.net/service/api/runQuery.groovy"		
-      dependenciesLibrary="//@libraries.3"		
-      targetLibrary="//@libraries.4">		
-    <queries		
-        xsi:type="gep:SimpleQuery"		
-        name="Part of"		
-        description="Part of"		
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
-        countQuery="">		
-      <matchingCriteria		
-          type="//@libraries.3/@types.1"/>		
-    </queries>		
-    <queries		
-        xsi:type="gep:SimpleQuery"		
-        name="Neurons"		
-        description="Neurons with some part here"		
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
-        countQuery="">		
-      <matchingCriteria		
-          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
-    </queries>		
-    <queries		
-        xsi:type="gep:SimpleQuery"		
-        name="Neurons Synaptic"		
-        description="Neurons with synaptic terminals here"		
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
-        countQuery="">		
-      <matchingCriteria		
-          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
-    </queries>		
-    <queries		
-        xsi:type="gep:SimpleQuery"		
-        name="Neurons Presynaptic"		
-        description="Neurons with presynaptic terminals here"		
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
-        countQuery="">		
-      <matchingCriteria		
-          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
-    </queries>		
-    <queries		
-        xsi:type="gep:SimpleQuery"		
-        name="Neurons Postsynaptic"		
-        description="Neurons with postsynaptic terminals here"		
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"		
-        countQuery="">		
-      <matchingCriteria		
-          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>		
-    </queries>		
+  <dataSources
+      id="aberOWLDataSource"
+      name="Aber OWL Data Source"
+      dataSourceService="aberOWLDataSource"
+      url="http://aber-owl.net/service/api/runQuery.groovy"
+      dependenciesLibrary="//@libraries.3"
+      targetLibrary="//@libraries.4">
+    <queries
+        xsi:type="gep_2:ProcessQuery"
+        name="Retains id, name and definition"
+        queryProcessorId="vfbAberOWLQueryProcessor"/>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        name="Part of"
+        description="Part of"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        name="Neurons"
+        description="Neurons with some part here"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        name="Neurons Synaptic"
+        description="Neurons with synaptic terminals here"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        name="Neurons Presynaptic"
+        description="Neurons with presynaptic terminals here"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        name="Neurons Postsynaptic"
+        description="Neurons with postsynaptic terminals here"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+    </queries>
   </dataSources>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronsparthere"
+      name="Part of"
+      description="Neurons with some part here"
+      queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronssynaptic"
+      name="Neurons Synaptic"
+      description="Neurons with synaptic terminals here"
+      queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronspresynaptic"
+      name="Neurons Presynaptic"
+      description="Neurons with presynaptic terminals here"
+      queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronspostsynaptic"
+      name="Neurons Postsynaptic"
+      description="Neurons with postsynaptic terminals here"
+      queryChain="//@dataSources.1/@queries.5 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
 </gep:GeppettoModel>
