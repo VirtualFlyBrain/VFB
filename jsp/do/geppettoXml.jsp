@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><?xml version="1.0" encoding="ASCII"?>
-<?xml version="1.0" encoding="ASCII"?>
 <gep:GeppettoModel
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
