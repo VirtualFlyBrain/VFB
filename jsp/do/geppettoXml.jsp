@@ -142,8 +142,8 @@
           xsi:type="gep:SimpleQuery"
           name="Fetch 6 example individuals for classes"
           description="Fetch 6 example individuals"
-          query="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF*]-()&lt;-[:INSTANCEOF]-(i) RETURN i.short_form as exId, i.label as exName LIMIT 6"
-          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF*]-()&lt;-[:INSTANCEOF]-(i) RETURN count(n) as count">
+          query="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN i.short_form as exId, i.label as exName LIMIT 6"
+          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
       </queryChain>
