@@ -78,7 +78,7 @@
       name="VFB"/>
   <dataSources
       id="neo4JDataSourceService"
-      name="neo4JDataSourceService"
+      name="neo4j Data Source"
       dataSourceService="neo4jDataSource"
       url="http://www.virtualflybrain.org/neo4jdb/data/transaction"
       dependenciesLibrary="//@libraries.3"
@@ -95,23 +95,37 @@
         library="//@libraries.2"
         modelInterpreterId="owlModelInterpreterService"
         format="owl"/>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Get and process images from Neo4j"
+        description="">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          name="Get images from Neo4j"
+          description=""
+          query="MATCH (n:VFB:Class) WHERE n.short_form IN $ARRAY_ID_RESULTS WITH n OPTIONAL MATCH (n)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnail.png', template_id: m.short_form}) AS inds"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process images"
+          queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
+    </queries>
     <fetchVariableQuery
-        xsi:type="gep:CompoundQuery"
+        xsi:type="gep_2:CompoundQuery"
         name="The compound query for augmenting a type"
         description="">
       <queryChain
-          xsi:type="gep:SimpleQuery"
+          xsi:type="gep_2:SimpleQuery"
           name="Get id/name/superTypes/description/comment/synonyms"
           description="Fetches essential details."
           query="MATCH (n { short_form: '$ID' } ) RETURN n.label as name, n.short_form as id, n.description as description, n.`annotation-comment` as comment, labels(n) as supertypes, n.synonym as synonyms LIMIT 1"
           countQuery="MATCH (n { short_form: '$ID' } ) RETURN count(n) as count"/>
       <queryChain
-          xsi:type="gep:ProcessQuery"
+          xsi:type="gep_2:ProcessQuery"
           name="This processing step will populate a Variable with the superType resulting from the previous query"
           description=""
           queryProcessorId="vfbTypesQueryProcessor"/>
       <queryChain
-          xsi:type="gep:SimpleQuery"
+          xsi:type="gep_2:SimpleQuery"
           name="Fetch relationships and references for Class"
           description="Pull all relationships and references"
           query="MATCH (n:VFB:Class { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
@@ -120,7 +134,7 @@
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:ProcessQuery"
+          xsi:type="gep_2:ProcessQuery"
           name="This processing step will populate a Variable with the synonyms and references resulting from the previous query"
           description="This processing step will populate a Variable with the synonyms and references resulting from the previous query"
           queryProcessorId="vfbImportTypesSynonymQueryProcessor">
@@ -128,7 +142,7 @@
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:SimpleQuery"
+          xsi:type="gep_2:SimpleQuery"
           name="Fetch related and references for individuals"
           description="Fetch related and references for individuals"
           query="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
@@ -137,15 +151,15 @@
             type="//@libraries.3/@types.0"/>
       </queryChain>
       <queryChain
-              xsi:type="gep:ProcessQuery"
-              name="This processing step will populate a Variable with the related and references resulting from the previous query"
-              description="This processing step will populate a Variable with the related and references resulting from the previous query"
-              queryProcessorId="vfbImportTypesRelatedQueryProcessor">
+          xsi:type="gep_2:ProcessQuery"
+          name="This processing step will populate a Variable with the related and references resulting from the previous query"
+          description="This processing step will populate a Variable with the related and references resulting from the previous query"
+          queryProcessorId="vfbImportTypesRelatedQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:SimpleQuery"
+          xsi:type="gep_2:SimpleQuery"
           name="Fetch 6 example individuals for classes"
           description="Fetch 6 example individuals"
           query="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN i.short_form as exId, i.label as exName LIMIT 6"
@@ -154,7 +168,7 @@
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:ProcessQuery"
+          xsi:type="gep_2:ProcessQuery"
           name="This processing step will populate the Variable with the different import type"
           description=""
           queryProcessorId="vfbImportTypesQueryProcessor">
@@ -162,7 +176,7 @@
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
-          xsi:type="gep:ProcessQuery"
+          xsi:type="gep_2:ProcessQuery"
           name="Add Thumbnail for VFB Individuals"
           description="Add Thumbnail for VFB Individuals"
           queryProcessorId="vfbImportTypesThumbnailQueryProcessor">
