@@ -229,10 +229,6 @@
               name="External Links"
               description="Add References for either Class of Ind"
               queryProcessorId="vfbImportTypesRefsQueryProcessor">
-        <matchingCriteria
-                type="//@libraries.3/@types.0"/>
-        <matchingCriteria
-                type="//@libraries.3/@types.1"/>
       </queryChain>
     </fetchVariableQuery>
   </dataSources>
