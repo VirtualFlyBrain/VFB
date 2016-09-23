@@ -206,8 +206,7 @@
          <matchingCriteria
              type="//@libraries.3/@types.1"/>
        </queryChain>
-    </fetchVariableQuery>
-    <queryChain
+       <queryChain
               xsi:type="gep_2:SimpleQuery"
               name="Ind References"
               description="References for Individual"
@@ -235,6 +234,7 @@
         <matchingCriteria
                 type="//@libraries.3/@types.1"/>
       </queryChain>
+    </fetchVariableQuery>
   </dataSources>
   <dataSources
       id="aberOWLDataSource"
