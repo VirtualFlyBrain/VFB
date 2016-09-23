@@ -39,39 +39,45 @@
     <types xsi:type="gep_1:SimpleType"
         id="VFB"
         name="Virtual Fly Brain"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Orphan"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Orphan"
         name="No Meta Data"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Obsolete"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Obsolete"
         name="Obsolete"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Synaptic_neuropil_domain"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Synaptic_neuropil_domain"
         name="Synaptic Neuropil Domain"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Synaptic_neuropil_subdomain"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Synaptic_neuropil_subdomain"
         name="Synaptic Neuropil Subdomain"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Synaptic_neuropil_block"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Synaptic_neuropil_block"
         name="Synaptic Neuropil Block"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="FBDV"		
+    <types xsi:type="gep_1:SimpleType"
+        id="FBDV"
         name="FlyBase Development CV"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="FBCV"		
+    <types xsi:type="gep_1:SimpleType"
+        id="FBCV"
         name="FlyBase Controlled Vocabulary"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="FBBI"		
+    <types xsi:type="gep_1:SimpleType"
+        id="FBBI"
         name="FlyBase Biological Imaging Methods"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Root"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Root"
         name="Top Object"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="pub"		
+    <types xsi:type="gep_1:SimpleType"
+        id="pub"
         name="Publication"/>
-    <types xsi:type="gep_1:SimpleType"		
-        id="Resource"		
+    <types xsi:type="gep_1:SimpleType"
+        id="Resource"
         name="Resource"/>
+    <types xsi:type="gep_1:SimpleType"
+            id="VFB_00017894"
+            name="JFRC2 template"/>
+    <types xsi:type="gep_1:SimpleType"
+                id="VFB_00030786"
+                name="BrainName standard - Ito half brain"/>
   </libraries>
   <libraries
       id="vfbLibrary"
@@ -80,7 +86,7 @@
       id="neo4JDataSourceService"
       name="neo4j Data Source"
       dataSourceService="neo4jDataSource"
-      url="http://www.virtualflybrain.org/neo4jdb/data/transaction"
+      url="http://vfbdev.inf.ed.ac.uk/neo4jdb/data/transaction"
       dependenciesLibrary="//@libraries.3"
       targetLibrary="//@libraries.4">
     <libraryConfigurations
@@ -117,7 +123,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Get id/name/superTypes/description/comment/synonyms"
           description="Fetches essential details."
-          query="MATCH (n { short_form: '$ID' } ) RETURN n.label as name, n.short_form as id, n.description as description, n.`annotation-comment` as comment, labels(n) as supertypes, n.synonym as synonyms LIMIT 1"
+          query="MATCH (n { short_form: '$ID' } ) RETURN n.label as name, n.short_form as id, n.description as description, n.`annotation-comment` as comment, labels(n) as supertypes LIMIT 1"
           countQuery="MATCH (n { short_form: '$ID' } ) RETURN count(n) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -128,8 +134,8 @@
           xsi:type="gep_2:SimpleQuery"
           name="Fetch relationships and references for Class"
           description="Pull all relationships and references"
-          query="MATCH (n:VFB:Class { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
-          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) RETURN count(*) as count">
+          query="MATCH (n:VFB:Class { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
+          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) RETURN count(*) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
       </queryChain>
@@ -145,8 +151,8 @@
           xsi:type="gep_2:SimpleQuery"
           name="Fetch related and references for individuals"
           description="Fetch related and references for individuals"
-          query="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
-          countQuery="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) RETURN count(n) as count">
+          query="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]-&gt;(sc) RETURN r as relationship, sc.label as relName, sc.short_form as relId, sc.miniref as relRef, sc.FlyBase as relFBrf, sc.PMID as relPMID, sc.DOI as relDOI"
+          countQuery="MATCH (n:VFB:Individual { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]-&gt;(sc) RETURN count(n) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
       </queryChain>
@@ -160,20 +166,29 @@
       </queryChain>
       <queryChain
           xsi:type="gep_2:SimpleQuery"
-          name="Fetch 6 example individuals for classes"
-          description="Fetch 6 example individuals"
-          query="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN i.short_form as exId, i.label as exName LIMIT 6"
-          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
+          name="Fetch 6 example individuals for Class"
+          description="Fetch up to 6 example Individual instances of this Class or subclasses"
+          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]-&gt;(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnail.png' as exThumb, t.short_form as exTemp LIMIT 12"
+          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
-          name="This processing step will populate the Variable with the different import type"
-          description=""
+          name="Add Example thumbnails"
+          description="Add example thumbnails for Individual instances of this Class or subclasses"
           queryProcessorId="vfbImportTypesQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
+      </queryChain>
+      <queryChain
+            xsi:type="gep_2:SimpleQuery"
+            name="Image Folder and Template"
+            description="Fetch the image folder and template details"
+            query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]-&gt;(t:Template) RETURN substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
+            countQuery="MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]-&gt;(t:Template) RETURN count(t) as count">
+          <matchingCriteria
+              type="//@libraries.3/@types.0"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -183,13 +198,21 @@
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
       </queryChain>
+      <queryChain
+           xsi:type="gep_2:ProcessQuery"
+           name="External Links"
+           description="Add External Links for Classes"
+           queryProcessorId="vfbImportTypesExtLinkQueryProcessor">
+         <matchingCriteria
+             type="//@libraries.3/@types.1"/>
+       </queryChain>
     </fetchVariableQuery>
   </dataSources>
   <dataSources
       id="aberOWLDataSource"
       name="Aber OWL Data Source"
       dataSourceService="aberOWLDataSource"
-      url="http://aber-owl.net/service/api/runQuery.groovy"
+      url="http://vfbdev.inf.ed.ac.uk/aberowl/api/runQuery.groovy"
       dependenciesLibrary="//@libraries.3"
       targetLibrary="//@libraries.4">
     <queries
@@ -200,7 +223,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Part of"
         description="Part of"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1"/>
@@ -209,7 +232,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons"
         description="Neurons with some part here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -218,7 +241,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Synaptic"
         description="Neurons with synaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -227,7 +250,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Presynaptic"
         description="Neurons with presynaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -236,7 +259,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Postsynaptic"
         description="Neurons with postsynaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB_Ind"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
