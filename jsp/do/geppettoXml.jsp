@@ -219,8 +219,8 @@
               xsi:type="gep_2:SimpleQuery"
               name="Class References"
               description="References for Class"
-              query="MATCH (n:Individual { short_form: '$ID$' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) where sc.miniref is not null RETURN distinct '&lt;b&gt;' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b&gt; ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'&gt;FlyBase:' + sc.FlyBase + '&lt;/a&gt;; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'&gt;PMID:' + sc.PMID + '&lt;/a&gt;; ', '') + coalesce('&lt;a href=\\'http://dx.doi.org/' + sc.DOI + '\\' target=\\'_blank\\'&gt;doi:' + sc.DOI + '&lt;/a&gt;)', ')') as bib ORDER BY bib ASC"
-              countQuery="MATCH (n:Individual { short_form: '$ID$' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) where sc.miniref is not null RETURN count(distinct sc) as count">
+              query="MATCH (n:Individual { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) where sc.miniref is not null RETURN distinct '&lt;b&gt;' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b&gt; ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'&gt;FlyBase:' + sc.FlyBase + '&lt;/a&gt;; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'&gt;PMID:' + sc.PMID + '&lt;/a&gt;; ', '') + coalesce('&lt;a href=\\'http://dx.doi.org/' + sc.DOI + '\\' target=\\'_blank\\'&gt;doi:' + sc.DOI + '&lt;/a&gt;)', ')') as bib ORDER BY bib ASC"
+              countQuery="MATCH (n:Individual { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]-&gt;(sc) where sc.miniref is not null RETURN count(distinct sc) as count">
         <matchingCriteria
                 type="//@libraries.3/@types.1"/>
       </queryChain>
