@@ -84,7 +84,7 @@
                     <b>Definition: </b><span id="infoDef"><script>neoCall('MATCH (a) where a.short_form = ' + dq + localID + dq + ' return a.description[0] limit 1', 'infoDef');</script></span>
                     <span id="infoDefRef">
                         <script>
-                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref) + "\\" target=\\"_blank\\">" + sc.miniref + "</a>",sc.FlyBase, "<a href=\\"http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID + "\\" target=\\"_blank\\" >PMID:" + sc.PMID + "</a>", sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as ref','infoDefRef')
+                            neoCall('MATCH (n:Class { short_form: "' + localID + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where r.typ = "def" RETURN " (" +coalesce("<a href=\\""+ coalesce("http://flybase.org/reports/" +sc.FlyBase, "http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID , "http://dx.doi.org/"+ sc.DOI, "https://www.google.com/search?q=" + sc.miniref, "http:" + sc.http) + "\\" target=\\"_blank\\">" + coalesce(sc.miniref, "http:" + sc.http) + "</a>",sc.FlyBase, "<a href=\\"http://www.ncbi.nlm.nih.gov/pubmed/" + sc.PMID + "\\" target=\\"_blank\\" >PMID:" + sc.PMID + "</a>", sc.DOI, sc.short_form, r.short_form, "Unattributed")+ ")" as ref','infoDefRef')
                         </script>
                     </span>
                 </p>
