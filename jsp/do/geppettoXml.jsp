@@ -141,14 +141,6 @@
             type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
-          xsi:type="gep_2:ProcessQuery"
-          name="This processing step will populate a Variable with the synonyms and references resulting from the previous query"
-          description="This processing step will populate a Variable with the synonyms and references resulting from the previous query"
-          queryProcessorId="vfbImportTypesSynonymQueryProcessor">
-        <matchingCriteria
-            type="//@libraries.3/@types.1"/>
-      </queryChain>
-      <queryChain
           xsi:type="gep_2:SimpleQuery"
           name="Fetch related and references for individuals"
           description="Fetch related and references for individuals"
@@ -164,6 +156,8 @@
           queryProcessorId="vfbImportTypesSynonymQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
+        <matchingCriteria
+            type="//@libraries.3/@types.1"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:SimpleQuery"
