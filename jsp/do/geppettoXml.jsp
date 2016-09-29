@@ -86,7 +86,7 @@
       id="neo4JDataSourceService"
       name="neo4j Data Source"
       dataSourceService="neo4jDataSource"
-      url="http://www.virtualflybrain.org/neo4jdb/data/transaction"
+      url="http://vfbdev.inf.ed.ac.uk/neo4jdb/data/transaction"
       dependenciesLibrary="//@libraries.3"
       targetLibrary="//@libraries.4">
     <libraryConfigurations
@@ -235,7 +235,7 @@
       id="aberOWLDataSource"
       name="Aber OWL Data Source"
       dataSourceService="aberOWLDataSource"
-      url="http://www.virtualflybrain.org/aberowl/api/runQuery.groovy"
+      url="http://vfbdev.inf.ed.ac.uk/aberowl/api/runQuery.groovy"
       dependenciesLibrary="//@libraries.3"
       targetLibrary="//@libraries.4">
     <queries
@@ -289,9 +289,9 @@
     </queries>
   </dataSources>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="neuronsparthere"
-      name="Part of"
-      description="Neurons with some part here"
+      id="partsof"
+      name="Parts of"
+      description="Parts of this"
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1"/>
@@ -301,6 +301,14 @@
       name="Neurons Synaptic"
       description="Neurons with synaptic terminals here"
       queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronsparthere"
+      name="Neurons with any part here"
+      description="Neurons with any part here (overlapping)"
+      queryChain="//@dataSources.1/@queries.2 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1"/>
   </queries>
