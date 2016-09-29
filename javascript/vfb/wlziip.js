@@ -1,5 +1,10 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+    console.log("Error occured: " + errorMsg);
+    return false;
+}
+
 window.PosX = 0;
 window.PosY = 0;
 window.lastSel = [""];
@@ -377,31 +382,33 @@ function bufferTick(t) {
 }
 
 function bufferPie(x, y, r) {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var col = bufferLimit;
-    while (col > 200) {
-        col = col - 200;
+    if (parent.$("body").data("current") && parent.$("body").data("colours")) {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var col = bufferLimit;
+        while (col > 200) {
+            col = col - 200;
+        }
+        ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+        ctx.fillStyle = rgbColToHex(parent.$("body").data("colours")[col]);
+        var start = -0.5 * Math.PI
+        var end = Math.PI * 1.5
+        var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
+        ctx.strokeStyle = rgbColToHex(parent.$("body").data("colours")[col]);
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(x, y, r, start, midPoint, false);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.fill();
+        ctx.strokeStyle = '#777777';
+        ctx.fillStyle = "#999900";
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(x, y, r, midPoint, end, false);
+        ctx.lineTo(x, y);
+        ctx.stroke();
     }
-    ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-    ctx.fillStyle = rgbColToHex(parent.$("body").data("colours")[col]);
-    var start = -0.5 * Math.PI
-    var end = Math.PI * 1.5
-    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
-    ctx.strokeStyle = rgbColToHex(parent.$("body").data("colours")[col]);
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.arc(x, y, r, start, midPoint, false);
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.fill();
-    ctx.strokeStyle = '#777777';
-    ctx.fillStyle = "#999900";
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.arc(x, y, r, midPoint, end, false);
-    ctx.lineTo(x, y);
-    ctx.stroke();
 }
 
 function bufferImage(j, slice) {

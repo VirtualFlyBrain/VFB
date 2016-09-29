@@ -13,8 +13,9 @@
             <p>You can explore via <a href="/site/stacks/index.htm">images/stacks</a> of the central nervous system</p>
             <p id="availableRegions" align="center"></p>
             <script>
-                $(function () {
-                    setTimeout(function () {
+                selLoading = true;
+                function updateStackSelector() {
+                    try{
                         var templates = parent.$('body').data();
                         for (i in templates) {
                             if (i.indexOf('VFB') > -1 && templates[i].meta == undefined) {
@@ -42,15 +43,30 @@
                                     colFilter = '255,0,255';
                                 }
                                 html = html.replace('</ol>', '<li data-target="#carousel-example-generic" data-slide-to="' + REGcount + '"' + OLactive + '></li>' + '</ol>');
-                                html = html.replace('</div >', '<div class="item' + DIVactive + '" style="background-color:black;height:300px;">' + thumbnailHTMLForId(i).replace('data-original', 'src').replace('scl=0.2', 'scl=1').replace('0,255,0&fxp', colFilter + '&fxp').replace('fxp=' + parent.$('body').data('meta').center, 'fxp=' + templates[i].meta.center).replace('thumb_sm', 'thumb_lg').replace('details" />', 'details" style="height:290px;" />') + '</div >');
+                                html = html.replace('</div >', '<div class="item' + DIVactive + '" style="background-color:black;height:300px;">' + thumbnailHTMLForId(i).replace('data-original', 'src').replace('scl=0.2', 'scl=1').replace('0,255,0&fxp', colFilter + '&fxp').replace(/fxp=[0-9]*/g, 'fxp=' + templates[i].meta.center).replace('thumb_sm', 'thumb_lg').replace('details" />', 'details" style="height:290px;" />') + '</div >');
                                 html = html.replace('</div >', '<div class="carousel-caption" style="bottom:-30px;">' + templates[i].meta.name + '</div></div></div >');
                                 REGcount++;
                             }
                         }
                         $('#availableRegions').html(html);
                         addToStackData(originalStack);
+                    } catch (e) {
+                        alertMessage("Problem loading image (" + i + "); error " + e);
+                        if (!selLoading) {
+                            selLoading = true;
+                            setTimeout(function () {
+                                selLoading = false; 
+                                updateStackSelector();
+                            }, 5000);
+                        }
+                    }
+                }
+                $(function () {
+                    selLoading = true;
+                    setTimeout( function () {
+                        selLoading = false; 
+                        updateStackSelector();
                     }, 2000);
-
                 });
                 function jumpToSearch() {
                     if ($('.navbar-toggle').is(':visible')) {
