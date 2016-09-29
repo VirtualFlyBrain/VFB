@@ -30,11 +30,20 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 <c:forEach items="${aclTract}" var="tract" varStatus="i"><c:if test="${ontBean.fbbtId == tract.fbbtId}"><c:set var="isTract" value="true" scope="request"/></c:if></c:forEach>
 <c:forEach items="${aclClone}" var="clone" varStatus="i"><c:if test="${ontBean.fbbtId == clone.fbbtId}"><c:set var="isClone" value="true" scope="request"/></c:if></c:forEach>
 
+<c:set var="tpb" value="${ontBean.thirdPartyBean}"/>
+
 <c:if test="${sessionScope.currURL!='/site/tools/query_builder/'}"><c:set var="termMenu" value="termMenuNeuron.jsp"/></c:if>
 <c:if test="${isNeuropil && sessionScope.currURL!='/site/tools/query_builder/'}"><c:set var="termMenu" value="termMenuNeuropil.jsp"/></c:if>
 <c:if test="${isTract && sessionScope.currURL!='/site/tools/query_builder/'}"><c:set var="termMenu" value="termMenuTract.jsp"/></c:if>
 <c:if test="${isClone && sessionScope.currURL!='/site/tools/query_builder/'}"><c:set var="termMenu" value="termMenuClone.jsp"/></c:if>
 <c:if test="${fn:contains(sessionScope.currURL,'/site/tools/query_builder/')}"><c:set var="termMenu" value="termMenuQB.jsp"/></c:if>
+<c:if test="${!empty tpb}"><c:if test="${fn:contains(tpb.sourceName,'FlyCircuit')}">
+	<c:set var="termMenu" value="termMenuFlyCircuit.jsp"/>
+	<jsp:include page="/jsp/includes/bits/${termMenu}">
+		<jsp:param name="fbbtId" value="${ontBean.fbbtId}"/>
+		<jsp:param name="name" value="${ontBean.name}"/>
+	</jsp:include>
+</c:if></c:if>
 
 <c:if test="${beanType=='ont'}">
 	<jsp:include page="/jsp/includes/bits/${termMenu}">
@@ -154,7 +163,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			</c:if>
 		</div>
 		<div class="col-xs-12">
-			<c:set var="tpb" value="${ontBean.thirdPartyBean}"/><c:if test="${!empty tpb}">
+			<c:if test="${!empty tpb}">
 			<p>
 				<b>Image:</b><br/>
 				<img class="lazy" data-original="${tpb.thumbUrl}" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');" alt="Open in stack viewer" style="cursor: pointer;"/>
