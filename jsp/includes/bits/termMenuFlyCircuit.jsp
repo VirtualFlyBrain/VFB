@@ -25,23 +25,11 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?all_query=${param.name}&all_use_mean=TRUE"
-                       target="_blank">Similar neurons</a>
+                       target="_blank">Similar neurons (NBLAST)</a>
                 </li>
                 <li>
                     <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?gal4_query=${param.name}&tab=GAL4"
-                       target="_blank">Potential GAL4 matches</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">NBLAST<span
-                            class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?all_query=${param.name}&all_use_mean=TRUE"
-                               target="_blank">One against all</a></li>
-                        <li>
-                            <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?gal4_query=${param.name}&tab=GAL4"
-                               target="_blank">GAL4 search</a></li>
-                    </ul>
-                </li>
+                       target="_blank">Potential GAL4 matches (NBLAST)</a></li>
             </ul>
         </div>
     </div>
