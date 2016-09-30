@@ -1,5 +1,10 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+    console.log("Error occured: " + errorMsg);
+    return false;
+}
+
 window.PosX = 0;
 window.PosY = 0;
 window.lastSel = [""];

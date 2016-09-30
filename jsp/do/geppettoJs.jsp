@@ -3,7 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 window.initVFB();
-G.setIdleTimeout(-1);
+G.setIdleTimeOut(-1);
 GEPPETTO.SceneController.setWireframe(false);
 G.setOnSelectionOptions({unselected_transparent:false});
 
