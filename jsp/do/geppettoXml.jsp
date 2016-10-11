@@ -305,7 +305,7 @@
       description="Subparts of the $NAME"
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+        type="//@libraries.3/@types.1"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronssynaptic"
