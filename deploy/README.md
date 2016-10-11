@@ -27,7 +27,7 @@ These scripts add filters, decompress files, and force settings for that deploym
 They are only for use on the relivant servers.
 
 #GitHub Edit / Deployment Flow
-![Flowchart](https://raw.github.com/VirtualFlyBrain/VFB/master/deploy/VFB%20GITHUB.png)
+![Flowchart](https://www.lucidchart.com/publicSegments/view/1cb57162-df53-45d4-b259-b5df1c7c6fbc/image.png)
 **Notes:** 
 
 *Yellow boxes are actions recomended to be carried out on the GitHub website rather than through git / local git SW.
