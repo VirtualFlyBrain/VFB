@@ -104,7 +104,8 @@
     <queries
         xsi:type="gep_2:CompoundQuery"
         name="Get and process images from Neo4j"
-        description="">
+        description=""
+        runForCount="false">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
           name="Get images from Neo4j"
@@ -229,6 +230,16 @@
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
       </queryChain>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Queries Links"
+          description="Add queries links to metadata"
+          queryProcessorId="vfbAddQueriesToMetadataQueryProcessor">
+        <matchingCriteria
+            type="//@libraries.3/@types.0"/>
+        <matchingCriteria
+            type="//@libraries.3/@types.1"/>
+      </queryChain>
     </fetchVariableQuery>
   </dataSources>
   <dataSources
@@ -291,41 +302,41 @@
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="partsof"
       name="Parts of"
-      description="Parts of this"
+      description="Subparts of the $NAME"
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronssynaptic"
       name="Neurons Synaptic"
-      description="Neurons with synaptic terminals here"
+      description="Neurons with synaptic terminals in $NAME"
       queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronsparthere"
       name="Neurons with any part here"
-      description="Neurons with any part here (overlapping)"
+      description="Neurons in/overlapping the $NAME"
       queryChain="//@dataSources.1/@queries.2 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronspresynaptic"
       name="Neurons Presynaptic"
-      description="Neurons with presynaptic terminals here"
+      description="Neurons with presynaptic terminals in $NAME"
       queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronspostsynaptic"
       name="Neurons Postsynaptic"
-      description="Neurons with postsynaptic terminals here"
+      description="Neurons with postsynaptic terminals in $NAME"
       queryChain="//@dataSources.1/@queries.5 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
 </gep:GeppettoModel>
