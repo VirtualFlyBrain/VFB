@@ -3,9 +3,9 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gep="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore"
-    xmlns:gep_1="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore#//types"
-    xmlns:gep_2="https://raw.githubusercontent.com/openworm/org.geppetto.model/query/src/main/resources/geppettoModel.ecore#//datasources">
+    xmlns:gep="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore"
+    xmlns:gep_1="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore#//types"
+    xmlns:gep_2="https://raw.githubusercontent.com/openworm/org.geppetto.model/development/src/main/resources/geppettoModel.ecore#//datasources">
   <libraries
       id="SWCLibrary"
       name="SWC"/>
@@ -110,7 +110,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Get images from Neo4j"
           description="fetch Individual instances from ID list"
-          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnail.png', template_id: m.short_form}) AS inds"
+          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds"
           countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -164,7 +164,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Fetch 6 example individuals for Class"
           description="Fetch up to 6 example Individual instances of this Class or subclasses"
-          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnail.png' as exThumb, t.short_form as exTemp LIMIT 12"
+          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
           countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>

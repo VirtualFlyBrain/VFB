@@ -3,7 +3,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 G.setIdleTimeOut(-1);
-GEPPETTO.SceneController.setWireframe(false);
 G.setOnSelectionOptions({unselected_transparent:false});
 
 <c:if test="${fn:length(individuals)>0}">
