@@ -152,7 +152,7 @@
 					<img class="img-responsive center-block" src="/images/vfb/project/cluster_menu.png" alt="Query menu for single neurons by location: AL" style="align:center;padding:5px" width="300">
 
 			    <p>
-						The result window lists groups of morphologically similar neurons or clusters. A thumbnail of the cluster allows a visualisation of the neuron morphology, making it easy to scan the clusters and select the ones of interest. This approach allows not only to find a neuron of interest, but also to quickly find related neurons. Images of the neurons in each cluster are shown on the right. Buttons allow display of all neuron images in a cluster in the Viewer, or listing these in a new page.
+						The result window lists groups of morphologically similar neurons or clusters (precomputed). A thumbnail of the cluster allows a visualisation of the neuron morphology, making it easy to scan the clusters and select the ones of interest. This approach allows not only to find a neuron of interest, but also to quickly find related neurons. Images of the neurons in each cluster are shown on the right. Buttons allow display of all neuron images in a cluster in the Viewer, or listing these in a new page.
 			    </p>
 
 			    <img class="img-responsive center-block" src="/images/vfb/project/cluster.png" alt="Result of query for single neurons by location: AL" style="align:center;padding:5px" width="800">
@@ -164,7 +164,7 @@
 		  		<img class="img-responsive center-block" src="/images/vfb/project/cluster_eg.png" alt="3D representation of neuron cluster" style="align:center;padding:5px" width="600">
 
 		  		<p>
-						These neuron clusters were obtained using NBLAST, a tool developed by Gregory Jefferis (Division of Neurobiology, MRC Laboratory of Molecular Biology). For more information on how you can use NBLAST see <a href="http://jefferislab.org/si/nblast/">here</a>. This tool was applied to 16129 registered images of single neurons derived from the publicly available FlyCircuit raw image dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_blank">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a>, resulting in 1052 clusters of similar neurons. We thank the group of A.S. Chiang for taking the lead in making their raw image data available.
+						These neuron clusters were obtained using NBLAST, a tool developed by Gregory Jefferis (Division of Neurobiology, MRC Laboratory of Molecular Biology). For more information on how you can use NBLAST see <a href="http://jefferislab.org/si/nblast/">here</a> and <a href="http://dx.doi.org/10.1016/j.neuron.2016.06.012" target="_blank">Costa et al., 2016</a>. This tool was applied to 16129 registered images of single neurons derived from the publicly available FlyCircuit raw image dataset <a href="http://dx.doi.org/doi:10.1016/j.cub.2010.11.056" target="_blank">(Chiang et al., 2011, Curr. Biol. 21(1): 1--11)</a>, resulting in 1052 clusters of similar neurons. We thank the group of A.S. Chiang for taking the lead in making their raw image data available.
 			    </p>
 
 		  		<p>
@@ -179,13 +179,36 @@
 					
 					<p><b>Please note</b> that the clusters on VFB are different to the ones shown on the <a href="http://flybrain.mrc-lmb.cam.ac.uk/si/nblast/clusters/">NBLAST cluster site</a>. The VFB ones include all neurons, whereas the NBLAST site ones exclude the intrinsic optic lobe neurons. Although the composition of the cluster might not change significantly, the cluster number and exemplar might.
 					</p>
+					
+					<a name="nblastfromneuron"></a>
+				<li><h4> Search for similar neurons or GAL4 lines starting from a neuron image:</h4></li>
+
+			    <p>
+			    	These types of queries allow you to run NBLAST searches in real time, starting from any single neuron image. Two options are available: you can either search for similar neurons to your chosen one, or search for GAL4 lines (from the FlyLight collection) that might label it.
+			    	</p>
+			    	<p>
+			    	Start by selecting a neuron image to use as query. This neuron image of interest might have been found with the previous NBLAST cluster query. It should have a FlyCircuit identifier of the type: <a href="../../site/stacks/index.htm?id=VFB_00008176">Cha-F-500059</a>.
+			    </p>
+
+					<img class="img-responsive center-block" src="/images/vfb/project/nblastneuron.png" alt="NBLAST query menu for single neuron images" style="align:center;padding:5px" width="800">
+					
+					<p>
+					Clicking on any query options are available will take you to the pre-populated page of the <a href="http://jefferislab.org/si/nblast/on-the-fly/">NBLAST on-the-fly site</a> (see below). Click the blue NBLAST button to run the query.
+					</p>
+					
+					<img class="img-responsive center-block" src="/images/vfb/project/nblastneuronsite.png" alt="NBLAST on-the-fly site for single neuron" style="align:center;padding:5px" width="800">
+					<p>
+					See also below for an example of the list of results for a GAL4 search.
+					</p>
+					
+					<img class="img-responsive center-block" src="/images/vfb/project/nblastneuronsitegal4.png" alt="NBLAST on-the-fly site for GAL4 lines" style="align:center;padding:5px" width="800">
 
 					<a name="expquery"></a>
 
 				<li><h4>Find transgenes expressed in the wedge (also known as IVLP) or in neurons that overlap it </h4></li>
 
 					<p>
-			    	Search for 'wedge' or 'IVLP' anc choose the query 'Expression/Phenotypes found here:' and click on the option 'Transgenes expressed here'. The results list will incorporate all the neuron classes known to overlap (partly or completely) that neuropil domain.
+			    	Search for 'wedge' or 'IVLP' and choose the query 'Expression/Phenotypes found here:' and click on the option 'Transgenes expressed here'. The results list will incorporate all the neuron classes known to overlap (partly or completely) that neuropil domain.
 			    </p>
 					<img class="img-responsive center-block" src="/images/vfb/project/query2_menu.png" alt="Query for transgenes" style="align:center;padding:5px" width="300">
 		  </ul>
@@ -201,7 +224,7 @@
 				Searches can be done from any page, using the search box in the header of every page. Searches will include all the associated information to a neuron class, neuropil domain, lineage clone or tract. You can also search directly for a neuron image, using for example a FlyCircuit identifier such as Cha-F-50005.
 			</p>
 
-			<img class="img-responsive center-block" src="/images/vfb/project/searchbox.png" alt="VFB search box" style="align:center;padding:5px" width="300">
+			<img class="img-responsive center-block" src="/images/vfb/project/searchbox.png" alt="VFB search box" style="align:center;padding:5px" width="800">
 
 		  <p>
 		    Searching for a term is made easy by the autocomplete search box which recognises synonyms. Sections displayed for each term include a definition, synonyms, references, parent classes, ontology relationships and thumbnail images, if available.
