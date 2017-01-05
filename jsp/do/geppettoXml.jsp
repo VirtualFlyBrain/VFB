@@ -103,14 +103,30 @@
         format="owl"/>
     <queries
         xsi:type="gep_2:CompoundQuery"
-        name="Get and process images from Neo4j"
+        name="Get and process 6 example images from Neo4j"
         description=""
         runForCount="false">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
-          name="Get images from Neo4j"
+          name="Get max 6 images from Neo4j"
           description="fetch Individual instances from ID list"
-          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnail.png', template_id: m.short_form}) AS inds"
+          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds LIMIT 6 "
+          countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process images"
+          queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Get and process all example images from Neo4j"
+        description=""
+        runForCount="false">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          name="Get all images from Neo4j"
+          description="fetch Individual instances from ID list"
+          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds "
           countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -164,7 +180,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Fetch 6 example individuals for Class"
           description="Fetch up to 6 example Individual instances of this Class or subclasses"
-          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnail.png' as exThumb, t.short_form as exTemp LIMIT 12"
+          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
           countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
@@ -258,7 +274,7 @@
         name="Part of"
         description="Part of"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="">
+        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1"/>
     </queries>
@@ -267,7 +283,7 @@
         name="Neurons"
         description="Neurons with some part here"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="">
+        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
     </queries>
@@ -276,7 +292,7 @@
         name="Neurons Synaptic"
         description="Neurons with synaptic terminals here"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="">
+        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
     </queries>
@@ -285,7 +301,7 @@
         name="Neurons Presynaptic"
         description="Neurons with presynaptic terminals here"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="">
+        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
     </queries>
@@ -294,7 +310,7 @@
         name="Neurons Postsynaptic"
         description="Neurons with postsynaptic terminals here"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="">
+        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
     </queries>
