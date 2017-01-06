@@ -1,0 +1,4 @@
+language: bash
+
+install:
+  - ./VirtualFlyBrain/VFB/deploy/Deploy-$TRAVIS_BRANCH.sh
