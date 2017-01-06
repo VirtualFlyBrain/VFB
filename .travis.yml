@@ -2,5 +2,8 @@ language: bash
 
 install:
   - sudo apt-get install pigz
-  - cd ./VirtualFlyBrain/VFB/
+  - pwd
+  - ls
+  - cd VirtualFlyBrain/VFB/
+  - ls
   - deploy/Deploy-$TRAVIS_BRANCH.sh
