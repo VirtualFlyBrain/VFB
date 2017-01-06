@@ -1,0 +1,4 @@
+language: java
+
+install:
+  - ./deploy/Deploy-$TRAVIS_BRANCH.sh
