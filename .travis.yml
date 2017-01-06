@@ -1,4 +1,4 @@
 language: java
 
 install:
-  - ./deploy/Deploy-$TRAVIS_BRANCH.sh
+  - ./VirtualFlyBrain/VFB/deploy/Deploy-$TRAVIS_BRANCH.sh
