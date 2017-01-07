@@ -6,9 +6,9 @@ install:
   - echo "Adding git Smudge/Clean filters..."
   - cp deploy/config .git/
   - if [ ! -d .git/info ]
-  - then
-  -  mkdir .git/info
-  - fi
+    then
+      mkdir .git/info
+    fi
   - cp deploy/attributes .git/info/
   - sed -i s/BRANCH_NAME/${branch}/g .git/config
   - deploy/decompress.sh
