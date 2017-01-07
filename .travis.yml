@@ -1,0 +1,31 @@
+language: bash
+
+install:
+  - sudo apt-get install pigz
+  - if [ $TRAVIS_BRANCH == "master" ]; then export branch=Main-Server; else export branch=$TRAVIS_BRANCH; fi
+  - echo "Adding git Smudge/Clean filters..."
+  - cp deploy/config .git/
+  - if [ ! -d .git/info ]; then mkdir .git/info; fi
+  - cp deploy/attributes .git/info/
+  - sed -i s/BRANCH_NAME/${branch}/g .git/config
+  - deploy/decompress.sh
+  - echo "checking filters to use correct branch names"
+  - find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-General-Clean.sed
+  - find filters/ -name 'Filt*Smudge.sed' | xargs sed -i -f filters/Local-${branch}-Smudge.sed
+  - echo "checking image json files"
+  - find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataClean.sed
+  - find data/flybrain/ -name 'tiledImageModelD*.jso' | xargs sed -i -f filters/FiltTiledImageModelDataSmudge.sed
+  - echo "checking resources.properties"
+  - find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropClean.sed
+  - find src/ -name 'resources.properties' | xargs sed -i -f filters/FiltResPropSmudge.sed
+  - echo "checking web.xml"
+  - find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlClean.sed
+  - find WEB-INF -name 'web.xml' | xargs sed -i -f filters/FiltWebXmlSmudge.sed
+  - echo "checking google analytics code"
+  - find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnClean.sed
+  - find jsp/ -name 'ga.jsp' | xargs sed -i -f filters/FiltGoogleAnSmudge.sed
+  - echo "checking any direct references to website url is set to the branch site"
+  - find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenClean.sed
+  - find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenSmudge.sed
+  - echo "Recompiling the site..."
+  - ant
