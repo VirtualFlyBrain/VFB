@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=master)](https://travis-ci.org/VirtualFlyBrain/VFB)
 [![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 
 # About Virtual Fly Brain
