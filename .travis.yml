@@ -3,7 +3,7 @@ language: bash
 install:
   - sudo apt-get install pigz
   - export branch=$TRAVIS_BRANCH.sh
-  - if [ $branch == "master" ]; then export branch=Main-Server; if
+  - if [ $branch == "master" ]; then export branch=Main-Server; fi
   - echo "Adding git Smudge/Clean filters..."
   - cp deploy/config .git/
   - if [ ! -d .git/info ]; then mkdir .git/info; fi
