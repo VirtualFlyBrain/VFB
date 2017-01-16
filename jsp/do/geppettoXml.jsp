@@ -37,9 +37,6 @@
         id="Synaptic_neuropil"
         name="Synaptic Neuropil"/>
     <types xsi:type="gep_1:SimpleType"
-        id="Neuron_projection_bundle"
-        name="Neuron Projection Bundle"/>
-    <types xsi:type="gep_1:SimpleType"
         id="VFB"
         name="Virtual Fly Brain"/>
     <types xsi:type="gep_1:SimpleType"
@@ -274,10 +271,8 @@
         queryProcessorId="vfbAberOWLQueryProcessor"/>
     <queries
         xsi:type="gep_2:SimpleQuery"
-        id="part_of"
         name="Part of"
-        description="Part of"
-        returnType="//@libraries.3/@types.1"
+        description="Part of $NAME"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
@@ -285,17 +280,19 @@
     </queries>
     <queries
         xsi:type="gep_2:SimpleQuery"
-        id="Subclass"
-        name="Subclasses of"
-        description="SubClasses of the $NAME"
+        id="Overlaps"
+        name="Overlaps"
+        description="Overlaps $NAME"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"/>
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/RO_0002131>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.1"/>
+    </queries>
     <queries
         xsi:type="gep_2:SimpleQuery"
         name="Neurons"
         description="Neurons with some part here"
-        returnType="//@libraries.3/@types.2"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
@@ -305,7 +302,6 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Synaptic"
         description="Neurons with synaptic terminals here"
-        returnType="//@libraries.3/@types.2"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
@@ -315,7 +311,6 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Presynaptic"
         description="Neurons with presynaptic terminals here"
-        returnType="//@libraries.3/@types.2"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
@@ -325,80 +320,50 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Postsynaptic"
         description="Neurons with postsynaptic terminals here"
-        returnType="//@libraries.3/@types.2"
         query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
     </queries>
     <queries
-        xsi:type="gep_2:SimpleQuery"
-        id="NeuronClassesFasciculatingHere"
-        name="Neuron classes fasciculating here"
-        description="Neuron classes fasciculating with the $NAME"
-        returnType="//@libraries.3/@types.2"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002101%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
-        countQuery="count=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002101%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFBcount=true&amp;type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002101%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB">
-      <matchingCriteria
-          type="//@libraries.3/@types.1 //@libraries.3/@types.3"/>
-    </queries>
+        xsi:type="gep_2:ProcessQuery"
+        id="owlPassIdListOnly"
+        name="Pass id list only"
+        description="Keep nothing slimply pass ids"
+        queryProcessorId="VFBAberOWLidOnlyQueryProcessor"/>
     <queries
         xsi:type="gep_2:SimpleQuery"
-        id="NeuronsOverlapClustered"
-        name="neurons with some part here (clustered)"
-        description="Neuron clusters that overlap the $NAME"
-        returnType="//@libraries.3/@types.2"
-        query="type=realize&amp;query=%3Chttp://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7%3E%20some%20(%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E)&amp;ontology=VFB"
-        countQuery="count=true&amp;type=realize&amp;query=%3Chttp://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7%3E%20some%20(%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E)&amp;ontology=VFB">
+        id="AberNeuronClassesFasciculatingHere"
+        name="Neuron classes fasciculating here"
+        description="Neuron classes fasciculating here"
+        returnType="//@libraries.3/@types.1"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002101>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        countQuery="count=true&amp;type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002101>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB">
       <matchingCriteria
-          type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+          type="//@libraries.3/@types.3 //@libraries.3/@types.1"/>
     </queries>
   </dataSources>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="partsof"
       name="Parts of"
       description="Subparts of the $NAME"
-      returnType="//@libraries.3/@types.1"
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="subclasses of"
-      name="Subclasses of"
-      description="Subclasses of the $NAME"
+      id="CompNeuronClassesFasciculatingHere"
+      name="Neuron classes fasciculating here"
+      description="Neuron classes fasciculating here"
       returnType="//@libraries.3/@types.1"
-      queryChain="//@dataSources.1/@queries.2 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
-    <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
-    <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.4"/>
-  </queries>
-  <queries xsi:type="gep_2:CompoundRefQuery"
-      id="NeuronOverlapClusteredComp"
-      name="neurons with some part here (clustered)"
-      description="Neuron clusters that overlap the $NAME"
-      returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.1/@queries.8 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
-  </queries>
-  <queries xsi:type="gep_2:CompoundRefQuery"
-      id="NeuronClassesFasciculatingHere"
-      name="Neuron classes fasciculating here"
-      description="Neuron classes fasciculating with the $NAME"
-      returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.1/@queries.7 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
-    <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.3"/>
-    <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.6"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="neuronssynaptic"
       name="Neurons Synaptic"
       description="Neurons with synaptic terminals in $NAME"
-      returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -407,7 +372,6 @@
       id="neuronsparthere"
       name="Neurons with any part here"
       description="Neurons in/overlapping the $NAME"
-      returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -416,7 +380,6 @@
       id="neuronspresynaptic"
       name="Neurons Presynaptic"
       description="Neurons with presynaptic terminals in $NAME"
-      returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.1/@queries.5 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -425,7 +388,6 @@
       id="neuronspostsynaptic"
       name="Neurons Postsynaptic"
       description="Neurons with postsynaptic terminals in $NAME"
-      returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.1/@queries.6 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
