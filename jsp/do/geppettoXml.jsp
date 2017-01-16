@@ -342,6 +342,17 @@
       <matchingCriteria
           type="//@libraries.3/@types.3 //@libraries.3/@types.1"/>
     </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        id="subclasses"
+        name="Subclasses of"
+        description="Subclasses of $NAME"
+        returnType="//@libraries.3/@types.1"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        countQuery="count=true&amp;type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB">
+      <matchingCriteria
+          type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
+    </queries>
   </dataSources>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="partsof"
@@ -351,6 +362,12 @@
     <matchingCriteria
         type="//@libraries.3/@types.1"/>
   </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="CompSubclasses"
+      name="Subclasses of"
+      description="Subclasses of the $NAME"
+      returnType="//@libraries.3/@types.1"
+      queryChain="//@dataSources.1/@queries.9 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0"/>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
       name="Neuron classes fasciculating here"
