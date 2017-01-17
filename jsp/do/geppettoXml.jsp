@@ -119,19 +119,20 @@
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
-        name="Get and process 6 example images from Neo4j for list of inds"
+        name="Get and process details from Neo4j for list of inds"
         description="">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
-          id="GetImagesForIndList"
-          name="Get thumbnails from Neo4j"
+          id="GetMetaForIndList"
+          name="Get meta from Neo4j"
           description="Get images for individual list"
-          query="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds LIMIT 6 "
-          countQuery="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i)"/>
+          query="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN ['VFB_00000001'] RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png' AS file"
+          countQuery="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN ['VFB_00000001'] RETURN count(i)"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           name="Process Images"
-          queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
+          returnType="//@libraries.3/@types.0"
+          queryProcessorId="CreateResultListForIndividualsForQueryResultsQueryProcessor"/>
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
@@ -410,9 +411,9 @@
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="ImagesNeuronsClustered"
       name="Images of neurons with some part here (clustered)"
-      description="Images of neurons with some part in the $NAME (clustered by shape)"
+      description="Images of neurons with some part in the $NAME (clustered)"
       returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.0 //@dataSources.0/@queries.1">
+      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
