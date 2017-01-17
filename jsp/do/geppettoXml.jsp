@@ -289,7 +289,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Part of"
         description="Part of $NAME"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/BFO_0000050%3E%20some%20&lt;http://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1"/>
@@ -300,7 +300,7 @@
         name="Overlaps"
         description="Overlaps $NAME"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/RO_0002131>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/RO_0002131>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1"/>
@@ -309,7 +309,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons"
         description="Neurons with some part here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002131%3E%20some%20&lt;http://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -318,7 +318,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Synaptic"
         description="Neurons with synaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002130%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002130%3E%20some%20&lt;http://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -327,7 +327,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Presynaptic"
         description="Neurons with presynaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002113%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002113%3E%20some%20&lt;http://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -336,7 +336,7 @@
         xsi:type="gep_2:SimpleQuery"
         name="Neurons Postsynaptic"
         description="Neurons with postsynaptic terminals here"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002110%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002110%3E%20some%20&lt;http://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
@@ -353,7 +353,7 @@
         name="Neuron classes fasciculating here"
         description="Neuron classes fasciculating here"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106>%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002101>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002101>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.3 //@libraries.3/@types.1"/>
@@ -364,7 +364,7 @@
         name="Subclasses of"
         description="Subclasses of $NAME"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
@@ -375,7 +375,7 @@
         name="Images of neurons with some part here (clustered)"
         description="Images of neurons with some part here (clustered)"
         returnType="//@libraries.3/@types.2"
-        query="type=realize&amp;query=%3Chttp://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7>%20some%20(%3Chttp://purl.obolibrary.org/obo/FBbt_00005106>%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>)&amp;ontology=VFB"
+        query="type=realize&amp;query=&lt;http://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7>%20some%20%28&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002131>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>%29&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.5 //@libraries.3/@types.1"/>
