@@ -300,7 +300,7 @@
         name="Overlaps"
         description="Overlaps $NAME"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/RO_0002131>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/RO_0002131>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1"/>
@@ -353,7 +353,7 @@
         name="Neuron classes fasciculating here"
         description="Neuron classes fasciculating here"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002101>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106>%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002101>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.3 //@libraries.3/@types.1"/>
@@ -364,7 +364,7 @@
         name="Subclasses of"
         description="Subclasses of $NAME"
         returnType="//@libraries.3/@types.1"
-        query="type=subeq&amp;query=&lt;http://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
+        query="type=subeq&amp;query=%3Chttp://purl.obolibrary.org/obo/$ID>&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
@@ -375,7 +375,7 @@
         name="Images of neurons with some part here (clustered)"
         description="Images of neurons with some part here (clustered)"
         returnType="//@libraries.3/@types.2"
-        query="type=realize&amp;query=&lt;http://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7>%20some%20(&lt;http://purl.obolibrary.org/obo/FBbt_00005106>%20that%20&lt;http://purl.obolibrary.org/obo/RO_0002131>%20some%20&lt;http://purl.obolibrary.org/obo/$ID>)&amp;ontology=VFB"
+        query="type=realize&amp;query=%3Chttp://purl.obolibrary.org/obo/C888C3DB-AEFA-447F-BD4C-858DFE33DBE7>%20some%20(%3Chttp://purl.obolibrary.org/obo/FBbt_00005106>%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131>%20some%20%3Chttp://purl.obolibrary.org/obo/$ID>)&amp;ontology=VFB"
         countQuery="">
       <matchingCriteria
           type="//@libraries.3/@types.5 //@libraries.3/@types.1"/>
