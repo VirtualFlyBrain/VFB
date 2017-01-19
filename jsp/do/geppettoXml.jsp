@@ -127,7 +127,7 @@
           name="Get meta from Neo4j"
           description="Get images for individual list"
           query="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png' AS file"
-          countQuery="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i)"/>
+          countQuery="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           name="Process Images"
