@@ -120,8 +120,7 @@
     <queries
         xsi:type="gep_2:CompoundQuery"
         name="Get and process details from Neo4j for list of inds"
-        description=""
-        runForCount="false">
+        description="">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
           id="GetMetaForIndList"
