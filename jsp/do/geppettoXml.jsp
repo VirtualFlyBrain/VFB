@@ -120,8 +120,7 @@
     <queries
         xsi:type="gep_2:CompoundQuery"
         name="Get and process details from Neo4j for list of inds"
-        description=""
-        runForCount="false">
+        description="">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
           id="GetMetaForIndList"
@@ -133,7 +132,7 @@
           xsi:type="gep_2:ProcessQuery"
           name="Process Images"
           returnType="//@libraries.3/@types.0"
-          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
+          queryProcessorId="CreateResultListForIndividualsForQueryResultsQueryProcessor"/>
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
@@ -348,7 +347,7 @@
         id="owlPassIdListOnly"
         name="Pass id list only"
         description="Keep nothing slimply pass ids"
-        queryProcessorId="vfbAberOWLidOnlyQueryProcessor"/>
+        queryProcessorId="VFBAberOWLidOnlyQueryProcessor"/>
     <queries
         xsi:type="gep_2:SimpleQuery"
         id="AberNeuronClassesFasciculatingHere"
