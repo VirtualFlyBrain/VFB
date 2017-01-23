@@ -186,6 +186,24 @@
           name="Process images"
           queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
     </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Pass type class ID for Individual"
+        description="Pass type class ID for Individual">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="PassTypeID"
+          name="Pass type class ID for Individual"
+          description="Pass type class ID for Individual"
+          query="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return c.short_form as ID LIMIT 1"
+          countQuery=""/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          id="PushReturnedID"
+          name="Pass type class ID for Individual"
+          description="Pass type class ID for Individual"
+          queryProcessorId="vfbPassRetunedIDtoNextQuery"/>
+    </queries>
     <fetchVariableQuery
         xsi:type="gep_2:CompoundQuery"
         name="The compound query for augmenting a type"
@@ -432,19 +450,11 @@
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="FindFellowClustMembers"
       name="Fellow Cluster Members"
-      description="Find similar neurons to $NAME"
+      description="Similar neurons to $NAME"
       returnType="//@libraries.3/@types.2"
       queryChain="//@dataSources.0/@queries.2">
     <matchingCriteria
         type="//@libraries.3/@types.0 //@libraries.3/@types.2"/>
-  </queries>
-  <queries xsi:type="gep_2:CompoundRefQuery"
-      id="partsof"
-      name="Parts of"
-      description="Subparts of the $NAME"
-      queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
-    <matchingCriteria
-        type="//@libraries.3/@types.1"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompSubclasses"
@@ -456,6 +466,14 @@
         type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
+      id="partsof"
+      name="Parts of"
+      description="Subparts of the $NAME"
+      queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
       name="Neuron classes fasciculating here"
       description="Neuron classes fasciculating here"
@@ -463,15 +481,6 @@
       queryChain="//@dataSources.1/@queries.8 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.3"/>
-  </queries>
-  <queries xsi:type="gep_2:CompoundRefQuery"
-      id="ImagesNeuronsClustered"
-      name="Images of neurons with some part here (clustered)"
-      description="Images of neurons with some part in the $NAME (clustered)"
-      returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.7 //@dataSources.0/@queries.3">
-    <matchingCriteria
-        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="ImagesNeurons"
@@ -483,10 +492,20 @@
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="neuronssynaptic"
-      name="Neurons Synaptic"
-      description="Neurons with synaptic terminals in $NAME"
-      queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+      id="ImagesNeuronsInd"
+      name="Images of neurons with some part here (from Individual)"
+      description="Images of neurons with some part in the $NAME"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.0/@queries.5 //@dataSources.1/@queries.11 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
+    <matchingCriteria
+        type="//@libraries.3/@types.5 //@libraries.3/@types.0"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="ImagesNeuronsClustered"
+      name="Images of neurons with some part here (clustered)"
+      description="Images of neurons with some part in the $NAME (clustered)"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.7 //@dataSources.0/@queries.3">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
@@ -495,6 +514,14 @@
       name="Neurons with any part here"
       description="Neurons in/overlapping the $NAME"
       queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronssynaptic"
+      name="Neurons Synaptic"
+      description="Neurons with synaptic terminals in $NAME"
+      queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
