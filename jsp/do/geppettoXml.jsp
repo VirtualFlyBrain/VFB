@@ -120,19 +120,59 @@
     <queries
         xsi:type="gep_2:CompoundQuery"
         name="Get and process details from Neo4j for list of inds"
-        description="">
+        description=""
+        runForCount="false">
       <queryChain
           xsi:type="gep_2:SimpleQuery"
           id="GetMetaForIndList"
           name="Get meta from Neo4j"
           description="Get images for individual list"
-          query="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png' AS file"
-          countQuery="MATCH(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
+          runForCount="false"
+          query="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          countQuery="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process Images"
+          runForCount="false"
+          returnType="//@libraries.3/@types.0"
+          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Get fellow cluster members"
+        description="">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="GetFellowClusterMembers"
+          name="Get other cluster members"
+          description="$NAME's fellow cluster members"
+          query="MATCH (n:Neuron { short_form: '$ID' } )-[r1:Related {label:'member_of'}]->(c:Cluster)-[r2:Related {label:'has_member'}]->(i:Neuron) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          countQuery="MATCH (n:Neuron { short_form: '$ID' } )-[r1:Related {label:'member_of'}]->(c:Cluster)-[r2:Related {label:'has_member'}]->(i:Neuron) RETURN count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           name="Process Images"
           returnType="//@libraries.3/@types.0"
-          queryProcessorId="CreateResultListForIndividualsForQueryResultsQueryProcessor"/>
+          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Get and process details from Neo4j for list of clusters"
+        description=""
+        runForCount="false">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="GetMetaForClustList"
+          name="Get meta from Neo4j for clusters"
+          description="Get images for cluster list"
+          runForCount="false"
+          query="MATCH(i:Individual)&lt;-[r:Related {label:'member_of'}]-(m:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, coalesce(i.description[0], 'An NBLAST derived cluster with ' + count(m) + ' members. Individual members are shown in the images column.' as def, COLLECT (DISTINCT { image_name: m.label, image_id: m.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(m.short_form,0,3)+'/i/'+substring(m.short_form,4,4)+'/'+substring(m.short_form,8,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds"
+          countQuery="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process Images"
+          runForCount="false"
+          returnType="//@libraries.3/@types.0"
+          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
@@ -143,12 +183,32 @@
           xsi:type="gep_2:SimpleQuery"
           name="Get all images from Neo4j"
           description="fetch Individual instances from ID list"
+          runForCount="false"
           query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds "
           countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           name="Process images"
+          runForCount="false"
           queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Pass type class ID for Individual"
+        description="Pass type class ID for Individual">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="PassTypeID"
+          name="Pass type class ID for Individual"
+          description="Pass type class ID for Individual"
+          query="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return c.short_form as ID LIMIT 1"
+          countQuery=""/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          id="PushReturnedID"
+          name="Pass type class ID for Individual"
+          description="Pass type class ID for Individual"
+          queryProcessorId="vfbPassRetunedIDtoNextQuery"/>
     </queries>
     <fetchVariableQuery
         xsi:type="gep_2:CompoundQuery"
@@ -347,7 +407,7 @@
         id="owlPassIdListOnly"
         name="Pass id list only"
         description="Keep nothing slimply pass ids"
-        queryProcessorId="VFBAberOWLidOnlyQueryProcessor"/>
+        queryProcessorId="vfbAberOWLidOnlyQueryProcessor"/>
     <queries
         xsi:type="gep_2:SimpleQuery"
         id="AberNeuronClassesFasciculatingHere"
@@ -381,14 +441,26 @@
       <matchingCriteria
           type="//@libraries.3/@types.5 //@libraries.3/@types.1"/>
     </queries>
+    <queries
+        xsi:type="gep_2:SimpleQuery"
+        id="ImagesOfNeuronsWithSomePartHere"
+        name="Images of neurons with some part here"
+        description="Images of neurons with some part here"
+        returnType="//@libraries.3/@types.2"
+        query="type=realize&amp;query=%3Chttp://purl.obolibrary.org/obo/FBbt_00005106%3E%20that%20%3Chttp://purl.obolibrary.org/obo/RO_0002131%3E%20some%20%3Chttp://purl.obolibrary.org/obo/$ID%3E&amp;ontology=VFB"
+        countQuery="">
+      <matchingCriteria
+          type="//@libraries.3/@types.5 //@libraries.3/@types.1"/>
+    </queries>
   </dataSources>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="partsof"
-      name="Parts of"
-      description="Subparts of the $NAME"
-      queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+      id="FindFellowClustMembers"
+      name="Fellow Cluster Members"
+      description="Similar neurons to $NAME"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.0/@queries.2">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.0 //@libraries.3/@types.2"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompSubclasses"
@@ -400,6 +472,14 @@
         type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
+      id="partsof"
+      name="Parts of"
+      description="Subparts of the $NAME"
+      queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
       name="Neuron classes fasciculating here"
       description="Neuron classes fasciculating here"
@@ -409,19 +489,29 @@
         type="//@libraries.3/@types.1 //@libraries.3/@types.3"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="ImagesNeuronsClustered"
-      name="Images of neurons with some part here (clustered)"
-      description="Images of neurons with some part in the $NAME (clustered)"
+      id="ImagesNeurons"
+      name="Images of neurons with some part here"
+      description="Images of neurons with some part in the $NAME"
       returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
+      queryChain="//@dataSources.1/@queries.11 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
-      id="neuronssynaptic"
-      name="Neurons Synaptic"
-      description="Neurons with synaptic terminals in $NAME"
-      queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+      id="ImagesNeuronsInd"
+      name="Images of neurons with some part here (from Individual)"
+      description="Images of neurons with some part in the $NAME"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.0/@queries.5 //@dataSources.1/@queries.11 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
+    <matchingCriteria
+        type="//@libraries.3/@types.5 //@libraries.3/@types.0"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="ImagesNeuronsClustered"
+      name="Images of neurons with some part here (clustered)"
+      description="Images of neurons with some part in the $NAME (clustered)"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.1/@queries.10 //@dataSources.1/@queries.7 //@dataSources.0/@queries.3">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
@@ -430,6 +520,14 @@
       name="Neurons with any part here"
       description="Neurons in/overlapping the $NAME"
       queryChain="//@dataSources.1/@queries.3 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
+    <matchingCriteria
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="neuronssynaptic"
+      name="Neurons Synaptic"
+      description="Neurons with synaptic terminals in $NAME"
+      queryChain="//@dataSources.1/@queries.4 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
   </queries>
