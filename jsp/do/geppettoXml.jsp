@@ -463,6 +463,15 @@
         type="//@libraries.3/@types.0 //@libraries.3/@types.2"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
+      id="FellowClones"
+      name="Fellow Clones"
+      description="Clones realated to $NAME"
+      returnType="//@libraries.3/@types.2"
+      queryChain="//@dataSources.0/@queries.5 //@queries.3">
+    <matchingCriteria
+        type="//@libraries.3/@types.0 //@libraries.3/@types.4"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompSubclasses"
       name="Subclasses of"
       description="Subclasses of the $NAME"
