@@ -210,6 +210,24 @@
           description="Pass type class ID for Individual"
           queryProcessorId="vfbPassRetunedIDtoNextQuery"/>
     </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="Clones developing from"
+        description="">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="CloneIndFromCloneClass"
+          name="Return Clone Individuals from Clone Class "
+          description=""
+          query="MATCH (c {short_form:'$ID'})&lt;-[r*0..3]-(i:Individual:Clone) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          countQuery="MATCH (c {short_form:'$ID'})&lt;-[r*0..3]-(i:Individual:Clone) return count(i) as count"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process Images"
+          runForCount="false"
+          returnType="//@libraries.3/@types.4"
+          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
+    </queries>
     <fetchVariableQuery
         xsi:type="gep_2:CompoundQuery"
         name="The compound query for augmenting a type"
@@ -467,9 +485,18 @@
       name="Fellow Clones"
       description="Clones realated to $NAME"
       returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.0/@queries.5 //@queries.3">
+      queryChain="//@dataSources.0/@queries.5 //@queries.4">
     <matchingCriteria
         type="//@libraries.3/@types.0 //@libraries.3/@types.4"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
+      id="ClonesFromClass"
+      name="Clones developing from"
+      description="Clones developing from $NAME"
+      returnType="//@libraries.3/@types.4"
+      queryChain="//@dataSources.0/@queries.6">
+    <matchingCriteria
+        type="//@libraries.3/@types.1 //@libraries.3/@types.4"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompSubclasses"
@@ -479,6 +506,8 @@
       queryChain="//@dataSources.1/@queries.9 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.2"/>
+    <matchingCriteria
+        type="//@libraries.3/@types.1 //@libraries.3/@types.4"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="partsof"
@@ -486,7 +515,8 @@
       description="Subparts of the $NAME"
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
-        type="//@libraries.3/@types.1"/>
+        type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
+    <matchingCriteria/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
