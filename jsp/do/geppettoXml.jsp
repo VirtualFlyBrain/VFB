@@ -292,7 +292,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Image Folder and Template"
           description="Fetch the image folder and template details"
-          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(im:Individual) WHERE i:Template RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, i.short_form as tempId, i.label as tempName LIMIT 1 UNION MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(im:Individual)-[r:Related*0..3]-(t:Template) WHERE NOT i:Template RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName LIMIT 1"
+          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual) WITH i,im optional Match (im)&lt;-[r2:Related]-(id:Individual)-[r3:Related*0..2]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName LIMIT 1"
           countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
