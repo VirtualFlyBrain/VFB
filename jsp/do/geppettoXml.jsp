@@ -202,7 +202,7 @@
           name="Pass type class ID for Individual"
           description="Pass type class ID for Individual"
           query="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return c.short_form as id LIMIT 1"
-          countQuery=""/>
+          countQuery="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return count(c) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           id="PushReturnedID"
