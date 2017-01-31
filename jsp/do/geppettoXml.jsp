@@ -516,7 +516,6 @@
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
-    <matchingCriteria/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
