@@ -174,14 +174,14 @@ public class OntBeanController implements Controller {
 							while (def.substring(f+8,f+l+1).matches("[0-9]+") && c < 50){
 								c++;
 								l = l + 1;
-								//LOG.debug("Length of ref resolved to: " + l.toString());
+								LOG.debug("Length of ref resolved to: " + l.toString());
 							}
 							String fbRef = def.substring(f, f+l).replace(del,"");
-							//LOG.debug("Found ref: " + fbRef);
+							LOG.debug("Found ref: " + fbRef);
 							PubBean bean = new PubBean(fbRef);
 							String linkedRef = "<a href=\"" + bean.getWebLink() + "\" title=\"" + bean.getMiniref() + "\" target=\"" + bean.getTarget() + "\" >" + fbRef + "</a>";
 							def = def.replace(fbRef, linkedRef);
-							//LOG.debug("Resolving (" + fbRef + ") definition: " + def);
+							LOG.debug("Resolving (" + fbRef + ") definition: " + def);
 							f = f + linkedRef.length();
 						}
 					}
