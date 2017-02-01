@@ -202,8 +202,7 @@ div.imagesCaro {
 
 div #imagesCaro {
     width:350px; 
-    max-width:350px;
-    background-color:black;   
+    max-width:350px;   
 }
 
 #imagesCaro .lazy {
@@ -444,6 +443,7 @@ div.icon-right {
 
 #imagesCaro .carousel {
     width: 350px !important;
+    background-color:black;
 }
 
 .label-as-badge {
