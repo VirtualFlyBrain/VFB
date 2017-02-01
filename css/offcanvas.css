@@ -152,8 +152,10 @@ div.DTTT {
 }
 
 div.carousel-caption {
-    bottom: -33px;
-    opacity: 0.3;
+    width:350px;
+    left:0px;
+    bottom:-33px;
+    opacity:0.3;
 }
 
 .carousel-indicators {
