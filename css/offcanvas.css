@@ -198,6 +198,19 @@ div.imagesCaro {
     width: 350px;
 }
 
+div #imagesCaro {
+    width:350px; 
+    max-width:350px;
+    background-color:black;   
+}
+
+#imagesCaro .lazy {
+    margin: auto; 
+    max-width: 350px; 
+    cursor: pointer; 
+    display: block;
+}
+
 /****************
  Adding well with white background
 *************/
