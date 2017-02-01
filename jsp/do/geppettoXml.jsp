@@ -201,8 +201,8 @@
           id="PassTypeID"
           name="Pass type class ID for Individual"
           description="Pass type class ID for Individual"
-          query="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return c.short_form as ID LIMIT 1"
-          countQuery=""/>
+          query="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return c.short_form as id LIMIT 1"
+          countQuery="MATCH (i:Individual {short_form:'$ID'})-[r:INSTANCEOF {label:'type'}]->(c:Synaptic_neuropil) return count(c) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
           id="PushReturnedID"
@@ -292,7 +292,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Image Folder and Template"
           description="Fetch the image folder and template details"
-          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(im:Individual) WHERE i:Template RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, i.short_form as tempId, i.label as tempName LIMIT 1 UNION MATCH (i:Individual { short_form: '$ID' } )&lt;-[:Related{label:'depicts'}]-(im:Individual)-[r:Related*0..3]-(t:Template) WHERE NOT i:Template RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName LIMIT 1"
+          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual) WITH i,im optional Match (im)&lt;-[r2:Related]-(id:Individual)-[r3:Related*0..2]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName LIMIT 1"
           countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
@@ -516,7 +516,6 @@
       queryChain="//@dataSources.1/@queries.1 //@dataSources.1/@queries.0 //@dataSources.0/@queries.0">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.5"/>
-    <matchingCriteria/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
       id="CompNeuronClassesFasciculatingHere"
