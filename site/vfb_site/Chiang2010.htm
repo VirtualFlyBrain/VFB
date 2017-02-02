@@ -71,11 +71,12 @@
 											</h4>
 										  </div>
 										  <div id="collapse7" class="panel-collapse collapse">
-											<div class="panel-body">
-										
-											<object data="/site/datasets/Chiang2010.htm" type="text/html">
-											</object>
-											
+											<div class="panel-body" id="segmentations">
+												<script> 
+													$(function(){
+													  $("#segmentations").load("/site/datasets/Chiang2010.htm"); 
+													});
+												</script>
 											</div>
 										  </div>
 										</div>
@@ -87,10 +88,12 @@
 											</h4>
 										  </div>
 										  <div id="collapse8" class="panel-collapse collapse">
-											<div class="panel-body">
-										
-											<embed type="text/html" src="/site/datasets/Chiang2010s.htm">
-											
+											<div class="panel-body" id="skeletons">
+												<script> 
+													$(function(){
+													  $("#skeletons").load("/site/datasets/Chiang2010s.htm"); 
+													});
+												</script>
 											</div>
 										  </div>
 										</div>
