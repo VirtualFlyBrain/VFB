@@ -78,6 +78,9 @@
     <types xsi:type="gep_1:SimpleType"
         id="VFB_00030786"
         name="BrainName standard - Ito half brain"/>
+    <types xsi:type="gep_1:SimpleType"
+        id="Template"
+        name="Template"/>
   </libraries>
   <libraries
       id="vfbLibrary"
@@ -280,6 +283,16 @@
           countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
+      </queryChain>
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          id="templateDomains"
+          name="Get Template Domains"
+          description="Get All Template Painted Domains"
+          query="MATCH (t:Individual { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual)-[:Related {label:'depicts'}]->(d:Individual)-[:INSTANCEOF]->(a:Class) RETURN d.short_form as exId, d.label as exName,substring(dc.short_form,0,3)+'/i/'+substring(dc.short_form,5,4)+'/'+substring(dc.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp"
+          countQuery="MATCH (t:Individual { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual) RETURN count(dc) as count">
+        <matchingCriteria
+            type="//@libraries.3/@types.0"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
