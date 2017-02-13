@@ -114,7 +114,7 @@
           name="Get max 6 images from Neo4j"
           description="fetch Individual instances from ID list"
           runForCount="false"
-          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(j.short_form,0,3)+'/'+substring(j.short_form,3,1)+'/'+substring(j.short_form,5,4)+'/'+substring(j.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds LIMIT 6 "
+          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds LIMIT 6 "
           countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -132,7 +132,7 @@
           name="Get meta from Neo4j"
           description="Get images for individual list"
           runForCount="false"
-          query="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/c/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          query="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
           countQuery="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -150,7 +150,7 @@
           id="GetFellowClusterMembers"
           name="Get other cluster members"
           description="$NAME's fellow cluster members"
-          query="MATCH (n:Neuron { short_form: '$ID' } )-[r1:Related {label:'member_of'}]->(c:Cluster)-[r2:Related {label:'has_member'}]->(i:Neuron) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/c/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          query="MATCH (n:Neuron { short_form: '$ID' } )-[r1:Related {label:'member_of'}]->(c:Cluster)-[r2:Related {label:'has_member'}]->(i:Neuron) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
           countQuery="MATCH (n:Neuron { short_form: '$ID' } )-[r1:Related {label:'member_of'}]->(c:Cluster)-[r2:Related {label:'has_member'}]->(i:Neuron) RETURN count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -169,7 +169,7 @@
           name="Get meta from Neo4j for clusters"
           description="Get images for cluster list"
           runForCount="false"
-          query="MATCH(i:Individual)&lt;-[r:Related {label:'member_of'}]-(m:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, coalesce(i.description[0], 'An NBLAST derived cluster with ' + count(m) + ' members. Individual members are shown in the images column.' as def, COLLECT (DISTINCT { image_name: m.label, image_id: m.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(m.short_form,0,3)+'/c/'+substring(m.short_form,4,4)+'/'+substring(m.short_form,8,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds"
+          query="MATCH(i:Individual)&lt;-[r:Related {label:'member_of'}]-(m:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN i.short_form as id, i.label as name, coalesce(i.description[0], 'An NBLAST derived cluster with ' + count(m) + ' members. Individual members are shown in the images column.' as def, COLLECT (DISTINCT { image_name: m.label, image_id: m.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(m.short_form,0,3)+'/i/'+substring(m.short_form,4,4)+'/'+substring(m.short_form,8,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds"
           countQuery="MATCH(i:Individual) WHERE i.short_form IN $ARRAY_ID_RESULTS RETURN count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -188,7 +188,7 @@
           name="Get all images from Neo4j"
           description="fetch Individual instances from ID list"
           runForCount="false"
-          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(j.short_form,0,3)+'/'+substring(j.short_form,3,1)+'/'+substring(j.short_form,5,4)+'/'+substring(j.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds "
+          query="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)-[:Related { label : 'depicts' } ]-(j:Individual)-[:Related { label : 'has_signal_channel' } ]-(k:Individual)-[:Related { label: 'has_background_channel' } ]-(m:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN n.short_form as class_Id, COLLECT (DISTINCT { image_name: i.label, image_id: i.short_form, image_thumb: 'http://www.virtualflybrain.org/data/'+substring(k.short_form,0,3)+'/'+substring(k.short_form,3,1)+'/'+substring(k.short_form,5,4)+'/'+substring(k.short_form,9,4)+'/thumbnailT.png', template_id: m.short_form}) AS inds "
           countQuery="MATCH (n:VFB:Class)&lt;-[:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WHERE n.short_form IN $ARRAY_ID_RESULTS RETURN count(i) AS count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -223,7 +223,7 @@
           id="CloneIndFromCloneClass"
           name="Return Clone Individuals from Clone Class "
           description=""
-          query="MATCH (c {short_form:'$ID'})&lt;-[r*0..3]-(i:Individual:Clone) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/c/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          query="MATCH (c {short_form:'$ID'})&lt;-[r*0..3]-(i:Individual:Clone) RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/i/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
           countQuery="MATCH (c {short_form:'$ID'})&lt;-[r*0..3]-(i:Individual:Clone) return count(i) as count"/>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -279,7 +279,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Image Folder and Template"
           description="Fetch the image folder and template details"
-          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual)&lt;-[r2:Related {label:'has_signal_channel'}]-(id:Individual) with im,id MATCH (id)-[r3:Related {label:'has_background_channel'}]->(tc:Individual)-[r4:Related{label:'depicts'}]->(t:Template) RETURN substring(im.short_form,0,3)+'/c/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
+          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual)&lt;-[r2:Related {label:'has_signal_channel'}]-(id:Individual) with im,id MATCH (id)-[r3:Related {label:'has_background_channel'}]->(tc:Individual)-[r4:Related{label:'depicts'}]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
           countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
@@ -296,7 +296,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Fetch 6 example individuals for Class"
           description="Fetch up to 6 example Individual instances of this Class or subclasses"
-          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(c.short_form,0,3)+'/'+substring(c.short_form,3,1)+'/'+substring(c.short_form,5,4)+'/'+substring(c.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
+          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(id:Individual) with i,c,id MATCH (id)-[r3:Related {label:'has_background_channel'}]->(tc:Individual)-[r4:Related{label:'depicts'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(c.short_form,0,3)+'/'+substring(c.short_form,3,1)+'/'+substring(c.short_form,5,4)+'/'+substring(c.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
           countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
@@ -306,7 +306,7 @@
           id="templateDomains"
           name="Get Template Domains"
           description="Get All Template Painted Domains"
-          query="MATCH (t:Template { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual)-[:Related {label:'depicts'}]->(d:Individual)-[:INSTANCEOF]->(a:Class) RETURN d.short_form as exId, d.label as exName,substring(dc.short_form,0,3)+'/c/'+substring(dc.short_form,5,4)+'/'+substring(dc.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp"
+          query="MATCH (t:Template { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual)-[:Related {label:'depicts'}]->(d:Individual)-[:INSTANCEOF]->(a:Class) RETURN d.short_form as exId, d.label as exName,substring(dc.short_form,0,3)+'/i/'+substring(dc.short_form,5,4)+'/'+substring(dc.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp"
           countQuery="MATCH (t:Template { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual) RETURN count(dc) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0 //@libraries.3/@types.20"/>
