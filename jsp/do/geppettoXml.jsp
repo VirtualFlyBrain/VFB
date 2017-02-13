@@ -289,10 +289,10 @@
           id="templateDomains"
           name="Get Template Domains"
           description="Get All Template Painted Domains"
-          query="MATCH (t:Individual { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual)-[:Related {label:'depicts'}]->(d:Individual)-[:INSTANCEOF]->(a:Class) RETURN d.short_form as exId, d.label as exName,substring(dc.short_form,0,3)+'/i/'+substring(dc.short_form,5,4)+'/'+substring(dc.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp"
-          countQuery="MATCH (t:Individual { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual) RETURN count(dc) as count">
+          query="MATCH (t:Template { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual)-[:Related {label:'depicts'}]->(d:Individual)-[:INSTANCEOF]->(a:Class) RETURN d.short_form as exId, d.label as exName,substring(dc.short_form,0,3)+'/i/'+substring(dc.short_form,5,4)+'/'+substring(dc.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp"
+          countQuery="MATCH (t:Template { short_form: '$ID' } )&lt;-[:Related {label:'depicts'}]-(c:Individual)&lt;-[:Related {index:0}]-(i:Individual)-[r:Related{label:'has_signal_channel'}]->(dc:Individual) RETURN count(dc) as count">
         <matchingCriteria
-            type="//@libraries.3/@types.0"/>
+            type="//@libraries.3/@types.0 //@libraries.3/@types.20"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
@@ -301,12 +301,14 @@
           queryProcessorId="vfbImportTypesQueryProcessor">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
+        <matchingCriteria
+            type="//@libraries.3/@types.0 //@libraries.3/@types.20"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:SimpleQuery"
           name="Image Folder and Template"
           description="Fetch the image folder and template details"
-          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual) WITH i,im optional Match (im)&lt;-[r2:Related]-(id:Individual)-[r3:Related*0..2]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName LIMIT 1"
+          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual)&lt;-[r2:Related {label:'has_signal_channel'}]-(id:Individual)-[r3:Related {label:'has_background_channel'}]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
           countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
