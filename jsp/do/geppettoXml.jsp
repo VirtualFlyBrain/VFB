@@ -277,6 +277,23 @@
       </queryChain>
       <queryChain
           xsi:type="gep_2:SimpleQuery"
+          name="Image Folder and Template"
+          description="Fetch the image folder and template details"
+          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual)&lt;-[r2:Related {label:'has_signal_channel'}]-(id:Individual)-[r3:Related {label:'has_background_channel'}]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
+          countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
+        <matchingCriteria
+            type="//@libraries.3/@types.0"/>
+      </queryChain>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Add Thumbnail for VFB Individuals"
+          description="Add Thumbnail for VFB Individuals"
+          queryProcessorId="vfbImportTypesThumbnailQueryProcessor">
+        <matchingCriteria
+            type="//@libraries.3/@types.0"/>
+      </queryChain>
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
           name="Fetch 6 example individuals for Class"
           description="Fetch up to 6 example Individual instances of this Class or subclasses"
           query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(im:Individual)-[:Related{label:'has_background_channel'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(im.short_form,0,3)+'/'+substring(im.short_form,3,1)+'/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
@@ -303,23 +320,6 @@
             type="//@libraries.3/@types.1"/>
         <matchingCriteria
             type="//@libraries.3/@types.0 //@libraries.3/@types.20"/>
-      </queryChain>
-      <queryChain
-          xsi:type="gep_2:SimpleQuery"
-          name="Image Folder and Template"
-          description="Fetch the image folder and template details"
-          query="MATCH (i:Individual { short_form: '$ID' } )&lt;-[r1:Related{label:'depicts'}]-(im:Individual)&lt;-[r2:Related {label:'has_signal_channel'}]-(id:Individual)-[r3:Related {label:'has_background_channel'}]->(t:Template) RETURN substring(im.short_form,0,3)+'/i/'+substring(im.short_form,5,4)+'/'+substring(im.short_form,9,4)+'/' as imageDir, t.short_form as tempId, t.label as tempName"
-          countQuery="MATCH (i:Individual { short_form: '$ID' } ) RETURN count(i) as count">
-        <matchingCriteria
-            type="//@libraries.3/@types.0"/>
-      </queryChain>
-      <queryChain
-          xsi:type="gep_2:ProcessQuery"
-          name="Add Thumbnail for VFB Individuals"
-          description="Add Thumbnail for VFB Individuals"
-          queryProcessorId="vfbImportTypesThumbnailQueryProcessor">
-        <matchingCriteria
-            type="//@libraries.3/@types.0"/>
       </queryChain>
       <queryChain
           xsi:type="gep_2:ProcessQuery"
