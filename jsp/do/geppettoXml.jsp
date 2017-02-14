@@ -81,6 +81,9 @@
     <types xsi:type="gep_1:SimpleType"
         id="Template"
         name="Template"/>
+    <types xsi:type="gep_1:SimpleType"
+        id="hasExamples"
+        name="Has Examples"/>
   </libraries>
   <libraries
       id="vfbLibrary"
@@ -180,7 +183,7 @@
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
-        name="Get and process all example images from Neo4j"
+        name="Get and process all example images from Neo4j for list "
         description=""
         runForCount="false">
       <queryChain
@@ -195,6 +198,23 @@
           name="Process images"
           runForCount="false"
           queryProcessorId="vfbCreateImagesForQueryResultsQueryProcessor"/>
+    </queries>
+    <queries
+        xsi:type="gep_2:CompoundQuery"
+        name="All example images for a class"
+        description="">
+      <queryChain
+          xsi:type="gep_2:SimpleQuery"
+          name="Fetch all example individuals for Class"
+          description="Fetch all example Individual instances of this Class or subclasses"
+          returnType="//@libraries.3/@types.0"
+          query="MATCH p=(n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WITH i ORDER BY length(p) asc RETURN i.short_form as id, i.label as name, i.description[0] as def,  'http://www.virtualflybrain.org/data/'+substring(i.short_form,0,3)+'/c/'+substring(i.short_form,4,4)+'/'+substring(i.short_form,8,4)+'/thumbnailT.png' AS file"
+          countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count"/>
+      <queryChain
+          xsi:type="gep_2:ProcessQuery"
+          name="Process Images"
+          returnType="//@libraries.3/@types.0"
+          queryProcessorId="vfbCreateResultListForIndividualsForQueryResultsQueryProcessor"/>
     </queries>
     <queries
         xsi:type="gep_2:CompoundQuery"
@@ -294,9 +314,9 @@
       </queryChain>
       <queryChain
           xsi:type="gep_2:SimpleQuery"
-          name="Fetch 6 example individuals for Class"
-          description="Fetch up to 6 example Individual instances of this Class or subclasses"
-          query="MATCH (n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(id:Individual) with i,c,id MATCH (id)-[r3:Related {label:'has_background_channel'}]->(tc:Individual)-[r4:Related{label:'depicts'}]->(t:Template) RETURN i.short_form as exId, i.label as exName, substring(c.short_form,0,3)+'/'+substring(c.short_form,3,1)+'/'+substring(c.short_form,5,4)+'/'+substring(c.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 12"
+          name="Fetch 8 example individuals for Class"
+          description="Fetch up to 8 example Individual instances of this Class or subclasses"
+          query="MATCH p=(n:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) WITH i ORDER BY length(p) asc MATCH (i)&lt;-[:Related{label:'depicts'}]-(c:Individual)&lt;-[:Related{label:'has_signal_channel'}]-(id:Individual)-[r3:Related {label:'has_background_channel'}]->(tc:Individual)-[r4:Related{label:'depicts'}]->(t:Template) RETURN DISTINCT i.short_form as exId, i.label as exName, substring(c.short_form,0,3)+'/'+substring(c.short_form,3,1)+'/'+substring(c.short_form,5,4)+'/'+substring(c.short_form,9,4)+'/thumbnailT.png' as exThumb, t.short_form as exTemp LIMIT 8"
           countQuery="MATCH (n:VFB:Class { short_form: '$ID' } )&lt;-[r:SUBCLASSOF|INSTANCEOF*..]-(i:Individual) RETURN count(i) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
@@ -497,11 +517,20 @@
         type="//@libraries.3/@types.0 //@libraries.3/@types.2"/>
   </queries>
   <queries xsi:type="gep_2:CompoundRefQuery"
+      id="ListAllExamples"
+      name="List all example images for class with examples"
+      description="List all example images of $NAME"
+      returnType="//@libraries.3/@types.0"
+      queryChain="//@dataSources.0/@queries.5">
+    <matchingCriteria
+        type="//@libraries.3/@types.21 //@libraries.3/@types.1"/>
+  </queries>
+  <queries xsi:type="gep_2:CompoundRefQuery"
       id="FellowClones"
       name="Fellow Clones"
       description="Clones realated to $NAME"
       returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.0/@queries.5 //@queries.4">
+      queryChain="//@dataSources.0/@queries.6 //@queries.5">
     <matchingCriteria
         type="//@libraries.3/@types.0 //@libraries.3/@types.4"/>
   </queries>
@@ -510,7 +539,7 @@
       name="Clones developing from"
       description="Clones developing from $NAME"
       returnType="//@libraries.3/@types.4"
-      queryChain="//@dataSources.0/@queries.6">
+      queryChain="//@dataSources.0/@queries.7">
     <matchingCriteria
         type="//@libraries.3/@types.1 //@libraries.3/@types.4"/>
   </queries>
@@ -556,7 +585,7 @@
       name="Images of neurons with some part here (from Individual)"
       description="Images of neurons with some part in the $NAME"
       returnType="//@libraries.3/@types.2"
-      queryChain="//@dataSources.0/@queries.5 //@dataSources.1/@queries.11 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
+      queryChain="//@dataSources.0/@queries.6 //@dataSources.1/@queries.11 //@dataSources.1/@queries.7 //@dataSources.0/@queries.1">
     <matchingCriteria
         type="//@libraries.3/@types.5 //@libraries.3/@types.0"/>
   </queries>
