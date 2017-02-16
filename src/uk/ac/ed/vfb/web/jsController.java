@@ -61,17 +61,17 @@ public class jsController implements Controller {
       // pass full template ID as first item and record short tempId
       int i=0; 
       if (temp.indexOf("VFB_") > -1){
-        for (String tempateId:templateLong) {
-            if (temp.indexOf(tempateId) > -1){
-              ind = tempateId + "," + ind;
+        for (String templateId:templateLong) {
+            if (temp.indexOf(templateId) > -1){
+              ind = templateId + "," + ind;
               temp = templateShort[i];
             }
             i++;
         }
       }else if (temp.indexOf("VFBt_") > -1){
-        for (String tempateId:templateShort) {
-            if (temp.indexOf(tempateId) > -1){
-              ind = tempateLong[i] + "," + ind;
+        for (String templateId:templateShort) {
+            if (temp.indexOf(templateId) > -1){
+              ind = templateLong[i] + "," + ind;
             }
             i++;
         }
