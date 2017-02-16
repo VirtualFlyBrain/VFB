@@ -152,8 +152,10 @@ div.DTTT {
 }
 
 div.carousel-caption {
-    bottom: -33px;
-    opacity: 0.3;
+    width:350px;
+    left:0px;
+    bottom:-33px;
+    opacity:0.3;
 }
 
 .carousel-indicators {
@@ -196,6 +198,18 @@ div.carousel-caption {
 
 div.imagesCaro {
     width: 350px;
+}
+
+div #imagesCaro {
+    width:350px; 
+    max-width:350px;   
+}
+
+#imagesCaro .lazy {
+    margin: auto; 
+    max-width: 350px; 
+    cursor: pointer; 
+    display: block;
 }
 
 /****************
@@ -429,6 +443,7 @@ div.icon-right {
 
 #imagesCaro .carousel {
     width: 350px !important;
+    background-color:black;
 }
 
 .label-as-badge {
