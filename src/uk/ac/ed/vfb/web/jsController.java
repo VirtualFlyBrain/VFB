@@ -42,6 +42,8 @@ public class jsController implements Controller {
     String[] diffColour;
     String[] individuals;
     boolean change = false;
+    String[] templateShort = new String[] {"VFBt_001","VFBt_002","VFBt_003","VFBt_004"};
+    String[] templateLong = new String[] {"VFB_00017894","VFB_00030786","VFB_01100000","VFB_01000000"};
     try{
       String temp = req.getParameter("t");
       String ind = req.getParameter("i");
@@ -53,12 +55,26 @@ public class jsController implements Controller {
         diffs = "";
       }
       if (temp == null){
-        temp = "VFBt_001";
+        temp = templateShort[0];
       }
       
-      if (temp.indexOf("VFBt_001") > -1){
-        // VFB id for adult brain template:
-        ind = "VFB_00017894" + "," + ind;
+      // pass full template ID as first item and record short tempId
+      int i=0; 
+      if (temp.indexOf("VFB_") > -1){
+        for (String tempateId:templateLong) {
+            if (temp.indexOf(tempateId) > -1){
+              ind = tempateId + "," + ind;
+              temp = templateShort[i];
+            }
+            i++;
+        }
+      }else if (temp.indexOf("VFBt_") > -1){
+        for (String tempateId:templateShort) {
+            if (temp.indexOf(tempateId) > -1){
+              ind = tempateLong[i] + "," + ind;
+            }
+            i++;
+        }
       }
       
       // Convert domain ids to VFB individual ids:
