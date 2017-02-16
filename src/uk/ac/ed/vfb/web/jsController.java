@@ -99,7 +99,6 @@ public class jsController implements Controller {
       }else{
         diff = new String[] {diffs};
       }
-      int i;
       diffName = new String[diff.length];
       diffColour = new String[diff.length];
       for (i=0; i<diff.length; i++){
