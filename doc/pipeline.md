@@ -33,16 +33,19 @@ Constraints: URIs are unique
 
 * Edges:
   * NEO only
-    * (:Individual)-[:has_data_source { id_in_data_source: '' } ]-(:data_source)
+    * (:Individual)-[:has_data_source { id_in_data_source: ' } ]-(:data_source)
     * (:data_source)-[:has_reference]-(:Pub)
     * (:data_source)-[:has_license]-(:License)
 
   * OWL
-   * (:Individual)-[:Related { URI: '', name: ''}]-(:Individual)  -> OWL FACT (OPA)
-   * (:Individual)-[:Related { URI: '', name: ''}]-(:Class) -> OWL Type: R some C
-   * (:Class)-[:Related { URI: '', name: ''}]-(:Individual) -> OWL SubClassOf: R value I
-   * (:Individual)-[:INSTANCEOF]-(:Class) -> I OWLType C
-   * (:Class)-[:SUBCLASSOF]-(:Class) -> OWL SubClassOf
+    * (:Individual)-[:Related { URI: '', name: ''}]-(:Individual)  -> OWL FACT (OPA)
+    * (:Individual)-[:Related { URI: '', name: ''}]-(:Class) -> OWL Type: R some C
+    * (:Class)-[:Related { URI: '', name: ''}]-(:Individual) -> OWL SubClassOf: R value I
+    * (:Individual)-[:INSTANCEOF]-(:Class) -> I OWLType C
+    * (:Class)-[:SUBCLASSOF]-(:Class) -> OWL SubClassOf
+  
+  * Numerical overlap in OWL
+    * (:Individual:Channel)-[:Related { URI: '', name: 'overlaps', voxel_overlap : n }]-(:Individual:Channel)
 
 Script KB2Prod generates a standard OWL export based on this mapping pattern and using URIs from nodes and edges.
 
@@ -63,29 +66,34 @@ Script KB2Prod generates a standard OWL export based on this mapping pattern and
 
 ### KB2Prod
 
-Exports the non-OWL components of the KB to Prod: Image individuals; data_source; pub
+Exports the non-OWL components of the KB to Prod: Image individuals; data_source; pub and related links to inds.
 
 ### Generic Neo2OWL
 
 1. Generates a standard OWL export based on generic NEO to OWL mapping (see above) and using full URIs from nodes and edges.
-2. Generates 
+2. Generate SubClassOf edges based on X overlaps Y  with voxel overlap > some cutoff
+2. Generates definitions for individuals (with voxel overlap numbers).  This can re-use LMB -> OWL code
 
 ### FB2Prod
 
-* Step 1: Load all of the following using two step load:  1. Node with 
+* Step 1: Load all of the following using two step load:  1. Node with ID. 2. Populate node
   - pubs
   - genotypes
   - features: alleles, genes, constructs, insertions
 * Step 2:
   - Load: triples relating features to each other and to genotypes
 * Step3:
-  (a) pattern
-
-
-
-
+  (a) Expression
+    - Merge create inds for anatomy X stage
+    - Merge pattern following schema: 
+  (b) Phenotype
+    - Merge create inds for anatomy X stage
+    - Merge pattern following schema: 
+    - LOWER PRIORITY: Load phenotype free text.
 
 ### OWL2Prod side loading
+
+Side loading to make up for deficiencies in OLS loader.  This is pretty much done
 
 ### Import Clusters
 
@@ -94,3 +102,7 @@ One off script to load clusters.
 ### Import Annotations
 
 One off script to import annotations
+
+### Import channel overlap 
+
+One off script
