@@ -76,20 +76,27 @@ Exports the non-OWL components of the KB to Prod: Image individuals; data_source
 
 ### FB2Prod
 
-* Step 1: Load all of the following using two step load:  1. Node with ID. 2. Populate node
+* Step 1: Load all of the following using two step load:  Node with ID ->  Populate node
   - pubs
   - genotypes
   - features: alleles, genes, constructs, insertions
 * Step 2:
   - Load: triples relating features to each other and to genotypes
 * Step3:
-  (a) Expression
-    - Merge create inds for anatomy X stage
-    - Merge pattern following schema: 
-  (b) Phenotype
-    - Merge create inds for anatomy X stage
-    - Merge pattern following schema: 
-    - LOWER PRIORITY: Load phenotype free text.
+  * Expression
+      - Merge create inds for anatomy X stage
+      - Merge pattern following schema: 
+  * Phenotype
+      - Merge create inds for anatomy X stage
+      - Merge pattern following schema: 
+      - LOWER PRIORITY: Load phenotype free text.
+
+[Expression schema](https://github.com/obophenotype/expression_patterns/blob/master/doc/expresion_pattern_schema_spec.md):
+
+
+![Expression schema](https://cloud.githubusercontent.com/assets/112839/19857275/febda88a-9f74-11e6-9fa0-01b1c58b0463.png)
+
+Modified: Make multiple anat by atage nodes - one for each stage expressed at.
 
 ### OWL2Prod side loading
 
