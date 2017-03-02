@@ -61,6 +61,9 @@ Script KB2Prod generates a standard OWL export based on this mapping pattern and
     (c)-[:has_data_source]->()
 ~~~~~~~~~~
 
+### VFB Neo Prod
+
+
 
 ## Description of scripts
 
@@ -113,6 +116,23 @@ This job should retain the existing metadata on edges (URI etc)
 * Merge down duplicate nodes coming from multiple imports.
 
 One way that this could work: Convert edges job works on short_forms => Edges now present on both import and original.  Now safe to delete import term.  Originals can be identified by having source ontology corresponding to namespace (assuming OBO standard).  Also what about case where there are two import terms and no original. Which one wins?  (Default to VFB?)
+
+* Generate microrefs
+
+* Rule-based inference of classification and partonomy on expression patterns and exp pat fragments respectively
+
+Can do this in Cypher:
+
+~~~~~~~~~.cql
+
+(i:Individual)-[:expresses]-(feat:Class)
+(i)-[:Intanceof]-(:Class { label : expression pattern' } )
+-> (i:Individual)-[:Intanceof]-(expression pattern of X)
+
+....
+(more work needed to fully spec)
+~~~~~~~~~~~~
+
 
 ### Import Clusters
 
