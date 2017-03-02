@@ -2,7 +2,7 @@
 
 ## Architecture
 
-![image](https://cloud.githubusercontent.com/assets/112839/23512676/575f6d54-ff59-11e6-9dfe-191c18aff373.png)
+![image](https://cloud.githubusercontent.com/assets/112839/23518012/fbf38b24-ff69-11e6-945a-378b1949ab81.png)
 
 ## Components
 
@@ -15,9 +15,9 @@ A knowledgeBase of images and the anatomical entities depicted in them.  Image d
 * The relationships of anatomical entites to each are stored for imported connectomic data.  
 * Images depict anatomical enties.  Images may be registered to other images.
 
-Schema:
+#### Schema:
 
-Constraints: URIs are unique
+**Constraints:** URIs are unique
 
 * Nodes:
    * Classes: corresponding to ontology class or FB features are stored with minimal information (URI, short_form, name) and no relationships apart from to individuals in the KB.  For export purposes, only the URI is used.
@@ -96,11 +96,23 @@ Exports the non-OWL components of the KB to Prod: Image individuals; data_source
 
 ![Expression schema](https://cloud.githubusercontent.com/assets/112839/19857275/febda88a-9f74-11e6-9fa0-01b1c58b0463.png)
 
-Modified: Make multiple anat by atage nodes - one for each stage expressed at.
+Modification: Make multiple anat by stage nodes - one for each stage expressed at.
 
 ### OWL2Prod side loading
 
-Side loading to make up for deficiencies in OLS loader.  This is pretty much done
+Side loading to make up for deficiencies in OLS loader.  This is done.  May still need a few minor tweaks.
+
+### Prod2Prod
+
+Denormalization scripts:
+
+* Generate labels from classification 
+* Convert edges to use labels for relation names
+This job should retain the existing metadata on edges (URI etc)
+
+* Merge down duplicate nodes coming from multiple imports.
+
+One way that this could work: Convert edges job works on short_forms => Edges now present on both import and original.  Now safe to delete import term.  Originals can be identified by having source ontology corresponding to namespace (assuming OBO standard).  Also what about case where there are two import terms and no original. Which one wins?  (Default to VFB?)
 
 ### Import Clusters
 
