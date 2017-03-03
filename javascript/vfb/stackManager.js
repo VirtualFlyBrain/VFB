@@ -1,5 +1,10 @@
 /*! VirtualFlyBrain.org functions to manage image stack */
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+    console.log("Error occured: " + errorMsg);
+    return false;
+}
+
 window.selPointX = 0;
 window.selPointY = 0;
 window.selPointZ = 0;
@@ -758,7 +763,7 @@ function backgroundLoadMeta(id) {
 
 function loadTemplateMeta(id) {
     if (id) {
-        if (parent.$("body").data(id.substr(0, 8)) && parent.$("body").data(id.substr(0, 8)).meta && parent.$("body").data(id.substr(0, 8)).meta.template && parent.$("body").data(id.substr(0, 8)).meta.template == id.substr(0, 8) && parent.$("body").data(id.substr(0, 8)).meta.loaded > Date.now() - (24 * 60 * 60000)) {
+        if (parent.$("body").data().current.template == id && parent.$("body").data(id.substr(0, 8)) && parent.$("body").data(id.substr(0, 8)).meta && parent.$("body").data(id.substr(0, 8)).meta.template && parent.$("body").data(id.substr(0, 8)).meta.template == id.substr(0, 8) && parent.$("body").data(id.substr(0, 8)).meta.loaded > Date.now() - (24 * 60 * 60000)) {
             parent.$("body").data('meta', JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0, 8)).meta)));
             parent.$("body").data('current', JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0, 8)).current)));
             parent.$("body").data('domains', JSON.parse(JSON.stringify(parent.$("body").data(id.substr(0, 8)).domains)));
@@ -1299,10 +1304,10 @@ function loadDefaultData(ids) {
     var text = '{ "template": "VFBt_001","scl":' + String(defaultScaleByScreen()) + ',"mod":"zeta","slice":"Z","dst":0.0,"pit":0.0,"yaw":0.0,"rol":0.0,"qlt":80,"cvt":"png","fxp":"0,0,0","alpha": 100,"blend":"screen","inverted":false}';
     parent.$("body").data("current", JSON.parse(text));
     parent.$("body").data("VFBt_001", {selected: {0: {id: "VFBt_00100000", colour: "auto", visible: true}}});
-    loadTemplateMeta("VFBt_001");
     parent.$("body").data("VFBt_002", {selected: {0: {id: "VFBt_00200000", colour: "auto", visible: true}}});
     parent.$("body").data("VFBt_003", {selected: {0: {id: "VFBt_00300000", colour: "auto", visible: true}}});
     parent.$("body").data("VFBt_004", {selected: {0: {id: "VFBt_00400000", colour: "auto", visible: true}}});
+    backgroundLoadMeta();
     updateStackData();
     if (ids !== undefined && ids !== null && ids !== "") {
         addToStackData(ids);
@@ -1418,12 +1423,14 @@ function openFullDetails(id) {
                             $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                         }
-                    } else if (id.indexOf("FB") > -1) {
-                        $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
-                        $('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_', '') + '" target="_blank">FlyBase report for ' + id.replace('_', '') + '</a>');
+                    //} else if (id.indexOf("FB") > -1) {
+                        //$('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+                        //$('#anatomyDetails').html('<a class="btn btn-info btn-sm" href="http://flybase.org/reports/' + id.replace('_', '') + '" target="_blank">FlyBase report for ' + id.replace('_', '') + '</a>');
                         //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
                     } else {
-                        alertMessage("Can't open details for:" + id);
+                        //alertMessage("Can't open details for:" + id);
+                        $('#anatomyDetails').html('<img src="/images/tools/ajax-loader.gif" alt="loading...">');
+                        $('#anatomyDetails').load("/site/tools/term_info/info.htm?id=" + id.replace('_', ':'));
                     }
                 } else {
                     if (parent.$("body").data("domains") && (id.indexOf('VFBd_') > -1 || id.indexOf('VFBt_') > -1)) {
@@ -4696,23 +4703,28 @@ function neoCall(cypher, htmlid) {
         success: function (result, xhr, status) {
             var list = "";
             if (result.data.length > 0 && htmlid !== "partName") {
-                list = "<ul"
+                list = "<ul";
                 if (htmlid !== "infoSyn"){
                     list += ' style="list-style-type:none;';
-                    if (htmlid == "infoDef"){
-                        list += 'margin: 0px;';
+                    if (htmlid == "infoDef" || htmlid.indexOf('For') > -1){
+                        list += 'margin: 0px;padding: 0px;';
                     }
                     list += '"';
                 }
                 list += ">";
                 result.data.forEach(function (item) {
-                    list += "<li>" + item[0] + "</li>";
+                    if ($.trim(item) != "" && item != "null" && item != null && $.trim(item) != "(undefined)"){
+                        list += "<li>" + item[0] + "</li>";
+                    }
                 });
                 list += "</ul>"
+                if (list.indexOf('<li>') < 0){
+                    list = "";
+                }
             } else {
                 list = result.data[0];
             }
-            if (list !== "undefined" && list !== undefined && $.trim(list) !== "" && $.trim(list) !== '<ul style="list-style-type:none;"><li>null</li></ul>') {
+            if (list !== "undefined" && list !== undefined && $.trim(list) !== "") {
                 $('#' + htmlid).html(list);
                 if ($('#' + htmlid).parent('p').is(":visible") == false) {
                     $('#' + htmlid).parent('p').show();

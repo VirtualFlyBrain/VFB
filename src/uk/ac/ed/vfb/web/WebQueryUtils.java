@@ -54,7 +54,7 @@ public class WebQueryUtils {
 				"subclass&FBbt_00005099 that RO_0002134 some XXX"
 		});
 		ad.put("fasciculate",
-				new String[]{"fasciculating ", "Neurons fasciculating ",
+				new String[]{"fasciculating ", "Neurons fasciculating in (the) ",
 				"subclass&FBbt_00005106 that RO_0002101 some XXX"
 		});
 		ad.put("transgene",

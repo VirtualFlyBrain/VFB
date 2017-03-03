@@ -1,5 +1,10 @@
 /*! VirtualFlyBrain.org Interface tools for interfacing with the WlzIIPsrv */
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+    console.log("Error occured: " + errorMsg);
+    return false;
+}
+
 window.PosX = 0;
 window.PosY = 0;
 window.lastSel = [""];
@@ -378,31 +383,33 @@ function bufferTick(t) {
 }
 
 function bufferPie(x, y, r) {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    var col = bufferLimit;
-    while (col > 200) {
-        col = col - 200;
+    if (parent.$("body").data("current") && parent.$("body").data("colours")) {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var col = bufferLimit;
+        while (col > 200) {
+            col = col - 200;
+        }
+        ctx.globalCompositeOperation = parent.$("body").data("current").blend;
+        ctx.fillStyle = rgbColToHex(parent.$("body").data("colours")[col]);
+        var start = -0.5 * Math.PI
+        var end = Math.PI * 1.5
+        var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
+        ctx.strokeStyle = rgbColToHex(parent.$("body").data("colours")[col]);
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(x, y, r, start, midPoint, false);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.fill();
+        ctx.strokeStyle = '#777777';
+        ctx.fillStyle = "#999900";
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(x, y, r, midPoint, end, false);
+        ctx.lineTo(x, y);
+        ctx.stroke();
     }
-    ctx.globalCompositeOperation = parent.$("body").data("current").blend;
-    ctx.fillStyle = rgbColToHex(parent.$("body").data("colours")[col]);
-    var start = -0.5 * Math.PI
-    var end = Math.PI * 1.5
-    var midPoint = (Math.PI * 2 * (bufferedSlices / totalSlice)) + start;
-    ctx.strokeStyle = rgbColToHex(parent.$("body").data("colours")[col]);
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.arc(x, y, r, start, midPoint, false);
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.fill();
-    ctx.strokeStyle = '#777777';
-    ctx.fillStyle = "#999900";
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.arc(x, y, r, midPoint, end, false);
-    ctx.lineTo(x, y);
-    ctx.stroke();
 }
 
 function bufferImage(j, slice) {
@@ -1426,25 +1433,8 @@ function updateLabels() {
                 content = cleanIdforExt($(this).data('id'));
                 switch (content.substr(0, 4)) {
                     case "VFB_":
-                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
-                            if (status == "error") {
-                                if ($(this).data('retrys')) {
-                                    $(this).data('retrys', $(this).data('retrys') + 1);
-                                    if ($(this).data('retrys') > retries) {
-                                        $(this).attr('id', "Failed" + $(this).attr('id'));
-                                    }
-                                } else {
-                                    $(this).data('retrys', 1);
-                                }
-                            } else {
-                                if ($(this).text().indexOf("VFB") < 0 && $(this).text().indexOf("?") < 0) {
-                                    if ($(this).data('layer')) {
-                                        parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
-                                    }
-                                    $(this).attr('id', "Resolved" + $(this).attr('id'));
-                                }
-                            }
-                        });
+                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
+                        neoCall('MATCH (a) where a.short_form = "' + content + '" return a.label limit 1', $(this).attr('id'));
                         $(this).attr("onclick", $("#infoButtonFor" + content).attr("onclick"));
                         break;
                     case "VFBt":
@@ -1453,25 +1443,8 @@ function updateLabels() {
                         parent.$("body").data(parent.$("body").data("current").template).selected[0].name = parent.$("body").data("meta").name;
                         break;
                     case "FBbt":
-                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partName', function (response, status, xhr) {
-                            if (status == "error") {
-                                if ($(this).data('retrys')) {
-                                    $(this).data('retrys', $(this).data('retrys') + 1);
-                                    if ($(this).data('retrys') > retries) {
-                                        $(this).attr('id', "Failed" + $(this).attr('id'));
-                                    }
-                                } else {
-                                    $(this).data('retrys', 1);
-                                }
-                            } else {
-                                if ($(this).text().indexOf("FBbt") < 0 && $(this).text().indexOf("VFB") < 0 && $(this).text().indexOf("?") < 0) {
-                                    if ($(this).data('layer')) {
-                                        parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].name = $(this).text();
-                                    }
-                                    $(this).attr('id', "Resolved" + $(this).attr('id'));
-                                }
-                            }
-                        });
+                        $(this).attr('id',$(this).attr('id').replace('nameFor','NeoNameFor'));
+                        neoCall('MATCH (a) where a.short_form = "' + content + '" return a.label limit 1', $(this).attr('id'));
                         $(this).attr("onclick", $("#" + $(this).attr("id").replace("nameFor", "infoButtonFor")).attr("onclick"));
                         break;
                     default:
@@ -1483,44 +1456,10 @@ function updateLabels() {
                 content = cleanIdforExt(content);
                 switch (content.substr(0, 4)) {
                     case "VFB_":
-                        $(this).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partParent', function (response, status, xhr) {
-                            if (status == "error") {
-                                if ($(this).data('retrys')) {
-                                    $(this).data('retrys', $(this).data('retrys') + 1);
-                                    if ($(this).data('retrys') > retries) {
-                                        $(this).attr('id', "Failed" + $(this).attr('id'));
-                                    }
-                                } else {
-                                    $(this).data('retrys', 1);
-                                }
-                            } else {
-                                if ($(this).text().indexOf("_") < 0) {
-                                    if ($(this).data('layer')) {
-                                        parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].type = $(this).html();
-                                    }
-                                    $(this).attr('id', "Resolved" + $(this).attr('id'));
-                                }
-                            }
-                        });
-                        $("#parentIdFor" + $(this).data('id')).load('/site/tools/term_info/info.htm?id=' + content.replace('_', ':') + ' #partParentId', function (response, status, xhr) {
-                            if (status == "error") {
-                                if ($(this).data('retrys')) {
-                                    $(this).data('retrys', $(this).data('retrys') + 1);
-                                    if ($(this).data('retrys') > retries) {
-                                        $(this).attr('id', "Failed" + $(this).attr('id'));
-                                    }
-                                } else {
-                                    $(this).data('retrys', 1);
-                                }
-                            } else {
-                                if ($(this).text().length > 5) {
-                                    if ($(this).data('layer')) {
-                                        parent.$("body").data(parent.$("body").data("current").template).selected[$(this).data('layer')].typeid = cleanIdforExt($(this).text());
-                                    }
-                                    $(this).attr('id', "Resolved" + $(this).attr('id'));
-                                }
-                            }
-                        });
+                        $(this).attr('id',$(this).attr('id').replace('typeFor','NeoTypeFor'));
+                        $("#parentIdFor" + $(this).data('id')).attr('id','NeoParentIdFor' + $(this).data('id'));
+                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.label as type', $(this).attr('id'));
+                        neoCall('MATCH (n:Individual { short_form: "' + content + '" } )-[r:INSTANCEOF|Related|has_reference]->(sc) WHERE r.label = "type" RETURN sc.short_form as typeID', $("#NeoParentIdFor" + $(this).data('id')).attr('id'));
                         break;
                     case "VFBt":
                         $(this).html($('#backgroundStain').html());
@@ -1530,7 +1469,10 @@ function updateLabels() {
                         $(this).attr('id', "Resolved" + $(this).attr('id'));
                         break;
                     case "FBbt":
-                        console.log('Not yet loaded type for ' + $(this).attr('id'));
+                        $(this).attr('id',$(this).attr('id').replace('typeFor','NeoTypeFor'));
+                        $("#parentIdFor" + $(this).data('id')).attr('id','NeoParentIdFor' + $(this).data('id'));
+                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.label as type', $(this).attr('id'));
+                        neoCall('MATCH (n:Class { short_form: "' + content + '" } )-[r:SUBCLASSOF|Related|has_reference]->(sc) WHERE r.label = "is a" RETURN sc.short_form as typeID', $("#NeoParentIdFor" + $(this).data('id')).attr('id'));
                         break;
                     case "FBgn":
                         $(this).html('<a href="http://flybase.org/reports/' + $(this).data('id') + '" target="_blank"><li>gene</li>');

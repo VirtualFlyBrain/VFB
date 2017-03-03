@@ -1,0 +1,88 @@
+<jsp:include page="/jsp/includes/homeHead.jsp">
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|FlyCircuit" />
+	<jsp:param name="css" value="/css/vfb/utils/table.css" />
+	<jsp:param name="title" value="Dickson VT" />
+</jsp:include>
+
+<div class="row">
+	
+	<div class="col-md-9" align="left">
+		<div class="well">
+		
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse1">Publication</a>
+					</h4>
+				  </div>
+				  <div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">
+						Barry Dickson, personal communication<br/><br/>
+						Kvon, E., Kazmar, T., Stampfel, G., Y&#xE1;&#xF1;ez-Cuna, O., Pagani, M., Schernhuber, K., Dickson, B., and Stark, A. (2014). <a href="https://www.ncbi.nlm.nih.gov/pubmed/24896182" target="blank">Genome-scale functional characterization of Drosophila developmental enhancers in vivo.</a> Cah Rev The 512, 91-95.
+					</div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse2">Source</a>
+					</h4>
+				  </div>
+				  <div id="collapse2" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<a href="http://stockcenter.vdrc.at/control/keywordsearch?VIEW_SIZE=100&SEARCH_CATEGORY_ID=VDRC_All&library=VT-GAL4" target="blank">VDRC Vienna Tiles (VT) library GAL4 Stocks</a>
+					</div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse3">License</a>
+					</h4>
+				  </div>
+				  <div id="collapse3" class="panel-collapse collapse in">
+					<div class="panel-body">
+						
+					</div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse4">Aligned data</a>
+					</h4>
+				  </div>
+				  <div id="collapse4" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+							<h4 class="panel-title">
+							  <a data-toggle="collapse" href="#collapse5">JFRC2 template</a>
+							</h4>
+						  </div>
+						  <div id="collapse5" class="panel-collapse collapse">
+							<div class="panel-body" id="segmentations">
+								<img src="/images/tools/ajax-loader.gif" alt="loading..." />
+								<script> 
+									$(function(){
+									  $("#segmentations").load("/site/datasets/Dickson_VT.htm"); 
+									});
+								</script>
+							</div>
+						  </div>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div> 
+		</div>	
+	</div>
+	<!-- center_wide -->
+	
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
