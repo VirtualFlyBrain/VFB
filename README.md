@@ -1,7 +1,10 @@
 Main-Server:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Main-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Bocian-Backup:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Bocian-Backup)](https://travis-ci.org/VirtualFlyBrain/VFB)
 master:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=master)](https://travis-ci.org/VirtualFlyBrain/VFB)
+
 Dev-Server:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Dev-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
 Sandbox-Server:
@@ -12,6 +15,8 @@ Sandbox2-Server:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox2-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
 Sandbox3-Server:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox3-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+
+Available Tickets:
 [![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 
 # About Virtual Fly Brain
