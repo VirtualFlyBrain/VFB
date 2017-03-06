@@ -1,5 +1,5 @@
 Main-Server:
-[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Master-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Main-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
 master:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=master)](https://travis-ci.org/VirtualFlyBrain/VFB)
 Dev-Server:
