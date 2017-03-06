@@ -17,27 +17,28 @@ A knowledgeBase of images and the anatomical entities depicted in them.  Image d
 
 #### Schema:
 
-**Constraints:** URIs are unique
-
 * Nodes:
-   * Classes: corresponding to ontology class or FB features are stored with minimal information (URI, short_form, name) and no relationships apart from to individuals in the KB.  For export purposes, only the URI is used.
+   * Primary node identifier = IRI.  Node IRIs are unique. This means we commit to specifying IRIs for all nodes and edge types - not just OWL content. With this assumption, all merges can be specified using IRI.
+   * Classes: corresponding to ontology class or FB features are stored with minimal information (IRI, short_form, name) and no relationships apart from to individuals in the KB.  For export purposes, only the IRI is used.
    * Individuals:
    * Relations:
-      * Every URI in a :Related edge should correspond to the URI of an object property node.
+      * Every IRI in a :Related edge should correspond to the IRI of an object property node.
       * This should be enforced by a check. 
-      * Object Property nodes should specified in an loaded from source OWL files.
+      * Object Property nodes should specified in and loaded from source OWL files.
     * Neo Only:
-      * Node id (PMID?) for export purposes + miniref for reference only. 
-      * Data source, License  - lots of important attributes on these nodes have to be exported.
+      * Data source. IRI = Path to folder
+      * License  - lots of important attributes on these nodes have to be exported.  IRI = CC IRI or some VFB IRI.
+      * Pub: IRI = PMID or BioRVx
+      * People (TBA) IRI - Use ORCID.
+      * Channel (OWL compatible, but NEO only for now): IRI - VFB file path.
     
-
 * Edges:
   * NEO only
-    * (:Individual)-[:has_data_source { id_in_data_source: ' } ]-(:data_source)
+    * (:Individual:channel)-[:has_data_source { id_in_data_source: '' } ]-(:data_source)
     * (:data_source)-[:has_reference]-(:Pub)
     * (:data_source)-[:has_license]-(:License)
 
-  * OWL
+  * OWL - Only edges of types Related, INSTANCEOF, SUBCLASSOF are exported to OWL.
     * (:Individual)-[:Related { URI: '', name: ''}]-(:Individual)  -> OWL FACT (OPA)
     * (:Individual)-[:Related { URI: '', name: ''}]-(:Class) -> OWL Type: R some C
     * (:Class)-[:Related { URI: '', name: ''}]-(:Individual) -> OWL SubClassOf: R value I
@@ -133,15 +134,22 @@ Can do this in Cypher:
 (more work needed to fully spec)
 ~~~~~~~~~~~~
 
+### LMB2KB
 
-### Import Clusters
+Set of scripts to be discared once LMB retired.
+All mapping/merging of nodes and edges works on URIs.
 
-One off script to load clusters.
+###
 
-### Import Annotations
 
-One off script to import annotations
+#### Import Clusters
+
+One off script to load clusters.  Re-use code in fc_ind.owl
+
+#### Import Annotations
+
+One off script to import annotations. Re-use code in fc_ind.owl
 
 ### Import channel overlap 
 
-One off script
+One off script. Re-use code in fc_ind.owl.  See doc on numerical overlap edge above.
