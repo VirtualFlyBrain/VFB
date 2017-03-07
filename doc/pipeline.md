@@ -62,11 +62,19 @@ Script KB2Prod generates a standard OWL export based on this mapping pattern and
     (c)-[:has_data_source]->()
 ~~~~~~~~~~
 
-### VFB Neo Prod
-
-
 
 ## Description of scripts
+
+### IRI SYNC OWL -> NEO
+
+Relevant existing script: 
+https://github.com/VirtualFlyBrain/VFB_owl/blob/master/src/code/owl2neo/owl_class_2_simple_node.py
+
+TODO: rewrite using owl2pdm (removing dependence on Brain) and rolling full URIs.
+
+
+### VFB Neo Prod
+
 
 ### KB2Prod
 
@@ -77,6 +85,8 @@ Exports the non-OWL components of the KB to Prod: Image individuals; data_source
 1. Generates a standard OWL export based on generic NEO to OWL mapping (see above) and using full URIs from nodes and edges.
 2. Generate SubClassOf edges based on X overlaps Y  with voxel overlap > some cutoff
 2. Generates definitions for individuals (with voxel overlap numbers).  This can re-use LMB -> OWL code
+
+Aim for now is simply to repurpose existing Brain-based Jython code, but should consider rewriting using [SCOWL](https://github.com/phenoscape/scowl/blob/master/src/main/scala/org/phenoscape/scowl/example/OWL2PrimerManchester.scala).  Declarative axiom writing should make this v.easy.
 
 ### FB2Prod
 
