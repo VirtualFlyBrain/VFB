@@ -1657,11 +1657,11 @@ function createVisibleButtonHTML(layer, i) {
         var selected = parent.$("body").data(current.template).selected;
         if (layer.visible) {
             content += '<button type="button" class="btn btn-default btn-xs" aria-label="Hide" title="Hide" onclick="';
-            content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; imageDist = 1; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();try{ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');}catch(ignore){}";
+            content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=false; updateWlzDisplay(); parent.$('body').data('disp', 'clear');updateMenuData();try{ga('send', 'event', 'viewer', 'hide', '" + layer.name + "');}catch(ignore){}";
             content += '"><span style="border:none;padding-left:0;padding-right:0;" class="glyphicon glyphicon-eye-open"></span></button>';
         } else {
             content += '<button type="button" class="btn btn-default btn-xs" aria-label="Show" title="Show" onclick="';
-            content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; imageDist = 1; updateWlzDisplay();updateMenuData();updateMenuData();try{ga('send', 'event', 'viewer', 'show', '" + layer.name + "');}catch(ignore){}";
+            content += "parent.$('body').data('" + current.template + "').selected[" + String(i) + "].visible=true; updateWlzDisplay();updateMenuData();updateMenuData();try{ga('send', 'event', 'viewer', 'show', '" + layer.name + "');}catch(ignore){}";
             content += '"><span style="border:none;padding-left:0;padding-right:0;" class="glyphicon glyphicon-eye-close"></span></button>';
         }
     }
