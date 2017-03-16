@@ -31,12 +31,20 @@ A knowledgeBase of images and the anatomical entities depicted in them.  Image d
       * Pub: IRI = PMID or BioRVx
       * People (TBA) IRI - Use ORCID.
       * Channel (OWL compatible, but NEO only for now): IRI - VFB file path.
+      * Site (Some external site we cross-reference e.g. FlyBase, FlyLight, FlyCircuit).
     
 * Edges:
   * NEO only
-    * (:Individual:channel)-[:has_data_source { id_in_data_source: '' } ]-(:data_source)
-    * (:data_source)-[:has_reference]-(:Pub)
-    * (:data_source)-[:has_license]-(:License)
+    * Generic linkouts:
+       * (n)-[hasDBxref { accession : '' }]->(s:site { link_base: '', URI: '', name: '', png_path: '' }
+       (Linkouts can be rolled as link_base + accession)
+       
+    * data_source 
+       * (:Individual:anat)-[:has_data_source]-(:data_source)
+       * (:Individual:anat)-[[hasDBxref { accession : '', is_source = True }]-(s:site) #re-uses generic linkout pattern
+       * (ds:data_source)-[:has_reference]-(p:Pub)
+       * (ds)-[:has_site]-(s)
+       * (ds)-[:has_license]-(:License)
 
   * OWL - Only edges of types Related, INSTANCEOF, SUBCLASSOF are exported to OWL.
     * (:Individual)-[:Related { URI: '', name: ''}]-(:Individual)  -> OWL FACT (OPA)
@@ -99,10 +107,10 @@ Aim for now is simply to repurpose existing Brain-based Jython code, but should 
 * Step3:
   * Expression
       - Merge create inds for anatomy X stage
-      - Merge pattern following schema: 
+      - Merge pattern following schema (see below)
   * Phenotype
       - Merge create inds for anatomy X stage
-      - Merge pattern following schema: 
+      - Merge pattern following schema: ...
       - LOWER PRIORITY: Load phenotype free text.
 
 [Expression schema](https://github.com/obophenotype/expression_patterns/blob/master/doc/expresion_pattern_schema_spec.md):
