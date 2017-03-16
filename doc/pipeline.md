@@ -36,12 +36,10 @@ A knowledgeBase of images and the anatomical entities depicted in them.  Image d
 * Edges:
   * NEO only
     * Generic linkouts:
-       * (n)-[hasDBxref { accession : '' }]->(s:site { link_base: '', URI: '', name: '', png_path: '' }
-       (Linkouts can be rolled as link_base + accession)
-       
-    * data_source 
+      * (n)-[hasDBxref { accession : '' }]->(s:site { link_base: '', URI: '', name: '', png_path: '' })
+    * data_source:
        * (:Individual:anat)-[:has_data_source]-(:data_source)
-       * (:Individual:anat)-[[hasDBxref { accession : '', is_source = True }]-(s:site) #re-uses generic linkout pattern
+       * (:Individual:anat)-[[hasDBxref { accession : '', is_source = True }]-(s:site)
        * (ds:data_source)-[:has_reference]-(p:Pub)
        * (ds)-[:has_site]-(s)
        * (ds)-[:has_license]-(:License)
