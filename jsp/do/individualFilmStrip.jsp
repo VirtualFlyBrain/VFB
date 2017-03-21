@@ -1,13 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;">
+<div class="content-fluid" id="imagesCaro">
 <c:if test="${!empty ontBeanList}">
 <span class="sr-only"><fmt:formatNumber minIntegerDigits="5" value="${fn:length(ontBeanList)}" /> Images Found.<br /></span>
 <c:set var="fileName">${fn:replace(query, "<i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, "</i>", "")}</c:set>
 <c:set var="fileName">${fn:replace(fileName, " ", "_")}</c:set>
-<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000" style="width:350px;">
+<div id="exampleImages${fn:replace(region, ":", "_")}" class="carousel" data-ride="carousel" data-interval="20000">
 <c:if test="${fn:length(ontBeanList) > 1}">
 <ol class="carousel-indicators" style="height: 25px;">
 <li data-target="#exampleImages${fn:replace(region, ":", "_")}" data-slide-to="0" class="active"></li>
@@ -23,8 +23,8 @@
 <c:set var="tpb" value="${ontBean.thirdPartyBean}" />
 <c:if test="${status.index < showMax}">
 <div class="${status.index eq 0 ? 'item active':'item'}">
-<img class="lazy" title="open ${ontBean.name} in viewer" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})" style="width:350px;cursor: pointer;" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
-<div class="carousel-caption" style="bottom:-33px;opacity:0.3;" title="open ${ontBean.name} in viewer" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
+<img class="lazy" title="open ${ontBean.name} in viewer" data-original="${tpb.thumbUrl}" alt="${ontBean.name} (${tpb.vfbId})" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
+<div class="carousel-caption" title="open ${ontBean.name} in viewer" onclick="openFullDetails('${tpb.vfbId}');addToStackData('${tpb.vfbId}');">
   <b>${ontBean.name}</b><br>
   <span class="small">${tpb.vfbId}</span>
 </div>

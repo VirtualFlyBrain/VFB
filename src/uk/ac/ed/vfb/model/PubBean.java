@@ -226,7 +226,7 @@ public class PubBean {
 		//handling FBxx other types
 		for (String key:rep.keySet()){
 			if (id.contains(key)){
-				result = "FlyBase " + rep.get(key) + " report [" + id + "]";
+				result = "FlyBase " + rep.get(key) + " report [" + id.replace("F","&#70;") + "]";
 				return result;
 			}
 		}

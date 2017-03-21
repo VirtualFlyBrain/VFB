@@ -448,7 +448,7 @@ function showStack(slice) {
         var i;
         ctx.globalCompositeOperation = parent.$("body").data("current").blend;
         for (i in selected) {
-            if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete) {
+            if (imageStack[i] && imageStack[i][slice] && imageStack[i][slice].complete && selected[i].visible) {
                 ctx.drawImage(imageStack[i][slice], 0, 0);
             } else {
                 break;
