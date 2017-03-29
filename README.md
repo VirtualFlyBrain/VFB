@@ -1,4 +1,21 @@
+Main:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Main-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Backup:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Bocian-Backup)](https://travis-ci.org/VirtualFlyBrain/VFB)
+master:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=master)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Dev:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Dev-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Sandbox:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Sandbox1:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox1-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Sandbox2:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox2-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+Sandbox3:
+[![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Sandbox3-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
+
+Available Tickets:
 [![Stories in Ready](https://badge.waffle.io/virtualflybrain/vfb.png?label=ready&title=Ready)](https://waffle.io/virtualflybrain/vfb)
 
 # About Virtual Fly Brain
