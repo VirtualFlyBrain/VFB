@@ -72,7 +72,7 @@
                         <li id="EmailHeader1">
                             <script>mail3("support", "virtualflybrain", 1, "", "Email our support forum", "EmailHeader1")</script>
                         </li>
-                        <li id="EmailHeader1">
+                        <li id="EmailHeader2">
                             <script>mail3("data", "virtualflybrain", 1, "", "Email us directly", "EmailHeader1")</script>
                         </li>
                         <li><a href="/site/vfb_site/about_us.htm">About us</a></li>
