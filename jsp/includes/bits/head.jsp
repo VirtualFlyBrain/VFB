@@ -65,11 +65,15 @@
                         <li><a href="/site/vfb_site/home.htm">Home</a></li>
                         <li><a href="/site/vfb_site/overview.htm">Overview</a></li>
                         <li><a href="/site/vfb_site/features.htm">Features</a></li>
+                        <li><a href="http://blog.virtualflybrain.org" target="_blank">Blog</a></li>
                         <li><a href="/site/vfb_site/releases.htm">Releases</a></li>
                         <li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
                         <li><a href="/site/vfb_site/yourPaper.htm">Tell us about your data</a></li>
                         <li id="EmailHeader1">
-                            <script>mail3("support", "virtualflybrain", 1, "", "Email us", "EmailHeader1")</script>
+                            <script>mail3("support", "virtualflybrain", 1, "", "Email our support forum", "EmailHeader1")</script>
+                        </li>
+                        <li id="EmailHeader1">
+                            <script>mail3("data", "virtualflybrain", 1, "", "Email us directly", "EmailHeader1")</script>
                         </li>
                         <li><a href="/site/vfb_site/about_us.htm">About us</a></li>
                         <li role="separator" class="divider"></li>
