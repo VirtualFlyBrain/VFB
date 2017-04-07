@@ -65,11 +65,15 @@
                         <li><a href="/site/vfb_site/home.htm">Home</a></li>
                         <li><a href="/site/vfb_site/overview.htm">Overview</a></li>
                         <li><a href="/site/vfb_site/features.htm">Features</a></li>
+                        <li><a href="http://blog.virtualflybrain.org" target="_blank">Blog</a></li>
                         <li><a href="/site/vfb_site/releases.htm">Releases</a></li>
                         <li><a href="/site/vfb_site/usefulLinks.htm">Useful Links</a></li>
                         <li><a href="/site/vfb_site/yourPaper.htm">Tell us about your data</a></li>
                         <li id="EmailHeader1">
-                            <script>mail3("support", "virtualflybrain", 1, "", "Email us", "EmailHeader1")</script>
+                            <script>mail3("support", "virtualflybrain", 1, "", "Email our support forum", "EmailHeader1")</script>
+                        </li>
+                        <li id="EmailHeader2">
+                            <script>mail3("data", "virtualflybrain", 1, "", "Email us directly", "EmailHeader2")</script>
                         </li>
                         <li><a href="/site/vfb_site/about_us.htm">About us</a></li>
                         <li role="separator" class="divider"></li>
@@ -161,6 +165,11 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
+                <li id="socialbar" style="padding-top:12px;">
+                     <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="window.open('http://blog.virtualflybrain.org/rss', 'new_window')"><img src="/images/vfb/utils/rss.png" height="20"/></div>
+			         <div title="Facebook Page" class="icon-right socialmedia" onclick="window.open('https://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118','new_window')"><img src="/images/vfb/utils/facebook.logo.png" height="20"/></div>
+			         <div title="Twitter Feed" class="icon-right socialmedia" onclick="window.open('http://twitter.com/virtualflybrain', 'new_window')"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="20"/></div>   
+                </li>
                 <li>
                     <a class="bg-success" href="/site/stacks/index.htm"><span class="glyphicon glyphicon-film"></span>
                         <span id="stackName">Stack Viewer</span> <span id="viewer2DVal"
