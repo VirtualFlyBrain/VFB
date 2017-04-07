@@ -165,7 +165,7 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li style="padding-top:12px;">
                      <div title="News Feed" class="icon-right socialmedia lastshortcut" onclick="window.open('http://blog.virtualflybrain.org/rss', 'new_window')"><img src="/images/vfb/utils/rss.png" height="20"/></div>
 			         <div title="Facebook Logo" class="icon-right socialmedia" onclick="window.open('https://www.facebook.com/pages/Virtual-Fly-Brain/131151036987118','new_window')"><img src="/images/vfb/utils/facebook.logo.png" height="20"/></div>
 			         <div title="Twitter Logo" class="icon-right socialmedia" onclick="window.open('http://twitter.com/virtualflybrain', 'new_window')"><img src="/images/vfb/utils/TwitterLogo_55acee.png" height="20"/></div>   
