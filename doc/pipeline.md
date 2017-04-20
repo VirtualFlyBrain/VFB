@@ -30,8 +30,8 @@ A knowledgeBase of images and the anatomical entities depicted in them.  Image d
       * License  - lots of important attributes on these nodes have to be exported.  IRI = CC IRI or some VFB IRI.
       * Pub: IRI = PMID or BioRVx
       * People (TBA) IRI - Use ORCID.
-      * Channel (OWL compatible, but NEO only for now): IRI - VFB file path.
-      * Site (Some external site we cross-reference e.g. FlyBase, FlyLight, FlyCircuit).
+      * Channel (OWL compatible, but NEO only for now): IRI  - PATH to folder.  Subfolders of this folder are named for template, files live under that.
+      * Site (Some external site we cross-reference e.g. FlyBase, FlyLight, FlyCircuit) (IRI = IRI for site)
     
 * Edges:
   * Generic linkouts (NEO only):
