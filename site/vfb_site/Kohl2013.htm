@@ -1,0 +1,89 @@
+<jsp:include page="/jsp/includes/homeHead.jsp">
+	<jsp:param name="navpath" value="The VFB Site@/site/vfb_site/home.htm|Kohl2013" />
+	<jsp:param name="css" value="/css/vfb/utils/table.css" />
+	<jsp:param name="title" value="Kohl2013" />
+</jsp:include>
+
+<div class="row">
+	
+	<div class="col-md-9" align="left">
+		<div class="well">
+		
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse1">Publication</a>
+					</h4>
+				  </div>
+				  <div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<a href="http://dx.doi.org/10.1016/j.cell.2013.11.025" target="_blank">Kohl et al., 2013, Cell 155(7): 1610--1623</a>
+					</div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse2">Source</a>
+					</h4>
+				  </div>
+				  <div id="collapse2" class="panel-collapse collapse in">
+					<div class="panel-body">
+						Both male and female versions are provided. The data were cross-registered against the JFRC2 template by applying <a href="https://github.com/jefferislab/BridgingRegistrations/tree/94dd5e4f54cf9918d26c62aa2a582d2cbafa1fe6/JFRC2_IS2.list" target="_blank">JFRC2_IS2 bridging registration</a>.
+	 The original image data (registered against IS2 template), and  electrophysiological data are available <a href="http://flybrain.mrc-lmb.cam.ac.uk/dokuwiki/doku.php?id=si:frulhns:start" target="_blank">here</a>.
+		
+      </div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse3">License</a>
+					</h4>
+				  </div>
+				  <div id="collapse3" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank" ><img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"></a>
+					</div>
+				  </div>
+				</div>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" href="#collapse4">Aligned data</a>
+					</h4>
+				  </div>
+				  <div id="collapse4" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+							<h4 class="panel-title">
+							  <a data-toggle="collapse" href="#collapse5">JFRC2 template</a>
+							</h4>
+						  </div>
+						  <div id="collapse5" class="panel-collapse collapse">
+							<div class="panel-body" id="segmentations">
+								<img src="/images/tools/ajax-loader.gif" alt="loading..." />
+								<script> 
+									$(function(){
+									  $("#segmentations").load("/site/datasets/Kohl2013.htm"); 
+									});
+								</script>
+							</div>
+						  </div>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div> 
+		</div>	
+	</div>
+	<!-- center_wide -->
+	
+	<div class="col-md-3">
+		<jsp:include page="/jsp/includes/bits/homeRight.jsp" />
+	</div>
+</div>
+
+<jsp:include page="/jsp/includes/homeFoot.jsp" />
