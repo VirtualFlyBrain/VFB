@@ -1,5 +1,5 @@
 language: Java
-install: ant deps
+
 
 install:
   - sudo apt-get install pigz
