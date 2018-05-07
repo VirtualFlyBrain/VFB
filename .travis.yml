@@ -13,7 +13,7 @@ script:
 - export TAG=`if [ "$TRAVIS_BRANCH" == "docker-server" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 - echo -e "travis_fold:end:Geppetto-Config"
 - echo -e "travis_fold:start:Docker-Build"
-- docker build -t $REPO:$COMMIT .
+- docker build -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
 
 after_success:
