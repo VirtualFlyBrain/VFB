@@ -3,8 +3,8 @@
 if [ -d .git ] && [ $branch ]
 then
     current=`git rev-parse HEAD`
-    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git pull origin $branch' 2>&1
-    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git fetch --tags' 2>&1
+    git pull origin docker-server 2>&1
+    git fetch --tags' 2>&1
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
@@ -22,7 +22,7 @@ then
         echo "recording git branch and version details"
         git describe --long > revision
         echo $branch > branch
-        cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+        echo $flybase > flybase
         head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         head -n 100 resources/vfb.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
         echo "which are:"
@@ -80,7 +80,7 @@ then
             echo "recording git branch and version details"
             git describe --long > revision
             echo $branch > branch
-            cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+            echo $flybase > flybase
             head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
 	    head -n 100 resources/vfb.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
             echo "which are:"
@@ -137,9 +137,7 @@ then
             if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
             then
                 echo "Recompiling the site..."
-                om tomcat stop
-                nice ant
-                om tomcat start
+             	nice ant
             fi
             if [ `git diff --name-only $current | grep "owl/*.owl" | wc -l` -gt 0 ]
             then
