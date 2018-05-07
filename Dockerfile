@@ -13,4 +13,3 @@ deploy/decompress.sh && \
 cd /opt/tomcat/webapps/ROOT/ && \
 deploy/Deploy-Main-Server.sh
 
-CMD ['service tomcat start']
