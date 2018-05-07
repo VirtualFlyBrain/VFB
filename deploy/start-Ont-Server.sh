@@ -6,7 +6,7 @@ then
   psCmd=`ps ax |grep 'client_server.Server'  | grep ${path} | awk '{print $1}'`
   if [ $psCmd ]
   then
-    om tomcat stop
+    service tomcat stop
     echo "Ontology server is already running"
     echo "Killing "$psCmd
 	  kill -9 $psCmd
@@ -30,7 +30,7 @@ until [ `cat ../../logs/ontServer.log | grep "Wainting for a connection" | wc -l
 done
 let MAX_WAIT=(24-MAX_WAIT)*5
 echo Ontology server restart took ${MAX_WAIT} Seconds
-om tomcat restart
+service tomcat restart
 else
   echo "Must be run from specific server script"
 fi
