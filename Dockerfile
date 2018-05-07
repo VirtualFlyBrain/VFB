@@ -13,3 +13,6 @@ deploy/decompress.sh && \
 cd /opt/tomcat/webapps/ROOT/ && \
 deploy/Deploy-Main-Server.sh
 
+COPY docker/startup.sh /startup.sh
+
+ENTRYPOINT ["/startup.sh"]
