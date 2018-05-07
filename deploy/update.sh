@@ -4,7 +4,7 @@ if [ -d .git ] && [ $branch ]
 then
     current=`git rev-parse HEAD`
     git pull origin docker-server 2>&1
-    git fetch --tags' 2>&1
+    git fetch --tags 2>&1
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
