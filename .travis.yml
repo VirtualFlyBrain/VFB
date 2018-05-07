@@ -2,6 +2,10 @@ language: Java
 services:
 - docker
 
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::8}  
+
 script:
 - echo -e "travis_fold:start:Geppetto-Config"
 - export VFB_REPO=$(echo ${TRAVIS_REPO_SLUG##*/} | awk '{gsub(/\-/,"_",$0);gsub(/\./,"_",$0);print toupper($0)}')
