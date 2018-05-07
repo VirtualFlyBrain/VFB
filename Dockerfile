@@ -11,3 +11,6 @@ git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT
 
 RUN cd /opt/tomcat/webapps/ROOT/ && \
 deploy/decompress.sh
+
+RUN cd /opt/tomcat/webapps/ROOT/ && \
+deploy/Deploy-Main-Server.sh
