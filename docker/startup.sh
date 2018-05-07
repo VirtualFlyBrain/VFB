@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo 'Starting Server...' >> /opt/tomcat/logs/ontServer.log
+
 cd /opt/tomcat/webapps/
 rm -rf ROOT
 git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT
