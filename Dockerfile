@@ -7,12 +7,10 @@ RUN yum -y update && yum -y install git ant nano daemonize pigz
 
 RUN cd /opt/tomcat/webapps/ && \
 rm -rf ROOT && \
-git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT
-
-RUN cd /opt/tomcat/webapps/ROOT/ && \
-deploy/decompress.sh
-
-RUN cd /opt/tomcat/webapps/ROOT/ && \
+git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT && \
+cd /opt/tomcat/webapps/ROOT/ && \
+deploy/decompress.sh && \
+cd /opt/tomcat/webapps/ROOT/ && \
 deploy/Deploy-Main-Server.sh
 
 CMD ['service tomcat start']
