@@ -60,7 +60,9 @@ then
         find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenSmudge.sed
 
         echo "Recompiling the site..."
+	service tomcat stop
         nice ant
+	service tomcat start
 
         echo "Redeploying ontology server..."
         nice deploy/start-${branch}-Ont-Server.sh
@@ -137,7 +139,9 @@ then
             if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
             then
                 echo "Recompiling the site..."
+		service tomcat stop
              	nice ant
+		service tomcat start
             fi
             if [ `git diff --name-only $current | grep "owl/*.owl" | wc -l` -gt 0 ]
             then
