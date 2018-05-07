@@ -5,14 +5,6 @@ ENV flybase=latest
 
 RUN yum -y update -q -e 0 && yum -y -q -e 0 install git ant nano daemonize pigz
 
-RUN cd /opt/tomcat/webapps/ && \
-rm -rf ROOT && \
-git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT && \
-cd /opt/tomcat/webapps/ROOT/ && \
-deploy/decompress.sh && \
-cd /opt/tomcat/webapps/ROOT/ && \
-deploy/Deploy-Main-Server.sh
-
 COPY docker/startup.sh /startup.sh
 
 RUN chmod +x /startup.sh
