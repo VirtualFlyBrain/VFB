@@ -7,6 +7,7 @@ cd /opt/tomcat/webapps/
 rm -rf ROOT
 git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server ROOT
 cd /opt/tomcat/webapps/ROOT/
+sed -i 's/localhost/database/g' /opt/tomcat/webapps/ROOT/src/db.xml
 deploy/decompress.sh
 cd /opt/tomcat/webapps/ROOT/
 deploy/Deploy-Main-Server.sh
