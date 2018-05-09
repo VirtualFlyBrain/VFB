@@ -21,7 +21,7 @@ then
 
         echo "recording git branch and version details"
         git describe --long > revision
-        echo $branch > branch
+        echo "$branch-Container$(hostname)" > branch
         echo $flybase > flybase
         head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
         head -n 100 resources/vfb.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
