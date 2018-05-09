@@ -16,4 +16,4 @@ cd /opt/tomcat/webapps/ROOT/
 deploy/Deploy-Main-Server.sh
 
 tail -F /opt/tomcat/logs/catalina.out &
-tail -F /opt/tomcat/logs/ontServer.log
+tail -F /opt/tomcat/webapps/ROOT/logs/ontServer.log
