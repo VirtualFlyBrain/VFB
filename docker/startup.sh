@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo 'Starting Server...' >> /opt/tomcat/logs/ontServer.log
-chmod -R 777 /opt/tomcat/logs/ontServer.log
+echo 'Starting Server...' >> /opt/tomcat/webapps/ROOT/logs/ontServer.log
+chmod -R 777 /opt/tomcat/webapps/ROOT/logs/ontServer.log
 
 cd /opt/tomcat/webapps/
 rm -rf ROOT
