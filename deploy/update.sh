@@ -3,8 +3,8 @@
 if [ -d .git ] && [ $branch ]
 then
     current=`git rev-parse HEAD`
-    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git pull origin $branch' 2>&1
-    nice ssh-agent bash -c 'ssh-add /disk/data/Home/$USER/.ssh/id_dsa; git fetch --tags' 2>&1
+    git pull origin docker-server 2>&1
+    git fetch --tags 2>&1
 #    test and add git server filters if required.
     if [ ! -f .git/info/attributes ]
     then
@@ -21,10 +21,10 @@ then
 
         echo "recording git branch and version details"
         git describe --long > revision
-        echo $branch > branch
-        cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+        echo "$branch-Container$(hostname)" > branch
+        echo $flybase > flybase
         head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
-        head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
+        head -n 100 resources/vfb.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
         echo "which are:"
         cat branch
         cat revision
@@ -60,7 +60,9 @@ then
         find ./ -name 's*.xml' -or -name '*.jsp' -or -name '*.htm' -or -name '*.html' -or -name '*.js' -or -name '*.owl' -or -name '*.java' -or -name 'log4j.properties' | xargs sed -i -f filters/FiltGenSmudge.sed
 
         echo "Recompiling the site..."
+	service tomcat stop
         nice ant
+	service tomcat start
 
         echo "Redeploying ontology server..."
         nice deploy/start-${branch}-Ont-Server.sh
@@ -80,9 +82,9 @@ then
             echo "recording git branch and version details"
             git describe --long > revision
             echo $branch > branch
-            cp /disk/data/VFB/Chado/VFB_DB/current/revision flybase
+            echo $flybase > flybase
             head -n 100 resources/fbbt-simple.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owldate
-	    head -n 100 resources/fbbt_vfb_ind_pr_nr.owl | grep 'http://purl.obolibrary.org/obo/fbbt/vfb/20' | replace '<' '' | replace '>' '' > owlIndRev
+	    head -n 100 resources/vfb.owl | grep versionIRI | sed 's/^[^"]*"\([^"]*\)".*/\1/' > owlIndRev
             echo "which are:"
             cat branch
             cat revision
@@ -137,19 +139,17 @@ then
             if [ `git diff --name-only $current | grep "src/\|build\.xml" | wc -l` -gt 0 ]
             then
                 echo "Recompiling the site..."
-                om tomcat stop
-                nice ant
-                om tomcat start
+		service tomcat stop
+             	nice ant
+		service tomcat start
             fi
-            if [ `git diff --name-only $current | grep "owl/fbbt-simple.owl" | wc -l` -gt 0 ]
+            if [ `git diff --name-only $current | grep "owl/*.owl" | wc -l` -gt 0 ]
             then
-                echo "updating fbbt-simple.owl symlink..."
-                nice ln -sf ../resources/fbbt-simple.owl owl/fbbt-simple.owl
-            fi
-            if [ `git diff --name-only $current | grep "owl/fbbt_vfb_ind_pr_nr.owl" | wc -l` -gt 0 ]
-            then
-                echo "updating fbbt_vfb_ind_pr_nr.owl symlink..."
-                nice ln -sf ../resources/fbbt_vfb_ind_pr_nr.owl owl/fbbt_vfb_ind_pr_nr.owl
+                for filename in resources/fbbt*.owl
+                do
+                    echo "updating " + ${filename/resources/} + " symlink..."
+                    nice ln -sf ../resources${filename/resources/} owl${filename/resources/}
+                done
             fi
             if [ `git diff --name-only $current | grep "\.owl\|\.owl\.gz\.part\-aa\|deploy/start" | wc -l` -gt 0 ]
             then
@@ -162,7 +162,12 @@ then
         chmod -R 777 . 2>/dev/null | :
         echo "Done."
     fi
-
+    if [ $branch == "Main-Server" ] 
+    then
+    	printf 'User-agent: *\r\nDisallow: \r\n' > robots.txt
+    else
+    	printf 'User-agent: *\r\nDisallow: /\r\n' > robots.txt
+    fi
 else
     echo "Error: Git directory not found! This script should be run in the git base directory e.g. /disk/data/tomcat/fly/webapps/vfb?/"
 fi
