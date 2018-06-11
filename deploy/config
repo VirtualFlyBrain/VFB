@@ -5,7 +5,7 @@
     logallrefupdates = true
 [remote "origin"]
     fetch = +refs/heads/*:refs/remotes/origin/*
-    url = git@github.com:VirtualFlyBrain/VFB.git
+    url = https://github.com/VirtualFlyBrain/VFB.git
 [branch "master"]
     remote = origin
     merge = refs/heads/master
@@ -30,6 +30,9 @@
 [branch "Bocian-Backup"]
 	remote = origin
 	merge = refs/heads/Bocian-Backup
+[branch "docker-server"]
+	remote = origin
+	merge = refs/heads/Version1-docker
 
 [filter "modify-gen"]
     smudge = sed -f filters/Local-BRANCH_NAME-Smudge.sed
