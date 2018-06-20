@@ -8,8 +8,8 @@ git clone https://github.com/VirtualFlyBrain/VFB.git -b docker-server
 cd /opt/tomcat/webapps/VFB/
 deploy/decompress.sh
 
-echo 'Starting Server...' >> /opt/tomcat/webapps/ROOT/logs/ontServer.log
-chmod -R 777 /opt/tomcat/webapps/ROOT/logs/ontServer.log
+echo 'Starting Server...' >> /opt/tomcat/webapps/VFB/logs/ontServer.log
+chmod -R 777 /opt/tomcat/webapps/VFB/logs/ontServer.log
 
 cd /opt/tomcat/webapps/VFB/
 deploy/Deploy-Main-Server.sh
