@@ -68,9 +68,9 @@
                                         images</a></span></div>
                             </td>
                             <td><a class="btn btn-info btn-sm"
-                                   href="http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}">FlyBase
+                                   href="http://flybase.org/reports/${ontBean.fbbtId}">FlyBase
                                 Report</a><span
-                                    class="sr-only"> - http://flybase.org/cgi-bin/cvreport.html?rel=is_a&id=${ontBean.fbbtId}</span>
+                                    class="sr-only"> - http://flybase.org/reports/${ontBean.fbbtId}</span>
                             </td>
                         </tr>
                     </c:forEach>

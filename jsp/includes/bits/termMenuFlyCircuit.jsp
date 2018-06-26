@@ -24,11 +24,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?all_query=${param.name}&all_use_mean=TRUE"
+                    <a href="http://nblast.virtualflybrain.org:8080/NBLAST_on-the-fly/?all_query=${param.name}&all_use_mean=TRUE"
                        target="_blank">Similar neurons (NBLAST)</a>
                 </li>
                 <li>
-                    <a href="http://flybrain.mrc-lmb.cam.ac.uk:8080/NBLAST_on-the-fly/?gal4_query=${param.name}&tab=GAL4"
+                    <a href="http://nblast.virtualflybrain.org:8080/NBLAST_on-the-fly/?gal4_query=${param.name}&tab=GAL4"
                        target="_blank">Potential GAL4 matches (NBLAST)</a></li>
             </ul>
         </div>

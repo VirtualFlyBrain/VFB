@@ -1,4 +1,4 @@
-s/www.virtualflybrain.org/vfb-bocian.inf.ed.ac.uk/
+s/www.virtualflybrain.org/www.virtualflybrain.org/
 s/>vfb</>vfb</
 s/-vfb-/-vfb-/
 /webapps/s/vfb/vfb/
