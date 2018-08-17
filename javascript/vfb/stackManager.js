@@ -713,6 +713,7 @@ function cleanIdforExt(id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
         id = id.replace('VFBi_', 'VFB_');
+        id = id.replace('VFBd_', 'VFB_');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
