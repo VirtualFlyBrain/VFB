@@ -1853,14 +1853,11 @@ function returnGeppettoConfUrl() {
     if (current) {
         var selected = parent.$("body").data(current.template).selected;
         var i;
-        var displayed = "";
+        var displayed = cleanIdforV2(current.template);
         for (i in selected) {
             if (i > 0) {
                 displayed += "," + cleanIdforV2(selected[i].id);
             }
-        }
-        if (displayed.length > 1) {
-            displayed = displayed.substr(1);
         }
         return "https://v2.virtualflybrain.org/?i=" + displayed;
     } else {
