@@ -533,7 +533,7 @@ function updateStackCounter() {
                         console.log('Awaiting initialisation...');
                     }
                 }
-                $("#menuOpen3Dlink").attr("href", "http://geppetto.virtualflybrain.org/org.geppetto.frontend/geppetto?load_project_from_url=" + returnGeppettoConfUrl());
+                $("#menuOpen3Dlink").attr("href", returnGeppettoConfUrl());
                 $("[id^=Count]").each(function () {
                     try {
                         $(this).text(Object.keys(data[$(this).attr('id').replace("CountVFBt", "VFBt")].selected).length - 1);
@@ -1831,25 +1831,17 @@ function returnGeppettoConfUrl() {
         var selected = parent.$("body").data(current.template).selected;
         var i;
         var displayed = "";
-        var template = current.template;
-        var diffs = "";
         for (i in selected) {
             if (i > 0) {
                 displayed += "," + cleanIdforExt(selected[i].id);
-                if (cleanIdforExt(selected[i].colour).indexOf('auto') < 0) {
-                    diffs += "," + cleanIdforExt(selected[i].id) + "-" + rgbColToHex(selected[i].colour).replace("#", "0x");
-                }
             }
         }
         if (displayed.length > 1) {
             displayed = displayed.substr(1);
         }
-        if (diffs.length > 1) {
-            diffs = diffs.substr(1);
-        }
-        return "http://" + window.location.host + "/do/geppettoJson.json?i=" + displayed + "%26t=" + template + "%26d=" + diffs;
+        return "https://v2.virtualflybrain.org/?i=" + displayed;
     } else {
-        return "http://" + window.location.host + "/do/geppettoJson.json";
+        return "https://v2.virtualflybrain.org";
     }
 }
 
