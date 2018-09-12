@@ -1551,6 +1551,7 @@ function addToStackData(ids, showDetails) {
                             }
                             parent.$("body").data("disp", "scale");
                             updateStackData();
+                            loadReferenceMeta(id);
                             //try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm?add='+id );}catch (ignore){}
                             //  if (window.location.pathname == "/site/stacks/index.htm"){
                             //    location.href=location.href.replace(location.hash,"").replace('#','');
