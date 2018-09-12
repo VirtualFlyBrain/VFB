@@ -1843,7 +1843,7 @@ function loadRightMenuDisplayed() {
                     rowD = $('#displayed').dataTable().fnGetData(i);
                     // index:
                     index = String(i);
-                    if (rowD === null || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type) || (rowD[4].indexOf('fxp=undefined') > -1)) {
+                    if (rowD === null || rowD[0].indexOf(layer.name) < 0 || rowD[1] !== index || (rowD[0].indexOf('"nameFor') > -1 && layer.name) || (rowD[3].indexOf('"typeFor') > -1 && layer.type) || (rowD[4].indexOf('fxp=undefined') > -1)) {
                         //console.log('Update for row ' + String(i) + ' - ' + rowD);
                         if ((layer.id.indexOf('_a') > -1) || (layer.id.indexOf('_t') > -1)) {
                             layer.name = cleanIdforExt(layer.id);
