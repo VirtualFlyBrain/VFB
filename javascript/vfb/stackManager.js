@@ -1516,15 +1516,17 @@ function addToStackData(ids, showDetails) {
             }
             for (i in ids) {
                 try{
-                    if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
-                        for (t in space){
-                            if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
-                                addToStackData(t);
+                    if (cleanIdforExt(ids[i]).indexOf('VFB_') > -1){
+                        if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
+                            for (t in space){
+                                if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
+                                    addToStackData(t);
+                                }
                             }
-                        }
-                    }else{
-                        if (('VFBt_001' != parent.$("body").data("current").template) && (cleanIdforExt(i).indexOf('VFB_') > -1)){
-                            addToStackData('VFBt_001');
+                        }else{
+                            if (('VFBt_001' != parent.$("body").data("current").template) && (cleanIdforExt(i).indexOf('VFB_') > -1)){
+                                addToStackData('VFBt_001');
+                            }
                         }
                     }
                 } catch (ignore){
