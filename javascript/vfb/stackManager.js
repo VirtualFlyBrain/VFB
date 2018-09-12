@@ -1516,9 +1516,9 @@ function addToStackData(ids, showDetails) {
             }
             for (i in ids) {
                 try{
-                    if (JSON.stringify(space).indexOf(cleanIdforExt(i)) > -1){
+                    if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
                         for (t in space){
-                            if (JSON.stringify(space[t]).indexOf(cleanIdforExt(i)) > -1){
+                            if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
                                 addToStackData(t);
                             }
                         }
