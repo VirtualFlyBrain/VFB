@@ -80,8 +80,8 @@
             var minWidth = 20;
             var widthFactor = params.iterations / params.total;
             var width = Math.max(minWidth, maxWidth * widthFactor);
-            document.getElementById('bar').style.width = width + 'px';
-            document.getElementById('text').innerHTML = Math.round(widthFactor * 100) + '%';
+            document.getElementById('anatomyBar').style.width = width + 'px';
+            document.getElementById('anatomyText').innerHTML = Math.round(widthFactor * 100) + '%';
         });
         network.once("stabilizationIterationsDone", function () {
             document.getElementById('anatomyText').innerHTML = '100%';
