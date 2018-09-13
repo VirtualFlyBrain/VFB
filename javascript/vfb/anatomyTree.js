@@ -65,10 +65,17 @@
                 },
                 mass: 1
             },
+            edges: {
+                smooth: {
+                    type: 'cubicBezier',
+                    forceDirection: 'vertical',
+                    roundness: 0.4
+                }
+            },
             layout: {
-            		hierarchical: {
-                	enabled: true,
-                    direction: 'LR',
+            	hierarchical: {
+                    enabled: true,
+                    direction: 'DU',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
                 }
