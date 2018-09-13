@@ -67,8 +67,9 @@
             },
             layout: {
             		hierarchical: {
-                		enabled: true,
+                	enabled: true,
                     direction: 'LR',
+                    sortMethod: 'directed',
                     levelSeparation: 350                    
                 }
             }
