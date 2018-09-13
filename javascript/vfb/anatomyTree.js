@@ -24,8 +24,8 @@
         // Create the authorization header for the ajax request.
         AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
         // Show loading elements.
-        $("#loading").show();
-        $("#loadingBar").show();
+        $("#anatomyLoading").show();
+        $("#anatomyLoadingBar").show();
         document.getElementById('anatomyText').innerHTML = '0%';
         document.getElementById('anatomyBar').style.width = '0';
         document.getElementById('anatomyLoadingBar').style.opacity = 1;
@@ -84,12 +84,12 @@
             document.getElementById('text').innerHTML = Math.round(widthFactor * 100) + '%';
         });
         network.once("stabilizationIterationsDone", function () {
-            document.getElementById('text').innerHTML = '100%';
-            document.getElementById('bar').style.width = '496px';
-            document.getElementById('loadingBar').style.opacity = 0;
+            document.getElementById('anatomyText').innerHTML = '100%';
+            document.getElementById('anatomyBar').style.width = '496px';
+            document.getElementById('anatomyLoadingBar').style.opacity = 0;
             // really clean the dom element
             setTimeout(function () {
-                $("#loadingBar").hide();
+                $("#anatomyLoadingBar").hide();
             }, 500);
         });
         network.on("click", function (params) {
