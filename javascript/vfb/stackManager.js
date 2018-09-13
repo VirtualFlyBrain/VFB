@@ -1057,7 +1057,7 @@ function updateStackData() {
                             } else {
                                 parent.$('body').data('disp', 'scale');
                             }
-                            if (vis()) {
+                            if (visCheck) {
                                 forceStoreControl();
                                 store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
                                 parent.$('body').data('disp', 'scale');
@@ -1742,7 +1742,7 @@ function forceStoreControl() {
     store.set('updated', JSON.parse('{"session":"' + window.id + '","time":' + Date.now() + '}'));
 }
 
-var vis = (function () {
+var visCheck = (function () {
     var stateKey, eventKey, keys = {
         hidden: "visibilitychange",
         webkitHidden: "webkitvisibilitychange",
@@ -1763,7 +1763,7 @@ var vis = (function () {
 
 vis(function () {
     updateStackData();
-    if (vis()) {
+    if (visCheck) {
         forceStoreControl();
         document.title = document.title.replace("*", "");
         if (typeof addAllDomains !== 'undefined' && $.isFunction(addAllDomains) && reDrawing < 1) {
@@ -1775,7 +1775,7 @@ vis(function () {
         }
     } else {
         window.setTimeout(function () {
-            if ((!vis()) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
+            if ((!visCheck) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
                 document.title = "*" + document.title;
             }
         }, 2000);
