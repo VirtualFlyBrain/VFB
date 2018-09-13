@@ -1761,7 +1761,7 @@ var visCheck = (function () {
     }
 })();
 
-vis(function () {
+visCheck(function () {
     updateStackData();
     if (visCheck()) {
         forceStoreControl();
