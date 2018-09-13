@@ -1981,34 +1981,7 @@ function loadRightMenuDisplayed() {
 
 function loadTemplateAnatomyTree() {
     if (parent.$("body").data("current")) {
-        var current = parent.$("body").data("current");
-        var selected = parent.$("body").data(current.template).selected;
-        var file = "/data/" + fileFromId(current.template).replace("composite.wlz", "tree.json");
-        $.getJSON(file, function (data) {
-            parent.$("body").data("tree", data);
-            if (parent.$("body").data("tree")) {
-                var content = "";
-                content += '<div class="tree well" style="overflow:scroll;">';
-                content += createTreeHTML(parent.$("body").data("tree"));
-                content += "</div>";
-                $("#anatoContent").html(content);
-                updateWlzDisplay();
-                $('.tree li:has(ul)').addClass('parent_li').find(' > span').has('b').attr('title', 'Expand this branch');
-                $('.tree li.parent_li > span').has('b').on('click', function (e) {
-                    var children = $(this).parent('li.parent_li').find(' > ul > li');
-                    if (children.is(":visible")) {
-                        children.hide('fast');
-                        $(this).attr('title', 'Expand this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-right" style="border:none;padding-left:0;padding-right:0;"></span>');
-                    } else {
-                        children.show('fast');
-                        $(this).attr('title', 'Collapse this branch').find(' > b').html('<span class="glyphicon glyphicon-triangle-bottom" style="border:none;padding-left:0;padding-right:0;"></span>');
-                    }
-                    e.stopPropagation();
-                });
-                $('.tree ul').first().css("padding", 0);
-            }
-            // collapse all at start:
-            collapseTree();
+            displayAnatomyGraph();
             updateMenuData();
         });
     }
