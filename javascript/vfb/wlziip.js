@@ -1983,7 +1983,6 @@ function loadTemplateAnatomyTree() {
     if (parent.$("body").data("current")) {
             displayAnatomyGraph();
             updateMenuData();
-        });
     }
 }
 
