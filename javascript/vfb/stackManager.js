@@ -1057,7 +1057,7 @@ function updateStackData() {
                             } else {
                                 parent.$('body').data('disp', 'scale');
                             }
-                            if (visCheck) {
+                            if (visCheck()) {
                                 forceStoreControl();
                                 store.set('data', JSON.parse(JSON.stringify(parent.$("body").data())));
                                 parent.$('body').data('disp', 'scale');
@@ -1763,7 +1763,7 @@ var visCheck = (function () {
 
 vis(function () {
     updateStackData();
-    if (visCheck) {
+    if (visCheck()) {
         forceStoreControl();
         document.title = document.title.replace("*", "");
         if (typeof addAllDomains !== 'undefined' && $.isFunction(addAllDomains) && reDrawing < 1) {
@@ -1775,7 +1775,7 @@ vis(function () {
         }
     } else {
         window.setTimeout(function () {
-            if ((!visCheck) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
+            if ((!visCheck()) && store.get("updated").session != window.id && document.title.indexOf('*') < 0) {
                 document.title = "*" + document.title;
             }
         }, 2000);
