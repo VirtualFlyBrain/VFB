@@ -8,6 +8,8 @@
 		//cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.css;
 		/css/bootstrap-colorpicker.min.css;
 		//visjs.org/dist/vis-network.min.css;
+		//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css;
+		//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css;
 		"/>
     <jsp:param name="js" value="
 	    /javascript/vfb/wlziip.js;
