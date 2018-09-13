@@ -228,7 +228,7 @@ function animateWlzDisplay() {
                     }
                 }
             }
-            if (reDrawing < 1 && vis()) {
+            if (reDrawing < 1 && visCheck()) {
                 reDrawing++;
                 window.setTimeout(function () {
                     reDrawing--;
