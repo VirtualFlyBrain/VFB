@@ -1,5 +1,4 @@
-		var nodeIndex = [];
-    var template = "VFB_00017894";
+	var nodeIndex = [];
     var AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
     /**
      * Uses JQuery to post an ajax request on Neo4j REST API
@@ -21,16 +20,16 @@
     /**
      * Function to call to display a new graph.
      */
-    function displayGraph() {
+    function displayAnatomyGraph() {
         // Create the authorization header for the ajax request.
-        AUTHORIZATION = "Basic " + btoa($("#userinput").val() + ":" + $("#passinput").val());
+        AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
         // Show loading elements.
         $("#loading").show();
         $("#loadingBar").show();
-        document.getElementById('text').innerHTML = '0%';
-        document.getElementById('bar').style.width = '0';
-        document.getElementById('loadingBar').style.opacity = 1;
-        var start = template;
+        document.getElementById('anatomyText').innerHTML = '0%';
+        document.getElementById('anatomyBar').style.width = '0';
+        document.getElementById('anatomyLoadingBar').style.opacity = 1;
+        var start = cleanIdforV2(parent.$("body").data("current").template);
         // Post Cypher query to return node and relations and return results as graph.
         restPost({
             "statements": [
@@ -95,7 +94,7 @@
         });
         network.on("click", function (params) {
           params.event = "[original event]";
-          console.log(nodeIndex[params.nodes[0]]);
+          openFullDetails(nodeIndex[params.nodes[0]]);
       	});
     }
     
