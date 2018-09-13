@@ -34,7 +34,7 @@
         restPost({
             "statements": [
                 {
-                    "statement": "MATCH (t:Individual { short_form : '" + start + "'})<-[:depicts]-(tc:Individual)<-[ie:in_register_with]-(c:Individual)-[:depicts]->(image:Individual)-[:INSTANCEOF]->(ac:Class) WHERE has(ie.index) WITH  COLLECT (ac.short_form) as tree_nodes, COLLECT (DISTINCT{ image: image.short_form, anat_ind: image.short_form, type: ac.short_form}) AS domain_map MATCH p=allShortestPaths((root:Class { label : 'adult brain'})<-[:SUBCLASSOF|part_of*..]-(anat:Class)) WHERE anat.short_form IN tree_nodes RETURN p, domain_map",
+                    "statement": "MATCH (t:Individual { short_form : '" + start + "'})<-[:depicts]-(tc:Individual)<-[ie:in_register_with]-(c:Individual)-[:depicts]->(image:Individual)-[:INSTANCEOF]->(ac:Class) WHERE has(ie.index) WITH  COLLECT (ac.short_form) as tree_nodes, COLLECT (DISTINCT{ image: image.short_form, anat_ind: image.short_form, type: ac.short_form}) AS domain_map MATCH p=allShortestPaths((root:Class { label : 'brain'})<-[:SUBCLASSOF|part_of*..]-(anat:Class)) WHERE anat.short_form IN tree_nodes RETURN p, domain_map",
                     "resultDataContents": ["graph"]
                 }
             ]
