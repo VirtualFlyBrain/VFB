@@ -68,14 +68,14 @@
             edges: {
                 smooth: {
                     type: 'cubicBezier',
-                    forceDirection: 'vertical',
+                    forceDirection: 'horizontal',
                     roundness: 0.4
                 }
             },
             layout: {
             	hierarchical: {
                     enabled: true,
-                    direction: 'DU',
+                    direction: 'RL',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
                 }
