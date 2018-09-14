@@ -143,7 +143,7 @@
             if (parent.$("body").data(parent.$("body").data("current").template).available.indexOf(nodeLabel) > -1){
                 var rgb = [];
                 for (x in parent.$("body").data(parent.$("body").data("current").template).selected){
-                    if (parent.$("body").data(parent.$("body").data("current").template).selected[x].extId && parent.$("body").data(parent.$("body").data("current").template).selected[x].extId == nodeLabel){
+                    if (parent.$("body").data(parent.$("body").data("current").template).selected[x].extid && parent.$("body").data(parent.$("body").data("current").template).selected[x].extid == nodeLabel){
                         if (parent.$("body").data(parent.$("body").data("current").template).selected[x].colour == "auto"){
                             rgb = parent.$("body").data("colours")[x].split(',');
                             displayColor = "#" + Number(rgb[0]).toString(16) + Number(rgb[1]).toString(16) + Number(rgb[2]).toString(16);
