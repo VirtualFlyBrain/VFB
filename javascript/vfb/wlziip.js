@@ -2062,13 +2062,7 @@ function createAddToQueryButtonHTML(id) {
 
 function updateAnatomyTree() {
     if (parent.$("body").data("current")) {
-        var current = parent.$("body").data("current");
-        var selected = parent.$("body").data(current.template).selected;
-        var l;
-        $('[id^=buttonsFor]').each(function () {
-            $(this).html(createControlsBarHTML($(this).data("extid")));
-        });
-        generateAddButtons();
+        displayAnatomyGraph();
     }
 }
 
