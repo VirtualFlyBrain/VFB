@@ -31,7 +31,8 @@
     function displayAnatomyGraph() {
         if (network == null || anatomySelected !== JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected)){
             if (network !== null && anatomyStart == cleanIdforV2(parent.$("body").data("current").template)) {
-                var nodes = convertNodes(graphData.nodes);
+                anatomySelected = JSON.stringify(parent.$("body").data(parent.$("body").data("current").template).selected);
+		var nodes = convertNodes(graphData.nodes);
                 var edges = visData.edges;
                 visData = {
                     nodes: nodes,
