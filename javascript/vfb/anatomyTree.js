@@ -61,7 +61,7 @@
                   face: 'FontAwesome',
                   code: '\uf05a',
                   size: 20,
-                  color: '#aa00ff'
+                  color: '#222222'
                 },
                 mass: 1
             },
@@ -139,10 +139,28 @@
         nodes.forEach(function (node) {
             var nodeLabel = node.properties['short_form'];
             var displayedLabel = node.properties['label'];
+	        var displayColor = '#000000';
+            if (parent.$("body").data(parent.$("body").data("current").template).available.indexOf(nodeLabel) > -1){
+                var rgb = [];
+                for (x in parent.$("body").data(parent.$("body").data("current").template).selected){
+                    if (parent.$("body").data(parent.$("body").data("current").template).selected[x].extId && parent.$("body").data(parent.$("body").data("current").template).selected[x].extId == nodeLabel){
+                        if (parent.$("body").data(parent.$("body").data("current").template).selected[x].colour == "auto"){
+                            rgb = parent.$("body").data("colours")[x].split(',');
+                            displayColor = "#" + Number(rgb[0]).toString(16) + Number(rgb[1]).toString(16) + Number(rgb[2]).toString(16);
+                        }else{
+                            rgb = parent.$("body").data(parent.$("body").data("current").template).selected[x].colour.split(',');
+                            displayColor = "#" + Number(rgb[0]).toString(16) + Number(rgb[1]).toString(16) + Number(rgb[2]).toString(16);
+                        }                        
+                    }
+                }
+            }
             convertedNodes.push({
                 id: node.id,
                 label: displayedLabel,
-                group: nodeLabel
+                group: nodeLabel,
+                icon: {
+                    color: displayColor
+                }
             })
             nodeIndex[node.id]=nodeLabel;
         });
