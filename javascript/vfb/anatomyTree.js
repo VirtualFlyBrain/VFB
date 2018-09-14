@@ -1,4 +1,6 @@
 	var nodeIndex = [];
+    var network = null;
+
     var AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
     /**
      * Uses JQuery to post an ajax request on Neo4j REST API
@@ -17,10 +19,14 @@
             data: strData
         });
     }
-    /**
-     * Function to call to display a new graph.
-     */
+    function anatomyDestroy() {
+      if (network !== null) {
+        network.destroy();
+        network = null;
+      }
+    }
     function displayAnatomyGraph() {
+        anatomyDestroy();
         // Create the authorization header for the ajax request.
         AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
         // Show loading elements.
@@ -82,7 +88,7 @@
             }
         };
         // initialize the network!
-        var network = new vis.Network(container, data, options);
+        network = new vis.Network(container, data, options);
         network.on("stabilizationProgress", function (params) {
             var maxWidth = 496;
             var minWidth = 20;
