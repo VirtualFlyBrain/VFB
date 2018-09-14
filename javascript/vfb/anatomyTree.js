@@ -60,7 +60,7 @@
                 icon: {
                   face: 'FontAwesome',
                   code: '\uf05a',
-                  size: 50,
+                  size: 20,
                   color: '#aa00ff'
                 },
                 mass: 1
