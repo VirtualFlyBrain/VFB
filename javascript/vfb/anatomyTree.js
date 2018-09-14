@@ -146,11 +146,17 @@
                     if (parent.$("body").data(parent.$("body").data("current").template).selected[x].extid && parent.$("body").data(parent.$("body").data("current").template).selected[x].extid == nodeLabel){
                         if (parent.$("body").data(parent.$("body").data("current").template).selected[x].colour == "auto"){
                             rgb = parent.$("body").data("colours")[x].split(',');
-                            displayColor = "#" + Number(rgb[0]).toString(16) + Number(rgb[1]).toString(16) + Number(rgb[2]).toString(16);
                         }else{
                             rgb = parent.$("body").data(parent.$("body").data("current").template).selected[x].colour.split(',');
-                            displayColor = "#" + Number(rgb[0]).toString(16) + Number(rgb[1]).toString(16) + Number(rgb[2]).toString(16);
-                        }                        
+                        }
+                        for (y in rgb){
+                            rgb[y] = Number(rgb[y]).toString(16);
+                            if (rgb[y].length < 2){
+                                rgb[y] = "0" + rgb[y];
+                            }
+                        }
+                        displayColor = "#" + rgb[0] + rgb[1] + rgb[2];
+                        break;
                     }
                 }
             }
