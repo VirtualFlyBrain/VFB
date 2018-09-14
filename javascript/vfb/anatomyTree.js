@@ -2,7 +2,7 @@
     var network = null;
     var graphData = null;
     var visData = {};
-    var anatomyStart = cleanIdforV2(parent.$("body").data("current").template);
+    var anatomyStart = "FBbt_00005095";
 
     var AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
     /**
