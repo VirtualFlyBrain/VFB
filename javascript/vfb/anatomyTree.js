@@ -1,5 +1,8 @@
 	var nodeIndex = [];
     var network = null;
+    var graphData = null;
+    var visData = {};
+    var anatomyStart = cleanIdforV2(parent.$("body").data("current").template);
 
     var AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
     /**
@@ -26,36 +29,47 @@
       }
     }
     function displayAnatomyGraph() {
-        anatomyDestroy();
-        // Create the authorization header for the ajax request.
-        AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
-        // Show loading elements.
-        $("#anatomyLoading").show();
-        $("#anatomyLoadingBar").show();
-        document.getElementById('anatomyText').innerHTML = '0%';
-        document.getElementById('anatomyBar').style.width = '0';
-        document.getElementById('anatomyLoadingBar').style.opacity = 1;
-        var start = cleanIdforV2(parent.$("body").data("current").template);
-        // Post Cypher query to return node and relations and return results as graph.
-        restPost({
-            "statements": [
-                {
-                    "statement": "MATCH (root:Class)<-[:INSTANCEOF]-(t:Individual { short_form : '" + start + "'})<-[:depicts]-(tc:Individual)<-[ie:in_register_with]-(c:Individual)-[:depicts]->(image:Individual)-[:INSTANCEOF]->(ac:Class) WHERE has(ie.index) WITH root, COLLECT (ac.short_form) as tree_nodes, COLLECT (DISTINCT{ image: image.short_form, anat_ind: image.short_form, type: ac.short_form}) AS domain_map MATCH p=allShortestPaths((root)<-[:SUBCLASSOF|part_of*..]-(anat:Class)) WHERE anat.short_form IN tree_nodes RETURN p, domain_map",
-                    "resultDataContents": ["graph"]
-                }
-            ]
-        }).done(function (data) {
-            $("#loading").hide();
-            // Parse results and convert it to vis.js compatible data.
-            var graphData = parseGraphResultData(data);
+        if (network !== null && anatomyStart == cleanIdforV2(parent.$("body").data("current").template)) {
             var nodes = convertNodes(graphData.nodes);
-            var edges = convertEdges(graphData.edges);
-            var visData = {
+            var edges = visData.edges;
+            visData = {
                 nodes: nodes,
                 edges: edges
             };
+            anatomyDestroy();
             displayVisJsData(visData);
-        });
+        }else{
+            anatomyDestroy();
+            anatomyStart = cleanIdforV2(parent.$("body").data("current").template);
+            // Create the authorization header for the ajax request.
+            AUTHORIZATION = "Basic " + btoa("neo4j:vfb");
+            // Show loading elements.
+            $("#anatomyLoading").show();
+            $("#anatomyLoadingBar").show();
+            document.getElementById('anatomyText').innerHTML = '0%';
+            document.getElementById('anatomyBar').style.width = '0';
+            document.getElementById('anatomyLoadingBar').style.opacity = 1;
+            // Post Cypher query to return node and relations and return results as graph.
+            restPost({
+                "statements": [
+                    {
+                        "statement": "MATCH (root:Class)<-[:INSTANCEOF]-(t:Individual { short_form : '" + anatomyStart + "'})<-[:depicts]-(tc:Individual)<-[ie:in_register_with]-(c:Individual)-[:depicts]->(image:Individual)-[:INSTANCEOF]->(ac:Class) WHERE has(ie.index) WITH root, COLLECT (ac.short_form) as tree_nodes, COLLECT (DISTINCT{ image: image.short_form, anat_ind: image.short_form, type: ac.short_form}) AS domain_map MATCH p=allShortestPaths((root)<-[:SUBCLASSOF|part_of*..]-(anat:Class)) WHERE anat.short_form IN tree_nodes RETURN p, domain_map",
+                        "resultDataContents": ["graph"]
+                    }
+                ]
+            }).done(function (data) {
+                $("#loading").hide();
+                // Parse results and convert it to vis.js compatible data.
+                graphData = parseGraphResultData(data);
+                var nodes = convertNodes(graphData.nodes);
+                var edges = convertEdges(graphData.edges);
+                visData = {
+                    nodes: nodes,
+                    edges: edges
+                };
+                displayVisJsData(visData);
+            });
+        }
     }
     
     function displayVisJsData(data) {
