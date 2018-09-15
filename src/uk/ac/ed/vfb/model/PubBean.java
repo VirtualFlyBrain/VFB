@@ -163,7 +163,7 @@ public class PubBean {
 			return "/site/stacks/index.htm?id=" + id;
 		}
 		if (id.contains("doi:")){
-			return id.replace("doi:", "http://dx.doi.org/");
+			return id.replace("doi:", "https://doi.org/");
 		}
 		//handling FBxx other types
 		for (String key:rep.keySet()){
