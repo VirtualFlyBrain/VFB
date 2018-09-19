@@ -353,7 +353,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Ind References"
           description="References for Individual"
-          query="MATCH (n:Class { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN distinct '&lt;b>' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b> ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'>FlyBase:' + sc.FlyBase + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'>PMID:' + sc.PMID + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://dx.doi.org/' + sc.DOI + '\\' target=\\'_blank\\'>doi:' + sc.DOI + '&lt;/a>)', ')') as bib ORDER BY bib ASC"
+          query="MATCH (n:Class { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN distinct '&lt;b>' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b> ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'>FlyBase:' + sc.FlyBase + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'>PMID:' + sc.PMID + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'https://doi.org/' + sc.DOI + '\\' target=\\'_blank\\'>doi:' + sc.DOI + '&lt;/a>)', ')') as bib ORDER BY bib ASC"
           countQuery="MATCH (n:Class { short_form: '$ID' } )-[r:INSTANCEOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN count(distinct sc) as count">
         <matchingCriteria
             type="//@libraries.3/@types.0"/>
@@ -362,7 +362,7 @@
           xsi:type="gep_2:SimpleQuery"
           name="Class References"
           description="References for Class"
-          query="MATCH (n:Individual { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN distinct '&lt;b>' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b> ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'>FlyBase:' + sc.FlyBase + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'>PMID:' + sc.PMID + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://dx.doi.org/' + sc.DOI + '\\' target=\\'_blank\\'>doi:' + sc.DOI + '&lt;/a>)', ')') as bib ORDER BY bib ASC"
+          query="MATCH (n:Individual { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN distinct '&lt;b>' + split(sc.miniref,',')[0] + ' (' + sc.year + ')&lt;/b> ' + sc.title + ' ' + split(sc.miniref,',')[2] + '. (' + coalesce('&lt;a href=\\'http://flybase.org/reports/' + sc.FlyBase + '\\' target=\\'_blank\\'>FlyBase:' + sc.FlyBase + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'http://www.ncbi.nlm.nih.gov/pubmed/' + sc.PMID + '\\' target=\\'_blank\\'>PMID:' + sc.PMID + '&lt;/a>; ', '') + coalesce('&lt;a href=\\'https://doi.org/' + sc.DOI + '\\' target=\\'_blank\\'>doi:' + sc.DOI + '&lt;/a>)', ')') as bib ORDER BY bib ASC"
           countQuery="MATCH (n:Individual { short_form: '$ID' } )-[r:SUBCLASSOF|Related|has_reference]->(sc) where sc.miniref is not null RETURN count(distinct sc) as count">
         <matchingCriteria
             type="//@libraries.3/@types.1"/>
