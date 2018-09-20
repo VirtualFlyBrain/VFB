@@ -87,7 +87,7 @@
                   size: 20,
                   color: '#222222'
                 },
-                mass: 3
+                mass: 5
             },
             edges: {
                 smooth: {
@@ -123,7 +123,7 @@
                   centralGravity: 1.0,
                   springLength: 100,
                   springConstant: 0.4,
-                  nodeDistance: 200,
+                  nodeDistance: 250,
                   damping: 0.08
                 },
                 maxVelocity: 500,
