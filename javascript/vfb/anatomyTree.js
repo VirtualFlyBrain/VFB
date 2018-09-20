@@ -123,8 +123,8 @@
                   centralGravity: 1.0,
                   springLength: 100,
                   springConstant: 0.3,
-                  nodeDistance: 50,
-                  damping: 0.01
+                  nodeDistance: 200,
+                  damping: 0.09
                 },
                 maxVelocity: 250,
                 minVelocity: 0.1,
