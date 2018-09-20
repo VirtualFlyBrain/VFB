@@ -120,8 +120,8 @@
             physics:{
                 enabled: true,
                 hierarchicalRepulsion: {
-                  centralGravity: 1.0,
-                  springLength: 100,
+                  centralGravity: 0.3,
+                  springLength: 200,
                   springConstant: 0.4,
                   nodeDistance: 250,
                   damping: 0.08
