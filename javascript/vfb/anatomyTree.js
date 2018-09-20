@@ -107,7 +107,11 @@
 		        improvedLayout:true,
             	hierarchical: {
                     enabled: true,
+                    nodeSpacing: 100,
+                    treeSpacing: 200,
+                    blockShifting: false,
                     edgeMinimization: true,
+                    parentCentralization: true,
                     direction: 'RL',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
