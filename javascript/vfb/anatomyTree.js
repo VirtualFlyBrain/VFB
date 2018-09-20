@@ -87,7 +87,7 @@
                   size: 20,
                   color: '#222222'
                 },
-                mass: 1
+                mass: 3
             },
             edges: {
                 smooth: {
@@ -120,13 +120,13 @@
             physics:{
                 enabled: true,
                 hierarchicalRepulsion: {
-                  centralGravity: 0.0,
+                  centralGravity: 1.0,
                   springLength: 100,
-                  springConstant: 0.5,
-                  nodeDistance: 120,
-                  damping: 0.09
+                  springConstant: 0.3,
+                  nodeDistance: 50,
+                  damping: 0.01
                 },
-                maxVelocity: 50,
+                maxVelocity: 250,
                 minVelocity: 0.1,
                 stabilization: {
                   enabled: true,
