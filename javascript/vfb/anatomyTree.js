@@ -94,7 +94,10 @@
                     type: 'cubicBezier',
                     forceDirection: 'horizontal',
                     roundness: 0.4
-                }
+                },
+				shadow:{
+      				enabled: false
+				}
             },
             layout: {
             	hierarchical: {
