@@ -124,7 +124,7 @@
                   springLength: 100,
                   springConstant: 0.3,
                   nodeDistance: 200,
-                  damping: 0.09
+                  damping: 0.07
                 },
                 maxVelocity: 250,
                 minVelocity: 0.1,
