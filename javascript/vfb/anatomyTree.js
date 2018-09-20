@@ -96,7 +96,11 @@
                     roundness: 0.4
                 },
 				shadow:{
-      				enabled: false
+      				enabled: false,
+                    color: 'rgba(0,0,0,0.5)',
+                    size:1,
+                    x:1,
+                    y:1
 				}
             },
             layout: {
