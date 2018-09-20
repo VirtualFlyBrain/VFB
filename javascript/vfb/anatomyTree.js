@@ -116,6 +116,27 @@
                     sortMethod: 'directed',
                     levelSeparation: 350                    
                 }
+            },
+            physics:{
+                enabled: true,
+                hierarchicalRepulsion: {
+                  centralGravity: 0.0,
+                  springLength: 100,
+                  springConstant: 0.5,
+                  nodeDistance: 120,
+                  damping: 0.09
+                },
+                maxVelocity: 50,
+                minVelocity: 0.1,
+                stabilization: {
+                  enabled: true,
+                  iterations: 1000,
+                  updateInterval: 100,
+                  onlyDynamicEdges: false,
+                  fit: true
+                },
+                timestep: 0.5,
+                adaptiveTimestep: true
             }
         };
         // initialize the network!
