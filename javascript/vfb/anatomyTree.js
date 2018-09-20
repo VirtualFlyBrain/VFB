@@ -109,9 +109,9 @@
                     enabled: true,
                     nodeSpacing: 100,
                     treeSpacing: 200,
-                    blockShifting: false,
-                    edgeMinimization: false,
-                    parentCentralization: false,
+                    blockShifting: true,
+                    edgeMinimization: true,
+                    parentCentralization: true,
                     direction: 'RL',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
