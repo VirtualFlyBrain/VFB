@@ -104,8 +104,10 @@
 				}
             },
             layout: {
+		        improvedLayout:true,
             	hierarchical: {
                     enabled: true,
+                    edgeMinimization: true,
                     direction: 'RL',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
