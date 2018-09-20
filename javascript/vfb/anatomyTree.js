@@ -110,8 +110,8 @@
                     nodeSpacing: 100,
                     treeSpacing: 200,
                     blockShifting: false,
-                    edgeMinimization: true,
-                    parentCentralization: true,
+                    edgeMinimization: false,
+                    parentCentralization: false,
                     direction: 'RL',
                     sortMethod: 'directed',
                     levelSeparation: 350                    
