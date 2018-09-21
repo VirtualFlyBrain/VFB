@@ -571,8 +571,8 @@ th.dt-center, td.dt-center {
 }
 
 #vis {
-    width: 900px;
-    height: 900px;
+    width: 100vw;
+    height: 80vh;
     background-color: #F8F9FB;
     border: 1px solid lightgray;
 }
@@ -584,8 +584,8 @@ th.dt-center, td.dt-center {
     position: absolute;
     top: 0;
     left: 0;
-    width: 902px;
-    height: 902px;
+    width: 100vw;
+    height: 80vh;
     background-color: rgba(200, 200, 200, 0.8);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -597,8 +597,8 @@ th.dt-center, td.dt-center {
 }
 #wrapper {
     position: relative;
-    width: 900px;
-    height: 900px;
+    width: 100vw;
+    height: 80vh;
 }
 #anatomyText {
     position: absolute;
