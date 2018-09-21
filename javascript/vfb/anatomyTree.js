@@ -118,6 +118,7 @@
             },
             physics: {
                 enabled: true,
+		        maxVelocity: 500,
                 hierarchicalRepulsion: {
                   centralGravity: 0.0,
                   springLength: 200,
