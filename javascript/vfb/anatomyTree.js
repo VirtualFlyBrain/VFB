@@ -121,7 +121,7 @@
                 hierarchicalRepulsion: {
                   centralGravity: 0.0,
                   springLength: 200,
-                  springConstant: 0.01,
+                  springConstant: 0.04,
                   nodeDistance: 150,
                   damping: 0.09
                 }
