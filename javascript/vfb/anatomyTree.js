@@ -104,39 +104,25 @@
 				}
             },
             layout: {
-		        improvedLayout:true,
-            	hierarchical: {
+                hierarchical: {
                     enabled: true,
+                    levelSeparation: 150,
                     nodeSpacing: 100,
                     treeSpacing: 200,
                     blockShifting: true,
-                    edgeMinimization: true,
-                    parentCentralization: true,
-                    direction: 'RL',
-                    sortMethod: 'directed',
-                    levelSeparation: 350                    
+                    edgeMinimization: false,
+                    parentCentralization: false
                 }
             },
-            physics:{
+            physics: {
                 enabled: true,
                 hierarchicalRepulsion: {
-                  centralGravity: 0.3,
-                  springLength: 150,
-                  springConstant: 0.4,
-                  nodeDistance: 250,
-                  damping: 0.2
-                },
-                maxVelocity: 500,
-                minVelocity: 0.1,
-                stabilization: {
-                  enabled: true,
-                  iterations: 1000,
-                  updateInterval: 100,
-                  onlyDynamicEdges: false,
-                  fit: true
-                },
-                timestep: 0.5,
-                adaptiveTimestep: true
+                  centralGravity: 0.0,
+                  springLength: 200,
+                  springConstant: 0.01,
+                  nodeDistance: 150,
+                  damping: 0.09
+                }
             }
         };
         // initialize the network!
