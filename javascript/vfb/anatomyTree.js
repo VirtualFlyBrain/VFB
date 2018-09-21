@@ -114,20 +114,20 @@
                     parentCentralization: true,
                     direction: 'RL',
                     sortMethod: 'directed',
-                    levelSeparation: 500                    
+                    levelSeparation: 350                    
                 }
             },
             physics:{
                 enabled: true,
                 hierarchicalRepulsion: {
-                  centralGravity: 0.2,
-                  springLength: 200,
-                  springConstant: 0.3,
-                  nodeDistance: 400,
-                  damping: 0.3
+                  centralGravity: 0.3,
+                  springLength: 250,
+                  springConstant: 0.4,
+                  nodeDistance: 800,
+                  damping: 0.2
                 },
                 maxVelocity: 500,
-                minVelocity: 0.3,
+                minVelocity: 0.1,
                 stabilization: {
                   enabled: true,
                   iterations: 1000,
