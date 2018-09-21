@@ -222,6 +222,7 @@
                 id: node.id,
                 label: displayedLabel,
                 group: nodeLabel,
+		        mass: node.id,
                 icon: {
                     color: displayColor
                 }
