@@ -106,7 +106,7 @@
             layout: {
                 hierarchical: {
                     enabled: true,
-                    levelSeparation: 150,
+                    levelSeparation: 550,
                     nodeSpacing: 100,
                     treeSpacing: 200,
                     blockShifting: true,
