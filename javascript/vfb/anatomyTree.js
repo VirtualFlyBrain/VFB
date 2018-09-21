@@ -108,7 +108,7 @@
                     enabled: true,
                     levelSeparation: 150,
                     nodeSpacing: 100,
-                    treeSpacing: 400,
+                    treeSpacing: 200,
                     blockShifting: true,
                     edgeMinimization: false,
                     parentCentralization: false,
