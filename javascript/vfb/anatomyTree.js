@@ -111,7 +111,9 @@
                     treeSpacing: 200,
                     blockShifting: true,
                     edgeMinimization: false,
-                    parentCentralization: false
+                    parentCentralization: false,
+			        direction: 'RL',
+                    sortMethod: 'directed'
                 }
             },
             physics: {
