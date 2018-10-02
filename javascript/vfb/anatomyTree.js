@@ -187,12 +187,17 @@
             var nodeLabel = node.properties['short_form'];
             var displayedLabel = node.properties['label'];
 	        var displayColor = '#000000';
+            var col = 0;
             if (parent.$("body").data(parent.$("body").data("current").template).available.indexOf(nodeLabel) > -1){
                 var rgb = [];
                 for (x in parent.$("body").data(parent.$("body").data("current").template).selected){
                     if (parent.$("body").data(parent.$("body").data("current").template).selected[x].extid && parent.$("body").data(parent.$("body").data("current").template).selected[x].extid == nodeLabel){
                         if (parent.$("body").data(parent.$("body").data("current").template).selected[x].colour == "auto"){
-                            rgb = parent.$("body").data("colours")[x].split(',');
+                           col = x;
+                            while (col > 200) {
+                                col = col - 200;
+                            } 
+				            rgb = parent.$("body").data("colours")[col].split(',');
                         }else{
                             rgb = parent.$("body").data(parent.$("body").data("current").template).selected[x].colour.split(',');
                         }
