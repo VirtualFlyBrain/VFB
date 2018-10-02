@@ -1655,7 +1655,7 @@ function addToStackData(ids, showDetails) {
                         } else {
                             layers = Object.keys(selected).length;
                             if (parent.$("body").data("available").indexOf(id) > -1) {
-                                text = '{"id":"';
+                                
                                 for (layers in parent.$("body").data("domains")) {
                                     if (cleanIdforInt(parent.$("body").data("domains")[layers].extId[0]) == id) {
                                         if (parent.$("body").data("domains")[layers].domainData.domainId === "") {
@@ -1669,6 +1669,7 @@ function addToStackData(ids, showDetails) {
                                                     }
                                                 }
                                             } else {
+                                                text = '{"id":"';
                                                 text += temp + '","colour":"auto","visible":true, "extid":"' + id + '"';
                                                 text += ',"L":"' + layers + '"';
                                                 if (parent.$("body").data("domains")[layers].type !== undefined) {
@@ -1678,13 +1679,14 @@ function addToStackData(ids, showDetails) {
                                                     text += ',"typeid":"' + parent.$("body").data("domains")[layers].typeId + '"';
                                                 }
                                                 text += '}';
+                                                layers = Object.keys(selected).length;
+                                                selected[layers] = JSON.parse(text);
                                             }
                                         }
                                         
                                     }
                                 }
-                                layers = Object.keys(selected).length;
-                                selected[layers] = JSON.parse(text);
+                                
                             }
                         }
                     } else if (id.indexOf("FBgn") > -1) {
