@@ -1666,7 +1666,6 @@ function addToStackData(ids, showDetails) {
                                                 for (j in selected) {
                                                     if (cleanIdforInt(selected[j].id) == temp) {
                                                         selected[j].visible = true;
-                                                        break;
                                                     }
                                                 }
                                             } else {
