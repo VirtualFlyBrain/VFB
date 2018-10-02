@@ -1819,7 +1819,7 @@ function loadRightMenuDisplayed() {
             var controls = "-";
             var name = "*";
             var type = "*";
-            var solrAPI = "/search/select?";
+            var solrAPI = "/solr/ontology/select?";
             for (i in selected) {
                 layer = selected[i];
                 if (!layer.name) {
