@@ -2176,8 +2176,12 @@ function addAvailableItems(ids) {
                     }
                 }
                 // Controls:
-                if (temp.extId) {
-                    controls = createControlsBarHTML(cleanIdforInt(temp.extId[0]));
+                if (temp.extId[0]) {
+                    if (JSON.stringify(selected).indexOf(ids[i]) > 0){
+                        controls = createControlsBarHTML(cleanIdforInt(ids[i]));
+                    }else{
+                        controls = createControlsBarHTML(cleanIdforInt(temp.extId[0]));
+                    }
                 } else {
                     controls = "";
                     alertMessage('Unable to resolve for:' + JSON.stringify(temp));
