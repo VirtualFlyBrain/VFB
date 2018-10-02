@@ -1680,7 +1680,7 @@ function addToStackData(ids, showDetails) {
                                                 text += '}';
                                             }
                                         }
-                                        break;
+                                        
                                     }
                                 }
                                 layers = Object.keys(selected).length;
