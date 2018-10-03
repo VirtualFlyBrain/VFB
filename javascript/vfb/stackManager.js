@@ -1881,7 +1881,7 @@ function returnGeppettoConfUrl() {
         var i;
         var displayed = cleanIdforV2(current.template);
         for (i in selected) {
-            if (i > 0) {
+            if (i > 0 && cleanIdforV2(selected[i].id) != undefined) {
                 displayed += "," + cleanIdforV2(selected[i].id);
             }
         }
