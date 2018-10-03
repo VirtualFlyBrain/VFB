@@ -7,9 +7,15 @@
 		/css/bootstrap-slider.min.css;
 		//cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.css;
 		/css/bootstrap-colorpicker.min.css;
+		//cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis-network.min.css;
+		//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css;
+		//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css;
 		"/>
     <jsp:param name="js" value="
 	    /javascript/vfb/wlziip.js;
+		/javascript/vfb/anatomyTree.js;
+		//cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js;
+		//cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.js;
 		/javascript/thirdParty/bootstrap-slider.min.js;
 	    //cdn.datatables.net/s/bs/jszip-2.5.0,pdfmake-0.1.18,dt-1.10.10,b-1.1.0,b-flash-1.1.0,b-html5-1.1.0,b-print-1.1.0,r-2.0.0,sc-1.4.0/datatables.min.js;
 		/javascript/thirdParty/bootstrap-colorpicker.min.js;
@@ -317,18 +323,22 @@
                                         available anatomy from the stack" data-toggle="tooltip"
                                         data-placement="top"><span class="glyphicon glyphicon-minus"></span> Remove
                                         All</button>
-                                        <button class
-                                        "btn btn-default btn-xs" onClick="expandTree();" title="expand tree"
-                                        data-toggle="tooltip" data-placement="top"><span
-                                            class="glyphicon glyphicon-resize-full"></span> Expand Tree</button>
-                                        <button class
-                                        "btn btn-default btn-xs" onClick="collapseTree();" title="collapse tree"
-                                        data-toggle="tooltip" data-placement="top"><span
-                                            class="glyphicon glyphicon-resize-small"></span> Collapse Tree</button>
                                     </div>
                                 </div>
                                 <div class="clearfix visible-sm-block"></div>
-                                <div class="col-md-12" id="anatoContent" style="padding:0;"></div>
+                                <div class="col-md-12" id="anatoContent" style="padding:0;">
+									<div id="wrapper">
+										<div id="vis"></div>
+										<div id="anatomyLoadingBar">
+											<div class="outerBorder">
+												<div id="anatomyText">0%</div>
+												<div id="border">
+													<div id="anatomyBar"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                         <div class="tab-pane" id="queryBuild">
