@@ -1524,7 +1524,14 @@ function addToStackData(ids, showDetails) {
                         if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
                             for (t in space){
                                 if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
-                                    addToStackData(t);
+                                    if (JSON.stringify(availableTemplates).indexOf(t) < 0){
+                                        window.open('https://v2.virtualflybrain.org/?i='+cleanIdforV2(t)+','+cleanIdforV2(ids[i]), '_blank', async = true);
+                                        openFullDetails(cleanIdforInt(id[i]));
+                                        ids[i]=parent.$("body").data("current").template;
+                                        break;
+                                    }else{
+                                        addToStackData(t);
+                                    }
                                 }
                             }
                         }else{

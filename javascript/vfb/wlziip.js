@@ -79,6 +79,9 @@ function animateWlzDisplay() {
                     var i;
                     var j;
                     var slice = $('#slider-sliceSliderVal').text();
+                    if (slice < 2){
+                        parent.$("body").data("current").dst = 0;
+                    }
                     var current = parent.$("body").data("current");
                     var orientation = {Z: {W: 0, H: 1, D: 2}, Y: {W: 0, H: 2, D: 1}, X: {W: 1, H: 2, D: 0}};
                     var orient = current.slice;
