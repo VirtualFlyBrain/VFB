@@ -717,6 +717,11 @@ function cleanIdforExt(id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
         id = id.replace('VFBi_', 'VFB_');
+        if (id.indexOf('VFBt_')>-1 && id.length == 8){
+            id=id+'00000';    
+        }
+        id = id.replace('VFBt_00100000','VFB_00017894').replace('VFBt_00200000','VFB_00030786').replace('VFBt_00300000','VFB_00049000').replace('VFBt_00400000','VFB_00100000').replace('VFBt_00500000','VFB_00050000')
+        id = id.replace('VFBexp_FB','FB').replace('VFBexpFB','FB');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
@@ -729,7 +734,11 @@ function cleanIdforInt(id) {
     if (id) {
         id = id.replace(":", "_");
         id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
+        id = id.replace('VFB_00017894','VFBt_001').replace('VFB_00030786','VFBt_002').replace('VFB_00049000','VFBt_003').replace('VFB_00100000','VFBt_004').replace('VFB_00050000','VFBt_005')
         id = id.replace('VFB_', 'VFBi_');
+        if (id.indexOf('VFBt_')>-1 && id.length == 8){
+            id=id+'00000';
+        }
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
@@ -1526,7 +1535,7 @@ function addToStackData(ids, showDetails) {
                                 if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
                                     if (JSON.stringify(availableTemplates).indexOf(t) < 0){
                                         window.open('https://v2.virtualflybrain.org/?i='+cleanIdforV2(t)+','+cleanIdforV2(ids[i]), '_blank', async = true);
-                                        openFullDetails(cleanIdforInt(id[i]));
+                                        openFullDetails(cleanIdforInt(ids[i]));
                                         ids[i]=parent.$("body").data("current").template;
                                         break;
                                     }else{
@@ -1535,7 +1544,7 @@ function addToStackData(ids, showDetails) {
                                 }
                             }
                         }else{
-                            if ('VFBt_001' != parent.$("body").data("current").template){
+                            if (ids[i] != 'VFBt_001' && 'VFBt_001' != parent.$("body").data("current").template){
                                 addToStackData('VFBt_001');
                             }
                         }
