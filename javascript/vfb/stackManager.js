@@ -1544,7 +1544,7 @@ function addToStackData(ids, showDetails) {
                                 }
                             }
                         }else{
-                            if ('VFBt_001' != parent.$("body").data("current").template){
+                            if (ids[i] != 'VFBt_001' && 'VFBt_001' != parent.$("body").data("current").template){
                                 addToStackData('VFBt_001');
                             }
                         }
