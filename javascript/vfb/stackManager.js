@@ -1535,7 +1535,7 @@ function addToStackData(ids, showDetails) {
                                 if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
                                     if (JSON.stringify(availableTemplates).indexOf(t) < 0){
                                         window.open('https://v2.virtualflybrain.org/?i='+cleanIdforV2(t)+','+cleanIdforV2(ids[i]), '_blank', async = true);
-                                        openFullDetails(cleanIdforInt(id[i]));
+                                        openFullDetails(cleanIdforInt(ids[i]));
                                         ids[i]=parent.$("body").data("current").template;
                                         break;
                                     }else{
