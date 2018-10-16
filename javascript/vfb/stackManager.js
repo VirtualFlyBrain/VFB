@@ -898,17 +898,42 @@ function createAddButtonHTMLfinal(id) {
 function generateAddButtons() {
     if (parent.$("body").data("available")) {
         $("[id^=imageViewerOpen]").each(function () {
-            var html = '<button class="btn btn-sm btn-success" onclick="';
-            html += "post('/site/stacks/index.htm',{'add':'" + cleanIdforInt($(this).data('id')) + "'});";
-            if (($('body').data("available") && $('body').data("available").indexOf(cleanIdforInt($(this).data('id'))) > -1) || cleanIdforInt($(this).data('id')).indexOf('VFB') > -1) {
-                html += '" title="Open ' + $(this).data('name') + ' in stack viewer">Open ' + $(this).data('name') + ' in stack viewer</button>';
-                $(this).html(html);
-                $(this).attr('id', 'ResolvedImageViewerOpen');
-            } else {
-                html += '" title="Open ' + $(this).data('name') + ' in stack viewer" disabled="disabled">' + $(this).data('name') + ' is not specifically labeled in the current stack</button>';
-                html = html.replace('btn-success', 'btn-default');
-                $(this).html(html);
-                $(this).attr('id', 'ResolvedImageViewerOpen');
+            var html = "";
+            for (t in availableTemplates) {
+                if (parent.$("body").data(availableTemplates[t]).available && parent.$("body").data(availableTemplates[t]).available.indexOf(cleanIdforInt($(this).data('id'))) > -1){
+                    html+= '<button class="btn btn-sm btn-success" onclick="';
+                    html += "post('/site/stacks/index.htm',{'add':'" + availableTemplates[t] + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                    html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(availableTemplates[t]).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(availableTemplates[t]).meta.name + '</button>';
+                    $(this).html(html);
+                    $(this).attr('id', 'ResolvedImageViewerOpen');
+                    html += '<br />'
+                }
+            }
+            if (html == ""){
+                if (cleanIdforInt($(this).data('id')).indexOf('VFB') > -1){
+                    for (t in space) {
+                        if (JSON.stringify(space[t]).indexOf(cleanIdforExt($(this).data('id'))) > -1){
+                            html+= '<button class="btn btn-sm btn-success" onclick="';
+                            html += "post('/site/stacks/index.htm',{'add':'" + t + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                            html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '</button>';
+                            $(this).html(html);
+                            $(this).attr('id', 'ResolvedImageViewerOpen');
+                            html += '<br />'
+                        }
+                    }
+                    if (html == ""){
+                        var t='VFBt_001';
+                        html+= '<button class="btn btn-sm btn-success" onclick="';
+                        html += "post('/site/stacks/index.htm',{'add':'" + t + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                        html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '</button>';
+                        $(this).html(html);
+                        $(this).attr('id', 'ResolvedImageViewerOpen');
+                    }
+                }
+                if (html == ""){
+                    $(this).html(html);
+                    $(this).attr('id', 'ResolvedImageViewerOpen');
+                }
             }
         });
         $("[id^=attach]").each(function () {
@@ -1529,8 +1554,8 @@ function addToStackData(ids, showDetails) {
             }
             for (i in ids) {
                 try{
-                    if (cleanIdforExt(ids[i]).indexOf('VFB_') > -1){
-                        if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
+                    if (cleanIdforInt(ids[i]).indexOf('VFBi_') > -1){
+                        if (JSON.stringify(space).indexOf(ids[i]) > -1){
                             for (t in space){
                                 if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
                                     if (JSON.stringify(availableTemplates).indexOf(t) < 0){
@@ -1539,7 +1564,9 @@ function addToStackData(ids, showDetails) {
                                         ids[i]=parent.$("body").data("current").template;
                                         break;
                                     }else{
-                                        addToStackData(t);
+                                        if (ids[i] != t && t != parent.$("body").data("current").template){
+                                            addToStackData(t);
+                                        }
                                     }
                                 }
                             }
@@ -1688,6 +1715,9 @@ function addToStackData(ids, showDetails) {
                                                 text = '{"id":"';
                                                 text += temp + '","colour":"auto","visible":true, "extid":"' + id + '"';
                                                 text += ',"L":"' + layers + '"';
+                                                if (parent.$("body").data("domains")[layers].name !== undefined) {
+                                                    text += ',"name":"' + parent.$("body").data("domains")[layers].name + '"';
+                                                }
                                                 if (parent.$("body").data("domains")[layers].type !== undefined) {
                                                     text += ',"type":"' + parent.$("body").data("domains")[layers].type + '"';
                                                 }
