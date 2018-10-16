@@ -1529,8 +1529,8 @@ function addToStackData(ids, showDetails) {
             }
             for (i in ids) {
                 try{
-                    if (cleanIdforExt(ids[i]).indexOf('VFB_') > -1){
-                        if (JSON.stringify(space).indexOf(cleanIdforExt(ids[i])) > -1){
+                    if (cleanIdforInt(ids[i]).indexOf('VFB') > -1){
+                        if (JSON.stringify(space).indexOf(ids[i]) > -1){
                             for (t in space){
                                 if (JSON.stringify(space[t]).indexOf(cleanIdforExt(ids[i])) > -1){
                                     if (JSON.stringify(availableTemplates).indexOf(t) < 0){
@@ -1539,7 +1539,9 @@ function addToStackData(ids, showDetails) {
                                         ids[i]=parent.$("body").data("current").template;
                                         break;
                                     }else{
-                                        addToStackData(t);
+                                        if (ids[i] != t && t != parent.$("body").data("current").template){
+                                            addToStackData(t);
+                                        }
                                     }
                                 }
                             }
