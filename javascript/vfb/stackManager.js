@@ -1715,6 +1715,9 @@ function addToStackData(ids, showDetails) {
                                                 text = '{"id":"';
                                                 text += temp + '","colour":"auto","visible":true, "extid":"' + id + '"';
                                                 text += ',"L":"' + layers + '"';
+                                                if (parent.$("body").data("domains")[layers].name !== undefined) {
+                                                    text += ',"name":"' + parent.$("body").data("domains")[layers].name + '"';
+                                                }
                                                 if (parent.$("body").data("domains")[layers].type !== undefined) {
                                                     text += ',"type":"' + parent.$("body").data("domains")[layers].type + '"';
                                                 }
