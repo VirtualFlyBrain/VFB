@@ -129,13 +129,13 @@ public class PubBean {
 			if (miniref.contains(" and ")){
 				return "https://www.google.com/search?q=" + miniref.replace("FlyBase Curator [","").replace("]","").replace("FlyBase Consultant [","").replace(" and "," ");
 			}
-			if (id.toUpperCase().contains("DOS")){
+			if (id.contains("DOS")){
 				return "http://orcid.org/0000-0002-7073-9172";
 			}
-			if (id.toUpperCase().contains("MMC")){
+			if (id.contains("MMC")){
 				return "http://orcid.org/0000-0001-5948-3092";
 			}
-			if (id.toUpperCase().contains("FLYBASE") || id.contains("auto_generated_definition")){
+			if (id.contains("FlyBase") || id.contains("auto_generated_definition")){
 				return "http://flybase.org";
 			}
 			// TBR: to handle block consultant links.
