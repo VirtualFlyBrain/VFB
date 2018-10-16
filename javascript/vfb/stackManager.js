@@ -898,17 +898,42 @@ function createAddButtonHTMLfinal(id) {
 function generateAddButtons() {
     if (parent.$("body").data("available")) {
         $("[id^=imageViewerOpen]").each(function () {
-            var html = '<button class="btn btn-sm btn-success" onclick="';
-            html += "post('/site/stacks/index.htm',{'add':'" + cleanIdforInt($(this).data('id')) + "'});";
-            if (($('body').data("available") && $('body').data("available").indexOf(cleanIdforInt($(this).data('id'))) > -1) || cleanIdforInt($(this).data('id')).indexOf('VFB') > -1) {
-                html += '" title="Open ' + $(this).data('name') + ' in stack viewer">Open ' + $(this).data('name') + ' in stack viewer</button>';
-                $(this).html(html);
-                $(this).attr('id', 'ResolvedImageViewerOpen');
-            } else {
-                html += '" title="Open ' + $(this).data('name') + ' in stack viewer" disabled="disabled">' + $(this).data('name') + ' is not specifically labeled in the current stack</button>';
-                html = html.replace('btn-success', 'btn-default');
-                $(this).html(html);
-                $(this).attr('id', 'ResolvedImageViewerOpen');
+            var html = "";
+            for (t in availableTemplates) {
+                if (parent.$("body").data(availableTemplates[t]).available && parent.$("body").data(availableTemplates[t]).available.indexOf(cleanIdforInt($(this).data('id'))) > -1){
+                    html+= '<button class="btn btn-sm btn-success" onclick="';
+                    html += "post('/site/stacks/index.htm',{'add':'" + availableTemplates[t] + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                    html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(availableTemplates[t]).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(availableTemplates[t]).meta.name + '</button>';
+                    $(this).html(html);
+                    $(this).attr('id', 'ResolvedImageViewerOpen');
+                    html += '<br />'
+                }
+            }
+            if (html == ""){
+                if (cleanIdforInt($(this).data('id')).indexOf('VFB') > -1){
+                    for (t in space) {
+                        if (JSON.stringify(space[t]).indexOf(cleanIdforExt($(this).data('id'))) > -1){
+                            html+= '<button class="btn btn-sm btn-success" onclick="';
+                            html += "post('/site/stacks/index.htm',{'add':'" + t + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                            html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '</button>';
+                            $(this).html(html);
+                            $(this).attr('id', 'ResolvedImageViewerOpen');
+                            html += '<br />'
+                        }
+                    }
+                    if (html == ""){
+                        var t='VFBt_001';
+                        html+= '<button class="btn btn-sm btn-success" onclick="';
+                        html += "post('/site/stacks/index.htm',{'add':'" + t + ',' + cleanIdforInt($(this).data('id')) + "'});";
+                        html += '" title="Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '">Open ' + $(this).data('name') + ' in ' + parent.$("body").data(t).meta.name + '</button>';
+                        $(this).html(html);
+                        $(this).attr('id', 'ResolvedImageViewerOpen');
+                    }
+                }
+                if (html == ""){
+                    $(this).html(html);
+                    $(this).attr('id', 'ResolvedImageViewerOpen');
+                }
             }
         });
         $("[id^=attach]").each(function () {
