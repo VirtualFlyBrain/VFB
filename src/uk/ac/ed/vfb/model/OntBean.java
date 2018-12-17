@@ -177,10 +177,10 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 *  Returns numerical Id of the ontBean
 	 */
 	public String getId() {
-		if (fbbtId.contains("VFB")){
-			return fbbtId.substring(4);
+		if (fbbtId.contains("_")){
+			return fbbtId.substring(fbbtId.indexOf("_")+1);
 		}
-		return fbbtId.substring(5);
+		return fbbtId.substring(fbbtId.indexOf(":")+1);
 	}
 
 	@Override
