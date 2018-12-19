@@ -161,7 +161,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public static String correctIdFormat(String fbbtId) {
-		if (fbbtId.contains("VFB")) {
+		if (OntBean.idAsOWL(fbbtId).contains("VFB_")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
 		}else{
 			fbbtId = OntBean.idAsOBO(fbbtId);
