@@ -720,7 +720,7 @@ function cleanIdforExt(id) {
             id=id+'00000';    
         }
         id = id.replace('VFBt_00100000','VFB_00017894').replace('VFBt_00200000','VFB_00030786').replace('VFBt_00300000','VFB_00049000').replace('VFBt_00400000','VFB_00100000').replace('VFBt_00500000','VFB_00050000')
-        id = id.replace('VFBexp_FB','FB').replace('VFBexpFB','FB');
+        //id = id.replace('VFBexp_FB','FB').replace('VFBexpFB','FB');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
