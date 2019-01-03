@@ -1466,7 +1466,7 @@ function openFullDetails(id) {
                     detailLoad = false;
                 }, 3000);
                 if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0) {
-                    if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1 || id.indexOf("VFBexp_") > -1) {
+                    if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1 || id.indexOf("VFBex") > -1) {
                         if (id.indexOf("_a") > -1) {
                             window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a', ''))) + '/', '_blank');
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
