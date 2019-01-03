@@ -188,7 +188,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</p>
 			</c:if>
 
-			<c:if test="${beanType=='ont'}">
+			<c:if test="${beanType=='ont' && !fn:contains(ontBean.fbbtId,'VFBex')}">
 				<c:if test="${!isNeuron && !isClone}"><c:set var="isNeuropil" value="true"/><p>
 					<br />
 					<b>Images: </b><br />
