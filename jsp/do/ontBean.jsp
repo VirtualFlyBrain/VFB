@@ -44,6 +44,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<jsp:param name="name" value="${ontBean.name}"/>
 	</jsp:include>
 </c:if></c:if>
+<c:if test="${fn:contains(ontBean.fbbtId,'VFBexp')}"><c:set var="termMenu" value="termMenuVFBexp.jsp"/></c:if>
 
 <c:if test="${beanType=='ont'}">
 	<jsp:include page="/jsp/includes/bits/${termMenu}">
