@@ -714,7 +714,7 @@ function updateStackCounter() {
 function cleanIdforExt(id) {
     if (id) {
         id = id.replace(":", "_");
-        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
+        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB').replace('fb', 'FB');
         id = id.replace('VFBi_', 'VFB_');
         if (id.indexOf('VFBt_')>-1 && id.length == 8){
             id=id+'00000';    
@@ -732,7 +732,7 @@ function cleanIdforExt(id) {
 function cleanIdforInt(id) {
     if (id) {
         id = id.replace(":", "_");
-        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
+        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB').replace('fb', 'FB');
         id = id.replace('VFB_00017894','VFBt_001').replace('VFB_00030786','VFBt_002').replace('VFB_00049000','VFBt_003').replace('VFB_00100000','VFBt_004').replace('VFB_00050000','VFBt_005')
         id = id.replace('VFB_', 'VFBi_');
         if (id.indexOf('VFBt_')>-1 && id.length == 8){
