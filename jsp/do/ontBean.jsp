@@ -211,6 +211,9 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 			
 			<c:if test="${fn:contains(ontBean.fbbtId,'VFBexp')}">
 				<p>
+					<br />
+					<b>Images: </b><br />
+					<br />
 					<div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;">
                                     		<span class="sr-only">00000 Images Found So Far...<br/></span>
                                     		<span id="resoveImages" data-id="${ontBean.fbbtId}" data-index="${status.index}">
