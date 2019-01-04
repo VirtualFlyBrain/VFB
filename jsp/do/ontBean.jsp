@@ -208,6 +208,19 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 						</c:if></c:forEach>
 				</p>
 			</c:if>
+			
+			<c:if test="${fn:contains(ontBean.fbbtId,'VFBexp')}">
+				<p>
+					<div class="content-fluid" id="imagesCaro" style="width:350px; max-width:350px;">
+                                    		<span class="sr-only">00000 Images Found So Far...<br/></span>
+                                    		<span id="resoveImages" data-id="${ontBean.fbbtId}" data-index="${status.index}">
+							<a class="btn btn-sm btn-info"
+                                            			href="/do/individual_list.html?action=exemplar_neuron&id=${ontBean.fbbtIdAsOWL}"
+							   >Find images</a>
+						</span>
+					</div>
+				</p>
+			</c:if>
 		</div>
 	</div>
 </div>
