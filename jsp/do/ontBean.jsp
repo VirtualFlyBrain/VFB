@@ -220,6 +220,17 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					</jsp:include>
 				</p>
 			</c:if>
+			<c:if test="${fn:contains(ontBean.fbbtId,'VFBext')}">
+				<p>
+					<br/>
+					<b>Images: </b>
+					<br/>
+					<jsp:include page="/do/individual_film_strip.html">
+						<jsp:param name="action" value="exemplar_neuron" />
+						<jsp:param name="id" value="${ontBean.fbbtId}" />
+					</jsp:include>
+				</p>
+			</c:if>
 		</div>
 	</div>
 </div>
