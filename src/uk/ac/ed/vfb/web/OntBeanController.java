@@ -41,7 +41,7 @@ public class OntBeanController implements Controller {
 		}else{
 			id = OntBean.idAsOBO(req.getParameter("fbId"));
 		}
-		if (id.contains("VFB")){
+		if (id.contains("VFB_")){
 			id = OntBean.idAsOWL(id);
 			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
 			if (ob == null){
@@ -62,8 +62,8 @@ public class OntBeanController implements Controller {
 			}
 			modelAndView.addObject("beanType", "ont");
 		}
-		//LOG.debug(ob);
-		//LOG.debug("For Id: " + ob.getId());
+		LOG.debug(ob);
+		LOG.debug("For Id: " + ob.getId());
 		List<PubBean> pbList = pbm.getBeanListByRefIds(ob.getRefs());
 		//LOG.debug("Found publications:" + pbList.size());
 		List<String> synonyms = ob.getSynonyms();
