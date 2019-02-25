@@ -125,15 +125,15 @@ public class DLQueryServer {
 	/** Returns an OntBean given an Id - only works for classes*/
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
-		if (OntBean.idAsOWL(fbbtId).contains("VFB_")) {
+		if (fbbtId.contains("VFB")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
 		}else{
 			fbbtId = OntBean.idAsOBO(fbbtId);
 		}
 		try {
-			LOG.debug("Trying to retrrieve class for id: " + fbbtId);
+			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
-			LOG.debug("Found?: " + result);
+			//LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
