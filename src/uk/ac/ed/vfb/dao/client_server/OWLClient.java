@@ -84,7 +84,7 @@ public class OWLClient {
 	 */
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
-		LOG.debug("getBeanForId: " + fbbtId);
+		//LOG.debug("getBeanForId: " + fbbtId);
 		fbbtId = OntBean.correctIdFormat(fbbtId);
 		Set<OntBean> results =  this.askQuery(fbbtId);
 		LOG.debug("askQuery results: " + results);
