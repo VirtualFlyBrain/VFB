@@ -12,6 +12,9 @@ import org.apache.commons.logging.LogFactory;
  */
 
 public class CharsetEncodingFilter implements Filter {
+
+    private static final Log LOG = LogFactory.getLog(CharsetEncodingFilter.class);
+	
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
