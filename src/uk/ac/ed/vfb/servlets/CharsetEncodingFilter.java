@@ -3,6 +3,9 @@ package uk.ac.ed.vfb.servlets;
 import java.io.IOException;
 import javax.servlet.*;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * This is to enable the web pages to display UTF-8 text properly
  * Wired in using Spring
