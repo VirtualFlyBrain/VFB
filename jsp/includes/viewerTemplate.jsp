@@ -134,7 +134,7 @@
         </div>
         <div class="row" style="overflow:scroll;">
             <div class="col-md-12" id="viewer-panel">
-                <canvas class="well" id="canvas" style="display: block; cursor: crosshair;">Your browser does not
+                <canvas class="well" id="canvas" style="display: block; cursor: crosshair;background: black">Your browser does not
                     support the HTML5 canvas tag.
                 </canvas>
                 <div id="labelBlock"
