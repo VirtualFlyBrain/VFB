@@ -131,9 +131,9 @@ public class DLQueryServer {
 			fbbtId = OntBean.idAsOBO(fbbtId);
 		}
 		try {
-			LOG.debug("Trying to retrrieve class for id: " + fbbtId);
+			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
-			LOG.debug("Found?: " + result);
+			//LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
