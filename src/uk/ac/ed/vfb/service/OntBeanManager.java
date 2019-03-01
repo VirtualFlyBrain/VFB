@@ -51,9 +51,9 @@ public class OntBeanManager extends APageable {
 	public Set<OntBean> getBeanListForQuery(String query){
 		//LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
+		//LOG.debug("REsultSEt: " + this.resultSet);
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
-		//LOG.debug("REsultSEt: " + this.resultSet);
 		//Only use setThirdPartyBeans if tpbm is not null.
 		// Server-side instance will not have it
 		if (tpbm != null){
@@ -69,7 +69,7 @@ public class OntBeanManager extends APageable {
 	private void addBeansToHash(Set<OntBean> beans){
 		if (beans == null || beans.size() < 1)return;
 		for (OntBean bean:beans){
-			if (bean.getFbbtIdAsOWL().contains("VFB_")) {
+			if (bean.getFbbtId().contains("VFB")) {
 				ThirdPartyBean tpb = tpbm.getBeanForVfbId(bean.getFbbtIdAsOWL());
 				if (tpb==null){
 					tpb = tpbm.createThirdPartyBean(bean.getFbbtIdAsOWL());
@@ -82,7 +82,7 @@ public class OntBeanManager extends APageable {
 
 	public OntBean getBeanForId(String fbbtId){
 		//LOG.debug("getBeanForId requested as: " + fbbtId);
-		if (OntBean.idAsOWL(fbbtId).contains("VFB_")) {
+		if (fbbtId.contains("VFB")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
 		}else{
 			fbbtId = OntBean.idAsOBO(fbbtId);
@@ -92,7 +92,7 @@ public class OntBeanManager extends APageable {
 		//LOG.debug("bean = " + result);
 		if (result == null) {
 			//LOG.debug("Creating new bean");
-			if (OntBean.idAsOWL(fbbtId).contains("VFB_")) {
+			if (fbbtId.contains("VFB")) {
 				//LOG.debug("Detected as individual");
 				result = ontClient.getBeanForId(fbbtId);
 				//LOG.debug("Found OntBean: " + result);

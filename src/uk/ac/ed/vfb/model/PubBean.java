@@ -112,7 +112,7 @@ public class PubBean {
 		}
 		if (id.contains("FlyBrain_NDB")){
 			String[] parts = id.split(":");
-			weblink = "https://flybrain-ndb.VirtualFlyBrain.org/neuronrec-" + parts[1] + ".html";
+			weblink = "http://flybrain-ndb.iam.u-tokyo.ac.jp/fmi/xsl/browserecord.xsl?-lay=NDB&Accession+number=" + parts[1] + "&-find=-find";
 			return weblink;
 		}
 		if (id.contains("http")){
