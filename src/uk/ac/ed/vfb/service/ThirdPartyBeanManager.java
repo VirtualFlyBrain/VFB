@@ -100,7 +100,7 @@ public class ThirdPartyBeanManager {
 					}
 				}
 			}else{
-				LOG.debug("Found no references for " + vfbId);
+				//LOG.debug("Found no references!");
 			}
 			//LOG.debug("Finished with source: " + source + " -> " + link);
 			ThirdPartyBean bean = new ThirdPartyBean(vfbId, fbbtId, subBean.getName(), source, link);
