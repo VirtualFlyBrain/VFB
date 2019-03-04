@@ -2179,7 +2179,7 @@ function addAvailableItems(ids) {
                     }
                 }
                 // Controls:
-                if (temp.extId[0]) {
+                if (temp.extId && temp.extId[0]) {
                     if (JSON.stringify(selected).indexOf(ids[i]) > 0){
                         controls = createControlsBarHTML(cleanIdforInt(ids[i]));
                     }else{
