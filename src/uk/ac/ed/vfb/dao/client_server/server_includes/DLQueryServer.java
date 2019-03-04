@@ -125,7 +125,7 @@ public class DLQueryServer {
 	/** Returns an OntBean given an Id - only works for classes*/
 	public OntBean getBeanForId(String fbbtId){
 		OntBean result = null;
-		if (fbbtId.contains("VFB")) {
+		if (OntBean.idAsOWL(fbbtId).contains("VFB_")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
 		}else{
 			fbbtId = OntBean.idAsOBO(fbbtId);
