@@ -112,44 +112,50 @@ public class AutocompleteDAO extends AQueryDAO {
 		if (this.synSet != null && this.synSet.size() >0 ) return;
 		// Generate list of all known OntBeans for the OWL_QUERY				
 		String query = TYPES.get(this.type);
-//		//LOG.debug("Type: "+ this.type + " Query: " + query);
-		Set<OntBean> results = obm.getBeanListForQuery(query);
-		// Feed a list of ids to the SQL runner and obtain a list of records 
-		List records = this.getByList(results);
-		synSet = new TreeSet<OntBean>();
-		// The list items are <LinkedHashMap>
-		Iterator<LinkedHashMap> it1 = records.iterator();
-		OntBean ob = null;
-		//Iterate through the list and create the set of OntBeans
-		int i = 0;
-		while (it1.hasNext()){
-			LinkedHashMap curr = (LinkedHashMap)it1.next();
-			String id = "FBbt:" + curr.get("accession");
-			ob = findBean(synSet, id);
-			// Create a new bean if null. set its name and add a synomym and add to the set
-			if (ob == null){
-				ob = new OntBean(id);
-				ob.setName(curr.get("name").toString());
-				ob.setSynonyms(new ArrayList());
-				Object syn = curr.get("synname");
-				if (syn != null ){
-					ob.getSynonyms().add(syn.toString());
+		//LOG.debug("Type: "+ this.type + " Query: " + query);
+		try{
+			Set<OntBean> results = obm.getBeanListForQuery(query);
+			// Feed a list of ids to the SQL runner and obtain a list of records 
+			List records = this.getByList(results);
+			synSet = new TreeSet<OntBean>();
+			// The list items are <LinkedHashMap>
+			Iterator<LinkedHashMap> it1 = records.iterator();
+			OntBean ob = null;
+			//Iterate through the list and create the set of OntBeans
+			int i = 0;
+			while (it1.hasNext()){
+				LinkedHashMap curr = (LinkedHashMap)it1.next();
+				String id = "FBbt:" + curr.get("accession");
+				ob = findBean(synSet, id);
+				// Create a new bean if null. set its name and add a synomym and add to the set
+				if (ob == null){
+					ob = new OntBean(id);
+					ob.setName(curr.get("name").toString());
+					ob.setSynonyms(new ArrayList());
+					Object syn = curr.get("synname");
+					if (syn != null ){
+						ob.getSynonyms().add(syn.toString());
+					}
+					synSet.add(ob);
 				}
-				synSet.add(ob);
-			}
-			// Simply add a synonym to the set
-			else{
-				try{
-					ob.getSynonyms().add(curr.get("synname").toString());
-				} catch (Exception ex) {
-					LOG.error("Exception finding synname for: " + id.toString() + " - " + ob.getName());
-					ex.printStackTrace();
+				// Simply add a synonym to the set
+				else{
+					try{
+						ob.getSynonyms().add(curr.get("synname").toString());
+					} catch (Exception ex) {
+						LOG.error("Exception finding synname for: " + id.toString() + " - " + ob.getName());
+						ex.printStackTrace();
+					}
 				}
 			}
+			//LOG.debug("createSynSet: " + synSet.size());
+			// Obtain a list of synonyms if needed (just an example here)
+			//		getSynList(synSet);
+
+		} catch (Exception ex) {
+			LOG.error("Exception getting bean list for query. Type: "+ this.type + " Query: " + query);
+			ex.printStackTrace();
 		}
-		//LOG.debug("createSynSet: " + synSet.size());
-		// Obtain a list of synonyms if needed (just an example here)
-		//		getSynList(synSet);
 	}
 
 	/**
