@@ -139,7 +139,12 @@ public class AutocompleteDAO extends AQueryDAO {
 			}
 			// Simply add a synonym to the set
 			else{
-				ob.getSynonyms().add(curr.get("synname").toString());
+				try{
+					ob.getSynonyms().add(curr.get("synname").toString());
+				} catch (Exception ex) {
+					LOG.error("Exception finding synname for: " + id.toString() + " - " + ob.getName());
+					ex.printStackTrace();
+				}
 			}
 		}
 		//LOG.debug("createSynSet: " + synSet.size());
