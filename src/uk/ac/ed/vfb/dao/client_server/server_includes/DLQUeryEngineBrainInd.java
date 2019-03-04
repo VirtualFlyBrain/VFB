@@ -49,7 +49,7 @@ public class DLQUeryEngineBrainInd extends ADLQueryEngine {
 					results.add(this.orp.getOntBeanForId(Instance));
 				} catch (Exception e) {
 					e.printStackTrace();
-					//LOG.debug("Instance: " + Instance + " results : " + results.size());
+					LOG.error("DLQUeryEngineBrainInd exception during getOntBeanForId for Instance: " + Instance + " results : " + results.size());
 				}
 			}
 		}
