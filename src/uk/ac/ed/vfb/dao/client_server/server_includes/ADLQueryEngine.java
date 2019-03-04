@@ -92,12 +92,12 @@ public abstract class ADLQueryEngine {
 	protected OntBean getOntBeanForId(String entityid) {
 		//LOG.debug("Cache " + this.ontBeans);
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
-		//LOG.debug("bean = " + result);
+		LOG.debug("bean = " + result);
 		if (result == null) {
-			//LOG.debug("Creating new bean");
+			LOG.debug("Creating new bean");
 			result = orp.getOntBeanForId(entityid);
 			this.ontBeans.put(result.getFbbtId(), result);
-			//LOG.debug("new bean:  " + result);
+			LOG.debug("new bean:  " + result);
 		}
 		return result;
 	}
