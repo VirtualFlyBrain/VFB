@@ -492,6 +492,7 @@ div.DTTT_container {
 .thumb_sm {
     max-width: 128px !important;
     max-height: 128px !important;
+    background: black !important;
 }
 
 /*compacted query menu*/
