@@ -35,7 +35,6 @@ public abstract class ADLQueryEngine {
 	protected ManchesterSyntaxTool parser;
 	protected OWLOntology ontology;
 	protected AOwlResultParser orp;
-	protected OwlResultParser vorp;
 	protected static final Log LOG = LogFactory.getLog(ADLQueryEngine.class);
 	/** beans cache */
 	private static HashMap<String, OntBean> ontBeans = new HashMap<String, OntBean>();
@@ -95,13 +94,8 @@ public abstract class ADLQueryEngine {
 		OntBean result = this.ontBeans.get(OntBean.idAsOBO(entityid));
 		LOG.debug("bean = " + result);
 		if (result == null) {
-			LOG.debug("Creating new bean for " + entityid);
+			LOG.debug("Creating new bean");
 			result = orp.getOntBeanForId(entityid);
-			if (result == null) {
-				LOG.debug("Creating new vfb bean for " + entityid);
-				result = vorp.getOntBeanForId(entityid);
-				LOG.debug("vfb new bean:  " + result);
-			}
 			this.ontBeans.put(result.getFbbtId(), result);
 			LOG.debug("new bean:  " + result);
 		}
