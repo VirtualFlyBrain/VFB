@@ -128,47 +128,45 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			try{
 				OWLIndividual indiv = (OWLIndividual)result;
 				Set<OWLClassExpression> types = indiv.getTypes(this.ontology);
-			}catch(Exception ex){
-				LOG.error("Error creating Individual:" + result.toString());
-				ex.printStackTrace();
+			
+				Integer relI = 0;
+				String currRel = "";
+				String relName = "";
+				OWLAnnotationProperty nameProperty = ogw.getAnnotationProperty("name");
+				for (OWLClassExpression classExp: types){
+					relI++;
+					if (classExp.isAnonymous()) {
+						//Anonymous class = relationship on individual
+						//LOG.debug("=========== rel props ==============" + ob.getRelationships());
+						Set<OWLObjectProperty> props = classExp.getObjectPropertiesInSignature();
+						int propI = 0;
+						for (OWLObjectProperty prop:props){
+							currRel = ogw.getAnnotationValue(prop, nameProperty);
+						}
+						Set<OWLClass> clas = classExp.getClassesInSignature();
+						OWLClass targetClass= null;
+						for (OWLClass currClass:clas){
+							//We assume there will only ever be 1(one) class in signature.
+							//This complies with VFB convention, not with OWL
+							targetClass = currClass;
+						}
+						//currRel = currRel + " " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, nameProperty);
+						//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
+						String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty), ogw.getIdentifier(targetClass)};
+						ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
+						//LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
+					}
+					else {
+						// Type = is_a for individuals
+						//LOG.debug("=========== types ==============" + ob.getTypes());
+						OWLClass clas = classExp.asOWLClass();
+						//LOG.debug("=========== type : "+ clas + ogw.getLabelOrDisplayId(clas));
+						ob.getTypes().put(ogw.getIdentifier(clas),ogw.getLabelOrDisplayId(clas));
+					}
+				}
 			}catch(ClassCastException ex){
 				LOG.error("Error casting to Individual:" + result.toString());
 				ex.printStackTrace();
-			}
-			Integer relI = 0;
-			String currRel = "";
-			String relName = "";
-			OWLAnnotationProperty nameProperty = ogw.getAnnotationProperty("name");
-			for (OWLClassExpression classExp: types){
-				relI++;
-				if (classExp.isAnonymous()) {
-					//Anonymous class = relationship on individual
-					//LOG.debug("=========== rel props ==============" + ob.getRelationships());
-					Set<OWLObjectProperty> props = classExp.getObjectPropertiesInSignature();
-					int propI = 0;
-					for (OWLObjectProperty prop:props){
-						currRel = ogw.getAnnotationValue(prop, nameProperty);
-					}
-					Set<OWLClass> clas = classExp.getClassesInSignature();
-					OWLClass targetClass= null;
-					for (OWLClass currClass:clas){
-						//We assume there will only ever be 1(one) class in signature.
-						//This complies with VFB convention, not with OWL
-						targetClass = currClass;
-					}
-					//currRel = currRel + " " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, nameProperty);
-					//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
-					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty), ogw.getIdentifier(targetClass)};
-					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
-					//LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
-				}
-				else {
-					// Type = is_a for individuals
-					//LOG.debug("=========== types ==============" + ob.getTypes());
-					OWLClass clas = classExp.asOWLClass();
-					//LOG.debug("=========== type : "+ clas + ogw.getLabelOrDisplayId(clas));
-					ob.getTypes().put(ogw.getIdentifier(clas),ogw.getLabelOrDisplayId(clas));
-				}
 			}
 		}
 		catch(NullPointerException ex) {
