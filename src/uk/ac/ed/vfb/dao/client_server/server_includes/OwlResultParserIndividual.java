@@ -36,7 +36,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 	public OntBean getOntBeanForEntity(OWLEntity entity){
 		OWLObject oo = (OWLObject)entity; //ogw.getOWLIndividualByIdentifier(id);
 		OntBean result = getOntBeanForClass(oo);
-		//LOG.debug("ID: " + result.getId() + " OO " + oo);
+		LOG.debug("ID: " + result.getId() + " OO " + oo);
 		return result;
 	}
 
@@ -56,22 +56,22 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			ob.setDef(ogw.getAnnotationValue(result, defPropery));
 			OWLAnnotationProperty commentPropery = ogw.getAnnotationProperty("comment");
 			ob.setComment(ogw.getAnnotationValue(result, commentPropery));
-			//LOG.debug(result + " : " + "\n" + fbbtId + " > " + ogw.getLabel(result) + "\ndef: " + ogw.getAnnotationValue(result, defPropery) + "\ncomment: " + ogw.getAnnotationValue(result, commentPropery));
+			LOG.debug(result + " : " + "\n" + fbbtId + " > " + ogw.getLabel(result) + "\ndef: " + ogw.getAnnotationValue(result, defPropery) + "\ncomment: " + ogw.getAnnotationValue(result, commentPropery));
 			//xrefs
 			List<String> xrefs = ogw.getXref(result);
-			//LOG.debug("=========== xrefs ==============");
+			LOG.debug("=========== xrefs ==============");
 			for (String xref:xrefs){
-				//LOG.debug("Xref: " + xref + "\n");
+				LOG.debug("Xref: " + xref + "\n");
 			}
 			List<String> axioms = ogw.getDefXref(result);
-			//LOG.debug("=========== xrefs ==============");
+			LOG.debug("=========== xrefs ==============");
 			for (String axiom:axioms){
-				//LOG.debug(axiom.toString() + "\n");
+				LOG.debug(axiom.toString() + "\n");
 			}
 			//ob.setRefs(axioms); //moved to post synonym processing
 			//synonyms
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
-			//LOG.debug("=========== synonyms ==============" + synonyms.size());
+			LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
 			Boolean refExists = false;
@@ -80,7 +80,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
-					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
+					LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
 					type = "";
 					refExists = false;
@@ -119,10 +119,10 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
-			//LOG.debug("======== extended xrefs =========" + axioms.size());
-			//for (String axiom:axioms){
-			//	//LOG.debug(axiom.toString() + "\n");
-			//}
+			LOG.debug("======== extended xrefs =========" + axioms.size());
+			for (String axiom:axioms){
+				LOG.debug(axiom.toString() + "\n");
+			}
 			ob.setRefs(axioms);
 			//classification
 			try{
@@ -137,7 +137,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 					relI++;
 					if (classExp.isAnonymous()) {
 						//Anonymous class = relationship on individual
-						//LOG.debug("=========== rel props ==============" + ob.getRelationships());
+						LOG.debug("=========== rel props ==============" + ob.getRelationships());
 						Set<OWLObjectProperty> props = classExp.getObjectPropertiesInSignature();
 						int propI = 0;
 						for (OWLObjectProperty prop:props){
@@ -154,13 +154,13 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 						//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
 						String[] vals = {currRel, ogw.getAnnotationValue(targetClass, nameProperty), ogw.getIdentifier(targetClass)};
 						ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
-						//LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
+						LOG.debug("=========== rel prop" + ogw.getIdentifier(targetClass) +  vals);
 					}
 					else {
 						// Type = is_a for individuals
-						//LOG.debug("=========== types ==============" + ob.getTypes());
+						LOG.debug("=========== types ==============" + ob.getTypes());
 						OWLClass clas = classExp.asOWLClass();
-						//LOG.debug("=========== type : "+ clas + ogw.getLabelOrDisplayId(clas));
+						LOG.debug("=========== type : "+ clas + ogw.getLabelOrDisplayId(clas));
 						ob.getTypes().put(ogw.getIdentifier(clas),ogw.getLabelOrDisplayId(clas));
 					}
 				}
@@ -173,7 +173,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			//shit happened, keep goin'
 			//ex.printStackTrace();
 		}
-		//LOG.debug("OB: " + ob + " types: " + ob.getTypes()) ;
+		LOG.debug("OB: " + ob + " types: " + ob.getTypes()) ;
 		return ob;
 	}
 
