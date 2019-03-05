@@ -125,8 +125,16 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 			//}
 			ob.setRefs(axioms);
 			//classification
-			OWLIndividual indiv = (OWLIndividual)result;
-			Set<OWLClassExpression> types = indiv.getTypes(this.ontology);
+			try{
+				OWLIndividual indiv = (OWLIndividual)result;
+				Set<OWLClassExpression> types = indiv.getTypes(this.ontology);
+			}catch(Exception ex){
+				LOG.error("Error creating Individual:" + result.toString());
+				ex.printStackTrace();
+			}catch(ClassCastException ex){
+				LOG.error("Error casting to Individual:" + result.toString());
+				ex.printStackTrace();
+			}
 			Integer relI = 0;
 			String currRel = "";
 			String relName = "";
