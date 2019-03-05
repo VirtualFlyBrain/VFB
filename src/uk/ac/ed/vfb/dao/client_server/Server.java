@@ -145,6 +145,7 @@ public class Server {
 					//it's a single  id query
 					this.results =  new TreeSet<OntBean>();
 					String fbbtId = oqq.getQueries().get(0);
+					LOG.debug("get bean for id: " + fbbtId);
 					OntBean ob = dlQueryServer.getBeanForId(fbbtId);
 					LOG.info("Returning single OntBean: " + ob);
 					this.results.add(ob);
