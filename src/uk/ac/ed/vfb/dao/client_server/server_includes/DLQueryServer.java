@@ -131,17 +131,17 @@ public class DLQueryServer {
 			fbbtId = OntBean.idAsOBO(fbbtId);
 		}
 		try {
-			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
+			LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
-			//LOG.debug("Found?: " + result);
+			LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
-			LOG.error(npx.getMessage());
+			LOG.debug(npx.getMessage());
 			fbbtId = OntBean.idAsOWL(fbbtId);
-			LOG.error("Trying to retrieve individual for id: " + fbbtId);
+			LOG.debug("Trying to retrieve individual for id: " + fbbtId);
 			try {
 				result = engineIndividual.getOntBeanForId(fbbtId);
-				LOG.error("Found?: " + result);
+				LOG.debug("Found?: " + result);
 			}catch(java.lang.NullPointerException ex){
 				LOG.error(ex.getMessage());
 				LOG.error("failed to find individual: " + fbbtId);
