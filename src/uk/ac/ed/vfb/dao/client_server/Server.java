@@ -141,6 +141,7 @@ public class Server {
 				//We assume that query should either start with one of OntQueryQueue.QUERY_TYPES or
 				// the query type will be missing - for the getBeanForId(id) queries
 				OntQueryQueue oqq = new OntQueryQueue(query);
+				LOG.debug("Returned: " + oqq.toString());
 				if (oqq.getQueryType() == null || oqq.getQueryType().equals("")){
 					//it's a single  id query
 					this.results =  new TreeSet<OntBean>();
@@ -170,7 +171,7 @@ public class Server {
       } finally {
 				try {
 					out.close();
-					//LOG.debug("Output stream closed.");
+					LOG.debug("Output stream closed.");
 				} catch (IOException ex) {
 					LOG.error("IOException closing OntServer request: " + results);
 					ex.printStackTrace();
