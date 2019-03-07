@@ -59,9 +59,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 			LOG.debug("NAME: " + ogw.getLabelOrDisplayId(result) + " ; " + ogw.getAnnotationValue(result, defPropery) + " :  "  + ogw.getAnnotationValue(result, commentPropery));
 			//xrefs
 			List<String> axioms = ogw.getDefXref(result);
-			LOG.debug("=========== xrefs ==============" + axioms.size());
+			//LOG.debug("=========== xrefs ==============" + axioms.size());
 			for (String axiom:axioms){
-				LOG.debug(axiom.toString() + "\n");
+				//LOG.debug(axiom.toString() + "\n");
 			}
 
 			//synonyms
@@ -154,7 +154,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 					Iterator<OWLClass> clasI = clas.iterator();
 					OWLClass oc = clasI.next();
 					currRel = ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, namePropery);
-					LOG.debug("CurrRel: " + currRel);
+					//LOG.debug("CurrRel: " + currRel);
 					ob.getIsa().put(ogw.getIdentifier(targetClass), ogw.getAnnotationValue(targetClass, namePropery));
 				}
 				else {
