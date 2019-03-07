@@ -48,7 +48,7 @@ public class DLQueryEngineBrain extends ADLQueryEngine{
 			}
 			//Iterates over the list and print the result.
 			for (String subClass : subClasses) {
-				LOG.debug("subclas: " + subClass + " results : " + results.size() + " orp : " + orp);
+				//LOG.debug("subclas: " + subClass + " results : " + results.size() + " orp : " + orp);
 				results.add(this.orp.getOntBeanForId(subClass));
 			}
 		}
