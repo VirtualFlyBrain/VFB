@@ -26,7 +26,8 @@ public class CharsetEncodingFilter implements Filter {
             LOG.debug("servletRepsonse Content Type: " + servletResponse.getContentType());
 	    LOG.debug("servletResponse CharEncoding: " + servletResponse.getCharacterEncoding());
             servletRequest.setCharacterEncoding("UTF-8");
-            servletResponse.setContentType("text/html;charset=UTF-8");
+	    servletResponse.setCharacterEncoding("UTF-8");
+	    servletResponse.setContentType("text/html;charset=UTF-8");
 	    LOG.debug("servletRequest Content Type: " + servletRequest.getContentType());
 	    LOG.debug("servletRequest CharEncoding: " + servletRequest.getCharacterEncoding());
             LOG.debug("servletRepsonse Content Type: " + servletResponse.getContentType());
