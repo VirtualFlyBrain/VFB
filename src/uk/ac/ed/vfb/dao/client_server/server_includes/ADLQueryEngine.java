@@ -45,9 +45,9 @@ public abstract class ADLQueryEngine {
 	}
 
 	public ADLQueryEngine(String ontologyURL) {
-		LOG.debug("Loading ontology for: " + this.getClass() + "...");
+		//LOG.debug("Loading ontology for: " + this.getClass() + "...");
 		try {
-			LOG.debug("Ontology: " + ontologyURL);
+			//LOG.debug("Ontology: " + ontologyURL);
 			this.man = OWLManager.createOWLOntologyManager();
 			this.ontology = this.man.loadOntologyFromOntologyDocument(new File(ontologyURL));
 		}
