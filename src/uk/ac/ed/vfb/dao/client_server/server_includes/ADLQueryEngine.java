@@ -72,7 +72,7 @@ public abstract class ADLQueryEngine {
 		OntBean currBean;
 		while (it.hasNext()){
 			currId = it.next();
-			LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
+			//LOG.debug("currId : " + currId + " equals? " + currId.toString().equals("owl:Nothing"));
 			// Skip if it's nothing
 			if (currId.toString().equals("owl:Nothing")) {continue;}
 			currBean = this.orp.getOntBeanForEntity(currId);
@@ -127,7 +127,7 @@ public abstract class ADLQueryEngine {
     protected void addIds(Set<? extends OWLEntity> entities, Set<OWLEntity> idSet) {
 		if (!entities.isEmpty()) {
 			for(OWLEntity entity : entities) {
-				LOG.debug("Entity : " + entity + "\n");
+				//LOG.debug("Entity : " + entity + "\n");
 				idSet.add(entity);
 			}
 		}
