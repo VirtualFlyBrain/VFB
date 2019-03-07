@@ -38,10 +38,10 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public List<PubBean> getByRefIds(List<String> ids) {
+		String combId = "";
+		List<PubBean> results = new ArrayList<PubBean>();
+		List<PubBean> otherRefs = new ArrayList<PubBean>();
 		try{
-			String combId = "";
-			List<PubBean> results = new ArrayList<PubBean>();
-			List<PubBean> otherRefs = new ArrayList<PubBean>();
 			for (String id:ids){
 				if (id.contains("FlyBase:FBrf")){
 					List<String> part = Arrays.asList(id.split(":"));
