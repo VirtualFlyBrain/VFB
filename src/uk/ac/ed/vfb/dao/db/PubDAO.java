@@ -38,27 +38,28 @@ public class PubDAO extends AQueryDAO {
 	}
 	
 	public List<PubBean> getByRefIds(List<String> ids) {
-		String combId = "";
-		List<PubBean> results = new ArrayList<PubBean>();
-		List<PubBean> otherRefs = new ArrayList<PubBean>();
-		for (String id:ids){
-			if (id.contains("FlyBase:FBrf")){
-				List<String> part = Arrays.asList(id.split(":"));
-				if (combId == ""){
-					combId = "'" + part.get(1) + "'";
+		try{
+			String combId = "";
+			List<PubBean> results = new ArrayList<PubBean>();
+			List<PubBean> otherRefs = new ArrayList<PubBean>();
+			for (String id:ids){
+				if (id.contains("FlyBase:FBrf")){
+					List<String> part = Arrays.asList(id.split(":"));
+					if (combId == ""){
+						combId = "'" + part.get(1) + "'";
+					}else{
+						combId = combId + " or uniquename like '" + part.get(1) + "'";
+					}
 				}else{
-					combId = combId + " or uniquename like '" + part.get(1) + "'";
+					otherRefs.add(new PubBean(id));
 				}
-			}else{
-				otherRefs.add(new PubBean(id));
 			}
-		}
-		if (combId != ""){
-			String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
-			//LOG.debug("MiniRef by FB ref query: " + query);
-			try {
-				results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
-			}
+			if (combId != ""){
+				String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
+				//LOG.debug("MiniRef by FB ref query: " + query);
+				try {
+					results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
+				}
 			catch (Exception ex) {
 				LOG.error("MiniRef by FB ref query: " + query);
 				LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
@@ -76,6 +77,10 @@ public class PubDAO extends AQueryDAO {
 		//LOG.debug("MiniRef query results: " + results);
 		if (results == null){
 			LOG.error("Error resolving ref: " + ids);
+		}
+		catch (Exception ex) {
+			LOG.error("No publication results for: " + ids);
+			ex.printStackTrace();
 		}
 		return results;
 	}
