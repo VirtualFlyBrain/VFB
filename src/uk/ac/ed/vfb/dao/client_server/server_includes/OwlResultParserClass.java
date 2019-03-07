@@ -32,10 +32,10 @@ public class OwlResultParserClass extends AOwlResultParser {
 	 * @return
 	 */
 	public OntBean getOntBeanForEntity(OWLEntity entity){
-		LOG.debug("Entity: " + entity);
+		//LOG.debug("Entity: " + entity);
 		OWLObject oo = (OWLObject)entity;
 		OntBean result = getOntBeanForClass(oo);
-		LOG.debug("ID: " + entity + " OO " + oo);
+		//LOG.debug("ID: " + entity + " OO " + oo);
 		return result;
 	}
 
@@ -56,7 +56,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			ob.setDef(ogw.getAnnotationValue(result, defPropery));
 			OWLAnnotationProperty commentPropery = ogw.getAnnotationProperty("comment");
 			ob.setComment(ogw.getAnnotationValue(result, commentPropery));
-			LOG.debug("NAME: " + ogw.getLabelOrDisplayId(result) + " ; " + ogw.getAnnotationValue(result, defPropery) + " :  "  + ogw.getAnnotationValue(result, commentPropery));
+			//LOG.debug("NAME: " + ogw.getLabelOrDisplayId(result) + " ; " + ogw.getAnnotationValue(result, defPropery) + " :  "  + ogw.getAnnotationValue(result, commentPropery));
 			//xrefs
 			List<String> axioms = ogw.getDefXref(result);
 			//LOG.debug("=========== xrefs ==============" + axioms.size());
@@ -67,7 +67,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			//synonyms
 			//ogw.getAnnotationValues(arg0, arg1)
 			List<ISynonym> synonyms = ogw.getOBOSynonyms(result);
-			LOG.debug("=========== synonyms ==============" + synonyms.size());
+			//LOG.debug("=========== synonyms ==============" + synonyms.size());
 			List<String> syns = new ArrayList<String>();
 			List<String> synXrefs = new ArrayList<String>();
 			Boolean refExists = false;
@@ -76,7 +76,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			String type = "";
 			if (synonyms != null && !synonyms.isEmpty()) {
 				for (ISynonym syn:synonyms){
-					LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
+					//LOG.debug(syn.getLabel() + "\nxrefs: " + (syn.getXrefs()!=null?Arrays.toString(syn.getXrefs().toArray()):""));
 					refIs = "";
 					type = "";
 					refExists = false;
@@ -115,22 +115,22 @@ public class OwlResultParserClass extends AOwlResultParser {
 			}
 			// removing duplicates and adding full ref list
 			axioms = new ArrayList<String>(new HashSet<String>(axioms));
-			LOG.debug("======== extended xrefs =========" + axioms.size());
+			//LOG.debug("======== extended xrefs =========" + axioms.size());
 			//for (String axiom:axioms){
 			//	//LOG.debug(axiom.toString() + "\n");
 			//}
 			ob.setRefs(axioms);
 			//relationships
 			Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
-			LOG.debug("=========== rels ==============" + rels.size());
+			//LOG.debug("=========== rels ==============" + rels.size());
 			int relI = 0;
 			String currRel = "";
 			String relName = "";
 			OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
 			for (OWLSubClassOfAxiom rel:rels){
 				relI++;
-				LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
-				LOG.debug("=========== rel props ==============");
+				//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
+				//LOG.debug("=========== rel props ==============");
 				Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
 				int propI = 0;
 				for (OWLObjectProperty prop:props){
@@ -140,7 +140,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 					//OWLObject result1 = this.ogw.getOWLObjectByIdentifier(prop.getNamedProperty());
 				}
 				Set<OWLClass> clas = rel.getClassesInSignature();
-				LOG.debug("=========== rel classes ==============" + clas.size());
+				//LOG.debug("=========== rel classes ==============" + clas.size());
 				// We assume the class that is not equal to result(current OWL object) is the relation's target class
 				OWLClass targetClass= null;
 				for (OWLClass currClass:clas){
@@ -158,9 +158,9 @@ public class OwlResultParserClass extends AOwlResultParser {
 					ob.getIsa().put(ogw.getIdentifier(targetClass), ogw.getAnnotationValue(targetClass, namePropery));
 				}
 				else {
-					LOG.debug("CurrRel: " + currRel);
+					//LOG.debug("CurrRel: " + currRel);
 					String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
-					LOG.debug("vals: " + Arrays.toString(vals));
+					//LOG.debug("vals: " + Arrays.toString(vals));
 					ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 				}
 			}
@@ -173,7 +173,7 @@ public class OwlResultParserClass extends AOwlResultParser {
 			e.printStackTrace();
 		}
 		//Set<OWLSubClassOfAxiom> axioms1 = this.ontology.getSubClassAxiomsForSuperClass((OWLClass)result);
-		LOG.debug(ob);
+		//LOG.debug(ob);
 		return ob;
 	}
 
