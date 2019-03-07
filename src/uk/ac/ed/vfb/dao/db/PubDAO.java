@@ -60,17 +60,17 @@ public class PubDAO extends AQueryDAO {
 				try {
 					results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 				}
-			catch (Exception ex) {
-				LOG.error("MiniRef by FB ref query: " + query);
-				LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+				catch (Exception ex) {
+					LOG.error("MiniRef by FB ref query: " + query);
+					LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+				}
 			}
-		}
-		try {
-			if (otherRefs.size() > 0){
-				results.addAll(otherRefs); 
+			try {
+				if (otherRefs.size() > 0){
+					results.addAll(otherRefs); 
+				}
 			}
-		}
-		catch (Exception ex) {
+		}catch (Exception ex) {
 			LOG.error("MiniRef by refs: " + ids);
 			LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
 		}
