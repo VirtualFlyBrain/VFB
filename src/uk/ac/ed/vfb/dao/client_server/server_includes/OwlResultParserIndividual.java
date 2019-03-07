@@ -168,8 +168,8 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 				LOG.debug("Error casting to Individual handling as Class:" + result.toString());
 				try{
 					//relationships
-					OWLClass result = (OWLClass) result;
-					Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
+					OWLClass resultClass = (OWLClass) result;
+					Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(resultClass);
 					//LOG.debug("=========== rels ==============" + rels.size());
 					int relI = 0;
 					String currRel = "";
@@ -192,7 +192,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 						// We assume the class that is not equal to result(current OWL object) is the relation's target class
 						OWLClass targetClass= null;
 						for (OWLClass currClass:clas){
-							if (!currClass.getIRI().equals(result.getIRI())) {
+							if (!currClass.getIRI().equals(resultClass.getIRI())) {
 								targetClass = currClass;
 							}
 						}
@@ -212,7 +212,7 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 							ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 						}
 					}
-				}catch(ClassCastException ex){
+				}catch(ClassCastException exc){
 					LOG.error("Error casting to Class: " + result.toString());
 				}
 			}
