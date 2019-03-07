@@ -69,16 +69,15 @@ public class PubDAO extends AQueryDAO {
 				if (otherRefs.size() > 0){
 					results.addAll(otherRefs); 
 				}
+			} catch (Exception ex) {
+				LOG.error("MiniRef by refs: " + ids);
+				LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
 			}
-		}catch (Exception ex) {
-			LOG.error("MiniRef by refs: " + ids);
-			LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
-		}
-		//LOG.debug("MiniRef query results: " + results);
-		if (results == null){
-			LOG.error("Error resolving ref: " + ids);
-		}
-		catch (Exception ex) {
+			//LOG.debug("MiniRef query results: " + results);
+			if (results == null){
+				LOG.error("Error resolving ref: " + ids);
+			}
+		} catch (Exception ex) {
 			LOG.error("No publication results for: " + ids);
 			ex.printStackTrace();
 		}
