@@ -33,7 +33,7 @@ public class CharsetEncodingFilter implements Filter {
 	    LOG.debug("servletResponse CharEncoding: " + servletResponse.getCharacterEncoding());
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception ex) {
-			LOG.error("Exception running CharsetEncodingFilter: " + servletRequest.getMethod() + " " + servletRequest.getRemoteHost());
+			LOG.error("Exception running CharsetEncodingFilter: " + servletRequest.getParameterMap().toString() + " " + servletRequest.getRemoteHost());
 		    ex.printStackTrace();
 		}
         
