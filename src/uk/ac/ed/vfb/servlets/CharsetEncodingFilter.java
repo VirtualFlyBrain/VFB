@@ -21,17 +21,9 @@ public class CharsetEncodingFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         
         try{
-	    LOG.debug("servletRequest Content Type: " + servletRequest.getContentType());
-	    LOG.debug("servletRequest CharEncoding: " + servletRequest.getCharacterEncoding());
-            LOG.debug("servletRepsonse Content Type: " + servletResponse.getContentType());
-	    LOG.debug("servletResponse CharEncoding: " + servletResponse.getCharacterEncoding());
             servletRequest.setCharacterEncoding("UTF-8");
-	    servletResponse.setCharacterEncoding("UTF-8");
-	    servletResponse.setContentType("text/html;charset=UTF-8");
-	    LOG.debug("servletRequest Content Type: " + servletRequest.getContentType());
-	    LOG.debug("servletRequest CharEncoding: " + servletRequest.getCharacterEncoding());
-            LOG.debug("servletRepsonse Content Type: " + servletResponse.getContentType());
-	    LOG.debug("servletResponse CharEncoding: " + servletResponse.getCharacterEncoding());
+	        servletResponse.setCharacterEncoding("UTF-8");
+	        servletResponse.setContentType("text/html;charset=UTF-8");      
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception ex) {
 			LOG.error("Exception running CharsetEncodingFilter: " + servletRequest.getParameterMap().toString() + " " + servletRequest.getRemoteHost());
