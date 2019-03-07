@@ -49,11 +49,11 @@ public class OntBeanManager extends APageable {
 	 * @return
 	 */
 	public Set<OntBean> getBeanListForQuery(String query){
-		//LOG.debug("OWL Query: " + query);
+		LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
-		//LOG.debug("REsultSEt: " + this.resultSet);
+		LOG.debug("REsultSEt: " + this.resultSet);
 		//Only use setThirdPartyBeans if tpbm is not null.
 		// Server-side instance will not have it
 		if (tpbm != null){
@@ -61,7 +61,7 @@ public class OntBeanManager extends APageable {
 		}
 		addBeansToHash(this.resultSet);
 		long endTime = System.currentTimeMillis();
-		//LOG.debug("Total time creating all the beans is : "+ (endTime-startTime) + " Bean count: " + resultSet.size());
+		LOG.debug("Total time creating all the beans is : "+ (endTime-startTime) + " Bean count: " + resultSet.size());
 		return resultSet;
 	}
 
