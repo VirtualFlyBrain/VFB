@@ -165,50 +165,55 @@ public class OwlResultParserIndividual extends AOwlResultParser {
 					}
 				}
 			}catch(ClassCastException ex){
-				LOG.error("Error casting to Individual handling as Class:" + result.toString());
-				//relationships
-				Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
-				//LOG.debug("=========== rels ==============" + rels.size());
-				int relI = 0;
-				String currRel = "";
-				String relName = "";
-				OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
-				for (OWLSubClassOfAxiom rel:rels){
-					relI++;
-					//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
-					//LOG.debug("=========== rel props ==============");
-					Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
-					int propI = 0;
-					for (OWLObjectProperty prop:props){
-						//LOG.debug("prop"+ propI++ + " : " + prop.toString() + " > " + ogw.getAnnotationValue(prop, namePropery) + " / " + ogw.getIdentifier(prop) + "\n ");
-						currRel = ogw.getAnnotationValue(prop, namePropery);
-						//LOG.debug("Relationship property: " + currRel);
-						//OWLObject result1 = this.ogw.getOWLObjectByIdentifier(prop.getNamedProperty());
-					}
-					Set<OWLClass> clas = rel.getClassesInSignature();
-					//LOG.debug("=========== rel classes ==============" + clas.size());
-					// We assume the class that is not equal to result(current OWL object) is the relation's target class
-					OWLClass targetClass= null;
-					for (OWLClass currClass:clas){
-						if (!currClass.getIRI().equals(result.getIRI())) {
-							targetClass = currClass;
+				LOG.debug("Error casting to Individual handling as Class:" + result.toString());
+				try{
+					//relationships
+					OWLClass result = (OWLClass) result;
+					Set<OWLSubClassOfAxiom> rels = this.ontology.getSubClassAxiomsForSubClass(result);
+					//LOG.debug("=========== rels ==============" + rels.size());
+					int relI = 0;
+					String currRel = "";
+					String relName = "";
+					OWLAnnotationProperty namePropery = ogw.getAnnotationProperty("name");
+					for (OWLSubClassOfAxiom rel:rels){
+						relI++;
+						//LOG.debug("rel" + relI + " : " + rel.toString() + " > " + "\n");
+						//LOG.debug("=========== rel props ==============");
+						Set<OWLObjectProperty> props = rel.getObjectPropertiesInSignature();
+						int propI = 0;
+						for (OWLObjectProperty prop:props){
+							//LOG.debug("prop"+ propI++ + " : " + prop.toString() + " > " + ogw.getAnnotationValue(prop, namePropery) + " / " + ogw.getIdentifier(prop) + "\n ");
+							currRel = ogw.getAnnotationValue(prop, namePropery);
+							//LOG.debug("Relationship property: " + currRel);
+							//OWLObject result1 = this.ogw.getOWLObjectByIdentifier(prop.getNamedProperty());
+						}
+						Set<OWLClass> clas = rel.getClassesInSignature();
+						//LOG.debug("=========== rel classes ==============" + clas.size());
+						// We assume the class that is not equal to result(current OWL object) is the relation's target class
+						OWLClass targetClass= null;
+						for (OWLClass currClass:clas){
+							if (!currClass.getIRI().equals(result.getIRI())) {
+								targetClass = currClass;
+							}
+						}
+						//String currRel1 = currRel + " @ " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, namePropery);
+						//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
+						if (props == null || props.size() == 0){
+							Iterator<OWLClass> clasI = clas.iterator();
+							OWLClass oc = clasI.next();
+							currRel = ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, namePropery);
+							//LOG.debug("CurrRel: " + currRel);
+							ob.getIsa().put(ogw.getIdentifier(targetClass), ogw.getAnnotationValue(targetClass, namePropery));
+						}
+						else {
+							//LOG.debug("CurrRel: " + currRel);
+							String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
+							//LOG.debug("vals: " + Arrays.toString(vals));
+							ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
 						}
 					}
-					//String currRel1 = currRel + " @ " + ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, namePropery);
-					//if props is empty that's a plain SubclassOf relation!!! "Parent classes"
-					if (props == null || props.size() == 0){
-						Iterator<OWLClass> clasI = clas.iterator();
-						OWLClass oc = clasI.next();
-						currRel = ogw.getIdentifier(targetClass) + " ! " + ogw.getAnnotationValue(targetClass, namePropery);
-						//LOG.debug("CurrRel: " + currRel);
-						ob.getIsa().put(ogw.getIdentifier(targetClass), ogw.getAnnotationValue(targetClass, namePropery));
-					}
-					else {
-						//LOG.debug("CurrRel: " + currRel);
-						String[] vals = {currRel, ogw.getAnnotationValue(targetClass, namePropery), ogw.getIdentifier(targetClass)};
-						//LOG.debug("vals: " + Arrays.toString(vals));
-						ob.getRelationships().put(("rel"+String.valueOf(relI)), vals);
-					}
+				}catch(ClassCastException ex){
+					LOG.error("Error casting to Class: " + result.toString());
 				}
 			}
 		}
