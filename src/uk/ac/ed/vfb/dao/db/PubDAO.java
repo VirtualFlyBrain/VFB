@@ -41,7 +41,7 @@ public class PubDAO extends AQueryDAO {
 		String combId = "";
 		List<PubBean> results = new ArrayList<PubBean>();
 		List<PubBean> otherRefs = new ArrayList<PubBean>();
-		try{
+		if (ids != null){
 			for (String id:ids){
 				if (id.contains("FlyBase:FBrf")){
 					List<String> part = Arrays.asList(id.split(":"));
@@ -77,9 +77,6 @@ public class PubDAO extends AQueryDAO {
 			if (results == null){
 				LOG.error("Error resolving ref: " + ids);
 			}
-		} catch (Exception ex) {
-			LOG.error("No publication results for: " + ids);
-			ex.printStackTrace();
 		}
 		return results;
 	}
