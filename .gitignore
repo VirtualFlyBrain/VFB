@@ -2,6 +2,9 @@ build/
 *.tar.gz
 revision
 branch
+flybase
+owldate
+owlIndRev
 google*.html
 *.wlz
 jdoc/

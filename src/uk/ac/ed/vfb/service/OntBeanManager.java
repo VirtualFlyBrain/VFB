@@ -51,7 +51,6 @@ public class OntBeanManager extends APageable {
 	public Set<OntBean> getBeanListForQuery(String query){
 		//LOG.debug("OWL Query: " + query);
 		long startTime = System.currentTimeMillis();
-		//LOG.debug("REsultSEt: " + this.resultSet);
 		this.resultSet.clear();
 		this.resultSet = (SortedSet<OntBean>) ontClient.askQuery(query);
 		//LOG.debug("REsultSEt: " + this.resultSet);
@@ -70,7 +69,7 @@ public class OntBeanManager extends APageable {
 	private void addBeansToHash(Set<OntBean> beans){
 		if (beans == null || beans.size() < 1)return;
 		for (OntBean bean:beans){
-			if (bean.getFbbtId().contains("VFB")) {
+			if (bean.getFbbtIdAsOWL().contains("VFB_")) {
 				ThirdPartyBean tpb = tpbm.getBeanForVfbId(bean.getFbbtIdAsOWL());
 				if (tpb==null){
 					tpb = tpbm.createThirdPartyBean(bean.getFbbtIdAsOWL());

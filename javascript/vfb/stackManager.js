@@ -716,13 +716,13 @@ function updateStackCounter() {
 function cleanIdforExt(id) {
     if (id) {
         id = id.replace(":", "_");
-        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
+        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB').replace('fb', 'FB');
         id = id.replace('VFBi_', 'VFB_');
         if (id.indexOf('VFBt_')>-1 && id.length == 8){
             id=id+'00000';    
         }
         id = id.replace('VFBt_00100000','VFB_00017894').replace('VFBt_00200000','VFB_00030786').replace('VFBt_00300000','VFB_00049000').replace('VFBt_00400000','VFB_00100000').replace('VFBt_00500000','VFB_00050000')
-        id = id.replace('VFBexp_FB','FB').replace('VFBexpFB','FB');
+        //id = id.replace('VFBexp_FB','FB').replace('VFBexpFB','FB');
         if (id.indexOf('fbbt') > -1) {
             id = id.substr(0, id.indexOf('fbbt'));
         }
@@ -734,7 +734,7 @@ function cleanIdforExt(id) {
 function cleanIdforInt(id) {
     if (id) {
         id = id.replace(":", "_");
-        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB');
+        id = id.toLowerCase().replace("vfb", "VFB").replace('fb', 'FB').replace('fb', 'FB');
         id = id.replace('VFB_00017894','VFBt_001').replace('VFB_00030786','VFBt_002').replace('VFB_00049000','VFBt_003').replace('VFB_00100000','VFBt_004').replace('VFB_00050000','VFBt_005')
         id = id.replace('VFB_', 'VFBi_');
         if (id.indexOf('VFBt_')>-1 && id.length == 8){
@@ -1468,7 +1468,7 @@ function openFullDetails(id) {
                     detailLoad = false;
                 }, 3000);
                 if (id.indexOf("VFBt_") < 0 && id.indexOf("VFBd_") < 0) {
-                    if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1) {
+                    if (id.indexOf("FBbt_") > -1 || id.indexOf("VFB_") > -1 || id.indexOf("VFBex") > -1) {
                         if (id.indexOf("_a") > -1) {
                             window.open('http://vfbaligner.inf.ed.ac.uk/admin/images/alignment/' + String(parseInt(id.replace('VFB_a', ''))) + '/', '_blank');
                             //window.setTimeout(function(){try {history.pushState( {}, 'VirtualFlyBrain - ' + cleanIdforExt(id), returnCurrentUrl() + '&id=' + cleanIdforExt(id) );}catch (ignore){}}, 500);
@@ -1601,8 +1601,10 @@ function addToStackData(ids, showDetails) {
                             }
                             parent.$("body").data("disp", "scale");
                             updateStackData();
-                            loadReferenceMeta(id);
-                            $('#searchtext').blur();
+                            if (typeof loadReferenceMeta !== "undefined"){
+                                loadReferenceMeta(id);
+                                $('#searchtext').blur();
+                            }
                             //try {history.pushState( {}, parent.$("body").data("meta").name, '/site/stacks/index.htm?add='+id );}catch (ignore){}
                             //  if (window.location.pathname == "/site/stacks/index.htm"){
                             //    location.href=location.href.replace(location.hash,"").replace('#','');
@@ -2051,7 +2053,7 @@ function initialiseSearchResults() {
     var val = '';
     console.log('Initialising search...');
     try {
-        $.getJSON('/solr/ontology/select?hl=true&fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(vfb)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=250&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=*' + val + '*&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function (data) {
+        $.getJSON('/solr/ontology/select?hl=true&fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(vfb)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB*%20OR%20shortform_autosuggest:FBbt_*&rows=250&hl.simple.pre=<b>&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=*' + val + '*&defType=edismax&hl.simple.post:</b>&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&hl.fl=label_autosuggest&hl.fl=label&hl.fl=synonym_autosuggest&hl.fl=synonym&wt=json&indent=true', function (data) {
             var resl = "";
             var top;
             var i;
@@ -4690,7 +4692,7 @@ function updateSearchResults() {
         if (val.length > 0) {
             console.log('Searching for ' + val + '...');
             lastkey = Date.now();
-            $.getJSON('/solr/ontology/select?fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(vfb)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB_*%20OR%20shortform_autosuggest:FBbt_*&rows=250&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=*' + val.split(' ').join('?') + '*%20OR%20' + val + '&defType=edismax&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&wt=json&indent=true', function (data) {
+            $.getJSON('/solr/ontology/select?fl=short_form,label,synonym,id,type,has_narrow_synonym_annotation,has_broad_synonym_annotation&start=0&fq=ontology_name:(vfb)&fq=is_obsolete:false&fq=shortform_autosuggest:VFB*%20OR%20shortform_autosuggest:FBbt_*&rows=250&bq=is_defining_ontology:true^100.0%20label_s:"' + val + '"^2%20synonym_s:"' + val + '"%20in_subset_annotation:BRAINNAME^3%20short_form:FBbt_00003982^2&q=*' + val.split(' ').join('?') + '*%20OR%20' + val + '&defType=edismax&qf=label%20synonym%20label_autosuggest_ws%20label_autosuggest_e%20label_autosuggest%20synonym_autosuggest_ws%20synonym_autosuggest_e%20synonym_autosuggest%20shortform_autosuggest%20has_narrow_synonym_annotation%20has_broad_synonym_annotation&wt=json&indent=true', function (data) {
                 var resl = "";
                 var top;
                 var i;

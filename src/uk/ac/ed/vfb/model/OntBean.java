@@ -183,7 +183,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 		if (fbbtId.contains("_")){
 			return fbbtId.substring(fbbtId.indexOf("_")+1);
 		}
-		return fbbtId.substring(5);
+		return fbbtId.substring(fbbtId.indexOf(":")+1);
 	}
 
 	@Override

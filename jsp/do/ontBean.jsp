@@ -45,6 +45,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 		<jsp:param name="name" value="${ontBean.name}"/>
 	</jsp:include>
 </c:if></c:if>
+<c:if test="${fn:contains(ontBean.fbbtId,'VFBexp')}"><c:set var="termMenu" value="termMenuVFBexp.jsp"/></c:if>
 
 <c:if test="${beanType=='ont'}">
 	<jsp:include page="/jsp/includes/bits/${termMenu}">
@@ -189,7 +190,7 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 				</p>
 			</c:if>
 
-			<c:if test="${beanType=='ont'}">
+			<c:if test="${beanType=='ont' && !fn:contains(ontBean.fbbtId,'VFBex')}">
 				<c:if test="${!isNeuron && !isClone}"><c:set var="isNeuropil" value="true"/><p>
 					<br />
 					<b>Images: </b><br />
@@ -202,10 +203,33 @@ pageContext.setAttribute("aclClone", acdao.getSynSet());
 					<b>External Links: </b><br />
 					<br />
 					<a href="http://flybase.org/reports/${ontBean.fbbtId}" target="_blank" title="See in FlyBase" ><img alt="See in FlyBase" src="/images/vfb/project/logos/flybase.gif" height="50px" /></a> &nbsp; &nbsp;
-					<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_blank" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp;
+<!-- 					<a href="http://neurolex.org/wiki/${fn:replace(ontBean.fbbtId, ':', '_')}" target="_blank" title="View/edit in NeuroLex Wiki" ><img alt="View/edit in NeuroLex Wiki" src="/images/vfb/project/logos/neurolex_logo.png" height="50px" /></a>  &nbsp; &nbsp; -->
 					<c:forEach items="${refs}" var="curr" varStatus="status"><c:if test="${fn:contains(curr, 'FlyBrain_NDB')}">
 							<a href="${curr.webLink}" target="_blank" title="${curr.miniref}" ><img alt="See in FlyBrain Neuron Database" src="/images/vfb/project/logos/NDB_logo.gif" height="50px" /></a>  &nbsp; &nbsp;
 						</c:if></c:forEach>
+				</p>
+			</c:if>
+			
+			<c:if test="${fn:contains(ontBean.fbbtId,'VFBexp')}">
+				<p>
+					<br/>
+					<b>Images: </b>
+					<br/>
+					<jsp:include page="/do/individual_film_strip.html">
+						<jsp:param name="action" value="exemplar_neuron" />
+						<jsp:param name="id" value="${ontBean.fbbtId}" />
+					</jsp:include>
+				</p>
+			</c:if>
+			<c:if test="${fn:contains(ontBean.fbbtId,'VFBext')}">
+				<p>
+					<br/>
+					<b>Images: </b>
+					<br/>
+					<jsp:include page="/do/individual_film_strip.html">
+						<jsp:param name="action" value="exemplar_neuron" />
+						<jsp:param name="id" value="${ontBean.fbbtId}" />
+					</jsp:include>
 				</p>
 			</c:if>
 		</div>
