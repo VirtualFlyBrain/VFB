@@ -41,7 +41,7 @@ public class OntBeanController implements Controller {
 		}else{
 			id = OntBean.idAsOBO(req.getParameter("fbId"));
 		}
-		if (id.contains("VFB_")){
+		if (id.contains("VFB")){
 			id = OntBean.idAsOWL(id);
 			ob = (OntBeanIndividual)this.obm.getBeanForId(id);
 			if (ob == null){
