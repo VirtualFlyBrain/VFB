@@ -137,6 +137,7 @@ public class DLQueryServer {
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());
+			fbbtId = OntBean.idAsOWL(fbbtId);
 			LOG.error("Trying to retrieve individual for id: " + fbbtId);
 			try {
 				result = engineIndividual.getOntBeanForId(fbbtId);

@@ -22,10 +22,11 @@ public class CharsetEncodingFilter implements Filter {
         
         try{
             servletRequest.setCharacterEncoding("UTF-8");
-            servletResponse.setContentType("text/html;charset=UTF-8");      
+	        servletResponse.setCharacterEncoding("UTF-8");
+	        servletResponse.setContentType("text/html;charset=UTF-8");      
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception ex) {
-			LOG.error("Exception running CharsetEncodingFilter: request:" + servletRequest.toString() + " response:" + servletResponse.toString());
+			LOG.error("Exception running CharsetEncodingFilter: " + servletRequest.getParameterMap().toString() + " " + servletRequest.getRemoteHost());
 		    ex.printStackTrace();
 		}
         
