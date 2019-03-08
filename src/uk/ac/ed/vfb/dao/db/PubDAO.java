@@ -41,41 +41,42 @@ public class PubDAO extends AQueryDAO {
 		String combId = "";
 		List<PubBean> results = new ArrayList<PubBean>();
 		List<PubBean> otherRefs = new ArrayList<PubBean>();
-		for (String id:ids){
-			if (id.contains("FlyBase:FBrf")){
-				List<String> part = Arrays.asList(id.split(":"));
-				if (combId == ""){
-					combId = "'" + part.get(1) + "'";
+		if (ids != null){
+			for (String id:ids){
+				if (id.contains("FlyBase:FBrf")){
+					List<String> part = Arrays.asList(id.split(":"));
+					if (combId == ""){
+						combId = "'" + part.get(1) + "'";
+					}else{
+						combId = combId + " or uniquename like '" + part.get(1) + "'";
+					}
 				}else{
-					combId = combId + " or uniquename like '" + part.get(1) + "'";
+					otherRefs.add(new PubBean(id));
 				}
-			}else{
-				otherRefs.add(new PubBean(id));
 			}
-		}
-		if (combId != ""){
-			String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
-			//LOG.debug("MiniRef by FB ref query: " + query);
+			if (combId != ""){
+				String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
+				//LOG.debug("MiniRef by FB ref query: " + query);
+				try {
+					results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
+				}
+				catch (Exception ex) {
+					LOG.error("MiniRef by FB ref query: " + query);
+					LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+				}
+			}
 			try {
-				results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
+				if (otherRefs.size() > 0){
+					results.addAll(otherRefs); 
+				}
+			} catch (Exception ex) {
+				LOG.error("MiniRef by refs: " + ids);
+				LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
 			}
-			catch (Exception ex) {
-				LOG.error("MiniRef by FB ref query: " + query);
-				LOG.error("Error getting minirefs from DB: " + ex.getLocalizedMessage());
+			//LOG.debug("MiniRef query results: " + results);
+			if (results == null){
+				LOG.error("Error resolving ref: " + ids);
 			}
-		}
-		try {
-			if (otherRefs.size() > 0){
-				results.addAll(otherRefs); 
-			}
-		}
-		catch (Exception ex) {
-			LOG.error("MiniRef by refs: " + ids);
-			LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
-		}
-		//LOG.debug("MiniRef query results: " + results);
-		if (results == null){
-			LOG.error("Error resolving ref: " + ids);
 		}
 		return results;
 	}

@@ -2,9 +2,14 @@ build/
 *.tar.gz
 revision
 branch
+flybase
+owldate
+owlIndRev
 google*.html
 *.wlz
 jdoc/
 robots.txt
 resources/catalog-v001.xml
 .idea
+javascript/.DS_Store
+.DS_Store
