@@ -161,7 +161,7 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public static String correctIdFormat(String fbbtId) {
-		if (fbbtId.contains("VFB")) {
+		if (OntBean.idAsOWL(fbbtId).contains("VFB")) {
 			fbbtId = OntBean.idAsOWL(fbbtId);
 		}else{
 			fbbtId = OntBean.idAsOBO(fbbtId);
@@ -177,10 +177,13 @@ public class OntBean implements Comparable<Object>, Serializable{
 	 *  Returns numerical Id of the ontBean
 	 */
 	public String getId() {
-		if (fbbtId.contains("VFB")){
-			return fbbtId.substring(4);
+		if (fbbtId.contains("VFBext")){
+			return correctIdFormat(fbbtId);	
 		}
-		return fbbtId.substring(5);
+		if (fbbtId.contains("_")){
+			return fbbtId.substring(fbbtId.indexOf("_")+1);
+		}
+		return fbbtId.substring(fbbtId.indexOf(":")+1);
 	}
 
 	@Override
