@@ -58,6 +58,7 @@ public class ProcessRunner extends Thread {
 	}
 
 	@SuppressWarnings("deprecation")
+	@Override
 	public void destroy() {
 		//LOG.debug("Killing current process and closing the thread down");
 		Utils.runCommand(ProcessRunner.KILL_COMMAND + this.PID);
