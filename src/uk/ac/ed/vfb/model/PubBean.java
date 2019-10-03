@@ -110,6 +110,10 @@ public class PubBean {
 			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "");
 			return weblink;
 		}
+		if (id.contains("FlyBase:")){
+			weblink = "http://flybase.org/reports/" + id.replace("FlyBase:", "");
+			return weblink;
+		}
 		if (id.contains("FlyBrain_NDB")){
 			String[] parts = id.split(":");
 			weblink = "https://flybrain-ndb.VirtualFlyBrain.org/neuronrec-" + parts[1] + ".html";
