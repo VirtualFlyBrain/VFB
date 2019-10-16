@@ -30,7 +30,7 @@ until [ `cat ../../logs/ontServer.log | grep "Wainting for a connection" | wc -l
 done
 let MAX_WAIT=(24-MAX_WAIT)*5
 echo Ontology server restart took ${MAX_WAIT} Seconds
-service tomcat restart
+sudo /bin/systemctl restart tomcat
 else
   echo "Must be run from specific server script"
 fi
