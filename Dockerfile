@@ -10,3 +10,8 @@ RUN git clone -b $branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/t
 RUN cd /usr/local/tomcat/webapps/vfb && \
 deploy/Deploy-docker-server.sh
 
+COPY docker/startup.sh /startup.sh
+
+RUN chmod +x /startup.sh
+
+ENTRYPOINT ["/startup.sh"]
