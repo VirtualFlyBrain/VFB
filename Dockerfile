@@ -1,9 +1,9 @@
-FROM tomcat:7
+FROM tomcat:7-jdk
 
 ENV branch=docker-server
 ENV flybase=latest
 
-RUN apt-get -y update -q && apt-get -y -q install git ant nano daemonize pigz openjdk-8-jdk
+RUN apt-get -y update -q && apt-get -y -q install git ant nano daemonize pigz 
 
 RUN git clone -b $branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
