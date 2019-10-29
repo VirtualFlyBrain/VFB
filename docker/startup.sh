@@ -10,7 +10,7 @@ chmod -R 777 /usr/local/tomcat/webapps/vfb/logs/ontServer.log
 
 cd /usr/local/tomcat/webapps/vfb/
 deploy/Deploy-$branch.sh
-deploy/deploy/start-docker-server-Ont-Server.sh
+deploy/start-docker-server-Ont-Server.sh
 
 tail -F /usr/local/tomcat/logs/catalina.out &
 tail -F /usr/local/tomcat/webapps/vfb/logs/ontServer.log
