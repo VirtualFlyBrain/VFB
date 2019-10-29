@@ -13,7 +13,7 @@ deploy/Deploy-$branch.sh
 deploy/start-docker-server-Ont-Server.sh
 
 #tail -F /usr/local/tomcat/logs/catalina.out &
-tail -F /usr/local/tomcat/webapps/vfb/logs/ontServer.log
+tail -F /usr/local/tomcat/webapps/vfb/logs/ontServer.log &
 
 
 #sed -i 's|<Connector port="8009"|<Connector port="80" maxHttpHeaderSize="8192" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" proxyName="vfb" proxyPort="80" enableLookups="false" redirectPort="8443" acceptCount="100" connectionTimeout="20000" disableUploadTimeout="true" useURIValidationHack="false" />\n<Connector port="8009"|g' server.xml
