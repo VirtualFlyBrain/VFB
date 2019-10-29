@@ -1,4 +1,4 @@
-FROM tomcat:7-jdk
+FROM tomcat:7-jdk8-openjdk
 
 ENV branch=docker-server
 ENV flybase=latest
