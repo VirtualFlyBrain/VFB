@@ -16,6 +16,8 @@ deploy/Deploy-docker-server.sh
 
 COPY docker/startup.sh /startup.sh
 
+COPY docker/server.xml /usr/local/tomcat/conf/server.xml
+
 RUN chmod +x /startup.sh
 
 ENTRYPOINT ["/startup.sh"]
