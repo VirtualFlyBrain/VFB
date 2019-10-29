@@ -4,7 +4,7 @@
 cd /usr/local/tomcat/webapps
 
 echo 'Starting Server...' >> /usr/local/tomcat/webapps/VFB/logs/ontServer.log
-chmod -R 777 /usr/local/tomcat/webapps/VFB/logs/ontServer.log
+chmod -R 777 /usr/local/tomcat/webapps/vfb/logs/ontServer.log
 
 
 
