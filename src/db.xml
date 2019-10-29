@@ -10,7 +10,7 @@
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://database/flybase?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="url" value="jdbc:postgresql://VirtualFlyBrain.org:5432/flybase?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="flybase" />
 		<property name="password" value="virtualflybrain" />
 	</bean>
@@ -18,7 +18,7 @@
 	<bean id="vfbDataSource" destroy-method="close"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://database/vfb?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="url" value="jdbc:postgresql://VirtualFlyBrain.org:5432/vfb?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="flybase" />
 		<property name="password" value="virtualflybrain" />
 	</bean>
