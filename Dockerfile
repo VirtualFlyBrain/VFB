@@ -1,12 +1,12 @@
-FROM devbeta/tomcat6:6.0.45-jdk7-1.7.0_79
+FROM tomcat:9-jre8
 
-ENV branch=Main-Server
+ENV branch=docker-server
 ENV flybase=latest
 
-RUN yum -y update -q -e 0 && yum -y -q -e 0 install git ant nano daemonize pigz
+RUN apt-get -y update -q && apt-get -y -q install git ant nano daemonize pigz openjdk-8-jre.headless
 
-COPY docker/startup.sh /startup.sh
+RUN git clone -b $branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
-RUN chmod +x /startup.sh
+RUN cd /usr/local/tomcat/webapps/vfb && \
+deploy/Deploy-docker-server.sh
 
-ENTRYPOINT ["/startup.sh"]
