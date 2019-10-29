@@ -7,6 +7,8 @@ RUN apt-get -y update -q && apt-get -y -q install git ant nano daemonize pigz
 
 RUN git clone -b $branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
+RUN mkdir -p /disk/data/tomcat/fly/webapps/vfb/logs/
+
 RUN cd /usr/local/tomcat/webapps/vfb && \
 deploy/Deploy-docker-server.sh
 
