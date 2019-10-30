@@ -11,12 +11,30 @@ script:
 - export VFB_REPO=$(echo ${TRAVIS_REPO_SLUG##*/} | awk '{gsub(/\-/,"_",$0);gsub(/\./,"_",$0);print toupper($0)}')
 - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
 - export TAG=`if [ "$TRAVIS_BRANCH" == "docker-server" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+- export CONTAINER_NAME=DockerTest
 - echo -e "travis_fold:end:Geppetto-Config"
 - echo -e "travis_fold:start:Docker-Build"
-- docker build -t $REPO:$TAG .
+- docker build -e BRANCH=$TRAVIS_BRANCH -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
-
+- echo -e "travis_fold:start:Docker-Run"
+- travis_retry docker run  -t -dit --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
+- echo -e "travis_fold:end:Docker-Run"
+- echo -e "travis_fold:start:Test"
+- sleep 60
+- http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'})
+- echo "$http_status"
+- while [ "$http_status" == "404" ]; do
+    docker logs $CONTAINER_NAME
+    sleep 60;
+    http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'});
+    echo "Done restarting $http_status";
+    done;
+- docker stop $(docker ps -a -q)
+- docker rm $(docker ps -a -q)
+- echo -e "travis_fold:end:Test"
 after_success:
 - cd $TRAVIS_BUILD_DIR
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - docker push $REPO:$TAG
+- docker tag $REPO:$TAG $REPO:${TRAVIS_COMMIT::8}
+- docker push $REPO:${TRAVIS_COMMIT::8}
