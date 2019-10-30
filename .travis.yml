@@ -31,7 +31,7 @@ script:
     sleep 60;
     http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'});
     echo "$http_status";
-    if [ $ERROR -gt 5 ]; then travis_terminate 1; fi;
+    if [ $ERROR -gt 5 ]; then travis_terminate 1; break; fi;
     done;
 - docker stop $(docker ps -a -q)
 - docker rm $(docker ps -a -q)
