@@ -8,16 +8,17 @@ env:
 
 script:
 - echo -e "travis_fold:start:Geppetto-Config"
+- export LANDING_PAGE=http://localhost:8080/vfb/
 - export VFB_REPO=$(echo ${TRAVIS_REPO_SLUG##*/} | awk '{gsub(/\-/,"_",$0);gsub(/\./,"_",$0);print toupper($0)}')
 - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
 - export TAG=`if [ "$TRAVIS_BRANCH" == "docker-server" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 - export CONTAINER_NAME=DockerTest
 - echo -e "travis_fold:end:Geppetto-Config"
 - echo -e "travis_fold:start:Docker-Build"
-- docker build -e branch=$TRAVIS_BRANCH -t $REPO:$TAG .
+- docker build --build-arg branch=$TRAVIS_BRANCH -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
 - echo -e "travis_fold:start:Docker-Run"
-- travis_retry docker run  -t -dit --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
+- travis_wait 200 docker run -dit --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
 - echo -e "travis_fold:end:Docker-Run"
 - echo -e "travis_fold:start:Test"
 - sleep 60
