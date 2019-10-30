@@ -12,13 +12,12 @@ script:
 - export VFB_REPO=$(echo ${TRAVIS_REPO_SLUG##*/} | awk '{gsub(/\-/,"_",$0);gsub(/\./,"_",$0);print toupper($0)}')
 - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
 - export TAG=`if [ "$TRAVIS_BRANCH" == "docker-server" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-- export CONTAINER_NAME=DockerTest
 - echo -e "travis_fold:end:Geppetto-Config"
 - echo -e "travis_fold:start:Docker-Build"
 - docker build --build-arg branch=$TRAVIS_BRANCH -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
 - echo -e "travis_fold:start:Docker-Run"
-- docker run -d --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
+- docker run -d --name=DockerTest -p 8080:8080 $REPO:$TAG || travis_terminate 1
 - echo -e "travis_fold:end:Docker-Run"
 - echo -e "travis_fold:start:Test"
 - sleep 60
@@ -28,7 +27,7 @@ script:
 - while [ "$http_status" == "404" ]; do
     ERROR=$((ERROR+1))
     echo "waitng $ERROR minutes..."
-    docker logs $CONTAINER_NAME
+    docker logs DockerTest
     sleep 60;
     http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'});
     echo "$http_status";
