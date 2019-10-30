@@ -18,7 +18,7 @@ script:
 - docker build --build-arg branch=$TRAVIS_BRANCH -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
 - echo -e "travis_fold:start:Docker-Run"
-- travis_wait 200 docker run -dit --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
+- docker run -d --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
 - echo -e "travis_fold:end:Docker-Run"
 - echo -e "travis_fold:start:Test"
 - sleep 60
