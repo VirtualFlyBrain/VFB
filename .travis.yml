@@ -14,7 +14,7 @@ script:
 - export CONTAINER_NAME=DockerTest
 - echo -e "travis_fold:end:Geppetto-Config"
 - echo -e "travis_fold:start:Docker-Build"
-- docker build -e BRANCH=$TRAVIS_BRANCH -t $REPO:$TAG .
+- docker build -e branch=$TRAVIS_BRANCH -t $REPO:$TAG .
 - echo -e "travis_fold:end:Docker-Build"
 - echo -e "travis_fold:start:Docker-Run"
 - travis_retry docker run  -t -dit --name=$CONTAINER_NAME -p 8080:8080 $REPO:$TAG || travis_terminate 1
