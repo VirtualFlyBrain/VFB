@@ -94,7 +94,7 @@
 
 
     <Connector port="80" maxHttpHeaderSize="8192"
-              maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+              maxThreads="150" minSpareThreads="25"
               proxyName="www.virtualflybrain.org" proxyPort="80"
               enableLookups="false" redirectPort="8443" acceptCount="100"
               connectionTimeout="20000" disableUploadTimeout="true"
@@ -147,8 +147,8 @@
 
       </Host>
       
-      <Host name="www.virtualflybrain.org" debug="1" appBase="webapps"
-           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
+      <Host name="www.virtualflybrain.org" appBase="webapps"
+           autoDeploy="false" deployOnStartup="false">
            <Context path="" reloadable="true"
                docBase="/usr/local/tomcat/webapps/vfb/">
            </Context>
