@@ -15,7 +15,7 @@ COPY docker/server.xml /usr/local/tomcat/conf/server.xml
 
 RUN chmod +x /startup.sh
 
-RUN git clone -b $branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
+RUN git clone -b $branch --single-branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
 RUN cd /usr/local/tomcat/webapps/vfb && \
 deploy/Deploy-docker-server.sh
