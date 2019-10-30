@@ -25,9 +25,9 @@ script:
 - echo "$http_status"
 - export ERROR=0
 - while [ "$http_status" == "404" ]; do
-    ERROR=$((ERROR+1))
-    echo "waitng $ERROR minutes..."
-    docker logs DockerTest
+    ERROR=$((ERROR+1));
+    echo "waitng $ERROR minutes...";
+    docker logs DockerTest;
     sleep 60;
     http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'});
     echo "$http_status";
