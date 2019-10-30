@@ -24,11 +24,13 @@ script:
 - sleep 60
 - http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'})
 - echo "$http_status"
+- export ERROR=0
 - while [ "$http_status" == "404" ]; do
+    ERROR=$((ERROR+1))
     docker logs $CONTAINER_NAME
     sleep 60;
     http_status=$(curl -s -I $1 $LANDING_PAGE | grep HTTP/1.1 | awk {'print $2'});
-    echo "Done restarting $http_status";
+    if [ $ERROR -gt 5 ]; then travis_terminate 1; fi;
     done;
 - docker stop $(docker ps -a -q)
 - docker rm $(docker ps -a -q)
