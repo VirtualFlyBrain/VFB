@@ -95,7 +95,6 @@
 
     <Connector port="80" maxHttpHeaderSize="8192"
               maxThreads="150" minSpareThreads="25"
-              proxyName="www.virtualflybrain.org" proxyPort="80"
               enableLookups="false" redirectPort="8443" acceptCount="100"
               connectionTimeout="20000" disableUploadTimeout="true"
               useURIValidationHack="false" />
