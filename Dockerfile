@@ -1,7 +1,7 @@
 FROM tomcat:7-jdk8-openjdk
 
-ENV branch=docker-server
-ENV flybase=latest
+ARG branch=docker-server
+ARG flybase=latest
 
 RUN apt-get -y update -q && apt-get -y -q install git ant nano daemonize pigz 
 
