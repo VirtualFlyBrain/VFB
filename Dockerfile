@@ -20,7 +20,7 @@ ln -s vfb ROOT
 RUN git clone -b $branch --single-branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
 RUN mv -v /usr/local/tomcat/webapps/vfb/docker/*.xml /usr/local/tomcat/conf/
-RUN mv -v /usr/local/tomcat/webapps/vfb/docker/*.properties /usr/local/tomcat/conf/
+RUN mv -v /usr/local/tomcat/webapps/vfb/docker/*.p* /usr/local/tomcat/conf/
 
 RUN cd /usr/local/tomcat/webapps/vfb && \
 deploy/Deploy-docker-server.sh
