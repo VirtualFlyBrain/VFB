@@ -85,7 +85,7 @@ public class UploadStackController implements Controller {
 			//running stack generation in background
 			String command = Utils.SCRIPT_DIR + "lsm/processLsm.bsh " + lsmFile.getName() + " &";
 			Utils.runCommand(command);
-			LOG.debug(">>>>>>>>>>>>>>>>> "+ result);
+			LOG.debug(command);
 			//assign stckBean attributes
 			stackBean.setStackName(stackName);
 			stackBean.setSize(imageDataLength);

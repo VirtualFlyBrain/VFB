@@ -37,7 +37,7 @@ public class StackDetailEditController extends SimpleFormController {
 		hasAutorityToDelete = (stackBean.getUserName().equals(UserManager.getCurrentUserName()));
 		if (!hasAutorityToDelete) {
 			throw new UserPermissionsException(stackBean.getStackName());
-		}		
+		}
 //		LOG.debug("Current bean : " + stackBean.getStackName() + stackBean.getStackId());
 		return stackBean;
 	}

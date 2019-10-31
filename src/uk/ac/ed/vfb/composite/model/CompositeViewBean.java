@@ -11,7 +11,7 @@ import uk.ac.ed.vfb.annotation.web.Utils;
 import uk.ac.ed.vfb.model.ThirdPartyBean;
 
 /**
- * POJO class for composite view. 
+ * POJO class for composite view.
  */
 
 public class CompositeViewBean implements Serializable {
@@ -28,13 +28,13 @@ public class CompositeViewBean implements Serializable {
 	public static String IMMUTABLE_ERROR_MSG = "You can not modify a composite once the permalink to it has been generated";
 	public static String STACK_EXISTS_ERROR_MSG = "This stack has already been added. You can not add a stack to a composite more than once";
 	/** Read template File into resource bundle */
-	private static ResourceBundle bundle = ResourceBundle.getBundle("meta_template"); 
+	private static ResourceBundle bundle = ResourceBundle.getBundle("meta_template");
 	private static String JSON_BODY=readProperty("json_body");
 	private static String LAYER_BODY=readProperty("layer_body");
 	/** Whether the value/composition was changed since last write */
 	private boolean modified = false;
 	private boolean isImmutable = false;
-	
+
 	private static final Log LOG = LogFactory.getLog(CompositeViewBean.class);
 
 	private static String readProperty(String propName){
@@ -47,7 +47,7 @@ public class CompositeViewBean implements Serializable {
 		uuid = new Timestamp(date.getTime()).toString().replace(" ", "_").replace(":", ".");
 		this.stacks = new TreeSet<ThirdPartyBean>();
 	}
-	
+
 	public CompositeViewBean(CompositeViewBean cvb){
 		super();
 		this.uuid = cvb.uuid;
@@ -73,7 +73,7 @@ public class CompositeViewBean implements Serializable {
 	}
 
 	public String removeStack(ThirdPartyBean stack) {
-		// only works for mutable composites 
+		// only works for mutable composites
 		LOG.debug("Deleting stack : " + stack + " immutable? " + isImmutable + " stacks: " + this.stacks);
 		if (isImmutable) return IMMUTABLE_ERROR_MSG;
 		else {
@@ -98,7 +98,7 @@ public class CompositeViewBean implements Serializable {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	
+
 	/**
 	 * A composite becomes immutable after retrieving a permalink.
 	 * @param isImmutable
@@ -106,7 +106,7 @@ public class CompositeViewBean implements Serializable {
 	public void setImmutable(boolean isImmutable) {
 		this.isImmutable = isImmutable;
 	}
-	
+
 	public boolean isImmutable() {
 		return isImmutable;
 	}
@@ -142,7 +142,7 @@ public class CompositeViewBean implements Serializable {
 		ind = json.indexOf("LAYER_DATA");
 		json.replace(ind, ind + 10, layers.substring(0, layers.length()-3) + "\n");
 		//this.json = json.replace("LAYER_DATA", layers.toString());
-		layers = null; 
+		layers = null;
 		layerNames = null;
 		LOG.debug("\n" + json);
 		return json.toString();
@@ -166,9 +166,6 @@ public class CompositeViewBean implements Serializable {
 		LOG.debug(command);
 		Utils.runCommand(command.split(" "));
 		LOG.debug("files copied!!");
-		//let disk operation fininsh
-		//this.wait(500);
-		LOG.debug(output);
 		String jsoFile = dir + Utils.getProp("STACK_META_URL");
 		LOG.debug("saving to json file: " + jsoFile);
 		try {
@@ -184,7 +181,7 @@ public class CompositeViewBean implements Serializable {
 		}
 		return url;
 	}
-	
+
 	/**
 	 * Saves the composite stack to a disk file to be edited/viewed at a later stage.
 	 * @return String url - a string representation of the stack URL
@@ -206,7 +203,7 @@ public class CompositeViewBean implements Serializable {
 		LOG.debug("serializing as jObj file: " + jObjFile);
 		try {
 			FileOutputStream fout = new FileOutputStream(jObjFile);
-			ObjectOutputStream oos = new ObjectOutputStream(fout);   
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(this);
 			oos.close();
 		}
@@ -256,11 +253,11 @@ public class CompositeViewBean implements Serializable {
 		newBean.isImmutable = true;
 		return newBean;
 	}
-	
+
 	public CompositeViewBean startNewComposite(){
-		return new CompositeViewBean();		
+		return new CompositeViewBean();
 	}
-	
+
 	public String toString(){
 		String result = "";
 		for (ThirdPartyBean stack:stacks){
@@ -268,5 +265,5 @@ public class CompositeViewBean implements Serializable {
 		}
 		return result;
 	}
-	
+
 }
