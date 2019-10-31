@@ -8,7 +8,7 @@ env:
 
 script:
 - echo -e "travis_fold:start:Geppetto-Config"
-- export LANDING_PAGE=http://localhost:8080/
+- export LANDING_PAGE=http://localhost:80/
 - export VFB_REPO=$(echo ${TRAVIS_REPO_SLUG##*/} | awk '{gsub(/\-/,"_",$0);gsub(/\./,"_",$0);print toupper($0)}')
 - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
 - export TAG=`if [ "$TRAVIS_BRANCH" == "docker-server" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
