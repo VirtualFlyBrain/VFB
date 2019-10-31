@@ -16,6 +16,10 @@ COPY docker/tomcat-users.xml /usr/local/tomcat/conf/
 
 RUN chmod +x /startup.sh
 
+RUN cd /usr/local/tomcat/webapps/ && \
+rm -r ROOT && \
+ln -s vfb ROOT
+
 RUN git clone -b $branch --single-branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
 RUN cd /usr/local/tomcat/webapps/vfb && \
