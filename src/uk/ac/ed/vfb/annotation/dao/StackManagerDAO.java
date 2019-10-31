@@ -24,11 +24,11 @@ public class StackManagerDAO extends AQueryDAO{
 	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query 
 	 */
 	public StackBean getStack(String stackId) throws IndexOutOfBoundsException {
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching a stack : " + stackId);		
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching a stack : " + stackId);		
 		String query = this.getQueryForName("stackForId").replace("XXX", stackId);
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
 		List <StackBean> list = this.jdbcTemplate.query(query, new Object[] {}, (RowMapper)new StackBeanQueryResultSetExtractor());
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> GOT BEAN : " + list.get(0).getStackId());
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> GOT BEAN : " + list.get(0).getStackId());
 		return list.get(0);
 	}
 
@@ -36,9 +36,9 @@ public class StackManagerDAO extends AQueryDAO{
 	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query 
 	 */
 	public List<StackBean> getStacksAll() {
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching list of all stack : ");		
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching list of all stack : ");		
 		String query = this.getQueryForName("stacksAll");
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
 		List<StackBean> results = this.jdbcTemplate.query(query, new Object[] {}, (RowMapper)new StackBeanQueryResultSetExtractor());
 		return results;
 	}
@@ -51,7 +51,7 @@ public class StackManagerDAO extends AQueryDAO{
 	 */
 	public String saveStack(StackBean stackBean) {
 		String result = StackBeanManager.OK;
-		//LOG.debug(" Saving a stackBean : " + stackBean);
+		LOG.debug(" Saving a stackBean : " + stackBean);
 		String query = "start transaction";
 		try {
 			this.jdbcTemplate.execute(query);
@@ -59,20 +59,20 @@ public class StackManagerDAO extends AQueryDAO{
 			try {
 				sb = this.getStack(stackBean.getStackId());
 				// If the stack already exists - saving revised stack
-				//LOG.debug("The stack HAS BEEN found, updating...");
+				LOG.debug("The stack HAS BEEN found, updating...");
 				//result = StackBeanManager.EXISTS_STACK;
 				query = this.getQueryForName("updateStack");	
-				//LOG.debug("SQL : " + query);					
+				LOG.debug("SQL : " + query);					
 				this.jdbcTemplate.update(query, new Object[] {stackBean.getStackName(), stackBean.getSize(), stackBean.getUserName(), stackBean.getGeneId(), 
 						stackBean.getGeneName(), stackBean.getStackURL(), stackBean.getThirdPartyURL(), stackBean.getDescription(), stackBean.getStackId()});
 			}
 			// If the stack is not be found (new stack) - exception is thrown instead 
 			catch (IndexOutOfBoundsException ex){
 				// If the user record does not already exists - create a new stack
-				//LOG.debug("The stack not found, creating new one...");
+				LOG.debug("The stack not found, creating new one...");
 				//result = StackBeanManager.NEW_STACK;
 				query = this.getQueryForName("insertIntoStack");	
-				//LOG.debug("SQL : " + query);					
+				LOG.debug("SQL : " + query);					
 				this.jdbcTemplate.update(query, new Object[] {stackBean.getStackId(), stackBean.getStackName(), stackBean.getUserName(), 
 						stackBean.getGeneName(), stackBean.getGeneId(), stackBean.getStackURL(), 
 						stackBean.getDescription(), stackBean.getSize(), stackBean.getThirdPartyURL()});
@@ -92,17 +92,17 @@ public class StackManagerDAO extends AQueryDAO{
 
 	public String deleteStack(String stackId) {
 		String result = StackBeanManager.OK;
-		//LOG.debug("Deleting a stack : " + stackId);
+		LOG.debug("Deleting a stack : " + stackId);
 		String query = "start transaction";
 		try {
 			this.jdbcTemplate.execute(query);
 			StackBean sb = null;
 			sb = this.getStack(stackId);
 			// If the stack already exists - saving revised stack
-			//LOG.debug("The stack HAS BEEN found, deleting...");
+			LOG.debug("The stack HAS BEEN found, deleting...");
 			//result = StackBeanManager.EXISTS_STACK;
 			query = this.getQueryForName("deleteStack").replace("XXX", stackId);	
-			//LOG.debug("SQL : " + query);					
+			LOG.debug("SQL : " + query);					
 			this.jdbcTemplate.execute(query);
 		}
 		// If the stack is not be found (new stack) - exception is thrown instead 

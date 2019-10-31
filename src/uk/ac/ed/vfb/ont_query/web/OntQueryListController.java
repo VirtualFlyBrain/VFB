@@ -28,12 +28,12 @@ public class OntQueryListController extends AbstractController{
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + ontQuery + " > " + params);
+		LOG.debug(">>> Manager: " + ontQuery + " > " + params);
 		String[] ids = req.getParameterValues("id");
 		String[] rels = req.getParameterValues("rel");
 		String[] types = req.getParameterValues("type");
-//		//LOG.debug(">>> ids: " + ids[0] + "," + ids[1]);
-//		//LOG.debug(">>> types: " + types[0] + "," + types[1]);
+//		LOG.debug(">>> ids: " + ids[0] + "," + ids[1]);
+//		LOG.debug(">>> types: " + types[0] + "," + types[1]);
 		//Retrofitted adding terms as url parameters - done for running queries on
 		//home page
 		if (ids!= null && ids.length ==2 && rels!=null && rels.length ==2 && types!= null && types.length ==2){
@@ -44,7 +44,7 @@ public class OntQueryListController extends AbstractController{
 				if (!ontQuery.addArgument(arg)){
 					//Skip adding - already exists
 				}
-				//LOG.debug("Arguments: " + ontQuery.getArguments());
+				LOG.debug("Arguments: " + ontQuery.getArguments());
 			}
 		}
 		String action = req.getParameter("action");

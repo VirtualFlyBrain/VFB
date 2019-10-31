@@ -96,15 +96,15 @@ public class OntBean implements Comparable<Object>, Serializable{
 	}
 
 	public Hashtable<String, String[]> getRelationships() {
-		//LOG.debug("Id:" + fbbtId);
-		//LOG.debug("Relationships:" + relationships);
+		LOG.debug("Id:" + fbbtId);
+		LOG.debug("Relationships:" + relationships);
 		return relationships;
 	}
 
 	public void setRelationships(Hashtable<String, String[]> relationships) {
 		this.relationships = relationships;
-		//LOG.debug("Id:" + fbbtId);
-		//LOG.debug("Relationships:" + relationships);
+		LOG.debug("Id:" + fbbtId);
+		LOG.debug("Relationships:" + relationships);
 	}
 
 	public HashMap<String, String> getIsa() {

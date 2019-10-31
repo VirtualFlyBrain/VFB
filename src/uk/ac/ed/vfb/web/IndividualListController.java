@@ -31,7 +31,7 @@ public class IndividualListController extends AbstractController{
 	public synchronized ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/individualList");
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + obm + " > " + params);
+		LOG.debug(">>> Manager: " + obm + " > " + params);
 		String id = OntBean.idAsOBO(req.getParameter("id"));
 		// Since the second query is fired off with a neuron id, we need to capture the id of
 		// the original region (clicked neuropil)
@@ -65,7 +65,7 @@ public class IndividualListController extends AbstractController{
 			conVFB.setAutoCommit(true);
 			PreparedStatement pstmtVFB =
 					conVFB.prepareStatement("SELECT vfbid, fbid, driver_name FROM third_party_flybase_lookup order by (vfbid)");
-			//LOG.debug("conVFB " + conVFB);
+			LOG.debug("conVFB " + conVFB);
 			ResultSet rs1 = pstmtVFB.executeQuery();
 			IndividualListController.drivers = new HashMap<String, String[]>();
 			String nueronId, fbId, driver;
@@ -73,14 +73,14 @@ public class IndividualListController extends AbstractController{
 				nueronId = rs1.getString("vfbid");
 				fbId = rs1.getString("fbid");
 				driver = rs1.getString("driver_name");
-				//LOG.debug(nueronId + "  ;" + fbId + " ;" + driver);
+				LOG.debug(nueronId + "  ;" + fbId + " ;" + driver);
 				String[] driverDetails = {fbId, driver};
 				drivers.put(nueronId, driverDetails);
 			}
 			conVFB.close();
 		}
 		modelAndView.addObject("drivers", drivers);
-		//LOG.debug("Drivers size: " + drivers.size());
+		LOG.debug("Drivers size: " + drivers.size());
 		return modelAndView;
 	}
 

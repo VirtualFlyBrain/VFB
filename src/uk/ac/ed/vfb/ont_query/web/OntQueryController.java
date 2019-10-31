@@ -45,7 +45,7 @@ public class OntQueryController extends SimpleFormController {
 		String rel = req.getParameter("rel");
 		String fbId = req.getParameter("fbId");
 		String index = req.getParameter("index");
-		//LOG.debug("FBId: " + fbId + " action: " + action + " rel: " + rel);
+		LOG.debug("FBId: " + fbId + " action: " + action + " rel: " + rel);
 		String errorMsg = "";
 		int indexI = -1;
 		try {

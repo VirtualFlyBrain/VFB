@@ -22,7 +22,7 @@ public class PubDAO extends AQueryDAO {
 	 */
 	public List<PubBean> getById(String id) {
 		String query = this.getQueryForName("pubminiref").replace("XXX", id);
-		//LOG.debug("MiniRef query: " + query);
+		LOG.debug("MiniRef query: " + query);
 		List<PubBean> results = null;
 		try {
 			results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
@@ -30,7 +30,7 @@ public class PubDAO extends AQueryDAO {
 		catch (Exception ex) {
 			LOG.error("Error!!!!" + ex.getLocalizedMessage());
 		}
-		//LOG.debug("MiniRef query results: " + results);
+		LOG.debug("MiniRef query results: " + results);
 		if (results == null){
 			LOG.error("Error resolving ref: " + id);
 		}
@@ -56,7 +56,7 @@ public class PubDAO extends AQueryDAO {
 			}
 			if (combId != ""){
 				String query = this.getQueryForName("pubminirefbyref").replace("XXX", combId);
-				//LOG.debug("MiniRef by FB ref query: " + query);
+				LOG.debug("MiniRef by FB ref query: " + query);
 				try {
 					results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new PubQueryResultSetExtractor()); 
 				}
@@ -73,7 +73,7 @@ public class PubDAO extends AQueryDAO {
 				LOG.error("MiniRef by refs: " + ids);
 				LOG.error("Error adding other refs: " + ex.getLocalizedMessage());
 			}
-			//LOG.debug("MiniRef query results: " + results);
+			LOG.debug("MiniRef query results: " + results);
 			if (results == null){
 				LOG.error("Error resolving ref: " + ids);
 			}

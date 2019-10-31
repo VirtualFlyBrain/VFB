@@ -37,7 +37,7 @@ public class WoolzRegisterController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		ModelAndView modelAndView = new ModelAndView("do/annotation/warpToWoolz");
 		boolean reverse = (req.getParameter("reverse")!=null && req.getParameter("reverse").equals("on"));
-		//LOG.debug("......................>>>>> WoolzRegisterController " + req.getParameter("rotationvalue")+ "reverse? " + reverse);
+		LOG.debug("......................>>>>> WoolzRegisterController " + req.getParameter("rotationvalue")+ "reverse? " + reverse);
 		if(null != req.getParameter("rotationvalue")) {
 			String[] params = req.getParameter("rotationvalue").split(";");
 //			String xformText = WoolzRegisterController.XFORM_TEXT;
@@ -60,7 +60,7 @@ public class WoolzRegisterController implements Controller {
 //					fxp = params[i].substring(params[i].indexOf("=")+2,params[i].length()-1);
 //				}
 			}
-//			//LOG.debug("FXP: " + fxp);
+//			LOG.debug("FXP: " + fxp);
 //			
 //			xformText = xformText.replace("ROTATE", rol+" "+pit+" "+yaw);
 //			xformText = xformText.replace("SCALE", "1 1 1");
@@ -69,13 +69,13 @@ public class WoolzRegisterController implements Controller {
 //			String[] center = fxp.split(",");
 //			String centerVal = center[0].substring(4) + " " + center[1].substring(4) + " " + center[2].substring(4);
 //			xformText = xformText.replace("CENTER", centerVal);
-//			//LOG.debug("xformText: " + xformText);
+//			LOG.debug("xformText: " + xformText);
 
 			// Saving the xform file
-//			//LOG.debug("stackBean " + stackBean  + " : " + stackBean.getStackName());
+//			LOG.debug("stackBean " + stackBean  + " : " + stackBean.getStackName());
 //			//Default path for xform file
 //			String fileName = Utils.STACKS_DIR + stackBean.getStackURL() + Utils.getProp("USER_STACKS_XFORM_FILENAME");
-//			//LOG.debug("Filename: " + fileName);
+//			LOG.debug("Filename: " + fileName);
 //			FileOutputStream fileOut = new FileOutputStream(fileName);
 //			fileOut.write(xformText.getBytes());
 //			fileOut.flush();

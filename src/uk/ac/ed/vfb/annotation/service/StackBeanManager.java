@@ -42,7 +42,7 @@ public class StackBeanManager extends APageable{
 	public StackBean getStackBean(String stackId) {
 		try{
 			stackBean = dao.getStack(stackId);
-			//LOG.debug("Stack found: " + stackBean);
+			LOG.debug("Stack found: " + stackBean);
 		}
 		catch(IndexOutOfBoundsException ex){
 			//The stack does not exist - create a brand-new one
@@ -99,7 +99,7 @@ public class StackBeanManager extends APageable{
 		StackBean sb = stackBean;
 		String woolzFilename = Utils.getStackPath(regName, sb);
 		File file = new File(woolzFilename);
-		//LOG.debug("Filename: " + woolzFilename + " File exists: " + file.exists());
+		LOG.debug("Filename: " + woolzFilename + " File exists: " + file.exists());
 		result = file.exists();
 		return result;
 	}

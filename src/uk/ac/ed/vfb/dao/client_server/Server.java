@@ -43,7 +43,7 @@ public class Server {
 	 * Default constructor
 	 */
 	public Server() {
-		//LOG.debug("Creating a server: " + this);
+		LOG.debug("Creating a server: " + this);
 		this.init();
 	}
 
@@ -63,7 +63,7 @@ public class Server {
 //				} catch (InterruptedException e) {
 //					e.printStackTrace();
 //				}
-				//LOG.debug("Got a connection");
+				LOG.debug("Got a connection");
 			}
 		}
 		catch (IOException ex) {
@@ -110,7 +110,7 @@ public class Server {
 		 */
 		public ClientHandler(ServerSocket serverSocket) throws IOException {
 			this.clientSocket = serverSocket.accept();
-			//LOG.debug("Client socket : " + clientSocket.getInetAddress() + " host: " + clientSocket.getInetAddress().getCanonicalHostName());
+			LOG.debug("Client socket : " + clientSocket.getInetAddress() + " host: " + clientSocket.getInetAddress().getCanonicalHostName());
 			if (!clientSocket.getInetAddress().getCanonicalHostName().equals(Server.host)){
 				clientSocket.close();
 			}
@@ -170,7 +170,7 @@ public class Server {
       } finally {
 				try {
 					out.close();
-					//LOG.debug("Output stream closed.");
+					LOG.debug("Output stream closed.");
 				} catch (IOException ex) {
 					LOG.error("IOException closing OntServer request: " + results);
 					ex.printStackTrace();

@@ -36,11 +36,11 @@ public class StackDetailController extends SimpleFormController {
 
 	public ModelAndView onSubmit(Object stackBean,  BindException errors) throws ServletException {
 		ModelAndView mav = new ModelAndView(new RedirectView(getSuccessView()));	
-		//LOG.debug("Current bean : " + ((StackBean)stackBean).getStackName());
+		LOG.debug("Current bean : " + ((StackBean)stackBean).getStackName());
 		String result = sbm.saveStack((StackBean)stackBean);
-		//LOG.debug("SaveStack done!" + result);
+		LOG.debug("SaveStack done!" + result);
 		if (!result.equals(StackBeanManager.OK)){
-			//LOG.debug("Raising error!!!! : " + result);
+			LOG.debug("Raising error!!!! : " + result);
 			mav = new ModelAndView(getFormView(), errors.getModel());
 			errors.rejectValue("stackName", "unidentifiedError");
 		}

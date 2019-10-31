@@ -153,7 +153,7 @@ public class WebQueryUtils {
 	 * @return
 	 */
 	public static String getInterfaceString(String action){
-		//LOG.debug(action);
+		LOG.debug(action);
 		String result = actionDefs.get(action)[0];
 		return result;
 	}

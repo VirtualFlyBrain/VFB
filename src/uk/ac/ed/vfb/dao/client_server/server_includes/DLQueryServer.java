@@ -49,9 +49,9 @@ public class DLQueryServer {
 				// change "/classes" to "/build" to run locally (in eclipse)
 				url1 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + bundle.getString("resource_path") + bundle.getString("ont_file_owl");
 				url2 = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + bundle.getString("resource_path") + bundle.getString("ont_file_owl_individuals");
-				//LOG.debug("Creating Brain Class reasoner....");
+				LOG.debug("Creating Brain Class reasoner....");
 				engineBrain = new DLQueryEngineBrain(url1);
-				//LOG.debug("Creating Brain Ind reasoner....");
+				LOG.debug("Creating Brain Ind reasoner....");
 	    	engineIndividual = new DLQUeryEngineBrainInd(url2);
 			}catch (Exception ex) {
 				LOG.error("Error creating resoners");
@@ -72,7 +72,7 @@ public class DLQueryServer {
 	public Set<OntBean> askQuery(String query) {
 		Set<OntBean> result = new TreeSet<OntBean>();
 		String resultStr = "Nohting";
-		//LOG.debug("Asking Query: "+ query);
+		LOG.debug("Asking Query: "+ query);
 		OntQueryQueue oqq = new OntQueryQueue();
 		try{
 			oqq.parseQuery(query);
@@ -95,7 +95,7 @@ public class DLQueryServer {
 			//Brain
 			queryEngine = engineBrain;
 		}
-		//LOG.debug("running: " + queryEngine);
+		LOG.debug("running: " + queryEngine);
 		Set<OntBean> entities = queryEngine.askQuery(oqq);
 		if (entities != null && !resultStr.isEmpty()){
 			result =  entities;
@@ -131,9 +131,9 @@ public class DLQueryServer {
 			fbbtId = OntBean.idAsOBO(fbbtId);
 		}
 		try {
-			//LOG.debug("Trying to retrrieve class for id: " + fbbtId);
+			LOG.debug("Trying to retrrieve class for id: " + fbbtId);
 			result = engineBrain.getOntBeanForId(fbbtId);
-			//LOG.debug("Found?: " + result);
+			LOG.debug("Found?: " + result);
 		}
 		catch(java.lang.NullPointerException npx){
 			LOG.error(npx.getMessage());

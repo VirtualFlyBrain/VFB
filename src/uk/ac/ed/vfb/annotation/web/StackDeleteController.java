@@ -30,7 +30,7 @@ public class StackDeleteController implements Controller{
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + sbm + " > " + params);
+		LOG.debug(">>> Manager: " + sbm + " > " + params);
 		String stackId = req.getParameter("stackId");
 		StackBean stackBean = sbm.getStackBean(stackId);
 		//@TODO: check user name 

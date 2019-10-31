@@ -79,7 +79,7 @@ public class StackRegistrationBean extends Thread{
 		//Old way to run it, kill it
 		//currCommand = Utils.SCRIPT_DIR + "runTimedProcess.bsh_" + currCommand + "_" + (KILL_PROCESS_AFTER/1000-10);
 		currCommand = Utils.SCRIPT_DIR + currCommand;
-		//LOG.debug("Command: " + currCommand);
+		LOG.debug("Command: " + currCommand);
 		pr = new ProcessRunner(currCommand);
 		pr.start();
 		this.start();
@@ -93,9 +93,9 @@ public class StackRegistrationBean extends Thread{
 		while (true && !Thread.currentThread().isInterrupted()) {
 			try {
 				Thread.sleep(CHECK_EVERY); 
-				//LOG.debug("===== Checking registration process for : " + this.stackBean.getStackName());
+				LOG.debug("===== Checking registration process for : " + this.stackBean.getStackName());
 				boolean isProcessFinished = StackBeanManager.isWoolzReady(regType, this.stackBean);
-				//LOG.debug("Is wlz stack ready? " + isProcessFinished);
+				LOG.debug("Is wlz stack ready? " + isProcessFinished);
 				if (isProcessFinished) {
 					String stackName = this.stackBean.getStackName();
 					String stackUrl = "http://" + Utils.getProp("server_name") + VIEW_STACK_URL.replace("XXX", stackName);
@@ -107,7 +107,7 @@ public class StackRegistrationBean extends Thread{
 					processingCycles = processingCycles + (float)1/JOBS_RUNNING;
 					// We consider the computation time is up when processingCredits=StackRegistrationBean.TOTAL_PROCESSING_CREDITS
 					boolean isTimeUp = processingCycles >= StackRegistrationBean.TOTAL_PROCESSING_CYCLES;
-					//LOG.debug("Run through " + (++cycles) + " iterations. Used up " + df.format(processingCycles) + " processing cycles so far. Is game over? " + isTimeUp);
+					LOG.debug("Run through " + (++cycles) + " iterations. Used up " + df.format(processingCycles) + " processing cycles so far. Is game over? " + isTimeUp);
 					if ( isTimeUp ){
 						sendEmail(StackRegistrationBean.SUBJECT_FAIL, StackRegistrationBean.BODY_FAIL);
 						stopProcessing();
@@ -116,7 +116,7 @@ public class StackRegistrationBean extends Thread{
 			} catch (InterruptedException ex) {
 				Thread.currentThread().interrupt(); // very important
 				this.finalize();
-				//LOG.debug("Shutting down thread");
+				LOG.debug("Shutting down thread");
 				break;
 			}
 		}
@@ -125,20 +125,20 @@ public class StackRegistrationBean extends Thread{
 	private void sendEmail(String subj, String body){
 		//Sending notification email
 		String toEmail = userBean.getEmail();  
-		//LOG.debug("User email: " + toEmail);
+		LOG.debug("User email: " + toEmail);
 		body = body.replace("XXSTACKXX", stackBean.getStackName());
 		SimpleMailSender.send(toEmail, subj, body);
 	}
 
 	private void stopProcessing(){
-		//LOG.debug("Killing ProcessRunner");
+		LOG.debug("Killing ProcessRunner");
 		//prosess has run wild - kill it!
 		pr.interrupt();
 		pr = null;
-		//LOG.debug("PR is dead!!!... Now... Seppuku!!!");
+		LOG.debug("PR is dead!!!... Now... Seppuku!!!");
 		StackRegistrationBean.JOBS_RUNNING --;
 		this.interrupt();
-		//LOG.debug("PR:  " + pr);
+		LOG.debug("PR:  " + pr);
 	}
 	
 	@Override
@@ -148,7 +148,7 @@ public class StackRegistrationBean extends Thread{
 
 	@Override
 	protected void finalize() {
-		//LOG.debug("Time is up, self-destructing");
+		LOG.debug("Time is up, self-destructing");
 		try {
 			//Thread.currentThread().stop();
 			super.finalize();

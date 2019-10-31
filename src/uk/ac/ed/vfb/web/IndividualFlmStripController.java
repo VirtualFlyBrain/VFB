@@ -26,7 +26,7 @@ public class IndividualFlmStripController extends AbstractController{
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/individualFilmStrip");
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + obm + " > " + params);
+		LOG.debug(">>> Manager: " + obm + " > " + params);
 		String id = req.getParameter("id");
 		// Since the second query is fired off with a neuron id, we need to capture the id of
 		// the original region (clicked neuropil)

@@ -75,7 +75,7 @@ public class SimpleMailSender {
 			msg.setSentDate(new Date());
 			// -- Send the message --
 			Transport.send(msg);
-			//LOG.debug("Message sent OK.");
+			LOG.debug("Message sent OK.");
 		}
 		catch (Exception ex)
 		{

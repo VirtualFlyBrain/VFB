@@ -31,7 +31,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //
 //	public OntTreeManager(){
 //		String url = getClass().getProtectionDomain().getCodeSource().getLocation().getFile();
-//		//LOG.debug(url);
+//		LOG.debug(url);
 //		Resource res = new FileSystemResource(url + "beans.xml");
 //		XmlBeanFactory factory = new XmlBeanFactory(res);
 //		obm = (OntBeanManager) factory.getBean("ontBeanManager");
@@ -81,7 +81,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //		((OntNode)root).getTreeContentAsJson(result, treeNodeEntries);
 //		result = new StringBuffer(result.subSequence(0, result.length()-2));
 //		result.append("\n]");
-//		//LOG.debug(result);
+//		LOG.debug(result);
 //		saveToFile(filename, result.toString());
 //		return result;
 //	}
@@ -96,7 +96,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //		String result = "";
 //		// result will hold the tree json after that operation:
 //		result = ((OntNode)root).getTreeStructureAsJson(result);
-//		//LOG.debug(result);		
+//		LOG.debug(result);		
 //		saveToFile(filename, result.toString());
 //		return result;
 //	}
@@ -121,7 +121,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //			for (TreeNode currNode: path){
 //				nodesToKeep.add(((OntNode)currNode).getOntBean());
 //			}
-//	//			//LOG.debug(currEntry.getKey() + " = " + currEntry.getValue() + ">>>" + currNodesToKeep);
+//	//			LOG.debug(currEntry.getKey() + " = " + currEntry.getValue() + ">>>" + currNodesToKeep);
 //		}
 //		// Prune the tree to contain only those found Paths
 //		OntNode.numNodes = 0;
@@ -138,7 +138,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 ////		ResourceBundle bundle = ResourceBundle.getBundle("resources");
 ////		String url = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("/classes")[0] + 
 ////		bundle.getString("resource_path") + treeDataFileName;
-////		//LOG.debug(".............url: "+ url);
+////		LOG.debug(".............url: "+ url);
 ////		 
 ////error->		StringBuffer fileContent = this.obm.initFileContent(url);
 ////		// Get the list of all nodes as a hash map
@@ -183,7 +183,7 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //		ResourceBundle bundle = ResourceBundle.getBundle("resources");
 //		String url = getClass().getProtectionDomain().getCodeSource().getLocation().getFile().split("build/")[0] + 
 //		bundle.getString("web_tree_path") + fileName;
-//		//LOG.debug(".............url: "+ url);
+//		LOG.debug(".............url: "+ url);
 //		Writer out = null;
 //		try {
 //			out = new OutputStreamWriter(new FileOutputStream(url), "UTF-8");
@@ -211,14 +211,14 @@ import uk.ac.ed.vfb.service.OntBeanManager;
 //		OntTreeManager mgr = new OntTreeManager();
 //		mgr.createTree(null);
 //		System.out.println("TREE CREATION TIME " + (System.currentTimeMillis() - startTime)/1000);
-////		//LOG.debug("CountNodes: " + mgr.root.countNodes(0));
+////		LOG.debug("CountNodes: " + mgr.root.countNodes(0));
 //		mgr.getTreeNodeEntries("domainData.txt");
 //		// If desired, the tree could be pruned down as outlined in the domainData file; 
 //		// currently not used
 ////		mgr.pruneTree();
 //		mgr.createTree(mgr.root);
 //		mgr.getTreeStructAsJson("treeStructure.jso");
-////		//LOG.debug("CountNodes: " + mgr.root.countNodes(0));	
+////		LOG.debug("CountNodes: " + mgr.root.countNodes(0));	
 //		mgr.getTreeContentAsJson("treeContent.jso");
 //		// If needed, we can also generate tree for Janelia stack. 
 ////		mgr.getTreeNodeEntries("domainData_Jan.txt");

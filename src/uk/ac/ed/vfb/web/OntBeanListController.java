@@ -26,7 +26,7 @@ public class OntBeanListController extends AbstractController{
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBeanList");
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + obm + " > " + params);
+		LOG.debug(">>> Manager: " + obm + " > " + params);
 		String id = OntBean.idAsOBO(req.getParameter("id"));
 		String action = req.getParameter("action");
 		Set<OntBean> results = null;

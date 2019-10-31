@@ -27,7 +27,7 @@ public class OntQueryListControllerMulti extends AbstractController{
 	@SuppressWarnings("unchecked")
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + ontQuery + " > " + params);
+		LOG.debug(">>> Manager: " + ontQuery + " > " + params);
 		String action = req.getParameter("action");
 		ModelAndView modelAndView = null;
 		if (action!=null && action.equals("count")){

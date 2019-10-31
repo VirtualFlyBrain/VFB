@@ -47,9 +47,9 @@ public class JsonController extends MultiActionController{
 	 * @return
 	 */
 	private String getJsonAsString(String url, String type){
-		//LOG.debug("URL: " + url + " type: " + type);
+		LOG.debug("URL: " + url + " type: " + type);
 		String fileName = Utils.getStackPathForType(url, type);
-		//LOG.debug("fileName: " + fileName);
+		LOG.debug("fileName: " + fileName);
 		FileInputStream inputStream = null;
 		String fileContent = "";
 		try {

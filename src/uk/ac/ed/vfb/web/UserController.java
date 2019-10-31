@@ -30,7 +30,7 @@ public class UserController extends SimpleFormController {
 	protected Object formBackingObject(HttpServletRequest request) throws Exception {
 		this.session = request.getSession();
 		action = request.getParameter("action");
-		//LOG.debug("ACTION: " + action);
+		LOG.debug("ACTION: " + action);
 		//trying to access new user detail for a non-logged in user (needed to edit new user's detail)
 		UserBean userBean = (UserBean)session.getAttribute("currUser");
 		userBean = (userBean!=null)?userBean:manager.getCurrentUserBean();		
@@ -39,12 +39,12 @@ public class UserController extends SimpleFormController {
 
 	public ModelAndView onSubmit(Object userBean,  BindException errors) throws ServletException {
 		ModelAndView mav = new ModelAndView(new RedirectView(getSuccessView()));
-		//LOG.debug("Current bean : " + userBean);
+		LOG.debug("Current bean : " + userBean);
 		if (this.action.equals("new")){
 			String result = manager.saveUser((UserBean)userBean, this.action);
-			//LOG.debug("SaveUser reslut : " + result);
+			LOG.debug("SaveUser reslut : " + result);
 			if (!result.equals(UserManagerDAO.OK)){
-				//LOG.debug("Razing error!!!! : " + result);
+				LOG.debug("Razing error!!!! : " + result);
 				mav = new ModelAndView(getFormView(), errors.getModel());
 				errors.rejectValue("username", "username.userexists");
 			}

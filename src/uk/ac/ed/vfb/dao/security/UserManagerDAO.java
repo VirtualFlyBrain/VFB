@@ -24,7 +24,7 @@ public class UserManagerDAO extends AQueryDAO{
 	 */
 	public UserBean getUser(String username) throws IndexOutOfBoundsException {
 		String query = this.getQueryForName("userForId").replace("XXX", username);
-		//LOG.debug("Fetching user SQL : " + query);		
+		LOG.debug("Fetching user SQL : " + query);		
 		return (UserBean)this.jdbcTemplate.query(query, new Object[] {}, (RowMapper)new UserBeanQueryResultSetExtractor()).get(0);
 	}
 
@@ -45,16 +45,16 @@ public class UserManagerDAO extends AQueryDAO{
 			try {
 				ub = this.getUser(username);
 				// If the user record already exists - saving revised user
-				//LOG.debug("The user HAS BEEN found, all good...");
+				LOG.debug("The user HAS BEEN found, all good...");
 				if (action.equals("edit")){
 					query = "UPDATE users SET password=md5('" + user.getPassword() + "') WHERE username='" + username + "'";
-					//LOG.debug("Updating a user SQL : " + query);	
+					LOG.debug("Updating a user SQL : " + query);	
 					this.jdbcTemplate.execute(query);
 					query = "UPDATE user_detail SET firstname='" + user.getFirstname() + "', surname='" + user.getSurname() + 
 							"', institution='" + user.getInstitution() + "', position='" + user.getPosition() + 
 							"', email='" + user.getEmail() + "', phone='" + user.getPhone() + 
 							"', notes='" + user.getNotes() + "' WHERE username = '" + username + "'" ;
-					//LOG.debug("Updating user detail SQL : " + query);
+					LOG.debug("Updating user detail SQL : " + query);
 					this.jdbcTemplate.execute(query);				
 				}
 				else {
@@ -64,18 +64,18 @@ public class UserManagerDAO extends AQueryDAO{
 			// The user should not be found - exception is thrown instead 
 			catch (IndexOutOfBoundsException ex){
 				// If the user record does not already exists - create a new user
-				//LOG.debug("The user not found, all good...");
+				LOG.debug("The user not found, all good...");
 				if (action.equals("new")){
 					query = "INSERT INTO users VALUES('" + user.getUsername() + "', md5('" + user.getPassword() + "'), true)";
 					this.jdbcTemplate.execute(query);
 					query = "INSERT INTO authorities VALUES('" + user.getUsername() + "', '" + UserManagerDAO.ROLE_USER + "')";
-					//LOG.debug("Creating a user SQL : " + query);	
+					LOG.debug("Creating a user SQL : " + query);	
 					this.jdbcTemplate.execute(query);
 					query = "INSERT INTO user_detail VALUES('" + user.getUsername() + "', '" + user.getFirstname() + "', '" + user.getSurname() + 
 							"', '" + user.getInstitution() + "', '" + user.getPosition() +
 							"', '" + user.getEmail() + "', '" + user.getPhone() +
 							"', '" + user.getNotes() + "')";
-					//LOG.debug("Creating user detail SQL : " + query);	
+					LOG.debug("Creating user detail SQL : " + query);	
 					this.jdbcTemplate.execute(query);
 				}
 				else {

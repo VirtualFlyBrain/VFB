@@ -20,17 +20,17 @@ public class ThirdPartyDAO extends AQueryDAO {
 	 * Queries the tables to extract salient information (feature structure name, reference details) for a transgene query 
 	 */
 	public List <ThirdPartyBean> getThirdPartyBeans() {
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching third patrty records");		
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching third patrty records");		
 		String query = this.getQueryForName("getAllThirdParty");
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
 		List<ThirdPartyBean> results = this.jdbcTemplate.query(query, (RowMapper)new ThirdPartyQueryResultSetExtractor()); 
 		return results;
 	}
 
 	public List <ThirdPartyBean> getThirdPartyBeansforId() {
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching third patrty records");		
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> Fetching third patrty records");		
 		String query = this.getQueryForName("getAllThirdParty");
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>> SQL : " + query);
 		List<ThirdPartyBean> results = this.jdbcTemplate.query(query, (RowMapper)new ThirdPartyQueryResultSetExtractor()); 
 		return results;
 	}

@@ -47,7 +47,7 @@ public class AutocompleteController extends MultiActionController{
 			this.scope = scope;
 			WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(req.getSession().getServletContext());
 			this.autocompleteDAO = (AutocompleteDAO)wac.getBean(SCOPES.get(this.scope)[0]);
-			//LOG.debug("Scope: " + this.scope + " DAO : " + this.autocompleteDAO);
+			LOG.debug("Scope: " + this.scope + " DAO : " + this.autocompleteDAO);
 			this.setAutocompleteDAO(this.autocompleteDAO);
 		}
 		req.getSession().setAttribute("scope", this.scope);

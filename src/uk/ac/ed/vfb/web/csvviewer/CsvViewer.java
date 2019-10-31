@@ -37,7 +37,7 @@ public abstract class CsvViewer extends AbstractView{
 	
 	private void setHeaders(HttpServletRequest req, HttpServletResponse res){
 		fileName = req.getParameter("filename") + ".csv";
-//		//LOG.debug("FILEMANE: " + fileName);
+//		LOG.debug("FILEMANE: " + fileName);
 		res.setHeader("Content-type", "text/csv");
 		res.setHeader("Content-Disposition","attachment; filename=\"" + fileName + "\"");
 	}

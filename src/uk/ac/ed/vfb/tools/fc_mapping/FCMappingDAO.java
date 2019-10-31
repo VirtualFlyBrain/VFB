@@ -35,7 +35,7 @@ public class FCMappingDAO extends AQueryDAO {
 	@SuppressWarnings({ "unchecked", "unused" })
 	public List<Record> getAll() {
 		String query = "select * from fc_mapping";
-		//LOG.debug("Query : " + query);
+		LOG.debug("Query : " + query);
 		long startTime = System.currentTimeMillis();
 		List<Record> results = this.jdbcTemplate.query(query, new Object[] { }, (RowMapper)new FCMappingResultSetExtractor());
 		return results;
@@ -46,13 +46,13 @@ public class FCMappingDAO extends AQueryDAO {
 	    XmlBeanFactory factory = new XmlBeanFactory(res);
 	    DataSource vfbDS = (DataSource)factory.getBean("vfbDataSource");
 	    this.setDataSource(vfbDS);
-	    //LOG.debug("data source : " + vfbDS);
+	    LOG.debug("data source : " + vfbDS);
 	}
 
 	private void process(){
 		List<Record> list = this.getAll();
 		for (Record curr: list){
-			//LOG.debug("curr:" + curr);
+			LOG.debug("curr:" + curr);
 		}
 
 	}

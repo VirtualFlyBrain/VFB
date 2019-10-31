@@ -28,7 +28,7 @@ public class ProcessRunner extends Thread {
 	 * Runs a command in a separate thread
 	 */
 	public void run() {
-		//LOG.debug("Running command " + command);
+		LOG.debug("Running command " + command);
 		try{
 			ProcessBuilder builder = new ProcessBuilder(command.split(" "));
 			builder.redirectErrorStream(true);
@@ -38,10 +38,10 @@ public class ProcessRunner extends Thread {
 			while ((line = bri.readLine()) != null) {
 				if(line.startsWith(PID_MARKER)){
 					this.PID = line.replace("PID:", "");
-					//LOG.debug("PID:" + this.PID);
+					LOG.debug("PID:" + this.PID);
 				}
 				result = result + "\n" + line;
-				//LOG.debug(line);
+				LOG.debug(line);
 				Thread.sleep(10);
 			}
 			bri.close();
@@ -49,18 +49,18 @@ public class ProcessRunner extends Thread {
 		catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (InterruptedException e) {
-			//LOG.debug("ProcessRunner got interruped signal");
+			LOG.debug("ProcessRunner got interruped signal");
 			e.printStackTrace();
 			Thread.currentThread().interrupt(); // very important
 			this.destroy();
-			//LOG.debug("Shutting down ProcessRunner");
+			LOG.debug("Shutting down ProcessRunner");
 		}
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
 	public void destroy() {
-		//LOG.debug("Killing current process and closing the thread down");
+		LOG.debug("Killing current process and closing the thread down");
 		Utils.runCommand(ProcessRunner.KILL_COMMAND + this.PID);
 		super.interrupt();
 		try {

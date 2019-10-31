@@ -82,7 +82,7 @@ public class AutocompleteDAO extends AQueryDAO {
 				"INNER JOIN cvterm c ON (dbx.dbxref_id = c.dbxref_id) " +
 				"LEFT OUTER JOIN  cvtermsynonym syn ON (c.cvterm_id = syn.cvterm_id) WHERE  db.name ='FBbt'" +
 				" AND dbx.accession in (" + ids + ") ORDER BY name";
-		//LOG.debug("Autocomplete query: " + query); 
+		LOG.debug("Autocomplete query: " + query); 
 		results = null;
 		try {
 			results = this.jdbcTemplate.queryForList(query);
@@ -112,7 +112,7 @@ public class AutocompleteDAO extends AQueryDAO {
 		if (this.synSet != null && this.synSet.size() >0 ) return;
 		// Generate list of all known OntBeans for the OWL_QUERY				
 		String query = TYPES.get(this.type);
-		//LOG.debug("Type: "+ this.type + " Query: " + query);
+		LOG.debug("Type: "+ this.type + " Query: " + query);
 		try{
 			Set<OntBean> results = obm.getBeanListForQuery(query);
 			// Feed a list of ids to the SQL runner and obtain a list of records 
@@ -148,7 +148,7 @@ public class AutocompleteDAO extends AQueryDAO {
 					}
 				}
 			}
-			//LOG.debug("createSynSet: " + synSet.size());
+			LOG.debug("createSynSet: " + synSet.size());
 			// Obtain a list of synonyms if needed (just an example here)
 			//		getSynList(synSet);
 
@@ -204,7 +204,7 @@ public class AutocompleteDAO extends AQueryDAO {
 		Pattern[] pats = new Pattern[tokens.length];
 	    for (int i = 0; i<tokens.length; i++){
 		    pats[i] = Pattern.compile(regex.replace("XXX", tokens[i]), Pattern.CASE_INSENSITIVE);
-		    //LOG.debug("patt["+ i+ "] " + pats[i]);
+		    LOG.debug("patt["+ i+ "] " + pats[i]);
 	    }
 	    Matcher m;
 		for (String synStr: keySet){
@@ -218,7 +218,7 @@ public class AutocompleteDAO extends AQueryDAO {
 				synList.add(new String[]{synMap.get(synStr), synStr});
 			}
 		}
-		//LOG.debug(synList);
+		LOG.debug(synList);
 		return synList; 
 	}
 

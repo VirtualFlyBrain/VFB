@@ -35,15 +35,15 @@ public class CsvController extends MultiActionController{
 	 */
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String type = req.getParameter("type");
-		//LOG.debug("param:" + type);
+		LOG.debug("param:" + type);
 		CsvViewer view = null;
 		if(type.equals(VIEWER_TYPES[0])) {
 			view = new CsvOntView(obm);
-			//LOG.debug("View: " + view + " : " + obm);
+			LOG.debug("View: " + view + " : " + obm);
 		}
 		else if(type.equals(VIEWER_TYPES[1])) { 
 			view = new CsvGeneView(gbm);
-			//LOG.debug("View: " + view);
+			LOG.debug("View: " + view);
 		}
 		else if(type.equals(VIEWER_TYPES[2])) { 
 			view = new CsvQueryView(oqm);
@@ -61,7 +61,7 @@ public class CsvController extends MultiActionController{
 	}
 	
 	public void setOqm(OntQueryManager oqm) {
-		//LOG.debug(oqm);
+		LOG.debug(oqm);
 		this.oqm = oqm;
 	}
 }

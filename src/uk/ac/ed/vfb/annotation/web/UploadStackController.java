@@ -33,7 +33,7 @@ public class UploadStackController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		ModelAndView modelAndView = new ModelAndView(new RedirectView("/do/annotation/stackDetail.html"));
 		Runtime s_runtime = Runtime.getRuntime ();
-		//LOG.debug("Total Memory1: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
+		LOG.debug("Total Memory1: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
 		String contentType = req.getContentType();
 		String tmpFileName = null;
 		if ((contentType == null) || (contentType.indexOf("multipart/form-data") < 0)) {
@@ -63,10 +63,10 @@ public class UploadStackController implements Controller {
 		int boundaryLocation = file.indexOf(boundary, startPos)-4;
 		int endPos = boundaryLocation;
 		int imageDataLength = (endPos-startPos);
-		//LOG.debug("Data length: " + file.length() + " Image data length: "+ imageDataLength);
+		LOG.debug("Data length: " + file.length() + " Image data length: "+ imageDataLength);
 		// creating a new file with the same name and writing the content in new file
 		tmpFileName = Utils.TMP_DIR + stackName;
-		//LOG.debug("lsmFile: "+ stackName +" finalPathFile "+tmpFileName);
+		LOG.debug("lsmFile: "+ stackName +" finalPathFile "+tmpFileName);
 		File lsmFile = new File(tmpFileName);//new File(tmpFileName.substring(0, tmpFileName.indexOf(".")));
 		FileOutputStream fileOut = new FileOutputStream(tmpFileName);
 		fileOut.write(dataBytes, startPos, (endPos - startPos));
@@ -77,15 +77,15 @@ public class UploadStackController implements Controller {
 		// You need to trim it since the return result starts with "\n"
 		String stackId = Utils.runCommand(cmd).split(" ")[0].trim();
 
-		//LOG.debug("Total Memory2: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
+		LOG.debug("Total Memory2: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
 		StackBean stackBean = sbm.getStackBean(stackId);
 		//check if the stack exists - the existing stack will have non-empty name!!!
-		//LOG.debug("Stack exists? "+ (stackBean.getStackName() == null || stackBean.getStackName().equals("")));
+		LOG.debug("Stack exists? "+ (stackBean.getStackName() == null || stackBean.getStackName().equals("")));
 		if (stackBean.getStackName() == null || stackBean.getStackName().equals("")){
 			//running stack generation in background
 			String command = Utils.SCRIPT_DIR + "lsm/processLsm.bsh " + lsmFile.getName() + " &";
 			Utils.runCommand(command);
-			//LOG.debug(">>>>>>>>>>>>>>>>> "+ result);
+			LOG.debug(">>>>>>>>>>>>>>>>> "+ result);
 			//assign stckBean attributes
 			stackBean.setStackName(stackName);
 			stackBean.setSize(imageDataLength);
@@ -100,11 +100,11 @@ public class UploadStackController implements Controller {
 			throw new StackExistsException(stackBean.getStackName());
 		}
 		//modelAndView.addObject("stackname",stackBean.getStackName());
-		//LOG.debug("dataBytes : " + dataBytes.length + " file : " + file.length());
+		LOG.debug("dataBytes : " + dataBytes.length + " file : " + file.length());
 		dataBytes=null; file=null; req = null; res = null; file = null;
 		System.gc();
 		s_runtime = Runtime.getRuntime ();
-		//LOG.debug("Total Memory3: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
+		LOG.debug("Total Memory3: " + s_runtime.totalMemory()/1024 + " Free Memory : " + s_runtime.freeMemory()/1024);
 		return modelAndView;
 	}
 

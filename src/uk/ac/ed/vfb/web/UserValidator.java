@@ -18,7 +18,7 @@ public class UserValidator implements org.springframework.validation.Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		//LOG.debug("Doing validation");
+		LOG.debug("Doing validation");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "username.required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "confirmPassword.required");

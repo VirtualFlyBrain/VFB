@@ -158,7 +158,7 @@ public class OntQueryManager extends APageable{
 			String query = WebQueryUtils.getDefString(arg.getType(), arg.getOntBean().getFbbtId());
 			//run query and extract all the OntBeans.
 			Set<OntBean> queryResults = obm.getBeanListForQuery(query);
-			//LOG.debug("Query: " + query + " : " + queryResults);
+			LOG.debug("Query: " + query + " : " + queryResults);
 			// If resultSet is not empty, and it is the first leg, add/subtract result set from the intBeans set.
 			if (resultSet.size()==0 && i++ == 0){
 				resultSet.addAll(queryResults);

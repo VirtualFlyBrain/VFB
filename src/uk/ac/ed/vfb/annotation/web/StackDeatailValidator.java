@@ -15,11 +15,11 @@ public class StackDeatailValidator implements org.springframework.validation.Val
 		//For some reason the validator seem to double up the StackId, 
 		//like "330c64a268a6ef6a502f04555f1d0a8f,330c64a268a6ef6a502f04555f1d0a8f"
 		// I had to do manual clean-up ;-(
-		//LOG.debug("Doing validation on : " + target);
-		//LOG.debug("Doing validation on : " + sb.getStackId());
+		LOG.debug("Doing validation on : " + target);
+		LOG.debug("Doing validation on : " + sb.getStackId());
 		StackBean sb = (StackBean)target;
 		sb.setStackId(sb.getStackId().substring(sb.getStackId().indexOf(",") + 1));
-		//LOG.debug("Doing validation on : " + sb.getStackId());
+		LOG.debug("Doing validation on : " + sb.getStackId());
 		target = sb; 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "username.required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "stackId", "stackId.required");

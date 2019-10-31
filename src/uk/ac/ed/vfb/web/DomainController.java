@@ -27,7 +27,7 @@ public class DomainController extends AbstractController{
 	public ModelAndView handleRequestInternal(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView modelAndView = new ModelAndView("do/ontBeanList");
 		String params = req.getQueryString();
-		//LOG.debug(">>> Manager: " + dm + " > " + params);
+		LOG.debug(">>> Manager: " + dm + " > " + params);
 		String id = req.getParameter("id");
 		String action = req.getParameter("action");
 		String page = req.getParameter("page");

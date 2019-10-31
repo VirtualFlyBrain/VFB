@@ -38,18 +38,18 @@ public class StackDetailEditController extends SimpleFormController {
 		if (!hasAutorityToDelete) {
 			throw new UserPermissionsException(stackBean.getStackName());
 		}		
-//		//LOG.debug("Current bean : " + stackBean.getStackName() + stackBean.getStackId());
+//		LOG.debug("Current bean : " + stackBean.getStackName() + stackBean.getStackId());
 		return stackBean;
 	}
 
 	public ModelAndView onSubmit(Object stackBean,  BindException errors) throws ServletException {
 		ModelAndView mav = new ModelAndView(new RedirectView(getSuccessView()));
 		StackBean sb = (StackBean)stackBean;
-		//LOG.debug("Current bean : " + sb.getStackName() + sb.getStackId());
+		LOG.debug("Current bean : " + sb.getStackName() + sb.getStackId());
 		String result = sbm.saveStack(sb);
-		//LOG.debug("SaveStack done!" + result);
+		LOG.debug("SaveStack done!" + result);
 		if (!result.equals(StackBeanManager.OK)){
-			//LOG.debug("Raising error!!!! : " + result);
+			LOG.debug("Raising error!!!! : " + result);
 			mav = new ModelAndView(getFormView(), errors.getModel());
 			errors.rejectValue("stackName", "unidentifiedError");
 		}

@@ -36,16 +36,16 @@ public class CompositeViewController extends MultiActionController{
 		String[] ids = req.getParameterValues("id");
 		String errorMsg = null;
 		//ServletUtil.printParams(req);
-		//LOG.debug("PARAMS: " + ids + " ? " + action);
+		LOG.debug("PARAMS: " + ids + " ? " + action);
 		if ( ids!=null && ids.length > 0){
 			if (action != null & action.equals("add")){
 				//adding stack to the view - presume add ing one at a time
 				//Only allow up to 3 stacks in the composite
 				if (cvb.getStackCont()<3){
 					String id = ids[0];
-					//LOG.debug("Composite View adding - ID: " + id);
+					LOG.debug("Composite View adding - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					//LOG.debug("Composite View adding - TPB: " + tpb);
+					LOG.debug("Composite View adding - TPB: " + tpb);
 					errorMsg = cvb.addStack(tpb);
 				}
 				else{
@@ -58,9 +58,9 @@ public class CompositeViewController extends MultiActionController{
 			else if (action != null & action.equals("Delete selected")){
 				//removing stacks from the view
 				for (String id : ids){
-					//LOG.debug("Composite View removing - ID: " + id);
+					LOG.debug("Composite View removing - ID: " + id);
 					ThirdPartyBean tpb = tpbm.getBeanForVfbId(id);
-					//LOG.debug("Composite View removing - TPB: " + tpb);
+					LOG.debug("Composite View removing - TPB: " + tpb);
 					errorMsg = cvb.removeStack(tpb);
 				}
 			}		
@@ -94,7 +94,7 @@ public class CompositeViewController extends MultiActionController{
 			}
 		}
 		modelAndView.addObject("composite", cvb);
-		//LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Composite.stacks : " + cvb.getStacks().size());
+		LOG.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Composite.stacks : " + cvb.getStacks().size());
 		if (modelAndView.getModelMap().get("colours") == null) {
 			modelAndView.addObject("colours", CompositeViewBean.COLOUR_NAMES);
 		}

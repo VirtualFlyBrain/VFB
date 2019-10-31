@@ -61,14 +61,14 @@ public class Utils {
 	/** Get the path to a woolz file for a specified stackBean and registration (lsm, cmtk, ba) */
 	public static String getStackPath(String regName, StackBean stackBean){
 		String result = Utils.STACKS_DIR + stackBean.getStackURL() + registrations.get(regName) + stackBean.getStackName() + ".wlz";
-		//		//LOG.debug("stackbean: " + stackBean);
+		//		LOG.debug("stackbean: " + stackBean);
 		return result;
 	}
 
 	/** Get the path to a thumbnail for a specified stackBean and registration (lsm, cmtk, ba) */
 	public static String getThumbPath(String regName, StackBean stackBean){
 		String result = Utils.getProp("VFB_STACKS_DIR") + stackBean.getStackURL() + "/" + regName + "/" + Utils.THUMB_NAME;
-		//		//LOG.debug("stackbean: " + stackBean);
+		//		LOG.debug("stackbean: " + stackBean);
 		return result;
 	}
 
@@ -79,7 +79,7 @@ public class Utils {
 	public static String getStackPathForType(String url, String type){
 		String result = null;
 		result = TYPES.get(type) + url;
-		//		//LOG.debug("Path to the stack is : " + result);
+		//		LOG.debug("Path to the stack is : " + result);
 		return result;
 	}
 
@@ -132,7 +132,7 @@ public class Utils {
 	 * @return
 	 */
 	public static String runCommand(String[] command){
-		//LOG.debug("Running: " + Arrays.toString(command));
+		LOG.debug("Running: " + Arrays.toString(command));
 		String result = "";
 		try{
 			ProcessBuilder builder = new ProcessBuilder(command);
@@ -142,7 +142,7 @@ public class Utils {
 			BufferedReader bri = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			while ((line = bri.readLine()) != null) {
 				result = result + "\n" + line;
-				//LOG.debug(line);
+				LOG.debug(line);
 			}
 			bri.close();
 		}
@@ -160,7 +160,7 @@ public class Utils {
 	 * @return
 	 */
 	public static void runCommand(final String command){
-		//LOG.debug("Running command " + command);				
+		LOG.debug("Running command " + command);				
 		Thread t = new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -172,10 +172,10 @@ public class Utils {
 					while ((lineI = bri.readLine()) != null || (lineE = bri.readLine()) != null) {
 						//result = result + line;
 						if (lineI!= null){
-							//LOG.debug(lineI);
+							LOG.debug(lineI);
 						}
 						if (lineE!= null){
-							//LOG.debug(lineE);
+							LOG.debug(lineE);
 						}
 
 					}
