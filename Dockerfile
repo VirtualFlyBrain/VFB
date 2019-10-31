@@ -12,7 +12,7 @@ RUN ln -s /usr/local/tomcat /disk/data/tomcat/fly
 COPY docker/startup.sh /startup.sh
 
 COPY docker/*.xml /usr/local/tomcat/conf/
-COPY docker/tomcat-users.xml /usr/local/tomcat/conf/
+COPY docker/*.properties /usr/local/tomcat/conf/
 
 RUN chmod +x /startup.sh
 
