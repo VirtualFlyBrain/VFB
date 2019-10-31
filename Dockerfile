@@ -11,8 +11,8 @@ RUN ln -s /usr/local/tomcat /disk/data/tomcat/fly
 
 COPY docker/startup.sh /startup.sh
 
-COPY docker/*.xml /usr/local/tomcat/conf/
-COPY docker/*.properties /usr/local/tomcat/conf/
+RUN mv -v /usr/local/tomcat/webapps/vfb/docker/*.xml /usr/local/tomcat/conf/
+RUN mv -v /usr/local/tomcat/webapps/vfb/docker/*.properties /usr/local/tomcat/conf/
 
 RUN chmod +x /startup.sh
 
