@@ -13,10 +13,6 @@ COPY docker/startup.sh /startup.sh
 
 RUN chmod +x /startup.sh
 
-RUN cd /usr/local/tomcat/webapps/ && \
-rm -r ROOT && \
-ln -s vfb ROOT
-
 RUN git clone -b $branch --single-branch https://github.com/VirtualFlyBrain/VFB.git /usr/local/tomcat/webapps/vfb
 
 RUN mkdir -p /usr/local/tomcat/conf/Catalina/localhost && mv -v /usr/local/tomcat/webapps/vfb/docker/manager.xml /usr/local/tomcat/conf/Catalina/localhost/
