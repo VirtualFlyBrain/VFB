@@ -1,33 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-<!-- Note:  A "Server" is not itself a "Container", so you may not
-     define subcomponents such as "Valves" at this level.
-     Documentation at /docs/config/server.html
- -->
 <Server port="8005" shutdown="SHUTDOWN">
-  <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
-  <!-- Security listener. Documentation at /docs/config/listeners.html
-  <Listener className="org.apache.catalina.security.SecurityListener" />
-  -->
-  <!--APR library loader. Documentation at /docs/apr.html -->
   <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
-  <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
   <Listener className="org.apache.catalina.core.JasperListener" />
+  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" />
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
 
   <!-- Global JNDI resources
@@ -45,19 +21,11 @@
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
-       a single "Container" Note:  A "Service" is not itself a "Container",
+       a single "Container" Note:  A "Service" is not itself a "Container", 
        so you may not define subcomponents such as "Valves" at this level.
        Documentation at /docs/config/service.html
    -->
   <Service name="Catalina">
-
-    <!--The connectors can use a shared executor, you can define one or more named thread pools-->
-    <!--
-    <Executor name="tomcatThreadPool" namePrefix="catalina-exec-"
-        maxThreads="150" minSpareThreads="4"/>
-    -->
-
-
     <!-- A "Connector" represents an endpoint by which requests are received
          and responses are returned. Documentation at :
          Java HTTP Connector: /docs/config/http.html (blocking & non-blocking)
@@ -65,36 +33,51 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    <!-- A "Connector" using the shared thread pool-->
-    <!--
-    <Connector executor="tomcatThreadPool"
-               port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    -->
-    <!-- Define a SSL HTTP/1.1 Connector on port 8443
-         This connector uses the BIO implementation that requires the JSSE
-         style configuration. When using the APR/native implementation, the
-         OpenSSL style configuration is required as described in the APR/native
-         documentation -->
-    <!--
-    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
-               maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-               clientAuth="false" sslProtocol="TLS" />
-    -->
 
-    <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" URIEncoding="UTF-8"/>
+    <!-- Define a non-SSL HTTP/1.1 Connector on port 8080 -->
+    <Connector port="8080" maxHttpHeaderSize="8192"
+           maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+           enableLookups="false" redirectPort="8443" acceptCount="100"
+           connectionTimeout="20000" disableUploadTimeout="true" />
 
+  <Connector port="8181" maxHttpHeaderSize="8192"
+             maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+             proxyName="vfb-karenin.inf.ed.ac.uk" proxyPort="80"
+             enableLookups="false" redirectPort="8443" acceptCount="100"
+             connectionTimeout="20000" disableUploadTimeout="true"
+             useURIValidationHack="false" />
 
-    <Connector port="80" maxHttpHeaderSize="8192"
-              maxThreads="150" minSpareThreads="25"
+   <Connector port="8182" maxHttpHeaderSize="8192"
+              maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+              proxyName="www.virtualflybrain.org" proxyPort="80"
               enableLookups="false" redirectPort="8443" acceptCount="100"
               connectionTimeout="20000" disableUploadTimeout="true"
               useURIValidationHack="false" />
+
+
+   <Connector port="8183" maxHttpHeaderSize="8192"
+            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+            proxyName="vfbdev.inf.ed.ac.uk" proxyPort="80"
+            enableLookups="false" redirectPort="8443" acceptCount="100"
+            connectionTimeout="20000" disableUploadTimeout="true"
+            useURIValidationHack="false" />
+<!-- Not in service:
+   <Connector port="8184" maxHttpHeaderSize="8192"
+            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+            proxyName="vfbsandbox.inf.ed.ac.uk" proxyPort="80"
+            enableLookups="false" redirectPort="8443" acceptCount="100"
+            connectionTimeout="20000" disableUploadTimeout="true"
+            useURIValidationHack="false" />
+-->
+   <Connector port="8185" maxHttpHeaderSize="8192"
+            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+            proxyName="vfbwiki-karenin.inf.ed.ac.uk" proxyPort="80"
+            enableLookups="false" redirectPort="8443" acceptCount="100"
+            connectionTimeout="20000" disableUploadTimeout="true"
+            useURIValidationHack="false" />
+
+   <!-- Define an AJP 1.3 Connector on port 8009 -->
+    <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" URIEncoding="UTF-8"/>
 
     <!-- An Engine represents the entry point (within Catalina) that processes
          every request.  The Engine implementation for Tomcat stand alone
@@ -102,36 +85,61 @@
          on to the appropriate Host (virtual host).
          Documentation at /docs/config/engine.html -->
 
-    <!-- You should set jvmRoute to support load-balancing via AJP ie :
-    <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
-    -->
     <Engine name="Catalina" defaultHost="localhost">
 
-      <!--For clustering, please take a look at documentation at:
-          /docs/cluster-howto.html  (simple how to)
-          /docs/config/cluster.html (reference documentation) -->
-      <!--
-      <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>
-      -->
+      <!-- This Realm uses the UserDatabase configured in the global JNDI
+           resources under the key "UserDatabase".  Any edits
+           that are performed against this UserDatabase are immediately
+           available for use by the Realm.  -->
 
-      <!-- Use the LockOutRealm to prevent attempts to guess user passwords
-           via a brute-force attack -->
-      <Realm className="org.apache.catalina.realm.LockOutRealm">
-        <!-- This Realm uses the UserDatabase configured in the global JNDI
-             resources under the key "UserDatabase".  Any edits
-             that are performed against this UserDatabase are immediately
-             available for use by the Realm.  -->
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-               resourceName="UserDatabase"/>
-      </Realm>
-      
-      <Host name="localhost" appBase="webapps"
-           autoDeploy="false" deployOnStartup="false">
+      <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+             resourceName="UserDatabase"/>
+
+      <!-- Define the default virtual host
+           Note: XML Schema validation will not work with Xerces 2.2.
+       -->
+
+      <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true"
+            xmlValidation="false" xmlNamespaceAware="false">
+      </Host>	
+
+     <Host name="www.virtualflybrain.org" debug="1" appBase="webapps"
+           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
            <Context path="" reloadable="true"
-               docBase="/usr/local/tomcat/webapps/vfb/">
+               docBase="/disk/data/tomcat/fly/webapps/vfb/">
            </Context>
-      </Host>
-      
+     </Host>
+
+    <Host name="vfb-karenin.inf.ed.ac.uk" debug="1" appBase="webapps"
+        unpackWARS="false" autoDeploy="false" deployOnStartup="false">
+        <Context path="" reloadable="true"
+	    docBase="/disk/data/tomcat/fly/webapps/GITvfb/">
+        </Context>
+    </Host>
+
+
+    <Host name="vfbdev.inf.ed.ac.uk" debug="1" appBase="webapps"
+           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
+           <Context path="" reloadable="true"
+               docBase="/disk/data/tomcat/fly/webapps/vfbdev/">
+           </Context>
+     </Host>
+<!-- Not in service:
+    <Host name="vfbsandbox.inf.ed.ac.uk" debug="1" appBase="webapps"
+           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
+           <Context path="" reloadable="true"
+               docBase="/disk/data/tomcat/fly/webapps/vfbsb/">
+           </Context>
+     </Host>
+-->
+    <Host name="vfbwiki.inf.ed.ac.uk" debug="1" appBase="webapps"
+          unpackWARS="true" autoDeploy="false" deployOnStartup="false">
+          <Context path="" reloadable="true"
+	          docBase="/disk/data/tomcat/fly/webapps/vfbwiki/">
+          </Context>
+    </Host>
+
     </Engine>
   </Service>
 </Server>
