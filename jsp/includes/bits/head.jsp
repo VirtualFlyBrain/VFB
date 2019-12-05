@@ -86,6 +86,7 @@
                         <li><a href="#searchtext" onclick="$('#searchtext').focus()">Search</a></li>
                         <li><a href="/site/stacks/index.htm?tab=query">Query Builder</a></li>
                         <li><a href="http://jefferislab.org/si/nblast/" target="_blank">NBLAST</a></li>
+			<li><a href="http://catmaid.virtualflybrain.org/" target="_blank">CATMAID</a></li>
                         <li><a href="/site/vfb_site/registration.htm" target="_top">Image Registration</a></li>
                     </ul>
                 </li>
