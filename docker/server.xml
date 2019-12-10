@@ -40,13 +40,23 @@
            enableLookups="false" redirectPort="8443" acceptCount="100"
            connectionTimeout="20000" disableUploadTimeout="true" />
 
+   <Connector port="8181" maxHttpHeaderSize="8192"
+              maxThreads="150" proxyName="www.virtualflybrain.org" minSpareThreads="25" maxSpareThreads="75"
+              enableLookups="false" redirectPort="8443" acceptCount="100"
+              connectionTimeout="20000" disableUploadTimeout="true"
+              useURIValidationHack="false" /> 
+    
    <Connector port="8182" maxHttpHeaderSize="8192"
-              maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+              maxThreads="150" proxyName="v1-5.virtualflybrain.org" minSpareThreads="25" maxSpareThreads="75"
               enableLookups="false" redirectPort="8443" acceptCount="100"
               connectionTimeout="20000" disableUploadTimeout="true"
               useURIValidationHack="false" />
 
-
+  <Connector port="8183" maxHttpHeaderSize="8192"
+              maxThreads="150" proxyName="*.inf.ed.ac.uk" minSpareThreads="25" maxSpareThreads="75"
+              enableLookups="false" redirectPort="8443" acceptCount="100"
+              connectionTimeout="20000" disableUploadTimeout="true"
+              useURIValidationHack="false" />
 
    <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" URIEncoding="UTF-8"/>
