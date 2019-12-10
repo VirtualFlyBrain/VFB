@@ -40,41 +40,13 @@
            enableLookups="false" redirectPort="8443" acceptCount="100"
            connectionTimeout="20000" disableUploadTimeout="true" />
 
-  <Connector port="8181" maxHttpHeaderSize="8192"
-             maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
-             proxyName="vfb-karenin.inf.ed.ac.uk" proxyPort="80"
-             enableLookups="false" redirectPort="8443" acceptCount="100"
-             connectionTimeout="20000" disableUploadTimeout="true"
-             useURIValidationHack="false" />
-
    <Connector port="8182" maxHttpHeaderSize="8192"
               maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
-              proxyName="www.virtualflybrain.org" proxyPort="80"
               enableLookups="false" redirectPort="8443" acceptCount="100"
               connectionTimeout="20000" disableUploadTimeout="true"
               useURIValidationHack="false" />
 
 
-   <Connector port="8183" maxHttpHeaderSize="8192"
-            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
-            proxyName="vfbdev.inf.ed.ac.uk" proxyPort="80"
-            enableLookups="false" redirectPort="8443" acceptCount="100"
-            connectionTimeout="20000" disableUploadTimeout="true"
-            useURIValidationHack="false" />
-<!-- Not in service:
-   <Connector port="8184" maxHttpHeaderSize="8192"
-            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
-            proxyName="vfbsandbox.inf.ed.ac.uk" proxyPort="80"
-            enableLookups="false" redirectPort="8443" acceptCount="100"
-            connectionTimeout="20000" disableUploadTimeout="true"
-            useURIValidationHack="false" />
--->
-   <Connector port="8185" maxHttpHeaderSize="8192"
-            maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
-            proxyName="vfbwiki-karenin.inf.ed.ac.uk" proxyPort="80"
-            enableLookups="false" redirectPort="8443" acceptCount="100"
-            connectionTimeout="20000" disableUploadTimeout="true"
-            useURIValidationHack="false" />
 
    <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" URIEncoding="UTF-8"/>
@@ -111,34 +83,8 @@
            </Context>
      </Host>
 
-    <Host name="vfb-karenin.inf.ed.ac.uk" debug="1" appBase="webapps"
-        unpackWARS="false" autoDeploy="false" deployOnStartup="false">
-        <Context path="" reloadable="true"
-	    docBase="/disk/data/tomcat/fly/webapps/GITvfb/">
-        </Context>
-    </Host>
+  
 
-
-    <Host name="vfbdev.inf.ed.ac.uk" debug="1" appBase="webapps"
-           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
-           <Context path="" reloadable="true"
-               docBase="/disk/data/tomcat/fly/webapps/vfbdev/">
-           </Context>
-     </Host>
-<!-- Not in service:
-    <Host name="vfbsandbox.inf.ed.ac.uk" debug="1" appBase="webapps"
-           unpackWARS="false" autoDeploy="false" deployOnStartup="false">
-           <Context path="" reloadable="true"
-               docBase="/disk/data/tomcat/fly/webapps/vfbsb/">
-           </Context>
-     </Host>
--->
-    <Host name="vfbwiki.inf.ed.ac.uk" debug="1" appBase="webapps"
-          unpackWARS="true" autoDeploy="false" deployOnStartup="false">
-          <Context path="" reloadable="true"
-	          docBase="/disk/data/tomcat/fly/webapps/vfbwiki/">
-          </Context>
-    </Host>
 
     </Engine>
   </Service>
