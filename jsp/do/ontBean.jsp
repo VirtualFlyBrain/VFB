@@ -31,7 +31,7 @@ pageContext.setAttribute("aclClone", clone);
 		<!-- End Google Analytics -->
 
 <c:forEach items="${aclNeuron}" var="neuron" varStatus="i"><c:if test="${ontBean.fbbtId == neuron}"><c:set var="isNeuron" value="true" scope="request"/></c:if></c:forEach>
-<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${ontBean.fbbtId == neuropil}"><c:set var="isNeuropil" value="true" scope="request"/>/c:if></c:forEach>
+<c:forEach items="${aclNeuropil}" var="neuropil" varStatus="i"><c:if test="${ontBean.fbbtId == neuropil}"><c:set var="isNeuropil" value="true" scope="request"/></c:if></c:forEach>
 <c:forEach items="${aclTract}" var="tract" varStatus="i"><c:if test="${ontBean.fbbtId == tract}"><c:set var="isTract" value="true" scope="request"/></c:if></c:forEach>
 <c:forEach items="${aclClone}" var="clone" varStatus="i"><c:if test="${ontBean.fbbtId == clone}"><c:set var="isClone" value="true" scope="request"/></c:if></c:forEach>
 
