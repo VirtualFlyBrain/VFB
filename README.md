@@ -1,3 +1,11 @@
+> **Looking for the VFB MCP server?** It lives at [VirtualFlyBrain/VFB3-MCP](https://github.com/VirtualFlyBrain/VFB3-MCP) and is hosted at `https://vfb3-mcp.virtualflybrain.org`:
+>
+> ```bash
+> claude mcp add --transport http virtual-fly-brain https://vfb3-mcp.virtualflybrain.org
+> ```
+>
+> This repository holds the original VFB server code and community documentation. The current web application is [geppetto-vfb](https://github.com/VirtualFlyBrain/geppetto-vfb), the documentation site is [VFB2](https://github.com/VirtualFlyBrain/VFB2), and the Python client is [VFB_connect](https://github.com/VirtualFlyBrain/VFB_connect).
+
 Main:
 [![Build Status](https://travis-ci.org/VirtualFlyBrain/VFB.svg?branch=Main-Server)](https://travis-ci.org/VirtualFlyBrain/VFB)
 Backup:
